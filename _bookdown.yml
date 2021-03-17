@@ -1,0 +1,28 @@
+book_filename: "ucrbook"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter "
+rmd_files: [
+  "index.Rmd",
+  "author.Rmd",
+  
+  
+  # Offenses Known and Clearances by Arrest
+  "offenses-known"
+  
+  # Arrests by Age, Sex, and Race
+  
+  # LEOKA
+  
+  # SHR
+  
+  # Hate Crime
+  
+  # Stolen property
+  
+  # County-Level Data
+  
+  
+  
+]
