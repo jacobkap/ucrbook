@@ -21,9 +21,7 @@ options(
   width                  = 55,
   digits                 = 4,
   warnPartialMatchAttr   = FALSE,
-  warnPartialMatchDollar = FALSE,
-  echo                   = FALSE,
-  warning                = FALSE
+  warnPartialMatchDollar = FALSE
 )
 
 
