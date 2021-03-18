@@ -1,4 +1,6 @@
 book_filename: "ucrbook"
+repo: https://github.com/jacobkap/ucrbook
+output_dir: "docs"
 delete_merged_file: true
 language:
   ui:
