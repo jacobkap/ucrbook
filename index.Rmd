@@ -1,5 +1,5 @@
 --- 
-title: "Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide"
+title: "Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide"
 author: "Jacob Kaplan"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -54,7 +54,7 @@ I get a lot of emails from people asking questions about this data so part of my
 
 This remainder of this book will be divided into eight chapters: an intro chapter briefly summarizing each dataset and going over overall issues with UCR data, six chapters each covering one of the six UCR datasets, and a final one covering county-level data, a highly flawed but common use of the UCR data. Each chapter will follow the same format: we'll start with a history of the data such as when it first because available and important changes in definitions or variables. 
 
-Next we'll discuss what the data looks like initially when you get it from the FBI - literally what it looks like in it's fixed-width ASCII format you get from the FBI and what it looks like (what each row and column mean) once it's turned into a useful format that can be read into modern software like R and Stata.^[To look at the data in its fixed-width ASCII format I'll use the program Notepad which can open up text files like ASCII files. For looking at the machine-readable format I'll use Stata since I think it's a bit better looking than viewing it in R. In both cases, these will be images included in the chapter - you won't need to follow along or use either program.] For most of the datasets this is a minor process but for data like the arrest or homicide datasets, the conversion process is harder - and this can actually lead to changes in the resulting data. For example, in an old version of the arrest data that I released, I aggregated certain arrestee ages together since my laptop at the time couldn't handle converting data from ASCII to R and Stata without aggregating the ages (more age groups means more columns which means more computer memory needed). So anyone using that data would have less detailed data than the current dataset. 
+Next we'll discuss what the data looks like initially when you get it from the FBI - literally what it looks like in it's fixed-width ASCII format you get from the FBI and what it looks like (what each row and column mean) once it's turned into a useful format that can be read into modern software like R and Stata.^[To look at the data in its fixed-width ASCII format I'll use the program Notepad which can open up text files like ASCII files. For looking at the machine-readable format I'll use R since I think it's a bit better looking than viewing it in Stata. In both cases, these will be images included in the chapter - you won't need to follow along or use either program.] For most of the datasets this is a minor process but for data like the arrest or homicide datasets, the conversion process is harder - and this can actually lead to changes in the resulting data. For example, in an old version of the arrest data that I released, I aggregated certain arrestee ages together since my laptop at the time couldn't handle converting data from ASCII to R and Stata without aggregating the ages (more age groups means more columns which means more computer memory needed). So anyone using that data would have less detailed data than the current dataset. 
 
 Understanding how the data moves from its rawest form (which in this case is after cleaning by the FBI) is important for being able to truly understand the data and its caveats. However, this is a fairly technical part of each chapter so feel free to skip it. Next in each chapter, we'll cover the variables included in the data and how to use them properly (including not using them at all) - this will be the bulk of each chapter. We'll end each chapter by briefly summarizing the data, how and when it's useful, and - most importantly - when you shouldn't use it. 
 
@@ -62,17 +62,17 @@ Since manuals are boring, I'll try to include graphs and images to try to allevi
 
 ## Citing this book {-}
 
-If this data was useful in your research, please cite it. To cite this book, please use the below citation: 
+If this book was useful in your research, please cite it. To cite this book, please use the below citation: 
 
-Kaplan J (2021). *Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide*. https://github.com/jacobkap/ucrbook. 
+Kaplan J (2021). *Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide*. https://github.com/jacobkap/ucrbook. 
 
 BibTeX format:
 <pre>
 @Book{
-    title = {Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide},
+    title = {Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide},
     author = {Jacob Kaplan},
     year = {2021},
-    url = {https://github.com/jacobkap/ucrbook},
+    url = {https://ucrbook.com},
   }
 </pre>
 
@@ -89,3 +89,7 @@ It's worth mentioning a final source of UCR information. This is the annual Crim
 ## Where to find the data used in this book  {-}
 
 The data I am using in this book is the cleaned (we'll discuss in more detail exactly what I did to clean each dataset in the dataset's chapter but the short answer is that I did very little.) and concatenated data that I put together from the raw data that the FBI releases. That data is available on my website [here](https://jacobdkaplan.com/data.html). I am hosting this book through GitHub which has a maximum file size allowed that is far smaller than these data so you'll need to go to my site to download the data, it's not available through this book's GitHub repo. For some examples I'm using the data before I cleaned it of outliers (as an example of the outliers present before I removed them) so that data is not publicly available. 
+
+## NIBRS data
+
+Another source of FBI data, and one sometimes considered part of the UCR data collection, is the National Incident-Based Reporting System (NIBRS) data. Like its name implies this is an incident-level dataset which has detailed information about each incident reported to the police, including incident circumstances, and victim and offender information. This is also the data that the FBI has declared will replace UCR data starting in 2021, meaning that they will no longer collect UCR data and only allow agencies to submit NIBRS data. NIBRS data is a complex and highly rich dataset that deserves its own book to really understand, so I will not be discussing it any further in this book.

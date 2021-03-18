@@ -1,5 +1,7 @@
 # Hate Crime Data {#hate_crimes}
 
+This dataset covers crimes that are judged by the police to be motivated by hate More specifically, they are crimes whose motivation - at least in part - is bias towards a certain person or group of people because of characteristics about them such as race, sexual orientation, or religion. 
+
 
 ## A brief history of the data
 
@@ -8,6 +10,7 @@
 ## What does the data look like?
 
 ### Raw data
+
 
 ### Cleaned data
 

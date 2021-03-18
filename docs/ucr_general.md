@@ -2,8 +2,36 @@
 
 One of the first, and most important questions, I think people have about crime is a simple one: is crime going up? Answering it seems simple - you just count up all the crimes that happen in an area and see if that number of bigger than it was in previous times. 
 
+However, putting this into practice invites a number of questions, all of which affect how we measure crime. First, we need to define what a crime is?  Not philosophically what actions are crimes - or what should be crimes - but literally which of the many thousands of different criminal acts (crimes as defined by state law) should be considered in this measure. Should murder count? Most people would say yes. How about jaywalking or speeding? Many would say probably not. Should marital rape be considered a crime? Now, certainly most people (all, I would hope) would say yes. But in much of the United States it wasn't a crime until the 1970s [@bennice2003marital; @mcmahon2009criminalizing].  
+
+Next, we have to know what geographic and time unit to measure crimes at since these decisions determine how precise we can measure crime and when it changed.  
+
+
+
+The final question is that when a crime occurs, how do we know? That is, when we want to count how many crimes occurred do we ask people how often they've been victimized, do we ask people how often they commit a crime, do we look at crimes reported to police, crimes charged in a criminal court? Each of these measures will likely give different answers as to how many crimes occurred.\footnote{The Bureau of Justice Statistics does measure crime by asking a random sample of people whether they were the victim of a crime. For more on this, please see their [National Crime Victimization Survey page](https://www.bjs.gov/index.cfm?ty=dcdetail&iid=245)}
+
+The FBI answered all of these questions in 1929 when they began the Uniform Crime Reporting (UCR) Program Data, or UCR data for short. Crime consists of seven crime categories - murder, rape, robbery, aggravated assault, burglary, motor vehicle theft, and theft - that are reported to the police and is collected each month from each agency in the country. These decisions, born primarily out of the resource limitations of 1929 (e.g. no computers), have had a major impact on criminology research. These seven crime categories - known as "Index Crimes" or "Part 1 crimes" (or "Part I" sometimes) - are the ones used to measure crime in many criminology papers, even when the researchers have access to data that covers a broader selection of crimes than these.^[Arson is also an index crime but was added after these initial seven were chosen and is not included in the crimes dataset so is generally not included in studies that use index crimes.] 
+
 
 ## What is a crime?
 
 
 ### Index crimes 
+
+### Violent crimes
+
+## A summary of each UCR dataset
+
+### Offenses Known and Clearances by Arrest
+
+This dataset is the oldest and most widely used of the UCR datasets. It covers 
+
+### Arrests by Age, Sex, and Race
+
+### Law Enforcement Officers Killed and Assaulted (LEOKA)
+
+### Supplementary Homicide Reports (SHR)
+
+### Hate Crime Data
+
+### Property Stolen and Recovered (Supplement to Return A)

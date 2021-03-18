@@ -4,7 +4,7 @@ bookdown::gitbook:
     toc:
       collapse: section
       before: |
-        <li><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide</a></li>
+        <li><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide</a></li>
     download: [ ["ucrbook.pdf", "PDF"], ["ucrbook.epub", "EPUB"] ]
     edit:
       link: https://github.com/jacobkap/ucrbook/edit/main/%s

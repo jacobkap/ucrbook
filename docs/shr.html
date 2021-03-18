@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Supplementary Homicide Reports (SHR) | Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide</title>
+  <title>Chapter 5 Supplementary Homicide Reports (SHR) | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime (UCR) Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Supplementary Homicide Reports (SHR) | Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide" />
+  <meta property="og:title" content="Chapter 5 Supplementary Homicide Reports (SHR) | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Supplementary Homicide Reports (SHR) | Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide" />
+  <meta name="twitter:title" content="Chapter 5 Supplementary Homicide Reports (SHR) | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide" />
   
   <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime (UCR) Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2021-03-17" />
+<meta name="date" content="2021-03-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,15 +33,15 @@
   
 <link rel="prev" href="leoka.html"/>
 <link rel="next" href="hate-crimes.html"/>
-<script src="libs/header-attrs/header-attrs.js"></script>
-<script src="libs/jquery/jquery.min.js"></script>
-<link href="libs/gitbook/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook/css/plugin-clipboard.css" rel="stylesheet" />
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -67,7 +67,7 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide</a></li>
+<li><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
@@ -77,6 +77,7 @@
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#citing-this-book"><i class="fa fa-check"></i>Citing this book</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#sources-of-ucr-data"><i class="fa fa-check"></i>Sources of UCR data</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#where-to-find-the-data-used-in-this-book"><i class="fa fa-check"></i>Where to find the data used in this book</a></li>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#nibrs-data"><i class="fa fa-check"></i><b>0.1</b> NIBRS data</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the author</a></li>
 <li class="chapter" data-level="1" data-path="ucr-general.html"><a href="ucr-general.html"><i class="fa fa-check"></i><b>1</b> An Overview of the Data</a>
@@ -84,135 +85,159 @@
 <li class="chapter" data-level="1.1" data-path="ucr-general.html"><a href="ucr-general.html#what-is-a-crime"><i class="fa fa-check"></i><b>1.1</b> What is a crime?</a>
 <ul>
 <li class="chapter" data-level="1.1.1" data-path="ucr-general.html"><a href="ucr-general.html#index-crimes"><i class="fa fa-check"></i><b>1.1.1</b> Index crimes</a></li>
+<li class="chapter" data-level="1.1.2" data-path="ucr-general.html"><a href="ucr-general.html#violent-crimes"><i class="fa fa-check"></i><b>1.1.2</b> Violent crimes</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="ucr-general.html"><a href="ucr-general.html#a-summary-of-each-ucr-dataset"><i class="fa fa-check"></i><b>1.2</b> A summary of each UCR dataset</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="ucr-general.html"><a href="ucr-general.html#offenses-known-and-clearances-by-arrest"><i class="fa fa-check"></i><b>1.2.1</b> Offenses Known and Clearances by Arrest</a></li>
+<li class="chapter" data-level="1.2.2" data-path="ucr-general.html"><a href="ucr-general.html#arrests-by-age-sex-and-race"><i class="fa fa-check"></i><b>1.2.2</b> Arrests by Age, Sex, and Race</a></li>
+<li class="chapter" data-level="1.2.3" data-path="ucr-general.html"><a href="ucr-general.html#law-enforcement-officers-killed-and-assaulted-leoka"><i class="fa fa-check"></i><b>1.2.3</b> Law Enforcement Officers Killed and Assaulted (LEOKA)</a></li>
+<li class="chapter" data-level="1.2.4" data-path="ucr-general.html"><a href="ucr-general.html#supplementary-homicide-reports-shr"><i class="fa fa-check"></i><b>1.2.4</b> Supplementary Homicide Reports (SHR)</a></li>
+<li class="chapter" data-level="1.2.5" data-path="ucr-general.html"><a href="ucr-general.html#hate-crime-data"><i class="fa fa-check"></i><b>1.2.5</b> Hate Crime Data</a></li>
+<li class="chapter" data-level="1.2.6" data-path="ucr-general.html"><a href="ucr-general.html#property-stolen-and-recovered-supplement-to-return-a"><i class="fa fa-check"></i><b>1.2.6</b> Property Stolen and Recovered (Supplement to Return A)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="offenses-known.html"><a href="offenses-known.html"><i class="fa fa-check"></i><b>2</b> Offenses Known and Clearances by Arrest</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="offenses-known.html"><a href="offenses-known.html#exploring-the-ucr-data"><i class="fa fa-check"></i><b>2.1</b> Exploring the UCR data</a></li>
-<li class="chapter" data-level="2.2" data-path="offenses-known.html"><a href="offenses-known.html#oris---unique-agency-identifiers"><i class="fa fa-check"></i><b>2.2</b> ORIs - Unique agency identifiers</a></li>
-<li class="chapter" data-level="2.3" data-path="offenses-known.html"><a href="offenses-known.html#hierarchy-rule"><i class="fa fa-check"></i><b>2.3</b> Hierarchy Rule</a></li>
-<li class="chapter" data-level="2.4" data-path="offenses-known.html"><a href="offenses-known.html#which-crimes-are-included"><i class="fa fa-check"></i><b>2.4</b> Which crimes are included?</a>
+<li class="chapter" data-level="2.1" data-path="offenses-known.html"><a href="offenses-known.html#a-brief-history-of-the-data"><i class="fa fa-check"></i><b>2.1</b> A brief history of the data</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="offenses-known.html"><a href="offenses-known.html#index-crimes-1"><i class="fa fa-check"></i><b>2.4.1</b> Index Crimes</a></li>
-<li class="chapter" data-level="2.4.2" data-path="offenses-known.html"><a href="offenses-known.html#the-problem-with-using-index-crimes"><i class="fa fa-check"></i><b>2.4.2</b> The problem with using index crimes</a></li>
-<li class="chapter" data-level="2.4.3" data-path="offenses-known.html"><a href="offenses-known.html#rape-definition-change"><i class="fa fa-check"></i><b>2.4.3</b> Rape definition change</a></li>
+<li class="chapter" data-level="2.1.1" data-path="offenses-known.html"><a href="offenses-known.html#changes-in-definitions"><i class="fa fa-check"></i><b>2.1.1</b> Changes in definitions</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="offenses-known.html"><a href="offenses-known.html#actual-offenses-clearances-and-unfounded-offenses"><i class="fa fa-check"></i><b>2.5</b> Actual offenses, clearances, and unfounded offenses</a>
+<li class="chapter" data-level="2.2" data-path="offenses-known.html"><a href="offenses-known.html#what-does-the-data-look-like"><i class="fa fa-check"></i><b>2.2</b> What does the data look like?</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="offenses-known.html"><a href="offenses-known.html#actual"><i class="fa fa-check"></i><b>2.5.1</b> Actual</a></li>
-<li class="chapter" data-level="2.5.2" data-path="offenses-known.html"><a href="offenses-known.html#total-cleared"><i class="fa fa-check"></i><b>2.5.2</b> Total Cleared</a></li>
-<li class="chapter" data-level="2.5.3" data-path="offenses-known.html"><a href="offenses-known.html#cleared-where-all-offenders-are-under-18"><i class="fa fa-check"></i><b>2.5.3</b> Cleared Where All Offenders Are Under 18</a></li>
-<li class="chapter" data-level="2.5.4" data-path="offenses-known.html"><a href="offenses-known.html#unfounded"><i class="fa fa-check"></i><b>2.5.4</b> Unfounded</a></li>
+<li class="chapter" data-level="2.2.1" data-path="offenses-known.html"><a href="offenses-known.html#raw-data"><i class="fa fa-check"></i><b>2.2.1</b> Raw data</a></li>
+<li class="chapter" data-level="2.2.2" data-path="offenses-known.html"><a href="offenses-known.html#cleaned-data"><i class="fa fa-check"></i><b>2.2.2</b> Cleaned data</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="offenses-known.html"><a href="offenses-known.html#number-of-months-reported"><i class="fa fa-check"></i><b>2.6</b> Number of months reported</a></li>
+<li class="chapter" data-level="2.3" data-path="offenses-known.html"><a href="offenses-known.html#what-variables-are-in-the-data"><i class="fa fa-check"></i><b>2.3</b> What variables are in the data?</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="offenses-known.html"><a href="offenses-known.html#key-variables"><i class="fa fa-check"></i><b>2.3.1</b> Key variables</a></li>
+<li class="chapter" data-level="2.3.2" data-path="offenses-known.html"><a href="offenses-known.html#known-issues-with-the-data"><i class="fa fa-check"></i><b>2.3.2</b> Known issues with the data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="offenses-known.html"><a href="offenses-known.html#final-thoughts"><i class="fa fa-check"></i><b>2.4</b> Final thoughts</a></li>
+<li class="chapter" data-level="2.5" data-path="offenses-known.html"><a href="offenses-known.html#oris---unique-agency-identifiers"><i class="fa fa-check"></i><b>2.5</b> ORIs - Unique agency identifiers</a></li>
+<li class="chapter" data-level="2.6" data-path="offenses-known.html"><a href="offenses-known.html#hierarchy-rule"><i class="fa fa-check"></i><b>2.6</b> Hierarchy Rule</a></li>
+<li class="chapter" data-level="2.7" data-path="offenses-known.html"><a href="offenses-known.html#which-crimes-are-included"><i class="fa fa-check"></i><b>2.7</b> Which crimes are included?</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="offenses-known.html"><a href="offenses-known.html#index-crimes-1"><i class="fa fa-check"></i><b>2.7.1</b> Index Crimes</a></li>
+<li class="chapter" data-level="2.7.2" data-path="offenses-known.html"><a href="offenses-known.html#the-problem-with-using-index-crimes"><i class="fa fa-check"></i><b>2.7.2</b> The problem with using index crimes</a></li>
+<li class="chapter" data-level="2.7.3" data-path="offenses-known.html"><a href="offenses-known.html#rape-definition-change"><i class="fa fa-check"></i><b>2.7.3</b> Rape definition change</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="offenses-known.html"><a href="offenses-known.html#actual-offenses-clearances-and-unfounded-offenses"><i class="fa fa-check"></i><b>2.8</b> Actual offenses, clearances, and unfounded offenses</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="offenses-known.html"><a href="offenses-known.html#actual"><i class="fa fa-check"></i><b>2.8.1</b> Actual</a></li>
+<li class="chapter" data-level="2.8.2" data-path="offenses-known.html"><a href="offenses-known.html#total-cleared"><i class="fa fa-check"></i><b>2.8.2</b> Total Cleared</a></li>
+<li class="chapter" data-level="2.8.3" data-path="offenses-known.html"><a href="offenses-known.html#cleared-where-all-offenders-are-under-18"><i class="fa fa-check"></i><b>2.8.3</b> Cleared Where All Offenders Are Under 18</a></li>
+<li class="chapter" data-level="2.8.4" data-path="offenses-known.html"><a href="offenses-known.html#unfounded"><i class="fa fa-check"></i><b>2.8.4</b> Unfounded</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="offenses-known.html"><a href="offenses-known.html#number-of-months-reported"><i class="fa fa-check"></i><b>2.9</b> Number of months reported</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="arrests.html"><a href="arrests.html"><i class="fa fa-check"></i><b>3</b> Arrests by Age, Sex, and Race</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="arrests.html"><a href="arrests.html#a-brief-history-of-the-data"><i class="fa fa-check"></i><b>3.1</b> A brief history of the data</a>
+<li class="chapter" data-level="3.1" data-path="arrests.html"><a href="arrests.html#a-brief-history-of-the-data-1"><i class="fa fa-check"></i><b>3.1</b> A brief history of the data</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="arrests.html"><a href="arrests.html#changes-in-definitions"><i class="fa fa-check"></i><b>3.1.1</b> Changes in definitions</a></li>
+<li class="chapter" data-level="3.1.1" data-path="arrests.html"><a href="arrests.html#changes-in-definitions-1"><i class="fa fa-check"></i><b>3.1.1</b> Changes in definitions</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="arrests.html"><a href="arrests.html#what-does-the-data-look-like"><i class="fa fa-check"></i><b>3.2</b> What does the data look like?</a>
+<li class="chapter" data-level="3.2" data-path="arrests.html"><a href="arrests.html#what-does-the-data-look-like-1"><i class="fa fa-check"></i><b>3.2</b> What does the data look like?</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="arrests.html"><a href="arrests.html#raw-data"><i class="fa fa-check"></i><b>3.2.1</b> Raw data</a></li>
-<li class="chapter" data-level="3.2.2" data-path="arrests.html"><a href="arrests.html#cleaned-data"><i class="fa fa-check"></i><b>3.2.2</b> Cleaned data</a></li>
+<li class="chapter" data-level="3.2.1" data-path="arrests.html"><a href="arrests.html#raw-data-1"><i class="fa fa-check"></i><b>3.2.1</b> Raw data</a></li>
+<li class="chapter" data-level="3.2.2" data-path="arrests.html"><a href="arrests.html#cleaned-data-1"><i class="fa fa-check"></i><b>3.2.2</b> Cleaned data</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="arrests.html"><a href="arrests.html#what-variables-are-in-the-data"><i class="fa fa-check"></i><b>3.3</b> What variables are in the data?</a>
+<li class="chapter" data-level="3.3" data-path="arrests.html"><a href="arrests.html#what-variables-are-in-the-data-1"><i class="fa fa-check"></i><b>3.3</b> What variables are in the data?</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="arrests.html"><a href="arrests.html#key-variables"><i class="fa fa-check"></i><b>3.3.1</b> Key variables</a></li>
-<li class="chapter" data-level="3.3.2" data-path="arrests.html"><a href="arrests.html#known-issues-with-the-data"><i class="fa fa-check"></i><b>3.3.2</b> Known issues with the data</a></li>
+<li class="chapter" data-level="3.3.1" data-path="arrests.html"><a href="arrests.html#key-variables-1"><i class="fa fa-check"></i><b>3.3.1</b> Key variables</a></li>
+<li class="chapter" data-level="3.3.2" data-path="arrests.html"><a href="arrests.html#known-issues-with-the-data-1"><i class="fa fa-check"></i><b>3.3.2</b> Known issues with the data</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="arrests.html"><a href="arrests.html#final-thoughts"><i class="fa fa-check"></i><b>3.4</b> Final thoughts</a></li>
+<li class="chapter" data-level="3.4" data-path="arrests.html"><a href="arrests.html#final-thoughts-1"><i class="fa fa-check"></i><b>3.4</b> Final thoughts</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="leoka.html"><a href="leoka.html"><i class="fa fa-check"></i><b>4</b> Law Enforcement Officers Killed and Assaulted (LEOKA)</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="leoka.html"><a href="leoka.html#a-brief-history-of-the-data-1"><i class="fa fa-check"></i><b>4.1</b> A brief history of the data</a>
+<li class="chapter" data-level="4.1" data-path="leoka.html"><a href="leoka.html#a-brief-history-of-the-data-2"><i class="fa fa-check"></i><b>4.1</b> A brief history of the data</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="leoka.html"><a href="leoka.html#changes-in-definitions-1"><i class="fa fa-check"></i><b>4.1.1</b> Changes in definitions</a></li>
+<li class="chapter" data-level="4.1.1" data-path="leoka.html"><a href="leoka.html#changes-in-definitions-2"><i class="fa fa-check"></i><b>4.1.1</b> Changes in definitions</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="leoka.html"><a href="leoka.html#what-does-the-data-look-like-1"><i class="fa fa-check"></i><b>4.2</b> What does the data look like?</a>
+<li class="chapter" data-level="4.2" data-path="leoka.html"><a href="leoka.html#what-does-the-data-look-like-2"><i class="fa fa-check"></i><b>4.2</b> What does the data look like?</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="leoka.html"><a href="leoka.html#raw-data-1"><i class="fa fa-check"></i><b>4.2.1</b> Raw data</a></li>
-<li class="chapter" data-level="4.2.2" data-path="leoka.html"><a href="leoka.html#cleaned-data-1"><i class="fa fa-check"></i><b>4.2.2</b> Cleaned data</a></li>
+<li class="chapter" data-level="4.2.1" data-path="leoka.html"><a href="leoka.html#raw-data-2"><i class="fa fa-check"></i><b>4.2.1</b> Raw data</a></li>
+<li class="chapter" data-level="4.2.2" data-path="leoka.html"><a href="leoka.html#cleaned-data-2"><i class="fa fa-check"></i><b>4.2.2</b> Cleaned data</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="leoka.html"><a href="leoka.html#what-variables-are-in-the-data-1"><i class="fa fa-check"></i><b>4.3</b> What variables are in the data?</a>
+<li class="chapter" data-level="4.3" data-path="leoka.html"><a href="leoka.html#what-variables-are-in-the-data-2"><i class="fa fa-check"></i><b>4.3</b> What variables are in the data?</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="leoka.html"><a href="leoka.html#key-variables-1"><i class="fa fa-check"></i><b>4.3.1</b> Key variables</a></li>
-<li class="chapter" data-level="4.3.2" data-path="leoka.html"><a href="leoka.html#known-issues-with-the-data-1"><i class="fa fa-check"></i><b>4.3.2</b> Known issues with the data</a></li>
+<li class="chapter" data-level="4.3.1" data-path="leoka.html"><a href="leoka.html#key-variables-2"><i class="fa fa-check"></i><b>4.3.1</b> Key variables</a></li>
+<li class="chapter" data-level="4.3.2" data-path="leoka.html"><a href="leoka.html#known-issues-with-the-data-2"><i class="fa fa-check"></i><b>4.3.2</b> Known issues with the data</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="leoka.html"><a href="leoka.html#final-thoughts-1"><i class="fa fa-check"></i><b>4.4</b> Final thoughts</a></li>
+<li class="chapter" data-level="4.4" data-path="leoka.html"><a href="leoka.html#final-thoughts-2"><i class="fa fa-check"></i><b>4.4</b> Final thoughts</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="shr.html"><a href="shr.html"><i class="fa fa-check"></i><b>5</b> Supplementary Homicide Reports (SHR)</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="shr.html"><a href="shr.html#a-brief-history-of-the-data-2"><i class="fa fa-check"></i><b>5.1</b> A brief history of the data</a>
+<li class="chapter" data-level="5.1" data-path="shr.html"><a href="shr.html#a-brief-history-of-the-data-3"><i class="fa fa-check"></i><b>5.1</b> A brief history of the data</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="shr.html"><a href="shr.html#changes-in-definitions-2"><i class="fa fa-check"></i><b>5.1.1</b> Changes in definitions</a></li>
+<li class="chapter" data-level="5.1.1" data-path="shr.html"><a href="shr.html#changes-in-definitions-3"><i class="fa fa-check"></i><b>5.1.1</b> Changes in definitions</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="shr.html"><a href="shr.html#what-does-the-data-look-like-2"><i class="fa fa-check"></i><b>5.2</b> What does the data look like?</a>
+<li class="chapter" data-level="5.2" data-path="shr.html"><a href="shr.html#what-does-the-data-look-like-3"><i class="fa fa-check"></i><b>5.2</b> What does the data look like?</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="shr.html"><a href="shr.html#raw-data-2"><i class="fa fa-check"></i><b>5.2.1</b> Raw data</a></li>
-<li class="chapter" data-level="5.2.2" data-path="shr.html"><a href="shr.html#cleaned-data-2"><i class="fa fa-check"></i><b>5.2.2</b> Cleaned data</a></li>
+<li class="chapter" data-level="5.2.1" data-path="shr.html"><a href="shr.html#raw-data-3"><i class="fa fa-check"></i><b>5.2.1</b> Raw data</a></li>
+<li class="chapter" data-level="5.2.2" data-path="shr.html"><a href="shr.html#cleaned-data-3"><i class="fa fa-check"></i><b>5.2.2</b> Cleaned data</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="shr.html"><a href="shr.html#what-variables-are-in-the-data-2"><i class="fa fa-check"></i><b>5.3</b> What variables are in the data?</a>
+<li class="chapter" data-level="5.3" data-path="shr.html"><a href="shr.html#what-variables-are-in-the-data-3"><i class="fa fa-check"></i><b>5.3</b> What variables are in the data?</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="shr.html"><a href="shr.html#key-variables-2"><i class="fa fa-check"></i><b>5.3.1</b> Key variables</a></li>
-<li class="chapter" data-level="5.3.2" data-path="shr.html"><a href="shr.html#known-issues-with-the-data-2"><i class="fa fa-check"></i><b>5.3.2</b> Known issues with the data</a></li>
+<li class="chapter" data-level="5.3.1" data-path="shr.html"><a href="shr.html#key-variables-3"><i class="fa fa-check"></i><b>5.3.1</b> Key variables</a></li>
+<li class="chapter" data-level="5.3.2" data-path="shr.html"><a href="shr.html#known-issues-with-the-data-3"><i class="fa fa-check"></i><b>5.3.2</b> Known issues with the data</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="shr.html"><a href="shr.html#final-thoughts-2"><i class="fa fa-check"></i><b>5.4</b> Final thoughts</a></li>
+<li class="chapter" data-level="5.4" data-path="shr.html"><a href="shr.html#final-thoughts-3"><i class="fa fa-check"></i><b>5.4</b> Final thoughts</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="hate-crimes.html"><a href="hate-crimes.html"><i class="fa fa-check"></i><b>6</b> Hate Crime Data</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="hate-crimes.html"><a href="hate-crimes.html#a-brief-history-of-the-data-3"><i class="fa fa-check"></i><b>6.1</b> A brief history of the data</a>
+<li class="chapter" data-level="6.1" data-path="hate-crimes.html"><a href="hate-crimes.html#a-brief-history-of-the-data-4"><i class="fa fa-check"></i><b>6.1</b> A brief history of the data</a>
 <ul>
-<li class="chapter" data-level="6.1.1" data-path="hate-crimes.html"><a href="hate-crimes.html#changes-in-definitions-3"><i class="fa fa-check"></i><b>6.1.1</b> Changes in definitions</a></li>
+<li class="chapter" data-level="6.1.1" data-path="hate-crimes.html"><a href="hate-crimes.html#changes-in-definitions-4"><i class="fa fa-check"></i><b>6.1.1</b> Changes in definitions</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="hate-crimes.html"><a href="hate-crimes.html#what-does-the-data-look-like-3"><i class="fa fa-check"></i><b>6.2</b> What does the data look like?</a>
+<li class="chapter" data-level="6.2" data-path="hate-crimes.html"><a href="hate-crimes.html#what-does-the-data-look-like-4"><i class="fa fa-check"></i><b>6.2</b> What does the data look like?</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="hate-crimes.html"><a href="hate-crimes.html#raw-data-3"><i class="fa fa-check"></i><b>6.2.1</b> Raw data</a></li>
-<li class="chapter" data-level="6.2.2" data-path="hate-crimes.html"><a href="hate-crimes.html#cleaned-data-3"><i class="fa fa-check"></i><b>6.2.2</b> Cleaned data</a></li>
+<li class="chapter" data-level="6.2.1" data-path="hate-crimes.html"><a href="hate-crimes.html#raw-data-4"><i class="fa fa-check"></i><b>6.2.1</b> Raw data</a></li>
+<li class="chapter" data-level="6.2.2" data-path="hate-crimes.html"><a href="hate-crimes.html#cleaned-data-4"><i class="fa fa-check"></i><b>6.2.2</b> Cleaned data</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="hate-crimes.html"><a href="hate-crimes.html#what-variables-are-in-the-data-3"><i class="fa fa-check"></i><b>6.3</b> What variables are in the data?</a>
+<li class="chapter" data-level="6.3" data-path="hate-crimes.html"><a href="hate-crimes.html#what-variables-are-in-the-data-4"><i class="fa fa-check"></i><b>6.3</b> What variables are in the data?</a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="hate-crimes.html"><a href="hate-crimes.html#key-variables-3"><i class="fa fa-check"></i><b>6.3.1</b> Key variables</a></li>
-<li class="chapter" data-level="6.3.2" data-path="hate-crimes.html"><a href="hate-crimes.html#known-issues-with-the-data-3"><i class="fa fa-check"></i><b>6.3.2</b> Known issues with the data</a></li>
+<li class="chapter" data-level="6.3.1" data-path="hate-crimes.html"><a href="hate-crimes.html#key-variables-4"><i class="fa fa-check"></i><b>6.3.1</b> Key variables</a></li>
+<li class="chapter" data-level="6.3.2" data-path="hate-crimes.html"><a href="hate-crimes.html#known-issues-with-the-data-4"><i class="fa fa-check"></i><b>6.3.2</b> Known issues with the data</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="hate-crimes.html"><a href="hate-crimes.html#final-thoughts-3"><i class="fa fa-check"></i><b>6.4</b> Final thoughts</a></li>
+<li class="chapter" data-level="6.4" data-path="hate-crimes.html"><a href="hate-crimes.html#final-thoughts-4"><i class="fa fa-check"></i><b>6.4</b> Final thoughts</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="stolen-property.html"><a href="stolen-property.html"><i class="fa fa-check"></i><b>7</b> Property Stolen and Recovered (Supplement to Return A)</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="stolen-property.html"><a href="stolen-property.html#a-brief-history-of-the-data-4"><i class="fa fa-check"></i><b>7.1</b> A brief history of the data</a>
+<li class="chapter" data-level="7.1" data-path="stolen-property.html"><a href="stolen-property.html#a-brief-history-of-the-data-5"><i class="fa fa-check"></i><b>7.1</b> A brief history of the data</a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="stolen-property.html"><a href="stolen-property.html#changes-in-definitions-4"><i class="fa fa-check"></i><b>7.1.1</b> Changes in definitions</a></li>
+<li class="chapter" data-level="7.1.1" data-path="stolen-property.html"><a href="stolen-property.html#changes-in-definitions-5"><i class="fa fa-check"></i><b>7.1.1</b> Changes in definitions</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="stolen-property.html"><a href="stolen-property.html#what-does-the-data-look-like-4"><i class="fa fa-check"></i><b>7.2</b> What does the data look like?</a>
+<li class="chapter" data-level="7.2" data-path="stolen-property.html"><a href="stolen-property.html#what-does-the-data-look-like-5"><i class="fa fa-check"></i><b>7.2</b> What does the data look like?</a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="stolen-property.html"><a href="stolen-property.html#raw-data-4"><i class="fa fa-check"></i><b>7.2.1</b> Raw data</a></li>
-<li class="chapter" data-level="7.2.2" data-path="stolen-property.html"><a href="stolen-property.html#cleaned-data-4"><i class="fa fa-check"></i><b>7.2.2</b> Cleaned data</a></li>
+<li class="chapter" data-level="7.2.1" data-path="stolen-property.html"><a href="stolen-property.html#raw-data-5"><i class="fa fa-check"></i><b>7.2.1</b> Raw data</a></li>
+<li class="chapter" data-level="7.2.2" data-path="stolen-property.html"><a href="stolen-property.html#cleaned-data-5"><i class="fa fa-check"></i><b>7.2.2</b> Cleaned data</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="stolen-property.html"><a href="stolen-property.html#what-variables-are-in-the-data-4"><i class="fa fa-check"></i><b>7.3</b> What variables are in the data?</a>
+<li class="chapter" data-level="7.3" data-path="stolen-property.html"><a href="stolen-property.html#what-variables-are-in-the-data-5"><i class="fa fa-check"></i><b>7.3</b> What variables are in the data?</a>
 <ul>
-<li class="chapter" data-level="7.3.1" data-path="stolen-property.html"><a href="stolen-property.html#key-variables-4"><i class="fa fa-check"></i><b>7.3.1</b> Key variables</a></li>
-<li class="chapter" data-level="7.3.2" data-path="stolen-property.html"><a href="stolen-property.html#known-issues-with-the-data-4"><i class="fa fa-check"></i><b>7.3.2</b> Known issues with the data</a></li>
+<li class="chapter" data-level="7.3.1" data-path="stolen-property.html"><a href="stolen-property.html#key-variables-5"><i class="fa fa-check"></i><b>7.3.1</b> Key variables</a></li>
+<li class="chapter" data-level="7.3.2" data-path="stolen-property.html"><a href="stolen-property.html#known-issues-with-the-data-5"><i class="fa fa-check"></i><b>7.3.2</b> Known issues with the data</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="stolen-property.html"><a href="stolen-property.html#final-thoughts-4"><i class="fa fa-check"></i><b>7.4</b> Final thoughts</a></li>
+<li class="chapter" data-level="7.4" data-path="stolen-property.html"><a href="stolen-property.html#final-thoughts-5"><i class="fa fa-check"></i><b>7.4</b> Final thoughts</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="county-level.html"><a href="county-level.html"><i class="fa fa-check"></i><b>8</b> County-Level Detailed Arrest and Offense Data</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="county-level.html"><a href="county-level.html#a-brief-history-of-the-data-5"><i class="fa fa-check"></i><b>8.1</b> A brief history of the data</a>
+<li class="chapter" data-level="8.1" data-path="county-level.html"><a href="county-level.html#a-brief-history-of-the-data-6"><i class="fa fa-check"></i><b>8.1</b> A brief history of the data</a>
 <ul>
-<li class="chapter" data-level="8.1.1" data-path="county-level.html"><a href="county-level.html#changes-in-definitions-5"><i class="fa fa-check"></i><b>8.1.1</b> Changes in definitions</a></li>
+<li class="chapter" data-level="8.1.1" data-path="county-level.html"><a href="county-level.html#changes-in-definitions-6"><i class="fa fa-check"></i><b>8.1.1</b> Changes in definitions</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="county-level.html"><a href="county-level.html#what-does-the-data-look-like-5"><i class="fa fa-check"></i><b>8.2</b> What does the data look like?</a>
+<li class="chapter" data-level="8.2" data-path="county-level.html"><a href="county-level.html#what-does-the-data-look-like-6"><i class="fa fa-check"></i><b>8.2</b> What does the data look like?</a>
 <ul>
-<li class="chapter" data-level="8.2.1" data-path="county-level.html"><a href="county-level.html#raw-data-5"><i class="fa fa-check"></i><b>8.2.1</b> Raw data</a></li>
-<li class="chapter" data-level="8.2.2" data-path="county-level.html"><a href="county-level.html#cleaned-data-5"><i class="fa fa-check"></i><b>8.2.2</b> Cleaned data</a></li>
+<li class="chapter" data-level="8.2.1" data-path="county-level.html"><a href="county-level.html#raw-data-6"><i class="fa fa-check"></i><b>8.2.1</b> Raw data</a></li>
+<li class="chapter" data-level="8.2.2" data-path="county-level.html"><a href="county-level.html#cleaned-data-6"><i class="fa fa-check"></i><b>8.2.2</b> Cleaned data</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="county-level.html"><a href="county-level.html#what-variables-are-in-the-data-5"><i class="fa fa-check"></i><b>8.3</b> What variables are in the data?</a>
+<li class="chapter" data-level="8.3" data-path="county-level.html"><a href="county-level.html#what-variables-are-in-the-data-6"><i class="fa fa-check"></i><b>8.3</b> What variables are in the data?</a>
 <ul>
-<li class="chapter" data-level="8.3.1" data-path="county-level.html"><a href="county-level.html#key-variables-5"><i class="fa fa-check"></i><b>8.3.1</b> Key variables</a></li>
-<li class="chapter" data-level="8.3.2" data-path="county-level.html"><a href="county-level.html#known-issues-with-the-data-5"><i class="fa fa-check"></i><b>8.3.2</b> Known issues with the data</a></li>
+<li class="chapter" data-level="8.3.1" data-path="county-level.html"><a href="county-level.html#key-variables-6"><i class="fa fa-check"></i><b>8.3.1</b> Key variables</a></li>
+<li class="chapter" data-level="8.3.2" data-path="county-level.html"><a href="county-level.html#known-issues-with-the-data-6"><i class="fa fa-check"></i><b>8.3.2</b> Known issues with the data</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="county-level.html"><a href="county-level.html#final-thoughts-5"><i class="fa fa-check"></i><b>8.4</b> Final thoughts</a></li>
+<li class="chapter" data-level="8.4" data-path="county-level.html"><a href="county-level.html#final-thoughts-6"><i class="fa fa-check"></i><b>8.4</b> Final thoughts</a></li>
 </ul></li>
 </ul>
 
@@ -223,7 +248,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</a>
           </h1>
         </div>
 
@@ -233,31 +258,31 @@
             <section class="normal" id="section-">
 <div id="shr" class="section level1" number="5">
 <h1><span class="header-section-number">Chapter 5</span> Supplementary Homicide Reports (SHR)</h1>
-<div id="a-brief-history-of-the-data-2" class="section level2" number="5.1">
+<div id="a-brief-history-of-the-data-3" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> A brief history of the data</h2>
-<div id="changes-in-definitions-2" class="section level3" number="5.1.1">
+<div id="changes-in-definitions-3" class="section level3" number="5.1.1">
 <h3><span class="header-section-number">5.1.1</span> Changes in definitions</h3>
 </div>
 </div>
-<div id="what-does-the-data-look-like-2" class="section level2" number="5.2">
+<div id="what-does-the-data-look-like-3" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> What does the data look like?</h2>
-<div id="raw-data-2" class="section level3" number="5.2.1">
+<div id="raw-data-3" class="section level3" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> Raw data</h3>
 </div>
-<div id="cleaned-data-2" class="section level3" number="5.2.2">
+<div id="cleaned-data-3" class="section level3" number="5.2.2">
 <h3><span class="header-section-number">5.2.2</span> Cleaned data</h3>
 </div>
 </div>
-<div id="what-variables-are-in-the-data-2" class="section level2" number="5.3">
+<div id="what-variables-are-in-the-data-3" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> What variables are in the data?</h2>
-<div id="key-variables-2" class="section level3" number="5.3.1">
+<div id="key-variables-3" class="section level3" number="5.3.1">
 <h3><span class="header-section-number">5.3.1</span> Key variables</h3>
 </div>
-<div id="known-issues-with-the-data-2" class="section level3" number="5.3.2">
+<div id="known-issues-with-the-data-3" class="section level3" number="5.3.2">
 <h3><span class="header-section-number">5.3.2</span> Known issues with the data</h3>
 </div>
 </div>
-<div id="final-thoughts-2" class="section level2" number="5.4">
+<div id="final-thoughts-3" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> Final thoughts</h2>
 
 </div>
@@ -271,15 +296,15 @@
 <a href="hate-crimes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="libs/gitbook/js/app.min.js"></script>
-<script src="libs/gitbook/js/lunr.js"></script>
-<script src="libs/gitbook/js/clipboard.min.js"></script>
-<script src="libs/gitbook/js/plugin-search.js"></script>
-<script src="libs/gitbook/js/plugin-sharing.js"></script>
-<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook/js/jquery.highlight.js"></script>
-<script src="libs/gitbook/js/plugin-clipboard.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

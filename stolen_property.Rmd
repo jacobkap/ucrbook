@@ -10,7 +10,13 @@
 
 ### Raw data
 
+![Fixed-width ASCII file for the 1960 Property Stolen and Recovered dataset](images/property_stolen_raw_ascii_1960.PNG)
+
 ### Cleaned data
+
+![Agency information for the 1960 Property Stolen and Recovered dataset](images/property_stolen_agency_info.PNG)
+
+![Crime information for the 1960 Property Stolen and Recovered dataset](images/property_stolen_crime_info.PNG)
 
 ## What variables are in the data?
 
