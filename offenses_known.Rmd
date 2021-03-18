@@ -14,35 +14,15 @@ Due to its longevity (it has data since 1960) and ubiquity (almost every agency 
 
 We are going to look at data with the combined annual count of crimes for every year available - 1960-2017 - which I've made available [here](http://doi.org/10.3886/E100707V11). The FBI releases the data as a single file per year and each file has monthly counts of crime. This data set does some cleaning for us by aggregating yearly and making it a single file for the whole time period. The first step when working with this UCR data is loading it into R. As with loading any data, make sure that your working directory path is correctly set using `setwd()` so R knows which folder the data is in. 
 
-```{r comment="", results='hold'}
-load("data/offenses_known_yearly_1960_2017.rda")
-```
 
-Let's start with a basic examination of the data. First, how big it is, what variables it has, and what the units are. 
-
-```{r}
-ncol(offenses_known_yearly_1960_2017)
-```
-
-```{r}
-nrow(offenses_known_yearly_1960_2017)
-```
-
-```{r}
-names(offenses_known_yearly_1960_2017)
-```
 
 We can see this is a very big file - 159 columns and nearly a million rows! Normally we'd use the `head()` function to see the first 6 rows of every column but since this data has so many columns we won't do that as it'd be hard to read. Instead we can use `View()` to open what's essentially an Excel file showing our data. This is useful to quickly glance at the data but is limited as it can bias us to believe that the first several rows are representative of the data (an issue also present with `head()`). But, for a first glance it is useful and will be supplemented by better checks below.
 
-```{r eval = FALSE}
-View(offenses_known_yearly_1960_2017)
-```
+
 
 From looking at the data in `View()` we can see that the units are agency-years. Each row is a single agency for a single year. This is useful because it tells us we will have crime in agencies over time, which is a very common unit of crime data. Let's take a look at how many agencies report each year using the `table()` function which says how many times each value occurs for the column we select. This is also a useful check on if every year from 1960 to 2017 is actually available - don't just trust that the data has what it says it has!
 
-```{r}
-table(offenses_known_yearly_1960_2017$year)
-```
+
 
 From these results it's clear that there are huge differences in how many agencies report in early years compared to more recent years. Is this an issue in an analysis? From the above table it is concerning but not entirely clear there is an issue depending on our specific analysis. It we only care about recent years then it wouldn't matter. If we only use large agencies, then knowing that relatively few agencies reported in 1960 doesn't mean that few large agencies reported. For that you'd have to look closer at only the agencies you want to study - we won't do that here but keep it in mind. 
 
@@ -50,9 +30,7 @@ From these results it's clear that there are huge differences in how many agenci
 
 In the UCR and other FBI data sets, agencies are identified using **OR**iginating Agency **I**dentifiers or ORIs. These are unique ID codes used to identify an agency. If we used the agency's name we'd end up with some duplicates For example, if you looked for the Philadelphia Police Department using the agency name, you'd find both the "Philadelphia Police Department" in Pennsylvania and the one in Mississippi. 
 
-```{r}
-head(offenses_known_yearly_1960_2017$ori)
-```
+
 
 Each ORI is a 7-digit value starting with the state abbreviation (for some reason the FBI incorrectly puts the abbreviation for Nebraska as NB instead of NE) followed by 5 numbers. In the NIBRS data (another FBI data set) the ORI uses a 9-digit code - expanding the 5 numbers to 7 numbers. When dealing with specific agencies, make sure to use the ORI rather than the agency name to avoid any mistakes. 
 
@@ -148,8 +126,6 @@ An unfounded crime is one in which a police investigation has determined that th
 
 UCR data is reported monthly though even agencies that decide to report their data may not do so every month. As we don't want to compare an agency which reports 12 months to one that reports fewer, the variable *number_of_months_reported* is way keep only agencies that report 12 months, or deal with those that report fewer. 
 
-```{r}
-table(offenses_known_yearly_1960_2017$number_of_months_reported)
-```
+
 
 From our `table()` output it seems that when agencies do report, they tend to do so for all 12 months of the year. However, this variable is seriously flawed, and its name is quite misleading. In reality this variable is actually just whichever the last month reported was. If an agency reported every month of the year, meaning December is the last month, they would have a value of 12. If the agency **only** reported in December, they would also have a value of 12. While there are ways in the monthly data to measure actual number of months reported, these ways are also flawed. So be cautious about this data and particularly the value of this variable. 
