@@ -4,13 +4,17 @@ bookdown::gitbook:
     toc:
       before: |
         <li><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide</a></li>
-      after: |
-        <li><a href="https://github.com/jacobkap/ucrbook" target="blank"></a></li>
     download: [ ["ucrbook.pdf", "PDF"], ["ucrbook.epub", "EPUB"] ]
+    edit:
+      link: https://github.com/jacobkap/ucrbook/edit/master/%s
+      text: "Edit"
+    sharing: yes
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
   latex_engine: xelatex
   citation_package: natbib
   keep_tex: yes
-bookdown::epub_book: default
+bookdown::epub_book:
+  dev: svglite
+  stylesheet: style.css

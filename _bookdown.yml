@@ -1,10 +1,12 @@
 book_filename: "ucrbook"
+new_session: yes
 repo: https://github.com/jacobkap/ucrbook
 output_dir: "docs"
+always_allow_html: yes
 delete_merged_file: true
 language:
   ui:
-    chapter_name: "Chapter :"
+    chapter_name: "Chapter "
 rmd_files: [
   "index.Rmd",
   "author.Rmd",
