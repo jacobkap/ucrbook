@@ -10,7 +10,6 @@ language:
 rmd_files: [
   "index.Rmd",
   "author.Rmd",
-  
   # Overview of UCR data
   "ucr_general.Rmd",
   # Offenses Known and Clearances by Arrest

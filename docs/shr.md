@@ -1,5 +1,4 @@
-# County-Level Detailed Arrest and Offense Data {#county_level}
-
+# Supplementary Homicide Reports (SHR) {#shr}
 
 
 ## A brief history of the data

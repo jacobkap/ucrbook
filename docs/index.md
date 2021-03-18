@@ -1,7 +1,7 @@
 --- 
 title: "Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide"
 author: "Jacob Kaplan"
-date: "`r Sys.Date()`"
+date: "2021-03-17"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -14,22 +14,7 @@ colorlinks: yes
 fontsize: 12pt
 ---
 
-```{r setup, include=FALSE}
-options(
-  htmltools.dir.version  = FALSE,
-  formatR.indent         = 1,
-  width                  = 55,
-  digits                 = 4,
-  warnPartialMatchAttr   = FALSE,
-  warnPartialMatchDollar = FALSE
-)
 
-
-# bookdown::render_book("index.Rmd", "bookdown::pdf_book", output_file = "ucrbook.pdf")
-# bookdown::render_book("index.Rmd", "bookdown::epub_book", output_file = "ucrbook.epub")
-# bookdown::render_book("index.Rmd", "bookdown::gitbook")
-
-```
 
 # Welcome {-}
 

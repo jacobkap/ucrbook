@@ -129,7 +129,9 @@ Since manuals are boring, I'll try to include graphs and images to try to allevi
 \section*{Structure of the book}\label{structure-of-the-book}}
 \addcontentsline{toc}{section}{Structure of the book}
 
-This book will be divided into eight chapters: an intro chapter briefly summarizing each dataset and going over overall issues with UCR data, six chapters each covering one of the six UCR datasets, and a final one covering county-level data, a highly flawed but common use of the UCR data. Each chapter will follow the same format: we'll start with a history of the data such as when it first because available and important changes in definitions or variables. Next we'll discuss what the data looks like initially when you get it from the FBI - literally what it looks like in it's fixed-width ASCII format you get from the FBI and what it looks like (what each row and column mean) once it's turned into a useful format that can be read into modern software like R and Stata. For most of the datasets this is a minor process but for data like the arrest or homicide datasets, the conversion process is harder - and this can actually lead to changes in the resulting data. For example, in an old version of the arrest data that I released, I aggregated certain arrestee ages together since my laptop at the time couldn't handle converting data from ASCII to R and Stata without aggregating the ages (more age groups means more columns which means more computer memory needed). So anyone using that data would have less detailed data than the current dataset.
+This book will be divided into eight chapters: an intro chapter briefly summarizing each dataset and going over overall issues with UCR data, six chapters each covering one of the six UCR datasets, and a final one covering county-level data, a highly flawed but common use of the UCR data. Each chapter will follow the same format: we'll start with a history of the data such as when it first because available and important changes in definitions or variables.
+
+Next we'll discuss what the data looks like initially when you get it from the FBI - literally what it looks like in it's fixed-width ASCII format you get from the FBI and what it looks like (what each row and column mean) once it's turned into a useful format that can be read into modern software like R and Stata. For most of the datasets this is a minor process but for data like the arrest or homicide datasets, the conversion process is harder - and this can actually lead to changes in the resulting data. For example, in an old version of the arrest data that I released, I aggregated certain arrestee ages together since my laptop at the time couldn't handle converting data from ASCII to R and Stata without aggregating the ages (more age groups means more columns which means more computer memory needed). So anyone using that data would have less detailed data than the current dataset.
 
 Understanding how the data moves from its rawest form (which in this case is after cleaning by the FBI) is important for being able to truly understand the data and its caveats. However, this is a fairly technical part of each chapter so feel free to skip it. Next in each chapter, we'll cover the variables included in the data and how to use them properly (including not using them at all) - this will be the bulk of each chapter. We'll end each chapter by briefly summarizing the data, how and when it's useful, and - most importantly - when you shouldn't use it.
 
@@ -156,8 +158,8 @@ Finally, I have my own collection of UCR data \href{available\%20publicly\%20on\
 It's worth mentioning a final source of UCR information. This is the annual Crimes in the United States report released by the FBI each year around the start of October.\footnote{They also release a report about the first 6-months of the most recent year of data before the October release but this is generally an estimate from a sample of agencies so is far less useful.} As an example, here is the \href{https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019}{website for the 2019 report}. In this report is summarized data which in most cases estimates missing data and provides information about national and subnational (though rarely city-level) crime data. As with the FBI's site it is only a fraction of the true data available so is not a very useful source of crime data. Still, this is a very common source of information used by researchers.
 
 \hypertarget{where-to-find-the-data-used-in-this-book}{%
-\subsection*{Where to find the data used in this book}\label{where-to-find-the-data-used-in-this-book}}
-\addcontentsline{toc}{subsection}{Where to find the data used in this book}
+\section*{Where to find the data used in this book}\label{where-to-find-the-data-used-in-this-book}}
+\addcontentsline{toc}{section}{Where to find the data used in this book}
 
 The data I am using in this book is the cleaned (we'll discuss in more detail exactly what I did to clean each dataset in the dataset's chapter but the short answer is that I did very little.) and concatenated data that I put together from the raw data that the FBI releases. That data is available on my website \href{https://jacobdkaplan.com/data.html}{here}. I am hosting this book through GitHub which has a maximum file size allowed that is far smaller than these data so you'll need to go to my site to download the data, it's not available through this book's GitHub repo. For some examples I'm using the data before I cleaned it of outliers (as an example of the outliers present before I removed them) so that data is not publicly available.
 
@@ -177,6 +179,12 @@ For a list of R packages he has created, please see \href{https://jacobdkaplan.c
 \chapter{An Overview of the Data}\label{ucr_general}}
 
 One of the first, and most important questions, I think people have about crime is a simple one: is crime going up? Answering it seems simple - you just count up all the crimes that happen in an area and see if that number of bigger than it was in previous times.
+
+\hypertarget{what-is-a-crime}{%
+\section{What is a crime?}\label{what-is-a-crime}}
+
+\hypertarget{index-crimes}{%
+\subsection{Index crimes}\label{index-crimes}}
 
 \hypertarget{offenses_known}{%
 \chapter{Offenses Known and Clearances by Arrest}\label{offenses_known}}
@@ -223,8 +231,8 @@ How much does this affect our data in practice? Actually very little. Though the
 
 If you look back at the output when we ran \texttt{names(offenses\_known\_yearly\_1960\_2017)} you'll see that it produced five broad categories of columns. The first was information about the agency including population and geographic info, then came four columns with the same values except starting with ``actual'', ``tot\_clr'', ``clr\_18'', and ``unfound''. Following these starting values were 30 crime categories. We'll discuss what each of those starting values mean in a bit, let's first talk about which crimes are included and what that means for research.
 
-\hypertarget{index-crimes}{%
-\subsection{Index Crimes}\label{index-crimes}}
+\hypertarget{index-crimes-1}{%
+\subsection{Index Crimes}\label{index-crimes-1}}
 
 The Offenses Known and Clearances by Arrest data set contains information on the number of ``Index Crimes'' (sometimes called Part I crimes) reported to each agency. These index crimes are a collection of eight crimes that, for historical reasons based largely by perceived importance in the 1920's when the UCR program was first developed, are used as the primary measure of crime today. Other data sets in the UCR, such as the Arrests by Age, Sex, and Race data and the Hate Crime data have more crimes reported.
 
@@ -372,20 +380,182 @@ From our \texttt{table()} output it seems that when agencies do report, they ten
 \hypertarget{arrests}{%
 \chapter{Arrests by Age, Sex, and Race}\label{arrests}}
 
+\hypertarget{a-brief-history-of-the-data}{%
+\section{A brief history of the data}\label{a-brief-history-of-the-data}}
+
+\hypertarget{changes-in-definitions}{%
+\subsection{Changes in definitions}\label{changes-in-definitions}}
+
+\hypertarget{what-does-the-data-look-like}{%
+\section{What does the data look like?}\label{what-does-the-data-look-like}}
+
+\hypertarget{raw-data}{%
+\subsection{Raw data}\label{raw-data}}
+
+\hypertarget{cleaned-data}{%
+\subsection{Cleaned data}\label{cleaned-data}}
+
+\hypertarget{what-variables-are-in-the-data}{%
+\section{What variables are in the data?}\label{what-variables-are-in-the-data}}
+
+\hypertarget{key-variables}{%
+\subsection{Key variables}\label{key-variables}}
+
+\hypertarget{known-issues-with-the-data}{%
+\subsection{Known issues with the data}\label{known-issues-with-the-data}}
+
+\hypertarget{final-thoughts}{%
+\section{Final thoughts}\label{final-thoughts}}
+
 \hypertarget{leoka}{%
 \chapter{Law Enforcement Officers Killed and Assaulted (LEOKA)}\label{leoka}}
+
+\hypertarget{a-brief-history-of-the-data-1}{%
+\section{A brief history of the data}\label{a-brief-history-of-the-data-1}}
+
+\hypertarget{changes-in-definitions-1}{%
+\subsection{Changes in definitions}\label{changes-in-definitions-1}}
+
+\hypertarget{what-does-the-data-look-like-1}{%
+\section{What does the data look like?}\label{what-does-the-data-look-like-1}}
+
+\hypertarget{raw-data-1}{%
+\subsection{Raw data}\label{raw-data-1}}
+
+\hypertarget{cleaned-data-1}{%
+\subsection{Cleaned data}\label{cleaned-data-1}}
+
+\hypertarget{what-variables-are-in-the-data-1}{%
+\section{What variables are in the data?}\label{what-variables-are-in-the-data-1}}
+
+\hypertarget{key-variables-1}{%
+\subsection{Key variables}\label{key-variables-1}}
+
+\hypertarget{known-issues-with-the-data-1}{%
+\subsection{Known issues with the data}\label{known-issues-with-the-data-1}}
+
+\hypertarget{final-thoughts-1}{%
+\section{Final thoughts}\label{final-thoughts-1}}
 
 \hypertarget{shr}{%
 \chapter{Supplementary Homicide Reports (SHR)}\label{shr}}
 
+\hypertarget{a-brief-history-of-the-data-2}{%
+\section{A brief history of the data}\label{a-brief-history-of-the-data-2}}
+
+\hypertarget{changes-in-definitions-2}{%
+\subsection{Changes in definitions}\label{changes-in-definitions-2}}
+
+\hypertarget{what-does-the-data-look-like-2}{%
+\section{What does the data look like?}\label{what-does-the-data-look-like-2}}
+
+\hypertarget{raw-data-2}{%
+\subsection{Raw data}\label{raw-data-2}}
+
+\hypertarget{cleaned-data-2}{%
+\subsection{Cleaned data}\label{cleaned-data-2}}
+
+\hypertarget{what-variables-are-in-the-data-2}{%
+\section{What variables are in the data?}\label{what-variables-are-in-the-data-2}}
+
+\hypertarget{key-variables-2}{%
+\subsection{Key variables}\label{key-variables-2}}
+
+\hypertarget{known-issues-with-the-data-2}{%
+\subsection{Known issues with the data}\label{known-issues-with-the-data-2}}
+
+\hypertarget{final-thoughts-2}{%
+\section{Final thoughts}\label{final-thoughts-2}}
+
 \hypertarget{hate_crimes}{%
 \chapter{Hate Crime Data}\label{hate_crimes}}
+
+\hypertarget{a-brief-history-of-the-data-3}{%
+\section{A brief history of the data}\label{a-brief-history-of-the-data-3}}
+
+\hypertarget{changes-in-definitions-3}{%
+\subsection{Changes in definitions}\label{changes-in-definitions-3}}
+
+\hypertarget{what-does-the-data-look-like-3}{%
+\section{What does the data look like?}\label{what-does-the-data-look-like-3}}
+
+\hypertarget{raw-data-3}{%
+\subsection{Raw data}\label{raw-data-3}}
+
+\hypertarget{cleaned-data-3}{%
+\subsection{Cleaned data}\label{cleaned-data-3}}
+
+\hypertarget{what-variables-are-in-the-data-3}{%
+\section{What variables are in the data?}\label{what-variables-are-in-the-data-3}}
+
+\hypertarget{key-variables-3}{%
+\subsection{Key variables}\label{key-variables-3}}
+
+\hypertarget{known-issues-with-the-data-3}{%
+\subsection{Known issues with the data}\label{known-issues-with-the-data-3}}
+
+\hypertarget{final-thoughts-3}{%
+\section{Final thoughts}\label{final-thoughts-3}}
 
 \hypertarget{stolen_property}{%
 \chapter{Property Stolen and Recovered (Supplement to Return A)}\label{stolen_property}}
 
+\hypertarget{a-brief-history-of-the-data-4}{%
+\section{A brief history of the data}\label{a-brief-history-of-the-data-4}}
+
+\hypertarget{changes-in-definitions-4}{%
+\subsection{Changes in definitions}\label{changes-in-definitions-4}}
+
+\hypertarget{what-does-the-data-look-like-4}{%
+\section{What does the data look like?}\label{what-does-the-data-look-like-4}}
+
+\hypertarget{raw-data-4}{%
+\subsection{Raw data}\label{raw-data-4}}
+
+\hypertarget{cleaned-data-4}{%
+\subsection{Cleaned data}\label{cleaned-data-4}}
+
+\hypertarget{what-variables-are-in-the-data-4}{%
+\section{What variables are in the data?}\label{what-variables-are-in-the-data-4}}
+
+\hypertarget{key-variables-4}{%
+\subsection{Key variables}\label{key-variables-4}}
+
+\hypertarget{known-issues-with-the-data-4}{%
+\subsection{Known issues with the data}\label{known-issues-with-the-data-4}}
+
+\hypertarget{final-thoughts-4}{%
+\section{Final thoughts}\label{final-thoughts-4}}
+
 \hypertarget{county_level}{%
 \chapter{County-Level Detailed Arrest and Offense Data}\label{county_level}}
+
+\hypertarget{a-brief-history-of-the-data-5}{%
+\section{A brief history of the data}\label{a-brief-history-of-the-data-5}}
+
+\hypertarget{changes-in-definitions-5}{%
+\subsection{Changes in definitions}\label{changes-in-definitions-5}}
+
+\hypertarget{what-does-the-data-look-like-5}{%
+\section{What does the data look like?}\label{what-does-the-data-look-like-5}}
+
+\hypertarget{raw-data-5}{%
+\subsection{Raw data}\label{raw-data-5}}
+
+\hypertarget{cleaned-data-5}{%
+\subsection{Cleaned data}\label{cleaned-data-5}}
+
+\hypertarget{what-variables-are-in-the-data-5}{%
+\section{What variables are in the data?}\label{what-variables-are-in-the-data-5}}
+
+\hypertarget{key-variables-5}{%
+\subsection{Key variables}\label{key-variables-5}}
+
+\hypertarget{known-issues-with-the-data-5}{%
+\subsection{Known issues with the data}\label{known-issues-with-the-data-5}}
+
+\hypertarget{final-thoughts-5}{%
+\section{Final thoughts}\label{final-thoughts-5}}
 
   \bibliography{book.bib,packages.bib}
 

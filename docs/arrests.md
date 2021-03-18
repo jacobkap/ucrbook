@@ -1,5 +1,4 @@
-# County-Level Detailed Arrest and Offense Data {#county_level}
-
+# Arrests by Age, Sex, and Race {#arrests}
 
 
 ## A brief history of the data

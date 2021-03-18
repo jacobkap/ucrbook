@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide</title>
-  <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
+  <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime (UCR) Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
+  <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime (UCR) Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide" />
   
-  <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
+  <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime (UCR) Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
   
 
 <meta name="author" content="Jacob Kaplan" />
@@ -75,13 +75,17 @@
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#goal-of-the-book"><i class="fa fa-check"></i>Goal of the book</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure-of-the-book"><i class="fa fa-check"></i>Structure of the book</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#citing-this-book"><i class="fa fa-check"></i>Citing this book</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#sources-of-ucr-data"><i class="fa fa-check"></i>Sources of UCR data</a>
-<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#sources-of-ucr-data"><i class="fa fa-check"></i>Sources of UCR data</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#where-to-find-the-data-used-in-this-book"><i class="fa fa-check"></i>Where to find the data used in this book</a></li>
 </ul></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the author</a></li>
-<li class="chapter" data-level="1" data-path="ucr-general.html"><a href="ucr-general.html"><i class="fa fa-check"></i><b>1</b> An Overview of the Data</a></li>
+<li class="chapter" data-level="1" data-path="ucr-general.html"><a href="ucr-general.html"><i class="fa fa-check"></i><b>1</b> An Overview of the Data</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="ucr-general.html"><a href="ucr-general.html#what-is-a-crime"><i class="fa fa-check"></i><b>1.1</b> What is a crime?</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="ucr-general.html"><a href="ucr-general.html#index-crimes"><i class="fa fa-check"></i><b>1.1.1</b> Index crimes</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="offenses-known.html"><a href="offenses-known.html"><i class="fa fa-check"></i><b>2</b> Offenses Known and Clearances by Arrest</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="offenses-known.html"><a href="offenses-known.html#exploring-the-ucr-data"><i class="fa fa-check"></i><b>2.1</b> Exploring the UCR data</a></li>
@@ -89,7 +93,7 @@
 <li class="chapter" data-level="2.3" data-path="offenses-known.html"><a href="offenses-known.html#hierarchy-rule"><i class="fa fa-check"></i><b>2.3</b> Hierarchy Rule</a></li>
 <li class="chapter" data-level="2.4" data-path="offenses-known.html"><a href="offenses-known.html#which-crimes-are-included"><i class="fa fa-check"></i><b>2.4</b> Which crimes are included?</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="offenses-known.html"><a href="offenses-known.html#index-crimes"><i class="fa fa-check"></i><b>2.4.1</b> Index Crimes</a></li>
+<li class="chapter" data-level="2.4.1" data-path="offenses-known.html"><a href="offenses-known.html#index-crimes-1"><i class="fa fa-check"></i><b>2.4.1</b> Index Crimes</a></li>
 <li class="chapter" data-level="2.4.2" data-path="offenses-known.html"><a href="offenses-known.html#the-problem-with-using-index-crimes"><i class="fa fa-check"></i><b>2.4.2</b> The problem with using index crimes</a></li>
 <li class="chapter" data-level="2.4.3" data-path="offenses-known.html"><a href="offenses-known.html#rape-definition-change"><i class="fa fa-check"></i><b>2.4.3</b> Rape definition change</a></li>
 </ul></li>
@@ -102,15 +106,114 @@
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="offenses-known.html"><a href="offenses-known.html#number-of-months-reported"><i class="fa fa-check"></i><b>2.6</b> Number of months reported</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="arrests.html"><a href="arrests.html"><i class="fa fa-check"></i><b>3</b> Arrests by Age, Sex, and Race</a></li>
-<li class="chapter" data-level="4" data-path="leoka.html"><a href="leoka.html"><i class="fa fa-check"></i><b>4</b> Law Enforcement Officers Killed and Assaulted (LEOKA)</a></li>
-<li class="chapter" data-level="5" data-path="shr.html"><a href="shr.html"><i class="fa fa-check"></i><b>5</b> Supplementary Homicide Reports (SHR)</a></li>
-<li class="chapter" data-level="6" data-path="hate-crimes.html"><a href="hate-crimes.html"><i class="fa fa-check"></i><b>6</b> Hate Crime Data</a></li>
-<li class="chapter" data-level="7" data-path="stolen-property.html"><a href="stolen-property.html"><i class="fa fa-check"></i><b>7</b> Property Stolen and Recovered (Supplement to Return A)</a></li>
-<li class="chapter" data-level="8" data-path="county-level.html"><a href="county-level.html"><i class="fa fa-check"></i><b>8</b> County-Level Detailed Arrest and Offense Data</a></li>
-<li class="divider"></li>
-<li><a href="https://github.com/jacobkap/ucrbook" target="blank"></a></li>
-
+<li class="chapter" data-level="3" data-path="arrests.html"><a href="arrests.html"><i class="fa fa-check"></i><b>3</b> Arrests by Age, Sex, and Race</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="arrests.html"><a href="arrests.html#a-brief-history-of-the-data"><i class="fa fa-check"></i><b>3.1</b> A brief history of the data</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="arrests.html"><a href="arrests.html#changes-in-definitions"><i class="fa fa-check"></i><b>3.1.1</b> Changes in definitions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="arrests.html"><a href="arrests.html#what-does-the-data-look-like"><i class="fa fa-check"></i><b>3.2</b> What does the data look like?</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="arrests.html"><a href="arrests.html#raw-data"><i class="fa fa-check"></i><b>3.2.1</b> Raw data</a></li>
+<li class="chapter" data-level="3.2.2" data-path="arrests.html"><a href="arrests.html#cleaned-data"><i class="fa fa-check"></i><b>3.2.2</b> Cleaned data</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="arrests.html"><a href="arrests.html#what-variables-are-in-the-data"><i class="fa fa-check"></i><b>3.3</b> What variables are in the data?</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="arrests.html"><a href="arrests.html#key-variables"><i class="fa fa-check"></i><b>3.3.1</b> Key variables</a></li>
+<li class="chapter" data-level="3.3.2" data-path="arrests.html"><a href="arrests.html#known-issues-with-the-data"><i class="fa fa-check"></i><b>3.3.2</b> Known issues with the data</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="arrests.html"><a href="arrests.html#final-thoughts"><i class="fa fa-check"></i><b>3.4</b> Final thoughts</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="leoka.html"><a href="leoka.html"><i class="fa fa-check"></i><b>4</b> Law Enforcement Officers Killed and Assaulted (LEOKA)</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="leoka.html"><a href="leoka.html#a-brief-history-of-the-data-1"><i class="fa fa-check"></i><b>4.1</b> A brief history of the data</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="leoka.html"><a href="leoka.html#changes-in-definitions-1"><i class="fa fa-check"></i><b>4.1.1</b> Changes in definitions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="leoka.html"><a href="leoka.html#what-does-the-data-look-like-1"><i class="fa fa-check"></i><b>4.2</b> What does the data look like?</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="leoka.html"><a href="leoka.html#raw-data-1"><i class="fa fa-check"></i><b>4.2.1</b> Raw data</a></li>
+<li class="chapter" data-level="4.2.2" data-path="leoka.html"><a href="leoka.html#cleaned-data-1"><i class="fa fa-check"></i><b>4.2.2</b> Cleaned data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="leoka.html"><a href="leoka.html#what-variables-are-in-the-data-1"><i class="fa fa-check"></i><b>4.3</b> What variables are in the data?</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="leoka.html"><a href="leoka.html#key-variables-1"><i class="fa fa-check"></i><b>4.3.1</b> Key variables</a></li>
+<li class="chapter" data-level="4.3.2" data-path="leoka.html"><a href="leoka.html#known-issues-with-the-data-1"><i class="fa fa-check"></i><b>4.3.2</b> Known issues with the data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="leoka.html"><a href="leoka.html#final-thoughts-1"><i class="fa fa-check"></i><b>4.4</b> Final thoughts</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="shr.html"><a href="shr.html"><i class="fa fa-check"></i><b>5</b> Supplementary Homicide Reports (SHR)</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="shr.html"><a href="shr.html#a-brief-history-of-the-data-2"><i class="fa fa-check"></i><b>5.1</b> A brief history of the data</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="shr.html"><a href="shr.html#changes-in-definitions-2"><i class="fa fa-check"></i><b>5.1.1</b> Changes in definitions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="shr.html"><a href="shr.html#what-does-the-data-look-like-2"><i class="fa fa-check"></i><b>5.2</b> What does the data look like?</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="shr.html"><a href="shr.html#raw-data-2"><i class="fa fa-check"></i><b>5.2.1</b> Raw data</a></li>
+<li class="chapter" data-level="5.2.2" data-path="shr.html"><a href="shr.html#cleaned-data-2"><i class="fa fa-check"></i><b>5.2.2</b> Cleaned data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="shr.html"><a href="shr.html#what-variables-are-in-the-data-2"><i class="fa fa-check"></i><b>5.3</b> What variables are in the data?</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="shr.html"><a href="shr.html#key-variables-2"><i class="fa fa-check"></i><b>5.3.1</b> Key variables</a></li>
+<li class="chapter" data-level="5.3.2" data-path="shr.html"><a href="shr.html#known-issues-with-the-data-2"><i class="fa fa-check"></i><b>5.3.2</b> Known issues with the data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="shr.html"><a href="shr.html#final-thoughts-2"><i class="fa fa-check"></i><b>5.4</b> Final thoughts</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="hate-crimes.html"><a href="hate-crimes.html"><i class="fa fa-check"></i><b>6</b> Hate Crime Data</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="hate-crimes.html"><a href="hate-crimes.html#a-brief-history-of-the-data-3"><i class="fa fa-check"></i><b>6.1</b> A brief history of the data</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="hate-crimes.html"><a href="hate-crimes.html#changes-in-definitions-3"><i class="fa fa-check"></i><b>6.1.1</b> Changes in definitions</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="hate-crimes.html"><a href="hate-crimes.html#what-does-the-data-look-like-3"><i class="fa fa-check"></i><b>6.2</b> What does the data look like?</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="hate-crimes.html"><a href="hate-crimes.html#raw-data-3"><i class="fa fa-check"></i><b>6.2.1</b> Raw data</a></li>
+<li class="chapter" data-level="6.2.2" data-path="hate-crimes.html"><a href="hate-crimes.html#cleaned-data-3"><i class="fa fa-check"></i><b>6.2.2</b> Cleaned data</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="hate-crimes.html"><a href="hate-crimes.html#what-variables-are-in-the-data-3"><i class="fa fa-check"></i><b>6.3</b> What variables are in the data?</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="hate-crimes.html"><a href="hate-crimes.html#key-variables-3"><i class="fa fa-check"></i><b>6.3.1</b> Key variables</a></li>
+<li class="chapter" data-level="6.3.2" data-path="hate-crimes.html"><a href="hate-crimes.html#known-issues-with-the-data-3"><i class="fa fa-check"></i><b>6.3.2</b> Known issues with the data</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="hate-crimes.html"><a href="hate-crimes.html#final-thoughts-3"><i class="fa fa-check"></i><b>6.4</b> Final thoughts</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="stolen-property.html"><a href="stolen-property.html"><i class="fa fa-check"></i><b>7</b> Property Stolen and Recovered (Supplement to Return A)</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="stolen-property.html"><a href="stolen-property.html#a-brief-history-of-the-data-4"><i class="fa fa-check"></i><b>7.1</b> A brief history of the data</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="stolen-property.html"><a href="stolen-property.html#changes-in-definitions-4"><i class="fa fa-check"></i><b>7.1.1</b> Changes in definitions</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="stolen-property.html"><a href="stolen-property.html#what-does-the-data-look-like-4"><i class="fa fa-check"></i><b>7.2</b> What does the data look like?</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="stolen-property.html"><a href="stolen-property.html#raw-data-4"><i class="fa fa-check"></i><b>7.2.1</b> Raw data</a></li>
+<li class="chapter" data-level="7.2.2" data-path="stolen-property.html"><a href="stolen-property.html#cleaned-data-4"><i class="fa fa-check"></i><b>7.2.2</b> Cleaned data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="stolen-property.html"><a href="stolen-property.html#what-variables-are-in-the-data-4"><i class="fa fa-check"></i><b>7.3</b> What variables are in the data?</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="stolen-property.html"><a href="stolen-property.html#key-variables-4"><i class="fa fa-check"></i><b>7.3.1</b> Key variables</a></li>
+<li class="chapter" data-level="7.3.2" data-path="stolen-property.html"><a href="stolen-property.html#known-issues-with-the-data-4"><i class="fa fa-check"></i><b>7.3.2</b> Known issues with the data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="stolen-property.html"><a href="stolen-property.html#final-thoughts-4"><i class="fa fa-check"></i><b>7.4</b> Final thoughts</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="county-level.html"><a href="county-level.html"><i class="fa fa-check"></i><b>8</b> County-Level Detailed Arrest and Offense Data</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="county-level.html"><a href="county-level.html#a-brief-history-of-the-data-5"><i class="fa fa-check"></i><b>8.1</b> A brief history of the data</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="county-level.html"><a href="county-level.html#changes-in-definitions-5"><i class="fa fa-check"></i><b>8.1.1</b> Changes in definitions</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="county-level.html"><a href="county-level.html#what-does-the-data-look-like-5"><i class="fa fa-check"></i><b>8.2</b> What does the data look like?</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="county-level.html"><a href="county-level.html#raw-data-5"><i class="fa fa-check"></i><b>8.2.1</b> Raw data</a></li>
+<li class="chapter" data-level="8.2.2" data-path="county-level.html"><a href="county-level.html#cleaned-data-5"><i class="fa fa-check"></i><b>8.2.2</b> Cleaned data</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="county-level.html"><a href="county-level.html#what-variables-are-in-the-data-5"><i class="fa fa-check"></i><b>8.3</b> What variables are in the data?</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="county-level.html"><a href="county-level.html#key-variables-5"><i class="fa fa-check"></i><b>8.3.1</b> Key variables</a></li>
+<li class="chapter" data-level="8.3.2" data-path="county-level.html"><a href="county-level.html#known-issues-with-the-data-5"><i class="fa fa-check"></i><b>8.3.2</b> Known issues with the data</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="county-level.html"><a href="county-level.html#final-thoughts-5"><i class="fa fa-check"></i><b>8.4</b> Final thoughts</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -151,7 +254,8 @@
 </div>
 <div id="structure-of-the-book" class="section level2 unnumbered">
 <h2>Structure of the book</h2>
-<p>This book will be divided into eight chapters: an intro chapter briefly summarizing each dataset and going over overall issues with UCR data, six chapters each covering one of the six UCR datasets, and a final one covering county-level data, a highly flawed but common use of the UCR data. Each chapter will follow the same format: we’ll start with a history of the data such as when it first because available and important changes in definitions or variables. Next we’ll discuss what the data looks like initially when you get it from the FBI - literally what it looks like in it’s fixed-width ASCII format you get from the FBI and what it looks like (what each row and column mean) once it’s turned into a useful format that can be read into modern software like R and Stata. For most of the datasets this is a minor process but for data like the arrest or homicide datasets, the conversion process is harder - and this can actually lead to changes in the resulting data. For example, in an old version of the arrest data that I released, I aggregated certain arrestee ages together since my laptop at the time couldn’t handle converting data from ASCII to R and Stata without aggregating the ages (more age groups means more columns which means more computer memory needed). So anyone using that data would have less detailed data than the current dataset.</p>
+<p>This book will be divided into eight chapters: an intro chapter briefly summarizing each dataset and going over overall issues with UCR data, six chapters each covering one of the six UCR datasets, and a final one covering county-level data, a highly flawed but common use of the UCR data. Each chapter will follow the same format: we’ll start with a history of the data such as when it first because available and important changes in definitions or variables.</p>
+<p>Next we’ll discuss what the data looks like initially when you get it from the FBI - literally what it looks like in it’s fixed-width ASCII format you get from the FBI and what it looks like (what each row and column mean) once it’s turned into a useful format that can be read into modern software like R and Stata. For most of the datasets this is a minor process but for data like the arrest or homicide datasets, the conversion process is harder - and this can actually lead to changes in the resulting data. For example, in an old version of the arrest data that I released, I aggregated certain arrestee ages together since my laptop at the time couldn’t handle converting data from ASCII to R and Stata without aggregating the ages (more age groups means more columns which means more computer memory needed). So anyone using that data would have less detailed data than the current dataset.</p>
 <p>Understanding how the data moves from its rawest form (which in this case is after cleaning by the FBI) is important for being able to truly understand the data and its caveats. However, this is a fairly technical part of each chapter so feel free to skip it. Next in each chapter, we’ll cover the variables included in the data and how to use them properly (including not using them at all) - this will be the bulk of each chapter. We’ll end each chapter by briefly summarizing the data, how and when it’s useful, and - most importantly - when you shouldn’t use it.</p>
 </div>
 <div id="citing-this-book" class="section level2 unnumbered">
@@ -174,11 +278,11 @@ BibTeX format:
 <p>Next, and most usable for the general public but limited to researchers, is the FBI’s official website <a href="https://crime-data-explorer.fr.cloud.gov/">Crime Data Explorer</a>. On this site you can chose an agency and see annual crime data (remember, UCR data is monthly so this isn’t as detailed as it can be) for certain crimes. This is okay for the general public but only provides a fraction of the data available in the actual data so is really not good for researchers.</p>
 <p>Finally, I have my own collection of UCR data <a href="available%20publicly%20on%20openICPSR">https://www.openicpsr.org/openicpsr/search/studies?start=0&amp;ARCHIVE=openicpsr&amp;sort=score%20desc%2CDATEUPDATED%20desc&amp;rows=25&amp;q=jacob%20kaplan%27s%20concatenated%20files</a>, a site which allows people to submit their data for public access. For each of these datasets I’ve taken the raw data from the FBI (for early years of homicide data this is actually from NACJD since the FBI’s raw data is wrong and can’t be parsed. For later years of homicide data this is from the FBI’s raw data.) and read it into R. Since the data is only available from the FBI as fixed-width ASCII files, I created a setup file (we’ll explain exactly how reading in this kind of data works in the next chapter) and read the data and then very lightly cleaned the data (i.e. only removing extreme outliers like an agency having millions of arsons in a month). For each of these datasets I detail what I’ve done to the data and briefly summarize the data (i.e. a very short version of this book) on the data’s page on openICPSR. The main advantage is that all my data has standard variable names and column names and, for data that is small enough, provide the data as a single file that has all years. For large datasets like the arrest data I break it down into parts of the data and not all years in a single file. The downside is that I don’t provide documentation other than what’s on the openICPSR page and only provide data in R and Stata format. I also have a similar site to the FBI’s Crime Data Explorer but with more variables available, that site is available <a href="jacobdkaplan.com/">here</a>.</p>
 <p>It’s worth mentioning a final source of UCR information. This is the annual Crimes in the United States report released by the FBI each year around the start of October.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> As an example, here is the <a href="https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019">website for the 2019 report</a>. In this report is summarized data which in most cases estimates missing data and provides information about national and subnational (though rarely city-level) crime data. As with the FBI’s site it is only a fraction of the true data available so is not a very useful source of crime data. Still, this is a very common source of information used by researchers.</p>
-<div id="where-to-find-the-data-used-in-this-book" class="section level3 unnumbered">
-<h3>Where to find the data used in this book</h3>
+</div>
+<div id="where-to-find-the-data-used-in-this-book" class="section level2 unnumbered">
+<h2>Where to find the data used in this book</h2>
 <p>The data I am using in this book is the cleaned (we’ll discuss in more detail exactly what I did to clean each dataset in the dataset’s chapter but the short answer is that I did very little.) and concatenated data that I put together from the raw data that the FBI releases. That data is available on my website <a href="https://jacobdkaplan.com/data.html">here</a>. I am hosting this book through GitHub which has a maximum file size allowed that is far smaller than these data so you’ll need to go to my site to download the data, it’s not available through this book’s GitHub repo. For some examples I’m using the data before I cleaned it of outliers (as an example of the outliers present before I removed them) so that data is not publicly available.</p>
 
-</div>
 </div>
 </div>
 <div class="footnotes">
@@ -208,24 +312,15 @@ BibTeX format:
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
+"sharing": true,
 "fontsettings": {
 "theme": "white",
 "family": "sans",
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/jacobkap/ucrbook/edit/master/index.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,

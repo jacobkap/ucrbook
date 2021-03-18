@@ -1,5 +1,4 @@
-# County-Level Detailed Arrest and Offense Data {#county_level}
-
+# Hate Crime Data {#hate_crimes}
 
 
 ## A brief history of the data
