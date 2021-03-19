@@ -1,3 +1,6 @@
+fig:unnamed-chunk-1
+fig:unnamed-chunk-2
+fig:unnamed-chunk-3
 nibrs-data
 ucr_general
 what-is-a-crime

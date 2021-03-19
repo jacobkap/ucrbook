@@ -9,7 +9,19 @@
 
 ### Raw data
 
+```{r, fig.cap="Fixed-width ASCII file for the 1985 Supplementary Homicide Reports (SHR) dataset"}
+knitr::include_graphics('images/shr_raw_ascii_1985.PNG')
+```
+
 ### Cleaned data
+
+```{r, fig.cap="Agency information for the 1985 Supplementary Homicide Reports (SHR) dataset"}
+knitr::include_graphics('images/shr_agency_info.PNG')
+```
+
+```{r, fig.cap="Crime information for the 1985 Supplementary Homicide Reports (SHR) dataset"}
+knitr::include_graphics('images/shr_crime_info.PNG')
+```
 
 ## What variables are in the data?
 

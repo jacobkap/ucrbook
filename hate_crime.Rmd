@@ -11,8 +11,19 @@ This dataset covers crimes that are judged by the police to be motivated by hate
 
 ### Raw data
 
+```{r, fig.cap="Fixed-width ASCII file for the 1991 Hate Crime dataset"}
+knitr::include_graphics('images/hate_crimes_raw_ascii_1991.PNG')
+```
 
 ### Cleaned data
+
+```{r, fig.cap="Agency information for the 1991 Hate Crime dataset"}
+knitr::include_graphics('images/hate_crimes_agency_info.PNG')
+```
+
+```{r, fig.cap="Crime information for the 1991 Hate Crime dataset"}
+knitr::include_graphics('images/hate_crimes_crime_info.PNG')
+```
 
 ## What variables are in the data?
 

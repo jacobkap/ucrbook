@@ -9,7 +9,19 @@
 
 ### Raw data
 
+```{r, fig.cap="Fixed-width ASCII file for the 1974 Arrests by Age, Sex, and Race dataset"}
+knitr::include_graphics('images/arrests_raw_ascii_1974.PNG')
+```
+
 ### Cleaned data
+
+```{r, fig.cap="Agency information for the 1974 Arrests by Age, Sex, and Race dataset"}
+knitr::include_graphics('images/arrests_agency_info.PNG')
+```
+
+```{r, fig.cap="Crime information for the 1974 Arrests by Age, Sex, and Race dataset"}
+knitr::include_graphics('images/arrests_crime_info.PNG')
+```
 
 ## What variables are in the data?
 

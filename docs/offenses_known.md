@@ -10,7 +10,38 @@
 
 The data comes as a single fixed-width ASCII file where each row is an agency and the column cover information about the agency (e.g. its name, location) and the monthly number of crimes reported and cleared in that agency. This format makes the data relatively easy to convert into machine-readable formats like R and Stata. 
 
+
+
+```r
+knitr::include_graphics('images/offenses_known_raw_ascii_1960.PNG')
+```
+
+<div class="figure">
+<img src="images/offenses_known_raw_ascii_1960.PNG" alt="Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset" width="315" />
+<p class="caption">(\#fig:unnamed-chunk-1)Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset</p>
+</div>
+
 ### Cleaned data
+
+
+```r
+knitr::include_graphics('images/offenses_known_agency_info_1960.PNG')
+```
+
+<div class="figure">
+<img src="images/offenses_known_agency_info_1960.PNG" alt="Agency information for the 1960 Offenses Known and Clearances by Arrest dataset" width="960" />
+<p class="caption">(\#fig:unnamed-chunk-2)Agency information for the 1960 Offenses Known and Clearances by Arrest dataset</p>
+</div>
+
+
+```r
+knitr::include_graphics('images/offenses_known_crime_info.PNG')
+```
+
+<div class="figure">
+<img src="images/offenses_known_crime_info.PNG" alt="Crime information for the 1960 Offenses Known and Clearances by Arrest dataset" width="958" />
+<p class="caption">(\#fig:unnamed-chunk-3)Crime information for the 1960 Offenses Known and Clearances by Arrest dataset</p>
+</div>
 
 ## What variables are in the data?
 

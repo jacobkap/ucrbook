@@ -25,6 +25,11 @@ options(
   warnPartialMatchDollar = FALSE
 )
 
+knitr::opts_chunk$set(
+  echo    = FALSE,
+  warning = FALSE,
+  error   = FALSE
+)
 
 # bookdown::render_book("index.Rmd", "bookdown::pdf_book", output_file = "ucrbook.pdf")
 # bookdown::render_book("index.Rmd", "bookdown::epub_book", output_file = "ucrbook.epub")
