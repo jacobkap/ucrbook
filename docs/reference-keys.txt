@@ -1,8 +1,8 @@
 fig:unnamed-chunk-1
 ucr_general
+the-data-as-you-get-it-from-the-fbi
 what-is-a-crime
 crimes-included-in-the-ucr-datasets
-how-the-raw-data-looks
 index-crimes
 violent-crimes
 a-summary-of-each-ucr-dataset

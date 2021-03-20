@@ -24,7 +24,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2021-03-19" />
+<meta name="date" content="2021-03-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -145,12 +145,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the author</a></li>
 <li class="chapter" data-level="1" data-path="ucr-general.html"><a href="ucr-general.html"><i class="fa fa-check"></i><b>1</b> Overview of the Data</a>
 <ul>
+<li class="chapter" data-level="1.0.1" data-path="ucr-general.html"><a href="ucr-general.html#the-data-as-you-get-it-from-the-fbi"><i class="fa fa-check"></i><b>1.0.1</b> The data as you get it from the FBI</a></li>
 <li class="chapter" data-level="1.1" data-path="ucr-general.html"><a href="ucr-general.html#what-is-a-crime"><i class="fa fa-check"></i><b>1.1</b> What is a crime?</a>
 <ul>
 <li class="chapter" data-level="1.1.1" data-path="ucr-general.html"><a href="ucr-general.html#crimes-included-in-the-ucr-datasets"><i class="fa fa-check"></i><b>1.1.1</b> Crimes included in the UCR datasets</a></li>
-<li class="chapter" data-level="1.1.2" data-path="ucr-general.html"><a href="ucr-general.html#how-the-raw-data-looks"><i class="fa fa-check"></i><b>1.1.2</b> How the raw data looks</a></li>
-<li class="chapter" data-level="1.1.3" data-path="ucr-general.html"><a href="ucr-general.html#index-crimes"><i class="fa fa-check"></i><b>1.1.3</b> Index crimes</a></li>
-<li class="chapter" data-level="1.1.4" data-path="ucr-general.html"><a href="ucr-general.html#violent-crimes"><i class="fa fa-check"></i><b>1.1.4</b> Violent crimes</a></li>
+<li class="chapter" data-level="1.1.2" data-path="ucr-general.html"><a href="ucr-general.html#index-crimes"><i class="fa fa-check"></i><b>1.1.2</b> Index crimes</a></li>
+<li class="chapter" data-level="1.1.3" data-path="ucr-general.html"><a href="ucr-general.html#violent-crimes"><i class="fa fa-check"></i><b>1.1.3</b> Violent crimes</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="ucr-general.html"><a href="ucr-general.html#a-summary-of-each-ucr-dataset"><i class="fa fa-check"></i><b>1.2</b> A summary of each UCR dataset</a>
 <ul>
@@ -317,13 +317,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Next, we have to know what geographic and time unit to measure crimes at since these decisions determine how precise we can measure crime and when it changed. If we</p>
 <p>The final question is that when a crime occurs, how do we know? That is, when we want to count how many crimes occurred do we ask people how often they’ve been victimized, do we ask people how often they commit a crime, do we look at crimes reported to police, crimes charged in a criminal court? Each of these measures will likely give different answers as to how many crimes occurred.</p>
 <p>The FBI answered all of these questions in 1929 when they began the Uniform Crime Reporting (UCR) Program Data, or UCR data for short. Crime consists of seven crime categories - murder, rape, robbery, aggravated assault, burglary, motor vehicle theft, and theft - that are reported to the police and is collected each month from each agency in the country. These decisions, born primarily out of the resource limitations of 1929 (e.g. no computers), have had a major impact on criminology research. These seven crime categories - known as “Index Crimes” or “Part 1 crimes” (or “Part I” sometimes) - are the ones used to measure crime in many criminology papers, even when the researchers have access to data that covers a broader selection of crimes than these.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
-<div id="what-is-a-crime" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> What is a crime?</h2>
-<div id="crimes-included-in-the-ucr-datasets" class="section level3" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> Crimes included in the UCR datasets</h3>
-</div>
-<div id="how-the-raw-data-looks" class="section level3" number="1.1.2">
-<h3><span class="header-section-number">1.1.2</span> How the raw data looks</h3>
+<div id="the-data-as-you-get-it-from-the-fbi" class="section level3" number="1.0.1">
+<h3><span class="header-section-number">1.0.1</span> The data as you get it from the FBI</h3>
+<p>We’ll finish this overview of the UCR data by briefly talking about format of the data that is released by the FBI, before the processing done by myself or <a href="https://www.icpsr.umich.edu/web/pages/NACJD/index.html">NACJD</a> that converts the data to a type that software like R or Stata or Excel can understand. The FBI releases their data as fixed-width ASCII files which are basically just an Excel file but with all of the columns squished together. As an example, below is the data as you receive it from the FBI for the Offenses Known and Clearances by Arrest dataset for 1960, the first year with data available. In the figure, it seems like there are multiple rows but that’s just because the software that I opened the file in isn’t wide enough - in reality what is shown is a single row that is extremely wide because there are over 1,500 columns in this data. If you scroll down enough you’ll see the next row, but that isn’t shown in the current image. What is shown is a single row with a ton of columns all pushed up next to each other. Since all of the columns are squished together (the gaps are just blank spaces because the value there is a space, but that doesn’t mean there is a in the data. Spaces are possible values in the data and are meaningful), you need some way to figure out which parts of the data belong in which column.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="ucr-general.html#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/offenses_known_raw_ascii_1960.PNG&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-1"></span>
 <img src="images/offenses_known_raw_ascii_1960.PNG" alt="Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset" width="315" />
@@ -331,12 +327,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Figure 1.1: Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset
 </p>
 </div>
+<p>The “fixed-width” part of the file type is how this works (the ASCII part basically means it’s a text file). Each row is the same width - literally the same number of characters, including blank spaces. So you must tell the software you are using to process this file - by literally write code in something called a “setup file” but is basically just instructions for whatever software you use (R, SPSS, Stata, SAS can all do this) - which characters are certain columns. For example, in this data the first character says which type of UCR data it is (1 means the Offenses Known and Clearances by Arrest data) and the next two characters (in the setup file written as 2-3 since it is characters 2 through 3 [inclusive]) are the state number (01 is the state code for Alabama). So we can read this row as the first column indicating it is an Offenses Known data, the second column indicating that it is for the state of Alabama, and so on for each of the remaining columns. To read in this data you’ll need a setup file that covers every column in the data (some software, like R, can handle just reading in the specific columns you want and don’t need to include every column in the setup file).</p>
+<p>The second important thing to know about reading in a fixed-width ASCII file is something called a “value label.”<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> For example, in the above image we saw the characters 2-3 is the state and in the row we have the value “01” which means that the state is “Alabama.” Since this type of data is trying to be as small as efficient as possible, it often replaces longer values with shorter one and provides a translation for the software to use to convert it to the proper value when reading it. “Alabama” is more characters than “01” so it saves space to say “01” and just replace that with “Alabama” later on. So “01” would be the ‘value" and “Alabama” would be the ’label’ that it changes to once read.</p>
+<p>Fixed-width ASCII files may seem awful to you reading it today, and it is awful to use. But it appears to be an efficient way to store data back many decades ago when data releases began but now is extremely inefficient - in terms of speed, file size, ease of use - compared to modern software so I’m not sure why they <em>still</em> release data in this format. But they do, and even the more <em>modern</em> (if starting in 1991, before I was born, is modern!) NIBRS data comes in this format. For you, however, the important part to understand is not how exactly to read this type of data, but to understand that people who made this data publicly available (such as myself and the team at NACJD) must made this conversion process.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> <strong>This conversion process, from fixed-width ASCII to a useful format is the most dangerous step taken in using this data - and one that is nearly entirely unseen by researchers.</strong></p>
+<p>Every line of code you write (or, for SPSS users, click you make) invites the possibility of making a mistake.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> The FBI does not provide a setup file with the fixed-width ASCII data so to read in this data you need to make it yourself. Since some UCR data are massive, this involves assigning the column width for thousands of columns and the value labels for hundreds of different value labels.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> A typo anywhere could have potentially far-reaching consequences so this is a crucial weakpoint in the data cleaning process - and one in which I have not seen anything written about before.</p>
 </div>
-<div id="index-crimes" class="section level3" number="1.1.3">
-<h3><span class="header-section-number">1.1.3</span> Index crimes</h3>
+<div id="what-is-a-crime" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> What is a crime?</h2>
+<div id="crimes-included-in-the-ucr-datasets" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Crimes included in the UCR datasets</h3>
 </div>
-<div id="violent-crimes" class="section level3" number="1.1.4">
-<h3><span class="header-section-number">1.1.4</span> Violent crimes</h3>
+<div id="index-crimes" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Index crimes</h3>
+</div>
+<div id="violent-crimes" class="section level3" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Violent crimes</h3>
 </div>
 </div>
 <div id="a-summary-of-each-ucr-dataset" class="section level2" number="1.2">
@@ -368,6 +373,10 @@ Figure 1.1: Fixed-width ASCII file for the 1960 Offenses Known and Clearances by
 <hr />
 <ol start="4">
 <li id="fn4"><p>Arson is also an index crime but was added after these initial seven were chosen and is not included in the crimes dataset so is generally not included in studies that use index crimes.<a href="ucr-general.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>For most fixed-width ASCII files there are also missing values where it’ll have placeholder value such as -8 and the setup file will instruct the software to convert that to NA. UCR data, however, does not have this and does not indicate when values are missing in this manner.<a href="ucr-general.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>For those interested in reading in this type of data, please see my R package asciiSetupReader.<a href="ucr-general.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>Even highly experienced programmers who are doing something like can make mistakes. For example, if you type out “2+2” 100 times - something extremely simple that anyone can do - how often will you mistype a character and get a wrong result? I’d guess that at least once you’d make a mistake.<a href="ucr-general.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>With the exception of the arrest data and some value label changes in hate crimes and homicide data, the setup files remain consistent you a single file will work for all years for a given dataset. You do not need to make a setup file for each year.<a href="ucr-general.html#fnref8" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

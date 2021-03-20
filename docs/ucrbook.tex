@@ -123,7 +123,7 @@
 
 \title{Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide}
 \author{Jacob Kaplan}
-\date{2021-03-19}
+\date{2021-03-20}
 
 \begin{document}
 \maketitle
@@ -160,7 +160,7 @@ For most of this book we'll be discussing the caveats of the above reasons - or,
 
 By the end of each chapter you should have a firm grasp on the dataset the covered and how to use it properly. However, this book can't possibly cover every potential use case for the data so make sure to carefully examine the data for your own particular use. This benefits you because you'll know your data better and become a better research because of it. This benefits me because it'll increase the quality of research in my field.
 
-I get a lot of emails from people asking questions about this data so part of my motivation for writing this book is to create a single place that answers as many questions as I can about the data. Again, this is among the most commonly used crime datasets and there are still many current papers published with incorrect information about the data (including such simple aspects like what geographic unit data is in and what time unit it is in). So hopefully this book will decrease the amount of misconceptions about this data, increasing overall research quality.\footnote{Ideally, this will also decrease the number of emails I receive.}
+I get a lot of emails from people asking questions about this data so part of my motivation for writing this book is to create a single place that answers as many questions as I can about the data. Again, this is among the most commonly used crime datasets and there are still many current papers published with incorrect information about the data (including such simple aspects like what geographic unit data is in and what time unit it is in). So hopefully this book will decrease the amount of misconceptions about this data, increasing overall research quality.\footnote{Ideally, this will also decrease the number of emails and increase the number of citations I receive.}
 
 \hypertarget{structure-of-the-book}{%
 \section*{Structure of the book}\label{structure-of-the-book}}
@@ -203,7 +203,8 @@ It's worth mentioning a final source of UCR information. This is the annual Crim
 The data I am using in this book is the cleaned (we'll discuss in more detail exactly what I did to clean each dataset in the dataset's chapter but the short answer is that I did very little.) and concatenated data that I put together from the raw data that the FBI releases. That data is available on my website \href{https://jacobdkaplan.com/data.html}{here}. I am hosting this book through GitHub which has a maximum file size allowed that is far smaller than these data so you'll need to go to my site to download the data, it's not available through this book's GitHub repo. For some examples I'm using the data before I cleaned it of outliers (as an example of the outliers present before I removed them) so that data is not publicly available.
 
 \hypertarget{nibrs-data}{%
-\section{NIBRS data}\label{nibrs-data}}
+\section*{NIBRS data}\label{nibrs-data}}
+
 
 Another source of FBI data, and one sometimes considered part of the UCR data collection, is the National Incident-Based Reporting System (NIBRS) data. Like its name implies this is an incident-level dataset which has detailed information about each incident reported to the police, including incident circumstances, and victim and offender information. This is also the data that the FBI has declared will replace UCR data starting in 2021, meaning that they will no longer collect UCR data and only allow agencies to submit NIBRS data. NIBRS data is a complex and highly rich dataset that deserves its own book to really understand, so I will not be discussing it any further in this book.
 
@@ -232,14 +233,10 @@ The final question is that when a crime occurs, how do we know? That is, when we
 
 The FBI answered all of these questions in 1929 when they began the Uniform Crime Reporting (UCR) Program Data, or UCR data for short. Crime consists of seven crime categories - murder, rape, robbery, aggravated assault, burglary, motor vehicle theft, and theft - that are reported to the police and is collected each month from each agency in the country. These decisions, born primarily out of the resource limitations of 1929 (e.g.~no computers), have had a major impact on criminology research. These seven crime categories - known as ``Index Crimes'' or ``Part 1 crimes'' (or ``Part I'' sometimes) - are the ones used to measure crime in many criminology papers, even when the researchers have access to data that covers a broader selection of crimes than these.\footnote{Arson is also an index crime but was added after these initial seven were chosen and is not included in the crimes dataset so is generally not included in studies that use index crimes.}
 
-\hypertarget{what-is-a-crime}{%
-\section{What is a crime?}\label{what-is-a-crime}}
+\hypertarget{the-data-as-you-get-it-from-the-fbi}{%
+\subsection{The data as you get it from the FBI}\label{the-data-as-you-get-it-from-the-fbi}}
 
-\hypertarget{crimes-included-in-the-ucr-datasets}{%
-\subsection{Crimes included in the UCR datasets}\label{crimes-included-in-the-ucr-datasets}}
-
-\hypertarget{how-the-raw-data-looks}{%
-\subsection{How the raw data looks}\label{how-the-raw-data-looks}}
+We'll finish this overview of the UCR data by briefly talking about format of the data that is released by the FBI, before the processing done by myself or \href{https://www.icpsr.umich.edu/web/pages/NACJD/index.html}{NACJD} that converts the data to a type that software like R or Stata or Excel can understand. The FBI releases their data as fixed-width ASCII files which are basically just an Excel file but with all of the columns squished together. As an example, below is the data as you receive it from the FBI for the Offenses Known and Clearances by Arrest dataset for 1960, the first year with data available. In the figure, it seems like there are multiple rows but that's just because the software that I opened the file in isn't wide enough - in reality what is shown is a single row that is extremely wide because there are over 1,500 columns in this data. If you scroll down enough you'll see the next row, but that isn't shown in the current image. What is shown is a single row with a ton of columns all pushed up next to each other. Since all of the columns are squished together (the gaps are just blank spaces because the value there is a space, but that doesn't mean there is a in the data. Spaces are possible values in the data and are meaningful), you need some way to figure out which parts of the data belong in which column.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -250,6 +247,20 @@ The FBI answered all of these questions in 1929 when they began the Uniform Crim
 \begin{figure}
 \includegraphics[width=8.75in]{images/offenses_known_raw_ascii_1960} \caption{Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset}\label{fig:unnamed-chunk-1}
 \end{figure}
+
+The ``fixed-width'' part of the file type is how this works (the ASCII part basically means it's a text file). Each row is the same width - literally the same number of characters, including blank spaces. So you must tell the software you are using to process this file - by literally write code in something called a ``setup file'' but is basically just instructions for whatever software you use (R, SPSS, Stata, SAS can all do this) - which characters are certain columns. For example, in this data the first character says which type of UCR data it is (1 means the Offenses Known and Clearances by Arrest data) and the next two characters (in the setup file written as 2-3 since it is characters 2 through 3 {[}inclusive{]}) are the state number (01 is the state code for Alabama). So we can read this row as the first column indicating it is an Offenses Known data, the second column indicating that it is for the state of Alabama, and so on for each of the remaining columns. To read in this data you'll need a setup file that covers every column in the data (some software, like R, can handle just reading in the specific columns you want and don't need to include every column in the setup file).
+
+The second important thing to know about reading in a fixed-width ASCII file is something called a ``value label.''\footnote{For most fixed-width ASCII files there are also missing values where it'll have placeholder value such as -8 and the setup file will instruct the software to convert that to NA. UCR data, however, does not have this and does not indicate when values are missing in this manner.} For example, in the above image we saw the characters 2-3 is the state and in the row we have the value ``01'' which means that the state is ``Alabama.'' Since this type of data is trying to be as small as efficient as possible, it often replaces longer values with shorter one and provides a translation for the software to use to convert it to the proper value when reading it. ``Alabama'' is more characters than ``01'' so it saves space to say ``01'' and just replace that with ``Alabama'' later on. So ``01'' would be the `value" and ``Alabama'' would be the 'label' that it changes to once read.
+
+Fixed-width ASCII files may seem awful to you reading it today, and it is awful to use. But it appears to be an efficient way to store data back many decades ago when data releases began but now is extremely inefficient - in terms of speed, file size, ease of use - compared to modern software so I'm not sure why they \emph{still} release data in this format. But they do, and even the more \emph{modern} (if starting in 1991, before I was born, is modern!) NIBRS data comes in this format. For you, however, the important part to understand is not how exactly to read this type of data, but to understand that people who made this data publicly available (such as myself and the team at NACJD) must made this conversion process.\footnote{For those interested in reading in this type of data, please see my R package asciiSetupReader.} \textbf{This conversion process, from fixed-width ASCII to a useful format is the most dangerous step taken in using this data - and one that is nearly entirely unseen by researchers.}
+
+Every line of code you write (or, for SPSS users, click you make) invites the possibility of making a mistake.\footnote{Even highly experienced programmers who are doing something like can make mistakes. For example, if you type out ``2+2'' 100 times - something extremely simple that anyone can do - how often will you mistype a character and get a wrong result? I'd guess that at least once you'd make a mistake.} The FBI does not provide a setup file with the fixed-width ASCII data so to read in this data you need to make it yourself. Since some UCR data are massive, this involves assigning the column width for thousands of columns and the value labels for hundreds of different value labels.\footnote{With the exception of the arrest data and some value label changes in hate crimes and homicide data, the setup files remain consistent you a single file will work for all years for a given dataset. You do not need to make a setup file for each year.} A typo anywhere could have potentially far-reaching consequences so this is a crucial weakpoint in the data cleaning process - and one in which I have not seen anything written about before.
+
+\hypertarget{what-is-a-crime}{%
+\section{What is a crime?}\label{what-is-a-crime}}
+
+\hypertarget{crimes-included-in-the-ucr-datasets}{%
+\subsection{Crimes included in the UCR datasets}\label{crimes-included-in-the-ucr-datasets}}
 
 \hypertarget{index-crimes}{%
 \subsection{Index crimes}\label{index-crimes}}
@@ -293,11 +304,6 @@ This dataset is the oldest and most widely used of the UCR datasets. It covers
 
 \hypertarget{what-does-the-data-look-like}{%
 \section{What does the data look like?}\label{what-does-the-data-look-like}}
-
-\hypertarget{raw-data}{%
-\subsection{Raw data}\label{raw-data}}
-
-The data comes as a single fixed-width ASCII file where each row is an agency and the column cover information about the agency (e.g.~its name, location) and the monthly number of crimes reported and cleared in that agency. This format makes the data relatively easy to convert into machine-readable formats like R and Stata.
 
 \hypertarget{what-variables-are-in-the-data}{%
 \section{What variables are in the data?}\label{what-variables-are-in-the-data}}
@@ -481,6 +487,8 @@ From our \texttt{table()} output it seems that when agencies do report, they ten
 \hypertarget{arrests}{%
 \chapter{Arrests by Age, Sex, and Race}\label{arrests}}
 
+It differs from the clearance information in the Offenses Known and Clearances by Arrest data since this data includes a wider variety of crimes and breaks down arrests into more detailed bins.
+
 \hypertarget{a-brief-history-of-the-data-1}{%
 \section{A brief history of the data}\label{a-brief-history-of-the-data-1}}
 
@@ -490,8 +498,8 @@ From our \texttt{table()} output it seems that when agencies do report, they ten
 \hypertarget{what-does-the-data-look-like-1}{%
 \section{What does the data look like?}\label{what-does-the-data-look-like-1}}
 
-\hypertarget{raw-data-1}{%
-\subsection{Raw data}\label{raw-data-1}}
+\hypertarget{raw-data}{%
+\subsection{Raw data}\label{raw-data}}
 
 \hypertarget{what-variables-are-in-the-data-1}{%
 \section{What variables are in the data?}\label{what-variables-are-in-the-data-1}}
@@ -559,8 +567,8 @@ The data is available from the FBI starting in 1975 though, unlike all later yea
 \hypertarget{what-does-the-data-look-like-3}{%
 \section{What does the data look like?}\label{what-does-the-data-look-like-3}}
 
-\hypertarget{raw-data-2}{%
-\subsection{Raw data}\label{raw-data-2}}
+\hypertarget{raw-data-1}{%
+\subsection{Raw data}\label{raw-data-1}}
 
 \hypertarget{what-variables-are-in-the-data-3}{%
 \section{What variables are in the data?}\label{what-variables-are-in-the-data-3}}
@@ -592,8 +600,8 @@ My main takeaway for this data is that it is inappropriate to use it to study ha
 \hypertarget{what-does-the-data-look-like-4}{%
 \section{What does the data look like?}\label{what-does-the-data-look-like-4}}
 
-\hypertarget{raw-data-3}{%
-\subsection{Raw data}\label{raw-data-3}}
+\hypertarget{raw-data-2}{%
+\subsection{Raw data}\label{raw-data-2}}
 
 \hypertarget{what-variables-are-in-the-data-4}{%
 \section{What variables are in the data?}\label{what-variables-are-in-the-data-4}}
@@ -619,8 +627,8 @@ My main takeaway for this data is that it is inappropriate to use it to study ha
 \hypertarget{what-does-the-data-look-like-5}{%
 \section{What does the data look like?}\label{what-does-the-data-look-like-5}}
 
-\hypertarget{raw-data-4}{%
-\subsection{Raw data}\label{raw-data-4}}
+\hypertarget{raw-data-3}{%
+\subsection{Raw data}\label{raw-data-3}}
 
 \hypertarget{what-variables-are-in-the-data-5}{%
 \section{What variables are in the data?}\label{what-variables-are-in-the-data-5}}
@@ -646,8 +654,8 @@ My main takeaway for this data is that it is inappropriate to use it to study ha
 \hypertarget{what-does-the-data-look-like-6}{%
 \section{What does the data look like?}\label{what-does-the-data-look-like-6}}
 
-\hypertarget{raw-data-5}{%
-\subsection{Raw data}\label{raw-data-5}}
+\hypertarget{raw-data-4}{%
+\subsection{Raw data}\label{raw-data-4}}
 
 \hypertarget{cleaned-data}{%
 \subsection{Cleaned data}\label{cleaned-data}}
@@ -663,6 +671,8 @@ My main takeaway for this data is that it is inappropriate to use it to study ha
 
 \hypertarget{final-thoughts-6}{%
 \section{Final thoughts}\label{final-thoughts-6}}
+
+\backmatter
 
   \bibliography{book.bib,packages.bib}
 
