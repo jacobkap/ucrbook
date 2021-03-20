@@ -117,6 +117,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -129,6 +130,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#motivation"><i class="fa fa-check"></i>Motivation</a></li>
@@ -136,7 +140,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#citing-this-book"><i class="fa fa-check"></i>Citing this book</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#sources-of-ucr-data"><i class="fa fa-check"></i>Sources of UCR data</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#where-to-find-the-data-used-in-this-book"><i class="fa fa-check"></i>Where to find the data used in this book</a></li>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#nibrs-data"><i class="fa fa-check"></i><b>0.1</b> NIBRS data</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#nibrs-data"><i class="fa fa-check"></i>NIBRS data</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the author</a></li>
 <li class="chapter" data-level="1" data-path="ucr-general.html"><a href="ucr-general.html"><i class="fa fa-check"></i><b>1</b> Overview of the Data</a>
@@ -360,8 +364,8 @@ BibTeX format:
 <h2>Where to find the data used in this book</h2>
 <p>The data I am using in this book is the cleaned (we’ll discuss in more detail exactly what I did to clean each dataset in the dataset’s chapter but the short answer is that I did very little.) and concatenated data that I put together from the raw data that the FBI releases. That data is available on my website <a href="https://jacobdkaplan.com/data.html">here</a>. I am hosting this book through GitHub which has a maximum file size allowed that is far smaller than these data so you’ll need to go to my site to download the data, it’s not available through this book’s GitHub repo. For some examples I’m using the data before I cleaned it of outliers (as an example of the outliers present before I removed them) so that data is not publicly available.</p>
 </div>
-<div id="nibrs-data" class="section level2" number="0.1">
-<h2><span class="header-section-number">0.1</span> NIBRS data</h2>
+<div id="nibrs-data" class="section level2 unnumbered">
+<h2>NIBRS data</h2>
 <p>Another source of FBI data, and one sometimes considered part of the UCR data collection, is the National Incident-Based Reporting System (NIBRS) data. Like its name implies this is an incident-level dataset which has detailed information about each incident reported to the police, including incident circumstances, and victim and offender information. This is also the data that the FBI has declared will replace UCR data starting in 2021, meaning that they will no longer collect UCR data and only allow agencies to submit NIBRS data. NIBRS data is a complex and highly rich dataset that deserves its own book to really understand, so I will not be discussing it any further in this book.</p>
 
 </div>
@@ -395,24 +399,15 @@ BibTeX format:
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
+"sharing": true,
 "fontsettings": {
 "theme": "white",
 "family": "sans",
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/jacobkap/ucrbook/edit/main/index.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,
@@ -422,9 +417,9 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["ucrbook.pdf", "ucrbook.epub"],
+"download": [["ucrbook.pdf", "PDF"], ["ucrbook.epub", "EPUB"]],
 "toc": {
-"collapse": "subsection"
+"collapse": "section"
 }
 });
 });

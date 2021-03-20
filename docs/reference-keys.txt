@@ -1,5 +1,4 @@
 fig:unnamed-chunk-1
-nibrs-data
 ucr_general
 what-is-a-crime
 crimes-included-in-the-ucr-datasets
