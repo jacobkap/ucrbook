@@ -15,11 +15,6 @@ knitr::opts_chunk$set(
 
 ## What does the data look like?
 
-### Raw data
-
-The data comes as a single fixed-width ASCII file where each row is an agency and the column cover information about the agency (e.g. its name, location) and the monthly number of crimes reported and cleared in that agency. This format makes the data relatively easy to convert into machine-readable formats like R and Stata. 
-
-
 
 
 ## What variables are in the data?

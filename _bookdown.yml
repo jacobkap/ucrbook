@@ -25,5 +25,7 @@ rmd_files: [
   # Stolen property
   "stolen_property.Rmd",
   # County-Level Data
-  "county_level_data.Rmd"
+  "county_level_data.Rmd",
+  
+  "references.Rmd"
 ]

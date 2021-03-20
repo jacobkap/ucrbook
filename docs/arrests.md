@@ -2,6 +2,8 @@
 
 
 
+It differs from the clearance information in the Offenses Known and Clearances by Arrest data since this data includes a wider variety of crimes and breaks down arrests into more detailed bins.
+
 ## A brief history of the data
 
 ### Changes in definitions
