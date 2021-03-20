@@ -203,8 +203,7 @@ It's worth mentioning a final source of UCR information. This is the annual Crim
 The data I am using in this book is the cleaned (we'll discuss in more detail exactly what I did to clean each dataset in the dataset's chapter but the short answer is that I did very little.) and concatenated data that I put together from the raw data that the FBI releases. That data is available on my website \href{https://jacobdkaplan.com/data.html}{here}. I am hosting this book through GitHub which has a maximum file size allowed that is far smaller than these data so you'll need to go to my site to download the data, it's not available through this book's GitHub repo. For some examples I'm using the data before I cleaned it of outliers (as an example of the outliers present before I removed them) so that data is not publicly available.
 
 \hypertarget{nibrs-data}{%
-\section*{NIBRS data}\label{nibrs-data}}
-
+\section{NIBRS data}\label{nibrs-data}}
 
 Another source of FBI data, and one sometimes considered part of the UCR data collection, is the National Incident-Based Reporting System (NIBRS) data. Like its name implies this is an incident-level dataset which has detailed information about each incident reported to the police, including incident circumstances, and victim and offender information. This is also the data that the FBI has declared will replace UCR data starting in 2021, meaning that they will no longer collect UCR data and only allow agencies to submit NIBRS data. NIBRS data is a complex and highly rich dataset that deserves its own book to really understand, so I will not be discussing it any further in this book.
 
@@ -221,13 +220,13 @@ For a list of data sets he has cleaned, aggregated, and made public, please see 
 For a list of R packages he has created, please see \href{https://jacobdkaplan.com/packages.html}{here}.
 
 \hypertarget{ucr_general}{%
-\chapter{An Overview of the Data}\label{ucr_general}}
+\chapter{Overview of the Data}\label{ucr_general}}
 
 One of the first, and most important questions, I think people have about crime is a simple one: is crime going up? Answering it seems simple - you just count up all the crimes that happen in an area and see if that number of bigger than it was in previous times.
 
 However, putting this into practice invites a number of questions, all of which affect how we measure crime. First, we need to define what a crime is? Not philosophically what actions are crimes - or what should be crimes - but literally which of the many thousands of different criminal acts (crimes as defined by state law) should be considered in this measure. Should murder count? Most people would say yes. How about jaywalking or speeding? Many would say probably not. Should marital rape be considered a crime? Now, certainly most people (all, I would hope) would say yes. But in much of the United States it wasn't a crime until the 1970s \citep{bennice2003marital, mcmahon2009criminalizing}.
 
-Next, we have to know what geographic and time unit to measure crimes at since these decisions determine how precise we can measure crime and when it changed.
+Next, we have to know what geographic and time unit to measure crimes at since these decisions determine how precise we can measure crime and when it changed. If we
 
 The final question is that when a crime occurs, how do we know? That is, when we want to count how many crimes occurred do we ask people how often they've been victimized, do we ask people how often they commit a crime, do we look at crimes reported to police, crimes charged in a criminal court? Each of these measures will likely give different answers as to how many crimes occurred.\footnote{The Bureau of Justice Statistics does measure crime by asking a random sample of people whether they were the victim of a crime. For more on this, please see their National Crime Victimization Survey reports}
 
@@ -235,6 +234,22 @@ The FBI answered all of these questions in 1929 when they began the Uniform Crim
 
 \hypertarget{what-is-a-crime}{%
 \section{What is a crime?}\label{what-is-a-crime}}
+
+\hypertarget{crimes-included-in-the-ucr-datasets}{%
+\subsection{Crimes included in the UCR datasets}\label{crimes-included-in-the-ucr-datasets}}
+
+\hypertarget{how-the-raw-data-looks}{%
+\subsection{How the raw data looks}\label{how-the-raw-data-looks}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/offenses\_known\_raw\_ascii\_1960.PNG\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\includegraphics[width=8.75in]{images/offenses_known_raw_ascii_1960} \caption{Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset}\label{fig:unnamed-chunk-1}
+\end{figure}
 
 \hypertarget{index-crimes}{%
 \subsection{Index crimes}\label{index-crimes}}
@@ -244,6 +259,8 @@ The FBI answered all of these questions in 1929 when they began the Uniform Crim
 
 \hypertarget{a-summary-of-each-ucr-dataset}{%
 \section{A summary of each UCR dataset}\label{a-summary-of-each-ucr-dataset}}
+
+UCR data can be roughly summarized into two groups: crime data and arrest data. While there are several datasets included they are all extensions of one of the above groups. For arrest data, you have information about who (by race and by age-gender, but not by race-gender or race-age other than within race you know if the arrestee is an adult or a juvenile). For crime data, you have monthly counts of a small number of crimes (many fewer than crimes covered in the arrest data) and then more specialized data on a subset of these crimes - information on homicides, hate crimes, and property stolen.
 
 \hypertarget{offenses-known-and-clearances-by-arrest}{%
 \subsection{Offenses Known and Clearances by Arrest}\label{offenses-known-and-clearances-by-arrest}}
@@ -281,39 +298,6 @@ This dataset is the oldest and most widely used of the UCR datasets. It covers
 \subsection{Raw data}\label{raw-data}}
 
 The data comes as a single fixed-width ASCII file where each row is an agency and the column cover information about the agency (e.g.~its name, location) and the monthly number of crimes reported and cleared in that agency. This format makes the data relatively easy to convert into machine-readable formats like R and Stata.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/offenses\_known\_raw\_ascii\_1960.PNG\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=8.75in]{images/offenses_known_raw_ascii_1960} \caption{Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset}\label{fig:unnamed-chunk-1}
-\end{figure}
-
-\hypertarget{cleaned-data}{%
-\subsection{Cleaned data}\label{cleaned-data}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/offenses\_known\_agency\_info\_1960.PNG\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=26.67in]{images/offenses_known_agency_info_1960} \caption{Agency information for the 1960 Offenses Known and Clearances by Arrest dataset}\label{fig:unnamed-chunk-2}
-\end{figure}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/offenses\_known\_crime\_info.PNG\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=26.62in]{images/offenses_known_crime_info} \caption{Crime information for the 1960 Offenses Known and Clearances by Arrest dataset}\label{fig:unnamed-chunk-3}
-\end{figure}
 
 \hypertarget{what-variables-are-in-the-data}{%
 \section{What variables are in the data?}\label{what-variables-are-in-the-data}}
@@ -509,39 +493,6 @@ From our \texttt{table()} output it seems that when agencies do report, they ten
 \hypertarget{raw-data-1}{%
 \subsection{Raw data}\label{raw-data-1}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/arrests\_raw\_ascii\_1974.PNG\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=8.43in]{images/arrests_raw_ascii_1974} \caption{Fixed-width ASCII file for the 1974 Arrests by Age, Sex, and Race dataset}\label{fig:unnamed-chunk-1}
-\end{figure}
-
-\hypertarget{cleaned-data-1}{%
-\subsection{Cleaned data}\label{cleaned-data-1}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/arrests\_agency\_info.PNG\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=26.67in]{images/arrests_agency_info} \caption{Agency information for the 1974 Arrests by Age, Sex, and Race dataset}\label{fig:unnamed-chunk-2}
-\end{figure}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/arrests\_crime\_info.PNG\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=26.67in]{images/arrests_crime_info} \caption{Crime information for the 1974 Arrests by Age, Sex, and Race dataset}\label{fig:unnamed-chunk-3}
-\end{figure}
-
 \hypertarget{what-variables-are-in-the-data-1}{%
 \section{What variables are in the data?}\label{what-variables-are-in-the-data-1}}
 
@@ -549,7 +500,7 @@ From our \texttt{table()} output it seems that when agencies do report, they ten
 \subsection{Key variables}\label{key-variables-1}}
 
 \hypertarget{known-issues-with-the-data-1}{%
-\subsection{Known issues with the data}\label{known-issues-with-the-data-1}}
+\section{Known issues with the data}\label{known-issues-with-the-data-1}}
 
 \hypertarget{final-thoughts-1}{%
 \section{Final thoughts}\label{final-thoughts-1}}
@@ -573,42 +524,6 @@ This data, as well as the privately-run site \href{https://www.odmp.org/}{Office
 \hypertarget{what-does-the-data-look-like-2}{%
 \section{What does the data look like?}\label{what-does-the-data-look-like-2}}
 
-\hypertarget{raw-data-2}{%
-\subsection{Raw data}\label{raw-data-2}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/leoka\_raw\_ascii\_1960.PNG\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=8.21in]{images/leoka_raw_ascii_1960} \caption{Fixed-width ASCII file for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset}\label{fig:unnamed-chunk-1}
-\end{figure}
-
-\hypertarget{cleaned-data-2}{%
-\subsection{Cleaned data}\label{cleaned-data-2}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/leoka\_agency\_info\_1960.PNG\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=26.58in]{images/leoka_agency_info_1960} \caption{Agency information for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset}\label{fig:unnamed-chunk-2}
-\end{figure}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/leoka\_crime\_info\_1960.PNG\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=26.64in]{images/leoka_crime_info_1960} \caption{Crime information for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset}\label{fig:unnamed-chunk-3}
-\end{figure}
-
 \hypertarget{what-variables-are-in-the-data-2}{%
 \section{What variables are in the data?}\label{what-variables-are-in-the-data-2}}
 
@@ -616,7 +531,7 @@ This data, as well as the privately-run site \href{https://www.odmp.org/}{Office
 \subsection{Key variables}\label{key-variables-2}}
 
 \hypertarget{known-issues-with-the-data-2}{%
-\subsection{Known issues with the data}\label{known-issues-with-the-data-2}}
+\section{Known issues with the data}\label{known-issues-with-the-data-2}}
 
 \hypertarget{final-thoughts-2}{%
 \section{Final thoughts}\label{final-thoughts-2}}
@@ -624,8 +539,19 @@ This data, as well as the privately-run site \href{https://www.odmp.org/}{Office
 \hypertarget{shr}{%
 \chapter{Supplementary Homicide Reports (SHR)}\label{shr}}
 
+This is the most detailed of the UCR datasets and provides information about the circumstances and participants (victim and offender demographics and relationship status) for homicides.\footnote{If you're familiar with the National Incident-Based Reporting System (NIBRS) data that is replacing UCR, this dataset is the closest UCR data to it, though it is still less detailed than NIBRS data.}For each homicide incident it tells you the age, gender, race, and ethnicity of each victim and offender as well as the relationship between the first victim and each of the offenders (but not the other victims in cases where there are multiple victims). It also tells you the weapon used by each offender and the circumstance of the killing, such as a ``lovers triangle'' or a gang-related murder. As with other UCR data, it also tells you the agency it occurred in and the month and year when the crime happened.
+
+While highly detailed compared to other UCR data, there are a number of limitations for this data.
+
+Since this data is voluntary to
+
+This\\
+If this ``most detailed'' dataset sounds disappointing - and it is! -
+
 \hypertarget{a-brief-history-of-the-data-3}{%
 \section{A brief history of the data}\label{a-brief-history-of-the-data-3}}
+
+The data is available from the FBI starting in 1975 though, unlike all later years, this year only has information on a single victim and a single offender. For this reason I only release data starting in 1976 where up to 11 victims and 11 offenders are included. This data has been released every year since and the most recent year available is 2019.
 
 \hypertarget{changes-in-definitions-3}{%
 \subsection{Changes in definitions}\label{changes-in-definitions-3}}
@@ -633,41 +559,8 @@ This data, as well as the privately-run site \href{https://www.odmp.org/}{Office
 \hypertarget{what-does-the-data-look-like-3}{%
 \section{What does the data look like?}\label{what-does-the-data-look-like-3}}
 
-\hypertarget{raw-data-3}{%
-\subsection{Raw data}\label{raw-data-3}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/shr\_raw\_ascii\_1985.PNG\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=7.39in]{images/shr_raw_ascii_1985} \caption{Fixed-width ASCII file for the 1985 Supplementary Homicide Reports (SHR) dataset}\label{fig:unnamed-chunk-1}
-\end{figure}
-
-\hypertarget{cleaned-data-3}{%
-\subsection{Cleaned data}\label{cleaned-data-3}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/shr\_agency\_info.PNG\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=26.62in]{images/shr_agency_info} \caption{Agency information for the 1985 Supplementary Homicide Reports (SHR) dataset}\label{fig:unnamed-chunk-2}
-\end{figure}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/shr\_crime\_info.PNG\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=26.62in]{images/shr_crime_info} \caption{Crime information for the 1985 Supplementary Homicide Reports (SHR) dataset}\label{fig:unnamed-chunk-3}
-\end{figure}
+\hypertarget{raw-data-2}{%
+\subsection{Raw data}\label{raw-data-2}}
 
 \hypertarget{what-variables-are-in-the-data-3}{%
 \section{What variables are in the data?}\label{what-variables-are-in-the-data-3}}
@@ -676,7 +569,7 @@ This data, as well as the privately-run site \href{https://www.odmp.org/}{Office
 \subsection{Key variables}\label{key-variables-3}}
 
 \hypertarget{known-issues-with-the-data-3}{%
-\subsection{Known issues with the data}\label{known-issues-with-the-data-3}}
+\section{Known issues with the data}\label{known-issues-with-the-data-3}}
 
 \hypertarget{final-thoughts-3}{%
 \section{Final thoughts}\label{final-thoughts-3}}
@@ -684,7 +577,11 @@ This data, as well as the privately-run site \href{https://www.odmp.org/}{Office
 \hypertarget{hate_crimes}{%
 \chapter{Hate Crime Data}\label{hate_crimes}}
 
-This dataset covers crimes that are judged by the police to be motivated by hate More specifically, they are crimes whose motivation - at least in part - is bias towards a certain person or group of people because of characteristics about them such as race, sexual orientation, or religion.
+This dataset covers crimes that are reported to the police and judged by the police to be motivated by hate More specifically, they are, first, crimes which were, second, motivated - at least in part - by bias towards a certain person or group of people because of characteristics about them such as race, sexual orientation, or religion. The first part is key, they must be crimes - and really must be the selection of crimes that the FBI collects for this dataset. Biased actions that don't meet the standard of a crime, or are of a crime not included in this data, are not considered hate crimes. For example, if someone yells at a Black person and uses racial slurs against them, it is clearly a racist action. For it to be included in this data, however, it would have to extend to a threat since ``intimidation'' is a crime included in this data but lesser actions such as simply insulting someone is not included. For the second part, the bias motivation, it must be against a group that the FBI includes in this data. When this data collection began crimes against transgender people were not counted so if a transgender person was assaulted or killed because they were transgender, this is not a hate crime recorded in the data.\footnote{The first year where transgender as a group was a considered a bias motivation was in 2014.}
+
+So this data is really a more narrow measure of hate crimes than it might seem. In practice it is (some) crimes motivated by (some) kinds of hate that are reported to the police. It is also the most under-reported UCR dataset with most agencies not reporting any crimes to the FBI. This leads to huge gaps in the data with some states having zero agencies report crime, agencies reporting some bias motivations but not others, agencies reporting some years but not others. While these problems exist for all of the UCR datasets, it is most severe in this data. This problem is exacerbated by hate crimes being rare even in agencies that report them - with such rare events, even minor changes in which agencies report or which types of offenses they include can have large effects.
+
+My main takeaway for this data is that it is inappropriate to use it to study hate crimes. At most it can be used to look at within-city within-bias-motivation trends, while keeping in mind that even this narrow subset of data is limited by under-reporting by victims and potential changes in police practices of reporting such as how many months of data they report per year.
 
 \hypertarget{a-brief-history-of-the-data-4}{%
 \section{A brief history of the data}\label{a-brief-history-of-the-data-4}}
@@ -695,41 +592,8 @@ This dataset covers crimes that are judged by the police to be motivated by hate
 \hypertarget{what-does-the-data-look-like-4}{%
 \section{What does the data look like?}\label{what-does-the-data-look-like-4}}
 
-\hypertarget{raw-data-4}{%
-\subsection{Raw data}\label{raw-data-4}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/hate\_crimes\_raw\_ascii\_1991.PNG\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=7.79in]{images/hate_crimes_raw_ascii_1991} \caption{Fixed-width ASCII file for the 1991 Hate Crime dataset}\label{fig:unnamed-chunk-1}
-\end{figure}
-
-\hypertarget{cleaned-data-4}{%
-\subsection{Cleaned data}\label{cleaned-data-4}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/hate\_crimes\_agency\_info.PNG\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=26.62in]{images/hate_crimes_agency_info} \caption{Agency information for the 1991 Hate Crime dataset}\label{fig:unnamed-chunk-2}
-\end{figure}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/hate\_crimes\_crime\_info.PNG\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=26.62in]{images/hate_crimes_crime_info} \caption{Crime information for the 1991 Hate Crime dataset}\label{fig:unnamed-chunk-3}
-\end{figure}
+\hypertarget{raw-data-3}{%
+\subsection{Raw data}\label{raw-data-3}}
 
 \hypertarget{what-variables-are-in-the-data-4}{%
 \section{What variables are in the data?}\label{what-variables-are-in-the-data-4}}
@@ -738,7 +602,7 @@ This dataset covers crimes that are judged by the police to be motivated by hate
 \subsection{Key variables}\label{key-variables-4}}
 
 \hypertarget{known-issues-with-the-data-4}{%
-\subsection{Known issues with the data}\label{known-issues-with-the-data-4}}
+\section{Known issues with the data}\label{known-issues-with-the-data-4}}
 
 \hypertarget{final-thoughts-4}{%
 \section{Final thoughts}\label{final-thoughts-4}}
@@ -755,41 +619,8 @@ This dataset covers crimes that are judged by the police to be motivated by hate
 \hypertarget{what-does-the-data-look-like-5}{%
 \section{What does the data look like?}\label{what-does-the-data-look-like-5}}
 
-\hypertarget{raw-data-5}{%
-\subsection{Raw data}\label{raw-data-5}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/property\_stolen\_raw\_ascii\_1960.PNG\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=8.12in]{images/property_stolen_raw_ascii_1960} \caption{Fixed-width ASCII file for the 1960 Property Stolen and Recovered dataset}\label{fig:unnamed-chunk-1}
-\end{figure}
-
-\hypertarget{cleaned-data-5}{%
-\subsection{Cleaned data}\label{cleaned-data-5}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/property\_stolen\_agency\_info.PNG\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=26.67in]{images/property_stolen_agency_info} \caption{Agency information for the 1960 Property Stolen and Recovered dataset}\label{fig:unnamed-chunk-2}
-\end{figure}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/property\_stolen\_crime\_info.PNG\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=26.61in]{images/property_stolen_crime_info} \caption{Crime information for the 1960 Property Stolen and Recovered dataset}\label{fig:unnamed-chunk-3}
-\end{figure}
+\hypertarget{raw-data-4}{%
+\subsection{Raw data}\label{raw-data-4}}
 
 \hypertarget{what-variables-are-in-the-data-5}{%
 \section{What variables are in the data?}\label{what-variables-are-in-the-data-5}}
@@ -798,7 +629,7 @@ This dataset covers crimes that are judged by the police to be motivated by hate
 \subsection{Key variables}\label{key-variables-5}}
 
 \hypertarget{known-issues-with-the-data-5}{%
-\subsection{Known issues with the data}\label{known-issues-with-the-data-5}}
+\section{Known issues with the data}\label{known-issues-with-the-data-5}}
 
 \hypertarget{final-thoughts-5}{%
 \section{Final thoughts}\label{final-thoughts-5}}
@@ -815,11 +646,11 @@ This dataset covers crimes that are judged by the police to be motivated by hate
 \hypertarget{what-does-the-data-look-like-6}{%
 \section{What does the data look like?}\label{what-does-the-data-look-like-6}}
 
-\hypertarget{raw-data-6}{%
-\subsection{Raw data}\label{raw-data-6}}
+\hypertarget{raw-data-5}{%
+\subsection{Raw data}\label{raw-data-5}}
 
-\hypertarget{cleaned-data-6}{%
-\subsection{Cleaned data}\label{cleaned-data-6}}
+\hypertarget{cleaned-data}{%
+\subsection{Cleaned data}\label{cleaned-data}}
 
 \hypertarget{what-variables-are-in-the-data-6}{%
 \section{What variables are in the data?}\label{what-variables-are-in-the-data-6}}

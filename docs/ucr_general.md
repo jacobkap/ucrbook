@@ -1,4 +1,4 @@
-# An Overview of the Data {#ucr_general}
+# Overview of the Data {#ucr_general}
 
 One of the first, and most important questions, I think people have about crime is a simple one: is crime going up? Answering it seems simple - you just count up all the crimes that happen in an area and see if that number of bigger than it was in previous times. 
 
@@ -17,8 +17,17 @@ The FBI answered all of these questions in 1929 when they began the Uniform Crim
 
 ### Crimes included in the UCR datasets
 
+### How the raw data looks
 
 
+```r
+knitr::include_graphics('images/offenses_known_raw_ascii_1960.PNG')
+```
+
+<div class="figure">
+<img src="images/offenses_known_raw_ascii_1960.PNG" alt="Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset" width="315" />
+<p class="caption">(\#fig:unnamed-chunk-1)Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset</p>
+</div>
 
 ### Index crimes 
 

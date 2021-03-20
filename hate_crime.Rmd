@@ -1,6 +1,6 @@
 # Hate Crime Data {#hate_crimes}
 
-```{r}
+```{r, echo=FALSE}
 knitr::opts_chunk$set(
   echo    = FALSE,
   warning = FALSE,
@@ -23,24 +23,11 @@ My main takeaway for this data is that it is inappropriate to use it to study ha
 
 ### Raw data
 
-```{r, fig.cap="Fixed-width ASCII file for the 1991 Hate Crime dataset"}
-knitr::include_graphics('images/hate_crimes_raw_ascii_1991.PNG')
-```
-
-### Cleaned data
-
-```{r, fig.cap="Agency information for the 1991 Hate Crime dataset"}
-knitr::include_graphics('images/hate_crimes_agency_info.PNG')
-```
-
-```{r, fig.cap="Crime information for the 1991 Hate Crime dataset"}
-knitr::include_graphics('images/hate_crimes_crime_info.PNG')
-```
 
 ## What variables are in the data?
 
 ### Key variables
 
-### Known issues with the data
+## Known issues with the data
 
 ## Final thoughts

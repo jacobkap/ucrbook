@@ -1,6 +1,6 @@
 # Offenses Known and Clearances by Arrest {#offenses_known}
 
-```{r}
+```{r, echo=FALSE}
 knitr::opts_chunk$set(
   echo    = FALSE,
   warning = FALSE,
@@ -20,19 +20,7 @@ knitr::opts_chunk$set(
 The data comes as a single fixed-width ASCII file where each row is an agency and the column cover information about the agency (e.g. its name, location) and the monthly number of crimes reported and cleared in that agency. This format makes the data relatively easy to convert into machine-readable formats like R and Stata. 
 
 
-```{r, fig.cap="Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset"}
-knitr::include_graphics('images/offenses_known_raw_ascii_1960.PNG')
-```
 
-### Cleaned data
-
-```{r, fig.cap="Agency information for the 1960 Offenses Known and Clearances by Arrest dataset"}
-knitr::include_graphics('images/offenses_known_agency_info_1960.PNG')
-```
-
-```{r, fig.cap="Crime information for the 1960 Offenses Known and Clearances by Arrest dataset"}
-knitr::include_graphics('images/offenses_known_crime_info.PNG')
-```
 
 ## What variables are in the data?
 

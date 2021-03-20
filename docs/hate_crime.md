@@ -1,13 +1,6 @@
 # Hate Crime Data {#hate_crimes}
 
 
-```r
-knitr::opts_chunk$set(
-  echo    = FALSE,
-  warning = FALSE,
-  error   = FALSE
-)
-```
 
 This dataset covers crimes that are reported to the police and judged by the police to be motivated by hate More specifically, they are, first, crimes which were, second, motivated - at least in part - by bias towards a certain person or group of people because of characteristics about them such as race, sexual orientation, or religion. The first part is key, they must be crimes - and really must be the selection of crimes that the FBI collects for this dataset. Biased actions that don't meet the standard of a crime, or are of a crime not included in this data, are not considered hate crimes. For example, if someone yells at a Black person and uses racial slurs against them, it is clearly a racist action. For it to be included in this data, however, it would have to extend to a threat since "intimidation" is a crime included in this data but lesser actions such as simply insulting someone is not included. For the second part, the bias motivation, it must be against a group that the FBI includes in this data. When this data collection began crimes against transgender people were not counted so if a transgender person was assaulted or killed because they were transgender, this is not a hate crime recorded in the data.^[The first year where transgender as a group was a considered a bias motivation was in 2014.] 
 
@@ -24,27 +17,11 @@ My main takeaway for this data is that it is inappropriate to use it to study ha
 
 ### Raw data
 
-<div class="figure">
-<img src="images/hate_crimes_raw_ascii_1991.PNG" alt="Fixed-width ASCII file for the 1991 Hate Crime dataset" width="280" />
-<p class="caption">(\#fig:unnamed-chunk-2)Fixed-width ASCII file for the 1991 Hate Crime dataset</p>
-</div>
-
-### Cleaned data
-
-<div class="figure">
-<img src="images/hate_crimes_agency_info.PNG" alt="Agency information for the 1991 Hate Crime dataset" width="958" />
-<p class="caption">(\#fig:unnamed-chunk-3)Agency information for the 1991 Hate Crime dataset</p>
-</div>
-
-<div class="figure">
-<img src="images/hate_crimes_crime_info.PNG" alt="Crime information for the 1991 Hate Crime dataset" width="958" />
-<p class="caption">(\#fig:unnamed-chunk-4)Crime information for the 1991 Hate Crime dataset</p>
-</div>
 
 ## What variables are in the data?
 
 ### Key variables
 
-### Known issues with the data
+## Known issues with the data
 
 ## Final thoughts

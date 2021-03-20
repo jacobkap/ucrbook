@@ -1,4 +1,4 @@
-bookdown::gitbook:
+bookdown::tufte_html_book:
   css: style.css
   config:
     toc:

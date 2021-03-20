@@ -1,10 +1,9 @@
-fig:unnamed-chunk-2
-fig:unnamed-chunk-3
-fig:unnamed-chunk-4
 fig:unnamed-chunk-1
+nibrs-data
 ucr_general
 what-is-a-crime
 crimes-included-in-the-ucr-datasets
+how-the-raw-data-looks
 index-crimes
 violent-crimes
 a-summary-of-each-ucr-dataset
@@ -19,7 +18,6 @@ a-brief-history-of-the-data
 changes-in-definitions
 what-does-the-data-look-like
 raw-data
-cleaned-data
 what-variables-are-in-the-data
 key-variables
 known-issues-with-the-data
@@ -41,7 +39,6 @@ a-brief-history-of-the-data-1
 changes-in-definitions-1
 what-does-the-data-look-like-1
 raw-data-1
-cleaned-data-1
 what-variables-are-in-the-data-1
 key-variables-1
 known-issues-with-the-data-1
@@ -50,8 +47,6 @@ leoka
 a-brief-history-of-the-data-2
 changes-in-definitions-2
 what-does-the-data-look-like-2
-raw-data-2
-cleaned-data-2
 what-variables-are-in-the-data-2
 key-variables-2
 known-issues-with-the-data-2
@@ -60,8 +55,7 @@ shr
 a-brief-history-of-the-data-3
 changes-in-definitions-3
 what-does-the-data-look-like-3
-raw-data-3
-cleaned-data-3
+raw-data-2
 what-variables-are-in-the-data-3
 key-variables-3
 known-issues-with-the-data-3
@@ -70,8 +64,7 @@ hate_crimes
 a-brief-history-of-the-data-4
 changes-in-definitions-4
 what-does-the-data-look-like-4
-raw-data-4
-cleaned-data-4
+raw-data-3
 what-variables-are-in-the-data-4
 key-variables-4
 known-issues-with-the-data-4
@@ -80,8 +73,7 @@ stolen_property
 a-brief-history-of-the-data-5
 changes-in-definitions-5
 what-does-the-data-look-like-5
-raw-data-5
-cleaned-data-5
+raw-data-4
 what-variables-are-in-the-data-5
 key-variables-5
 known-issues-with-the-data-5
@@ -90,8 +82,8 @@ county_level
 a-brief-history-of-the-data-6
 changes-in-definitions-6
 what-does-the-data-look-like-6
-raw-data-6
-cleaned-data-6
+raw-data-5
+cleaned-data
 what-variables-are-in-the-data-6
 key-variables-6
 known-issues-with-the-data-6

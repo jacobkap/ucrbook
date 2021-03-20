@@ -13,44 +13,12 @@ This data, as well as the privately-run site [Officer Down Memorial Page](https:
 
 ## What does the data look like?
 
-### Raw data
 
-
-```r
-knitr::include_graphics('images/leoka_raw_ascii_1960.PNG')
-```
-
-<div class="figure">
-<img src="images/leoka_raw_ascii_1960.PNG" alt="Fixed-width ASCII file for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset" width="296" />
-<p class="caption">(\#fig:unnamed-chunk-1)Fixed-width ASCII file for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset</p>
-</div>
-
-### Cleaned data
-
-
-```r
-knitr::include_graphics('images/leoka_agency_info_1960.PNG')
-```
-
-<div class="figure">
-<img src="images/leoka_agency_info_1960.PNG" alt="Agency information for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset" width="957" />
-<p class="caption">(\#fig:unnamed-chunk-2)Agency information for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset</p>
-</div>
-
-
-```r
-knitr::include_graphics('images/leoka_crime_info_1960.PNG')
-```
-
-<div class="figure">
-<img src="images/leoka_crime_info_1960.PNG" alt="Crime information for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset" width="959" />
-<p class="caption">(\#fig:unnamed-chunk-3)Crime information for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset</p>
-</div>
 
 ## What variables are in the data?
 
 ### Key variables
 
-### Known issues with the data
+## Known issues with the data
 
 ## Final thoughts

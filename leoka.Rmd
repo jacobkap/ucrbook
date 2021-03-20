@@ -13,26 +13,12 @@ This data, as well as the privately-run site [Officer Down Memorial Page](https:
 
 ## What does the data look like?
 
-### Raw data
 
-```{r, fig.cap="Fixed-width ASCII file for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset"}
-knitr::include_graphics('images/leoka_raw_ascii_1960.PNG')
-```
-
-### Cleaned data
-
-```{r, fig.cap="Agency information for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset"}
-knitr::include_graphics('images/leoka_agency_info_1960.PNG')
-```
-
-```{r, fig.cap="Crime information for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset"}
-knitr::include_graphics('images/leoka_crime_info_1960.PNG')
-```
 
 ## What variables are in the data?
 
 ### Key variables
 
-### Known issues with the data
+## Known issues with the data
 
 ## Final thoughts

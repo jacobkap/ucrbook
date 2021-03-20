@@ -1,6 +1,6 @@
 # Arrests by Age, Sex, and Race {#arrests}
 
-```{r}
+```{r, echo=FALSE}
 knitr::opts_chunk$set(
   echo    = FALSE,
   warning = FALSE,
@@ -16,24 +16,12 @@ knitr::opts_chunk$set(
 
 ### Raw data
 
-```{r, fig.cap="Fixed-width ASCII file for the 1974 Arrests by Age, Sex, and Race dataset"}
-knitr::include_graphics('images/arrests_raw_ascii_1974.PNG')
-```
 
-### Cleaned data
-
-```{r, fig.cap="Agency information for the 1974 Arrests by Age, Sex, and Race dataset"}
-knitr::include_graphics('images/arrests_agency_info.PNG')
-```
-
-```{r, fig.cap="Crime information for the 1974 Arrests by Age, Sex, and Race dataset"}
-knitr::include_graphics('images/arrests_crime_info.PNG')
-```
 
 ## What variables are in the data?
 
 ### Key variables
 
-### Known issues with the data
+## Known issues with the data
 
 ## Final thoughts
