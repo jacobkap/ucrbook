@@ -1,6 +1,12 @@
 # Property Stolen and Recovered (Supplement to Return A) {#stolen_property}
 
-
+```{r}
+knitr::opts_chunk$set(
+  echo    = FALSE,
+  warning = FALSE,
+  error   = FALSE
+)
+```
 
 ## A brief history of the data
 

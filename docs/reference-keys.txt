@@ -1,9 +1,10 @@
-fig:unnamed-chunk-1
 fig:unnamed-chunk-2
 fig:unnamed-chunk-3
-nibrs-data
+fig:unnamed-chunk-4
+fig:unnamed-chunk-1
 ucr_general
 what-is-a-crime
+crimes-included-in-the-ucr-datasets
 index-crimes
 violent-crimes
 a-summary-of-each-ucr-dataset

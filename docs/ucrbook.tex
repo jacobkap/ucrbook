@@ -39,7 +39,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide},
+  pdftitle={Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide},
   pdfauthor={Jacob Kaplan},
   colorlinks=true,
   linkcolor=Maroon,
@@ -48,6 +48,46 @@
   urlcolor=Blue,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.33,0.33,0.33}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.61,0.61,0.61}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.06,0.06,0.06}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.5,0.5,0.5}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0,0,0}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.27,0.27,0.27}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.27,0.27,0.27}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.06,0.06,0.06}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.14,0.14,0.14}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.06,0.06,0.06}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0,0,0}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.27,0.27,0.27}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.43,0.43,0.43}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0,0,0}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.5,0.5,0.5}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.5,0.5,0.5}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0,0,0}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.5,0.5,0.5}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -81,9 +121,9 @@
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
-\title{Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide}
+\title{Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide}
 \author{Jacob Kaplan}
-\date{2021-03-17}
+\date{2021-03-19}
 
 \begin{document}
 \maketitle
@@ -128,7 +168,7 @@ I get a lot of emails from people asking questions about this data so part of my
 
 This remainder of this book will be divided into eight chapters: an intro chapter briefly summarizing each dataset and going over overall issues with UCR data, six chapters each covering one of the six UCR datasets, and a final one covering county-level data, a highly flawed but common use of the UCR data. Each chapter will follow the same format: we'll start with a history of the data such as when it first because available and important changes in definitions or variables.
 
-Next we'll discuss what the data looks like initially when you get it from the FBI - literally what it looks like in it's fixed-width ASCII format you get from the FBI and what it looks like (what each row and column mean) once it's turned into a useful format that can be read into modern software like R and Stata.\footnote{To look at the data in its fixed-width ASCII format I'll use the program Notepad which can open up text files like ASCII files. For looking at the machine-readable format I'll use Stata since I think it's a bit better looking than viewing it in R. In both cases, these will be images included in the chapter - you won't need to follow along or use either program.} For most of the datasets this is a minor process but for data like the arrest or homicide datasets, the conversion process is harder - and this can actually lead to changes in the resulting data. For example, in an old version of the arrest data that I released, I aggregated certain arrestee ages together since my laptop at the time couldn't handle converting data from ASCII to R and Stata without aggregating the ages (more age groups means more columns which means more computer memory needed). So anyone using that data would have less detailed data than the current dataset.
+Next we'll discuss what the data looks like initially when you get it from the FBI - literally what it looks like in it's fixed-width ASCII format you get from the FBI and what it looks like (what each row and column mean) once it's turned into a useful format that can be read into modern software like R and Stata.\footnote{To look at the data in its fixed-width ASCII format I'll use the program Notepad which can open up text files like ASCII files. For looking at the machine-readable format I'll use R since I think it's a bit better looking than viewing it in Stata. In both cases, these will be images included in the chapter - you won't need to follow along or use either program.} For most of the datasets this is a minor process but for data like the arrest or homicide datasets, the conversion process is harder - and this can actually lead to changes in the resulting data. For example, in an old version of the arrest data that I released, I aggregated certain arrestee ages together since my laptop at the time couldn't handle converting data from ASCII to R and Stata without aggregating the ages (more age groups means more columns which means more computer memory needed). So anyone using that data would have less detailed data than the current dataset.
 
 Understanding how the data moves from its rawest form (which in this case is after cleaning by the FBI) is important for being able to truly understand the data and its caveats. However, this is a fairly technical part of each chapter so feel free to skip it. Next in each chapter, we'll cover the variables included in the data and how to use them properly (including not using them at all) - this will be the bulk of each chapter. We'll end each chapter by briefly summarizing the data, how and when it's useful, and - most importantly - when you shouldn't use it.
 
@@ -138,9 +178,9 @@ Since manuals are boring, I'll try to include graphs and images to try to allevi
 \section*{Citing this book}\label{citing-this-book}}
 
 
-If this data was useful in your research, please cite it. To cite this book, please use the below citation:
+If this book was useful in your research, please cite it. To cite this book, please use the below citation:
 
-Kaplan J (2021). \emph{Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide}. \url{https://github.com/jacobkap/ucrbook}.
+Kaplan J (2021). \emph{Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide}. \url{https://github.com/jacobkap/ucrbook}.
 
 BibTeX format:
 
@@ -162,6 +202,12 @@ It's worth mentioning a final source of UCR information. This is the annual Crim
 
 The data I am using in this book is the cleaned (we'll discuss in more detail exactly what I did to clean each dataset in the dataset's chapter but the short answer is that I did very little.) and concatenated data that I put together from the raw data that the FBI releases. That data is available on my website \href{https://jacobdkaplan.com/data.html}{here}. I am hosting this book through GitHub which has a maximum file size allowed that is far smaller than these data so you'll need to go to my site to download the data, it's not available through this book's GitHub repo. For some examples I'm using the data before I cleaned it of outliers (as an example of the outliers present before I removed them) so that data is not publicly available.
 
+\hypertarget{nibrs-data}{%
+\section*{NIBRS data}\label{nibrs-data}}
+
+
+Another source of FBI data, and one sometimes considered part of the UCR data collection, is the National Incident-Based Reporting System (NIBRS) data. Like its name implies this is an incident-level dataset which has detailed information about each incident reported to the police, including incident circumstances, and victim and offender information. This is also the data that the FBI has declared will replace UCR data starting in 2021, meaning that they will no longer collect UCR data and only allow agencies to submit NIBRS data. NIBRS data is a complex and highly rich dataset that deserves its own book to really understand, so I will not be discussing it any further in this book.
+
 \hypertarget{about-the-author}{%
 \chapter*{About the author}\label{about-the-author}}
 
@@ -179,35 +225,107 @@ For a list of R packages he has created, please see \href{https://jacobdkaplan.c
 
 One of the first, and most important questions, I think people have about crime is a simple one: is crime going up? Answering it seems simple - you just count up all the crimes that happen in an area and see if that number of bigger than it was in previous times.
 
+However, putting this into practice invites a number of questions, all of which affect how we measure crime. First, we need to define what a crime is? Not philosophically what actions are crimes - or what should be crimes - but literally which of the many thousands of different criminal acts (crimes as defined by state law) should be considered in this measure. Should murder count? Most people would say yes. How about jaywalking or speeding? Many would say probably not. Should marital rape be considered a crime? Now, certainly most people (all, I would hope) would say yes. But in much of the United States it wasn't a crime until the 1970s \citep{bennice2003marital, mcmahon2009criminalizing}.
+
+Next, we have to know what geographic and time unit to measure crimes at since these decisions determine how precise we can measure crime and when it changed.
+
+The final question is that when a crime occurs, how do we know? That is, when we want to count how many crimes occurred do we ask people how often they've been victimized, do we ask people how often they commit a crime, do we look at crimes reported to police, crimes charged in a criminal court? Each of these measures will likely give different answers as to how many crimes occurred.\footnote{The Bureau of Justice Statistics does measure crime by asking a random sample of people whether they were the victim of a crime. For more on this, please see their National Crime Victimization Survey reports}
+
+The FBI answered all of these questions in 1929 when they began the Uniform Crime Reporting (UCR) Program Data, or UCR data for short. Crime consists of seven crime categories - murder, rape, robbery, aggravated assault, burglary, motor vehicle theft, and theft - that are reported to the police and is collected each month from each agency in the country. These decisions, born primarily out of the resource limitations of 1929 (e.g.~no computers), have had a major impact on criminology research. These seven crime categories - known as ``Index Crimes'' or ``Part 1 crimes'' (or ``Part I'' sometimes) - are the ones used to measure crime in many criminology papers, even when the researchers have access to data that covers a broader selection of crimes than these.\footnote{Arson is also an index crime but was added after these initial seven were chosen and is not included in the crimes dataset so is generally not included in studies that use index crimes.}
+
 \hypertarget{what-is-a-crime}{%
 \section{What is a crime?}\label{what-is-a-crime}}
 
 \hypertarget{index-crimes}{%
 \subsection{Index crimes}\label{index-crimes}}
 
+\hypertarget{violent-crimes}{%
+\subsection{Violent crimes}\label{violent-crimes}}
+
+\hypertarget{a-summary-of-each-ucr-dataset}{%
+\section{A summary of each UCR dataset}\label{a-summary-of-each-ucr-dataset}}
+
+\hypertarget{offenses-known-and-clearances-by-arrest}{%
+\subsection{Offenses Known and Clearances by Arrest}\label{offenses-known-and-clearances-by-arrest}}
+
+This dataset is the oldest and most widely used of the UCR datasets. It covers
+
+\hypertarget{arrests-by-age-sex-and-race}{%
+\subsection{Arrests by Age, Sex, and Race}\label{arrests-by-age-sex-and-race}}
+
+\hypertarget{law-enforcement-officers-killed-and-assaulted-leoka}{%
+\subsection{Law Enforcement Officers Killed and Assaulted (LEOKA)}\label{law-enforcement-officers-killed-and-assaulted-leoka}}
+
+\hypertarget{supplementary-homicide-reports-shr}{%
+\subsection{Supplementary Homicide Reports (SHR)}\label{supplementary-homicide-reports-shr}}
+
+\hypertarget{hate-crime-data}{%
+\subsection{Hate Crime Data}\label{hate-crime-data}}
+
+\hypertarget{property-stolen-and-recovered-supplement-to-return-a}{%
+\subsection{Property Stolen and Recovered (Supplement to Return A)}\label{property-stolen-and-recovered-supplement-to-return-a}}
+
 \hypertarget{offenses_known}{%
 \chapter{Offenses Known and Clearances by Arrest}\label{offenses_known}}
 
-The Uniform Crime Report (UCR) Program Data are an collection of agency-level crime data published by the FBI. There are a number of different data sets included in the UCR including data on crime, arrests, hate crimes, arson, and stolen property. We'll be using the Offenses Known and Clearances by Arrest data set (the ``crime'' data set), which is the most commonly used data set in the UCR and is sometimes used as a shorthand for UCR data. In this lesson we'll use ``UCR'' and ``Offenses Known and Clearances by Arrest'' interchangeably but keep in mind that doing so is technically incorrect.
+\hypertarget{a-brief-history-of-the-data}{%
+\section{A brief history of the data}\label{a-brief-history-of-the-data}}
 
-You can read more about the UCR program and all of the data sets it includes on the National Archive of Criminal Justice Data (NACJD) page \href{https://www.icpsr.umich.edu/icpsrweb/content/NACJD/guides/ucr.html}{here}. You can also check out my site \href{http://crimedatatool.com}{Crime Data Tool} which visualizes several of the UCR data sets and has info in the \href{http://crimedatatool.com/faq.html}{FAQ page} explaining the data.
+\hypertarget{changes-in-definitions}{%
+\subsection{Changes in definitions}\label{changes-in-definitions}}
 
-Nearly every police agency in the United States - approximately 18,000 agencies - now report their data to the FBI which compiles and releases the UCR data (some states have their agencies report to a state department which then sends the data to the FBI). This data is available since 1960 though early years have many fewer agencies reporting than do so in later years.
+\hypertarget{what-does-the-data-look-like}{%
+\section{What does the data look like?}\label{what-does-the-data-look-like}}
 
-The data file has annual data on the number of crimes reported, the number of crimes cleared, the number cleared where all offenders are under age 18, and the number of unfounded crimes. We'll discuss each of these a bit further as we dive into the data. Agencies report the monthly number of each crime though the data we'll work with has aggregated that to annual counts.
+\hypertarget{raw-data}{%
+\subsection{Raw data}\label{raw-data}}
 
-Due to its longevity (it has data since 1960) and ubiquity (almost every agency reports and has done so for many years) it is a popular data set for criminologists.
+The data comes as a single fixed-width ASCII file where each row is an agency and the column cover information about the agency (e.g.~its name, location) and the monthly number of crimes reported and cleared in that agency. This format makes the data relatively easy to convert into machine-readable formats like R and Stata.
 
-\hypertarget{exploring-the-ucr-data}{%
-\section{Exploring the UCR data}\label{exploring-the-ucr-data}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/offenses\_known\_raw\_ascii\_1960.PNG\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
-We are going to look at data with the combined annual count of crimes for every year available - 1960-2017 - which I've made available \href{http://doi.org/10.3886/E100707V11}{here}. The FBI releases the data as a single file per year and each file has monthly counts of crime. This data set does some cleaning for us by aggregating yearly and making it a single file for the whole time period. The first step when working with this UCR data is loading it into R. As with loading any data, make sure that your working directory path is correctly set using \texttt{setwd()} so R knows which folder the data is in.
+\begin{figure}
+\includegraphics[width=8.75in]{images/offenses_known_raw_ascii_1960} \caption{Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset}\label{fig:unnamed-chunk-1}
+\end{figure}
 
-We can see this is a very big file - 159 columns and nearly a million rows! Normally we'd use the \texttt{head()} function to see the first 6 rows of every column but since this data has so many columns we won't do that as it'd be hard to read. Instead we can use \texttt{View()} to open what's essentially an Excel file showing our data. This is useful to quickly glance at the data but is limited as it can bias us to believe that the first several rows are representative of the data (an issue also present with \texttt{head()}). But, for a first glance it is useful and will be supplemented by better checks below.
+\hypertarget{cleaned-data}{%
+\subsection{Cleaned data}\label{cleaned-data}}
 
-From looking at the data in \texttt{View()} we can see that the units are agency-years. Each row is a single agency for a single year. This is useful because it tells us we will have crime in agencies over time, which is a very common unit of crime data. Let's take a look at how many agencies report each year using the \texttt{table()} function which says how many times each value occurs for the column we select. This is also a useful check on if every year from 1960 to 2017 is actually available - don't just trust that the data has what it says it has!
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/offenses\_known\_agency\_info\_1960.PNG\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
-From these results it's clear that there are huge differences in how many agencies report in early years compared to more recent years. Is this an issue in an analysis? From the above table it is concerning but not entirely clear there is an issue depending on our specific analysis. It we only care about recent years then it wouldn't matter. If we only use large agencies, then knowing that relatively few agencies reported in 1960 doesn't mean that few large agencies reported. For that you'd have to look closer at only the agencies you want to study - we won't do that here but keep it in mind.
+\begin{figure}
+\includegraphics[width=26.67in]{images/offenses_known_agency_info_1960} \caption{Agency information for the 1960 Offenses Known and Clearances by Arrest dataset}\label{fig:unnamed-chunk-2}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/offenses\_known\_crime\_info.PNG\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\includegraphics[width=26.62in]{images/offenses_known_crime_info} \caption{Crime information for the 1960 Offenses Known and Clearances by Arrest dataset}\label{fig:unnamed-chunk-3}
+\end{figure}
+
+\hypertarget{what-variables-are-in-the-data}{%
+\section{What variables are in the data?}\label{what-variables-are-in-the-data}}
+
+\hypertarget{key-variables}{%
+\subsection{Key variables}\label{key-variables}}
+
+\hypertarget{known-issues-with-the-data}{%
+\subsection{Known issues with the data}\label{known-issues-with-the-data}}
+
+\hypertarget{final-thoughts}{%
+\section{Final thoughts}\label{final-thoughts}}
 
 \hypertarget{oris---unique-agency-identifiers}{%
 \section{ORIs - Unique agency identifiers}\label{oris---unique-agency-identifiers}}
@@ -221,9 +339,9 @@ For an easy way to find the ORI number of an agency, use this \href{http://crime
 \hypertarget{hierarchy-rule}{%
 \section{Hierarchy Rule}\label{hierarchy-rule}}
 
-The UCR has what is called the Hierarchy Rule where only the most serious crime in an incident is reported (except for motor vehicle theft which is always included). For example if there is an incident where the victim is robbed and then murdered, only the murder is counted as it is considered more serious than the robbery.
+This dataset uses what is called the Hierarchy Rule where only the most serious crime in an incident is reported (except for motor vehicle theft, which is always included). For example if there is an incident where the victim is robbed and then murdered, only the murder is counted as it is considered more serious than the robbery.
 
-How much does this affect our data in practice? Actually very little. Though the Hierarchy Rule does mean this data is an under-count, data from other sources indicate that it isn't much of an under count. The FBI's other data set, the National Incident-Based Reporting System (NIBRS) contains every crime that occurs in an incident (i.e.~it doesn't use the Hierarchy Rule). Using this we can measure how many crimes the Hierarchy Rule excludes (Most major cities do not report to NIBRS so what we find in NIBRS may not apply to them). In over 90\% of incidents, only one crime is committed. Additionally, when people talk about ``crime'' they usually mean murder which, while incomplete to discuss crime, means the UCR data here is accurate on that measure.
+How much does this affect our data in practice? Actually relatively little. Though the Hierarchy Rule does mean this data is an under-count, data from other sources indicate that it isn't much of an under count. The FBI's other data set, the National Incident-Based Reporting System (NIBRS) contains every crime that occurs in an incident (i.e.~it doesn't use the Hierarchy Rule). Using this we can measure how many crimes the Hierarchy Rule excludes (Most major cities do not report to NIBRS so what we find in NIBRS may not apply to them). In over 90\% of incidents, only one crime is committed. Additionally, when people talk about ``crime'' they usually mean murder which, while incomplete to discuss crime, means the UCR data here is accurate on that measure.
 
 \hypertarget{which-crimes-are-included}{%
 \section{Which crimes are included?}\label{which-crimes-are-included}}
@@ -324,7 +442,7 @@ For a full definition of each of the index crimes see the FBI's Offense Definiti
 
 Arson is considered an index crime but is not reported in this data - you need to use the separate Arson data set of the UCR to get access to arson counts. The ninth crime on that list, simple assault, is not considered an index crime but is nevertheless included in this data.
 
-Each of the crimes in the list above, and their subcategories, are included in the UCR data. In most reports, however, you'll see them reported as the total number of index crimes, summing up categories 1-7 and reporting that as ``crime''. These index crimes are often divided into violent index crimes - murder, rape, robbery, and aggravated assault - and property index crimes - burglary, theft, motor vehicle theft.
+Each of the crimes in the list above, and their subcategories, are included in the UCR data. In most reports, however, you'll see them reported as the total number of index crimes, summing up categories 1-7 and reporting that as ``crime.'' These index crimes are often divided into violent index crimes - murder, rape, robbery, and aggravated assault - and property index crimes - burglary, theft, motor vehicle theft.
 
 \hypertarget{the-problem-with-using-index-crimes}{%
 \subsection{The problem with using index crimes}\label{the-problem-with-using-index-crimes}}
@@ -379,36 +497,6 @@ From our \texttt{table()} output it seems that when agencies do report, they ten
 \hypertarget{arrests}{%
 \chapter{Arrests by Age, Sex, and Race}\label{arrests}}
 
-\hypertarget{a-brief-history-of-the-data}{%
-\section{A brief history of the data}\label{a-brief-history-of-the-data}}
-
-\hypertarget{changes-in-definitions}{%
-\subsection{Changes in definitions}\label{changes-in-definitions}}
-
-\hypertarget{what-does-the-data-look-like}{%
-\section{What does the data look like?}\label{what-does-the-data-look-like}}
-
-\hypertarget{raw-data}{%
-\subsection{Raw data}\label{raw-data}}
-
-\hypertarget{cleaned-data}{%
-\subsection{Cleaned data}\label{cleaned-data}}
-
-\hypertarget{what-variables-are-in-the-data}{%
-\section{What variables are in the data?}\label{what-variables-are-in-the-data}}
-
-\hypertarget{key-variables}{%
-\subsection{Key variables}\label{key-variables}}
-
-\hypertarget{known-issues-with-the-data}{%
-\subsection{Known issues with the data}\label{known-issues-with-the-data}}
-
-\hypertarget{final-thoughts}{%
-\section{Final thoughts}\label{final-thoughts}}
-
-\hypertarget{leoka}{%
-\chapter{Law Enforcement Officers Killed and Assaulted (LEOKA)}\label{leoka}}
-
 \hypertarget{a-brief-history-of-the-data-1}{%
 \section{A brief history of the data}\label{a-brief-history-of-the-data-1}}
 
@@ -421,8 +509,38 @@ From our \texttt{table()} output it seems that when agencies do report, they ten
 \hypertarget{raw-data-1}{%
 \subsection{Raw data}\label{raw-data-1}}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/arrests\_raw\_ascii\_1974.PNG\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\includegraphics[width=8.43in]{images/arrests_raw_ascii_1974} \caption{Fixed-width ASCII file for the 1974 Arrests by Age, Sex, and Race dataset}\label{fig:unnamed-chunk-1}
+\end{figure}
+
 \hypertarget{cleaned-data-1}{%
 \subsection{Cleaned data}\label{cleaned-data-1}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/arrests\_agency\_info.PNG\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\includegraphics[width=26.67in]{images/arrests_agency_info} \caption{Agency information for the 1974 Arrests by Age, Sex, and Race dataset}\label{fig:unnamed-chunk-2}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/arrests\_crime\_info.PNG\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\includegraphics[width=26.67in]{images/arrests_crime_info} \caption{Crime information for the 1974 Arrests by Age, Sex, and Race dataset}\label{fig:unnamed-chunk-3}
+\end{figure}
 
 \hypertarget{what-variables-are-in-the-data-1}{%
 \section{What variables are in the data?}\label{what-variables-are-in-the-data-1}}
@@ -436,8 +554,15 @@ From our \texttt{table()} output it seems that when agencies do report, they ten
 \hypertarget{final-thoughts-1}{%
 \section{Final thoughts}\label{final-thoughts-1}}
 
-\hypertarget{shr}{%
-\chapter{Supplementary Homicide Reports (SHR)}\label{shr}}
+\hypertarget{leoka}{%
+\chapter{Law Enforcement Officers Killed and Assaulted (LEOKA)}\label{leoka}}
+
+The Law Enforcement Officers Killed and Assaulted data, often called just by its acronym LEOKA, has two main purposes.\footnote{This data is also sometimes called the ``Police Employees'' dataset.} First, it provides counts of employees employed by each agency - broken down by if they are civilian employees or sworn officers, and also broken down by gender. And second it measures how many officers were assaulted or killed (including officers who die accidentally such as in a car crash) in a given month - this is broken down into shift type and type (e.g.~alone, with a partner, on foot, in a car, etc.), the offender's weapon, and type of call they are responding to (e.g.~robbery, disturbance, traffic stop).
+
+The employee information is at the year-level so you know, for example, how many male police officers were employed in a given year at an agency, but don't know any more than that such as how many officers were on patrol, were detectives, were in special units, etc. This dataset is commonly used as a measure of police employees and is a generally reliable - though imperfect as we'll see - measure of how many police are employed by a police agency.
+The second part of this data, measuring assaults and deaths, is more flawed with missing data issues and data error issues (e.g.~more officers killed than employed in an agency). We'll get into these issues in more detail during this chapter.
+
+This data, as well as the privately-run site \href{https://www.odmp.org/}{Officer Down Memorial Page} which covers law enforcement officers who have died, has also been used lately in the context of police using force against people out of fear of being harmed by that person. The discussion revolves around whether police are actually in high danger of being harmed by comparing the rate at which officers die to that of other professions. In general they find that police officers are among the most likely profession to die but are not at the top of this measure.
 
 \hypertarget{a-brief-history-of-the-data-2}{%
 \section{A brief history of the data}\label{a-brief-history-of-the-data-2}}
@@ -451,8 +576,38 @@ From our \texttt{table()} output it seems that when agencies do report, they ten
 \hypertarget{raw-data-2}{%
 \subsection{Raw data}\label{raw-data-2}}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/leoka\_raw\_ascii\_1960.PNG\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\includegraphics[width=8.21in]{images/leoka_raw_ascii_1960} \caption{Fixed-width ASCII file for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset}\label{fig:unnamed-chunk-1}
+\end{figure}
+
 \hypertarget{cleaned-data-2}{%
 \subsection{Cleaned data}\label{cleaned-data-2}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/leoka\_agency\_info\_1960.PNG\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\includegraphics[width=26.58in]{images/leoka_agency_info_1960} \caption{Agency information for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset}\label{fig:unnamed-chunk-2}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/leoka\_crime\_info\_1960.PNG\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\includegraphics[width=26.64in]{images/leoka_crime_info_1960} \caption{Crime information for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset}\label{fig:unnamed-chunk-3}
+\end{figure}
 
 \hypertarget{what-variables-are-in-the-data-2}{%
 \section{What variables are in the data?}\label{what-variables-are-in-the-data-2}}
@@ -466,8 +621,8 @@ From our \texttt{table()} output it seems that when agencies do report, they ten
 \hypertarget{final-thoughts-2}{%
 \section{Final thoughts}\label{final-thoughts-2}}
 
-\hypertarget{hate_crimes}{%
-\chapter{Hate Crime Data}\label{hate_crimes}}
+\hypertarget{shr}{%
+\chapter{Supplementary Homicide Reports (SHR)}\label{shr}}
 
 \hypertarget{a-brief-history-of-the-data-3}{%
 \section{A brief history of the data}\label{a-brief-history-of-the-data-3}}
@@ -481,8 +636,38 @@ From our \texttt{table()} output it seems that when agencies do report, they ten
 \hypertarget{raw-data-3}{%
 \subsection{Raw data}\label{raw-data-3}}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/shr\_raw\_ascii\_1985.PNG\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\includegraphics[width=7.39in]{images/shr_raw_ascii_1985} \caption{Fixed-width ASCII file for the 1985 Supplementary Homicide Reports (SHR) dataset}\label{fig:unnamed-chunk-1}
+\end{figure}
+
 \hypertarget{cleaned-data-3}{%
 \subsection{Cleaned data}\label{cleaned-data-3}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/shr\_agency\_info.PNG\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\includegraphics[width=26.62in]{images/shr_agency_info} \caption{Agency information for the 1985 Supplementary Homicide Reports (SHR) dataset}\label{fig:unnamed-chunk-2}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/shr\_crime\_info.PNG\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\includegraphics[width=26.62in]{images/shr_crime_info} \caption{Crime information for the 1985 Supplementary Homicide Reports (SHR) dataset}\label{fig:unnamed-chunk-3}
+\end{figure}
 
 \hypertarget{what-variables-are-in-the-data-3}{%
 \section{What variables are in the data?}\label{what-variables-are-in-the-data-3}}
@@ -496,8 +681,10 @@ From our \texttt{table()} output it seems that when agencies do report, they ten
 \hypertarget{final-thoughts-3}{%
 \section{Final thoughts}\label{final-thoughts-3}}
 
-\hypertarget{stolen_property}{%
-\chapter{Property Stolen and Recovered (Supplement to Return A)}\label{stolen_property}}
+\hypertarget{hate_crimes}{%
+\chapter{Hate Crime Data}\label{hate_crimes}}
+
+This dataset covers crimes that are judged by the police to be motivated by hate More specifically, they are crimes whose motivation - at least in part - is bias towards a certain person or group of people because of characteristics about them such as race, sexual orientation, or religion.
 
 \hypertarget{a-brief-history-of-the-data-4}{%
 \section{A brief history of the data}\label{a-brief-history-of-the-data-4}}
@@ -511,8 +698,38 @@ From our \texttt{table()} output it seems that when agencies do report, they ten
 \hypertarget{raw-data-4}{%
 \subsection{Raw data}\label{raw-data-4}}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/hate\_crimes\_raw\_ascii\_1991.PNG\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\includegraphics[width=7.79in]{images/hate_crimes_raw_ascii_1991} \caption{Fixed-width ASCII file for the 1991 Hate Crime dataset}\label{fig:unnamed-chunk-1}
+\end{figure}
+
 \hypertarget{cleaned-data-4}{%
 \subsection{Cleaned data}\label{cleaned-data-4}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/hate\_crimes\_agency\_info.PNG\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\includegraphics[width=26.62in]{images/hate_crimes_agency_info} \caption{Agency information for the 1991 Hate Crime dataset}\label{fig:unnamed-chunk-2}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/hate\_crimes\_crime\_info.PNG\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\includegraphics[width=26.62in]{images/hate_crimes_crime_info} \caption{Crime information for the 1991 Hate Crime dataset}\label{fig:unnamed-chunk-3}
+\end{figure}
 
 \hypertarget{what-variables-are-in-the-data-4}{%
 \section{What variables are in the data?}\label{what-variables-are-in-the-data-4}}
@@ -526,8 +743,8 @@ From our \texttt{table()} output it seems that when agencies do report, they ten
 \hypertarget{final-thoughts-4}{%
 \section{Final thoughts}\label{final-thoughts-4}}
 
-\hypertarget{county_level}{%
-\chapter{County-Level Detailed Arrest and Offense Data}\label{county_level}}
+\hypertarget{stolen_property}{%
+\chapter{Property Stolen and Recovered (Supplement to Return A)}\label{stolen_property}}
 
 \hypertarget{a-brief-history-of-the-data-5}{%
 \section{A brief history of the data}\label{a-brief-history-of-the-data-5}}
@@ -541,8 +758,38 @@ From our \texttt{table()} output it seems that when agencies do report, they ten
 \hypertarget{raw-data-5}{%
 \subsection{Raw data}\label{raw-data-5}}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/property\_stolen\_raw\_ascii\_1960.PNG\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\includegraphics[width=8.12in]{images/property_stolen_raw_ascii_1960} \caption{Fixed-width ASCII file for the 1960 Property Stolen and Recovered dataset}\label{fig:unnamed-chunk-1}
+\end{figure}
+
 \hypertarget{cleaned-data-5}{%
 \subsection{Cleaned data}\label{cleaned-data-5}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/property\_stolen\_agency\_info.PNG\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\includegraphics[width=26.67in]{images/property_stolen_agency_info} \caption{Agency information for the 1960 Property Stolen and Recovered dataset}\label{fig:unnamed-chunk-2}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/property\_stolen\_crime\_info.PNG\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\includegraphics[width=26.61in]{images/property_stolen_crime_info} \caption{Crime information for the 1960 Property Stolen and Recovered dataset}\label{fig:unnamed-chunk-3}
+\end{figure}
 
 \hypertarget{what-variables-are-in-the-data-5}{%
 \section{What variables are in the data?}\label{what-variables-are-in-the-data-5}}
@@ -555,6 +802,36 @@ From our \texttt{table()} output it seems that when agencies do report, they ten
 
 \hypertarget{final-thoughts-5}{%
 \section{Final thoughts}\label{final-thoughts-5}}
+
+\hypertarget{county_level}{%
+\chapter{County-Level Detailed Arrest and Offense Data}\label{county_level}}
+
+\hypertarget{a-brief-history-of-the-data-6}{%
+\section{A brief history of the data}\label{a-brief-history-of-the-data-6}}
+
+\hypertarget{changes-in-definitions-6}{%
+\subsection{Changes in definitions}\label{changes-in-definitions-6}}
+
+\hypertarget{what-does-the-data-look-like-6}{%
+\section{What does the data look like?}\label{what-does-the-data-look-like-6}}
+
+\hypertarget{raw-data-6}{%
+\subsection{Raw data}\label{raw-data-6}}
+
+\hypertarget{cleaned-data-6}{%
+\subsection{Cleaned data}\label{cleaned-data-6}}
+
+\hypertarget{what-variables-are-in-the-data-6}{%
+\section{What variables are in the data?}\label{what-variables-are-in-the-data-6}}
+
+\hypertarget{key-variables-6}{%
+\subsection{Key variables}\label{key-variables-6}}
+
+\hypertarget{known-issues-with-the-data-6}{%
+\subsection{Known issues with the data}\label{known-issues-with-the-data-6}}
+
+\hypertarget{final-thoughts-6}{%
+\section{Final thoughts}\label{final-thoughts-6}}
 
   \bibliography{book.bib,packages.bib}
 

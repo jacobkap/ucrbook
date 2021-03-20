@@ -140,15 +140,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#citing-this-book"><i class="fa fa-check"></i>Citing this book</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#sources-of-ucr-data"><i class="fa fa-check"></i>Sources of UCR data</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#where-to-find-the-data-used-in-this-book"><i class="fa fa-check"></i>Where to find the data used in this book</a></li>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#nibrs-data"><i class="fa fa-check"></i><b>0.1</b> NIBRS data</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#nibrs-data"><i class="fa fa-check"></i>NIBRS data</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the author</a></li>
 <li class="chapter" data-level="1" data-path="ucr-general.html"><a href="ucr-general.html"><i class="fa fa-check"></i><b>1</b> An Overview of the Data</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="ucr-general.html"><a href="ucr-general.html#what-is-a-crime"><i class="fa fa-check"></i><b>1.1</b> What is a crime?</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="ucr-general.html"><a href="ucr-general.html#index-crimes"><i class="fa fa-check"></i><b>1.1.1</b> Index crimes</a></li>
-<li class="chapter" data-level="1.1.2" data-path="ucr-general.html"><a href="ucr-general.html#violent-crimes"><i class="fa fa-check"></i><b>1.1.2</b> Violent crimes</a></li>
+<li class="chapter" data-level="1.1.1" data-path="ucr-general.html"><a href="ucr-general.html#crimes-included-in-the-ucr-datasets"><i class="fa fa-check"></i><b>1.1.1</b> Crimes included in the UCR datasets</a></li>
+<li class="chapter" data-level="1.1.2" data-path="ucr-general.html"><a href="ucr-general.html#index-crimes"><i class="fa fa-check"></i><b>1.1.2</b> Index crimes</a></li>
+<li class="chapter" data-level="1.1.3" data-path="ucr-general.html"><a href="ucr-general.html#violent-crimes"><i class="fa fa-check"></i><b>1.1.3</b> Violent crimes</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="ucr-general.html"><a href="ucr-general.html#a-summary-of-each-ucr-dataset"><i class="fa fa-check"></i><b>1.2</b> A summary of each UCR dataset</a>
 <ul>
@@ -335,28 +336,28 @@ The second part of this data, measuring assaults and deaths, is more flawed with
 <h2><span class="header-section-number">4.2</span> What does the data look like?</h2>
 <div id="raw-data-2" class="section level3" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> Raw data</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="leoka.html#cb7-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/leoka_raw_ascii_1960.PNG&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="leoka.html#cb3-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/leoka_raw_ascii_1960.PNG&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-1"></span>
 <img src="images/leoka_raw_ascii_1960.PNG" alt="Fixed-width ASCII file for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset" width="296" />
 <p class="caption">
-Figure 2.1: Fixed-width ASCII file for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset
+Figure 4.1: Fixed-width ASCII file for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset
 </p>
 </div>
 </div>
 <div id="cleaned-data-2" class="section level3" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> Cleaned data</h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="leoka.html#cb8-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/leoka_agency_info_1960.PNG&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="leoka.html#cb4-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/leoka_agency_info_1960.PNG&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-2"></span>
 <img src="images/leoka_agency_info_1960.PNG" alt="Agency information for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset" width="957" />
 <p class="caption">
-Figure 2.2: Agency information for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset
+Figure 2.1: Agency information for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset
 </p>
 </div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="leoka.html#cb9-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/leoka_crime_info_1960.PNG&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="leoka.html#cb5-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/leoka_crime_info_1960.PNG&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-3"></span>
 <img src="images/leoka_crime_info_1960.PNG" alt="Crime information for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset" width="959" />
 <p class="caption">
-Figure 2.3: Crime information for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset
+Figure 2.2: Crime information for the 1960 Law Enforcement Officers Killed and Assaulted (LEOKA) dataset
 </p>
 </div>
 </div>

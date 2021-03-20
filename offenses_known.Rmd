@@ -1,5 +1,14 @@
 # Offenses Known and Clearances by Arrest {#offenses_known}
 
+```{r}
+knitr::opts_chunk$set(
+  echo    = FALSE,
+  warning = FALSE,
+  error   = FALSE
+)
+```
+
+
 ## A brief history of the data
 
 ### Changes in definitions

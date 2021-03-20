@@ -140,15 +140,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#citing-this-book"><i class="fa fa-check"></i>Citing this book</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#sources-of-ucr-data"><i class="fa fa-check"></i>Sources of UCR data</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#where-to-find-the-data-used-in-this-book"><i class="fa fa-check"></i>Where to find the data used in this book</a></li>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#nibrs-data"><i class="fa fa-check"></i><b>0.1</b> NIBRS data</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#nibrs-data"><i class="fa fa-check"></i>NIBRS data</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the author</a></li>
 <li class="chapter" data-level="1" data-path="ucr-general.html"><a href="ucr-general.html"><i class="fa fa-check"></i><b>1</b> An Overview of the Data</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="ucr-general.html"><a href="ucr-general.html#what-is-a-crime"><i class="fa fa-check"></i><b>1.1</b> What is a crime?</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="ucr-general.html"><a href="ucr-general.html#index-crimes"><i class="fa fa-check"></i><b>1.1.1</b> Index crimes</a></li>
-<li class="chapter" data-level="1.1.2" data-path="ucr-general.html"><a href="ucr-general.html#violent-crimes"><i class="fa fa-check"></i><b>1.1.2</b> Violent crimes</a></li>
+<li class="chapter" data-level="1.1.1" data-path="ucr-general.html"><a href="ucr-general.html#crimes-included-in-the-ucr-datasets"><i class="fa fa-check"></i><b>1.1.1</b> Crimes included in the UCR datasets</a></li>
+<li class="chapter" data-level="1.1.2" data-path="ucr-general.html"><a href="ucr-general.html#index-crimes"><i class="fa fa-check"></i><b>1.1.2</b> Index crimes</a></li>
+<li class="chapter" data-level="1.1.3" data-path="ucr-general.html"><a href="ucr-general.html#violent-crimes"><i class="fa fa-check"></i><b>1.1.3</b> Violent crimes</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="ucr-general.html"><a href="ucr-general.html#a-summary-of-each-ucr-dataset"><i class="fa fa-check"></i><b>1.2</b> A summary of each UCR dataset</a>
 <ul>
@@ -321,7 +322,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="hate_crimes" class="section level1" number="6">
 <h1><span class="header-section-number">Chapter 6</span> Hate Crime Data</h1>
-<p>This dataset covers crimes that are judged by the police to be motivated by hate More specifically, they are crimes whose motivation - at least in part - is bias towards a certain person or group of people because of characteristics about them such as race, sexual orientation, or religion.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="hate-crimes.html#cb7-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(</span>
+<span id="cb7-2"><a href="hate-crimes.html#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">echo    =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb7-3"><a href="hate-crimes.html#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">warning =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb7-4"><a href="hate-crimes.html#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">error   =</span> <span class="cn">FALSE</span></span>
+<span id="cb7-5"><a href="hate-crimes.html#cb7-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>This dataset covers crimes that are reported to the police and judged by the police to be motivated by hate More specifically, they are, first, crimes which were, second, motivated - at least in part - by bias towards a certain person or group of people because of characteristics about them such as race, sexual orientation, or religion. The first part is key, they must be crimes - and really must be the selection of crimes that the FBI collects for this dataset. Biased actions that don’t meet the standard of a crime, or are of a crime not included in this data, are not considered hate crimes. For example, if someone yells at a Black person and uses racial slurs against them, it is clearly a racist action. For it to be included in this data, however, it would have to extend to a threat since “intimidation” is a crime included in this data but lesser actions such as simply insulting someone is not included. For the second part, the bias motivation, it must be against a group that the FBI includes in this data. When this data collection began crimes against transgender people were not counted so if a transgender person was assaulted or killed because they were transgender, this is not a hate crime recorded in the data.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></p>
+<p>So this data is really a more narrow measure of hate crimes than it might seem. In practice it is (some) crimes motivated by (some) kinds of hate that are reported to the police. It is also the most under-reported UCR dataset with most agencies not reporting any crimes to the FBI. This leads to huge gaps in the data with some states having zero agencies report crime, agencies reporting some bias motivations but not others, agencies reporting some years but not others. While these problems exist for all of the UCR datasets, it is most severe in this data. This problem is exacerbated by hate crimes being rare even in agencies that report them - with such rare events, even minor changes in which agencies report or which types of offenses they include can have large effects.</p>
+<p>My main takeaway for this data is that it is inappropriate to use it to study hate crimes. At most it can be used to look at within-city within-bias-motivation trends, while keeping in mind that even this narrow subset of data is limited by under-reporting by victims and potential changes in police practices of reporting such as how many months of data they report per year.</p>
 <div id="a-brief-history-of-the-data-4" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> A brief history of the data</h2>
 <div id="changes-in-definitions-4" class="section level3" number="6.1.1">
@@ -332,8 +340,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">6.2</span> What does the data look like?</h2>
 <div id="raw-data-4" class="section level3" number="6.2.1">
 <h3><span class="header-section-number">6.2.1</span> Raw data</h3>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="hate-crimes.html#cb13-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/hate_crimes_raw_ascii_1991.PNG&#39;</span>)</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-1"></span>
+<div class="figure"><span id="fig:unnamed-chunk-2"></span>
 <img src="images/hate_crimes_raw_ascii_1991.PNG" alt="Fixed-width ASCII file for the 1991 Hate Crime dataset" width="280" />
 <p class="caption">
 Figure 2.1: Fixed-width ASCII file for the 1991 Hate Crime dataset
@@ -342,15 +349,13 @@ Figure 2.1: Fixed-width ASCII file for the 1991 Hate Crime dataset
 </div>
 <div id="cleaned-data-4" class="section level3" number="6.2.2">
 <h3><span class="header-section-number">6.2.2</span> Cleaned data</h3>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="hate-crimes.html#cb14-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/hate_crimes_agency_info.PNG&#39;</span>)</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-2"></span>
+<div class="figure"><span id="fig:unnamed-chunk-3"></span>
 <img src="images/hate_crimes_agency_info.PNG" alt="Agency information for the 1991 Hate Crime dataset" width="958" />
 <p class="caption">
 Figure 2.2: Agency information for the 1991 Hate Crime dataset
 </p>
 </div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="hate-crimes.html#cb15-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/hate_crimes_crime_info.PNG&#39;</span>)</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-3"></span>
+<div class="figure"><span id="fig:unnamed-chunk-4"></span>
 <img src="images/hate_crimes_crime_info.PNG" alt="Crime information for the 1991 Hate Crime dataset" width="958" />
 <p class="caption">
 Figure 2.3: Crime information for the 1991 Hate Crime dataset
@@ -371,6 +376,12 @@ Figure 2.3: Crime information for the 1991 Hate Crime dataset
 <h2><span class="header-section-number">6.4</span> Final thoughts</h2>
 
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="7">
+<li id="fn7"><p>The first year where transgender as a group was a considered a bias motivation was in 2014.<a href="hate-crimes.html#fnref7" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

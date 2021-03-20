@@ -1,5 +1,12 @@
 # Arrests by Age, Sex, and Race {#arrests}
 
+```{r}
+knitr::opts_chunk$set(
+  echo    = FALSE,
+  warning = FALSE,
+  error   = FALSE
+)
+```
 
 ## A brief history of the data
 
