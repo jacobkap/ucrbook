@@ -38,3 +38,7 @@ caption {
   break-inside: avoid;
   break-after: avoid;
 }
+
+li{
+    margin: 1px 0;
+}
