@@ -18,13 +18,6 @@ classoption: openany
 
 
 
-```r
-knitr::opts_chunk$set(
-  echo    = FALSE,
-  warning = FALSE,
-  error   = FALSE
-)
-```
 
 
 # Preface 

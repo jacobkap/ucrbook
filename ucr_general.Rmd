@@ -105,7 +105,7 @@ The crimes included in the Arrests by Age, Sex, and Race - the "arrest" data tel
 28. Curfew and loitering law violations - for minors only.
 29. Runaways - for minors only.
 
-### What is an index (or part 1) crime? {index_crimes}
+### What is an index (or part 1) crime? {#index_crimes}
 
 One of the first (and seemingly last) thing that people tend to learn about UCR crime data is that it covers something called an "index crime."^[Index crimes are sometimes capitalized as "Index Crimes" though I've seen it written both ways. In this book I keep it lowercase as "index crimes."] Index crimes, sometimes written as Part 1 or Part I crimes, are the seven crimes originally chosen by the FBI to be included in their measure of crimes as these offenses were both considered serious and generally well-reported so would be a useful measure of crime. Index crimes are often broken down into property index crimes - burglary, theft, and motor vehicle theft (and arson now, though that's often not included and is poorly reported) - and violent index crimes (murder, rape, robbery, and aggravated assault). The "index" is simply that all of the crimes are summed up into a total count of crimes (violent, property, or total) for that police agency. 
 
