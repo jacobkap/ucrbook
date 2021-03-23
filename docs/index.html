@@ -24,7 +24,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2021-03-22" />
+<meta name="date" content="2021-03-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -141,15 +141,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#sources-of-ucr-data"><i class="fa fa-check"></i><b>1.4</b> Sources of UCR data</a></li>
 <li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#where-to-find-the-data-used-in-this-book"><i class="fa fa-check"></i><b>1.5</b> Where to find the data used in this book</a></li>
 <li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#nibrs-data"><i class="fa fa-check"></i><b>1.6</b> NIBRS data</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#this-book-in-one-paragraph"><i class="fa fa-check"></i><b>1.7</b> This book … in one paragraph</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the author</a></li>
 <li class="chapter" data-level="2" data-path="ucr-general.html"><a href="ucr-general.html"><i class="fa fa-check"></i><b>2</b> Overview of the Data</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="ucr-general.html"><a href="ucr-general.html#what-is-a-crime"><i class="fa fa-check"></i><b>2.1</b> What is a crime?</a>
+<li class="chapter" data-level="2.1" data-path="ucr-general.html"><a href="ucr-general.html#crimes-included-in-the-ucr-datasets"><i class="fa fa-check"></i><b>2.1</b> Crimes included in the UCR datasets</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="ucr-general.html"><a href="ucr-general.html#crimes-included-in-the-ucr-datasets"><i class="fa fa-check"></i><b>2.1.1</b> Crimes included in the UCR datasets</a></li>
-<li class="chapter" data-level="2.1.2" data-path="ucr-general.html"><a href="ucr-general.html#what-is-an-index-or-part-1-crime"><i class="fa fa-check"></i><b>2.1.2</b> What is an index (or part 1) crime?</a></li>
-<li class="chapter" data-level="2.1.3" data-path="ucr-general.html"><a href="ucr-general.html#what-is-a-violent-crime"><i class="fa fa-check"></i><b>2.1.3</b> What is a violent crime?</a></li>
+<li class="chapter" data-level="2.1.1" data-path="ucr-general.html"><a href="ucr-general.html#crimes-in-the-offenses-known-and-clearances-by-arrest-dataset"><i class="fa fa-check"></i><b>2.1.1</b> Crimes in the Offenses Known and Clearances by Arrest dataset</a></li>
+<li class="chapter" data-level="2.1.2" data-path="ucr-general.html"><a href="ucr-general.html#crimes-in-the-arrests-by-age-sex-and-race-dataset"><i class="fa fa-check"></i><b>2.1.2</b> Crimes in the Arrests by Age, Sex, and Race dataset</a></li>
+<li class="chapter" data-level="2.1.3" data-path="ucr-general.html"><a href="ucr-general.html#what-is-an-index-or-part-1-crime-index_crimes"><i class="fa fa-check"></i><b>2.1.3</b> What is an index (or part 1) crime? {index_crimes}</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="ucr-general.html"><a href="ucr-general.html#a-summary-of-each-ucr-dataset"><i class="fa fa-check"></i><b>2.2</b> A summary of each UCR dataset</a>
 <ul>
@@ -313,7 +314,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</h1>
 <p class="author"><em>Jacob Kaplan</em></p>
-<p class="date"><em>2021-03-22</em></p>
+<p class="date"><em>2021-03-23</em></p>
 </div>
 <div id="preface" class="section level1" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Preface</h1>
@@ -365,6 +366,10 @@ BibTeX format:
 <div id="nibrs-data" class="section level2" number="1.6">
 <h2><span class="header-section-number">1.6</span> NIBRS data</h2>
 <p>Another source of FBI data, and one sometimes considered part of the UCR data collection, is the National Incident-Based Reporting System (NIBRS) data. Like its name implies this is an incident-level dataset which has detailed information about each incident reported to the police, including incident circumstances, and victim and offender information. This is also the data that the FBI has declared will replace UCR data starting in 2021, meaning that they will no longer collect UCR data and only allow agencies to submit NIBRS data. NIBRS data is a complex and highly rich dataset that deserves its own book to really understand, so I will not be discussing it any further in this book.</p>
+</div>
+<div id="this-book-in-one-paragraph" class="section level2" number="1.7">
+<h2><span class="header-section-number">1.7</span> This book … in one paragraph</h2>
+<p>UCR data is complicated and riddled with limitations, so a naive use of them is certainly wrong. In my opinion, the vast majority of papers that use UCR data should have been rejected. They generally only briefly mention that the data used was UCR data and do not discuss issues with the data such as under-reporting, imputation procedures, or missing data. While their results may not change (or at least not change enough to affect the results) once they account for this, the lack of even bothering to discuss these issues is enough of an issue for an immediate desk reject. Surprisingly, this problem is even more severe for the worst UCR data, county-level imputed data and hate crime data, demonstrating that the authors who use that data are generally the ones least qualified (otherwise they wouldn’t use it at all) to do so.</p>
 
 </div>
 </div>

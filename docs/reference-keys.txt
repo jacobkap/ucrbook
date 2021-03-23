@@ -6,10 +6,12 @@ citing-this-book
 sources-of-ucr-data
 where-to-find-the-data-used-in-this-book
 nibrs-data
+this-book-in-one-paragraph
 ucr_general
-what-is-a-crime
 crimes-included-in-the-ucr-datasets
-what-is-an-index-or-part-1-crime
+crimes-in-the-offenses-known-and-clearances-by-arrest-dataset
+crimes-in-the-arrests-by-age-sex-and-race-dataset
+what-is-an-index-or-part-1-crime-index_crimes
 what-is-a-violent-crime
 a-summary-of-each-ucr-dataset
 offenses-known-and-clearances-by-arrest-return-a
