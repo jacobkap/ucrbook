@@ -24,6 +24,8 @@ rmd_files: [
   "hate_crime.Rmd",
   # Stolen property
   "stolen_property.Rmd",
+  # Arson
+  "arson.Rmd",
   # County-Level Data
   "county_level_data.Rmd",
   
