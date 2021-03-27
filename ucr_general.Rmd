@@ -11,7 +11,6 @@ library(readr)
 library(crimeutils)
 library(ggplot2)
 library(dplyr)
-library(scales)
 nyc <- read_csv("data/New_York_New_York_City_Police_Department.csv")
 load("data/offenses_known_yearly_1960_2018.rda")
 ```
@@ -116,9 +115,9 @@ The crimes included in the Arrests by Age, Sex, and Race - the "arrest" data tel
 
 One of the first (and seemingly last) thing that people tend to learn about UCR crime data is that it covers something called an "index crime."^[Index crimes are sometimes capitalized as "Index Crimes" though I've seen it written both ways. In this book I keep it lowercase as "index crimes."] Index crimes, sometimes written as Part 1 or Part I crimes, are the seven crimes originally chosen by the FBI to be included in their measure of crimes as these offenses were both considered serious and generally well-reported so would be a useful measure of crime. Index crimes are often broken down into property index crimes - burglary, theft, and motor vehicle theft (and arson now, though that's often not included and is poorly reported) - and violent index crimes (murder, rape, robbery, and aggravated assault). The "index" is simply that all of the crimes are summed up into a total count of crimes (violent, property, or total) for that police agency. 
 
-The biggest problem with index crimes is that it is simply the sum of 8 (or 7 since arson data usually isn't available) crimes. Index crimes have a huge range in their seriousness - it includes, for example, both murder and theft - so summing up the crimes gives each crime equal weight. This is clearly wrong as 100 murders is more serious than 100 thefts. This is especially a problem as less serious crimes (theft mostly) are far more common than more serious crimes. In 2017, for example, there were 1.25 million violent index crimes in the United States. That same year had 5.5 million thefts. So using index crimes as your measure of crimes undercounts the seriousness of crimes. Looking at total index crimes is, in effect, mostly just looking at theft. Looking at violent index crimes mostly measures aggravated assault. This is especially a problem because it hides trends in violent crimes. San Francisco, as shown in Figure \@ref(fig:sf_thefts), has had a huge increase in index crimes in the last several years. When looking closer, that increase is driven almost entirely by the near doubling of theft since 2011. During the same years, index violent crimes have stayed fairly steady. So the city isn't getting more dangerous - at least not in terms of violent index crimes increasing - but it appears like it is due to just looking at total index crimes.
+The biggest problem with index crimes is that it is simply the sum of 8 (or 7 since arson data usually isn’t available) crimes. Index crimes have a huge range in their seriousness - it includes, for example, both murder and theft - so summing up the crimes gives each crime equal weight. This is clearly wrong as 100 murders is more serious than 100 thefts. This is especially a problem as less serious crimes (theft mostly) are far more common than more serious crimes. In 2017, for example, there were 1.25 million violent index crimes in the United States. That same year had 5.5 million thefts. So using index crimes as your measure of crimes undercounts the seriousness of crimes. Looking at total index crimes is, in effect, mostly just looking at theft. Looking at violent index crimes mostly measures aggravated assault. This is especially a problem because it hides trends in violent crimes. San Francisco, as shown in Figure @ref(fig:sf_thefts), has had a huge increase in index crimes in the last several years. When looking closer, that increase is driven almost entirely by the near doubling of theft since 2011. During the same years, index violent crimes have stayed fairly steady. So the city isn’t getting more dangerous - at least not in terms of violent index crimes increasing - but it appears like it is due to just looking at total index crimes.
 
-```{r sf_thefts, fig.cap = "Thefts and total index crimes in San Francisco, 1960-2018." }
+```{r sfThefts, fig.cap = "Thefts and total index crimes in San Francisco, 1960-2018." }
 sf <- offenses_known_yearly_1960_2018[offenses_known_yearly_1960_2018$ori %in% "CA03801", ]
 
 ggplot(sf, aes(x = year, y = actual_index_total, color = "Total Index Crimes")) +
@@ -135,9 +134,9 @@ ggplot(sf, aes(x = year, y = actual_index_total, color = "Total Index Crimes")) 
 ```
 
 
-While many researchers divide index crimes into violent and nonviolent categories, which helps but even this isn't entirely sufficient. Take Chicago as an example. It is a city infamous for its large number of murders. But as a fraction of index crimes, Chicago has a rounding error worth of murders. Their 653 murders in 2017 is only 0.5% of total index crimes. For violent index crimes, murder makes up 2.2%. As seen in Figure \@ref(fig:chicago_murder), in no year where data is available did murders account for more than 3.5% of violent index crimes; and, while murders are increasing as a percent of violent index crimes they still account for no more than 2.5% in most years. What this means is that changes in murder are very difficult to detect. If Chicago had no murders this year, but a less serious crime (such as theft) increased slightly, we couldn't tell from looking at the number of index crimes, even from violent index crimes. As discussed in the below section, using this sample of crimes as the primary measure of crimes - and particularly of violent crimes - is also misleading as it excludes important - and highly common relative to index crimes - offenses, such as simple assault.
+While many researchers divide index crimes into violent and nonviolent categories, which helps but even this isn't entirely sufficient. Take Chicago as an example. It is a city infamous for its large number of murders. But as a fraction of index crimes, Chicago has a rounding error worth of murders. Their 653 murders in 2017 is only 0.5% of total index crimes. For violent index crimes, murder makes up 2.2%. As seen in Figure \@ref(fig:chicagoMurder), in no year where data is available did murders account for more than 3.5% of violent index crimes; and, while murders are increasing as a percent of violent index crimes they still account for no more than 2.5% in most years. What this means is that changes in murder are very difficult to detect. If Chicago had no murders this year, but a less serious crime (such as theft) increased slightly, we couldn't tell from looking at the number of index crimes, even from violent index crimes. As discussed in the below section, using this sample of crimes as the primary measure of crimes - and particularly of violent crimes - is also misleading as it excludes important - and highly common relative to index crimes - offenses, such as simple assault.
 
-```{r chicago_murder, fig.cap = "Murders in Chicago as a percent of violent index crimes, 1960-2018."}
+```{r chicagoMurder, fig.cap = "Murders in Chicago as a percent of violent index crimes, 1960-2018."}
 chicago <- offenses_known_yearly_1960_2018[offenses_known_yearly_1960_2018$ori %in% "ILCPD00", ]
 chicago$murder_percent_of_index <- chicago$actual_murder / chicago$actual_index_violent
 
@@ -160,8 +159,9 @@ The second reason - and one that I think makes sense for reporters and advocates
 
 The final reason is that it benefits some people's goals to classify violent crime as only including index crimes. This is because simple assault is extremely common compared to violent index crimes - in many cities simple assault is more common than all violent index crimes put together - so excluding simple assault makes it seem like fewer arrests are violent than they are when including simple assault. For example, a number of articles have noted that marijuana arrests are more common than violent crime arrests [@ingraham2016; @kertscher2019; @devito2020; @earlenbaugh2020; @aclu2020] or that violent crime arrests are only 5\% of all arrests [@neusteter2019every; @speri2019].^[The FBI's report for arrests does include simple assault so the second reason people may not include it does not apply here.] While true when considering only violent index crimes, including simple assault as a violent crime makes these statements false. Some organizations call the violent index crimes "serious violent crimes" which is an improvement but even this is a misnomer since simple assault can lead to more serious harm than aggravated assault. An assault becomes aggravated if using a weapon or there is the *potential* for serious harm, even if no harm actually occurs.^[UCR data provides no information about the harm caused to victims. The new FBI dataset NIBRS actually does have a variable that includes harm to the victim so if you're interested in measuring harm (an understudied topic in criminology), that is the dataset to use.] 
 
-As an example of this last point, \@ref(fig:simple_vs_index) shows the number of violent index crimes and simple assaults each year from 1960 to 2018 in Houston, Texas (simple assault is not reported in UCR until 1964, which is why 1960-1963 show zero simple assaults). In every year where simple assault is reported, there are more simple assaults than aggravated assaults. Beginning in the late 1980s, there are also more simple assaults than total violent index crimes. Excluding simple assault from the being a violent crime greatly underestimates violence in the country. 
-```{r simple_vs_index, fig.cap="Reported crimes in Philadelphia from 1960 to 2018. Violent index crimes are aggravated assault, rape, robbery, and murder."}
+As an example of this last point, \@ref(fig:simpleIndex) shows the number of violent index crimes and simple assaults each year from 1960 to 2018 in Houston, Texas (simple assault is not reported in UCR until 1964, which is why 1960-1963 show zero simple assaults). In every year where simple assault is reported, there are more simple assaults than aggravated assaults. Beginning in the late 1980s, there are also more simple assaults than total violent index crimes. Excluding simple assault from the being a violent crime greatly underestimates violence in the country. 
+
+```{r simpleIndex, fig.cap="Reported crimes in Philadelphia from 1960 to 2018. Violent index crimes are aggravated assault, rape, robbery, and murder."}
 houston <- offenses_known_yearly_1960_2018[offenses_known_yearly_1960_2018$ori %in% "TXHPD00",]
 
 ggplot(houston, aes(x = year, y = actual_index_violent, color = "Violent Index Crimes")) +
@@ -202,7 +202,7 @@ The population value is the population who reside in that jurisdiction, and does
 
 ### Reporting is voluntary ... so some agencies don't (or report partially)
 
-```{r agencies_reporting, fig.cap="The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year."}
+```{r agenciesReporting, fig.cap="The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year."}
 offenses_known_yearly_1960_2018 %>%
   dplyr::filter(!last_month_reported %in% "no months reported") %>%
   count(year) %>%
@@ -217,7 +217,7 @@ offenses_known_yearly_1960_2018 %>%
 
 In 2003 the New York Police Department stopped reporting this category of offense, resuming only in 2013. They continued to report the broader aggravated assault category, but not any of the subsections of aggravated assaults which differentiate the weapon used. 
 
-```{r nyc_gun_assaults, fig.cap = "Monthly reports of gun assaults in New York City, 1960-2018."}
+```{r nycGunAssaults, fig.cap = "Monthly reports of gun assaults in New York City, 1960-2018."}
 nyc_annual <- offenses_known_yearly_1960_2018[offenses_known_yearly_1960_2018$ori %in% "NY03030",]
 ggplot(nyc, aes(x = year, y = actual_assault_with_a_gun)) +
   geom_line(size = 1.05) +
@@ -230,15 +230,15 @@ ggplot(nyc, aes(x = year, y = actual_assault_with_a_gun)) +
 
 #### Number of months reported
 
-```{r nyc_murder_monthly, fig.cap = "Monthly murders in New York City, 1960-2018. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting."}
+```{r nycMurderMonthly, fig.cap = "Monthly murders in New York City, 1960-2018. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting."}
 ggplot(nyc, aes(x = year, y = actual_murder)) +
-  geom_line(size = 1.05) +
+  geom_line() +
   xlab("Year") +
   ylab("Murders") +
   theme_crim()
 ```
 
-```{r nyc_murder_yearly, fig.cap = "Annual murders in New York City, 1960-2018."}
+```{r nycMurderYearly, fig.cap = "Annual murders in New York City, 1960-2018."}
 
 ggplot(nyc_annual, aes(x = year, y = actual_murder)) +
   geom_line(size = 1.05) +

@@ -1,3 +1,10 @@
+fig:sfThefts
+fig:chicagoMurder
+fig:simpleIndex
+fig:agenciesReporting
+fig:nycGunAssaults
+fig:nycMurderMonthly
+fig:nycMurderYearly
 fig:unnamed-chunk-2
 preface
 motivation
