@@ -24,7 +24,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2021-03-26" />
+<meta name="date" content="2021-03-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,15 +33,15 @@
   
 <link rel="prev" href="about-the-author.html"/>
 <link rel="next" href="offenses-known.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+<script src="libs/header-attrs/header-attrs.js"></script>
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -94,9 +94,8 @@
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="ucr-general.html"><a href="ucr-general.html#negative-numbers"><i class="fa fa-check"></i><b>2.2.1</b> Negative numbers</a></li>
 <li class="chapter" data-level="2.2.2" data-path="ucr-general.html"><a href="ucr-general.html#agency-population-value"><i class="fa fa-check"></i><b>2.2.2</b> Agency population value</a></li>
-<li class="chapter" data-level="2.2.3" data-path="ucr-general.html"><a href="ucr-general.html#report-is-voluntary-so-many-agencies-dont-or-stop-such-as-florida"><i class="fa fa-check"></i><b>2.2.3</b> Report is voluntary … so many agencies don’t (or stop, such as Florida)</a></li>
-<li class="chapter" data-level="2.2.4" data-path="ucr-general.html"><a href="ucr-general.html#number-of-months-reported"><i class="fa fa-check"></i><b>2.2.4</b> Number of months reported</a></li>
-<li class="chapter" data-level="2.2.5" data-path="ucr-general.html"><a href="ucr-general.html#zero-crimes-vs-no-reports"><i class="fa fa-check"></i><b>2.2.5</b> Zero crimes vs no reports</a></li>
+<li class="chapter" data-level="2.2.3" data-path="ucr-general.html"><a href="ucr-general.html#reporting-is-voluntary-so-some-agencies-dont-or-report-partially"><i class="fa fa-check"></i><b>2.2.3</b> Reporting is voluntary … so some agencies don’t (or report partially)</a></li>
+<li class="chapter" data-level="2.2.4" data-path="ucr-general.html"><a href="ucr-general.html#zero-crimes-vs-no-reports"><i class="fa fa-check"></i><b>2.2.4</b> Zero crimes vs no reports</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="ucr-general.html"><a href="ucr-general.html#a-summary-of-each-ucr-dataset"><i class="fa fa-check"></i><b>2.3</b> A summary of each UCR dataset</a>
 <ul>
@@ -262,6 +261,29 @@
             <section class="normal" id="section-">
 <div id="ucr_general" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Overview of the Data</h1>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre><code>## 
+## Attaching package: &#39;scales&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:readr&#39;:
+## 
+##     col_factor</code></pre>
+<pre><code>## 
+## -- Column specification --------------------------------------------------------
+## cols(
+##   .default = col_double(),
+##   agency = col_character(),
+##   year = col_date(format = &quot;&quot;),
+##   state = col_character(),
+##   ORI = col_character()
+## )
+## i Use `spec()` for the full column specifications.</code></pre>
 <p>One of the first, and most important, questions I think people have about crime is a simple one: is crime going up? Answering it seems simple - you just count up all the crimes that happen in an area and see if that number of bigger than it was in previous times.</p>
 <p>However, putting this into practice invites a number of questions, all of which affect how we measure crime. First, we need to define what a crime is? Not philosophically what actions are crimes - or what should be crimes - but literally which of the many thousands of different criminal acts (crimes as defined by state law) should be considered in this measure. Should murder count? Most people would say yes. How about jaywalking or speeding? Many would say probably not. Should marital rape be considered a crime? Now, certainly most people (all, I would hope) would say yes. But in much of the United States it wasn’t a crime until the 1970s <span class="citation">(<a href="references.html#ref-bennice2003marital" role="doc-biblioref">Bennice and Resick 2003</a>; <a href="references.html#ref-mcmahon2009criminalizing" role="doc-biblioref">McMahon-Howard, Clay-Warner, and Renzulli 2009</a>)</span>.</p>
 <p>Next, we have to know what geographic and time unit to measure crimes at since these decisions determine how precise we can measure crime and when it changed. That is, if you are mugged on Jan 1st at exactly 12:15pm right outside your house, how do we record it? Should we be as precise as including the exact time and location (your home address or coordinates for the address)? Out of privacy concerns to the victim, should we only include a larger time unit (such as hour of the day or just the day without any time of day) or a larger geographic unit (such as a Census Tract or the city)?</p>
@@ -275,21 +297,29 @@
 <h3><span class="header-section-number">2.1.1</span> Crimes in the Offenses Known and Clearances by Arrest dataset</h3>
 <p>As mentioned above - and as most criminology papers will tell you - the crimes included in the UCR’s Offenses Known and Clearances by Arrest data are the seven index crimes (eight when including arson, though arson is in its own dataset) - homicide, rape, robbery, aggravated assault, burglary, theft, and motor vehicle theft - as well as simple assault. This is true but incomplete. The data also includes subcategories for all crimes other than theft - though theft has its own UCR dataset which goes into detail about the thefts. Both robbery and aggravated assault, for example, have subcategories showing which weapon the offender used (if any) during the crime. This allows for a more detailed understanding of the crime than looking only at the broad category. I’m not sure why most research includes only the broader categories and doesn’t tend to look at subcategories, but that seems to be the case in most studies that I have read. Some police agencies only report the broader categories and don’t report subcategories, but most report subcategories so this is an under-exploited source of data.</p>
 <ol style="list-style-type: decimal">
-<li>Homicide
+<li>Homicide<br />
+</li>
+</ol>
 <ul>
 <li>Murder and non-negligent manslaughter<br />
 </li>
 <li>Manslaughter by negligence<br />
 </li>
-</ul></li>
-<li>Rape
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Rape<br />
+</li>
+</ol>
 <ul>
 <li>Rape<br />
 </li>
 <li>Attempted rape<br />
 </li>
-</ul></li>
-<li>Robbery
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Robbery<br />
+</li>
+</ol>
 <ul>
 <li>With a firearm<br />
 </li>
@@ -299,8 +329,11 @@
 </li>
 <li>Unarmed - using hands, fists, feet, etc.<br />
 </li>
-</ul></li>
-<li>Aggravated assault (assault with a weapon or causing serious bodily injury)
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Aggravated assault (assault with a weapon or causing serious bodily injury)<br />
+</li>
+</ol>
 <ul>
 <li>With a firearm<br />
 </li>
@@ -310,8 +343,11 @@
 </li>
 <li>Unarmed - using hands, fists, feet, etc.<br />
 </li>
-</ul></li>
-<li>Burglary
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>Burglary<br />
+</li>
+</ol>
 <ul>
 <li>With forcible entry<br />
 </li>
@@ -319,10 +355,13 @@
 </li>
 <li>Attempted burglary with forcible entry<br />
 </li>
-</ul></li>
+</ul>
+<ol start="6" style="list-style-type: decimal">
 <li>Theft (other than of a motor vehicle)<br />
 </li>
-<li>Motor vehicle theft
+<li>Motor vehicle theft<br />
+</li>
+</ol>
 <ul>
 <li>Cars<br />
 </li>
@@ -330,7 +369,8 @@
 </li>
 <li>Other vehicles<br />
 </li>
-</ul></li>
+</ul>
+<ol start="8" style="list-style-type: decimal">
 <li>Simple Assault</li>
 </ol>
 </div>
@@ -338,11 +378,13 @@
 <h3><span class="header-section-number">2.1.2</span> Crimes in the Arrests by Age, Sex, and Race dataset</h3>
 <p>The crimes included in the Arrests by Age, Sex, and Race - the “arrest” data tells you how many people were arrested for a particular crime category - are different than those in the crime data. The arrest data covers a wider variety of crimes, including drug and alcohol crimes, gambling, and fraud. However, it is also less detailed than the crime dataset when it comes to violent crime. While it covers the same broad categories of violent crimes as the crimes data - murder, rape, robbery, aggravated assault, and simple assault - it doesn’t include the more detailed breakdown that is available in the crime data. For example, in the crime data robbery is included as well as the subcategories of robbery with a gun, robbery with a knife, robbery with another dangerous weapon, and robbery without a weapon. In comparison, the arrest data only includes robbery without any subcategories.</p>
 <ol style="list-style-type: decimal">
-<li>Homicide
+<li>Homicide</li>
+</ol>
 <ul>
 <li>Murder and non-negligent manslaughter</li>
 <li>Manslaughter by negligence</li>
-</ul></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
 <li>Rape</li>
 <li>Robbery</li>
 <li>Aggravated assault</li>
@@ -359,7 +401,8 @@
 <li>Weapons offenses - carrying, possessing, etc.</li>
 <li>Prostitution and commercialized vice</li>
 <li>Sex offenses - other than rape or prostitution</li>
-<li>Drug abuse violations - total
+<li>Drug abuse violations - total</li>
+</ol>
 <ul>
 <li>Drug sale or manufacturing
 <ul>
@@ -375,13 +418,16 @@
 <li>Synthetic narcotics</li>
 <li>Other dangerous non-narcotic drugs</li>
 </ul></li>
-</ul></li>
-<li>Gambling - total
+</ul>
+<ol start="19" style="list-style-type: decimal">
+<li>Gambling - total</li>
+</ol>
 <ul>
 <li>Bookmaking - horse and sports</li>
 <li>Number and lottery</li>
 <li>All other gambling</li>
-</ul></li>
+</ul>
+<ol start="20" style="list-style-type: decimal">
 <li>Offenses against family and children - nonviolent acts against family members. Includes neglect or abuse, nonpayment of child support or alimony.</li>
 <li>Driving under the influence (DUI)</li>
 <li>Liquor law violations - Includes illegal production, possession (e.g. underage) or sale of alcohol, open container, or public use laws. Does not include DUIs and drunkenness.</li>
@@ -397,14 +443,33 @@
 <div id="index_crimes" class="section level3" number="2.1.3">
 <h3><span class="header-section-number">2.1.3</span> What is an index (or part 1) crime?</h3>
 <p>One of the first (and seemingly last) thing that people tend to learn about UCR crime data is that it covers something called an “index crime.”<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> Index crimes, sometimes written as Part 1 or Part I crimes, are the seven crimes originally chosen by the FBI to be included in their measure of crimes as these offenses were both considered serious and generally well-reported so would be a useful measure of crime. Index crimes are often broken down into property index crimes - burglary, theft, and motor vehicle theft (and arson now, though that’s often not included and is poorly reported) - and violent index crimes (murder, rape, robbery, and aggravated assault). The “index” is simply that all of the crimes are summed up into a total count of crimes (violent, property, or total) for that police agency.</p>
-<p>The biggest problem with index crimes is that it is simply the sum of 8 (or 7 since arson data usually isn’t available) crimes. Index crimes have a huge range in their seriousness - it includes, for example, both murder and theft - so summing up the crimes gives each crime equal weight. This is clearly wrong as 100 murders is more serious than 100 thefts. This is especially a problem as less serious crimes (theft mostly) are far more common than more serious crimes. In 2017, for example, there were 1.25 million violent index crimes in the United States. That same year had 5.5 million thefts. So using index crimes as your measure of crimes undercounts the seriousness of crimes. Looking at total index crimes is, in effect, mostly just looking at theft. Looking at violent index crimes mostly measures aggravated assault. This is especially a problem because it hides trends in violent crimes. San Francisco, as an example, has had a huge increase in index crimes in the last several years. When looking closer, that increase is driven almost entirely by the near doubling of theft since 2011. During the same years, index violent crimes have stayed fairly steady. So the city isn’t getting more dangerous - at least not in terms of violent index crimes increasing - but it appears like it is due to just looking at total index crimes.</p>
-<p>While many researchers divide index crimes into violent and nonviolent categories, which helps but even this isn’t entirely sufficient. Take Chicago as an example. It is a city infamous for its large number of murders. But as a fraction of index crimes, Chicago has a rounding error worth of murders. Their 653 murders in 2017 is only 0.5% of total index crimes. For violent index crimes, murder makes up 2.2%. What this means is that changes in murder are very difficult to detect. If Chicago had no murders this year, but a less serious crime (such as theft) increased slightly, we couldn’t tell from looking at the number of index crimes, even from violent index crimes. As discussed in the below section, using this sample of crimes as the primary measure of crimes - and particularly of violent crimes - is also misleading as it excludes important - and highly common relative to index crimes - offenses, such as simple assault.</p>
+<p>The biggest problem with index crimes is that it is simply the sum of 8 (or 7 since arson data usually isn’t available) crimes. Index crimes have a huge range in their seriousness - it includes, for example, both murder and theft - so summing up the crimes gives each crime equal weight. This is clearly wrong as 100 murders is more serious than 100 thefts. This is especially a problem as less serious crimes (theft mostly) are far more common than more serious crimes. In 2017, for example, there were 1.25 million violent index crimes in the United States. That same year had 5.5 million thefts. So using index crimes as your measure of crimes undercounts the seriousness of crimes. Looking at total index crimes is, in effect, mostly just looking at theft. Looking at violent index crimes mostly measures aggravated assault. This is especially a problem because it hides trends in violent crimes. San Francisco, as shown in Figure @ref(fig:sf_thefts), has had a huge increase in index crimes in the last several years. When looking closer, that increase is driven almost entirely by the near doubling of theft since 2011. During the same years, index violent crimes have stayed fairly steady. So the city isn’t getting more dangerous - at least not in terms of violent index crimes increasing - but it appears like it is due to just looking at total index crimes.</p>
+<div class="figure">
+<img src="ucr_general_files/figure-html/sf_thefts-1.png" alt="Thefts and total index crimes in San Francisco, 1960-2018." width="672" />
+<p class="caption">
+(#fig:sf_thefts)Thefts and total index crimes in San Francisco, 1960-2018.
+</p>
+</div>
+<p>While many researchers divide index crimes into violent and nonviolent categories, which helps but even this isn’t entirely sufficient. Take Chicago as an example. It is a city infamous for its large number of murders. But as a fraction of index crimes, Chicago has a rounding error worth of murders. Their 653 murders in 2017 is only 0.5% of total index crimes. For violent index crimes, murder makes up 2.2%. As seen in Figure @ref(fig:chicago_murder), in no year where data is available did murders account for more than 3.5% of violent index crimes; and, while murders are increasing as a percent of violent index crimes they still account for no more than 2.5% in most years. What this means is that changes in murder are very difficult to detect. If Chicago had no murders this year, but a less serious crime (such as theft) increased slightly, we couldn’t tell from looking at the number of index crimes, even from violent index crimes. As discussed in the below section, using this sample of crimes as the primary measure of crimes - and particularly of violent crimes - is also misleading as it excludes important - and highly common relative to index crimes - offenses, such as simple assault.</p>
+<div class="figure">
+<img src="ucr_general_files/figure-html/chicago_murder-1.png" alt="Murders in Chicago as a percent of violent index crimes, 1960-2018." width="672" />
+<p class="caption">
+(#fig:chicago_murder)Murders in Chicago as a percent of violent index crimes, 1960-2018.
+</p>
+</div>
 <div id="what-is-a-violent-crime" class="section level4" number="2.1.3.1">
 <h4><span class="header-section-number">2.1.3.1</span> What is a violent crime?</h4>
 <p>An important consideration in using this data is defining what a “violent crime” is. One definition, and the one that I think makes the most sense, is that a violent crime is one that uses force or the threat of force. For example, if I punch you in the face, that is a violent crime. If I stab you, that is a violent crime. While clearly different in terms of severity, both incidents used force so I believe would be classified as a violent crime. The FBI, and most researchers, reporters, and advocates would disagree. Organizations ranging from the <a href="https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019/topic-pages/violent-crime">FBI itself</a> to <a href="https://www.pewresearch.org/fact-tank/2020/11/20/facts-about-crime-in-the-u-s/">Pew Research Center</a> and advocacy groups like the <a href="https://arresttrends.vera.org/data-sources-methodology">Vera Institute of Justice</a> and the <a href="https://www.aclu.org/report/tale-two-countries-racially-targeted-arrests-era-marijuana-reform">ACLU</a> all define the first examine as a non-violent crime and the second as a violent crime. They do this for three main reasons.</p>
 <p>The first reason is that simple assault is not an index crime, so they don’t include it when measuring violent crime. It is almost a tautology in criminology that you use index crimes as the measure of crime since that’s just what people do. As far as I’m aware, this is really the main reason why researchers justify using index crimes: because people in the past used it so that’s just what is done now.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> This strikes me as a particularly awful way of doing anything, more so since simple assault data has been available almost as long as index crime data.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
 <p>The second reason - and one that I think makes sense for reporters and advocates who are less familiar with the data, but should be unacceptable to researchers - is that people don’t know that simple assault is included, or at least don’t have easy access to it. Neither the FBI’s annual report <a href="https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019/home">page</a> not their official <a href="https://crime-data-explorer.fr.cloud.gov/">crime data tool website</a> include simple assault since they only include index crimes. For people who rely only on these sources - and given that using the data itself requires at least some programming skills, I think this accounts for most users and certainly nearly all non-researchers - it is not possible to access simple assault crime data (arrest data does include simple assault on these sites).</p>
-<p>The final reason is that it benefits some people’s goals to classify violent crime as only including index crimes. This is because simple assault is extremely common compared to violent index crimes - in most cities simple assault is more common than all violent index crimes put together - so excluding simple assault makes it seem like fewer arrests are violent than they are when including simple assault. For example, a number of articles have noted that marijuana arrests are more common than violent crime arrests <span class="citation">(<a href="references.html#ref-ingraham2016" role="doc-biblioref">Ingraham 2016</a>; <a href="references.html#ref-kertscher2019" role="doc-biblioref">Kertscher 2019</a>; <a href="references.html#ref-devito2020" role="doc-biblioref">Devito 2020</a>; <a href="references.html#ref-earlenbaugh2020" role="doc-biblioref">Earlenbaugh 2020</a>; <a href="references.html#ref-aclu2020" role="doc-biblioref">Edwards et al. 2020</a>)</span> or that violent crime arrests are only 5% of all arrests <span class="citation">(<a href="references.html#ref-neusteter2019every" role="doc-biblioref">Neusteter and O’Toole 2019</a>; <a href="references.html#ref-speri2019" role="doc-biblioref">Speri 2019</a>)</span>.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> While true when considering only violent index crimes, including simple assault as a violent crime makes these statements false. Some organizations call the violent index crimes “serious violent crimes” which is an improvement but even this is a misnomer since simple assault can lead to more serious harm than aggravated assault. An assault becomes aggravated if using a weapon or there is the <em>potential</em> for serious harm, even if no harm actually occurs.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a></p>
+<p>The final reason is that it benefits some people’s goals to classify violent crime as only including index crimes. This is because simple assault is extremely common compared to violent index crimes - in many cities simple assault is more common than all violent index crimes put together - so excluding simple assault makes it seem like fewer arrests are violent than they are when including simple assault. For example, a number of articles have noted that marijuana arrests are more common than violent crime arrests <span class="citation">(<a href="references.html#ref-ingraham2016" role="doc-biblioref">Ingraham 2016</a>; <a href="references.html#ref-kertscher2019" role="doc-biblioref">Kertscher 2019</a>; <a href="references.html#ref-devito2020" role="doc-biblioref">Devito 2020</a>; <a href="references.html#ref-earlenbaugh2020" role="doc-biblioref">Earlenbaugh 2020</a>; <a href="references.html#ref-aclu2020" role="doc-biblioref">Edwards et al. 2020</a>)</span> or that violent crime arrests are only 5% of all arrests <span class="citation">(<a href="references.html#ref-neusteter2019every" role="doc-biblioref">Neusteter and O’Toole 2019</a>; <a href="references.html#ref-speri2019" role="doc-biblioref">Speri 2019</a>)</span>.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> While true when considering only violent index crimes, including simple assault as a violent crime makes these statements false. Some organizations call the violent index crimes “serious violent crimes” which is an improvement but even this is a misnomer since simple assault can lead to more serious harm than aggravated assault. An assault becomes aggravated if using a weapon or there is the <em>potential</em> for serious harm, even if no harm actually occurs.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a></p>
+As an example of this last point, @ref(fig:simple_vs_index) shows the number of violent index crimes and simple assaults each year from 1960 to 2018 in Houston, Texas (simple assault is not reported in UCR until 1964, which is why 1960-1963 show zero simple assaults). In every year where simple assault is reported, there are more simple assaults than aggravated assaults. Beginning in the late 1980s, there are also more simple assaults than total violent index crimes. Excluding simple assault from the being a violent crime greatly underestimates violence in the country.
+<div class="figure">
+<img src="ucr_general_files/figure-html/simple_vs_index-1.png" alt="Reported crimes in Philadelphia from 1960 to 2018. Violent index crimes are aggravated assault, rape, robbery, and murder." width="672" />
+<p class="caption">
+(#fig:simple_vs_index)Reported crimes in Philadelphia from 1960 to 2018. Violent index crimes are aggravated assault, rape, robbery, and murder.
+</p>
+</div>
 </div>
 </div>
 </div>
@@ -424,14 +489,39 @@
 <p>The UCR uses this method even when only parts of a jurisdiction overlaps. Los Angeles County Sheriff has a population of about one million people, far less than the actual county population (the number of residents, according to the Census) of about 10 million people. This is because the other nine million people are accounted for by other agencies, mainly the local police agencies in the cities that make up Los Angeles County.</p>
 <p>The population value is the population who reside in that jurisdiction, and does not count people who are in the area but don’t live there, such as tourists or people who commute there for work. This means that using the population value to determine a rate can be misleading as some places have much higher numbers of non-residents in the area (e.g. Las Vegas, Washington D.C.) than others.</p>
 </div>
-<div id="report-is-voluntary-so-many-agencies-dont-or-stop-such-as-florida" class="section level3" number="2.2.3">
-<h3><span class="header-section-number">2.2.3</span> Report is voluntary … so many agencies don’t (or stop, such as Florida)</h3>
+<div id="reporting-is-voluntary-so-some-agencies-dont-or-report-partially" class="section level3" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Reporting is voluntary … so some agencies don’t (or report partially)</h3>
+<div class="figure">
+<img src="ucr_general_files/figure-html/agencies_reporting-1.png" alt="The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year." width="672" />
+<p class="caption">
+(#fig:agencies_reporting)The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.
+</p>
 </div>
-<div id="number-of-months-reported" class="section level3" number="2.2.4">
-<h3><span class="header-section-number">2.2.4</span> Number of months reported</h3>
+<p>In 2003 the New York Police Department stopped reporting this category of offense, resuming only in 2013. They continued to report the broader aggravated assault category, but not any of the subsections of aggravated assaults which differentiate the weapon used.</p>
+<div class="figure">
+<img src="ucr_general_files/figure-html/nyc_gun_assaults-1.png" alt="Monthly reports of gun assaults in New York City, 1960-2018." width="672" />
+<p class="caption">
+(#fig:nyc_gun_assaults)Monthly reports of gun assaults in New York City, 1960-2018.
+</p>
 </div>
-<div id="zero-crimes-vs-no-reports" class="section level3" number="2.2.5">
-<h3><span class="header-section-number">2.2.5</span> Zero crimes vs no reports</h3>
+<div id="number-of-months-reported" class="section level4" number="2.2.3.1">
+<h4><span class="header-section-number">2.2.3.1</span> Number of months reported</h4>
+<div class="figure">
+<img src="ucr_general_files/figure-html/nyc_murder_monthly-1.png" alt="Monthly murders in New York City, 1960-2018. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting." width="672" />
+<p class="caption">
+(#fig:nyc_murder_monthly)Monthly murders in New York City, 1960-2018. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting.
+</p>
+</div>
+<div class="figure">
+<img src="ucr_general_files/figure-html/nyc_murder_yearly-1.png" alt="Annual murders in New York City, 1960-2018." width="672" />
+<p class="caption">
+(#fig:nyc_murder_yearly)Annual murders in New York City, 1960-2018.
+</p>
+</div>
+</div>
+</div>
+<div id="zero-crimes-vs-no-reports" class="section level3" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Zero crimes vs no reports</h3>
 </div>
 </div>
 <div id="a-summary-of-each-ucr-dataset" class="section level2" number="2.3">
@@ -523,15 +613,15 @@ Figure 2.1: Fixed-width ASCII file for the 1960 Offenses Known and Clearances by
 <a href="offenses-known.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/clipboard.min.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script src="libs/gitbook/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

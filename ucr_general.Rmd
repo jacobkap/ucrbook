@@ -6,6 +6,14 @@ knitr::opts_chunk$set(
   warning = FALSE,
   error   = FALSE
 )
+
+library(readr)
+library(crimeutils)
+library(ggplot2)
+library(dplyr)
+library(scales)
+nyc <- read_csv("data/New_York_New_York_City_Police_Department.csv")
+load("data/offenses_known_yearly_1960_2018.rda")
 ```
 
 One of the first, and most important, questions I think people have about crime is a simple one: is crime going up? Answering it seems simple - you just count up all the crimes that happen in an area and see if that number of bigger than it was in previous times. 
@@ -29,30 +37,30 @@ UCR data covers only a subset - and for the crime data, a very small subset - of
 As mentioned above - and as most criminology papers will tell you - the crimes included in the UCR's Offenses Known and Clearances by Arrest data are the seven index crimes (eight when including arson, though arson is in its own dataset) - homicide, rape, robbery, aggravated assault, burglary, theft, and motor vehicle theft - as well as simple assault. This is true but incomplete. The data also includes subcategories for all crimes other than theft - though theft has its own UCR dataset which goes into detail about the thefts. Both robbery and aggravated assault, for example, have subcategories showing which weapon the offender used (if any) during the crime. This allows for a more detailed understanding of the crime than looking only at the broad category. I'm not sure why most research includes only the broader categories and doesn't tend to look at subcategories, but that seems to be the case in most studies that I have read. Some police agencies only report the broader categories and don't report subcategories, but most report subcategories so this is an under-exploited source of data.   
 
 1. Homicide     
-    + Murder and non-negligent manslaughter   
-    + Manslaughter by negligence   
+  + Murder and non-negligent manslaughter   
+  + Manslaughter by negligence   
 2. Rape     
-    + Rape     
-    + Attempted rape     
+  + Rape     
+  + Attempted rape     
 3. Robbery     
-    + With a firearm     
-    + With a knife of cutting instrument     
-    + With a dangerous weapon not otherwise specified     
-    + Unarmed - using hands, fists, feet, etc.     
+  + With a firearm     
+  + With a knife of cutting instrument     
+  + With a dangerous weapon not otherwise specified     
+  + Unarmed - using hands, fists, feet, etc.     
 4. Aggravated assault (assault with a weapon or causing serious bodily injury)     
-    + With a firearm     
-    + With a knife of cutting instrument     
-    + With a dangerous weapon not otherwise specified     
-    + Unarmed - using hands, fists, feet, etc.     
+  + With a firearm     
+  + With a knife of cutting instrument     
+  + With a dangerous weapon not otherwise specified     
+  + Unarmed - using hands, fists, feet, etc.     
 5. Burglary     
-    + With forcible entry     
-    + Without forcible entry      
-    + Attempted burglary with forcible entry     
+  + With forcible entry     
+  + Without forcible entry      
+  + Attempted burglary with forcible entry     
 6. Theft (other than of a motor vehicle)     
 7. Motor vehicle theft     
-    + Cars     
-    + Trucks and buses     
-    + Other vehicles    
+  + Cars     
+  + Trucks and buses     
+  + Other vehicles    
 8. Simple Assault   
 
 ### Crimes in the Arrests by Age, Sex, and Race dataset 
@@ -60,8 +68,8 @@ As mentioned above - and as most criminology papers will tell you - the crimes i
 The crimes included in the Arrests by Age, Sex, and Race - the "arrest" data tells you how many people were arrested for a particular crime category - are different than those in the crime data. The arrest data covers a wider variety of crimes, including drug and alcohol crimes, gambling, and fraud. However, it is also less detailed than the crime dataset when it comes to violent crime. While it covers the same broad categories of violent crimes as the crimes data - murder, rape, robbery, aggravated assault, and simple assault - it doesn't include the more detailed breakdown that is available in the crime data. For example, in the crime data robbery is included as well as the subcategories of robbery with a gun, robbery with a knife, robbery with another dangerous weapon, and robbery without a weapon. In comparison, the arrest data only includes robbery without any subcategories. 
 
 1. Homicide
-    + Murder and non-negligent manslaughter
-    + Manslaughter by negligence
+  + Murder and non-negligent manslaughter
+  + Manslaughter by negligence
 2. Rape
 3. Robbery
 4. Aggravated assault
@@ -79,20 +87,20 @@ The crimes included in the Arrests by Age, Sex, and Race - the "arrest" data tel
 16. Prostitution and commercialized vice
 17. Sex offenses - other than rape or prostitution
 18. Drug abuse violations - total
-    + Drug sale or manufacturing
-        - Opium and cocaine, and their derivatives (including morphine and heroin)
-        - Marijuana
-        - Synthetic narcotics
-        - Other dangerous non-narcotic drugs
-    + Drug possession
-        - Opium and cocaine, and their derivatives (including morphine and heroin)
-        - Marijuana
-        - Synthetic narcotics
-        - Other dangerous non-narcotic drugs
+  + Drug sale or manufacturing
+    - Opium and cocaine, and their derivatives (including morphine and heroin)
+    - Marijuana
+    - Synthetic narcotics
+    - Other dangerous non-narcotic drugs
+  + Drug possession
+    - Opium and cocaine, and their derivatives (including morphine and heroin)
+    - Marijuana
+    - Synthetic narcotics
+    - Other dangerous non-narcotic drugs
 19. Gambling - total
-    + Bookmaking - horse and sports
-    + Number and lottery
-    + All other gambling
+  + Bookmaking - horse and sports
+  + Number and lottery
+  + All other gambling
 20. Offenses against family and children - nonviolent acts against family members. Includes neglect or abuse, nonpayment of child support or alimony.
 21. Driving under the influence (DUI)
 22. Liquor law violations - Includes illegal production, possession (e.g. underage) or sale of alcohol, open container, or public use laws. Does not include DUIs and drunkenness.
@@ -108,9 +116,39 @@ The crimes included in the Arrests by Age, Sex, and Race - the "arrest" data tel
 
 One of the first (and seemingly last) thing that people tend to learn about UCR crime data is that it covers something called an "index crime."^[Index crimes are sometimes capitalized as "Index Crimes" though I've seen it written both ways. In this book I keep it lowercase as "index crimes."] Index crimes, sometimes written as Part 1 or Part I crimes, are the seven crimes originally chosen by the FBI to be included in their measure of crimes as these offenses were both considered serious and generally well-reported so would be a useful measure of crime. Index crimes are often broken down into property index crimes - burglary, theft, and motor vehicle theft (and arson now, though that's often not included and is poorly reported) - and violent index crimes (murder, rape, robbery, and aggravated assault). The "index" is simply that all of the crimes are summed up into a total count of crimes (violent, property, or total) for that police agency. 
 
-The biggest problem with index crimes is that it is simply the sum of 8 (or 7 since arson data usually isn't available) crimes. Index crimes have a huge range in their seriousness - it includes, for example, both murder and theft - so summing up the crimes gives each crime equal weight. This is clearly wrong as 100 murders is more serious than 100 thefts. This is especially a problem as less serious crimes (theft mostly) are far more common than more serious crimes. In 2017, for example, there were 1.25 million violent index crimes in the United States. That same year had 5.5 million thefts. So using index crimes as your measure of crimes undercounts the seriousness of crimes. Looking at total index crimes is, in effect, mostly just looking at theft. Looking at violent index crimes mostly measures aggravated assault. This is especially a problem because it hides trends in violent crimes. San Francisco, as an example, has had a huge increase in index crimes in the last several years. When looking closer, that increase is driven almost entirely by the near doubling of theft since 2011. During the same years, index violent crimes have stayed fairly steady. So the city isn't getting more dangerous - at least not in terms of violent index crimes increasing - but it appears like it is due to just looking at total index crimes.
+The biggest problem with index crimes is that it is simply the sum of 8 (or 7 since arson data usually isn't available) crimes. Index crimes have a huge range in their seriousness - it includes, for example, both murder and theft - so summing up the crimes gives each crime equal weight. This is clearly wrong as 100 murders is more serious than 100 thefts. This is especially a problem as less serious crimes (theft mostly) are far more common than more serious crimes. In 2017, for example, there were 1.25 million violent index crimes in the United States. That same year had 5.5 million thefts. So using index crimes as your measure of crimes undercounts the seriousness of crimes. Looking at total index crimes is, in effect, mostly just looking at theft. Looking at violent index crimes mostly measures aggravated assault. This is especially a problem because it hides trends in violent crimes. San Francisco, as shown in Figure \@ref(fig:sf_thefts), has had a huge increase in index crimes in the last several years. When looking closer, that increase is driven almost entirely by the near doubling of theft since 2011. During the same years, index violent crimes have stayed fairly steady. So the city isn't getting more dangerous - at least not in terms of violent index crimes increasing - but it appears like it is due to just looking at total index crimes.
 
-While many researchers divide index crimes into violent and nonviolent categories, which helps but even this isn't entirely sufficient. Take Chicago as an example. It is a city infamous for its large number of murders. But as a fraction of index crimes, Chicago has a rounding error worth of murders. Their 653 murders in 2017 is only 0.5% of total index crimes. For violent index crimes, murder makes up 2.2%. What this means is that changes in murder are very difficult to detect. If Chicago had no murders this year, but a less serious crime (such as theft) increased slightly, we couldn't tell from looking at the number of index crimes, even from violent index crimes. As discussed in the below section, using this sample of crimes as the primary measure of crimes - and particularly of violent crimes - is also misleading as it excludes important - and highly common relative to index crimes - offenses, such as simple assault.
+```{r sf_thefts, fig.cap = "Thefts and total index crimes in San Francisco, 1960-2018." }
+sf <- offenses_known_yearly_1960_2018[offenses_known_yearly_1960_2018$ori %in% "CA03801", ]
+
+ggplot(sf, aes(x = year, y = actual_index_total, color = "Total Index Crimes")) +
+  geom_line(size = 1.05) +
+  geom_line(aes(y = actual_theft_total, color = "Theft"), size = 1.05) +
+  geom_line(aes(y = actual_index_violent, color = "Violent Index Crimes"), size = 1.05) +
+  xlab("Year") +
+  ylab("Crimes Reported") +
+  labs(color = "Crime Category") +
+  theme_crim() +
+  theme(legend.position = "bottom") +
+  scale_color_manual(values = c("#1b9e77", "#d95f02", "#7570b3")) +
+  scale_y_continuous(labels = scales::comma)
+```
+
+
+While many researchers divide index crimes into violent and nonviolent categories, which helps but even this isn't entirely sufficient. Take Chicago as an example. It is a city infamous for its large number of murders. But as a fraction of index crimes, Chicago has a rounding error worth of murders. Their 653 murders in 2017 is only 0.5% of total index crimes. For violent index crimes, murder makes up 2.2%. As seen in Figure \@ref(fig:chicago_murder), in no year where data is available did murders account for more than 3.5% of violent index crimes; and, while murders are increasing as a percent of violent index crimes they still account for no more than 2.5% in most years. What this means is that changes in murder are very difficult to detect. If Chicago had no murders this year, but a less serious crime (such as theft) increased slightly, we couldn't tell from looking at the number of index crimes, even from violent index crimes. As discussed in the below section, using this sample of crimes as the primary measure of crimes - and particularly of violent crimes - is also misleading as it excludes important - and highly common relative to index crimes - offenses, such as simple assault.
+
+```{r chicago_murder, fig.cap = "Murders in Chicago as a percent of violent index crimes, 1960-2018."}
+chicago <- offenses_known_yearly_1960_2018[offenses_known_yearly_1960_2018$ori %in% "ILCPD00", ]
+chicago$murder_percent_of_index <- chicago$actual_murder / chicago$actual_index_violent
+
+ggplot(chicago, aes(x = year, y = murder_percent_of_index)) +
+  geom_line(size = 1.05) +
+  xlab("Year") +
+  ylab("% of violent index crimes") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent)
+```
+
 
 #### What is a violent crime?
 
@@ -120,7 +158,25 @@ The first reason is that simple assault is not an index crime, so they don't inc
 
 The second reason - and one that I think makes sense for reporters and advocates who are less familiar with the data, but should be unacceptable to researchers - is that people don't know that simple assault is included, or at least don't have easy access to it. Neither the FBI's annual report [page](https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019/home) not their official [crime data tool website](https://crime-data-explorer.fr.cloud.gov/) include simple assault since they only include index crimes. For people who rely only on these sources - and given that using the data itself requires at least some programming skills, I think this accounts for most users and certainly nearly all non-researchers - it is not possible to access simple assault crime data (arrest data does include simple assault on these sites).     
 
-The final reason is that it benefits some people's goals to classify violent crime as only including index crimes. This is because simple assault is extremely common compared to violent index crimes - in most cities simple assault is more common than all violent index crimes put together - so excluding simple assault makes it seem like fewer arrests are violent than they are when including simple assault. For example, a number of articles have noted that marijuana arrests are more common than violent crime arrests [@ingraham2016; @kertscher2019; @devito2020; @earlenbaugh2020; @aclu2020] or that violent crime arrests are only 5\% of all arrests [@neusteter2019every; @speri2019].^[The FBI's report for arrests does include simple assault so the second reason people may not include it does not apply here.] While true when considering only violent index crimes, including simple assault as a violent crime makes these statements false. Some organizations call the violent index crimes "serious violent crimes" which is an improvement but even this is a misnomer since simple assault can lead to more serious harm than aggravated assault. An assault becomes aggravated if using a weapon or there is the *potential* for serious harm, even if no harm actually occurs.^[UCR data provides no information about the harm caused to victims. The new FBI dataset NIBRS actually does have a variable that includes harm to the victim so if you're interested in measuring harm (an understudied topic in criminology), that is the dataset to use.] 
+The final reason is that it benefits some people's goals to classify violent crime as only including index crimes. This is because simple assault is extremely common compared to violent index crimes - in many cities simple assault is more common than all violent index crimes put together - so excluding simple assault makes it seem like fewer arrests are violent than they are when including simple assault. For example, a number of articles have noted that marijuana arrests are more common than violent crime arrests [@ingraham2016; @kertscher2019; @devito2020; @earlenbaugh2020; @aclu2020] or that violent crime arrests are only 5\% of all arrests [@neusteter2019every; @speri2019].^[The FBI's report for arrests does include simple assault so the second reason people may not include it does not apply here.] While true when considering only violent index crimes, including simple assault as a violent crime makes these statements false. Some organizations call the violent index crimes "serious violent crimes" which is an improvement but even this is a misnomer since simple assault can lead to more serious harm than aggravated assault. An assault becomes aggravated if using a weapon or there is the *potential* for serious harm, even if no harm actually occurs.^[UCR data provides no information about the harm caused to victims. The new FBI dataset NIBRS actually does have a variable that includes harm to the victim so if you're interested in measuring harm (an understudied topic in criminology), that is the dataset to use.] 
+
+As an example of this last point, \@ref(fig:simple_vs_index) shows the number of violent index crimes and simple assaults each year from 1960 to 2018 in Houston, Texas (simple assault is not reported in UCR until 1964, which is why 1960-1963 show zero simple assaults). In every year where simple assault is reported, there are more simple assaults than aggravated assaults. Beginning in the late 1980s, there are also more simple assaults than total violent index crimes. Excluding simple assault from the being a violent crime greatly underestimates violence in the country. 
+```{r simple_vs_index, fig.cap="Reported crimes in Philadelphia from 1960 to 2018. Violent index crimes are aggravated assault, rape, robbery, and murder."}
+houston <- offenses_known_yearly_1960_2018[offenses_known_yearly_1960_2018$ori %in% "TXHPD00",]
+
+ggplot(houston, aes(x = year, y = actual_index_violent, color = "Violent Index Crimes")) +
+  geom_line(size = 1.05) +
+  geom_line(aes(y = actual_assault_simple, color = "Simple Assault"), size = 1.05) +
+  geom_line(aes(y = actual_assault_aggravated, color = "Aggravated Assault"), size = 1.05) +
+  xlab("Year") +
+  ylab("Crimes Reported") +
+  labs(color = "Crime Category") +
+  theme_crim() +
+  theme(legend.position = "bottom") +
+  scale_color_manual(values = c("#1b9e77", "#d95f02", "#7570b3")) +
+  scale_y_continuous(labels = scales::comma)
+```
+
 
 ## Issues common across UCR datasets
 
@@ -144,10 +200,52 @@ The UCR uses this method even when only parts of a jurisdiction overlaps. Los An
 
 The population value is the population who reside in that jurisdiction, and does not count people who are in the area but don't live there, such as tourists or people who commute there for work. This means that using the population value to determine a rate can be misleading as some places have much higher numbers of non-residents in the area (e.g. Las Vegas, Washington D.C.) than others. 
 
-### Report is voluntary ... so many agencies don't (or stop, such as Florida)
+### Reporting is voluntary ... so some agencies don't (or report partially)
+
+```{r agencies_reporting, fig.cap="The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year."}
+offenses_known_yearly_1960_2018 %>%
+  dplyr::filter(!last_month_reported %in% "no months reported") %>%
+  count(year) %>%
+  ggplot(aes(x = year, y = n)) +
+  geom_line(size = 1.05) +
+  xlab("Year") +
+  ylab("# of Agencies Reporting") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma)
+```
 
 
-### Number of months reported
+In 2003 the New York Police Department stopped reporting this category of offense, resuming only in 2013. They continued to report the broader aggravated assault category, but not any of the subsections of aggravated assaults which differentiate the weapon used. 
+
+```{r nyc_gun_assaults, fig.cap = "Monthly reports of gun assaults in New York City, 1960-2018."}
+nyc_annual <- offenses_known_yearly_1960_2018[offenses_known_yearly_1960_2018$ori %in% "NY03030",]
+ggplot(nyc, aes(x = year, y = actual_assault_with_a_gun)) +
+  geom_line(size = 1.05) +
+  xlab("Year") +
+  ylab("Gun Assaults") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma)
+```
+
+
+#### Number of months reported
+
+```{r nyc_murder_monthly, fig.cap = "Monthly murders in New York City, 1960-2018. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting."}
+ggplot(nyc, aes(x = year, y = actual_murder)) +
+  geom_line(size = 1.05) +
+  xlab("Year") +
+  ylab("Murders") +
+  theme_crim()
+```
+
+```{r nyc_murder_yearly, fig.cap = "Annual murders in New York City, 1960-2018."}
+
+ggplot(nyc_annual, aes(x = year, y = actual_murder)) +
+  geom_line(size = 1.05) +
+  xlab("Year") +
+  ylab("Murders") +
+  theme_crim()
+```
 
 ### Zero crimes vs no reports
 
