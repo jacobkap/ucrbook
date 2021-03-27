@@ -83,7 +83,7 @@
 
 \title{Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide}
 \author{Jacob Kaplan}
-\date{2021-03-25}
+\date{2021-03-26}
 
 \begin{document}
 \maketitle
@@ -118,12 +118,12 @@ For most of this book we'll be discussing the caveats of the above reasons - or,
 
 By the end of each chapter you should have a firm grasp on the dataset the covered and how to use it properly. However, this book can't possibly cover every potential use case for the data so make sure to carefully examine the data for your own particular use. This benefits you because you'll know your data better and become a better research because of it. This benefits me because it'll increase the quality of research in my field.
 
-I get a lot of emails from people asking questions about this data so part of my motivation for writing this book is to create a single place that answers as many questions as I can about the data. Again, this is among the most commonly used crime datasets and there are still many current papers published with incorrect information about the data (including such simple aspects like what geographic unit data is in and what time unit it is in). So hopefully this book will decrease the number of misconceptions about this data, increasing overall research quality.\footnote{Ideally, this will also decrease the number of emails and increase the number of citations I receive.}
+I get a lot of emails from people asking questions about this data so part of my motivation for writing this book is to create a single place that answers as many questions as I can about the data. Again, the UCR data collection are the most commonly used crime datasets and there are still many current papers published with incorrect information about the data (including such simple aspects like what geographic unit data is in and what time unit it is in). So hopefully this book will decrease the number of misconceptions about this data, increasing overall research quality.\footnote{Ideally, this will also decrease the number of emails and increase the number of citations I receive.}
 
 \hypertarget{structure-of-the-book}{%
 \section{Structure of the book}\label{structure-of-the-book}}
 
-This remainder of this book will be divided into eight chapters: an intro chapter briefly summarizing each dataset and going over overall issues with UCR data, seven chapters each covering one of the seven UCR datasets, and a final one covering county-level data, a highly flawed but common use of the UCR data. I highly recommend that you start with the intro chapter (Chapter @ref(ucr\_general)) since it covers topics that apply to each UCR dataset (such as understanding agency unique identifiers) that won't be covered in individual chapters. Each of the UCR dataset chapters will follow the same format: we'll start with a history of the data such as when it first because available and important changes in definitions or variables. We'll then look at which variables are available, and the most important (or most used) ones. The bulk of each chapter will be exploring the data to understand how reliable it is and what questions we can adequately answer using it.
+This remainder of this book will be divided into eight chapters: an intro chapter briefly summarizing each dataset and going over overall issues with UCR data, seven chapters each covering one of the seven UCR datasets, and a final one covering county-level data, a highly flawed but common use of the UCR data. I highly recommend that you start with the intro chapter (Chapter @ref(ucr\_general)) since it covers topics that apply to each UCR dataset - such as understanding agency unique identifiers and why the data (correctly) has negative numbers - that won't be covered in individual chapters. Each of the UCR dataset chapters will follow the same format: we'll start with a history of the data such as when it first because available and important changes in definitions or variables. We'll then look at which variables are available, and the most important (or most used) ones. The bulk of each chapter will be exploring the data to understand how reliable it is and what questions we can adequately answer using it.
 
 Since manuals are boring, I'll try to include graphs and images to try to alleviate the boredom. That said, I don't think it's possible to make it too fun so sorry in advanced. This book is a mix of facts about the data, such as how many years are available, and my opinions about it, such as whether it is reliable. In cases of facts I'll just say a statement - e.g.~``the offenses data is available since 1960''. In cases of opinion I'll temper the statement by saying something like ``in my opinion\ldots{}'' or ``I think'' or ``I believe.''
 
@@ -425,6 +425,40 @@ The second reason - and one that I think makes sense for reporters and advocates
 
 The final reason is that it benefits some people's goals to classify violent crime as only including index crimes. This is because simple assault is extremely common compared to violent index crimes - in most cities simple assault is more common than all violent index crimes put together - so excluding simple assault makes it seem like fewer arrests are violent than they are when including simple assault. For example, a number of articles have noted that marijuana arrests are more common than violent crime arrests \citep{ingraham2016, kertscher2019, devito2020, earlenbaugh2020, aclu2020} or that violent crime arrests are only 5\% of all arrests \citep{neusteter2019every, speri2019}.\footnote{The FBI's report for arrests does include simple assault so the second reason people may not include it does not apply here.} While true when considering only violent index crimes, including simple assault as a violent crime makes these statements false. Some organizations call the violent index crimes ``serious violent crimes'' which is an improvement but even this is a misnomer since simple assault can lead to more serious harm than aggravated assault. An assault becomes aggravated if using a weapon or there is the \emph{potential} for serious harm, even if no harm actually occurs.\footnote{UCR data provides no information about the harm caused to victims. The new FBI dataset NIBRS actually does have a variable that includes harm to the victim so if you're interested in measuring harm (an understudied topic in criminology), that is the dataset to use.}
 
+\hypertarget{issues-common-across-ucr-datasets}{%
+\section{Issues common across UCR datasets}\label{issues-common-across-ucr-datasets}}
+
+In this section we'll discuss issues common to most or all of the UCR datasets. For some of these, we'll come back to the issues in more detail in the chapter for the datasets most affected by the problem.
+
+\hypertarget{negative-numbers}{%
+\subsection{Negative numbers}\label{negative-numbers}}
+
+One of the most common questions people have about this data is why there are negative numbers, and if they are a mistake. Negative numbers are not a mistake. The UCR data is monthly so police agencies report the number of monthly crimes that are known to them, either reported to them or discovered by the police. In some cases the police will determine that a crime reported to them didn't actually occur - which they called an ``unfounded crime.'' An example that the FBI gives for this is a person reports their wallet stolen (a theft) and then later finds it, so a crime was initially reported but no crime actually occurred.
+
+How this works when the police input the data is that an unfounded crime is reported both as an unfounded crime and as a negative actual crime - the negative is used to zero out the erroneous report of the actual crime. So the report would look like 1 actual theft (the crime being reported), -1 theft (the crime being discovered as not have happened), and 1 unfounded theft. If both incidents occurred in the same month then this would simply be a single unfounded theft occurring, with no actual theft - literally a value of 1 + -1 = 0 thefts.
+
+Negative values occur when the unfounding happens in a later month than the crime report. In the theft case, let's say the theft occurred in January and the discovery of the wallet happens in August. Assuming no other crimes occurred, January would have 1 theft, and August would have -1 thefts and 1 unfounded theft. There is no way of determining in which month (or even which year) an unfounded crime was initially reported in. When averaging over the long term, there shouldn't be any negative numbers as the actual and unfounded reports will cancel themselves out. However, when looking at monthly crimes - particularly for rare crimes - you'll still see negative numbers for this reason. Since crimes can be unfounded for reports in previous years, you can actually see entire year's crime counts be negative, though this is much rarer than monthly values.\footnote{From 1960-2018, there were 39 agency-years with a negative count of murders.}
+
+\hypertarget{agency-population-value}{%
+\subsection{Agency population value}\label{agency-population-value}}
+
+Each of the UCR datasets include a population variable that has the estimated population under the jurisdiction of that agency.\footnote{Jurisdiction here refers to the boundaries of the local government, not any legal authority for where the officer can make arrests. For example, the Los Angeles Police Department's jurisdiction in this case refers to crimes that happen inside the city or are otherwise investigated by the LAPD - and are not primarily investigated by another agency.} This variable is often used to create crime rates that control for population. In cases where jurisdiction overlaps, such as when a city has university police agencies or county sheriff's in counties where the cities in that county have their own police, UCR data assigns the population covered to the most local agency and zero population to the overlapping agency. So an agency's population is the number of people in that jurisdiction that isn't already covered by a different agency.
+
+For example, in the city of Los Angeles in California has nearly four million residents according to the US Census. There are multiple police agencies in the city, including the Los Angeles Police Department, the Los Angeles County Sheriff's Office, the California Highway Patrol that operates in the area, airport and port police, and university police departments. If each agency reported the number of people in their jurisdiction - which all overlap with each other - we would end up with a population far higher than LA's four million people. To prevent double-counting population when agency's jurisdictions overlap, the non-primary agency will report a population of 0, even though they still report crime data like normal. As an example, in 2018 California State University - Los Angeles reported 92 thefts and a population of 0. Those 92 thefts are not counted in the Los Angeles Police Department data, even though the department counts the population. To get complete crime counts in Los Angeles, you'd need to add up all police agencies within in the city; since the population value is 0 for non-LAPD agencies, both the population and the crime sum will be correct.
+
+The UCR uses this method even when only parts of a jurisdiction overlaps. Los Angeles County Sheriff has a population of about one million people, far less than the actual county population (the number of residents, according to the Census) of about 10 million people. This is because the other nine million people are accounted for by other agencies, mainly the local police agencies in the cities that make up Los Angeles County.
+
+The population value is the population who reside in that jurisdiction, and does not count people who are in the area but don't live there, such as tourists or people who commute there for work. This means that using the population value to determine a rate can be misleading as some places have much higher numbers of non-residents in the area (e.g.~Las Vegas, Washington D.C.) than others.
+
+\hypertarget{report-is-voluntary-so-many-agencies-dont-or-stop-such-as-florida}{%
+\subsection{Report is voluntary \ldots{} so many agencies don't (or stop, such as Florida)}\label{report-is-voluntary-so-many-agencies-dont-or-stop-such-as-florida}}
+
+\hypertarget{number-of-months-reported}{%
+\subsection{Number of months reported}\label{number-of-months-reported}}
+
+\hypertarget{zero-crimes-vs-no-reports}{%
+\subsection{Zero crimes vs no reports}\label{zero-crimes-vs-no-reports}}
+
 \hypertarget{a-summary-of-each-ucr-dataset}{%
 \section{A summary of each UCR dataset}\label{a-summary-of-each-ucr-dataset}}
 
@@ -676,8 +710,8 @@ This variable is very similar to Total Cleared except is only for offenses in wh
 
 An unfounded crime is one in which a police investigation has determined that the reported crime did not actually happen. For example if the police are called to a possible burglary but later find out that a burglary did not occur, they would put it down as 1 unfounded burglary. This is based on police investigation rather than the decision of any other party such as a coroner, judge, jury, or prosecutor.
 
-\hypertarget{number-of-months-reported}{%
-\section{Number of months reported}\label{number-of-months-reported}}
+\hypertarget{number-of-months-reported-1}{%
+\section{Number of months reported}\label{number-of-months-reported-1}}
 
 UCR data is reported monthly though even agencies that decide to report their data may not do so every month. As we don't want to compare an agency which reports 12 months to one that reports fewer, the variable \emph{number\_of\_months\_reported} is way keep only agencies that report 12 months, or deal with those that report fewer.
 

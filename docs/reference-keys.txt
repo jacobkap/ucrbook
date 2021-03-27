@@ -14,6 +14,12 @@ crimes-in-the-offenses-known-and-clearances-by-arrest-dataset
 crimes-in-the-arrests-by-age-sex-and-race-dataset
 index_crimes
 what-is-a-violent-crime
+issues-common-across-ucr-datasets
+negative-numbers
+agency-population-value
+report-is-voluntary-so-many-agencies-dont-or-stop-such-as-florida
+number-of-months-reported
+zero-crimes-vs-no-reports
 a-summary-of-each-ucr-dataset
 offenses-known-and-clearances-by-arrest
 arrests-by-age-sex-and-race
@@ -42,7 +48,7 @@ actual
 total-cleared
 cleared-where-all-offenders-are-under-18
 unfounded
-number-of-months-reported
+number-of-months-reported-1
 arrests
 a-brief-history-of-the-data-1
 changes-in-definitions-1
