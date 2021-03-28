@@ -1,6 +1,7 @@
 # Overview of the Data {#ucr_general}
 
 
+
 ```
 ## 
 ## Attaching package: 'dplyr'
@@ -19,6 +20,15 @@
 ```
 
 ```
+## Loading required package: maps
+```
+
+```
+## Skipping install of 'fiftystater' from a github remote, the SHA1 (28e7fa54) has not changed since last install.
+##   Use `force = TRUE` to force installation
+```
+
+```
 ## 
 ## -- Column specification --------------------------------------------------------
 ## cols(
@@ -30,6 +40,7 @@
 ## )
 ## i Use `spec()` for the full column specifications.
 ```
+
 
 One of the first, and most important, questions I think people have about crime is a simple one: is crime going up? Answering it seems simple - you just count up all the crimes that happen in an area and see if that number of bigger than it was in previous times. 
 
@@ -131,13 +142,12 @@ The crimes included in the Arrests by Age, Sex, and Race - the "arrest" data tel
 
 One of the first (and seemingly last) thing that people tend to learn about UCR crime data is that it covers something called an "index crime."^[Index crimes are sometimes capitalized as "Index Crimes" though I've seen it written both ways. In this book I keep it lowercase as "index crimes."] Index crimes, sometimes written as Part 1 or Part I crimes, are the seven crimes originally chosen by the FBI to be included in their measure of crimes as these offenses were both considered serious and generally well-reported so would be a useful measure of crime. Index crimes are often broken down into property index crimes - burglary, theft, and motor vehicle theft (and arson now, though that's often not included and is poorly reported) - and violent index crimes (murder, rape, robbery, and aggravated assault). The "index" is simply that all of the crimes are summed up into a total count of crimes (violent, property, or total) for that police agency. 
 
-The biggest problem with index crimes is that it is simply the sum of 8 (or 7 since arson data usually isn’t available) crimes. Index crimes have a huge range in their seriousness - it includes, for example, both murder and theft - so summing up the crimes gives each crime equal weight. This is clearly wrong as 100 murders is more serious than 100 thefts. This is especially a problem as less serious crimes (theft mostly) are far more common than more serious crimes. In 2017, for example, there were 1.25 million violent index crimes in the United States. That same year had 5.5 million thefts. So using index crimes as your measure of crimes undercounts the seriousness of crimes. Looking at total index crimes is, in effect, mostly just looking at theft. Looking at violent index crimes mostly measures aggravated assault. This is especially a problem because it hides trends in violent crimes. San Francisco, as shown in Figure @ref(fig:sf_thefts), has had a huge increase in index crimes in the last several years. When looking closer, that increase is driven almost entirely by the near doubling of theft since 2011. During the same years, index violent crimes have stayed fairly steady. So the city isn’t getting more dangerous - at least not in terms of violent index crimes increasing - but it appears like it is due to just looking at total index crimes.
+The biggest problem with index crimes is that it is simply the sum of 8 (or 7 since arson data usually isn’t available) crimes. Index crimes have a huge range in their seriousness - it includes, for example, both murder and theft - so summing up the crimes gives each crime equal weight. This is clearly wrong as 100 murders is more serious than 100 thefts. This is especially a problem as less serious crimes (theft mostly) are far more common than more serious crimes. In 2017, for example, there were 1.25 million violent index crimes in the United States. That same year had 5.5 million thefts. So using index crimes as your measure of crimes undercounts the seriousness of crimes. Looking at total index crimes is, in effect, mostly just looking at theft. Looking at violent index crimes mostly measures aggravated assault. This is especially a problem because it hides trends in violent crimes. San Francisco, as shown in Figure @ref(fig:sfThefts), has had a huge increase in index crimes in the last several years. When looking closer, that increase is driven almost entirely by the near doubling of theft since 2011. During the same years, index violent crimes have stayed fairly steady. So the city isn’t getting more dangerous - at least not in terms of violent index crimes increasing - but it appears like it is due to just looking at total index crimes.
 
 <div class="figure">
 <img src="ucr_general_files/figure-html/sfThefts-1.png" alt="Thefts and total index crimes in San Francisco, 1960-2018." width="672" />
 <p class="caption">(\#fig:sfThefts)Thefts and total index crimes in San Francisco, 1960-2018.</p>
 </div>
-
 
 While many researchers divide index crimes into violent and nonviolent categories, which helps but even this isn't entirely sufficient. Take Chicago as an example. It is a city infamous for its large number of murders. But as a fraction of index crimes, Chicago has a rounding error worth of murders. Their 653 murders in 2017 is only 0.5% of total index crimes. For violent index crimes, murder makes up 2.2%. As seen in Figure \@ref(fig:chicagoMurder), in no year where data is available did murders account for more than 3.5% of violent index crimes; and, while murders are increasing as a percent of violent index crimes they still account for no more than 2.5% in most years. What this means is that changes in murder are very difficult to detect. If Chicago had no murders this year, but a less serious crime (such as theft) increased slightly, we couldn't tell from looking at the number of index crimes, even from violent index crimes. As discussed in the below section, using this sample of crimes as the primary measure of crimes - and particularly of violent crimes - is also misleading as it excludes important - and highly common relative to index crimes - offenses, such as simple assault.
 
@@ -187,11 +197,25 @@ The UCR uses this method even when only parts of a jurisdiction overlaps. Los An
 
 The population value is the population who reside in that jurisdiction, and does not count people who are in the area but don't live there, such as tourists or people who commute there for work. This means that using the population value to determine a rate can be misleading as some places have much higher numbers of non-residents in the area (e.g. Las Vegas, Washington D.C.) than others. 
 
-### Reporting is voluntary ... so some agencies don't (or report partially)
+### Reporting is voluntary ... so some agencies don't (or report partially) {voluntary}
+
+When an agency reports their data to the FBI, they do so voluntarily - there is no nationally requirement to report.^[Some states do mandate that their agencies report, but this is not always followed.] This means that there is inconsistency in which agencies report, how many months of the year they report for, and which variables they include in their data submissions. This can lead
+
+In general, more agencies report their data every year and once an agency begins reporting data they tend to keep reporting. The UCR datasets are a collection of separate, though related, datasets and an agency can report to as many of these datasets as they want - an agency that reports to one dataset does not mean that they report to other datasets. Figure \@ref(fig:agenciesReporting) shows the number of agencies that submitted at least one month of data - based on a highly flawed measure that we'll discuss in Section \@ref(monthsReported) - to the Offenses Known and Clearances by Arrest data in the given year. For the first decade of available data under 8,000 agencies reported data and this grew to over 13,500 by the late 1970s before plateauing for about a decade. The number of agencies that reported their data actually declined in the 1990s, driven primarily by many Florida agencies temporarily dropping out, before growing steadily to nearly 17,000 agencies in 2010; from here it kept increasing but slower than before. 
+
+There are approximately 18,000 police agencies in the United States so recent data has reports from nearly all agencies, while older data has far fewer agencies reporting. For earlier data, however, you're dealing with a smaller share of agencies meaning that you have a large amount of missing data and a less representative sample. 
+
+
 
 <div class="figure">
 <img src="ucr_general_files/figure-html/agenciesReporting-1.png" alt="The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year." width="672" />
 <p class="caption">(\#fig:agenciesReporting)The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.</p>
+</div>
+Figure \@ref(bigAgenciesReporting) repeats this figure but now including only agencies with 100,000 people or more in their jurisdiction. While these agencies have a far more linear trend than all agencies, the basic lesson is the same: recent data has most agencies reporting; old data excludes many agencies. 
+
+<div class="figure">
+<img src="ucr_general_files/figure-html/bigAgenciesReporting-1.png" alt="The annual number of agencies with a population of 100,000 or higher reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year." width="672" />
+<p class="caption">(\#fig:bigAgenciesReporting)The annual number of agencies with a population of 100,000 or higher reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.</p>
 </div>
 
 
@@ -203,7 +227,7 @@ In 2003 the New York Police Department stopped reporting this category of offens
 </div>
 
 
-#### Number of months reported
+#### Number of months reported {monthsReported}
 
 <div class="figure">
 <img src="ucr_general_files/figure-html/nycMurderMonthly-1.png" alt="Monthly murders in New York City, 1960-2018. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting." width="672" />
@@ -217,6 +241,16 @@ In 2003 the New York Police Department stopped reporting this category of offens
 
 ### Zero crimes vs no reports
 
+When an agency does not report, we see it in the data as reporting zero crimes, not reporting NA or any indicator that they did not report. 
+
+As discussed in Section \@ref(voluntary), agencies voluntarily report, and in some cases doesn't report or don't report certain months or crimes. 
+
+In some cases it is clear when an agency stops reporting
+
+<div class="figure">
+<img src="ucr_general_files/figure-html/danvilleRape-1.png" alt="Annual rapes reported in Danville, CA, 1960-2018." width="672" />
+<p class="caption">(\#fig:danvilleRape)Annual rapes reported in Danville, CA, 1960-2018.</p>
+</div>
 
 ## A summary of each UCR dataset
 
@@ -244,7 +278,13 @@ The Supplementary Homicide Reports dataset - often abbreviated to SHR -  is the 
 
 This dataset covers crimes that are reported to the police and judged by the police to be motivated by hate More specifically, they are, first, crimes which were, second, motivated - at least in part - by bias towards a certain person or group of people because of characteristics about them such as race, sexual orientation, or religion. The first part is key, they must be crimes - and really must be the selection of crimes that the FBI collects for this dataset. Biased actions that don't meet the standard of a crime, or are of a crime not included in this data, are not considered hate crimes. For example, if someone yells at a Black person and uses racial slurs against them, it is clearly a racist action. For it to be included in this data, however, it would have to extend to a threat since "intimidation" is a crime included in this data but lesser actions such as simply insulting someone is not included. For the second part, the bias motivation, it must be against a group that the FBI includes in this data. When this data collection began crimes against transgender people were not counted so if a transgender person was assaulted or killed because they were transgender, this is not a hate crime recorded in the data.^[The first year where transgender as a group was a considered a bias motivation was in 2014.] 
 
-So this data is really a narrower measure of hate crimes than it might seem. In practice it is (some) crimes motivated by (some) kinds of hate that are reported to the police. It is also the most under-reported UCR dataset with most agencies not reporting any hate crimes to the FBI. This leads to huge gaps in the data with some states having zero agencies report crime, agencies reporting some bias motivations but not others, agencies reporting some years but not others. While these problems exist for all of the UCR datasets, it is most severe in this data. This problem is exacerbated by hate crimes being rare even in agencies that report them - with such rare events, even minor changes in which agencies report or which types of offenses they include can have large effects. 
+So this data is really a narrower measure of hate crimes than it might seem. In practice it is (some) crimes motivated by (some) kinds of hate that are reported to the police. It is also the most under-reported UCR dataset with most agencies not reporting any hate crimes to the FBI. This leads to huge gaps in the data with some states having extremely few agencies reporting crime - see, for example Figure \@ref(fig:hateCrimes) for state-level hate crimes in 2018 - agencies reporting some bias motivations but not others, agencies reporting some years but not others. While these problems exist for all of the UCR datasets, it is most severe in this data. This problem is exacerbated by hate crimes being rare even in agencies that report them - with such rare events, even minor changes in which agencies report or which types of offenses they include can have large effects. 
+
+<div class="figure">
+<img src="ucr_general_files/figure-html/hateCrimes-1.png" alt="Total hate crimes by state, 2018." width="672" />
+<p class="caption">(\#fig:hateCrimes)Total hate crimes by state, 2018.</p>
+</div>
+
 
 ### Property Stolen and Recovered (Supplement to Return A)
 
@@ -266,7 +306,7 @@ We'll finish this overview of the UCR data by briefly talking about format of th
 
 <div class="figure">
 <img src="images/offenses_known_raw_ascii_1960.PNG" alt="Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset" width="315" />
-<p class="caption">(\#fig:unnamed-chunk-2)Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset</p>
+<p class="caption">(\#fig:unnamed-chunk-3)Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset</p>
 </div>
 
 The "fixed-width" part of the file type is how this works (the ASCII part basically means it's a text file). Each row is the same width - literally the same number of characters, including blank spaces. So you must tell the software you are using to process this file - by literally write code in something called a "setup file" but is basically just instructions for whatever software you use (R, SPSS, Stata, SAS can all do this) - which characters are certain columns. For example, in this data the first character says which type of UCR data it is (1 means the Offenses Known and Clearances by Arrest data) and the next two characters (in the setup file written as 2-3 since it is characters 2 through 3 [inclusive]) are the state number (01 is the state code for Alabama). So we can read this row as the first column indicating it is an Offenses Known data, the second column indicating that it is for the state of Alabama, and so on for each of the remaining columns. To read in this data you'll need a setup file that covers every column in the data (some software, like R, can handle just reading in the specific columns you want and don't need to include every column in the setup file). 

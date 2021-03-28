@@ -2,10 +2,13 @@ fig:sfThefts
 fig:chicagoMurder
 fig:simpleIndex
 fig:agenciesReporting
+fig:bigAgenciesReporting
 fig:nycGunAssaults
 fig:nycMurderMonthly
 fig:nycMurderYearly
-fig:unnamed-chunk-2
+fig:danvilleRape
+fig:hateCrimes
+fig:unnamed-chunk-3
 preface
 motivation
 structure-of-the-book
@@ -24,8 +27,8 @@ what-is-a-violent-crime
 issues-common-across-ucr-datasets
 negative-numbers
 agency-population-value
-reporting-is-voluntary-so-some-agencies-dont-or-report-partially
-number-of-months-reported
+reporting-is-voluntary-so-some-agencies-dont-or-report-partially-voluntary
+number-of-months-reported-monthsreported
 zero-crimes-vs-no-reports
 a-summary-of-each-ucr-dataset
 offenses-known-and-clearances-by-arrest
@@ -55,7 +58,7 @@ actual
 total-cleared
 cleared-where-all-offenders-are-under-18
 unfounded
-number-of-months-reported-1
+number-of-months-reported
 arrests
 a-brief-history-of-the-data-1
 changes-in-definitions-1
