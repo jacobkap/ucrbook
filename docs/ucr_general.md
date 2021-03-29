@@ -253,8 +253,8 @@ This dataset covers crimes that are reported to the police and judged by the pol
 So this data is really a narrower measure of hate crimes than it might seem. In practice it is (some) crimes motivated by (some) kinds of hate that are reported to the police. It is also the most under-reported UCR dataset with most agencies not reporting any hate crimes to the FBI. This leads to huge gaps in the data with some states having extremely few agencies reporting crime - see, for example Figure \@ref(fig:hateCrimes) for state-level hate crimes in 2018 - agencies reporting some bias motivations but not others, agencies reporting some years but not others. While these problems exist for all of the UCR datasets, it is most severe in this data. This problem is exacerbated by hate crimes being rare even in agencies that report them - with such rare events, even minor changes in which agencies report or which types of offenses they include can have large effects. 
 
 <div class="figure">
-<img src="ucr_general_files/figure-html/hateCrimes-1.png" alt="Total hate crimes by state, 2018." width="672" />
-<p class="caption">(\#fig:hateCrimes)Total hate crimes by state, 2018.</p>
+<img src="ucr_general_files/figure-html/hateCrimes-1.png" alt="Total reported hate crimes by state, 2018." width="672" />
+<p class="caption">(\#fig:hateCrimes)Total reported hate crimes by state, 2018.</p>
 </div>
 
 

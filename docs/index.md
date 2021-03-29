@@ -1,7 +1,7 @@
 --- 
 title: "Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide"
 author: "Jacob Kaplan"
-date: "2021-03-28"
+date: "2021-03-29"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -48,7 +48,9 @@ Since manuals are boring, I'll try to include graphs and images to try to allevi
 
 If this book was useful in your research, please cite it. To cite this book, please use the below citation: 
 
+\begin{singlespace}
 Kaplan J (2021). *Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide*. https://github.com/jacobkap/ucrbook. 
+\end{singlespace}
 
 BibTeX format:
 <pre>
