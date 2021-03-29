@@ -7,7 +7,7 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-description: "This is a comprehensive guide to using the FBI's Uniform Crime (UCR) Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data."
+description: "This is a comprehensive guide to using the FBI's Uniform Crime (UCR) Reporting Program Data, a collection of crime and arrest datasets which are often referred to as 'UCR data.'"
 graphics: yes
 always_allow_html: yes 
 colorlinks: yes
