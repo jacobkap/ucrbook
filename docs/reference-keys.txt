@@ -6,6 +6,7 @@ fig:bigAgenciesReporting
 fig:nycGunAssaults
 fig:nycMurderMonthly
 fig:nycMurderYearly
+fig:miamiDadeMurderAnnual
 fig:danvilleRape
 fig:hateCrimes
 fig:unnamed-chunk-3
@@ -27,8 +28,7 @@ what-is-a-violent-crime
 issues-common-across-ucr-datasets
 negative-numbers
 agency-population-value
-reporting-is-voluntary-so-some-agencies-dont-or-report-partially-voluntary
-number-of-months-reported-monthsreported
+voluntary
 zero-crimes-vs-no-reports
 a-summary-of-each-ucr-dataset
 offenses-known-and-clearances-by-arrest

@@ -184,45 +184,6 @@ For a list of R packages he has created, please see \href{https://jacobdkaplan.c
 \hypertarget{ucr_general}{%
 \chapter{Overview of the Data}\label{ucr_general}}
 
-\begin{verbatim}
-## 
-## Attaching package: 'dplyr'
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-\end{verbatim}
-
-\begin{verbatim}
-## Loading required package: maps
-\end{verbatim}
-
-\begin{verbatim}
-## Skipping install of 'fiftystater' from a github remote, the SHA1 (28e7fa54) has not changed since last install.
-##   Use `force = TRUE` to force installation
-\end{verbatim}
-
-\begin{verbatim}
-## 
-## -- Column specification --------------------------------------------------------
-## cols(
-##   .default = col_double(),
-##   agency = col_character(),
-##   year = col_date(format = ""),
-##   state = col_character(),
-##   ORI = col_character()
-## )
-## i Use `spec()` for the full column specifications.
-\end{verbatim}
-
 One of the first, and most important, questions I think people have about crime is a simple one: is crime going up? Answering it seems simple - you just count up all the crimes that happen in an area and see if that number of bigger than it was in previous times.
 
 However, putting this into practice invites a number of questions, all of which affect how we measure crime. First, we need to define what a crime is? Not philosophically what actions are crimes - or what should be crimes - but literally which of the many thousands of different criminal acts (crimes as defined by state law) should be considered in this measure. Should murder count? Most people would say yes. How about jaywalking or speeding? Many would say probably not. Should marital rape be considered a crime? Now, certainly most people (all, I would hope) would say yes. But in much of the United States it wasn't a crime until the 1970s \citep{bennice2003marital, mcmahon2009criminalizing}.
@@ -563,17 +524,22 @@ The UCR uses this method even when only parts of a jurisdiction overlaps. Los An
 
 The population value is the population who reside in that jurisdiction, and does not count people who are in the area but don't live there, such as tourists or people who commute there for work. This means that using the population value to determine a rate can be misleading as some places have much higher numbers of non-residents in the area (e.g.~Las Vegas, Washington D.C.) than others.
 
-\hypertarget{reporting-is-voluntary-so-some-agencies-dont-or-report-partially-voluntary}{%
-\subsection{Reporting is voluntary \ldots{} so some agencies don't (or report partially) \{voluntary\}}\label{reporting-is-voluntary-so-some-agencies-dont-or-report-partially-voluntary}}
+\hypertarget{voluntary}{%
+\subsection{Reporting is voluntary \ldots{} so some agencies don't (or report partially)}\label{voluntary}}
 
 When an agency reports their data to the FBI, they do so voluntarily - there is no nationally requirement to report.\footnote{Some states do mandate that their agencies report, but this is not always followed.} This means that there is inconsistency in which agencies report, how many months of the year they report for, and which variables they include in their data submissions. This can lead
 
-In general, more agencies report their data every year and once an agency begins reporting data they tend to keep reporting. The UCR datasets are a collection of separate, though related, datasets and an agency can report to as many of these datasets as they want - an agency that reports to one dataset does not mean that they report to other datasets. Figure \ref{fig:agenciesReporting} shows the number of agencies that submitted at least one month of data - based on a highly flawed measure that we'll discuss in Section \ref{monthsReported} - to the Offenses Known and Clearances by Arrest data in the given year. For the first decade of available data under 8,000 agencies reported data and this grew to over 13,500 by the late 1970s before plateauing for about a decade. The number of agencies that reported their data actually declined in the 1990s, driven primarily by many Florida agencies temporarily dropping out, before growing steadily to nearly 17,000 agencies in 2010; from here it kept increasing but slower than before.
+In general, more agencies report their data every year and once an agency begins reporting data they tend to keep reporting. The UCR datasets are a collection of separate, though related, datasets and an agency can report to as many of these datasets as they want - an agency that reports to one dataset does not mean that they report to other datasets. Figure \ref{fig:agenciesReporting} shows the number of agencies that submitted at least one month of data to the Offenses Known and Clearances by Arrest data in the given year. For the first decade of available data under 8,000 agencies reported data and this grew to over 13,500 by the late 1970s before plateauing for about a decade. The number of agencies that reported their data actually declined in the 1990s, driven primarily by many Florida agencies temporarily dropping out, before growing steadily to nearly 17,000 agencies in 2010; from here it kept increasing but slower than before.
 
-There are approximately 18,000 police agencies in the United States so recent data has reports from nearly all agencies, while older data has far fewer agencies reporting. For earlier data, however, you're dealing with a smaller share of agencies meaning that you have a large amount of missing data and a less representative sample.
-
+\begin{figure}
+\centering
 \includegraphics{ucrbook_files/figure-latex/agenciesReporting-1.pdf}
-Figure \ref{bigAgenciesReporting} repeats this figure but now including only agencies with 100,000 people or more in their jurisdiction. While these agencies have a far more linear trend than all agencies, the basic lesson is the same: recent data has most agencies reporting; old data excludes many agencies.
+\caption{\label{fig:agenciesReporting}The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.}
+\end{figure}
+
+There are approximately 18,000 police agencies in the United States so recent data has reports from nearly all agencies, while older data has far fewer agencies reporting. When trying to estimate to larger geographies, such as state or national-level, later years will be more accurate as you're missing less data. For earlier data, however, you're dealing with a smaller share of agencies meaning that you have a large amount of missing data and a less representative sample.
+
+Figure \ref{fig:bigAgenciesReporting} repeats this figure but now including only agencies with 100,000 people or more in their jurisdiction. While these agencies have a far more linear trend than all agencies, the basic lesson is the same: recent data has most agencies reporting; old data excludes many agencies.
 
 \begin{figure}
 \centering
@@ -581,37 +547,43 @@ Figure \ref{bigAgenciesReporting} repeats this figure but now including only age
 \caption{\label{fig:bigAgenciesReporting}The annual number of agencies with a population of 100,000 or higher reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.}
 \end{figure}
 
-In 2003 the New York Police Department stopped reporting this category of offense, resuming only in 2013. They continued to report the broader aggravated assault category, but not any of the subsections of aggravated assaults which differentiate the weapon used.
+This voluntariness extends beyond whether they report or not, but into which variables they report. While in practice most agencies report every crime when they report any, they do have the choice to report only a subset of offenses. This is especially true for subsets of larger categories - such as gun assaults, a subset of aggravated assaults, or marijuana possession which is a subset of drug possession. As an example, Figure \ref{fig:nycGunAssaults} shows the annual number of aggravated assaults with a gun in New York City. In 2003 the New York Police Department stopped reporting this category of offense, resuming only in 2013. They continued to report the broader aggravated assault category, but not any of the subsections of aggravated assaults which differentiate the weapon used.
 
-\begin{figure}
-\centering
 \includegraphics{ucrbook_files/figure-latex/nycGunAssaults-1.pdf}
-\caption{\label{fig:nycGunAssaults}Monthly reports of gun assaults in New York City, 1960-2018.}
-\end{figure}
+Given that agencies can join or drop out of the UCR program at will, and report only partial data, it is highly important to carefully examine your data to make sure that there are no issues caused by this.
 
-\hypertarget{number-of-months-reported-monthsreported}{%
-\subsubsection{Number of months reported \{monthsReported\}}\label{number-of-months-reported-monthsreported}}
+Even when an agency reports UCR data, and even when they report every crime category, they can report fewer than 12 months of data. In some cases they simply report all of their data in December, or report quarterly or semi-annually so some months have zero crimes reported while others count multiple months in that month's data. One example of this is New York City, shown in Figure \ref{fig:nycMurderMonthly}, in the early-2000s to the mid-2010s where they began reporting data quarterly instead of monthly.
 
 \begin{figure}
 \centering
 \includegraphics{ucrbook_files/figure-latex/nycMurderMonthly-1.pdf}
-\caption{\label{fig:nycMurderMonthly}Monthly murders in New York City, 1960-2018. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting.}
+\caption{\label{fig:nycMurderMonthly}Monthly murders in New York City, 1990-2018. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting.}
 \end{figure}
+
+When you sum up each month into an annual count, as shown in Figure \ref{fig:nycMurderYearly}, the problem disappears since the zero months are accounted for in the months that have the quarterly data. If you're using monthly data and only examine the data at the annual level, you'll fall into the trap of having incorrect data that is hidden due to the level of aggregation examined. While cases like NYC are obvious when viewed monthly, for people that are including thousands of agencies in their data, it is unfeasible to look at each agency for each crime included. This can introduce errors as the best way to examine the data is manually viewing graphs and the automated method, looking for outliers through some kind of comparison to expected values, can be incorrect.
 
 \begin{figure}
 \centering
 \includegraphics{ucrbook_files/figure-latex/nycMurderYearly-1.pdf}
-\caption{\label{fig:nycMurderYearly}Annual murders in New York City, 1960-2018.}
+\caption{\label{fig:nycMurderYearly}Annual murders in New York City, 1990-2018.}
+\end{figure}
+
+In other cases when agencies report fewer than 12 months of the year, they simply report partial data and as a result undercount crimes. Figure \ref{fig:miamiDadeMurderAnnual} shows annual murders in Miami-Dade, Florida and has three years of this issue occurring. The first two years with this issue are the two where zero murders are reported - this is because the agency didn't report any months of data. The final year is in 2018, the last year of data in this graph, where it looks like murder suddenly dropped significantly. That's just because Miami-Dade only reported through June, so they're missing half of 2018.
+
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/miamiDadeMurderAnnual-1.pdf}
+\caption{\label{fig:miamiDadeMurderAnnual}Annual murders in Miami-Dade, Florida, 1960-2018.}
 \end{figure}
 
 \hypertarget{zero-crimes-vs-no-reports}{%
 \subsection{Zero crimes vs no reports}\label{zero-crimes-vs-no-reports}}
 
-When an agency does not report, we see it in the data as reporting zero crimes, not reporting NA or any indicator that they did not report.
+When an agency does not report, we see it in the data as reporting zero crimes, not reporting NA or any indicator that they did not report. In cases where the agency says they didn't report that month we can be fairly sure (not entirely since that variable isn't always accurate) that the zero crimes reported are simply that the agency didn't report. In cases where the agency says they report that month but report zero crimes, we can't be sure if that's a true no crimes reported to the agency or the agency not reporting to the UCR. As agencies can report some crimes but not others in a given month and still be considered reporting that month, just saying they reported doesn't mean that the zero is a true zero.
 
-As discussed in Section \ref{voluntary}, agencies voluntarily report, and in some cases doesn't report or don't report certain months or crimes.
+In some cases it is easy to see when a zero crimes reported is actually the agency not reporting. As Figure \ref{fig:nycGunAssaults} shows with New York City gun assaults, there is a massive and sustained dropoff to zero crimes and then a sudden return years later. Obviously, going from hundreds of crimes to zero crimes is not a matter of crimes not occurring anymore, it is a matter of the agency not reporting - and New York City did report other crimes these years so in the data it says that they reported every month. So in agencies which tend to report many crimes - and many here can be a few as 10 a year since going from 10 to 0 is a big drop - a sudden report of zero crimes is probably just non-reporting.
 
-In some cases it is clear when an agency stops reporting
+Differentiating zero crimes and no reports becomes tricky in agencies that tend to report few crimes, which most small towns do. As an example, Figure \ref{fig:danvilleRape} shows the annual reports of rape in Danville, California, a city of approximately 45,000 people. The city reports on average 2.8 rapes per year and in five years reported zero rapes. In cases like this it's not clear whether we should consider those zero years as true zeros (that no one reported their rape to the police) or whether the agency simply didn't report rape data that year.
 
 \begin{figure}
 \centering

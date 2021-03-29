@@ -94,7 +94,7 @@
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="ucr-general.html"><a href="ucr-general.html#negative-numbers"><i class="fa fa-check"></i><b>2.2.1</b> Negative numbers</a></li>
 <li class="chapter" data-level="2.2.2" data-path="ucr-general.html"><a href="ucr-general.html#agency-population-value"><i class="fa fa-check"></i><b>2.2.2</b> Agency population value</a></li>
-<li class="chapter" data-level="2.2.3" data-path="ucr-general.html"><a href="ucr-general.html#reporting-is-voluntary-so-some-agencies-dont-or-report-partially-voluntary"><i class="fa fa-check"></i><b>2.2.3</b> Reporting is voluntary … so some agencies don’t (or report partially) {voluntary}</a></li>
+<li class="chapter" data-level="2.2.3" data-path="ucr-general.html"><a href="ucr-general.html#voluntary"><i class="fa fa-check"></i><b>2.2.3</b> Reporting is voluntary … so some agencies don’t (or report partially)</a></li>
 <li class="chapter" data-level="2.2.4" data-path="ucr-general.html"><a href="ucr-general.html#zero-crimes-vs-no-reports"><i class="fa fa-check"></i><b>2.2.4</b> Zero crimes vs no reports</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="ucr-general.html"><a href="ucr-general.html#a-summary-of-each-ucr-dataset"><i class="fa fa-check"></i><b>2.3</b> A summary of each UCR dataset</a>
@@ -261,27 +261,6 @@
             <section class="normal" id="section-">
 <div id="ucr_general" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Overview of the Data</h1>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<pre><code>## Loading required package: maps</code></pre>
-<pre><code>## Skipping install of &#39;fiftystater&#39; from a github remote, the SHA1 (28e7fa54) has not changed since last install.
-##   Use `force = TRUE` to force installation</code></pre>
-<pre><code>## 
-## -- Column specification --------------------------------------------------------
-## cols(
-##   .default = col_double(),
-##   agency = col_character(),
-##   year = col_date(format = &quot;&quot;),
-##   state = col_character(),
-##   ORI = col_character()
-## )
-## i Use `spec()` for the full column specifications.</code></pre>
 <p>One of the first, and most important, questions I think people have about crime is a simple one: is crime going up? Answering it seems simple - you just count up all the crimes that happen in an area and see if that number of bigger than it was in previous times.</p>
 <p>However, putting this into practice invites a number of questions, all of which affect how we measure crime. First, we need to define what a crime is? Not philosophically what actions are crimes - or what should be crimes - but literally which of the many thousands of different criminal acts (crimes as defined by state law) should be considered in this measure. Should murder count? Most people would say yes. How about jaywalking or speeding? Many would say probably not. Should marital rape be considered a crime? Now, certainly most people (all, I would hope) would say yes. But in much of the United States it wasn’t a crime until the 1970s <span class="citation">(<a href="references.html#ref-bennice2003marital" role="doc-biblioref">Bennice and Resick 2003</a>; <a href="references.html#ref-mcmahon2009criminalizing" role="doc-biblioref">McMahon-Howard, Clay-Warner, and Renzulli 2009</a>)</span>.</p>
 <p>Next, we have to know what geographic and time unit to measure crimes at since these decisions determine how precise we can measure crime and when it changed. That is, if you are mugged on Jan 1st at exactly 12:15pm right outside your house, how do we record it? Should we be as precise as including the exact time and location (your home address or coordinates for the address)? Out of privacy concerns to the victim, should we only include a larger time unit (such as hour of the day or just the day without any time of day) or a larger geographic unit (such as a Census Tract or the city)?</p>
@@ -487,56 +466,63 @@ Figure 2.3: Reported crimes in Philadelphia from 1960 to 2018. Violent index cri
 <p>The UCR uses this method even when only parts of a jurisdiction overlaps. Los Angeles County Sheriff has a population of about one million people, far less than the actual county population (the number of residents, according to the Census) of about 10 million people. This is because the other nine million people are accounted for by other agencies, mainly the local police agencies in the cities that make up Los Angeles County.</p>
 <p>The population value is the population who reside in that jurisdiction, and does not count people who are in the area but don’t live there, such as tourists or people who commute there for work. This means that using the population value to determine a rate can be misleading as some places have much higher numbers of non-residents in the area (e.g. Las Vegas, Washington D.C.) than others.</p>
 </div>
-<div id="reporting-is-voluntary-so-some-agencies-dont-or-report-partially-voluntary" class="section level3" number="2.2.3">
-<h3><span class="header-section-number">2.2.3</span> Reporting is voluntary … so some agencies don’t (or report partially) {voluntary}</h3>
+<div id="voluntary" class="section level3" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Reporting is voluntary … so some agencies don’t (or report partially)</h3>
 <p>When an agency reports their data to the FBI, they do so voluntarily - there is no nationally requirement to report.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> This means that there is inconsistency in which agencies report, how many months of the year they report for, and which variables they include in their data submissions. This can lead</p>
-<p>In general, more agencies report their data every year and once an agency begins reporting data they tend to keep reporting. The UCR datasets are a collection of separate, though related, datasets and an agency can report to as many of these datasets as they want - an agency that reports to one dataset does not mean that they report to other datasets. Figure <a href="ucr-general.html#fig:agenciesReporting">2.4</a> shows the number of agencies that submitted at least one month of data - based on a highly flawed measure that we’ll discuss in Section <a href="#monthsReported"><strong>??</strong></a> - to the Offenses Known and Clearances by Arrest data in the given year. For the first decade of available data under 8,000 agencies reported data and this grew to over 13,500 by the late 1970s before plateauing for about a decade. The number of agencies that reported their data actually declined in the 1990s, driven primarily by many Florida agencies temporarily dropping out, before growing steadily to nearly 17,000 agencies in 2010; from here it kept increasing but slower than before.</p>
-<p>There are approximately 18,000 police agencies in the United States so recent data has reports from nearly all agencies, while older data has far fewer agencies reporting. For earlier data, however, you’re dealing with a smaller share of agencies meaning that you have a large amount of missing data and a less representative sample.</p>
+<p>In general, more agencies report their data every year and once an agency begins reporting data they tend to keep reporting. The UCR datasets are a collection of separate, though related, datasets and an agency can report to as many of these datasets as they want - an agency that reports to one dataset does not mean that they report to other datasets. Figure <a href="ucr-general.html#fig:agenciesReporting">2.4</a> shows the number of agencies that submitted at least one month of data to the Offenses Known and Clearances by Arrest data in the given year. For the first decade of available data under 8,000 agencies reported data and this grew to over 13,500 by the late 1970s before plateauing for about a decade. The number of agencies that reported their data actually declined in the 1990s, driven primarily by many Florida agencies temporarily dropping out, before growing steadily to nearly 17,000 agencies in 2010; from here it kept increasing but slower than before.</p>
 <div class="figure"><span id="fig:agenciesReporting"></span>
 <img src="ucr_general_files/figure-html/agenciesReporting-1.png" alt="The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year." width="672" />
 <p class="caption">
 Figure 2.4: The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.
 </p>
 </div>
-<p>Figure <a href="#bigAgenciesReporting"><strong>??</strong></a> repeats this figure but now including only agencies with 100,000 people or more in their jurisdiction. While these agencies have a far more linear trend than all agencies, the basic lesson is the same: recent data has most agencies reporting; old data excludes many agencies.</p>
+<p>There are approximately 18,000 police agencies in the United States so recent data has reports from nearly all agencies, while older data has far fewer agencies reporting. When trying to estimate to larger geographies, such as state or national-level, later years will be more accurate as you’re missing less data. For earlier data, however, you’re dealing with a smaller share of agencies meaning that you have a large amount of missing data and a less representative sample.</p>
+<p>Figure <a href="ucr-general.html#fig:bigAgenciesReporting">2.5</a> repeats this figure but now including only agencies with 100,000 people or more in their jurisdiction. While these agencies have a far more linear trend than all agencies, the basic lesson is the same: recent data has most agencies reporting; old data excludes many agencies.</p>
 <div class="figure"><span id="fig:bigAgenciesReporting"></span>
 <img src="ucr_general_files/figure-html/bigAgenciesReporting-1.png" alt="The annual number of agencies with a population of 100,000 or higher reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year." width="672" />
 <p class="caption">
 Figure 2.5: The annual number of agencies with a population of 100,000 or higher reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.
 </p>
 </div>
-<p>In 2003 the New York Police Department stopped reporting this category of offense, resuming only in 2013. They continued to report the broader aggravated assault category, but not any of the subsections of aggravated assaults which differentiate the weapon used.</p>
+<p>This voluntariness extends beyond whether they report or not, but into which variables they report. While in practice most agencies report every crime when they report any, they do have the choice to report only a subset of offenses. This is especially true for subsets of larger categories - such as gun assaults, a subset of aggravated assaults, or marijuana possession which is a subset of drug possession. As an example, Figure <a href="ucr-general.html#fig:nycGunAssaults">2.6</a> shows the annual number of aggravated assaults with a gun in New York City. In 2003 the New York Police Department stopped reporting this category of offense, resuming only in 2013. They continued to report the broader aggravated assault category, but not any of the subsections of aggravated assaults which differentiate the weapon used.</p>
 <div class="figure"><span id="fig:nycGunAssaults"></span>
 <img src="ucr_general_files/figure-html/nycGunAssaults-1.png" alt="Monthly reports of gun assaults in New York City, 1960-2018." width="672" />
 <p class="caption">
 Figure 2.6: Monthly reports of gun assaults in New York City, 1960-2018.
 </p>
 </div>
-<div id="number-of-months-reported-monthsreported" class="section level4" number="2.2.3.1">
-<h4><span class="header-section-number">2.2.3.1</span> Number of months reported {monthsReported}</h4>
+<p>Given that agencies can join or drop out of the UCR program at will, and report only partial data, it is highly important to carefully examine your data to make sure that there are no issues caused by this.</p>
+<p>Even when an agency reports UCR data, and even when they report every crime category, they can report fewer than 12 months of data. In some cases they simply report all of their data in December, or report quarterly or semi-annually so some months have zero crimes reported while others count multiple months in that month’s data. One example of this is New York City, shown in Figure <a href="ucr-general.html#fig:nycMurderMonthly">2.7</a>, in the early-2000s to the mid-2010s where they began reporting data quarterly instead of monthly.</p>
 <div class="figure"><span id="fig:nycMurderMonthly"></span>
-<img src="ucr_general_files/figure-html/nycMurderMonthly-1.png" alt="Monthly murders in New York City, 1960-2018. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting." width="672" />
+<img src="ucr_general_files/figure-html/nycMurderMonthly-1.png" alt="Monthly murders in New York City, 1990-2018. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting." width="672" />
 <p class="caption">
-Figure 2.7: Monthly murders in New York City, 1960-2018. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting.
+Figure 2.7: Monthly murders in New York City, 1990-2018. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting.
 </p>
 </div>
+<p>When you sum up each month into an annual count, as shown in Figure <a href="ucr-general.html#fig:nycMurderYearly">2.8</a>, the problem disappears since the zero months are accounted for in the months that have the quarterly data. If you’re using monthly data and only examine the data at the annual level, you’ll fall into the trap of having incorrect data that is hidden due to the level of aggregation examined. While cases like NYC are obvious when viewed monthly, for people that are including thousands of agencies in their data, it is unfeasible to look at each agency for each crime included. This can introduce errors as the best way to examine the data is manually viewing graphs and the automated method, looking for outliers through some kind of comparison to expected values, can be incorrect.</p>
 <div class="figure"><span id="fig:nycMurderYearly"></span>
-<img src="ucr_general_files/figure-html/nycMurderYearly-1.png" alt="Annual murders in New York City, 1960-2018." width="672" />
+<img src="ucr_general_files/figure-html/nycMurderYearly-1.png" alt="Annual murders in New York City, 1990-2018." width="672" />
 <p class="caption">
-Figure 2.8: Annual murders in New York City, 1960-2018.
+Figure 2.8: Annual murders in New York City, 1990-2018.
 </p>
 </div>
+<p>In other cases when agencies report fewer than 12 months of the year, they simply report partial data and as a result undercount crimes. Figure <a href="ucr-general.html#fig:miamiDadeMurderAnnual">2.9</a> shows annual murders in Miami-Dade, Florida and has three years of this issue occurring. The first two years with this issue are the two where zero murders are reported - this is because the agency didn’t report any months of data. The final year is in 2018, the last year of data in this graph, where it looks like murder suddenly dropped significantly. That’s just because Miami-Dade only reported through June, so they’re missing half of 2018.</p>
+<div class="figure"><span id="fig:miamiDadeMurderAnnual"></span>
+<img src="ucr_general_files/figure-html/miamiDadeMurderAnnual-1.png" alt="Annual murders in Miami-Dade, Florida, 1960-2018." width="672" />
+<p class="caption">
+Figure 2.9: Annual murders in Miami-Dade, Florida, 1960-2018.
+</p>
 </div>
 </div>
 <div id="zero-crimes-vs-no-reports" class="section level3" number="2.2.4">
 <h3><span class="header-section-number">2.2.4</span> Zero crimes vs no reports</h3>
-<p>When an agency does not report, we see it in the data as reporting zero crimes, not reporting NA or any indicator that they did not report.</p>
-<p>As discussed in Section <a href="#voluntary"><strong>??</strong></a>, agencies voluntarily report, and in some cases doesn’t report or don’t report certain months or crimes.</p>
-<p>In some cases it is clear when an agency stops reporting</p>
+<p>When an agency does not report, we see it in the data as reporting zero crimes, not reporting NA or any indicator that they did not report. In cases where the agency says they didn’t report that month we can be fairly sure (not entirely since that variable isn’t always accurate) that the zero crimes reported are simply that the agency didn’t report. In cases where the agency says they report that month but report zero crimes, we can’t be sure if that’s a true no crimes reported to the agency or the agency not reporting to the UCR. As agencies can report some crimes but not others in a given month and still be considered reporting that month, just saying they reported doesn’t mean that the zero is a true zero.</p>
+<p>In some cases it is easy to see when a zero crimes reported is actually the agency not reporting. As Figure <a href="ucr-general.html#fig:nycGunAssaults">2.6</a> shows with New York City gun assaults, there is a massive and sustained dropoff to zero crimes and then a sudden return years later. Obviously, going from hundreds of crimes to zero crimes is not a matter of crimes not occurring anymore, it is a matter of the agency not reporting - and New York City did report other crimes these years so in the data it says that they reported every month. So in agencies which tend to report many crimes - and many here can be a few as 10 a year since going from 10 to 0 is a big drop - a sudden report of zero crimes is probably just non-reporting.</p>
+<p>Differentiating zero crimes and no reports becomes tricky in agencies that tend to report few crimes, which most small towns do. As an example, Figure <a href="ucr-general.html#fig:danvilleRape">2.10</a> shows the annual reports of rape in Danville, California, a city of approximately 45,000 people. The city reports on average 2.8 rapes per year and in five years reported zero rapes. In cases like this it’s not clear whether we should consider those zero years as true zeros (that no one reported their rape to the police) or whether the agency simply didn’t report rape data that year.</p>
 <div class="figure"><span id="fig:danvilleRape"></span>
 <img src="ucr_general_files/figure-html/danvilleRape-1.png" alt="Annual rapes reported in Danville, CA, 1960-2018." width="672" />
 <p class="caption">
-Figure 2.9: Annual rapes reported in Danville, CA, 1960-2018.
+Figure 2.10: Annual rapes reported in Danville, CA, 1960-2018.
 </p>
 </div>
 </div>
@@ -564,11 +550,11 @@ Figure 2.9: Annual rapes reported in Danville, CA, 1960-2018.
 <div id="hate-crime-data" class="section level3" number="2.3.5">
 <h3><span class="header-section-number">2.3.5</span> Hate Crime Data</h3>
 <p>This dataset covers crimes that are reported to the police and judged by the police to be motivated by hate More specifically, they are, first, crimes which were, second, motivated - at least in part - by bias towards a certain person or group of people because of characteristics about them such as race, sexual orientation, or religion. The first part is key, they must be crimes - and really must be the selection of crimes that the FBI collects for this dataset. Biased actions that don’t meet the standard of a crime, or are of a crime not included in this data, are not considered hate crimes. For example, if someone yells at a Black person and uses racial slurs against them, it is clearly a racist action. For it to be included in this data, however, it would have to extend to a threat since “intimidation” is a crime included in this data but lesser actions such as simply insulting someone is not included. For the second part, the bias motivation, it must be against a group that the FBI includes in this data. When this data collection began crimes against transgender people were not counted so if a transgender person was assaulted or killed because they were transgender, this is not a hate crime recorded in the data.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a></p>
-<p>So this data is really a narrower measure of hate crimes than it might seem. In practice it is (some) crimes motivated by (some) kinds of hate that are reported to the police. It is also the most under-reported UCR dataset with most agencies not reporting any hate crimes to the FBI. This leads to huge gaps in the data with some states having extremely few agencies reporting crime - see, for example Figure <a href="ucr-general.html#fig:hateCrimes">2.10</a> for state-level hate crimes in 2018 - agencies reporting some bias motivations but not others, agencies reporting some years but not others. While these problems exist for all of the UCR datasets, it is most severe in this data. This problem is exacerbated by hate crimes being rare even in agencies that report them - with such rare events, even minor changes in which agencies report or which types of offenses they include can have large effects.</p>
+<p>So this data is really a narrower measure of hate crimes than it might seem. In practice it is (some) crimes motivated by (some) kinds of hate that are reported to the police. It is also the most under-reported UCR dataset with most agencies not reporting any hate crimes to the FBI. This leads to huge gaps in the data with some states having extremely few agencies reporting crime - see, for example Figure <a href="ucr-general.html#fig:hateCrimes">2.11</a> for state-level hate crimes in 2018 - agencies reporting some bias motivations but not others, agencies reporting some years but not others. While these problems exist for all of the UCR datasets, it is most severe in this data. This problem is exacerbated by hate crimes being rare even in agencies that report them - with such rare events, even minor changes in which agencies report or which types of offenses they include can have large effects.</p>
 <div class="figure"><span id="fig:hateCrimes"></span>
 <img src="ucr_general_files/figure-html/hateCrimes-1.png" alt="Total hate crimes by state, 2018." width="672" />
 <p class="caption">
-Figure 2.10: Total hate crimes by state, 2018.
+Figure 2.11: Total hate crimes by state, 2018.
 </p>
 </div>
 </div>
@@ -592,7 +578,7 @@ Figure 2.10: Total hate crimes by state, 2018.
 <div class="figure"><span id="fig:unnamed-chunk-3"></span>
 <img src="images/offenses_known_raw_ascii_1960.PNG" alt="Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset" width="315" />
 <p class="caption">
-Figure 2.11: Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset
+Figure 2.12: Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset
 </p>
 </div>
 <p>The “fixed-width” part of the file type is how this works (the ASCII part basically means it’s a text file). Each row is the same width - literally the same number of characters, including blank spaces. So you must tell the software you are using to process this file - by literally write code in something called a “setup file” but is basically just instructions for whatever software you use (R, SPSS, Stata, SAS can all do this) - which characters are certain columns. For example, in this data the first character says which type of UCR data it is (1 means the Offenses Known and Clearances by Arrest data) and the next two characters (in the setup file written as 2-3 since it is characters 2 through 3 [inclusive]) are the state number (01 is the state code for Alabama). So we can read this row as the first column indicating it is an Offenses Known data, the second column indicating that it is for the state of Alabama, and so on for each of the remaining columns. To read in this data you’ll need a setup file that covers every column in the data (some software, like R, can handle just reading in the specific columns you want and don’t need to include every column in the setup file).</p>

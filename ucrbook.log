@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.3.19)  28 MAR 2021 14:36
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.3.19)  28 MAR 2021 22:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -847,7 +847,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 [2
 
 ]
-Underfull \hbox (badness 3312) in paragraph at lines 25--25
+Underfull \hbox (badness 3312) in paragraph at lines 24--24
  [][] [][]\TU/lmr/m/n/12 Law Enforcement Officers Killed and Assaulted 
  []
 
@@ -876,234 +876,259 @@ File: images/edit_button.png Graphic file (type bmp)
 
 ]
 Chapter 2.
-
-Overfull \hbox (314.51988pt too wide) in paragraph at lines 211--211
-[]\TU/lmtt/m/n/12 ## Skipping install of 'fiftystater' from a github remote, th
-e SHA1 (28e7fa54) has not changed since last install.[] 
- []
-
-
-Overfull \hbox (122.93954pt too wide) in paragraph at lines 224--224
-[]\TU/lmtt/m/n/12 ## -- Column specification ----------------------------------
-----------------------[] 
- []
-
 [14
 
-] [15] [16]
-Underfull \hbox (badness 10000) in paragraph at lines 252--253
+] [15]
+Underfull \hbox (badness 10000) in paragraph at lines 213--214
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 258--260
+Underfull \hbox (badness 10000) in paragraph at lines 219--221
+
+ []
+
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 221--222
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 260--261
+Underfull \hbox (badness 10000) in paragraph at lines 229--230
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 268--269
+Underfull \hbox (badness 10000) in paragraph at lines 235--237
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 274--276
+Underfull \hbox (badness 10000) in paragraph at lines 237--238
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 245--246
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 251--253
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 253--255
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 255--257
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--258
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 265--266
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 271--273
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 273--275
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 275--277
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 277--278
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 285--286
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 291--293
 
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 276--277
+Underfull \hbox (badness 10000) in paragraph at lines 293--295
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 284--285
+Underfull \hbox (badness 10000) in paragraph at lines 295--296
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 290--292
+Underfull \hbox (badness 10000) in paragraph at lines 303--305
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 292--294
+Underfull \hbox (badness 10000) in paragraph at lines 305--306
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 294--296
+Underfull \hbox (badness 10000) in paragraph at lines 311--313
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 296--297
+Underfull \hbox (badness 10000) in paragraph at lines 313--315
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 304--305
+Underfull \hbox (badness 10000) in paragraph at lines 315--316
 
  []
 
+[18] [19] [20]
 
-Underfull \hbox (badness 10000) in paragraph at lines 310--312
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 312--314
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 314--316
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 316--317
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 324--325
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 330--332
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 332--334
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 334--335
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 342--344
-
- []
-
-[18]
-Underfull \hbox (badness 10000) in paragraph at lines 344--345
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 350--352
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 352--354
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 354--355
-
- []
-
-[19] [20] [21]
-
-Package natbib Warning: Citation `ref' on page 22 undefined on input line 506.
+Package natbib Warning: Citation `ref' on page 21 undefined on input line 467.
 
 File: ucrbook_files/figure-latex/sfThefts-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/sfThefts-1.pdf>
+[21] [22]
 File: ucrbook_files/figure-latex/chicagoMurder-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/chicagoMurder-1.pdf>
-
-Underfull \vbox (badness 7667) has occurred while \output is active []
-
-[22] [23] [24] [25]
+[23] [24]
 File: ucrbook_files/figure-latex/simpleIndex-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/simpleIndex-1.pdf>
-
-Underfull \vbox (badness 1173) has occurred while \output is active []
-
-[26] [27]
+[25] [26] [27]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[28] [29]
-
-LaTeX Warning: Reference `fig:agenciesReporting' on page 30 undefined on input 
-line 571.
-
-
-LaTeX Warning: Reference `monthsReported' on page 30 undefined on input line 57
-1.
-
+[28]
 File: ucrbook_files/figure-latex/agenciesReporting-1.pdf Graphic file (type pdf
 )
 <use ucrbook_files/figure-latex/agenciesReporting-1.pdf>
-
-LaTeX Warning: Reference `bigAgenciesReporting' on page 30 undefined on input l
-ine 576.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 575--577
-[][]
- []
-
-[30]
 File: ucrbook_files/figure-latex/bigAgenciesReporting-1.pdf Graphic file (type 
 pdf)
 <use ucrbook_files/figure-latex/bigAgenciesReporting-1.pdf>
+
+LaTeX Warning: Reference `fig:nycGunAssaults' on page 29 undefined on input lin
+e 550.
+
+[29] [30] [31]
 File: ucrbook_files/figure-latex/nycGunAssaults-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/nycGunAssaults-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 552--554
+[][]
+ []
+
 File: ucrbook_files/figure-latex/nycMurderMonthly-1.pdf Graphic file (type pdf)
 
 <use ucrbook_files/figure-latex/nycMurderMonthly-1.pdf>
+[32] [33]
 File: ucrbook_files/figure-latex/nycMurderYearly-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/nycMurderYearly-1.pdf>
+[34]
+File: ucrbook_files/figure-latex/miamiDadeMurderAnnual-1.pdf Graphic file (type
+ pdf)
+<use ucrbook_files/figure-latex/miamiDadeMurderAnnual-1.pdf>
 
-LaTeX Warning: Reference `voluntary' on page 31 undefined on input line 612.
+LaTeX Warning: Reference `fig:nycGunAssaults' on page 35 undefined on input lin
+e 584.
 
+[35]
 File: ucrbook_files/figure-latex/danvilleRape-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/danvilleRape-1.pdf>
-[31] [32] [33] [34] [35] [36] [37] [38] [39]
+[36] [37] [38] [39] [40]
 File: ucrbook_files/figure-latex/hateCrimes-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/hateCrimes-1.pdf>
-[40] [41]
-Underfull \hbox (badness 1253) in paragraph at lines 675--676
+[41] [42]
+Underfull \hbox (badness 1253) in paragraph at lines 647--648
 \TU/lmr/m/n/12 In the UCR and other FBI data sets, agencies are identified usin
 g
  []
 
-[42]
+
+Underfull \vbox (badness 4084) has occurred while \output is active []
+
+[43]
 File: images/offenses_known_raw_ascii_1960.png Graphic file (type bmp)
 <images/offenses_known_raw_ascii_1960.png>
-[43] [44]
+[44] [45]
 Underfull \vbox (badness 1603) has occurred while \output is active []
 
-[45] [46]
+[46] [47]
 Chapter 3.
-[47
+[48
 
 ]
-Overfull \hbox (60.56801pt too wide) in paragraph at lines 732--733
+Overfull \hbox (60.56801pt too wide) in paragraph at lines 704--705
 \TU/lmr/m/n/12 If you look back at the output when we ran \TU/lmtt/m/n/12 names
 (offenses_known_yearly_1960_2017)
  []
 
-[48]
-Underfull \hbox (badness 10000) in paragraph at lines 750--752
+[49]
+Underfull \hbox (badness 10000) in paragraph at lines 722--724
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 752--753
+Underfull \hbox (badness 10000) in paragraph at lines 724--725
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 732--734
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 734--735
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 742--744
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 744--746
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 746--748
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 748--749
+
+ []
+
+[50]
+Underfull \hbox (badness 10000) in paragraph at lines 756--758
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 758--760
 
  []
 
@@ -1128,16 +1153,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 772--774
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 774--776
+Underfull \hbox (badness 10000) in paragraph at lines 774--775
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 776--777
+Underfull \hbox (badness 10000) in paragraph at lines 777--779
 
  []
 
-[49]
+
 Underfull \hbox (badness 10000) in paragraph at lines 784--786
 
  []
@@ -1148,105 +1173,47 @@ Underfull \hbox (badness 10000) in paragraph at lines 786--788
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 788--790
+Underfull \hbox (badness 10000) in paragraph at lines 788--789
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 790--791
+Underfull \hbox (badness 10000) in paragraph at lines 791--793
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 798--800
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 800--802
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 802--803
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 805--807
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 812--814
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 814--816
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 816--817
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 819--821
-
- []
-
-[50] [51] [52]
-Underfull \hbox (badness 2990) in paragraph at lines 851--851
+[51] [52] [53]
+Underfull \hbox (badness 2990) in paragraph at lines 823--823
 []\TU/lmr/bx/n/17.28 Actual offenses, clearances, and un-
  []
 
-
-Overfull \hbox (28.22546pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/12 3.7.  ACTUAL OFFENSES, CLEARANCES, AND UNFOUNDED OFFENSES \TU/l
-mr/m/n/12 53
- []
-
-[53] [54]
+[54] [55]
 Chapter 4.
-[55
+[56
 
-] [56]
+] [57]
 Chapter 5.
-[57
+[58
 
-]
-Overfull \hbox (91.33757pt too wide) has occurred while \output is active
-\TU/lmr/m/n/12 58 \TU/lmr/m/sl/12 CHAPTER 5.  LAW ENFORCEMENT OFFICERS KILLED A
-ND ASSAULTED (LEOKA)
- []
-
-[58]
+] [59]
 Chapter 6.
-[59
+[60
 
-] [60]
+] [61]
 Chapter 7.
-[61
+[62
 
-] [62]
+] [63]
 Chapter 8.
-[63
+[64
 
-]
-Overfull \hbox (105.71628pt too wide) has occurred while \output is active
-\TU/lmr/m/n/12 64 \TU/lmr/m/sl/12 CHAPTER 8.  PROPERTY STOLEN AND RECOVERED (SU
-PPLEMENT TO RETURN A)
- []
-
-[64]
+] [65]
 Chapter 9.
-[65
+[66
 
 ]
 Chapter 10.
-[66
+[67
 
 ] (./ucrbook.bbl
 Underfull \hbox (badness 5133) in paragraph at lines 9--14
@@ -1330,7 +1297,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--43
 re-
  []
 
-[67
+[68
 
 
 ]
@@ -1353,20 +1320,20 @@ ute-
 
 Package natbib Warning: There were undefined citations.
 
-[68] (./ucrbook.aux)
+[69] (./ucrbook.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `ucrbook.out' has not changed.
-(rerunfilecheck)             Checksum: B33C19FCDE43F801588D4BC31CD99310;20285.
+(rerunfilecheck)             Checksum: 8A062C8B385E17994E5F8196ACB46113;20216.
  ) 
 Here is how much of TeX's memory you used:
- 16167 strings out of 478922
- 292383 string characters out of 5865140
- 785201 words of memory out of 5000000
- 35787 multiletter control sequences out of 15000+600000
+ 16170 strings out of 478922
+ 292579 string characters out of 5865140
+ 785301 words of memory out of 5000000
+ 35789 multiletter control sequences out of 15000+600000
  407970 words of font info for 74 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  98i,8n,122p,1877b,476s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on ucrbook.pdf (68 pages).
+Output written on ucrbook.pdf (69 pages).
