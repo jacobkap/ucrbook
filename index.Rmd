@@ -39,6 +39,8 @@ knitr::opts_chunk$set(
   warning = FALSE,
   error   = FALSE
 )
+
+devtools::install_github("jacobkap/crimeutils")
 ```
 
 
@@ -69,10 +71,8 @@ Since manuals are boring, I'll try to include graphs and images to try to allevi
 ## Citing this book
 
 If this book was useful in your research, please cite it. To cite this book, please use the below citation: 
-
-\begin{singlespace}
+    
 Kaplan J (2021). *Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide*. https://github.com/jacobkap/ucrbook. 
-\end{singlespace}
 
 BibTeX format:
 <pre>

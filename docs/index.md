@@ -1,7 +1,7 @@
 --- 
 title: "Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide"
 author: "Jacob Kaplan"
-date: "2021-03-29"
+date: "2021-03-30"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -18,6 +18,10 @@ classoption: openany
 
 
 
+```
+## Skipping install of 'crimeutils' from a github remote, the SHA1 (f7dfd724) has not changed since last install.
+##   Use `force = TRUE` to force installation
+```
 
 
 # Preface 
@@ -47,10 +51,8 @@ Since manuals are boring, I'll try to include graphs and images to try to allevi
 ## Citing this book
 
 If this book was useful in your research, please cite it. To cite this book, please use the below citation: 
-
-\begin{singlespace}
+    
 Kaplan J (2021). *Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide*. https://github.com/jacobkap/ucrbook. 
-\end{singlespace}
 
 BibTeX format:
 <pre>

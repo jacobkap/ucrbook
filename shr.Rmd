@@ -9,7 +9,103 @@ knitr::opts_chunk$set(
 )
 ```
 
+```{r}
+library(crimeutils)
+library(dplyr)
+library(readr)
+library(DT)
+library(scales)
+library(ggplot2)
+load("data/shr_1976_2018.rda")
+
+
+
+make_frequency_table <- function(data, column, col_names) {
+  temp <- unique(data[, column])
+  temp <- temp[!is.na(temp)]
+  temp_df <- data.frame(col1 = temp,
+                        number   = NA) 
+  
+  for (i in 1:nrow(temp_df)) {
+    loop_value <- temp_df$col1[i]
+    storage <- data[data[, column] %in% loop_value, ]
+    temp_df$number[i] <- nrow(storage)
+  }
+  temp_df <-
+    temp_df %>%
+    mutate(percent = number / sum(number)) %>%
+    arrange(desc(number)) %>%
+    mutate(col1 = crimeutils::capitalize_words(col1))
+  names(temp_df) <- col_names
+  return(temp_df)
+}
+
+
+```
+
+```{r shrOffenderAge, fig.cap = "The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Victims reported as '99 years or older' are considered 99 years old."}
+temp <- shr_1976_2018
+temp$offender_1_age[temp$offender_1_age %in% c("bb", "nb")] <- 0
+temp$offender_1_age[temp$offender_1_age %in% "99 years or older"] <- 99
+temp$offender_1_age[temp$offender_1_age %in% "unknown"] <- NA
+temp$offender_1_age <- readr::parse_number(temp$offender_1_age)
+mean(temp$offender_1_age, na.rm = TRUE) #30.96 years old
+crimeutils::make_stat_count_plots(temp, 
+                                  column = "offender_1_age",
+                                  ylab = "# of Offenders",
+                                  xlab = "Age",
+                                  count = FALSE) +
+  geom_vline(aes(xintercept = mean(temp$offender_1_age, na.rm = TRUE)), color = "#d95f02", size = 1.07)
+```
+
+
+```{r shrVictimAge, fig.cap = "The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Victims reported as '99 years or older' are considered 99 years old."}
+temp <- shr_1976_2018
+temp$victim_1_age[temp$victim_1_age %in% c("7 days to 364 days", "birth to 6 days, including abandoned infant")] <- 0
+temp$victim_1_age[temp$victim_1_age %in% "99 years or older"] <- 99
+temp$victim_1_age[temp$victim_1_age %in% "unknown"] <- NA
+temp$victim_1_age <- readr::parse_number(temp$victim_1_age)
+mean(temp$victim_1_age, na.rm = TRUE) #32.87 years old
+crimeutils::make_stat_count_plots(temp, column = "victim_1_age", ylab = "# of Victims", xlab = "Age") +
+  geom_vline(aes(xintercept = mean(temp$victim_1_age, na.rm = TRUE) ), color = "#d95f02", size = 1.07)
+```
+
 The Supplementary Homicide Reports dataset - often abbreviated to SHR -  is the most detailed of the UCR datasets and provides information about the circumstances and participants (victim and offender demographics and relationship status) for homicides.^[If you're familiar with the National Incident-Based Reporting System (NIBRS) data that is replacing UCR, this dataset is the closest UCR data to it, though it is still less detailed than NIBRS data.] For each homicide incident it tells you the age, gender, race, and ethnicity of each victim and offender as well as the relationship between the first victim and each of the offenders (but not the other victims in cases where there are multiple victims). It also tells you the weapon used by each offender and the circumstance of the killing, such as a "lovers triangle" or a gang-related murder. As with other UCR data, it also tells you the agency it occurred in and the month and year when the crime happened. 
+
+
+```{r shrWeapon, fig.cap = "The weapon used in a homicide incident. In cases where there are multiple offenders, shows only the primary weapon for the first offender."}
+temp <- make_frequency_table(shr_1976_2018, "offender_1_weapon",
+                             c("Weapon", "# of Incidents", "% of Incidents"))
+datatable(temp) %>%
+  formatPercentage('% of Incidents', 2) %>%
+  formatRound('# of Incidents', digits = 0)
+```
+
+```{r shrRelationship, fig.cap = "The relationship between the first victim and the first offender in a homicide incident."}
+temp <- make_frequency_table(shr_1976_2018, "victim_1_relation_to_offender_1",
+                             c("Relationship", "# of Incidents", "% of Incidents"))
+datatable(temp) %>%
+  formatPercentage('% of Incidents', 2) %>%
+  formatRound('# of Incidents', digits = 0)
+```
+
+```{r shrCircumstance, fig.cap = "The circumstance of the homicide for the first offender in a homicide incident."}
+temp <- make_frequency_table(shr_1976_2018, "offender_1_circumstance",
+                             c("Circumstance", "# of Incidents", "% of Incidents"))
+datatable(temp) %>%
+  formatPercentage('% of Incidents', 2) %>%
+  formatRound('# of Incidents', digits = 0)
+```
+
+```{r shrSubCircumstance, fig.cap = "The circumstance for the first offender in a homicide incident in cases where the offender is killed. This includes incidents where the only person who dies in the offender."}
+temp <- make_frequency_table(shr_1976_2018, "offender_1_subcircumstance",
+                             c("Subcircumstance", "# of Incidents", "% of Incidents"))
+datatable(temp) %>%
+  formatPercentage('% of Incidents', 2) %>%
+  formatRound('# of Incidents', digits = 0)
+```
+
+
 
 While highly detailed compared to other UCR data, there are a number of limitations for this data. 
 

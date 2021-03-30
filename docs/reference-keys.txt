@@ -10,6 +10,15 @@ fig:miamiDadeMurderAnnual
 fig:danvilleRape
 fig:hateCrimes
 fig:unnamed-chunk-3
+fig:shrOffenderAge
+fig:shrVictimAge
+fig:shrWeapon
+fig:shrRelationship
+fig:shrCircumstance
+fig:shrSubCircumstance
+fig:hateBiasMotivation
+fig:hateOffense
+fig:hateLocations
 preface
 motivation
 structure-of-the-book
