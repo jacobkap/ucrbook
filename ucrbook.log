@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.3.19)  1 APR 2021 12:16
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.3.19)  1 APR 2021 13:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1258,23 +1258,22 @@ PPLEMENT TO RETURN A)
 Chapter 9.
 File: ucrbook_files/figure-latex/arsonAgencies-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/arsonAgencies-1.pdf>
-
-Underfull \vbox (badness 1558) has occurred while \output is active []
-
 [77
 
 ] [78] [79]
 File: ucrbook_files/figure-latex/arsonClearance-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/arsonClearance-1.pdf>
-[80] [81]
-File: ucrbook_files/figure-latex/arsonCost-1.pdf Graphic file (type pdf)
-<use ucrbook_files/figure-latex/arsonCost-1.pdf>
-[82] [83]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[80] [81] [82] [83]
 File: ucrbook_files/figure-latex/residenceArson-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/residenceArson-1.pdf>
-[84] [85]
+File: ucrbook_files/figure-latex/arsonCost-1.pdf Graphic file (type pdf)
+<use ucrbook_files/figure-latex/arsonCost-1.pdf>
+[84] [85] [86]
 Chapter 10.
-[86
+[87
 
 ] (./ucrbook.bbl
 Underfull \hbox (badness 5133) in paragraph at lines 9--14
@@ -1358,7 +1357,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--43
 re-
  []
 
-[87
+[88
 
 
 ]
@@ -1377,7 +1376,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 56--61
 ute-
  []
 
-) [88] (./ucrbook.aux)
+) [89] (./ucrbook.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -1387,10 +1386,10 @@ Package rerunfilecheck Info: File `ucrbook.out' has not changed.
 Here is how much of TeX's memory you used:
  16283 strings out of 478922
  297126 string characters out of 5865140
- 788952 words of memory out of 5000000
+ 788951 words of memory out of 5000000
  35887 multiletter control sequences out of 15000+600000
  407970 words of font info for 74 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  98i,8n,122p,1877b,476s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on ucrbook.pdf (88 pages).
+Output written on ucrbook.pdf (89 pages).

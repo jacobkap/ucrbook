@@ -22,8 +22,8 @@ fig:hateOffense
 fig:hateLocations
 fig:arsonAgencies
 fig:arsonClearance
-fig:arsonCost
 fig:residenceArson
+fig:arsonCost
 preface
 motivation
 structure-of-the-book
