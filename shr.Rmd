@@ -10,37 +10,8 @@ knitr::opts_chunk$set(
 ```
 
 ```{r}
-library(crimeutils)
-library(dplyr)
-library(readr)
-library(DT)
-library(scales)
-library(ggplot2)
 load("data/shr_1976_2018.rda")
-
-
-
-make_frequency_table <- function(data, column, col_names) {
-  temp <- unique(data[, column])
-  temp <- temp[!is.na(temp)]
-  temp_df <- data.frame(col1 = temp,
-                        number   = NA) 
-  
-  for (i in 1:nrow(temp_df)) {
-    loop_value <- temp_df$col1[i]
-    storage <- data[data[, column] %in% loop_value, ]
-    temp_df$number[i] <- nrow(storage)
-  }
-  temp_df <-
-    temp_df %>%
-    mutate(percent = number / sum(number)) %>%
-    arrange(desc(number)) %>%
-    mutate(col1 = crimeutils::capitalize_words(col1))
-  names(temp_df) <- col_names
-  return(temp_df)
-}
-
-
+load("data/offenses_known_yearly_1960_2018.rda")
 ```
 
 ```{r shrOffenderAge, fig.cap = "The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Victims reported as '99 years or older' are considered 99 years old."}
@@ -76,7 +47,7 @@ The Supplementary Homicide Reports dataset - often abbreviated to SHR -  is the 
 ```{r shrWeapon, fig.cap = "The weapon used in a homicide incident. In cases where there are multiple offenders, shows only the primary weapon for the first offender."}
 temp <- make_frequency_table(shr_1976_2018, "offender_1_weapon",
                              c("Weapon", "# of Incidents", "% of Incidents"))
-datatable(temp) %>%
+datatable(temp, options = list(pageLength = 100)) %>%
   formatPercentage('% of Incidents', 2) %>%
   formatRound('# of Incidents', digits = 0)
 ```
@@ -84,7 +55,7 @@ datatable(temp) %>%
 ```{r shrRelationship, fig.cap = "The relationship between the first victim and the first offender in a homicide incident."}
 temp <- make_frequency_table(shr_1976_2018, "victim_1_relation_to_offender_1",
                              c("Relationship", "# of Incidents", "% of Incidents"))
-datatable(temp) %>%
+datatable(temp, options = list(pageLength = 100)) %>%
   formatPercentage('% of Incidents', 2) %>%
   formatRound('# of Incidents', digits = 0)
 ```
@@ -92,7 +63,7 @@ datatable(temp) %>%
 ```{r shrCircumstance, fig.cap = "The circumstance of the homicide for the first offender in a homicide incident."}
 temp <- make_frequency_table(shr_1976_2018, "offender_1_circumstance",
                              c("Circumstance", "# of Incidents", "% of Incidents"))
-datatable(temp) %>%
+datatable(temp, options = list(pageLength = 100)) %>%
   formatPercentage('% of Incidents', 2) %>%
   formatRound('# of Incidents', digits = 0)
 ```
@@ -100,7 +71,7 @@ datatable(temp) %>%
 ```{r shrSubCircumstance, fig.cap = "The circumstance for the first offender in a homicide incident in cases where the offender is killed. This includes incidents where the only person who dies in the offender."}
 temp <- make_frequency_table(shr_1976_2018, "offender_1_subcircumstance",
                              c("Subcircumstance", "# of Incidents", "% of Incidents"))
-datatable(temp) %>%
+datatable(temp, options = list(pageLength = 100)) %>%
   formatPercentage('% of Incidents', 2) %>%
   formatRound('# of Incidents', digits = 0)
 ```
@@ -110,6 +81,39 @@ datatable(temp) %>%
 While highly detailed compared to other UCR data, there are a number of limitations for this data. 
 
 Since this data is voluntary to 
+
+```{r shrVsOffenses, fig.cap = "The annual number of murders from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset. Numbers differ because agencies voluntarily report and may not report to both datasets. "}
+
+
+shr_murders <- shr_1976_2018 %>%
+  mutate(victim_count = additional_victim_count + 1) %>%
+  group_by(year) %>%
+  summarize(shr_murders = sum(victim_count))
+
+
+offenses_known_murders <- offenses_known_yearly_1960_2018 %>% 
+  filter(year >= 1976) %>%
+  group_by(year) %>%
+  summarize(offenses_known_murders = sum(actual_murder))
+
+
+shr_offenses_known_murders <-
+  shr_murders %>%
+  left_join(offenses_known_murders) 
+
+ggplot(shr_offenses_known_murders, aes(x = year)) +
+  geom_line(aes(y = shr_murders, color = "Supplementary Homicide Report"), size = 1.02) +
+  geom_line(aes(y = offenses_known_murders, color = "Offenses Known"), size = 1.02) +
+  xlab("Year") +
+  ylab("Murders") +
+  theme_crim() +
+  crimeutils::scale_color_crim() + 
+  scale_y_continuous(labels = scales::comma) +
+  labs(color = "Data Source")
+
+
+```
+
 
 This    
 If this "most detailed" dataset sounds disappointing - and it is! - 

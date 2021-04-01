@@ -11,33 +11,7 @@ knitr::opts_chunk$set(
 
 ```{r}
 load("data/ucr_hate_crimes_1991_2018.rda")
-library(DT)
-library(dplyr)
-library(ggplot2)
-library(crimeutils)
 
-make_frequency_table <- function(data, column, col_names) {
-  temp <- unique(data[, column])
-  temp <- temp[!is.na(temp)]
-  temp_df <- data.frame(col1 = temp,
-                        first_year = NA,
-                        number   = NA) 
-  
-  for (i in 1:nrow(temp_df)) {
-    loop_value <- temp_df$col1[i]
-    storage <- data[data[, column] %in% loop_value, ]
-    temp_df$number[i] <- nrow(storage)
-    temp_df$first_year[i] <- min(storage$year)
-  }
-  temp_df <-
-    temp_df %>%
-    mutate(percent = number / sum(number)) %>%
-    arrange(desc(number),
-            desc(first_year)) %>%
-    mutate(col1 = crimeutils::capitalize_words(col1))
-  names(temp_df) <- col_names
-  return(temp_df)
-}
 
 
 ```
@@ -69,26 +43,26 @@ ucr_hate_crimes_1991_2018 %>%
 
 ```{r hateBiasMotivation, fig.cap = "The bias motivation for hate crime incidents. In incidents with multiple bias motivation, this shows only the first bias motivation recorded."}
 ucr_hate_crimes_1991_2018$bias_motivation_offense_1[ucr_hate_crimes_1991_2018$bias_motivation_offense_1 %in% "99"] <- NA
-temp <- make_frequency_table(ucr_hate_crimes_1991_2018, "bias_motivation_offense_1",
+temp <- make_frequency_table_year(ucr_hate_crimes_1991_2018, "bias_motivation_offense_1",
                              c("Bias Motivation", "First Year Reported", "# of Incidents", "% of Incidents"))
 temp$`Bias Motivation` <- gsub("lgbt", "LGBT", ignore.case = TRUE, temp$`Bias Motivation`)
-datatable(temp) %>%
+datatable(temp, options = list(pageLength = 100)) %>%
   formatPercentage('% of Incidents', 2) %>%
   formatRound('# of Incidents', digits = 0)
 ```
 ```{r hateOffense, fig.cap = "The offense type for hate crime incidents. In incidents with multiple offense types, this shows only the first offense type recorded."}
 ucr_hate_crimes_1991_2018$ucr_offense_code_1[ucr_hate_crimes_1991_2018$ucr_offense_code_1 %in% "720"] <- NA
-temp <- make_frequency_table(ucr_hate_crimes_1991_2018, "ucr_offense_code_1",
+temp <- make_frequency_table_year(ucr_hate_crimes_1991_2018, "ucr_offense_code_1",
                              c("Offense", "First Year Reported", "# of Incidents", "% of Incidents"))
-datatable(temp) %>%
+datatable(temp, options = list(pageLength = 100)) %>%
   formatPercentage('% of Incidents', 2) %>%
   formatRound('# of Incidents', digits = 0)
 ```
 ```{r hateLocations, fig.cap = "The location of hate crime incidents. In incidents with multiple locations, this shows only the first location recorded."}
 ucr_hate_crimes_1991_2018$location_code_offense_1[ucr_hate_crimes_1991_2018$location_code_offense_1 %in% "undocumented code v13"] <- NA
-temp <- make_frequency_table(ucr_hate_crimes_1991_2018, "location_code_offense_1",
+temp <- make_frequency_table_year(ucr_hate_crimes_1991_2018, "location_code_offense_1",
                              c("Location", "First Year Reported", "# of Incidents", "% of Incidents"))
-datatable(temp) %>%
+datatable(temp, options = list(pageLength = 100)) %>%
   formatPercentage('% of Incidents', 2) %>%
   formatRound('# of Incidents', digits = 0)
 ```
