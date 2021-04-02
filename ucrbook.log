@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.3.19)  1 APR 2021 13:34
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.3.19)  2 APR 2021 11:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1202,7 +1202,7 @@ File: ucrbook_files/figure-latex/shrRelationship-1.png Graphic file (type bmp)
 File: ucrbook_files/figure-latex/shrCircumstance-1.png Graphic file (type bmp)
 <ucrbook_files/figure-latex/shrCircumstance-1.png>
 
-LaTeX Warning: Float too large for page by 39.13055pt on input line 969.
+LaTeX Warning: Float too large for page by 39.125pt on input line 969.
 
 File: ucrbook_files/figure-latex/shrSubCircumstance-1.png Graphic file (type bm
 p)
@@ -1218,62 +1218,65 @@ Chapter 7.
 ]
 File: ucrbook_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/unnamed-chunk-3-1.pdf>
+File: ucrbook_files/figure-latex/hateCrimesMap-1.pdf Graphic file (type pdf)
+<use ucrbook_files/figure-latex/hateCrimesMap-1.pdf>
+[70] [71] [72]
+File: ucrbook_files/figure-latex/statePercentReporting-1.pdf Graphic file (type
+ pdf)
+<use ucrbook_files/figure-latex/statePercentReporting-1.pdf>
+[73]
 File: ucrbook_files/figure-latex/hateBiasMotivation-1.png Graphic file (type bm
 p)
 <ucrbook_files/figure-latex/hateBiasMotivation-1.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 1068--1070
+[][]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[74] [75]
 File: ucrbook_files/figure-latex/hateOffense-1.png Graphic file (type bmp)
 <ucrbook_files/figure-latex/hateOffense-1.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[76] [77]
 File: ucrbook_files/figure-latex/hateLocations-1.png Graphic file (type bmp)
 <ucrbook_files/figure-latex/hateLocations-1.png>
-
-Underfull \hbox (badness 10000) in paragraph at lines 1034--1037
-[]
- []
-
-
-Overfull \hbox (192.42392pt too wide) in paragraph at lines 1034--1037
-[] [] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[70] [71]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[72]
-Overfull \vbox (582.95845pt too high) has occurred while \output is active []
-
-[73] [74]
+[78]
+File: ucrbook_files/figure-latex/hateCrimeOffenderNumber-1.pdf Graphic file (ty
+pe pdf)
+<use ucrbook_files/figure-latex/hateCrimeOffenderNumber-1.pdf>
+File: ucrbook_files/figure-latex/hateCrimeOffenderRace-1.pdf Graphic file (type
+ pdf)
+<use ucrbook_files/figure-latex/hateCrimeOffenderRace-1.pdf>
+[79] [80] [81]
 Chapter 8.
-[75
+[82
+
+] [83]
+Chapter 9.
+[84
 
 ]
-Overfull \hbox (105.71628pt too wide) has occurred while \output is active
-\TU/lmr/m/n/12 76 \TU/lmr/m/sl/12 CHAPTER 8.  PROPERTY STOLEN AND RECOVERED (SU
-PPLEMENT TO RETURN A)
- []
-
-[76]
-Chapter 9.
 File: ucrbook_files/figure-latex/arsonAgencies-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/arsonAgencies-1.pdf>
-[77
 
-] [78] [79]
+Underfull \vbox (badness 3260) has occurred while \output is active []
+
+[85] [86]
 File: ucrbook_files/figure-latex/arsonClearance-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/arsonClearance-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[80] [81] [82] [83]
+[87] [88] [89] [90]
 File: ucrbook_files/figure-latex/residenceArson-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/residenceArson-1.pdf>
 File: ucrbook_files/figure-latex/arsonCost-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/arsonCost-1.pdf>
-[84] [85] [86]
+[91] [92] [93]
 Chapter 10.
-[87
+[94
 
 ] (./ucrbook.bbl
 Underfull \hbox (badness 5133) in paragraph at lines 9--14
@@ -1357,7 +1360,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--43
 re-
  []
 
-[88
+[95
 
 
 ]
@@ -1376,20 +1379,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 56--61
 ute-
  []
 
-) [89] (./ucrbook.aux)
+) [96] (./ucrbook.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `ucrbook.out' has not changed.
-(rerunfilecheck)             Checksum: 9C466BEE07557347177667B08D9AE194;21918.
+(rerunfilecheck)             Checksum: 26D89FC1237CD7C59ADC236566BFF34D;21120.
  ) 
 Here is how much of TeX's memory you used:
- 16283 strings out of 478922
- 297126 string characters out of 5865140
- 788951 words of memory out of 5000000
- 35887 multiletter control sequences out of 15000+600000
+ 16305 strings out of 478922
+ 298348 string characters out of 5865140
+ 789097 words of memory out of 5000000
+ 35905 multiletter control sequences out of 15000+600000
  407970 words of font info for 74 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  98i,8n,122p,1877b,476s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on ucrbook.pdf (89 pages).
+Output written on ucrbook.pdf (96 pages).

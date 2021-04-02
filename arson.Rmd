@@ -20,6 +20,10 @@ For each type of arson it includes the number of arsons where the structure was 
 
 In cases where the arson led to a death, that death would be recorded as a murder on the Offenses Known and Clearances by Arrest dataset - but not indicated anywhere on this dataset. If an individual who responds to the arson dies because of it, such as a police officer or a firefighter, this is not considered a homicide (though the officer death is still included in the Law Enforcement Officers Killed and Assaulted data) unless the arsonists intended to cause their deaths. Even though the UCR uses the Hierarchy Rule, where only the most serious offense that occurs is recorded, all arsons are reported - arson is exempt from the Hierarchy Rule. 
 
+## Agencies reporting
+
+Figure \@ref(fig:arsonAgencies) shows the annual number of police agencies that reported at least one month that year. With data starting in 1979, there were a little over 12,000 agencies reporting a year until the early 2000s where it recovered from a sharp drop in agencies to steadily increase to about 16,000 a year. While arson data is available through 2019, this graph only shows data through 2018. 
+
 ```{r arsonAgencies, fig.cap = "The annual number of police agencies that report at least month of data that year."}
 ucr_arson_yearly_1979_2018 %>%
   dplyr::filter(number_of_months_reported > 0) %>%

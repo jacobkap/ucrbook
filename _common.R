@@ -3,7 +3,13 @@ library(dplyr)
 library(readr)
 library(DT)
 library(scales)
+library(tidyr)
 library(ggplot2)
+library(readr)
+library(mapproj)
+library(lubridate)
+devtools::install_github("wmurphyrd/fiftystater")
+library(fiftystater) 
 
 make_frequency_table_year <- function(data, column, col_names) {
   temp <- unique(data[, column])

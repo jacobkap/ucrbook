@@ -9,6 +9,9 @@ knitr::opts_chunk$set(
 )
 ```
 
+The Supplementary Homicide Reports dataset - often abbreviated to SHR -  is the most detailed of the UCR datasets and provides information about the circumstances and participants (victim and offender demographics and relationship status) for homicides.^[If you're familiar with the National Incident-Based Reporting System (NIBRS) data that is replacing UCR, this dataset is the closest UCR data to it, though it is still less detailed than NIBRS data.] For each homicide incident it tells you the age, gender, race, and ethnicity of each victim and offender as well as the relationship between the first victim and each of the offenders (but not the other victims in cases where there are multiple victims). It also tells you the weapon used by each offender and the circumstance of the killing, such as a "lovers triangle" or a gang-related murder. As with other UCR data, it also tells you the agency it occurred in and the month and year when the crime happened. 
+
+
 ```{r}
 load("data/shr_1976_2018.rda")
 load("data/offenses_known_yearly_1960_2018.rda")
@@ -41,7 +44,7 @@ crimeutils::make_stat_count_plots(temp, column = "victim_1_age", ylab = "# of Vi
   geom_vline(aes(xintercept = mean(temp$victim_1_age, na.rm = TRUE) ), color = "#d95f02", size = 1.07)
 ```
 
-The Supplementary Homicide Reports dataset - often abbreviated to SHR -  is the most detailed of the UCR datasets and provides information about the circumstances and participants (victim and offender demographics and relationship status) for homicides.^[If you're familiar with the National Incident-Based Reporting System (NIBRS) data that is replacing UCR, this dataset is the closest UCR data to it, though it is still less detailed than NIBRS data.] For each homicide incident it tells you the age, gender, race, and ethnicity of each victim and offender as well as the relationship between the first victim and each of the offenders (but not the other victims in cases where there are multiple victims). It also tells you the weapon used by each offender and the circumstance of the killing, such as a "lovers triangle" or a gang-related murder. As with other UCR data, it also tells you the agency it occurred in and the month and year when the crime happened. 
+
 
 
 ```{r shrWeapon, fig.cap = "The weapon used in a homicide incident. In cases where there are multiple offenders, shows only the primary weapon for the first offender."}
@@ -61,6 +64,7 @@ datatable(temp, options = list(pageLength = 100)) %>%
 ```
 
 ```{r shrCircumstance, fig.cap = "The circumstance of the homicide for the first offender in a homicide incident."}
+shr_1976_2018$offender_1_circumstance[shr_1976_2018$offender_1_circumstance %in% "30"] <- NA
 temp <- make_frequency_table(shr_1976_2018, "offender_1_circumstance",
                              c("Circumstance", "# of Incidents", "% of Incidents"))
 datatable(temp, options = list(pageLength = 100)) %>%
@@ -109,7 +113,7 @@ ggplot(shr_offenses_known_murders, aes(x = year)) +
   theme_crim() +
   crimeutils::scale_color_crim() + 
   scale_y_continuous(labels = scales::comma) +
-  labs(color = "Data Source")
+  labs(color = "")
 
 
 ```
