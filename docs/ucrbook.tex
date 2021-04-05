@@ -83,7 +83,7 @@
 
 \title{Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide}
 \author{Jacob Kaplan}
-\date{2021-04-02}
+\date{2021-04-04}
 
 \begin{document}
 \maketitle
@@ -93,11 +93,6 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
-\begin{verbatim}
-## Skipping install of 'crimeutils' from a github remote, the SHA1 (f7dfd724) has not changed since last install.
-##   Use `force = TRUE` to force installation
-\end{verbatim}
-
 \hypertarget{preface}{%
 \chapter{Preface}\label{preface}}
 
@@ -680,45 +675,12 @@ Every line of code you write (or, for SPSS users, click you make) invites the po
 
 The Offenses Known and Clearances by Arrest dataset - often called Return A, ``Offenses Known'' or, less commonly, OKCA - is the oldest and most commonly used dataset and measures crimes reported to the police. For this reason it is used as the main measure of crime in the United States and I tend to call it the ``crimes dataset.'' This data includes the monthly number of crimes reported to the police or otherwise known to the police (e.g.~discovered while on patrol) for a small selection of crimes, as well as the number of crimes cleared by arrest or by ``exceptional means'' (a relatively flawed and manipulable measure of whether the case is ``solved''). It also covers the number reported but found by police to have not occurred. Since this data has monthly agency-level crime information it is often used to measure crime trends between police agencies and over time. The data uses something called a Hierarchy Rule which means that in incidents with multiple crimes, only the most serious is recorded - though in practice this affects only a small percent of cases, and primarily affects property crimes.
 
-\hypertarget{a-brief-history-of-the-data}{%
-\section{A brief history of the data}\label{a-brief-history-of-the-data}}
-
-\hypertarget{changes-in-definitions}{%
-\subsection{Changes in definitions}\label{changes-in-definitions}}
-
-\hypertarget{what-does-the-data-look-like}{%
-\section{What does the data look like?}\label{what-does-the-data-look-like}}
-
-\hypertarget{what-variables-are-in-the-data}{%
-\section{What variables are in the data?}\label{what-variables-are-in-the-data}}
-
-\hypertarget{key-variables}{%
-\subsection{Key variables}\label{key-variables}}
-
-\hypertarget{known-issues-with-the-data}{%
-\subsection{Known issues with the data}\label{known-issues-with-the-data}}
-
-\hypertarget{final-thoughts}{%
-\section{Final thoughts}\label{final-thoughts}}
-
-\hypertarget{hierarchy-rule}{%
-\section{Hierarchy Rule}\label{hierarchy-rule}}
-
-This dataset uses what is called the Hierarchy Rule where only the most serious crime in an incident is reported (except for motor vehicle theft, which is always included). For example if there is an incident where the victim is robbed and then murdered, only the murder is counted as it is considered more serious than the robbery.
-
-How much does this affect our data in practice? Actually relatively little. Though the Hierarchy Rule does mean this data is an under-count, data from other sources indicate that it isn't much of an under count. The FBI's other data set, the National Incident-Based Reporting System (NIBRS) contains every crime that occurs in an incident (i.e.~it doesn't use the Hierarchy Rule). Using this we can measure how many crimes the Hierarchy Rule excludes (Most major cities do not report to NIBRS so what we find in NIBRS may not apply to them). In over 90\% of incidents, only one crime is committed. Additionally, when people talk about ``crime'' they usually mean murder which, while incomplete to discuss crime, means the UCR data here is accurate on that measure.
-
 \hypertarget{which-crimes-are-included}{%
 \section{Which crimes are included?}\label{which-crimes-are-included}}
 
-If you look back at the output when we ran \texttt{names(offenses\_known\_yearly\_1960\_2017)} you'll see that it produced five broad categories of columns. The first was information about the agency including population and geographic info, then came four columns with the same values except starting with ``actual'', ``tot\_clr'', ``clr\_18'', and ``unfound''. Following these starting values were 30 crime categories. We'll discuss what each of those starting values mean in a bit, let's first talk about which crimes are included and what that means for research.
+This data set contains information on the number of ``Index Crimes'' (sometimes called Part I crimes) reported to each agency. These index crimes are a collection of eight crimes that, for historical reasons based largely by perceived importance and reliable of their reporting in the 1920's when the UCR program was first developed, are used as the primary measure of crime today. Other data sets in the UCR, such as the Arrests by Age, Sex, and Race data and the Hate Crime data have more crimes reported.
 
-\hypertarget{index-crimes}{%
-\subsection{Index Crimes}\label{index-crimes}}
-
-The Offenses Known and Clearances by Arrest data set contains information on the number of ``Index Crimes'' (sometimes called Part I crimes) reported to each agency. These index crimes are a collection of eight crimes that, for historical reasons based largely by perceived importance in the 1920's when the UCR program was first developed, are used as the primary measure of crime today. Other data sets in the UCR, such as the Arrests by Age, Sex, and Race data and the Hate Crime data have more crimes reported.
-
-The crimes are, in order by the Hierarchy Rule -
+The crimes are, in order by the Hierarchy Rule (which we'll discuss next):
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -803,11 +765,24 @@ The crimes are, in order by the Hierarchy Rule -
   Simple Assault
 \end{enumerate}
 
-For a full definition of each of the index crimes see the FBI's Offense Definitions page \href{https://ucrdatatool.gov/offenses.cfm}{here}.
+Arson is considered an index crime but is not reported in this data - you need to use the separate Arson data set of the UCR to get access to arson counts. See Chapter \ref{arson} for an overview of the Arson data. The ninth crime on that list, simple assault, is not considered an index crime but is nevertheless included in this data.
 
-Arson is considered an index crime but is not reported in this data - you need to use the separate Arson data set of the UCR to get access to arson counts. The ninth crime on that list, simple assault, is not considered an index crime but is nevertheless included in this data.
+Each of the crimes in the list above, and their subcategories, are included in the UCR data. In most news and academic articles, however, you'll see them reported as the total number of index crimes, summing up categories 1-7 and reporting that as ``crime.'' These index crimes are often divided into violent index crimes - murder, rape, robbery, and aggravated assault - and property index crimes - burglary, theft, motor vehicle theft.
 
-Each of the crimes in the list above, and their subcategories, are included in the UCR data. In most reports, however, you'll see them reported as the total number of index crimes, summing up categories 1-7 and reporting that as ``crime.'' These index crimes are often divided into violent index crimes - murder, rape, robbery, and aggravated assault - and property index crimes - burglary, theft, motor vehicle theft.
+\hypertarget{hierarchy-rule}{%
+\subsection{Hierarchy Rule}\label{hierarchy-rule}}
+
+This dataset uses what is called the Hierarchy Rule where only the most serious crime in an incident is reported (except for motor vehicle theft and arson, which are always included). For example if there is an incident where the victim is robbed and then murdered, only the murder is counted as it is considered more serious than the robbery. That the data uses the Hierarchy Rule is an oft-cited (by academics, reporters, random people on Twitter) criticism of the data that are, in my opinion, overblown.
+
+In practice, the Hierarchy Rule has only modest effects on the data, undercounting few crimes. Though the Hierarchy Rule does mean this data is an under-count, data from other sources indicate that it isn't much of an under count. The FBI's other data set, the National Incident-Based Reporting System (NIBRS) contains every crime that occurs in an incident (i.e.~it doesn't use the Hierarchy Rule). Using this we can measure how many crimes the Hierarchy Rule excludes (Most major cities do not report to NIBRS so what we find in NIBRS may not apply to them). In over 90\% of incidents, only one crime is committed. Additionally, when people talk about ``crime'' they usually mean murder which, while incomplete to discuss crime, means the UCR data here is accurate on that measure.
+
+The FBI also released a report \href{https://ucr.fbi.gov/nibrs/2014/resource-pages/effects_of_nibrs_on_crime_statistics_final.pdf}{available here} in 2015 that directly examined this issue by taking NIBRS data from 2014 and examined how NIBRS data (which includes all crimes) compares to using the Hierarchy Rule and keeping only the most serious crime. Figure @ref\{fig:fbiHierarchy\} is a screenshot from their report showing the percent increases in crimes when including all crimes in an incident relative to following the Hierarchy Rule. They find that 10.6\% of incidents have multiple crimes occurring, which is similar to other years that I have examined myself. For violent crime, murder and rape have no change; for the remaining violent crimes - robbery and aggravated assault - crimes increased by 0.6\%.\footnote{Murder is not shown in this figure since murder is always reported so cannot change.} Burglary increased by 1\% and the largest increases came from theft and motor vehicle theft, increasing by 2.6\% and 2.7\%, respectively. Curiously motor vehicle theft increased even though the FBI's documentation for this data says that it is exempt from the Hierarchy Rule and should always be reported. This suggests either non-compliance or that the manual is incorrect.
+
+\begin{figure}
+\includegraphics[width=9.85in]{images/fbi_hierarchy} \caption{The FBI's findings of how crime reporting changes when using the Hierarchy Rule using NIBRS 2014 data.}\label{fig:fbiHierarchy}
+\end{figure}
+
+So using the Hierarchy Rule does undercount crime, but this is a small undercounting and is primarily led by property crime. Violent crime is only slightly undercounted. Please keep in mind that this is for crimes that the police record and is unaffected by outside decisions like what the district attorney charges or what the defendant is ultimately convicted of.
 
 \hypertarget{the-problem-with-using-index-crimes}{%
 \subsection{The problem with using index crimes}\label{the-problem-with-using-index-crimes}}
@@ -818,6 +793,57 @@ This is especially a problem because it hides trends in violent crimes. San Fran
 
 Many researchers divide index crimes into violent and nonviolent categories, which helps but is still not entirely sufficient. Take Chicago as an example. It is a city infamous for its large number of murders. But as a fraction of index crimes, Chicago has a rounding error worth of murders. Their 653 murders in 2017 is only 0.5\% of total index crimes. For violent index crimes, murder makes up 2.2\%. What this means is that changes in murder are very difficult to detect. If Chicago had no murders this year, but a less serious crime (such as theft) increased slightly, we couldn't tell from looking at the number of index crimes.
 
+\hypertarget{important-variables}{%
+\section{Important variables}\label{important-variables}}
+
+For each crime we have four different categories indicating the number of crimes actually committed, the number cleared, and the number determined to not have occurred.
+
+\hypertarget{actual-crimes}{%
+\subsection{Actual crimes}\label{actual-crimes}}
+
+This is the number of offenses that occurred, simply a count of the number of crimes that month. For example if 10 people are murdered in a city the number of ``actual murders'' would be 10.
+
+\hypertarget{total-cleared-crimers}{%
+\subsection{Total cleared crimers}\label{total-cleared-crimers}}
+
+A crime is cleared when an offender is arrested or when the case is considered cleared by exceptional means. When a single offender for a crime is arrested, that crime is considered cleared. If multiple people committed a crime, only a single person must be arrested for it to be cleared, and as the UCR data is at the offense level, making multiple arrests for an incident only counts as one incident cleared. So if 10 people committed a murder and all 10 were arrested, it would report one murder cleared not 10. If only one of these people are arrested it would still report one murder cleared - the UCR does not even say how many people commit a crime.
+
+A crime is considered exceptionally cleared if the police can identify the offender, have enough evidence to arrest the offender, know where the offender is, but is unable to arrest them. Some examples of this are the death of the offender or when the victim refuses to cooperate in the case.
+
+Unfortunately, this data does not differentiate between clearances by arrest or by exceptional means. For a comprehensive report on how this variable can be exploited to exaggerate clearance rates, see \href{https://www.propublica.org/article/when-it-comes-to-rape-just-because-a-case-is-cleared-does-not-mean-solved}{this report by ProPublica} on exceptional clearances with rape cases.
+
+\hypertarget{crimes-cleared-where-all-offenders-are-under-18-years-old}{%
+\subsection{Crimes cleared Where all offenders are under 18 years old}\label{crimes-cleared-where-all-offenders-are-under-18-years-old}}
+
+This variable is very similar to Total Cleared except is only for offenses in which \textbf{every} offender is younger than age 18.
+
+\hypertarget{unfounded-crimes}{%
+\subsection{Unfounded crimes}\label{unfounded-crimes}}
+
+An unfounded crime is one in which a police investigation has determined that the reported crime did not actually happen. For example I observed during a ride-along a report of a burglary where the homeowners said that they came home and the front door was open and they thought it might have been their son who forgot to close it but could also be a burglar so they called the police just in case. This would be recorded as a burglary and if it turned out to be the son, the police would then record this as an unfounded burglary.
+
+Other unfounded crimes would include when someone reports a crime but later says that the report wasn't true. For example, a person could report a burglary to the police to collect insurance money on the items they claim was stolen. If the police discover this they would unfound the case - and the lying to the police and fraud would not be counted as neither of those are crimes included in this dataset.
+
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/phillyRapeUnfound-1.pdf}
+\caption{\label{fig:phillyRapeUnfound}The annual number of actual and unfounded rapes in Philadephia, PA, 1960-2018.}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/phillyRapeUnfoundPercent-1.pdf}
+\caption{\label{fig:phillyRapeUnfoundPercent}The percent of reported rapes that the police recorded as unfounded in Philadephia, PA, 1960-2018.}
+\end{figure}
+
+\hypertarget{number-of-months-reported}{%
+\section{Number of months reported}\label{number-of-months-reported}}
+
+UCR data is reported monthly though even agencies that decide to report their data may not do so every month. As we don't want to compare an agency which reports 12 months to one that reports fewer, the variable \emph{number\_of\_months\_reported} is way keep only agencies that report 12 months, or deal with those that report fewer.
+
+\hypertarget{important-issues}{%
+\section{Important issues}\label{important-issues}}
+
 \hypertarget{rape-definition-change}{%
 \subsection{Rape definition change}\label{rape-definition-change}}
 
@@ -827,48 +853,104 @@ The new (and current) definition ``penetration, no matter how slight, of the vag
 
 Both the current and legacy definitions exclude statutory rape and incest other than forcible incest. They both also include lack of consent as cases where the victim cannot give consent, such as if they are too young or are mentally or physically incapacitated - they specifically give the example of being temporarily incapacitated through drugs or alcohol.
 
-As this revised definition is broader than the original one post-2013, rape data is not comparable to pre-2013 data. 2013, however, is simply the year that the FBI changed the definition which means that agencies should have changed their reporting to the new definition. As might not be too surprising, not all agencies followed this requirement. We'll look at three examples to show when there is clear evidence that the agency did change their definition in 2013, when it's clear they did so a year later, and when it's unclear exactly when they made the change.
+As this revised definition is broader than the original one post-2013, rape data is not comparable to pre-2013 data. 2013, however, is simply the year that the FBI changed the definition which means that agencies should have changed their reporting to the new definition. As might not be too surprising, not all agencies followed this requirement. We'll look at four examples to show when there is clear evidence that the agency did change their definition in 2013, when it's clear they did so a year later, when it's unclear exactly when they made the change, and when the agency seems to not follow the change at all.
 
-\hypertarget{actual-offenses-clearances-and-unfounded-offenses}{%
-\section{Actual offenses, clearances, and unfounded offenses}\label{actual-offenses-clearances-and-unfounded-offenses}}
+We'll start with the Philadelphia Police Department in Philadelphia, PA, shown in Figure \ref{fig:rapePhilly} which shows the annual number of rapes from 2000-2018. It's declining slowly but steadily over the 2000-2012 time period until spiking sharply in 2013. Since the rape definition change in 2013 is far broader than previous year's definition, this makes sense. A broader definition should lead to a sudden increase in reported rapes if the agency is reporting correctly.
 
-For each crime we have four different categories indicating the number of crimes actually committed, the number cleared, and the number determined to not have occurred.
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/rapePhilly-1.pdf}
+\caption{\label{fig:rapePhilly}The annual number of rapes reported in Philadelphia, Pennsylvania, 2000-2018.}
+\end{figure}
 
-\hypertarget{actual}{%
-\subsection{Actual}\label{actual}}
+In comparison, New York City has the sudden spike a year later, which indicates that they didn't start using the new definition until 2014. Figure \ref{fig:rapeNYC} shows that rape is fairly steady, though increasing, in the years leading up to 2013 and has almost no change from 2012 to 2013, but a huge increase in 2014 and then steadily increases from there, spiking again in 2018. This seems like a fairly clear indicator that NYC simply didn't follow the new definition until 2014.
 
-This is the number of offenses that occurred, simply a count of the number of crimes that month. For example if 10 people are murdered in a city the number of ``actual murders'' would be 10.
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/rapeNYC-1.pdf}
+\caption{\label{fig:rapeNYC}The annual number of rapes reported in New York City, 2000-2018.}
+\end{figure}
 
-\hypertarget{total-cleared}{%
-\subsection{Total Cleared}\label{total-cleared}}
+Less clear is what's happening in San Francisco, California, shown in Figure \ref{fig:rapeLA}.
+Here we do see an increase in 2013 which while it appears small on the graph is actually a 49\% increase from 2012. Then there is a much larger spike in 2014 - a 120\% increase - which may suggest that part of the agency started following the new definition in 2013 and the remainder followed in 2014. However, large increases or decreases are relatively common in San Francisco so it could also be that the agency only switched to the new definition in 2014 and the spike in 2013 is just a coincidence
 
-A crime is cleared when an offender is arrested or when the case is considered cleared by exceptional means. When a single offender for a crime is arrested, that crime is considered cleared. If multiple people committed a crime, only a single person must be arrested for it to be cleared, and as the UCR data is at the offense level, making multiple arrests for an incident only counts as one incident cleared. So if 10 people committed a murder and all 10 were arrested, it would report one murder cleared not 10. If only one of these people are arrested it would still report one murder cleared - the UCR does not even say how many people commit a crime.
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/rapeLA-1.pdf}
+\caption{\label{fig:rapeLA}The annual number of rapes reported in San Francisco, California, 2000-2018.}
+\end{figure}
 
-A crime is considered exceptionally cleared if the police can identify the offender, have enough evidence to arrest the offender, know where the offender is, but is unable to arrest them. Some examples of this are the death of the offender or when the victim refuses to cooperate in the case.
+Finally, we'll look at Jackson Police Department in Mississippi where the definition change seems to have had no effect. As seen in Figure \ref{fig:rapeJackson}, reported rapes start to undulate in 2010 with 2013 data perfectly in line with the before and after trends - no sign that there is a change in reporting. This suggests that Jackson simply did not follow the definition change and continues to report using the old definition.
 
-Unfortunately, this data does not differentiate between clearances by arrest or by exceptional means. For a comprehensive report on how this variable can be exploited to exaggerate clearance rates, see \href{https://www.propublica.org/article/when-it-comes-to-rape-just-because-a-case-is-cleared-does-not-mean-solved}{this report by ProPublica} on exceptional clearances with rape cases.
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/rapeJackson-1.pdf}
+\caption{\label{fig:rapeJackson}The annual number of rapes reported in Jackson, Mississippi, 2000-2018.}
+\end{figure}
 
-\hypertarget{cleared-where-all-offenders-are-under-18}{%
-\subsection{Cleared Where All Offenders Are Under 18}\label{cleared-where-all-offenders-are-under-18}}
+My takeaway from this is that rape should not be used at all for years after 2012. While the definition change makes pre-2013 and 2013+ years non-comparable, the differences in agency responses to this change - i.e.~if they follow the rules or not - is such a mess that the data is too flawed to use.
 
-This variable is very similar to Total Cleared except is only for offenses in which \textbf{every} offender is younger than age 18.
+\hypertarget{the-decline-of-manslaughter}{%
+\subsection{The decline of manslaughter}\label{the-decline-of-manslaughter}}
 
-\hypertarget{unfounded}{%
-\subsection{Unfounded}\label{unfounded}}
+This data contains two different crime subcategories for homicide: murder and non-negligent manslaughter, and manslaughter by negligence. The first is our measure of murder, and it includes everything we traditionally think of when it comes to murder - shootings, stabbings, strangulation, basically any intentional killing of another person.\footnote{Attempted murder is usually classified as an aggravated assault.} Suicides, killing a fetus, and accidental killings (e.g.~car crashes) are not considered murders.\footnote{Even the intentional killing of a fetus is classified as an aggravated assault against the mother, not a murder of the fetus.} The second, manslaughter by negligence - usually called just ``manslaughter'' - is when someone kills another person through ``gross negligence'' but does not kill them intentionally. This can include accidental killings when the death was caused by gross negligence. The FBI provide examples of this as kids playing with guns and shooting each other (and not knowing the gun was loaded) or a hunter accidentally shooting someone while hunting.
 
-An unfounded crime is one in which a police investigation has determined that the reported crime did not actually happen. For example if the police are called to a possible burglary but later find out that a burglary did not occur, they would put it down as 1 unfounded burglary. This is based on police investigation rather than the decision of any other party such as a coroner, judge, jury, or prosecutor.
+I would assume that manslaughter by negligence would remain at a relatively steady rate - though increasing in raw numbers as population increases - as it is due to largely unintentional behavior that would be unaffected by crime-reduction policies.\footnote{Though policies that encourage people to lock up their guns would likely reduce manslaughter by negligence.} I was wrong though. One of the most curiously findings from my exploration of this data is the sudden and national decline in manslaughter by negligence in the 1970s - and the extremely high number of manslaughter before that. Figure \ref{fig:manslaughterVsMurder} shows the annual number of murders, manslaughter, and the sum of the two nationwide from 1960-2018. This just sums up the total reported counts from every agency each year so part of the increase is simply due to more agencies reporting as the year gets closer to the present day - so please pay attention to the diverging paths of each crime, not the trend for the individual crime over time.
 
-\hypertarget{number-of-months-reported}{%
-\section{Number of months reported}\label{number-of-months-reported}}
+Murder is always more common than manslaughter
 
-UCR data is reported monthly though even agencies that decide to report their data may not do so every month. As we don't want to compare an agency which reports 12 months to one that reports fewer, the variable \emph{number\_of\_months\_reported} is way keep only agencies that report 12 months, or deal with those that report fewer.
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/manslaughterVsMurder-1.pdf}
+\caption{\label{fig:manslaughterVsMurder}The annual number of murder and non-negligent manslaughter, manslaughter by negligence, and the sum of the two, nationwide from 1960-2018.}
+\end{figure}
 
-From our \texttt{table()} output it seems that when agencies do report, they tend to do so for all 12 months of the year. However, this variable is seriously flawed, and its name is quite misleading. In reality this variable is actually just whichever the last month reported was. If an agency reported every month of the year, meaning December is the last month, they would have a value of 12. If the agency \textbf{only} reported in December, they would also have a value of 12. While there are ways in the monthly data to measure actual number of months reported, these ways are also flawed. So be cautious about this data and particularly the value of this variable.
+Figure \ref{fig:manslaughterPercent} shows another way to look at this data: manslaughter as a percent of reported murder. In the early years of our data manslaughter was fairly common, with about 70-80\% as many manslaughters reported as murders. This declined sharply in the mid-1960s until there were around 45\% as many manslaughters as murders in the mid-1970s. Again this declined until it was about 4\% in 1980, and it has remained around there ever since.
+
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/manslaughterPercent-1.pdf}
+\caption{\label{fig:manslaughterPercent}Reported manslaughter by negligence as a percent of reported murder and non-negligent manslaughter, nationwide 1960-2018.}
+\end{figure}
 
 \hypertarget{arrests}{%
 \chapter{Arrests by Age, Sex, and Race}\label{arrests}}
 
 The Arrests by Age, Sex, and Race dataset - often called ASR or the ``arrests data'' - includes the monthly number of arrests for a variety of crimes and, unlike the crime data, breaks down this data by age and gender. This data includes a broader number of crime categories than the crime dataset (the Offenses Known and Clearances by Arrest data) though is less detailed on violent crimes since it does not breakdown aggravated assault or robberies by weapon type as the Offenses Known data does. For each crime it says the number of arrests for each gender-age group with younger ages (15-24) showing the arrestee's age to the year (e.g.~age 16) and other ages grouping years together (e.g.~age 25-29, 30-34, ``under 10''). It also breaks down arrests by race-age by including the number of arrestees of each race (American Indian, Asian, Black, and White) are the only included races) and if the arrestee is a juvenile (\textless18 years old) or an adult. The data does technically include a breakdown by ethnicity-age (e.g.~juvenile-Hispanic, juvenile-non-Hispanic) but almost no agencies report this data (for many years zero agencies report ethnicity) so in practice the data does not include ethnicity. As the data includes counts of arrestees, people who are arrested multiple times are included in the data multiple times - it is not a measure of unique arrestees.
+
+\hypertarget{a-brief-history-of-the-data}{%
+\section{A brief history of the data}\label{a-brief-history-of-the-data}}
+
+\hypertarget{changes-in-definitions}{%
+\subsection{Changes in definitions}\label{changes-in-definitions}}
+
+\hypertarget{what-does-the-data-look-like}{%
+\section{What does the data look like?}\label{what-does-the-data-look-like}}
+
+\hypertarget{raw-data}{%
+\subsection{Raw data}\label{raw-data}}
+
+\hypertarget{what-variables-are-in-the-data}{%
+\section{What variables are in the data?}\label{what-variables-are-in-the-data}}
+
+\hypertarget{key-variables}{%
+\subsection{Key variables}\label{key-variables}}
+
+\hypertarget{known-issues-with-the-data}{%
+\section{Known issues with the data}\label{known-issues-with-the-data}}
+
+\hypertarget{final-thoughts}{%
+\section{Final thoughts}\label{final-thoughts}}
+
+\hypertarget{leoka}{%
+\chapter{Law Enforcement Officers Killed and Assaulted (LEOKA)}\label{leoka}}
+
+The Law Enforcement Officers Killed and Assaulted data, often called just by its acronym LEOKA, has two main purposes.\footnote{This data is also sometimes called the ``Police Employees'' dataset.} First, it provides counts of employees employed by each agency - broken down by if they are civilian employees or sworn officers, and also broken down by gender. And second, it measures how many officers were assaulted or killed (including officers who die accidentally such as in a car crash) in a given month. The assault data is also broken down into shift type and type (e.g.~alone, with a partner, on foot, in a car, etc.), the offender's weapon, and type of call they are responding to (e.g.~robbery, disturbance, traffic stop). The killed data simply says how many officers are killed feloniously (i.e.~murdered) or died accidentally (e.g.~car crash) in a given month. The employee information is at the year-level so you know, for example, how many male police officers were employed in a given year at an agency, but don't know any more than that such as how many officers were on patrol, were detectives, were in special units, etc. This dataset is commonly used as a measure of police employees and is a generally reliable - though imperfect as we'll see - measure of how many police are employed by a police agency. The second part of this data, measuring assaults and deaths, is more flawed with missing data issues and data error issues (e.g.~more officers killed than employed in an agency).
+
+\hypertarget{common-uses-of-this-data}{%
+\section{Common uses of this data}\label{common-uses-of-this-data}}
+
+This data, as well as the privately-run site \href{https://www.odmp.org/}{Officer Down Memorial Page} which covers law enforcement officers who have died, has also been used lately in the context of police using force against people out of fear of being harmed by that person. The discussion revolves around whether police are actually in high danger of being harmed by comparing the rate at which officers die to that of other professions. In general they find that police officers are among the most likely profession to die but are not at the top of this measure.
 
 \hypertarget{a-brief-history-of-the-data-1}{%
 \section{A brief history of the data}\label{a-brief-history-of-the-data-1}}
@@ -878,9 +960,6 @@ The Arrests by Age, Sex, and Race dataset - often called ASR or the ``arrests da
 
 \hypertarget{what-does-the-data-look-like-1}{%
 \section{What does the data look like?}\label{what-does-the-data-look-like-1}}
-
-\hypertarget{raw-data}{%
-\subsection{Raw data}\label{raw-data}}
 
 \hypertarget{what-variables-are-in-the-data-1}{%
 \section{What variables are in the data?}\label{what-variables-are-in-the-data-1}}
@@ -893,37 +972,6 @@ The Arrests by Age, Sex, and Race dataset - often called ASR or the ``arrests da
 
 \hypertarget{final-thoughts-1}{%
 \section{Final thoughts}\label{final-thoughts-1}}
-
-\hypertarget{leoka}{%
-\chapter{Law Enforcement Officers Killed and Assaulted (LEOKA)}\label{leoka}}
-
-The Law Enforcement Officers Killed and Assaulted data, often called just by its acronym LEOKA, has two main purposes.\footnote{This data is also sometimes called the ``Police Employees'' dataset.} First, it provides counts of employees employed by each agency - broken down by if they are civilian employees or sworn officers, and also broken down by gender. And second, it measures how many officers were assaulted or killed (including officers who die accidentally such as in a car crash) in a given month. The assault data is also broken down into shift type and type (e.g.~alone, with a partner, on foot, in a car, etc.), the offender's weapon, and type of call they are responding to (e.g.~robbery, disturbance, traffic stop). The killed data simply says how many officers are killed feloniously (i.e.~murdered) or died accidentally (e.g.~car crash) in a given month. The employee information is at the year-level so you know, for example, how many male police officers were employed in a given year at an agency, but don't know any more than that such as how many officers were on patrol, were detectives, were in special units, etc. This dataset is commonly used as a measure of police employees and is a generally reliable - though imperfect as we'll see - measure of how many police are employed by a police agency. The second part of this data, measuring assaults and deaths, is more flawed with missing data issues and data error issues (e.g.~more officers killed than employed in an agency).
-
-\hypertarget{common-uses-of-this-data}{%
-\section{Common uses of this data}\label{common-uses-of-this-data}}
-
-This data, as well as the privately-run site \href{https://www.odmp.org/}{Officer Down Memorial Page} which covers law enforcement officers who have died, has also been used lately in the context of police using force against people out of fear of being harmed by that person. The discussion revolves around whether police are actually in high danger of being harmed by comparing the rate at which officers die to that of other professions. In general they find that police officers are among the most likely profession to die but are not at the top of this measure.
-
-\hypertarget{a-brief-history-of-the-data-2}{%
-\section{A brief history of the data}\label{a-brief-history-of-the-data-2}}
-
-\hypertarget{changes-in-definitions-2}{%
-\subsection{Changes in definitions}\label{changes-in-definitions-2}}
-
-\hypertarget{what-does-the-data-look-like-2}{%
-\section{What does the data look like?}\label{what-does-the-data-look-like-2}}
-
-\hypertarget{what-variables-are-in-the-data-2}{%
-\section{What variables are in the data?}\label{what-variables-are-in-the-data-2}}
-
-\hypertarget{key-variables-2}{%
-\subsection{Key variables}\label{key-variables-2}}
-
-\hypertarget{known-issues-with-the-data-2}{%
-\section{Known issues with the data}\label{known-issues-with-the-data-2}}
-
-\hypertarget{final-thoughts-2}{%
-\section{Final thoughts}\label{final-thoughts-2}}
 
 \hypertarget{shr}{%
 \chapter{Supplementary Homicide Reports (SHR)}\label{shr}}
@@ -987,31 +1035,31 @@ Since this data is voluntary to
 This\\
 If this ``most detailed'' dataset sounds disappointing - and it is! -
 
-\hypertarget{a-brief-history-of-the-data-3}{%
-\section{A brief history of the data}\label{a-brief-history-of-the-data-3}}
+\hypertarget{a-brief-history-of-the-data-2}{%
+\section{A brief history of the data}\label{a-brief-history-of-the-data-2}}
 
 The data is available from the FBI starting in 1975 though, unlike all later years, this year only has information on a single victim and a single offender. For this reason I only release data starting in 1976 where up to 11 victims and 11 offenders are included. This data has been released every year since and the most recent year available is 2019.
 
-\hypertarget{changes-in-definitions-3}{%
-\subsection{Changes in definitions}\label{changes-in-definitions-3}}
+\hypertarget{changes-in-definitions-2}{%
+\subsection{Changes in definitions}\label{changes-in-definitions-2}}
 
-\hypertarget{what-does-the-data-look-like-3}{%
-\section{What does the data look like?}\label{what-does-the-data-look-like-3}}
+\hypertarget{what-does-the-data-look-like-2}{%
+\section{What does the data look like?}\label{what-does-the-data-look-like-2}}
 
 \hypertarget{raw-data-1}{%
 \subsection{Raw data}\label{raw-data-1}}
 
-\hypertarget{what-variables-are-in-the-data-3}{%
-\section{What variables are in the data?}\label{what-variables-are-in-the-data-3}}
+\hypertarget{what-variables-are-in-the-data-2}{%
+\section{What variables are in the data?}\label{what-variables-are-in-the-data-2}}
 
-\hypertarget{key-variables-3}{%
-\subsection{Key variables}\label{key-variables-3}}
+\hypertarget{key-variables-2}{%
+\subsection{Key variables}\label{key-variables-2}}
 
-\hypertarget{known-issues-with-the-data-3}{%
-\section{Known issues with the data}\label{known-issues-with-the-data-3}}
+\hypertarget{known-issues-with-the-data-2}{%
+\section{Known issues with the data}\label{known-issues-with-the-data-2}}
 
-\hypertarget{final-thoughts-3}{%
-\section{Final thoughts}\label{final-thoughts-3}}
+\hypertarget{final-thoughts-2}{%
+\section{Final thoughts}\label{final-thoughts-2}}
 
 \hypertarget{hate_crimes}{%
 \chapter{Hate Crime Data}\label{hate_crimes}}
@@ -1033,8 +1081,8 @@ My main takeaway for this data is that it is inappropriate to use for most hate 
 
 \begin{figure}
 \centering
-\includegraphics{ucrbook_files/figure-latex/unnamed-chunk-3-1.pdf}
-\caption{\label{fig:unnamed-chunk-3}The annual number of police agencies that report at least one hate crime incident in that year.}
+\includegraphics{ucrbook_files/figure-latex/hateAgencies-1.pdf}
+\caption{\label{fig:hateAgencies}The annual number of police agencies that report at least one hate crime incident in that year.}
 \end{figure}
 
 Another way to understand reporting is to look at the number of reported hate crimes by state and see which states report and which don't. Figure \ref{fig:hateCrimesMap} does this for 2018 data by showing the number of reported hate crime incidents by state. While every state other than Wyoming reporting at least one hate crime in 2018, there are large differences between states because even in states that have reporting agencies, not all agencies in that state report. For example, Alabama reported only two hate crimes in 2018, the least of any state other than Wyoming.
@@ -1053,8 +1101,8 @@ Since the number of state-wide hate crimes is partially influenced by population
 \caption{\label{fig:statePercentReporting}The percent of agencies in each state that reported at least one hate crime in 2018.}
 \end{figure}
 
-\hypertarget{important-variables}{%
-\section{Important variables}\label{important-variables}}
+\hypertarget{important-variables-1}{%
+\section{Important variables}\label{important-variables-1}}
 
 Each hate crime incident can cover up to 10 different crimes occurring - e.g.~a person who burglarizes a synagogue and spray paints a swastika on the wall would be have both vandalism and burglary reported in this data. With each crime, this data has the bias motivation for that crime, the location of the crime (in broad categories, not the actual location in the city like a street address would have), and the number of victims for that offense. In practice, in hate crimes with multiple offenses recorded, the bias motivation, location, and victim count is the same for each offense.
 
@@ -1062,6 +1110,10 @@ Each hate crime incident can cover up to 10 different crimes occurring - e.g.~a 
 \subsection{Bias motivation}\label{bias-motivation}}
 
 The most important variable in this data is the ``bias motivation'' which is the FBI's term for the cause of the hate. A hate crime targeted against Black people would be an ``anti-Black'' bias motivation. For the police to classify an incident as a hate crime, and to assign a particular bias motivation, the police must have \emph{some} evidence that the crime was motivated by hate. The victim saying that the crime is a hate crime alone is not sufficient - though if large portions of the victim's community believe that the crime is a hate crime, this is a factor in the police's assessment. The evidence required is not major, it includes things as explicit as racial slurs said during an incident and less obvious factors like the victim is celebrating their community (e.g.~attending a holiday event) or the crime occurring on an important holiday for that community (e.g.~Martin Luther King Day, religious holidays). The FBI also encourages police to consider the totality of the evidence even if none alone strongly suggests that the crime was a hate crime in making their determination about whether the incident was a hate crime or not.
+
+This also means that many (likely most) hate crimes will not be recorded as hate crimes since there is no evidence that the crime is motivated by hate. For example, if a man targeted Asian people for crimes because they are Asian, that would in reality be a hate crime. However, if the offender does not say anything anti-Asian to the victim, which is the mostly likely thing to indicate that this is a hate crime, the crime would not likely be recorded as a hate crime.
+
+Indeed, even if crimes against Asian people significantly increase, without evidence
 
 Bias motivation is based on the offender's perceptions of the victim so even if they are incorrect in who their victim is, if they intended to target someone for their perceived group membership, that is still a hate crime. For example, if a person assaults a man because they think he is gay, that is a hate crime because the assault was motivated by hate towards gay people. Whether the victim is actually gay or not is not relevant - the offender perceived him to be gay so it is an anti-gay hate crime. To make this even more complicated, the offender must have committed the crime because they are motivated, at least to some degree, by their bias against the victim. Being biased against the victim but targeting them for some other reason means that the crime is not a hate crime.
 
@@ -1097,29 +1149,29 @@ The data also includes the race of the offenders as a group, though not the ethn
 
 The Property Stolen and Recovered data - sometimes called the Supplement to Return A (Return A being another name for the Offenses Known and Clearances by Arrest dataset, the ``crime'' dataset) - provides monthly information about property-related offenses (theft, motor vehicle theft, robbery, and burglary), including the location of the offense (in broad categories like ``gas station'' or ``residence), what was stolen (e.g.~clothing, livestock, firearms), and how much the stolen items were worth.\footnote{It also includes the value of items stolen during rapes and murders, if anything was stolen.} The''recovered" part of this dataset covers the type and value of property recovered so you can use this, along with the type and value of property stolen, to determine what percent and type of items the police managed to recover. Like other UCR datasets this is at the agency-month level so you can, for example, learn how often burglaries occur at the victim's home during the day, and if that rate changes over the year or differs across agencies. The data, however, provides no information about the offender or the victim (other than if the victim was an individual or a commercial business {[}based on the location of the incident - ``bank'', ``gas station'', etc{]}). The value of the property stolen is primarily based on the victim's estimate of how much the item is worth (items that are decreased in value once used - such as cars - are supposed to be valued at the current market rate, but the data provides no indication of when it uses the current market rate or the victim's estimate) so it should be used as a very rough estimate of value.
 
-\hypertarget{a-brief-history-of-the-data-4}{%
-\section{A brief history of the data}\label{a-brief-history-of-the-data-4}}
+\hypertarget{a-brief-history-of-the-data-3}{%
+\section{A brief history of the data}\label{a-brief-history-of-the-data-3}}
 
-\hypertarget{changes-in-definitions-4}{%
-\subsection{Changes in definitions}\label{changes-in-definitions-4}}
+\hypertarget{changes-in-definitions-3}{%
+\subsection{Changes in definitions}\label{changes-in-definitions-3}}
 
-\hypertarget{what-does-the-data-look-like-4}{%
-\section{What does the data look like?}\label{what-does-the-data-look-like-4}}
+\hypertarget{what-does-the-data-look-like-3}{%
+\section{What does the data look like?}\label{what-does-the-data-look-like-3}}
 
 \hypertarget{raw-data-2}{%
 \subsection{Raw data}\label{raw-data-2}}
 
-\hypertarget{what-variables-are-in-the-data-4}{%
-\section{What variables are in the data?}\label{what-variables-are-in-the-data-4}}
+\hypertarget{what-variables-are-in-the-data-3}{%
+\section{What variables are in the data?}\label{what-variables-are-in-the-data-3}}
 
-\hypertarget{key-variables-4}{%
-\subsection{Key variables}\label{key-variables-4}}
+\hypertarget{key-variables-3}{%
+\subsection{Key variables}\label{key-variables-3}}
 
-\hypertarget{known-issues-with-the-data-4}{%
-\section{Known issues with the data}\label{known-issues-with-the-data-4}}
+\hypertarget{known-issues-with-the-data-3}{%
+\section{Known issues with the data}\label{known-issues-with-the-data-3}}
 
-\hypertarget{final-thoughts-4}{%
-\section{Final thoughts}\label{final-thoughts-4}}
+\hypertarget{final-thoughts-3}{%
+\section{Final thoughts}\label{final-thoughts-3}}
 
 \hypertarget{arson-1}{%
 \chapter{Arson}\label{arson-1}}
@@ -1141,8 +1193,8 @@ Figure \ref{fig:arsonAgencies} shows the annual number of police agencies that r
 \caption{\label{fig:arsonAgencies}The annual number of police agencies that report at least month of data that year.}
 \end{figure}
 
-\hypertarget{important-variables-1}{%
-\section{Important variables}\label{important-variables-1}}
+\hypertarget{important-variables-2}{%
+\section{Important variables}\label{important-variables-2}}
 
 Similar to the Offenses Known and Clearances by Arrest data, which is covered in Chapter @ref(offenses\_known), this data shows the monthly number of crimes - in this case only arsons - reported or discovered by the police, the number found by police to be unfounded, and the number cleared by the police. In addition, it includes the number of arsons in structures that were uninhabited, and the estimated cost of the damage caused by the arsons. For each variable, the arsons also broken into several categories of arsons, which we'll talk about in Section \ref{arsonType}. Like other UCR data, there are also variables that provide information about the agency - ORI codes, population under jurisdiction - the month and year that the data covers, and how many months reported data.
 
@@ -1261,14 +1313,14 @@ There are also cases where it is less clear when a value is a data error or is s
 \hypertarget{county_level}{%
 \chapter{County-Level Detailed Arrest and Offense Data}\label{county_level}}
 
-\hypertarget{a-brief-history-of-the-data-5}{%
-\section{A brief history of the data}\label{a-brief-history-of-the-data-5}}
+\hypertarget{a-brief-history-of-the-data-4}{%
+\section{A brief history of the data}\label{a-brief-history-of-the-data-4}}
 
-\hypertarget{changes-in-definitions-5}{%
-\subsection{Changes in definitions}\label{changes-in-definitions-5}}
+\hypertarget{changes-in-definitions-4}{%
+\subsection{Changes in definitions}\label{changes-in-definitions-4}}
 
-\hypertarget{what-does-the-data-look-like-5}{%
-\section{What does the data look like?}\label{what-does-the-data-look-like-5}}
+\hypertarget{what-does-the-data-look-like-4}{%
+\section{What does the data look like?}\label{what-does-the-data-look-like-4}}
 
 \hypertarget{raw-data-3}{%
 \subsection{Raw data}\label{raw-data-3}}
@@ -1276,17 +1328,17 @@ There are also cases where it is less clear when a value is a data error or is s
 \hypertarget{cleaned-data}{%
 \subsection{Cleaned data}\label{cleaned-data}}
 
-\hypertarget{what-variables-are-in-the-data-5}{%
-\section{What variables are in the data?}\label{what-variables-are-in-the-data-5}}
+\hypertarget{what-variables-are-in-the-data-4}{%
+\section{What variables are in the data?}\label{what-variables-are-in-the-data-4}}
 
-\hypertarget{key-variables-5}{%
-\subsection{Key variables}\label{key-variables-5}}
+\hypertarget{key-variables-4}{%
+\subsection{Key variables}\label{key-variables-4}}
 
-\hypertarget{known-issues-with-the-data-5}{%
-\subsection{Known issues with the data}\label{known-issues-with-the-data-5}}
+\hypertarget{known-issues-with-the-data-4}{%
+\subsection{Known issues with the data}\label{known-issues-with-the-data-4}}
 
-\hypertarget{final-thoughts-5}{%
-\section{Final thoughts}\label{final-thoughts-5}}
+\hypertarget{final-thoughts-4}{%
+\section{Final thoughts}\label{final-thoughts-4}}
 
 \backmatter
 

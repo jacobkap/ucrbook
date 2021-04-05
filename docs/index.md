@@ -1,7 +1,7 @@
 --- 
 title: "Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide"
 author: "Jacob Kaplan"
-date: "2021-04-02"
+date: "2021-04-04"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -18,10 +18,6 @@ classoption: openany
 
 
 
-```
-## Skipping install of 'crimeutils' from a github remote, the SHA1 (f7dfd724) has not changed since last install.
-##   Use `force = TRUE` to force installation
-```
 
 
 # Preface 

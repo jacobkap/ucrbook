@@ -39,8 +39,6 @@ knitr::opts_chunk$set(
   warning = FALSE,
   error   = FALSE
 )
-
-devtools::install_github("jacobkap/crimeutils")
 ```
 
 
