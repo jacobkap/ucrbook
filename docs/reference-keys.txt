@@ -13,6 +13,7 @@ fig:unnamed-chunk-3
 fig:fbiHierarchy
 fig:phillyRapeUnfound
 fig:phillyRapeUnfoundPercent
+fig:phillyRobberyUnfoundPercent
 fig:rapePhilly
 fig:rapeNYC
 fig:rapeLA

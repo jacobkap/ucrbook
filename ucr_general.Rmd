@@ -9,13 +9,13 @@ knitr::opts_chunk$set(
 )
 
 ```
+
 ```{r}
 
 nyc <- read_csv("data/New_York_New_York_City_Police_Department.csv")
 load("data/offenses_known_yearly_1960_2018.rda")
 load("data/ucr_hate_crimes_1991_2018.rda")
 ```
-
 
 One of the first, and most important, questions I think people have about crime is a simple one: is crime going up? Answering it seems simple - you just count up all the crimes that happen in an area and see if that number of bigger than it was in previous times. 
 

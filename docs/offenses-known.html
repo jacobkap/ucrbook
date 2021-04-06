@@ -24,7 +24,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2021-04-04" />
+<meta name="date" content="2021-04-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -373,22 +373,31 @@ Figure 3.1: The FBI’s findings of how crime reporting changes when using the H
 </div>
 <div id="crimes-cleared-where-all-offenders-are-under-18-years-old" class="section level3" number="3.2.3">
 <h3><span class="header-section-number">3.2.3</span> Crimes cleared Where all offenders are under 18 years old</h3>
-<p>This variable is very similar to Total Cleared except is only for offenses in which <strong>every</strong> offender is younger than age 18.</p>
+<p>This variable is very similar to Total Cleared except is only for offenses in which <strong>every</strong> offender is younger than age 18. This requires that the police know, or at least believe, the age of every offender, it is probably highly inaccurate.</p>
 </div>
 <div id="unfounded-crimes" class="section level3" number="3.2.4">
 <h3><span class="header-section-number">3.2.4</span> Unfounded crimes</h3>
 <p>An unfounded crime is one in which a police investigation has determined that the reported crime did not actually happen. For example I observed during a ride-along a report of a burglary where the homeowners said that they came home and the front door was open and they thought it might have been their son who forgot to close it but could also be a burglar so they called the police just in case. This would be recorded as a burglary and if it turned out to be the son, the police would then record this as an unfounded burglary.</p>
-<p>Other unfounded crimes would include when someone reports a crime but later says that the report wasn’t true. For example, a person could report a burglary to the police to collect insurance money on the items they claim was stolen. If the police discover this they would unfound the case - and the lying to the police and fraud would not be counted as neither of those are crimes included in this dataset.</p>
+<p>Other unfounded crimes would include when someone reports a crime but later says that the report wasn’t true. For example, a person could report a burglary to the police to collect insurance money on the items they claim was stolen. If the police discover this they would unfound the case - and the lying to the police and fraud would not be counted as neither of those are crimes included in this dataset. Unfounding crimes are especially common for rapes. If a person reports that they were raped and then later say that this report isn’t true - and doing so is relatively common, especially for child sexual abuse victims, even when the rape did actually happen - then the police will unfound the case.</p>
+<p>Figure <a href="offenses-known.html#fig:phillyRapeUnfound">3.2</a> provides one example of this by showing the number of actual - that is, rapes that the police say actually occurred - and unfounded rapes annually from 1960-2018 in Philadelphia, PA. Interestingly, the spike in actual rapes in 2013 due to the new rape definition that year does not correspond to a spike in unfounded rapes - which suggests that this variable is not being reported properly. It is unlikely that the number of rapes would spike so much without any corresponding increase - and an actual decrease - in unfounded rapes. Since unfounded rapes are so common, especially compared to other crimes - and evidence that police also misreport clearances for rape - this variable is likely to be manipulated by the police to make it appear that there are fewer rapes than there actually is. As such, this variable is not reliable, especially for rapes.</p>
 <div class="figure"><span id="fig:phillyRapeUnfound"></span>
 <img src="offenses_known_files/figure-html/phillyRapeUnfound-1.png" alt="The annual number of actual and unfounded rapes in Philadephia, PA, 1960-2018." width="672" />
 <p class="caption">
 Figure 3.2: The annual number of actual and unfounded rapes in Philadephia, PA, 1960-2018.
 </p>
 </div>
+<p>Another way to look at this data is the percent of rapes that were unfounded. Since unfounded and actual rapes are distinct categories, we’ll need to divide unfounded rapes by the sum of actual and unfounded rapes and then multiple the result by 100. Please note that unfounding occurs in the month the police discover the case to be unfounded, it is not tied to the month of the original report. So this graph isn’t really showing the percent that year that were unfounded - but for our purposes of getting a general sense it is acceptable. Usually about 10% of reported rapes are unfounded in Philadephia. The 44% in 1983, the first year with data, is probably high due to it accounting for unfounded cases in previous years that weren’t reported in the data until 1983.</p>
 <div class="figure"><span id="fig:phillyRapeUnfoundPercent"></span>
 <img src="offenses_known_files/figure-html/phillyRapeUnfoundPercent-1.png" alt="The percent of reported rapes that the police recorded as unfounded in Philadephia, PA, 1960-2018." width="672" />
 <p class="caption">
 Figure 3.3: The percent of reported rapes that the police recorded as unfounded in Philadephia, PA, 1960-2018.
+</p>
+</div>
+<p>As a comparison, Figure <a href="offenses-known.html#fig:phillyRobberyUnfoundPercent">3.4</a> shows the percent of robberies that are recorded as unfounded in Philadephia over the same time period. While the percent has been increasing, for most of the data it is under 1% and never exceeds 3%. To me this suggests that the Philly Police, and they aren’t unique, are overcounting rapes as unfounded to improve their rape statistic data.</p>
+<div class="figure"><span id="fig:phillyRobberyUnfoundPercent"></span>
+<img src="offenses_known_files/figure-html/phillyRobberyUnfoundPercent-1.png" alt="The percent of reported robberies that the police recorded as unfounded in Philadephia, PA, 1960-2018." width="672" />
+<p class="caption">
+Figure 3.4: The percent of reported robberies that the police recorded as unfounded in Philadephia, PA, 1960-2018.
 </p>
 </div>
 </div>
@@ -405,33 +414,33 @@ Figure 3.3: The percent of reported rapes that the police recorded as unfounded 
 <p>The new (and current) definition “penetration, no matter how slight, of the vagina or anus with any body part or object, or oral penetration by a sex organ of another person, without the consent of the victim.” Starting in 2013, rape has a new, broader definition in the UCR to include oral and anal penetration (by a body part or object) and to allow men to be victims. The new definition is: “Penetration, no matter how slight, of the vagina or anus with any body part or object, or oral penetration by a sex organ of another person, without the consent of the victim.” The previous definition included only forcible intercourse against a woman. This definition is far broader and is effectively any non-consensual sexual act. It also includes male victims though the data does not differentiate between male or female (or any other gender) victims.</p>
 <p>Both the current and legacy definitions exclude statutory rape and incest other than forcible incest. They both also include lack of consent as cases where the victim cannot give consent, such as if they are too young or are mentally or physically incapacitated - they specifically give the example of being temporarily incapacitated through drugs or alcohol.</p>
 <p>As this revised definition is broader than the original one post-2013, rape data is not comparable to pre-2013 data. 2013, however, is simply the year that the FBI changed the definition which means that agencies should have changed their reporting to the new definition. As might not be too surprising, not all agencies followed this requirement. We’ll look at four examples to show when there is clear evidence that the agency did change their definition in 2013, when it’s clear they did so a year later, when it’s unclear exactly when they made the change, and when the agency seems to not follow the change at all.</p>
-<p>We’ll start with the Philadelphia Police Department in Philadelphia, PA, shown in Figure <a href="offenses-known.html#fig:rapePhilly">3.4</a> which shows the annual number of rapes from 2000-2018. It’s declining slowly but steadily over the 2000-2012 time period until spiking sharply in 2013. Since the rape definition change in 2013 is far broader than previous year’s definition, this makes sense. A broader definition should lead to a sudden increase in reported rapes if the agency is reporting correctly.</p>
+<p>We’ll start with the Philadelphia Police Department in Philadelphia, PA, shown in Figure <a href="offenses-known.html#fig:rapePhilly">3.5</a> which shows the annual number of rapes from 2000-2018. It’s declining slowly but steadily over the 2000-2012 time period until spiking sharply in 2013. Since the rape definition change in 2013 is far broader than previous year’s definition, this makes sense. A broader definition should lead to a sudden increase in reported rapes if the agency is reporting correctly.</p>
 <div class="figure"><span id="fig:rapePhilly"></span>
 <img src="offenses_known_files/figure-html/rapePhilly-1.png" alt="The annual number of rapes reported in Philadelphia, Pennsylvania, 2000-2018." width="672" />
 <p class="caption">
-Figure 3.4: The annual number of rapes reported in Philadelphia, Pennsylvania, 2000-2018.
+Figure 3.5: The annual number of rapes reported in Philadelphia, Pennsylvania, 2000-2018.
 </p>
 </div>
-<p>In comparison, New York City has the sudden spike a year later, which indicates that they didn’t start using the new definition until 2014. Figure <a href="offenses-known.html#fig:rapeNYC">3.5</a> shows that rape is fairly steady, though increasing, in the years leading up to 2013 and has almost no change from 2012 to 2013, but a huge increase in 2014 and then steadily increases from there, spiking again in 2018. This seems like a fairly clear indicator that NYC simply didn’t follow the new definition until 2014.</p>
+<p>In comparison, New York City has the sudden spike a year later, which indicates that they didn’t start using the new definition until 2014. Figure <a href="offenses-known.html#fig:rapeNYC">3.6</a> shows that rape is fairly steady, though increasing, in the years leading up to 2013 and has almost no change from 2012 to 2013, but a huge increase in 2014 and then steadily increases from there, spiking again in 2018. This seems like a fairly clear indicator that NYC simply didn’t follow the new definition until 2014.</p>
 <div class="figure"><span id="fig:rapeNYC"></span>
 <img src="offenses_known_files/figure-html/rapeNYC-1.png" alt="The annual number of rapes reported in New York City, 2000-2018." width="672" />
 <p class="caption">
-Figure 3.5: The annual number of rapes reported in New York City, 2000-2018.
+Figure 3.6: The annual number of rapes reported in New York City, 2000-2018.
 </p>
 </div>
-<p>Less clear is what’s happening in San Francisco, California, shown in Figure <a href="offenses-known.html#fig:rapeLA">3.6</a>.
+<p>Less clear is what’s happening in San Francisco, California, shown in Figure <a href="offenses-known.html#fig:rapeLA">3.7</a>.
 Here we do see an increase in 2013 which while it appears small on the graph is actually a 49% increase from 2012. Then there is a much larger spike in 2014 - a 120% increase - which may suggest that part of the agency started following the new definition in 2013 and the remainder followed in 2014. However, large increases or decreases are relatively common in San Francisco so it could also be that the agency only switched to the new definition in 2014 and the spike in 2013 is just a coincidence</p>
 <div class="figure"><span id="fig:rapeLA"></span>
 <img src="offenses_known_files/figure-html/rapeLA-1.png" alt="The annual number of rapes reported in San Francisco, California, 2000-2018." width="672" />
 <p class="caption">
-Figure 3.6: The annual number of rapes reported in San Francisco, California, 2000-2018.
+Figure 3.7: The annual number of rapes reported in San Francisco, California, 2000-2018.
 </p>
 </div>
-<p>Finally, we’ll look at Jackson Police Department in Mississippi where the definition change seems to have had no effect. As seen in Figure <a href="offenses-known.html#fig:rapeJackson">3.7</a>, reported rapes start to undulate in 2010 with 2013 data perfectly in line with the before and after trends - no sign that there is a change in reporting. This suggests that Jackson simply did not follow the definition change and continues to report using the old definition.</p>
+<p>Finally, we’ll look at Jackson Police Department in Mississippi where the definition change seems to have had no effect. As seen in Figure <a href="offenses-known.html#fig:rapeJackson">3.8</a>, reported rapes start to undulate in 2010 with 2013 data perfectly in line with the before and after trends - no sign that there is a change in reporting. This suggests that Jackson simply did not follow the definition change and continues to report using the old definition.</p>
 <div class="figure"><span id="fig:rapeJackson"></span>
 <img src="offenses_known_files/figure-html/rapeJackson-1.png" alt="The annual number of rapes reported in Jackson, Mississippi, 2000-2018." width="672" />
 <p class="caption">
-Figure 3.7: The annual number of rapes reported in Jackson, Mississippi, 2000-2018.
+Figure 3.8: The annual number of rapes reported in Jackson, Mississippi, 2000-2018.
 </p>
 </div>
 <p>My takeaway from this is that rape should not be used at all for years after 2012. While the definition change makes pre-2013 and 2013+ years non-comparable, the differences in agency responses to this change - i.e. if they follow the rules or not - is such a mess that the data is too flawed to use.</p>
@@ -439,19 +448,19 @@ Figure 3.7: The annual number of rapes reported in Jackson, Mississippi, 2000-20
 <div id="the-decline-of-manslaughter" class="section level3" number="3.4.2">
 <h3><span class="header-section-number">3.4.2</span> The decline of manslaughter</h3>
 <p>This data contains two different crime subcategories for homicide: murder and non-negligent manslaughter, and manslaughter by negligence. The first is our measure of murder, and it includes everything we traditionally think of when it comes to murder - shootings, stabbings, strangulation, basically any intentional killing of another person.<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a> Suicides, killing a fetus, and accidental killings (e.g. car crashes) are not considered murders.<a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a> The second, manslaughter by negligence - usually called just “manslaughter” - is when someone kills another person through “gross negligence” but does not kill them intentionally. This can include accidental killings when the death was caused by gross negligence. The FBI provide examples of this as kids playing with guns and shooting each other (and not knowing the gun was loaded) or a hunter accidentally shooting someone while hunting.</p>
-<p>I would assume that manslaughter by negligence would remain at a relatively steady rate - though increasing in raw numbers as population increases - as it is due to largely unintentional behavior that would be unaffected by crime-reduction policies.<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a> I was wrong though. One of the most curiously findings from my exploration of this data is the sudden and national decline in manslaughter by negligence in the 1970s - and the extremely high number of manslaughter before that. Figure <a href="offenses-known.html#fig:manslaughterVsMurder">3.8</a> shows the annual number of murders, manslaughter, and the sum of the two nationwide from 1960-2018. This just sums up the total reported counts from every agency each year so part of the increase is simply due to more agencies reporting as the year gets closer to the present day - so please pay attention to the diverging paths of each crime, not the trend for the individual crime over time.</p>
-<p>Murder is always more common than manslaughter</p>
+<p>I would assume that manslaughter by negligence would remain at a relatively steady rate - though increasing in raw numbers as population increases - as it is due to largely unintentional behavior that would be unaffected by crime-reduction policies.<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a> I was wrong though. One of the most curiously findings from my exploration of this data is the sudden and national decline in manslaughter by negligence in the 1970s - and the extremely high number of manslaughter before that. Figure <a href="offenses-known.html#fig:manslaughterVsMurder">3.9</a> shows the annual number of murders, manslaughter, and the sum of the two nationwide from 1960-2018. This just sums up the total reported counts from every agency each year so part of the increase is simply due to more agencies reporting as the year gets closer to the present day - so please pay attention to the diverging paths of each crime, not the trend for the individual crime over time.</p>
+<p>Murder is always more common than manslaughter but these values are not that far apart in the early decade of data and manslaughter doesn’t become rare until the end of the 1970s. This makes me suspicious that what was recorded as manslaughter were actually murders but simply misclassified. If this is true then, as seen in Figure <a href="offenses-known.html#fig:manslaughterVsMurder">3.9</a> in the purple line, murders actually peaked in the United States in the middle of the 1970s, not the early 1990s as has been oft-been claimed - and generally using this data as evidence. Certainly not all reported manslaughter by negligence in the 1960s and 1970s were actually murders, but it seems extremely unlikely that the entire decline is truly due to a decline in people killing others through negligence; such a sudden and persistent decline cannot occur in nature.</p>
 <div class="figure"><span id="fig:manslaughterVsMurder"></span>
 <img src="offenses_known_files/figure-html/manslaughterVsMurder-1.png" alt="The annual number of murder and non-negligent manslaughter, manslaughter by negligence, and the sum of the two, nationwide from 1960-2018." width="672" />
 <p class="caption">
-Figure 3.8: The annual number of murder and non-negligent manslaughter, manslaughter by negligence, and the sum of the two, nationwide from 1960-2018.
+Figure 3.9: The annual number of murder and non-negligent manslaughter, manslaughter by negligence, and the sum of the two, nationwide from 1960-2018.
 </p>
 </div>
-<p>Figure <a href="offenses-known.html#fig:manslaughterPercent">3.9</a> shows another way to look at this data: manslaughter as a percent of reported murder. In the early years of our data manslaughter was fairly common, with about 70-80% as many manslaughters reported as murders. This declined sharply in the mid-1960s until there were around 45% as many manslaughters as murders in the mid-1970s. Again this declined until it was about 4% in 1980, and it has remained around there ever since.</p>
+<p>Figure <a href="offenses-known.html#fig:manslaughterPercent">3.10</a> shows another way to look at this data: manslaughter as a percent of reported murder. In the early years of our data manslaughter was fairly common, with about 70-80% as many manslaughters reported as murders. This declined sharply in the mid-1960s until there were around 45% as many manslaughters as murders in the mid-1970s. Again this declined until it was about 4% in 1980, and it has remained around there ever since.</p>
 <div class="figure"><span id="fig:manslaughterPercent"></span>
 <img src="offenses_known_files/figure-html/manslaughterPercent-1.png" alt="Reported manslaughter by negligence as a percent of reported murder and non-negligent manslaughter, nationwide 1960-2018." width="672" />
 <p class="caption">
-Figure 3.9: Reported manslaughter by negligence as a percent of reported murder and non-negligent manslaughter, nationwide 1960-2018.
+Figure 3.10: Reported manslaughter by negligence as a percent of reported murder and non-negligent manslaughter, nationwide 1960-2018.
 </p>
 </div>
 

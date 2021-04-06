@@ -96,13 +96,15 @@ Unfortunately, this data does not differentiate between clearances by arrest or 
 
 ### Crimes cleared Where all offenders are under 18 years old
 
-This variable is very similar to Total Cleared except is only for offenses in which **every** offender is younger than age 18. 
+This variable is very similar to Total Cleared except is only for offenses in which **every** offender is younger than age 18. This requires that the police know, or at least believe, the age of every offender, it is probably highly inaccurate. 
 
 ### Unfounded crimes
 
 An unfounded crime is one in which a police investigation has determined that the reported crime did not actually happen. For example I observed during a ride-along a report of a burglary where the homeowners said that they came home and the front door was open and they thought it might have been their son who forgot to close it but could also be a burglar so they called the police just in case. This would be recorded as a burglary and if it turned out to be the son, the police would then record this as an unfounded burglary. 
 
-Other unfounded crimes would include when someone reports a crime but later says that the report wasn't true. For example, a person could report a burglary to the police to collect insurance money on the items they claim was stolen. If the police discover this they would unfound the case - and the lying to the police and fraud would not be counted as neither of those are crimes included in this dataset. 
+Other unfounded crimes would include when someone reports a crime but later says that the report wasn't true. For example, a person could report a burglary to the police to collect insurance money on the items they claim was stolen. If the police discover this they would unfound the case - and the lying to the police and fraud would not be counted as neither of those are crimes included in this dataset. Unfounding crimes are especially common for rapes. If a person reports that they were raped and then later say that this report isn't true - and doing so is relatively common, especially for child sexual abuse victims, even when the rape did actually happen - then the police will unfound the case. 
+
+Figure \@ref(fig:phillyRapeUnfound) provides one example of this by showing the number of actual - that is, rapes that the police say actually occurred - and unfounded rapes annually from 1960-2018 in Philadelphia, PA. Interestingly, the spike in actual rapes in 2013 due to the new rape definition that year does not correspond to a spike in unfounded rapes - which suggests that this variable is not being reported properly. It is unlikely that the number of rapes would spike so much without any corresponding increase - and an actual decrease - in unfounded rapes. Since unfounded rapes are so common, especially compared to other crimes - and evidence that police also misreport clearances for rape - this variable is likely to be manipulated by the police to make it appear that there are fewer rapes than there actually is. As such, this variable is not reliable, especially for rapes. 
 
 ```{r phillyRapeUnfound, fig.cap = "The annual number of actual and unfounded rapes in Philadephia, PA, 1960-2018."}
 offenses_known_yearly_1960_2018 %>%
@@ -118,6 +120,8 @@ offenses_known_yearly_1960_2018 %>%
   labs(color = "")
 ```
 
+Another way to look at this data is the percent of rapes that were unfounded. Since unfounded and actual rapes are distinct categories, we'll need to divide unfounded rapes by the sum of actual and unfounded rapes and then multiple the result by 100. Please note that unfounding occurs in the month the police discover the case to be unfounded, it is not tied to the month of the original report. So this graph isn't really showing the percent that year that were unfounded - but for our purposes of getting a general sense it is acceptable. Usually about 10% of reported rapes are unfounded in Philadephia. The 44% in 1983, the first year with data, is probably high due to it accounting for unfounded cases in previous years that weren't reported in the data until 1983. 
+
 ```{r phillyRapeUnfoundPercent, fig.cap = "The percent of reported rapes that the police recorded as unfounded in Philadephia, PA, 1960-2018."}
 offenses_known_yearly_1960_2018 %>%
   dplyr::filter(ori %in% "PAPEP00") %>%
@@ -126,6 +130,22 @@ offenses_known_yearly_1960_2018 %>%
   geom_line(size = 1.02) +
   xlab("Year") +
   ylab("% of Rapes Unfounded") +
+  theme_crim() +
+  crimeutils::scale_color_crim() + 
+  scale_y_continuous(labels = scales::percent) +
+  labs(color = "")
+```
+
+As a comparison, Figure \@ref(fig:phillyRobberyUnfoundPercent) shows the percent of robberies that are recorded as unfounded in Philadephia over the same time period. While the percent has been increasing, for most of the data it is under 1% and never exceeds 3%. To me this suggests that the Philly Police, and they aren't unique, are overcounting rapes as unfounded to improve their rape statistic data. 
+
+```{r phillyRobberyUnfoundPercent, fig.cap = "The percent of reported robberies that the police recorded as unfounded in Philadephia, PA, 1960-2018."}
+offenses_known_yearly_1960_2018 %>%
+  dplyr::filter(ori %in% "PAPEP00") %>%
+  dplyr::mutate(robbery_unfounded = unfound_robbery_total / (actual_robbery_total+unfound_robbery_total)) %>%
+  ggplot(aes(x = year, y = robbery_unfounded)) +
+  geom_line(size = 1.02) +
+  xlab("Year") +
+  ylab("% of Robberies Unfounded") +
   theme_crim() +
   crimeutils::scale_color_crim() + 
   scale_y_continuous(labels = scales::percent) +
@@ -222,9 +242,7 @@ This data contains two different crime subcategories for homicide: murder and no
 
 I would assume that manslaughter by negligence would remain at a relatively steady rate - though increasing in raw numbers as population increases - as it is due to largely unintentional behavior that would be unaffected by crime-reduction policies.^[Though policies that encourage people to lock up their guns would likely reduce manslaughter by negligence.] I was wrong though. One of the most curiously findings from my exploration of this data is the sudden and national decline in manslaughter by negligence in the 1970s - and the extremely high number of manslaughter before that. Figure \@ref(fig:manslaughterVsMurder) shows the annual number of murders, manslaughter, and the sum of the two nationwide from 1960-2018. This just sums up the total reported counts from every agency each year so part of the increase is simply due to more agencies reporting as the year gets closer to the present day - so please pay attention to the diverging paths of each crime, not the trend for the individual crime over time.
 
-Murder is always more common than manslaughter 
-
-
+Murder is always more common than manslaughter but these values are not that far apart in the early decade of data and manslaughter doesn't become rare until the end of the 1970s. This makes me suspicious that what was recorded as manslaughter were actually murders but simply misclassified. If this is true then, as seen in Figure \@ref(fig:manslaughterVsMurder) in the purple line, murders actually peaked in the United States in the middle of the 1970s, not the early 1990s as has been oft-been claimed - and generally using this data as evidence. Certainly not all reported manslaughter by negligence in the 1960s and 1970s were actually murders, but it seems extremely unlikely that the entire decline is truly due to a decline in people killing others through negligence; such a sudden and persistent decline cannot occur in nature. 
 
 ```{r manslaughterVsMurder, fig.cap = "The annual number of murder and non-negligent manslaughter, manslaughter by negligence, and the sum of the two, nationwide from 1960-2018."}
 offenses_known_yearly_1960_2018 %>%
@@ -244,7 +262,7 @@ offenses_known_yearly_1960_2018 %>%
   labs(color = "")
 ```
 
-Figure \@ref(fig:manslaughterPercent) shows another way to look at this data: manslaughter as a percent of reported murder. In the early years of our data manslaughter was fairly common, with about 70-80% as many manslaughters reported as murders. This declined sharply in the mid-1960s until there were around 45% as many manslaughters as murders in the mid-1970s. Again this declined until it was about 4% in 1980, and it has remained around there ever since.  
+Figure \@ref(fig:manslaughterPercent) shows another way to look at this data: manslaughter as a percent of reported murder. In the early years of our data manslaughter was fairly common, with about 70-80% as many manslaughters reported as murders. This declined sharply in the mid-1960s until there were around 45% as many manslaughters as murders in the mid-1970s. Again this declined until it was about 4% in 1980, and it has remained around there ever since.
 
 ```{r manslaughterPercent, fig.cap = "Reported manslaughter by negligence as a percent of reported murder and non-negligent manslaughter, nationwide 1960-2018."}
 offenses_known_yearly_1960_2018 %>%
