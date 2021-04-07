@@ -83,7 +83,7 @@
 
 \title{Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide}
 \author{Jacob Kaplan}
-\date{2021-04-05}
+\date{2021-04-06}
 
 \begin{document}
 \maketitle
@@ -96,7 +96,7 @@
 \hypertarget{preface}{%
 \chapter{Preface}\label{preface}}
 
-If you've read an article about crime or arrests in the United States in the last half century, in most cases it was referring to the FBI's Uniform Crime Reporting Program Data, otherwise known as UCR data. UCR data is, with the exception of the more detailed data that only covers murders, a \emph{monthly number of crimes or arrests reported to a single police agency} which is then gathered by the FBI into one file that includes all reporting agencies. Think of your home town. This data will tell you how many crimes were reported for a small number of crimes or how many people (broken down by age, sex, and race) were arrested for a (larger) set of crimes in that city (if the city has multiple police agencies, it will use the agency which is the primary agency on the case, usually the local police department) in a given month. This is a very broad measure of crime, and its uses in research - or understanding crime at all - is fairly limited. Yet is has become - and will likely remain among researchers for at least the next decade - the most important crime data in the United States.
+If you've read an article about crime or arrests in the United States in the last half century, in most cases it was referring to the FBI's Uniform Crime Reporting Program Data, otherwise known as UCR data. UCR data is, with the exception of the more detailed data that only covers murders, a \emph{monthly number of crimes or arrests reported to a single police agency} which is then gathered by the FBI into one file that includes all reporting agencies. Think of your hometown. This data will tell you how many crimes were reported for a small number of crimes or how many people (broken down by age, sex, and race) were arrested for a (larger) set of crimes in that city (if the city has multiple police agencies, it will use the agency which is the primary agency on the case, usually the local police department) in a given month. This is a very broad measure of crime, and its uses in research - or understanding crime at all - is fairly limited. Yet is has become - and will likely remain among researchers for at least the next decade - the most important crime data in the United States.
 
 UCR data is important for three reasons:
 
@@ -116,16 +116,16 @@ For most of this book we'll be discussing the caveats of the above reasons - or,
 \hypertarget{motivation}{%
 \section{Motivation}\label{motivation}}
 
-By the end of each chapter you should have a firm grasp on the dataset the covered and how to use it properly. However, this book can't possibly cover every potential use case for the data so make sure to carefully examine the data for your own particular use. This benefits you because you'll know your data better and become a better research because of it. This benefits me because it'll increase the quality of research in my field.
+By the end of each chapter you should have a firm grasp on the dataset the covered and how to use it properly. However, this book can't possibly cover every potential use case for the data so make sure to carefully examine the data for your own particular use. This benefits you because you'll know your data better and become a better researcher because of it. This benefits me because it'll increase the quality of research in my field.
 
 I get a lot of emails from people asking questions about this data so part of my motivation for writing this book is to create a single place that answers as many questions as I can about the data. Again, the UCR data collection are the most commonly used crime datasets and there are still many current papers published with incorrect information about the data (including such simple aspects like what geographic unit data is in and what time unit it is in). So hopefully this book will decrease the number of misconceptions about this data, increasing overall research quality.\footnote{Ideally, this will also decrease the number of emails and increase the number of citations I receive.}
 
 \hypertarget{structure-of-the-book}{%
 \section{Structure of the book}\label{structure-of-the-book}}
 
-This remainder of this book will be divided into eight chapters: an intro chapter briefly summarizing each dataset and going over overall issues with UCR data, seven chapters each covering one of the seven UCR datasets, and a final one covering county-level data, a highly flawed but common use of the UCR data. I highly recommend that you start with the intro chapter (Chapter @ref(ucr\_general)) since it covers topics that apply to each UCR dataset - such as understanding agency unique identifiers and why the data (correctly) has negative numbers - that won't be covered in individual chapters. Each of the UCR dataset chapters will follow the same format: we'll start with a history of the data such as when it first because available and important changes in definitions or variables. We'll then look at which variables are available, and the most important (or most used) ones. The bulk of each chapter will be exploring the data to understand how reliable it is and what questions we can adequately answer using it.
+The remainder of this book will be divided into eight chapters: an intro chapter briefly summarizing each dataset and going over overall issues with UCR data, seven chapters each covering one of the seven UCR datasets, and a final one covering county-level data, a highly flawed but common use of the UCR data. I highly recommend that you start with the intro chapter (Chapter @ref(ucr\_general)) since it covers topics that apply to each UCR dataset - such as understanding agency unique identifiers and why the data (correctly) has negative numbers - that won't be covered in individual chapters. Each of the UCR dataset chapters will follow the same format: we'll start with a history of the data such as when it first because available and important changes in definitions or variables. We'll then look at which variables are available, and the most important (or most used) ones. The bulk of each chapter will be exploring the data to understand how reliable it is and what questions we can adequately answer using it.
 
-Since manuals are boring, I'll try to include graphs and images to try to alleviate the boredom. That said, I don't think it's possible to make it too fun so sorry in advanced. This book is a mix of facts about the data, such as how many years are available, and my opinions about it, such as whether it is reliable. In cases of facts I'll just say a statement - e.g.~``the offenses data is available since 1960''. In cases of opinion I'll temper the statement by saying something like ``in my opinion\ldots{}'' or ``I think'' or ``I believe.''
+Since manuals are boring, I'll try to include graphs and images to try to alleviate the boredom. That said, I don't think it's possible to make it too fun so sorry in advance. This book is a mix of facts about the data, such as how many years are available, and my opinions about it, such as whether it is reliable. In cases of facts I'll just say a statement - e.g.~``the offenses data is available since 1960''. In cases of opinion I'll temper the statement by saying something like ``in my opinion\ldots{}'' or ``I think'' or ``I believe.''
 
 \hypertarget{citing-this-book}{%
 \section{Citing this book}\label{citing-this-book}}
@@ -139,13 +139,13 @@ BibTeX format:
 \hypertarget{sources-of-ucr-data}{%
 \section{Sources of UCR data}\label{sources-of-ucr-data}}
 
-There are a few different sources of UCR data available today. First, and probably most commonly used, is the data put together by the \href{https://www.icpsr.umich.edu/web/pages/NACJD/index.html}{National Archive of Criminal Justice Data (NACJD)}). This a team of out of the University of Michigan who manages a huge number of criminal justice datasets and makes them available to the public. If you have any questions about crime data - UCR or other data - I highly recommend you reach out to them for answers. They have a collection of data and excellent documentation available for UCR data available on their site \href{https://www.icpsr.umich.edu/web/NACJD/series/57}{here}. One limitation to their data, however, is that each year of data is available as an individual file meaning that you'll need to concatenate each year together into a single file. Some years also have different column names (generally minor changes like spelling robbery ``rob'' one year and ``robb'' the next) which requires more work to standardize before you could concatenate. They also only have data through 2016 which means that the most recent years (UCR data is available through 2019) of data are (as of this writing) unavailable.
+There are a few different sources of UCR data available today. First, and probably most commonly used, is the data put together by the \href{https://www.icpsr.umich.edu/web/pages/NACJD/index.html}{National Archive of Criminal Justice Data (NACJD)}). This a team out of the University of Michigan who manages a huge number of criminal justice datasets and makes them available to the public. If you have any questions about crime data - UCR or other data - I highly recommend you reach out to them for answers. They have a collection of data and excellent documentation available for UCR data available on their site \href{https://www.icpsr.umich.edu/web/NACJD/series/57}{here}. One limitation to their data, however, is that each year of data is available as an individual file meaning that you'll need to concatenate each year together into a single file. Some years also have different column names (generally minor changes like spelling robbery ``rob'' one year and ``robb'' the next) which requires more work to standardize before you could concatenate. They also only have data through 2016 which means that the most recent years (UCR data is available through 2019) of data are (as of this writing) unavailable.
 
 Next, and most usable for the general public but limited to researchers, is the FBI's official website \href{https://crime-data-explorer.fr.cloud.gov/}{Crime Data Explorer}. On this site you can chose an agency and see annual crime data (remember, UCR data is monthly so this isn't as detailed as it can be) for certain crimes. This is okay for the general public but only provides a fraction of the data available in the actual data so is really not good for researchers.
 
 Finally, I have my own collection of UCR data \href{https://www.openicpsr.org/openicpsr/search/studies?start=0\&ARCHIVE=openicpsr\&sort=score\%20desc\%2CDATEUPDATED\%20desc\&rows=25\&q=jacob\%20kaplan\%27s\%20concatenated\%20files}{available publicly on openICPSR}, a site which allows people to submit their data for public access. For each of these datasets I've taken the raw data from the FBI (for early years of homicide data this is actually from NACJD since the FBI's raw data is wrong and can't be parsed. For later years of homicide data this is from the FBI's raw data.) and read it into R. Since the data is only available from the FBI as fixed-width ASCII files, I created a setup file (we'll explain exactly how reading in this kind of data works in the next chapter) and read the data and then very lightly cleaned the data (i.e.~only removing extreme outliers like an agency having millions of arsons in a month). For each of these datasets I detail what I've done to the data and briefly summarize the data (i.e.~a very short version of this book) on the data's page on openICPSR. The main advantage is that all my data has standard variable names and column names and, for data that is small enough, provide the data as a single file that has all years. For large datasets like the arrest data I break it down into parts of the data and not all years in a single file. The downside is that I don't provide documentation other than what's on the openICPSR page and only provide data in R and Stata format. I also have a similar site to the FBI's Crime Data Explorer but with more variables available, that site is available \href{jacobdkaplan.com/}{here}.
 
-It's worth mentioning a final source of UCR information. This is the annual Crimes in the United States report released by the FBI each year around the start of October.\footnote{They also release a report about the first 6-months of the most recent year of data before the October release, but this is generally an estimate from a sample of agencies so is far less useful.} As an example, here is the \href{https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019}{website for the 2019 report}. In this report is summarized data which in most cases estimates missing data and provides information about national and subnational (though rarely city-level) crime data. As with the FBI's site it is only a fraction of the true data available, so is not a very useful source of crime data. Still, this is a very common source of information used by researchers.
+It's worth mentioning a final source of UCR information. This is the annual Crimes in the United States report released by the FBI each year around the start of October.\footnote{They also release a report about the first 6 months of the most recent year of data before the October release, but this is generally an estimate from a sample of agencies so is far less useful.} As an example, here is the \href{https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019}{website for the 2019 report}. In this report is summarized data which in most cases estimates missing data and provides information about national and subnational (though rarely city-level) crime data. As with the FBI's site it is only a fraction of the true data available, so is not a very useful source of crime data. Still, this is a very common source of information used by researchers.
 
 \hypertarget{where-to-find-the-data-used-in-this-book}{%
 \section{Where to find the data used in this book}\label{where-to-find-the-data-used-in-this-book}}
@@ -793,6 +793,17 @@ This is especially a problem because it hides trends in violent crimes. San Fran
 
 Many researchers divide index crimes into violent and nonviolent categories, which helps but is still not entirely sufficient. Take Chicago as an example. It is a city infamous for its large number of murders. But as a fraction of index crimes, Chicago has a rounding error worth of murders. Their 653 murders in 2017 is only 0.5\% of total index crimes. For violent index crimes, murder makes up 2.2\%. What this means is that changes in murder are very difficult to detect. If Chicago had no murders this year, but a less serious crime (such as theft) increased slightly, we couldn't tell from looking at the number of index crimes.
 
+\hypertarget{agencies-reporting}{%
+\section{Agencies reporting}\label{agencies-reporting}}
+
+Figure \ref{fig:offensesAgenciesReporting} shows the annual number of police agencies that reported at least one month that year. With data starting in 1960, there were a little under 7,500 agencies reporting a year until 1970 when the number of agencies began increasing. This continued until the late 1970s when about 14,000 agencies reported, and this remained steady for over a decade before declining in the 1990s until about 12,500 in the latter half of the decade. Then the number of agencies reporting increased steadily until about 16,500 agencies reported in 2010. The number of agencies have slowly increased since then, adding a few hundred agencies from 2010 to 2018. While this data is available through 2019, this graph only shows data through 2018. As this graph shows agencies that report at least one month, it overcounts reporting agencies as some report fewer than every month in the year. Agencies that do report, however, tend to report all 12 months of the year so this problem is not serious.
+
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/offensesAgenciesReporting-1.pdf}
+\caption{\label{fig:offensesAgenciesReporting}The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.}
+\end{figure}
+
 \hypertarget{important-variables}{%
 \section{Important variables}\label{important-variables}}
 
@@ -801,28 +812,38 @@ For each crime we have four different categories indicating the number of crimes
 \hypertarget{actual-crimes}{%
 \subsection{Actual crimes}\label{actual-crimes}}
 
-This is the number of offenses that occurred, simply a count of the number of crimes that month. For example if 10 people are murdered in a city the number of ``actual murders'' would be 10.
+This is the number of offenses that \emph{actually} occurred - where \emph{actually} means that a police investigation found that the crime report was accurate. For crimes that are reported that the police find did not occur (e.g.~report of an arson but turns that the fire began accidentally) are called ``unfounded'' crimes. So this variable is the one people use to measure \emph{crime}. For example if 10 people are murdered in a city the number of ``actual murders'' would be 10.
 
-\hypertarget{total-cleared-crimers}{%
-\subsection{Total cleared crimers}\label{total-cleared-crimers}}
+\hypertarget{total-cleared-crimes}{%
+\subsection{Total cleared crimes}\label{total-cleared-crimes}}
 
-A crime is cleared when an offender is arrested or when the case is considered cleared by exceptional means. When a single offender for a crime is arrested, that crime is considered cleared. If multiple people committed a crime, only a single person must be arrested for it to be cleared, and as the UCR data is at the offense level, making multiple arrests for an incident only counts as one incident cleared. So if 10 people committed a murder and all 10 were arrested, it would report one murder cleared not 10. If only one of these people are arrested it would still report one murder cleared - the UCR does not even say how many people commit a crime.
+A crime is cleared when an offender is arrested or when the case is considered cleared by exceptional means. To be more specific, this data counts crime as a crime incident, regardless of the number of offenders. For example, if 3 people robbed a person, that is one crime of robbery, not 3 separate crimes. This crime is cleared when one of the three robbers is arrested - no matter the outcome for the other two robbers. Arresting all 3 still counts as a single robbery cleared.
 
-A crime is considered exceptionally cleared if the police can identify the offender, have enough evidence to arrest the offender, know where the offender is, but is unable to arrest them. Some examples of this are the death of the offender or when the victim refuses to cooperate in the case.
+Even though this dataset is formally named ``Offenses Known and Clearances by Arrest'' it does include clearances where no one is arrested, which are called ``exceptional clearances'' or ``clearances by exceptional means.'' For exceptional clearances, police must have identified the offender, have sufficient evidence to arrest that offender, know where they are (so they can actually be apprehended) and only then be unable to make the arrest. Exceptional clearances include cases where the offender dies before an arrest (by any means, including suicide, accidental, illness, killed by someone including a police officer) or when the police are unable to arrest the person since they are already in custody by another jurisdiction (including out of the country or in custody of another agency) and extradition is denied. Two other potential causes of exceptional clearance is when prosecution of the case cannot go forward because the district attorney refuses to prosecute the case, for reasons other than lack of evidence, or when a victim refuses to assist the prosecution in the case.
 
-Unfortunately, this data does not differentiate between clearances by arrest or by exceptional means. For a comprehensive report on how this variable can be exploited to exaggerate clearance rates, see \href{https://www.propublica.org/article/when-it-comes-to-rape-just-because-a-case-is-cleared-does-not-mean-solved}{this report by ProPublica} on exceptional clearances with rape cases.
+Unfortunately, this data does not differentiate between clearances by arrest or by exceptional means so there's no way to determine how many clearances mean the offender is actually arrested - and even more problematic, how many clearances have all of the offenders arrested.\footnote{NIBRS data does differentiate these types of clearances} There is also evidence that police agencies report classify large numbers of clearances as clearances through exception means (again, we have no way to tell which is which using this data) even though exceptional clearances should be rare given that times where the offender is known but cannot be arrested are likely far less common than when they are arrested. This is particularly a problem in the case of rapes where in some cases there are far more exceptional clearances than clearances by arrest \citep{yeung2018comes}. For an excellent investigation into this issue, please read the \citet{yeung2018comes} article available on ProPublica's website \href{https://www.propublica.org/article/when-it-comes-to-rape-just-because-a-case-is-cleared-does-not-mean-solved}{here}
+
+Clearances are reported in the month that they occur, regardless of when the crime they are clearing occurred. In practice, however, most crimes are cleared in the month that they occur. According to the 2019 NIBRS, it takes on average 7 days between the incident and the arrest (median = 0 days) date when averaging across all crimes - for individual crimes these values will be different. This means that most of the clearances will be for the same month as the initial crime - though less so as the month comes to a close. Of course, police agencies can solve older cases - and even target cold cases to be solved - so this is still a degree of uncertainty for which month these clearances are for.
+
+Still, there are occasionally months - and even years - where there are more reported crimes cleared than crimes that occur. Figure \ref{fig:montgomeryClearances} shows the number of actual and cleared murders from the Montgomery County Police Department in Maryland. Several years have more murders cleared than were committed - a sign that the month of clearance does not correspond to the month of occurrence, rather than the police solving crime before it happened.\footnote{The Minority Report is not yet a documentary.}
+
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/montgomeryClearances-1.pdf}
+\caption{\label{fig:montgomeryClearances}The annual number of actual and cleared murders from the Montgomery County Police Department, MD, 1960-2018.}
+\end{figure}
 
 \hypertarget{crimes-cleared-where-all-offenders-are-under-18-years-old}{%
-\subsection{Crimes cleared Where all offenders are under 18 years old}\label{crimes-cleared-where-all-offenders-are-under-18-years-old}}
+\subsection{Crimes cleared where all offenders are under 18 years old}\label{crimes-cleared-where-all-offenders-are-under-18-years-old}}
 
-This variable is very similar to Total Cleared except is only for offenses in which \textbf{every} offender is younger than age 18. This requires that the police know, or at least believe, the age of every offender, it is probably highly inaccurate.
+This variable is a subset of the Total Cleared variable and only includes clearances for offenses in which \textbf{every} offender is younger than age 18. This requires that the police know, or at least believe, the age of every offender, it is probably highly inaccurate. This category includes cases where the juvenile is given a citation to show up in court for their trial and is not formally arrested and taken into custody.
 
 \hypertarget{unfounded-crimes}{%
 \subsection{Unfounded crimes}\label{unfounded-crimes}}
 
 An unfounded crime is one in which a police investigation has determined that the reported crime did not actually happen. For example I observed during a ride-along a report of a burglary where the homeowners said that they came home and the front door was open and they thought it might have been their son who forgot to close it but could also be a burglar so they called the police just in case. This would be recorded as a burglary and if it turned out to be the son, the police would then record this as an unfounded burglary.
 
-Other unfounded crimes would include when someone reports a crime but later says that the report wasn't true. For example, a person could report a burglary to the police to collect insurance money on the items they claim was stolen. If the police discover this they would unfound the case - and the lying to the police and fraud would not be counted as neither of those are crimes included in this dataset. Unfounding crimes are especially common for rapes. If a person reports that they were raped and then later say that this report isn't true - and doing so is relatively common, especially for child sexual abuse victims, even when the rape did actually happen - then the police will unfound the case.
+Other unfounded crimes would include when someone reports a crime but later says that the report wasn't true. For example, a person could report a burglary to the police to collect insurance money on the items they claim was stolen. If the police discover this they would unfound the case - and the lying to the police and fraud would not be counted as neither of those are crimes included in this dataset. Unfounding crimes are especially common for rapes. If a person reports that they were raped and then later say that this report isn't true - and doing so is relatively common, especially for child sexual abuse victims, even when the rape did actually happen - then the police will unfound the case {[}@{]}.
 
 Figure \ref{fig:phillyRapeUnfound} provides one example of this by showing the number of actual - that is, rapes that the police say actually occurred - and unfounded rapes annually from 1960-2018 in Philadelphia, PA. Interestingly, the spike in actual rapes in 2013 due to the new rape definition that year does not correspond to a spike in unfounded rapes - which suggests that this variable is not being reported properly. It is unlikely that the number of rapes would spike so much without any corresponding increase - and an actual decrease - in unfounded rapes. Since unfounded rapes are so common, especially compared to other crimes - and evidence that police also misreport clearances for rape - this variable is likely to be manipulated by the police to make it appear that there are fewer rapes than there actually is. As such, this variable is not reliable, especially for rapes.
 
@@ -832,7 +853,7 @@ Figure \ref{fig:phillyRapeUnfound} provides one example of this by showing the n
 \caption{\label{fig:phillyRapeUnfound}The annual number of actual and unfounded rapes in Philadephia, PA, 1960-2018.}
 \end{figure}
 
-Another way to look at this data is the percent of rapes that were unfounded. Since unfounded and actual rapes are distinct categories, we'll need to divide unfounded rapes by the sum of actual and unfounded rapes and then multiple the result by 100. Please note that unfounding occurs in the month the police discover the case to be unfounded, it is not tied to the month of the original report. So this graph isn't really showing the percent that year that were unfounded - but for our purposes of getting a general sense it is acceptable. Usually about 10\% of reported rapes are unfounded in Philadephia. The 44\% in 1983, the first year with data, is probably high due to it accounting for unfounded cases in previous years that weren't reported in the data until 1983.
+Another way to look at this data is the percent of rapes that were unfounded. Since unfounded and actual rapes are distinct categories, we'll need to divide unfounded rapes by the sum of actual and unfounded rapes and then multiple the result by 100. Please note that unfounding occurs in the month the police discover the case to be unfounded, it is not tied to the month of the original report. So this graph isn't really showing the percent that year that were unfounded - but for our purposes of getting a general sense it is acceptable. Usually about 10\% of reported rapes are unfounded in Philadelphia. The 44\% in 1983, the first year with data, is probably high due to it accounting for unfounded cases in previous years that weren't reported in the data until 1983.
 
 \begin{figure}
 \centering
@@ -840,18 +861,13 @@ Another way to look at this data is the percent of rapes that were unfounded. Si
 \caption{\label{fig:phillyRapeUnfoundPercent}The percent of reported rapes that the police recorded as unfounded in Philadephia, PA, 1960-2018.}
 \end{figure}
 
-As a comparison, Figure \ref{fig:phillyRobberyUnfoundPercent} shows the percent of robberies that are recorded as unfounded in Philadephia over the same time period. While the percent has been increasing, for most of the data it is under 1\% and never exceeds 3\%. To me this suggests that the Philly Police, and they aren't unique, are overcounting rapes as unfounded to improve their rape statistic data.
+As a comparison, Figure \ref{fig:phillyRobberyUnfoundPercent} shows the percent of robberies that are recorded as unfounded in Philadelphia over the same time period. While the percent has been increasing, for most of the data it is under 1\% and never exceeds 3\%. To me this suggests that the Philly Police, and they aren't unique, are overcounting rapes as unfounded to improve their rape statistic data.
 
 \begin{figure}
 \centering
 \includegraphics{ucrbook_files/figure-latex/phillyRobberyUnfoundPercent-1.pdf}
 \caption{\label{fig:phillyRobberyUnfoundPercent}The percent of reported robberies that the police recorded as unfounded in Philadephia, PA, 1960-2018.}
 \end{figure}
-
-\hypertarget{number-of-months-reported}{%
-\section{Number of months reported}\label{number-of-months-reported}}
-
-UCR data is reported monthly though even agencies that decide to report their data may not do so every month. As we don't want to compare an agency which reports 12 months to one that reports fewer, the variable \emph{number\_of\_months\_reported} is way keep only agencies that report 12 months, or deal with those that report fewer.
 
 \hypertarget{important-issues}{%
 \section{Important issues}\label{important-issues}}
@@ -1082,8 +1098,8 @@ So this data is really a narrower measure of hate crimes than it might seem. In 
 
 My main takeaway for this data is that it is inappropriate to use for most hate crime research. At most it can be used to look at within-city within-bias-motivation trends, while keeping in mind that even this narrow subset of data is limited by under-reporting by victims and potential changes in police practices of reporting such as how many months of data they report per year.
 
-\hypertarget{agencies-reporting}{%
-\section{Agencies reporting}\label{agencies-reporting}}
+\hypertarget{agencies-reporting-1}{%
+\section{Agencies reporting}\label{agencies-reporting-1}}
 
 \begin{itemize}
 \tightlist
@@ -1194,8 +1210,8 @@ For each type of arson it includes the number of arsons where the structure was 
 
 In cases where the arson led to a death, that death would be recorded as a murder on the Offenses Known and Clearances by Arrest dataset - but not indicated anywhere on this dataset. If an individual who responds to the arson dies because of it, such as a police officer or a firefighter, this is not considered a homicide (though the officer death is still included in the Law Enforcement Officers Killed and Assaulted data) unless the arsonists intended to cause their deaths. Even though the UCR uses the Hierarchy Rule, where only the most serious offense that occurs is recorded, all arsons are reported - arson is exempt from the Hierarchy Rule.
 
-\hypertarget{agencies-reporting-1}{%
-\section{Agencies reporting}\label{agencies-reporting-1}}
+\hypertarget{agencies-reporting-2}{%
+\section{Agencies reporting}\label{agencies-reporting-2}}
 
 Figure \ref{fig:arsonAgencies} shows the annual number of police agencies that reported at least one month that year. With data starting in 1979, there were a little over 12,000 agencies reporting a year until the early 2000s where it recovered from a sharp drop in agencies to steadily increase to about 16,000 a year. While arson data is available through 2019, this graph only shows data through 2018.
 

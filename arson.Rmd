@@ -67,8 +67,8 @@ Figure \@ref(fig:arsonClearance) shows the number of actual arsons (reports that
 ```{r arsonClearance, fig.cap = "The annual number of single-family home arsons and clearances in League City, Texas."}
 ucr_arson_yearly_1979_2018 %>%
   filter(ori %in% "TX08408") %>%
-ggplot(aes(x = year)) +
-    geom_line(aes(y = cleared_single_occupancy, color = "Cleared Arsons"), size = 1.02) +
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = cleared_single_occupancy, color = "Cleared Arsons"), size = 1.02) +
   geom_line(aes(y = actual_single_occupancy, color = "Actual Arsons"), size = 1.02) +
   xlab("Year") +
   ylab("Residence Arsons") +

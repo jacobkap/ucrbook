@@ -11,6 +11,8 @@ fig:danvilleRape
 fig:hateCrimes
 fig:unnamed-chunk-3
 fig:fbiHierarchy
+fig:offensesAgenciesReporting
+fig:montgomeryClearances
 fig:phillyRapeUnfound
 fig:phillyRapeUnfoundPercent
 fig:phillyRobberyUnfoundPercent
@@ -73,12 +75,12 @@ offenses_known
 which-crimes-are-included
 hierarchy-rule
 the-problem-with-using-index-crimes
+agencies-reporting
 important-variables
 actual-crimes
-total-cleared-crimers
+total-cleared-crimes
 crimes-cleared-where-all-offenders-are-under-18-years-old
 unfounded-crimes
-number-of-months-reported
 important-issues
 rape-definition-change
 the-decline-of-manslaughter
@@ -110,7 +112,7 @@ key-variables-2
 known-issues-with-the-data-2
 final-thoughts-2
 hate_crimes
-agencies-reporting
+agencies-reporting-1
 important-variables-1
 bias-motivation
 which-crime-occurred
@@ -126,7 +128,7 @@ key-variables-3
 known-issues-with-the-data-3
 final-thoughts-3
 arson-1
-agencies-reporting-1
+agencies-reporting-2
 important-variables-2
 actual-arsons
 unfounded-arsons
