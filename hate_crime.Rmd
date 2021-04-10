@@ -20,10 +20,9 @@ So this data is really a narrower measure of hate crimes than it might seem. In 
 
 My main takeaway for this data is that it is inappropriate to use for most hate crime research. At most it can be used to look at within-city within-bias-motivation trends, while keeping in mind that even this narrow subset of data is limited by under-reporting by victims and potential changes in police practices of reporting such as how many months of data they report per year. 
 
-
 ## Agencies reporting
 
-- hate crime data is available from 1991 to 2019 - 
+We'll start by looking at how many agencies report hate crime each year. This is a bit tricky since 
 
 ```{r hateAgencies, fig.cap = "The annual number of police agencies that report at least one hate crime incident in that year."}
 ucr_hate_crimes_1991_2018 %>%
@@ -38,6 +37,65 @@ ucr_hate_crimes_1991_2018 %>%
   scale_y_continuous(labels = scales::comma) +
   expand_limits(y = 0)
 ```
+
+The 2,000 or so agencies that report each year are not the same every year. Figure \@ref(fig:hateCrimesEver) shows the cumulative number of agencies that have reported at least one hate crime between 1991 and 2018. There is a relatively steady growth in the cumulative number of agencies, with about 350 new agencies each year. This means that each year some new agencies report hate crimes while some agencies that reported a hate crime in the previous year don't report any hate crimes in the current year. Figure \@ref(fig:hateCrimesPreviousYear) puts this into hard numbers by showing the percent of agencies who reported a hate crime in a certain year who *also* reported a hate crime in the previous year. For most years between 50% and 60% of agencies which reported a hate crime in the year shown on the x-axis also reported a hate crime in the previous year, indicating somewhat high consistency in which agencies have hate crimes. 
+
+```{r hateCrimesEver, fig.cap = "The cumulative number of agencies that have reported one or more hate crimes between 1991 to 2018."}
+final <- data.frame(year = sort(unique(ucr_hate_crimes_1991_2018$year)),
+                    total_agencies           = NA,
+                    percent_in_previous_year = NA)
+
+old_agencies <- NA
+reporting_agencies <- NA
+for (i in 1:nrow(final)) {
+  temp <- ucr_hate_crimes_1991_2018 %>%
+    filter(year %in% final$year[i],
+           hate_crime_incident_present_flag %in% "one or more hate crime incidents present")
+  reporting_agencies_temp <- unique(temp$ori)
+  
+  # If length is 1, then variable is NA
+  if (length(reporting_agencies) == 1) {
+    reporting_agencies <- reporting_agencies_temp
+    old_agencies       <- reporting_agencies_temp
+  } else {
+    reporting_agencies <- c(reporting_agencies, reporting_agencies_temp)
+  }
+  reporting_agencies <- unique(reporting_agencies)
+  percent_new_in_old <- sum(reporting_agencies_temp %in% old_agencies) / length(old_agencies)
+  
+  
+  final$total_agencies[i] <- length(reporting_agencies)
+  final$percent_in_previous_year[i] <- percent_new_in_old
+
+  old_agencies       <- reporting_agencies_temp
+}
+final
+
+
+ggplot(final, aes(x = year, y = total_agencies)) +
+  geom_line(size = 1.05) +
+  xlab("Year") +
+  ylab("# of Agencies") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  expand_limits(y = 0) +
+  scale_x_continuous(breaks = c(1992, 1995, 2000, 2005, 2010, 2015, 2018))
+
+```
+
+```{r hateCrimesPreviousYear, fig.cap = "The percent of agencies that report a hate crime in a given year that also reported a hate crime in the previous year, 1992-2018."}
+final %>%
+  filter(year > 1991) %>%
+ggplot(aes(x = year, y = percent_in_previous_year)) +
+  geom_line(size = 1.05) +
+  xlab("Year") +
+  ylab("% Also in Previous Year") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent) +
+  expand_limits(y = 0) +
+  scale_x_continuous(breaks = c(1992, 1995, 2000, 2005, 2010, 2015, 2018))
+```
+
 
 Another way to understand reporting is to look at the number of reported hate crimes by state and see which states report and which don't. Figure \@ref(fig:hateCrimesMap) does this for 2018 data by showing the number of reported hate crime incidents by state. While every state other than Wyoming reporting at least one hate crime in 2018, there are large differences between states because even in states that have reporting agencies, not all agencies in that state report. For example, Alabama reported only two hate crimes in 2018, the least of any state other than Wyoming. 
 
@@ -92,33 +150,85 @@ ggplot2::ggplot(temp, aes(map_id = state)) +
 
 ## Important variables
 
-Each hate crime incident can cover up to 10 different crimes occurring - e.g. a person who burglarizes a synagogue and spray paints a swastika on the wall would be have both vandalism and burglary reported in this data. With each crime, this data has the bias motivation for that crime, the location of the crime (in broad categories, not the actual location in the city like a street address would have), and the number of victims for that offense. In practice, in hate crimes with multiple offenses recorded, the bias motivation, location, and victim count is the same for each offense. 
+This data has the standard set of variables describing the agency that is reporting. This includes the agency ORI - which is the unique ID for that agency - the agency name, their state, and the population under their jurisdiction.
+
+They also have a variable with the exact date that the hate crime occurred on - and not the date it was reported on. Figure \@ref(fig:hateCrimesByDay) shows the percent of hates crimes between 1991 and 2018 that occurred on each day of the week. Interestingly, the most common day for a hate crime to occur is on Wednesday, not on Friday or Saturday as non-hate crimes most frequently occur. This suggests that hate crimes don't follow the same trends as other crimes.
+
+```{r hateCrimesByDay, fig.cap = "The day of the week that hate crimes occurred on, 1991-2018."}
+ucr_hate_crimes_1991_2018$day_of_week <- factor(ucr_hate_crimes_1991_2018$day_of_week,
+                                                labels = rev(c("Monday",
+                                                           "Tuesday",
+                                                           "Wednesday",
+                                                           "Thursday",
+                                                           "Friday",
+                                                           "Saturday",
+                                                           "Sunday")))
+
+ucr_hate_crimes_1991_2018 %>%
+  filter(hate_crime_incident_present_flag %in% "one or more hate crime incidents present") %>%
+  ggplot2::ggplot(ggplot2::aes(x = day_of_week)) + 
+  ggplot2::geom_bar(ggplot2::aes_string(y = "(..count..)/sum(..count..)")) +
+  theme_crim() +
+  ggplot2::coord_flip() + 
+  ggplot2::xlab("") + 
+  ggplot2::ylab("") +
+  ggplot2::scale_y_continuous(labels = scales::percent)
+
+```
 
 
+Each hate crime incident can cover up to 10 different crimes occurring - e.g. a person who burglarizes a synagogue and spray paints a swastika on the wall would be have both vandalism and burglary reported in this data. With each crime, this data has the bias motivation for that crime, the location of the crime (in broad categories, not the actual location in the city like a street address would have), and the number of victims for that offense. In practice, in most hate crimes with multiple offenses recorded, the bias motivation, location, and victim count is the same for each offense.
+
+Figure \@ref(fig:crimesPerHateCrime) shows the number of crimes per incident for each hate crime reported between 1991 and 2018. In 96.6% of cases, there is only one offense in that incident.^[In 0.0005% of hate crimes there is no recorded offense. This is not shown in the graph.] This drops sharply to 3.2% of incidents having two offenses, 0.21% having three offenses, 0.016% having four offenses, and 0.002% having five offenses. Even though this data does allow up to 10 offenses per hate crime incident, there has never been a recorded case with more than five offenses. 
+
+```{r crimesPerHateCrime, fig.cap ="The number of offenses per hate crime incident."}
+ucr_hate_crimes_1991_2018$total_offenses <- 0
+
+for (i in 1:10) {
+  ucr_hate_crimes_1991_2018$total_offenses[!is.na(ucr_hate_crimes_1991_2018[, paste0("ucr_offense_code_", i)])] <- ucr_hate_crimes_1991_2018$total_offenses[!is.na(ucr_hate_crimes_1991_2018[, paste0("ucr_offense_code_", i)])] + 1
+}
+ 
+ucr_hate_crimes_1991_2018 %>%
+  filter(hate_crime_incident_present_flag %in% "one or more hate crime incidents present",
+         total_offenses != 0) %>%
+crimeutils::make_stat_count_plots("total_offenses", count = FALSE, xlab = "Offenses per Incident") +
+  scale_x_continuous(breaks = 1:5)
+```
 
 
-### Bias motivation
+### The bias motivation (who the hate is against)
 
 The most important variable in this data is the "bias motivation" which is the FBI's term for the cause of the hate. A hate crime targeted against Black people would be an "anti-Black" bias motivation. For the police to classify an incident as a hate crime, and to assign a particular bias motivation, the police must have *some* evidence that the crime was motivated by hate. The victim saying that the crime is a hate crime alone is not sufficient - though if large portions of the victim's community believe that the crime is a hate crime, this is a factor in the police's assessment. The evidence required is not major, it includes things as explicit as racial slurs said during an incident and less obvious factors like the victim is celebrating their community (e.g. attending a holiday event) or the crime occurring on an important holiday for that community (e.g. Martin Luther King Day, religious holidays). The FBI also encourages police to consider the totality of the evidence even if none alone strongly suggests that the crime was a hate crime in making their determination about whether the incident was a hate crime or not.
 
-This also means that many (likely most) hate crimes will not be recorded as hate crimes since there is no evidence that the crime is motivated by hate. For example, if a man targeted Asian people for crimes because they are Asian, that would in reality be a hate crime. However, if the offender does not say anything anti-Asian to the victim, which is the mostly likely thing to indicate that this is a hate crime, the crime would not likely be recorded as a hate crime. 
-
-Indeed, even if crimes against Asian people significantly increase, without evidence 
+This also means that many (likely most) hate crimes will not be recorded as hate crimes since there is no evidence that the crime is motivated by hate. For example, if a man committed a crime against Asian people for crimes because they are Asian, that would in reality be a hate crime. However, if the offender does not say anything anti-Asian to the victim, which is the mostly likely thing to indicate that this is a hate crime, the crime would not likely be recorded as a hate crime. For example, at the time of this writing (Spring, 2021), there are numerous media reports discussing an increase in anti-Asian hate crimes as a result of racism relating to the pandemic.^[This dataset for 2020 won't be released until Fall 2021 so this data is not useful for measuring urgent policies about current events.] This data would likely undercount both anti-Asian behavior and anti-Asian hate crimes. First, if someone walked to an Asian person and called them an anti-Asian slur, that is clearly a hateful act and would be classified as a hate crime under some organization's collections methods. However, as hateful as this incident is, *this alone* would not be classified as a hate crime in this dataset as a slur is not a crime. If accompanied by other criminal behavior, or if it continues to the point where it can be considered intimidation, it would then be classified as a hate crime. Second, crimes against Asian victims that are in fact hate crimes, but have no evidence that they are hate crimes would not be classified as hate crimes in this data. 
 
 Bias motivation is based on the offender's perceptions of the victim so even if they are incorrect in who their victim is, if they intended to target someone for their perceived group membership, that is still a hate crime. For example, if a person assaults a man because they think he is gay, that is a hate crime because the assault was motivated by hate towards gay people. Whether the victim is actually gay or not is not relevant - the offender perceived him to be gay so it is an anti-gay  hate crime. To make this even more complicated, the offender must have committed the crime because they are motivated, at least to some degree, by their bias against the victim. Being biased against the victim but targeting them for some other reason means that the crime is not a hate crime. 
 
-
+The biases that the FBI includes in this data has grown over time, with new bias motivations being added in 1997, 2012, 2013, and 2015. Table \@ref(fig:hateBiasMotivation) shows each bias motivation in this data, the year it was first reported, how many hate crimes there were for this bias motivation from 1991-2018 and what percent of hate crimes that bias motivation makes up. For ease of seeing how bias motivations changed over time, the table is sorted by year and by frequency of incident within that year. If you're viewing this on a computer or phone, you can sort the table yourself. The year is the first year with that bias motivation - as hate crimes for certain groups are very rare, the bias motivation could have technically been available in previous years. The last column in this table shows the percent of hate crimes from 1991-2018, though this is a very rough measure since some groups are so small that even accounting for a small percent of total hate crimes can mean that are massively disproportionately targeted. 
 
 ```{r hateBiasMotivation, fig.cap = "The bias motivation for hate crime incidents. In incidents with multiple bias motivation, this shows only the first bias motivation recorded."}
 ucr_hate_crimes_1991_2018$bias_motivation_offense_1[ucr_hate_crimes_1991_2018$bias_motivation_offense_1 %in% "99"] <- NA
-temp <- make_frequency_table_year(ucr_hate_crimes_1991_2018, "bias_motivation_offense_1",
-                             c("Bias Motivation", "First Year Reported", "# of Incidents", "% of Incidents"))
+temp <- make_frequency_table_year(ucr_hate_crimes_1991_2018,
+                                  "bias_motivation_offense_1",
+                             c("Bias Motivation",
+                               "First Year Reported",
+                               "# of Incidents",
+                               "% of Incidents"))
 temp$`Bias Motivation` <- gsub("lgbt", "LGBT", ignore.case = TRUE, temp$`Bias Motivation`)
 datatable(temp, options = list(pageLength = 100)) %>%
   formatPercentage('% of Incidents', 2) %>%
   formatRound('# of Incidents', digits = 0)
 ```
-### Which crime occurred
+
+2015 is the most year of new bias motivations, as of data through 2018. This year added a number of religions such as Anti-Buddhist, Anti-Sikh, and Anti-Jehovah's Witness. In 2013, anti-Transgender was added and this is the most common of the bias motivations added since data began in 1991 with 513 hate crimes between 2013-2018 - 0.26% of all hate crimes from 1991-2018. That year also added anti-male and Anti-Native Hawaiian or Other Pacific Islander, which is the most recent racial group added.  In 2012, anti-gender non-conforming and anti-female were included, while in 1997 both anti-mental and anti-physical disability were added. In part due to having fewer years of data available, these newer bias motivations make up a small percent of total hate crimes, accounting for ~1.4%. 
+
+The original hate crimes - that is, those in the data in 1991 when this dataset was released - are far more common. The most common bias motivation is anti-Black at 34% of hate crimes, anti-Jewish at 13%, anti-White at 12%, anti-male homosexual (gay) at 10%, anti-Hispanic at 6%, and anti-ethnicity other than Hispanic (this group means a crime against a ethnic group that isn't Hispanic, though it is occasionally reported as anti-non-Hispanic which is incorrect.) at 5%. All other bias motivations are less than 5% of hate crimes and consist of a variety of ethnic, racial, religious, or sexual orientation. Some hate crimes can potentially fall in multiple categories. For example, there is a bias motivation of "anti-male homosexual (gay)" and of "anti-lesbian, gay, bisexual, or transgender, mixed group (LGBT)" so there is some overlap between them.
+
+### The crime that occurred
+
+The "crime" part of hate crimes is which criminal offense occurred during the incident. A hateful act where the action is not one of the crimes that the FBI records would not be considered a hate crime. This is likely most common when considering something like a person calling someone by a hateful slur (e.g. "You're a [slur]", "go back to your own country") but where the action is not technically a crime. Another layer of difficulty in using this data is that not all crimes that the FBI includes were initially included when data become available in 1991. Every several years the FBI adds new crimes to be included in this data. Table \@ref(fig:hateOffense) shows each crime in the data, the first year that this crime was reported, the total number of these crimes reported between 1991 and 2018, and the percent of all incidents this crime makes up.^[This tables uses only the first offense in an incident so counts are slightly lower than if all crimes in every incident is used.] This table is sorted with the most recent years first, and within year by how common the crime was.
+
+Nearly all hate crimes are vandalism/destruction of property (31%), intimidation (30%), and simple assault (20%) or aggravated assault (11%) with no remaining crime making up more than 2% of total hate crimes. 
 
 ```{r hateOffense, fig.cap = "The offense type for hate crime incidents. In incidents with multiple offense types, this shows only the first offense type recorded."}
 ucr_hate_crimes_1991_2018$ucr_offense_code_1[ucr_hate_crimes_1991_2018$ucr_offense_code_1 %in% "720"] <- NA
@@ -128,7 +238,14 @@ datatable(temp, options = list(pageLength = 100)) %>%
   formatPercentage('% of Incidents', 2) %>%
   formatRound('# of Incidents', digits = 0)
 ```
-### Location
+
+Agencies that report to the FBI's National Incident-Based Reporting System (NIBRS) can also report bias motivations for their crimes, and these reports are included in this dataset. One tricky thing is that the crimes included are different depending on if the agency reported through NIBRS or to the dataset directly, and are not NIBRS reporting agencies. The above table shows all crimes included, but agencies who report directly can only submit a subset of crimes. These crimes are the same as in the Offenses Known and Clearances by Arrest dataset that is detailed in Chapter \@ref(offenses_known) as well as vandalism/destruction of property and human trafficking. 
+
+### The location of the crime
+
+This data is interesting because it includes the location - in categories for types of places, not actual location in the city - of the incident. This is important since the type of location can be a factor in whether the incident is classified as a hate crime. For example, spray paint on a synagogue or a mosque is much more likely to be a hate crime than spray paint on a wall of an abandoned building. Table \@ref(fig:hateLocations) shows the locations of hate crimes sorted by the year that location was first included in the data and then by frequency of hate crimes. Each hate crime incident can have multiple locations since each offense can have its own incident, but in most cases (96.6%) a hate crime only has a single location. 
+
+As with the crime and the bias motivation, the available locations have increased as time went on, though these newer locations are relatively uncommon. One important change in location is that starting in 2010 the location of school/college was split to have one location be for elementary and high schools and another location be for colleges and universities. The majority of hate crimes occur in the victim's home (30%), on a road or alley (19%), in an unknown location (13.6%), and in a parking lot or parking garage. All other locations occur in fewer than 5% of hate crimes. 
 
 ```{r hateLocations, fig.cap = "The location of hate crime incidents. In incidents with multiple locations, this shows only the first location recorded."}
 ucr_hate_crimes_1991_2018$location_code_offense_1[ucr_hate_crimes_1991_2018$location_code_offense_1 %in% "undocumented code v13"] <- NA
@@ -138,6 +255,7 @@ datatable(temp, options = list(pageLength = 100)) %>%
   formatPercentage('% of Incidents', 2) %>%
   formatRound('# of Incidents', digits = 0)
 ```
+
 ### Number and race of offenders
 
 There are two variables that have information about the people who commit the hate crime: the number of offenders and the race of the offenders (as a single value with the race of the group if all are of the same race or it will say a "multi-racial" group). Unfortunately, important information like the age of the offenders, their criminal history, their relationship to the victim, their gender, or whether they are arrested are completely unavailable in this dataset. 

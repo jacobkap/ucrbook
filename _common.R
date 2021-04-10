@@ -27,8 +27,8 @@ make_frequency_table_year <- function(data, column, col_names) {
   temp_df <-
     temp_df %>%
     mutate(percent = number / sum(number)) %>%
-    arrange(desc(number),
-            desc(first_year)) %>%
+    arrange(desc(first_year),
+            desc(number)) %>%
     mutate(col1 = crimeutils::capitalize_words(col1))
   names(temp_df) <- col_names
   return(temp_df)

@@ -83,7 +83,7 @@
 
 \title{Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide}
 \author{Jacob Kaplan}
-\date{2021-04-06}
+\date{2021-04-10}
 
 \begin{document}
 \maketitle
@@ -123,7 +123,7 @@ I get a lot of emails from people asking questions about this data so part of my
 \hypertarget{structure-of-the-book}{%
 \section{Structure of the book}\label{structure-of-the-book}}
 
-The remainder of this book will be divided into eight chapters: an intro chapter briefly summarizing each dataset and going over overall issues with UCR data, seven chapters each covering one of the seven UCR datasets, and a final one covering county-level data, a highly flawed but common use of the UCR data. I highly recommend that you start with the intro chapter (Chapter @ref(ucr\_general)) since it covers topics that apply to each UCR dataset - such as understanding agency unique identifiers and why the data (correctly) has negative numbers - that won't be covered in individual chapters. Each of the UCR dataset chapters will follow the same format: we'll start with a history of the data such as when it first because available and important changes in definitions or variables. We'll then look at which variables are available, and the most important (or most used) ones. The bulk of each chapter will be exploring the data to understand how reliable it is and what questions we can adequately answer using it.
+The remainder of this book will be divided into eight chapters: an intro chapter briefly summarizing each dataset and going over overall issues with UCR data, seven chapters each covering one of the seven UCR datasets, and a final one covering county-level data, a highly flawed but common use of the UCR data. I highly recommend that you start with the intro chapter (Chapter \ref{ucrGeneral}) since it covers topics that apply to each UCR dataset - such as understanding agency unique identifiers and why the data (correctly) has negative numbers - that won't be covered in individual chapters. Each of the UCR dataset chapters will follow the same format: we'll start with a history of the data such as when it first because available and important changes in definitions or variables. We'll then look at which variables are available, and the most important (or most used) ones. The bulk of each chapter will be exploring the data to understand how reliable it is and what questions we can adequately answer using it.
 
 Since manuals are boring, I'll try to include graphs and images to try to alleviate the boredom. That said, I don't think it's possible to make it too fun so sorry in advance. This book is a mix of facts about the data, such as how many years are available, and my opinions about it, such as whether it is reliable. In cases of facts I'll just say a statement - e.g.~``the offenses data is available since 1960''. In cases of opinion I'll temper the statement by saying something like ``in my opinion\ldots{}'' or ``I think'' or ``I believe.''
 
@@ -181,8 +181,8 @@ For a list of data sets he has cleaned, aggregated, and made public, please see 
 
 For a list of R packages he has created, please see \href{https://jacobdkaplan.com/packages.html}{here}.
 
-\hypertarget{ucr_general}{%
-\chapter{Overview of the Data}\label{ucr_general}}
+\hypertarget{ucrGeneral}{%
+\chapter{Overview of the Data}\label{ucrGeneral}}
 
 One of the first, and most important, questions I think people have about crime is a simple one: is crime going up? Answering it seems simple - you just count up all the crimes that happen in an area and see if that number of bigger than it was in previous times.
 
@@ -1006,6 +1006,16 @@ This data, as well as the privately-run site \href{https://www.odmp.org/}{Office
 
 The Supplementary Homicide Reports dataset - often abbreviated to SHR - is the most detailed of the UCR datasets and provides information about the circumstances and participants (victim and offender demographics and relationship status) for homicides.\footnote{If you're familiar with the National Incident-Based Reporting System (NIBRS) data that is replacing UCR, this dataset is the closest UCR data to it, though it is still less detailed than NIBRS data.} For each homicide incident it tells you the age, gender, race, and ethnicity of each victim and offender as well as the relationship between the first victim and each of the offenders (but not the other victims in cases where there are multiple victims). It also tells you the weapon used by each offender and the circumstance of the killing, such as a ``lovers triangle'' or a gang-related murder. As with other UCR data, it also tells you the agency it occurred in and the month and year when the crime happened.
 
+While highly detailed compared to other UCR data, there are a number of limitations for this data.
+
+Since this data is voluntary to
+
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/shrVsOffenses-1.pdf}
+\caption{\label{fig:shrVsOffenses}The annual number of murders from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset. Numbers differ because agencies voluntarily report and may not report to both datasets.}
+\end{figure}
+
 \begin{verbatim}
 ## [1] 30.96352
 \end{verbatim}
@@ -1026,11 +1036,8 @@ The Supplementary Homicide Reports dataset - often abbreviated to SHR - is the m
 \caption{\label{fig:shrVictimAge}The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as `birth to 7 days old, including abandoned infant' and `7 days to 364 days old') and considered 0 years old. Victims reported as `99 years or older' are considered 99 years old.}
 \end{figure}
 
-\begin{figure}
-\centering
 \includegraphics{ucrbook_files/figure-latex/shrWeapon-1.png}
-\caption{\label{fig:shrWeapon}The weapon used in a homicide incident. In cases where there are multiple offenders, shows only the primary weapon for the first offender.}
-\end{figure}
+An interesting and highly useful variable is the relationship between the first victim and each offender.
 
 \begin{figure}
 \centering
@@ -1050,45 +1057,6 @@ The Supplementary Homicide Reports dataset - often abbreviated to SHR - is the m
 \caption{\label{fig:shrSubCircumstance}The circumstance for the first offender in a homicide incident in cases where the offender is killed. This includes incidents where the only person who dies in the offender.}
 \end{figure}
 
-While highly detailed compared to other UCR data, there are a number of limitations for this data.
-
-Since this data is voluntary to
-
-\begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/shrVsOffenses-1.pdf}
-\caption{\label{fig:shrVsOffenses}The annual number of murders from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset. Numbers differ because agencies voluntarily report and may not report to both datasets.}
-\end{figure}
-
-This\\
-If this ``most detailed'' dataset sounds disappointing - and it is! -
-
-\hypertarget{a-brief-history-of-the-data-2}{%
-\section{A brief history of the data}\label{a-brief-history-of-the-data-2}}
-
-The data is available from the FBI starting in 1975 though, unlike all later years, this year only has information on a single victim and a single offender. For this reason I only release data starting in 1976 where up to 11 victims and 11 offenders are included. This data has been released every year since and the most recent year available is 2019.
-
-\hypertarget{changes-in-definitions-2}{%
-\subsection{Changes in definitions}\label{changes-in-definitions-2}}
-
-\hypertarget{what-does-the-data-look-like-2}{%
-\section{What does the data look like?}\label{what-does-the-data-look-like-2}}
-
-\hypertarget{raw-data-1}{%
-\subsection{Raw data}\label{raw-data-1}}
-
-\hypertarget{what-variables-are-in-the-data-2}{%
-\section{What variables are in the data?}\label{what-variables-are-in-the-data-2}}
-
-\hypertarget{key-variables-2}{%
-\subsection{Key variables}\label{key-variables-2}}
-
-\hypertarget{known-issues-with-the-data-2}{%
-\section{Known issues with the data}\label{known-issues-with-the-data-2}}
-
-\hypertarget{final-thoughts-2}{%
-\section{Final thoughts}\label{final-thoughts-2}}
-
 \hypertarget{hate_crimes}{%
 \chapter{Hate Crime Data}\label{hate_crimes}}
 
@@ -1101,16 +1069,58 @@ My main takeaway for this data is that it is inappropriate to use for most hate 
 \hypertarget{agencies-reporting-1}{%
 \section{Agencies reporting}\label{agencies-reporting-1}}
 
-\begin{itemize}
-\tightlist
-\item
-  hate crime data is available from 1991 to 2019 -
-\end{itemize}
+We'll start by looking at how many agencies report hate crime each year. This is a bit tricky since
 
 \begin{figure}
 \centering
 \includegraphics{ucrbook_files/figure-latex/hateAgencies-1.pdf}
 \caption{\label{fig:hateAgencies}The annual number of police agencies that report at least one hate crime incident in that year.}
+\end{figure}
+
+The 2,000 or so agencies that report each year are not the same every year. Figure \ref{fig:hateCrimesEver} shows the cumulative number of agencies that have reported at least one hate crime between 1991 and 2018. There is a relatively steady growth in the cumulative number of agencies, with about 350 new agencies each year. This means that each year some new agencies report hate crimes while some agencies that reported a hate crime in the previous year don't report any hate crimes in the current year. Figure \ref{fig:hateCrimesPreviousYear} puts this into hard numbers by showing the percent of agencies who reported a hate crime in a certain year who \emph{also} reported a hate crime in the previous year. For most years between 50\% and 60\% of agencies which reported a hate crime in the year shown on the x-axis also reported a hate crime in the previous year, indicating somewhat high consistency in which agencies have hate crimes.
+
+\begin{verbatim}
+##    year total_agencies percent_in_previous_year
+## 1  1991            739                1.0000000
+## 2  1992           1420                0.5778078
+## 3  1993           2026                0.5703971
+## 4  1994           2424                0.4747551
+## 5  1995           3057                0.5416667
+## 6  1996           3630                0.5920462
+## 7  1997           4002                0.5441658
+## 8  1998           4391                0.5615251
+## 9  1999           4742                0.5505804
+## 10 2000           5085                0.5694598
+## 11 2001           5458                0.5946089
+## 12 2002           5717                0.5308642
+## 13 2003           6019                0.5715051
+## 14 2004           6321                0.5475343
+## 15 2005           6585                0.5547410
+## 16 2006           6827                0.5625920
+## 17 2007           7025                0.5603039
+## 18 2008           7273                0.5871605
+## 19 2009           7510                0.5254079
+## 20 2010           7702                0.5315712
+## 21 2011           7883                0.5346331
+## 22 2012           8035                0.5195473
+## 23 2013           8189                0.5002547
+## 24 2014           8321                0.4719780
+## 25 2015           8471                0.4936709
+## 26 2016           8608                0.4919262
+## 27 2017           8765                0.5427762
+## 28 2018           8927                0.5007437
+\end{verbatim}
+
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/hateCrimesEver-1.pdf}
+\caption{\label{fig:hateCrimesEver}The cumulative number of agencies that have reported one or more hate crimes between 1991 to 2018.}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/hateCrimesPreviousYear-1.pdf}
+\caption{\label{fig:hateCrimesPreviousYear}The percent of agencies that report a hate crime in a given year that also reported a hate crime in the previous year, 1992-2018.}
 \end{figure}
 
 Another way to understand reporting is to look at the number of reported hate crimes by state and see which states report and which don't. Figure \ref{fig:hateCrimesMap} does this for 2018 data by showing the number of reported hate crime incidents by state. While every state other than Wyoming reporting at least one hate crime in 2018, there are large differences between states because even in states that have reporting agencies, not all agencies in that state report. For example, Alabama reported only two hate crimes in 2018, the least of any state other than Wyoming.
@@ -1132,27 +1142,77 @@ Since the number of state-wide hate crimes is partially influenced by population
 \hypertarget{important-variables-1}{%
 \section{Important variables}\label{important-variables-1}}
 
-Each hate crime incident can cover up to 10 different crimes occurring - e.g.~a person who burglarizes a synagogue and spray paints a swastika on the wall would be have both vandalism and burglary reported in this data. With each crime, this data has the bias motivation for that crime, the location of the crime (in broad categories, not the actual location in the city like a street address would have), and the number of victims for that offense. In practice, in hate crimes with multiple offenses recorded, the bias motivation, location, and victim count is the same for each offense.
+This data has the standard set of variables describing the agency that is reporting. This includes the agency ORI - which is the unique ID for that agency - the agency name, their state, and the population under their jurisdiction.
 
-\hypertarget{bias-motivation}{%
-\subsection{Bias motivation}\label{bias-motivation}}
+They also have a variable with the exact date that the hate crime occurred on - and not the date it was reported on. Figure \ref{fig:hateCrimesByDay} shows the percent of hates crimes between 1991 and 2018 that occurred on each day of the week. Interestingly, the most common day for a hate crime to occur is on Wednesday, not on Friday or Saturday as non-hate crimes most frequently occur. This suggests that hate crimes don't follow the same trends as other crimes.
+
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/hateCrimesByDay-1.pdf}
+\caption{\label{fig:hateCrimesByDay}The day of the week that hate crimes occurred on, 1991-2018.}
+\end{figure}
+
+Each hate crime incident can cover up to 10 different crimes occurring - e.g.~a person who burglarizes a synagogue and spray paints a swastika on the wall would be have both vandalism and burglary reported in this data. With each crime, this data has the bias motivation for that crime, the location of the crime (in broad categories, not the actual location in the city like a street address would have), and the number of victims for that offense. In practice, in most hate crimes with multiple offenses recorded, the bias motivation, location, and victim count is the same for each offense.
+
+Figure \ref{fig:crimesPerHateCrime} shows the number of crimes per incident for each hate crime reported between 1991 and 2018. In 96.6\% of cases, there is only one offense in that incident.\footnote{In 0.0005\% of hate crimes there is no recorded offense. This is not shown in the graph.} This drops sharply to 3.2\% of incidents having two offenses, 0.21\% having three offenses, 0.016\% having four offenses, and 0.002\% having five offenses. Even though this data does allow up to 10 offenses per hate crime incident, there has never been a recorded case with more than five offenses.
+
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/crimesPerHateCrime-1.pdf}
+\caption{\label{fig:crimesPerHateCrime}The number of offenses per hate crime incident.}
+\end{figure}
+
+\hypertarget{the-bias-motivation-who-the-hate-is-against}{%
+\subsection{The bias motivation (who the hate is against)}\label{the-bias-motivation-who-the-hate-is-against}}
 
 The most important variable in this data is the ``bias motivation'' which is the FBI's term for the cause of the hate. A hate crime targeted against Black people would be an ``anti-Black'' bias motivation. For the police to classify an incident as a hate crime, and to assign a particular bias motivation, the police must have \emph{some} evidence that the crime was motivated by hate. The victim saying that the crime is a hate crime alone is not sufficient - though if large portions of the victim's community believe that the crime is a hate crime, this is a factor in the police's assessment. The evidence required is not major, it includes things as explicit as racial slurs said during an incident and less obvious factors like the victim is celebrating their community (e.g.~attending a holiday event) or the crime occurring on an important holiday for that community (e.g.~Martin Luther King Day, religious holidays). The FBI also encourages police to consider the totality of the evidence even if none alone strongly suggests that the crime was a hate crime in making their determination about whether the incident was a hate crime or not.
 
-This also means that many (likely most) hate crimes will not be recorded as hate crimes since there is no evidence that the crime is motivated by hate. For example, if a man targeted Asian people for crimes because they are Asian, that would in reality be a hate crime. However, if the offender does not say anything anti-Asian to the victim, which is the mostly likely thing to indicate that this is a hate crime, the crime would not likely be recorded as a hate crime.
-
-Indeed, even if crimes against Asian people significantly increase, without evidence
+This also means that many (likely most) hate crimes will not be recorded as hate crimes since there is no evidence that the crime is motivated by hate. For example, if a man committed a crime against Asian people for crimes because they are Asian, that would in reality be a hate crime. However, if the offender does not say anything anti-Asian to the victim, which is the mostly likely thing to indicate that this is a hate crime, the crime would not likely be recorded as a hate crime. For example, at the time of this writing (Spring, 2021), there are numerous media reports discussing an increase in anti-Asian hate crimes as a result of racism relating to the pandemic.\footnote{This dataset for 2020 won't be released until Fall 2021 so this data is not useful for measuring urgent policies about current events.} This data would likely undercount both anti-Asian behavior and anti-Asian hate crimes. First, if someone walked to an Asian person and called them an anti-Asian slur, that is clearly a hateful act and would be classified as a hate crime under some organization's collections methods. However, as hateful as this incident is, \emph{this alone} would not be classified as a hate crime in this dataset as a slur is not a crime. If accompanied by other criminal behavior, or if it continues to the point where it can be considered intimidation, it would then be classified as a hate crime. Second, crimes against Asian victims that are in fact hate crimes, but have no evidence that they are hate crimes would not be classified as hate crimes in this data.
 
 Bias motivation is based on the offender's perceptions of the victim so even if they are incorrect in who their victim is, if they intended to target someone for their perceived group membership, that is still a hate crime. For example, if a person assaults a man because they think he is gay, that is a hate crime because the assault was motivated by hate towards gay people. Whether the victim is actually gay or not is not relevant - the offender perceived him to be gay so it is an anti-gay hate crime. To make this even more complicated, the offender must have committed the crime because they are motivated, at least to some degree, by their bias against the victim. Being biased against the victim but targeting them for some other reason means that the crime is not a hate crime.
 
+The biases that the FBI includes in this data has grown over time, with new bias motivations being added in 1997, 2012, 2013, and 2015. Table \ref{fig:hateBiasMotivation} shows each bias motivation in this data, the year it was first reported, how many hate crimes there were for this bias motivation from 1991-2018 and what percent of hate crimes that bias motivation makes up. For ease of seeing how bias motivations changed over time, the table is sorted by year and by frequency of incident within that year. If you're viewing this on a computer or phone, you can sort the table yourself. The year is the first year with that bias motivation - as hate crimes for certain groups are very rare, the bias motivation could have technically been available in previous years. The last column in this table shows the percent of hate crimes from 1991-2018, though this is a very rough measure since some groups are so small that even accounting for a small percent of total hate crimes can mean that are massively disproportionately targeted.
+
+\begin{figure}
+\centering
 \includegraphics{ucrbook_files/figure-latex/hateBiasMotivation-1.png}
-\#\#\# Which crime occurred
+\caption{\label{fig:hateBiasMotivation}The bias motivation for hate crime incidents. In incidents with multiple bias motivation, this shows only the first bias motivation recorded.}
+\end{figure}
 
+2015 is the most year of new bias motivations, as of data through 2018. This year added a number of religions such as Anti-Buddhist, Anti-Sikh, and Anti-Jehovah's Witness. In 2013, anti-Transgender was added and this is the most common of the bias motivations added since data began in 1991 with 513 hate crimes between 2013-2018 - 0.26\% of all hate crimes from 1991-2018. That year also added anti-male and Anti-Native Hawaiian or Other Pacific Islander, which is the most recent racial group added. In 2012, anti-gender non-conforming and anti-female were included, while in 1997 both anti-mental and anti-physical disability were added. In part due to having fewer years of data available, these newer bias motivations make up a small percent of total hate crimes, accounting for \textasciitilde1.4\%.
+
+The original hate crimes - that is, those in the data in 1991 when this dataset was released - are far more common. The most common bias motivation is anti-Black at 34\% of hate crimes, anti-Jewish at 13\%, anti-White at 12\%, anti-male homosexual (gay) at 10\%, anti-Hispanic at 6\%, and anti-ethnicity other than Hispanic (this group means a crime against a ethnic group that isn't Hispanic, though it is occasionally reported as anti-non-Hispanic which is incorrect.) at 5\%. All other bias motivations are less than 5\% of hate crimes and consist of a variety of ethnic, racial, religious, or sexual orientation. Some hate crimes can potentially fall in multiple categories. For example, there is a bias motivation of ``anti-male homosexual (gay)'' and of ``anti-lesbian, gay, bisexual, or transgender, mixed group (LGBT)'' so there is some overlap between them.
+
+\hypertarget{the-crime-that-occurred}{%
+\subsection{The crime that occurred}\label{the-crime-that-occurred}}
+
+The ``crime'' part of hate crimes is which criminal offense occurred during the incident. A hateful act where the action is not one of the crimes that the FBI records would not be considered a hate crime. This is likely most common when considering something like a person calling someone by a hateful slur (e.g.~``You're a {[}slur{]}'', ``go back to your own country'') but where the action is not technically a crime. Another layer of difficulty in using this data is that not all crimes that the FBI includes were initially included when data become available in 1991. Every several years the FBI adds new crimes to be included in this data. Table \ref{fig:hateOffense} shows each crime in the data, the first year that this crime was reported, the total number of these crimes reported between 1991 and 2018, and the percent of all incidents this crime makes up.\footnote{This tables uses only the first offense in an incident so counts are slightly lower than if all crimes in every incident is used.} This table is sorted with the most recent years first, and within year by how common the crime was.
+
+Nearly all hate crimes are vandalism/destruction of property (31\%), intimidation (30\%), and simple assault (20\%) or aggravated assault (11\%) with no remaining crime making up more than 2\% of total hate crimes.
+
+\begin{figure}
+\centering
 \includegraphics{ucrbook_files/figure-latex/hateOffense-1.png}
-\#\#\# Location
+\caption{\label{fig:hateOffense}The offense type for hate crime incidents. In incidents with multiple offense types, this shows only the first offense type recorded.}
+\end{figure}
 
+Agencies that report to the FBI's National Incident-Based Reporting System (NIBRS) can also report bias motivations for their crimes, and these reports are included in this dataset. One tricky thing is that the crimes included are different depending on if the agency reported through NIBRS or to the dataset directly, and are not NIBRS reporting agencies. The above table shows all crimes included, but agencies who report directly can only submit a subset of crimes. These crimes are the same as in the Offenses Known and Clearances by Arrest dataset that is detailed in Chapter @ref(offenses\_known) as well as vandalism/destruction of property and human trafficking.
+
+\hypertarget{the-location-of-the-crime}{%
+\subsection{The location of the crime}\label{the-location-of-the-crime}}
+
+This data is interesting because it includes the location - in categories for types of places, not actual location in the city - of the incident. This is important since the type of location can be a factor in whether the incident is classified as a hate crime. For example, spray paint on a synagogue or a mosque is much more likely to be a hate crime than spray paint on a wall of an abandoned building. Table \ref{fig:hateLocations} shows the locations of hate crimes sorted by the year that location was first included in the data and then by frequency of hate crimes. Each hate crime incident can have multiple locations since each offense can have its own incident, but in most cases (96.6\%) a hate crime only has a single location.
+
+As with the crime and the bias motivation, the available locations have increased as time went on, though these newer locations are relatively uncommon. One important change in location is that starting in 2010 the location of school/college was split to have one location be for elementary and high schools and another location be for colleges and universities. The majority of hate crimes occur in the victim's home (30\%), on a road or alley (19\%), in an unknown location (13.6\%), and in a parking lot or parking garage. All other locations occur in fewer than 5\% of hate crimes.
+
+\begin{figure}
+\centering
 \includegraphics{ucrbook_files/figure-latex/hateLocations-1.png}
-\#\#\# Number and race of offenders
+\caption{\label{fig:hateLocations}The location of hate crime incidents. In incidents with multiple locations, this shows only the first location recorded.}
+\end{figure}
+
+\hypertarget{number-and-race-of-offenders}{%
+\subsection{Number and race of offenders}\label{number-and-race-of-offenders}}
 
 There are two variables that have information about the people who commit the hate crime: the number of offenders and the race of the offenders (as a single value with the race of the group if all are of the same race or it will say a ``multi-racial'' group). Unfortunately, important information like the age of the offenders, their criminal history, their relationship to the victim, their gender, or whether they are arrested are completely unavailable in this dataset.
 
@@ -1177,29 +1237,29 @@ The data also includes the race of the offenders as a group, though not the ethn
 
 The Property Stolen and Recovered data - sometimes called the Supplement to Return A (Return A being another name for the Offenses Known and Clearances by Arrest dataset, the ``crime'' dataset) - provides monthly information about property-related offenses (theft, motor vehicle theft, robbery, and burglary), including the location of the offense (in broad categories like ``gas station'' or ``residence), what was stolen (e.g.~clothing, livestock, firearms), and how much the stolen items were worth.\footnote{It also includes the value of items stolen during rapes and murders, if anything was stolen.} The''recovered" part of this dataset covers the type and value of property recovered so you can use this, along with the type and value of property stolen, to determine what percent and type of items the police managed to recover. Like other UCR datasets this is at the agency-month level so you can, for example, learn how often burglaries occur at the victim's home during the day, and if that rate changes over the year or differs across agencies. The data, however, provides no information about the offender or the victim (other than if the victim was an individual or a commercial business {[}based on the location of the incident - ``bank'', ``gas station'', etc{]}). The value of the property stolen is primarily based on the victim's estimate of how much the item is worth (items that are decreased in value once used - such as cars - are supposed to be valued at the current market rate, but the data provides no indication of when it uses the current market rate or the victim's estimate) so it should be used as a very rough estimate of value.
 
-\hypertarget{a-brief-history-of-the-data-3}{%
-\section{A brief history of the data}\label{a-brief-history-of-the-data-3}}
+\hypertarget{a-brief-history-of-the-data-2}{%
+\section{A brief history of the data}\label{a-brief-history-of-the-data-2}}
 
-\hypertarget{changes-in-definitions-3}{%
-\subsection{Changes in definitions}\label{changes-in-definitions-3}}
+\hypertarget{changes-in-definitions-2}{%
+\subsection{Changes in definitions}\label{changes-in-definitions-2}}
 
-\hypertarget{what-does-the-data-look-like-3}{%
-\section{What does the data look like?}\label{what-does-the-data-look-like-3}}
+\hypertarget{what-does-the-data-look-like-2}{%
+\section{What does the data look like?}\label{what-does-the-data-look-like-2}}
 
-\hypertarget{raw-data-2}{%
-\subsection{Raw data}\label{raw-data-2}}
+\hypertarget{raw-data-1}{%
+\subsection{Raw data}\label{raw-data-1}}
 
-\hypertarget{what-variables-are-in-the-data-3}{%
-\section{What variables are in the data?}\label{what-variables-are-in-the-data-3}}
+\hypertarget{what-variables-are-in-the-data-2}{%
+\section{What variables are in the data?}\label{what-variables-are-in-the-data-2}}
 
-\hypertarget{key-variables-3}{%
-\subsection{Key variables}\label{key-variables-3}}
+\hypertarget{key-variables-2}{%
+\subsection{Key variables}\label{key-variables-2}}
 
-\hypertarget{known-issues-with-the-data-3}{%
-\section{Known issues with the data}\label{known-issues-with-the-data-3}}
+\hypertarget{known-issues-with-the-data-2}{%
+\section{Known issues with the data}\label{known-issues-with-the-data-2}}
 
-\hypertarget{final-thoughts-3}{%
-\section{Final thoughts}\label{final-thoughts-3}}
+\hypertarget{final-thoughts-2}{%
+\section{Final thoughts}\label{final-thoughts-2}}
 
 \hypertarget{arson-1}{%
 \chapter{Arson}\label{arson-1}}
@@ -1341,32 +1401,32 @@ There are also cases where it is less clear when a value is a data error or is s
 \hypertarget{county_level}{%
 \chapter{County-Level Detailed Arrest and Offense Data}\label{county_level}}
 
-\hypertarget{a-brief-history-of-the-data-4}{%
-\section{A brief history of the data}\label{a-brief-history-of-the-data-4}}
+\hypertarget{a-brief-history-of-the-data-3}{%
+\section{A brief history of the data}\label{a-brief-history-of-the-data-3}}
 
-\hypertarget{changes-in-definitions-4}{%
-\subsection{Changes in definitions}\label{changes-in-definitions-4}}
+\hypertarget{changes-in-definitions-3}{%
+\subsection{Changes in definitions}\label{changes-in-definitions-3}}
 
-\hypertarget{what-does-the-data-look-like-4}{%
-\section{What does the data look like?}\label{what-does-the-data-look-like-4}}
+\hypertarget{what-does-the-data-look-like-3}{%
+\section{What does the data look like?}\label{what-does-the-data-look-like-3}}
 
-\hypertarget{raw-data-3}{%
-\subsection{Raw data}\label{raw-data-3}}
+\hypertarget{raw-data-2}{%
+\subsection{Raw data}\label{raw-data-2}}
 
 \hypertarget{cleaned-data}{%
 \subsection{Cleaned data}\label{cleaned-data}}
 
-\hypertarget{what-variables-are-in-the-data-4}{%
-\section{What variables are in the data?}\label{what-variables-are-in-the-data-4}}
+\hypertarget{what-variables-are-in-the-data-3}{%
+\section{What variables are in the data?}\label{what-variables-are-in-the-data-3}}
 
-\hypertarget{key-variables-4}{%
-\subsection{Key variables}\label{key-variables-4}}
+\hypertarget{key-variables-3}{%
+\subsection{Key variables}\label{key-variables-3}}
 
-\hypertarget{known-issues-with-the-data-4}{%
-\subsection{Known issues with the data}\label{known-issues-with-the-data-4}}
+\hypertarget{known-issues-with-the-data-3}{%
+\subsection{Known issues with the data}\label{known-issues-with-the-data-3}}
 
-\hypertarget{final-thoughts-4}{%
-\section{Final thoughts}\label{final-thoughts-4}}
+\hypertarget{final-thoughts-3}{%
+\section{Final thoughts}\label{final-thoughts-3}}
 
 \backmatter
 

@@ -17,68 +17,6 @@ load("data/shr_1976_2018.rda")
 load("data/offenses_known_yearly_1960_2018.rda")
 ```
 
-```{r shrOffenderAge, fig.cap = "The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Victims reported as '99 years or older' are considered 99 years old."}
-temp <- shr_1976_2018
-temp$offender_1_age[temp$offender_1_age %in% c("bb", "nb")] <- 0
-temp$offender_1_age[temp$offender_1_age %in% "99 years or older"] <- 99
-temp$offender_1_age[temp$offender_1_age %in% "unknown"] <- NA
-temp$offender_1_age <- readr::parse_number(temp$offender_1_age)
-mean(temp$offender_1_age, na.rm = TRUE) #30.96 years old
-crimeutils::make_stat_count_plots(temp, 
-                                  column = "offender_1_age",
-                                  ylab = "# of Offenders",
-                                  xlab = "Age",
-                                  count = FALSE) +
-  geom_vline(aes(xintercept = mean(temp$offender_1_age, na.rm = TRUE)), color = "#d95f02", size = 1.07)
-```
-
-
-```{r shrVictimAge, fig.cap = "The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Victims reported as '99 years or older' are considered 99 years old."}
-temp <- shr_1976_2018
-temp$victim_1_age[temp$victim_1_age %in% c("7 days to 364 days", "birth to 6 days, including abandoned infant")] <- 0
-temp$victim_1_age[temp$victim_1_age %in% "99 years or older"] <- 99
-temp$victim_1_age[temp$victim_1_age %in% "unknown"] <- NA
-temp$victim_1_age <- readr::parse_number(temp$victim_1_age)
-mean(temp$victim_1_age, na.rm = TRUE) #32.87 years old
-crimeutils::make_stat_count_plots(temp, column = "victim_1_age", ylab = "# of Victims", xlab = "Age") +
-  geom_vline(aes(xintercept = mean(temp$victim_1_age, na.rm = TRUE) ), color = "#d95f02", size = 1.07)
-```
-
-
-
-
-```{r shrWeapon, fig.cap = "The weapon used in a homicide incident. In cases where there are multiple offenders, shows only the primary weapon for the first offender."}
-temp <- make_frequency_table(shr_1976_2018, "offender_1_weapon",
-                             c("Weapon", "# of Incidents", "% of Incidents"))
-datatable(temp, options = list(pageLength = 100)) %>%
-  formatPercentage('% of Incidents', 2) %>%
-  formatRound('# of Incidents', digits = 0)
-```
-
-```{r shrRelationship, fig.cap = "The relationship between the first victim and the first offender in a homicide incident."}
-temp <- make_frequency_table(shr_1976_2018, "victim_1_relation_to_offender_1",
-                             c("Relationship", "# of Incidents", "% of Incidents"))
-datatable(temp, options = list(pageLength = 100)) %>%
-  formatPercentage('% of Incidents', 2) %>%
-  formatRound('# of Incidents', digits = 0)
-```
-
-```{r shrCircumstance, fig.cap = "The circumstance of the homicide for the first offender in a homicide incident."}
-shr_1976_2018$offender_1_circumstance[shr_1976_2018$offender_1_circumstance %in% "30"] <- NA
-temp <- make_frequency_table(shr_1976_2018, "offender_1_circumstance",
-                             c("Circumstance", "# of Incidents", "% of Incidents"))
-datatable(temp, options = list(pageLength = 100)) %>%
-  formatPercentage('% of Incidents', 2) %>%
-  formatRound('# of Incidents', digits = 0)
-```
-
-```{r shrSubCircumstance, fig.cap = "The circumstance for the first offender in a homicide incident in cases where the offender is killed. This includes incidents where the only person who dies in the offender."}
-temp <- make_frequency_table(shr_1976_2018, "offender_1_subcircumstance",
-                             c("Subcircumstance", "# of Incidents", "% of Incidents"))
-datatable(temp, options = list(pageLength = 100)) %>%
-  formatPercentage('% of Incidents', 2) %>%
-  formatRound('# of Incidents', digits = 0)
-```
 
 
 
@@ -119,25 +57,68 @@ ggplot(shr_offenses_known_murders, aes(x = year)) +
 ```
 
 
-This    
-If this "most detailed" dataset sounds disappointing - and it is! - 
 
-## A brief history of the data
+```{r shrOffenderAge, fig.cap = "The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Victims reported as '99 years or older' are considered 99 years old."}
+temp <- shr_1976_2018
+temp$offender_1_age[temp$offender_1_age %in% c("bb", "nb")] <- 0
+temp$offender_1_age[temp$offender_1_age %in% "99 years or older"] <- 99
+temp$offender_1_age[temp$offender_1_age %in% "unknown"] <- NA
+temp$offender_1_age <- readr::parse_number(temp$offender_1_age)
+mean(temp$offender_1_age, na.rm = TRUE) 
+crimeutils::make_stat_count_plots(temp, 
+                                  column = "offender_1_age",
+                                  ylab = "# of Offenders",
+                                  xlab = "Age",
+                                  count = FALSE) +
+  geom_vline(aes(xintercept = mean(temp$offender_1_age, na.rm = TRUE)), color = "#d95f02", size = 1.07)
+```
 
-The data is available from the FBI starting in 1975 though, unlike all later years, this year only has information on a single victim and a single offender. For this reason I only release data starting in 1976 where up to 11 victims and 11 offenders are included. This data has been released every year since and the most recent year available is 2019. 
 
-### Changes in definitions
+```{r shrVictimAge, fig.cap = "The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Victims reported as '99 years or older' are considered 99 years old."}
+temp <- shr_1976_2018
+temp$victim_1_age[temp$victim_1_age %in% c("7 days to 364 days", "birth to 6 days, including abandoned infant")] <- 0
+temp$victim_1_age[temp$victim_1_age %in% "99 years or older"] <- 99
+temp$victim_1_age[temp$victim_1_age %in% "unknown"] <- NA
+temp$victim_1_age <- readr::parse_number(temp$victim_1_age)
+mean(temp$victim_1_age, na.rm = TRUE) #32.87 years old
+crimeutils::make_stat_count_plots(temp, column = "victim_1_age", ylab = "# of Victims", xlab = "Age") +
+  geom_vline(aes(xintercept = mean(temp$victim_1_age, na.rm = TRUE) ), color = "#d95f02", size = 1.07)
+```
 
-## What does the data look like?
-
-### Raw data
 
 
 
-## What variables are in the data?
+```{r shrWeapon, fig.cap = "The weapon used in a homicide incident. In cases where there are multiple offenders, shows only the primary weapon for the first offender."}
+temp <- make_frequency_table(shr_1976_2018, "offender_1_weapon",
+                             c("Weapon", "# of Incidents", "% of Incidents"))
+datatable(temp, options = list(pageLength = 100)) %>%
+  formatPercentage('% of Incidents', 2) %>%
+  formatRound('# of Incidents', digits = 0)
+```
+An interesting and highly useful variable is the relationship between the first victim and each offender. 
 
-### Key variables
+```{r shrRelationship, fig.cap = "The relationship between the first victim and the first offender in a homicide incident."}
+temp <- make_frequency_table(shr_1976_2018, "victim_1_relation_to_offender_1",
+                             c("Relationship", "# of Incidents", "% of Incidents"))
+datatable(temp, options = list(pageLength = 100)) %>%
+  formatPercentage('% of Incidents', 2) %>%
+  formatRound('# of Incidents', digits = 0)
+```
 
-## Known issues with the data
+```{r shrCircumstance, fig.cap = "The circumstance of the homicide for the first offender in a homicide incident."}
+shr_1976_2018$offender_1_circumstance[shr_1976_2018$offender_1_circumstance %in% "30"] <- NA
+temp <- make_frequency_table(shr_1976_2018, "offender_1_circumstance",
+                             c("Circumstance", "# of Incidents", "% of Incidents"))
+datatable(temp, options = list(pageLength = 100)) %>%
+  formatPercentage('% of Incidents', 2) %>%
+  formatRound('# of Incidents', digits = 0)
+```
 
-## Final thoughts
+```{r shrSubCircumstance, fig.cap = "The circumstance for the first offender in a homicide incident in cases where the offender is killed. This includes incidents where the only person who dies in the offender."}
+temp <- make_frequency_table(shr_1976_2018, "offender_1_subcircumstance",
+                             c("Subcircumstance", "# of Incidents", "% of Incidents"))
+datatable(temp, options = list(pageLength = 100)) %>%
+  formatPercentage('% of Incidents', 2) %>%
+  formatRound('# of Incidents', digits = 0)
+```
+
