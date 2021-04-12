@@ -8,7 +8,7 @@ library(ggplot2)
 library(readr)
 library(mapproj)
 library(lubridate)
-devtools::install_github("wmurphyrd/fiftystater")
+#devtools::install_github("wmurphyrd/fiftystater")
 library(fiftystater) 
 
 make_frequency_table_year <- function(data, column, col_names) {

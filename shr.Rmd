@@ -18,13 +18,23 @@ load("data/offenses_known_yearly_1960_2018.rda")
 ```
 
 
+## Agencies reporting
 
+This data only has a report when the agency has a murder that year and since murder is rare it is difficult to measure underreporting. One way we can look at reporting is to compare murders in the SHR data with that of other datasets. We'll look at two of them: the Offenses Known and Clearances by Arrest which is covered in detail in Chapter \@ref(https://wonder.cdc.gov/), and the Center for Disease Control and Prevention (CDC) detail on national deaths from homicide.^[CDC WONDER data is available here: https://wonder.cdc.gov/] Both this dataset and the Offenses Known and Clearances by Arrest data are UCR datasets so you may think that the numbers of murders from each dataset should be the same. That is a perfectly reasonable assumption, but since this is UCR data we're talking about, you'd be wrong. Police agencies are free to report to either, both, or neither dataset so while the number of murders are close for each dataset, they are never equal. CDC WONDER data aggregates mortality data (among other data) from state death certificates which reduces the issue of voluntary reporting that we have in UCR data.
 
-While highly detailed compared to other UCR data, there are a number of limitations for this data. 
-
-Since this data is voluntary to 
+Figure \@ref(fig:shrVsOffenses) shows the annual number of murder victims from each of these datasets starting in 1976 for the UCR data and in 1999 for the CDC data.^[1975 is actually the first year that the Supplementary Homicide Reports data is available but that dataset only has info for a single victim and offender - all later years has info for up to 11 victims and offenders - so 1976 is often used as the first year of data]. For the UCR data, in every year the numbers are fairly similar and the trends are the same over time, but the number of murders is never equal. The numbers have actually gotten worse over time with the difference between the datasets increasing and the Offenses Known data having consistently more murders reported than the SHR data since the late 1990s. Compared to the CDC data, however, both UCR datasets - and in particular the SHR data - undercount the number of murders. While trends are the same, UCR data reports thousands fewer murders per year than the CDC data, indicating how much of an issue underreporting is in this data.
 
 ```{r shrVsOffenses, fig.cap = "The annual number of murders from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset. Numbers differ because agencies voluntarily report and may not report to both datasets. "}
+
+cdc_homicides <- read_table2("data/cdc_wonder_homicide.txt") %>%
+  rename_all(janitor::make_clean_names)
+cdc_homicides <- cdc_homicides[1:20, ]
+cdc_homicides <- cdc_homicides %>%
+  select(year,
+         year_2) %>%
+  rename(homicides = year_2) %>%
+  mutate(year = readr::parse_number(year),
+         homicides = readr::parse_number(homicides))
 
 
 shr_murders <- shr_1976_2018 %>%
@@ -46,6 +56,7 @@ shr_offenses_known_murders <-
 ggplot(shr_offenses_known_murders, aes(x = year)) +
   geom_line(aes(y = shr_murders, color = "Supplementary Homicide Report"), size = 1.02) +
   geom_line(aes(y = offenses_known_murders, color = "Offenses Known"), size = 1.02) +
+  geom_line(data = cdc_homicides, aes(x = year, y = homicides, color = "CDC"), size = 1.02) +
   xlab("Year") +
   ylab("Murders") +
   theme_crim() +
@@ -55,7 +66,37 @@ ggplot(shr_offenses_known_murders, aes(x = year)) +
 
 
 ```
+## Important variables
 
+There data has demographic information for up to 11 victims and 11 offenders, as well as the information on the weapon used by each offender, the relationship between the first victim and each offender, and the circumstance of the murder. The data also has the traditional UCR set of variables about the agency: their ORI code, population, state, region and the month and year of this data. One key variable that is missing is the outcome of the homicide: there is no information on whether any of the offenders were arrested. 
+
+While there is information on up to 11 victims and offenders, in most cases, there is only a single victim and a single offender in each incident. To see how the breakdown for the number of victims in each incident looks, Figure \@ref(fig:numberSHRVictims) shows the percent of incidents with each possible number of victims.^[There is one incident where there are a reported 12 victims. For simplicity of the graph, this incident is not included.] In nearly all incidents - 96.1% - there was only a single victim. This drops to 3.2% of incidents for two victims, 0.5% for three victims, and only about 0.2% of incidents have four or more victims. 
+
+```{r numberSHRVictims, fig.cap = "The percent of incidents from 1976-2018 that have 1-11 victims."}
+shr_1976_2018$number_victims   <- shr_1976_2018$additional_victim_count + 1
+shr_1976_2018$number_offenders <- shr_1976_2018$additional_offender_count + 1
+
+
+ shr_1976_2018 %>%
+  filter(!number_victims %in% 12) %>%
+  crimeutils::make_stat_count_plots("number_victims", count = "FALSE",
+                                    xlab = "# of Victims") 
+```
+
+Figure \@ref(fig:numberSHROffenders) shows the breakdown of the number of offenders per homicide incident.^[There is one incident where there are a reported 22 offenders and one with 12 offenders. For simplicity of the graph, these incidents are not included.] It's a little less concentrated than with victims but the vast majority of homicides are committed by one offender - or at least the police only report one offender. About 88% of homicides have only one offender, 8.2% have two, 2.4% have three, and fewer than 1% have four. Fewer than 0.5% of homicides have more than four offenders. However, this is all a bit misleading. In cases where there is no information about the offender, including how many offenders there is, the data simply days that there is a single offender. So the number of homicides with a single offender is an overcount while the number with more offenders is an overcount. 
+
+The variable "situation" says what type of victim-offender number combination the incident is - e.g. "multiple victims/single offender", "single victim/multiple offenders", etc. - and does indicate if the number of offenders is unknown (though curiously there are over 4,000 instances where the number of offenders is unknown but they still say there are two offenders) so you can use this variable to determine if the police don't know how many offenders there is. You're still limited, of course, in that the number of offenders is always what the police think there are, and they may be wrong. So use this variable - and anything that comes from it like the percent of offenders of a certain race - with caution.  
+
+```{r numberSHROffenders, fig.cap = "The percent of incidents from 1976-2018 that have 1-11 offenders."}
+shr_1976_2018 %>%
+  filter(!number_offenders %in% c(12, 22)) %>%
+  crimeutils::make_stat_count_plots("number_offenders", count = "FALSE",
+                                    xlab = "# of Offenders") +
+  scale_x_continuous(breaks = 1:12)
+```
+
+
+### Offender age
 
 
 ```{r shrOffenderAge, fig.cap = "The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Victims reported as '99 years or older' are considered 99 years old."}
@@ -73,6 +114,7 @@ crimeutils::make_stat_count_plots(temp,
   geom_vline(aes(xintercept = mean(temp$offender_1_age, na.rm = TRUE)), color = "#d95f02", size = 1.07)
 ```
 
+### Victim age
 
 ```{r shrVictimAge, fig.cap = "The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Victims reported as '99 years or older' are considered 99 years old."}
 temp <- shr_1976_2018
@@ -86,7 +128,7 @@ crimeutils::make_stat_count_plots(temp, column = "victim_1_age", ylab = "# of Vi
 ```
 
 
-
+### Weapon used
 
 ```{r shrWeapon, fig.cap = "The weapon used in a homicide incident. In cases where there are multiple offenders, shows only the primary weapon for the first offender."}
 temp <- make_frequency_table(shr_1976_2018, "offender_1_weapon",
@@ -95,6 +137,9 @@ datatable(temp, options = list(pageLength = 100)) %>%
   formatPercentage('% of Incidents', 2) %>%
   formatRound('# of Incidents', digits = 0)
 ```
+
+### Relationship between first victim and offenders
+
 An interesting and highly useful variable is the relationship between the first victim and each offender. 
 
 ```{r shrRelationship, fig.cap = "The relationship between the first victim and the first offender in a homicide incident."}
@@ -105,6 +150,8 @@ datatable(temp, options = list(pageLength = 100)) %>%
   formatRound('# of Incidents', digits = 0)
 ```
 
+### Homicide circumstance
+
 ```{r shrCircumstance, fig.cap = "The circumstance of the homicide for the first offender in a homicide incident."}
 shr_1976_2018$offender_1_circumstance[shr_1976_2018$offender_1_circumstance %in% "30"] <- NA
 temp <- make_frequency_table(shr_1976_2018, "offender_1_circumstance",
@@ -113,6 +160,8 @@ datatable(temp, options = list(pageLength = 100)) %>%
   formatPercentage('% of Incidents', 2) %>%
   formatRound('# of Incidents', digits = 0)
 ```
+
+### Homicide subcircumstance
 
 ```{r shrSubCircumstance, fig.cap = "The circumstance for the first offender in a homicide incident in cases where the offender is killed. This includes incidents where the only person who dies in the offender."}
 temp <- make_frequency_table(shr_1976_2018, "offender_1_subcircumstance",

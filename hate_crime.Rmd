@@ -69,7 +69,6 @@ for (i in 1:nrow(final)) {
 
   old_agencies       <- reporting_agencies_temp
 }
-final
 
 
 ggplot(final, aes(x = year, y = total_agencies)) +

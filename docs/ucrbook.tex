@@ -83,7 +83,7 @@
 
 \title{Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide}
 \author{Jacob Kaplan}
-\date{2021-04-10}
+\date{2021-04-12}
 
 \begin{document}
 \maketitle
@@ -1006,15 +1006,38 @@ This data, as well as the privately-run site \href{https://www.odmp.org/}{Office
 
 The Supplementary Homicide Reports dataset - often abbreviated to SHR - is the most detailed of the UCR datasets and provides information about the circumstances and participants (victim and offender demographics and relationship status) for homicides.\footnote{If you're familiar with the National Incident-Based Reporting System (NIBRS) data that is replacing UCR, this dataset is the closest UCR data to it, though it is still less detailed than NIBRS data.} For each homicide incident it tells you the age, gender, race, and ethnicity of each victim and offender as well as the relationship between the first victim and each of the offenders (but not the other victims in cases where there are multiple victims). It also tells you the weapon used by each offender and the circumstance of the killing, such as a ``lovers triangle'' or a gang-related murder. As with other UCR data, it also tells you the agency it occurred in and the month and year when the crime happened.
 
-While highly detailed compared to other UCR data, there are a number of limitations for this data.
+\hypertarget{agencies-reporting-1}{%
+\section{Agencies reporting}\label{agencies-reporting-1}}
 
-Since this data is voluntary to
+This data only has a report when the agency has a murder that year and since murder is rare it is difficult to measure underreporting. One way we can look at reporting is to compare murders in the SHR data with that of other datasets. We'll look at two of them: the Offenses Known and Clearances by Arrest which is covered in detail in Chapter @ref(\url{https://wonder.cdc.gov/}), and the Center for Disease Control and Prevention (CDC) detail on national deaths from homicide.\footnote{CDC WONDER data is available here: \url{https://wonder.cdc.gov/}} Both this dataset and the Offenses Known and Clearances by Arrest data are UCR datasets so you may think that the numbers of murders from each dataset should be the same. That is a perfectly reasonable assumption, but since this is UCR data we're talking about, you'd be wrong. Police agencies are free to report to either, both, or neither dataset so while the number of murders are close for each dataset, they are never equal. CDC WONDER data aggregates mortality data (among other data) from state death certificates which reduces the issue of voluntary reporting that we have in UCR data.
+
+Figure \ref{fig:shrVsOffenses} shows the annual number of murder victims from each of these datasets starting in 1976 for the UCR data and in 1999 for the CDC data.\footnote{1975 is actually the first year that the Supplementary Homicide Reports data is available but that dataset only has info for a single victim and offender - all later years has info for up to 11 victims and offenders - so 1976 is often used as the first year of data}. For the UCR data, in every year the numbers are fairly similar and the trends are the same over time, but the number of murders is never equal. The numbers have actually gotten worse over time with the difference between the datasets increasing and the Offenses Known data having consistently more murders reported than the SHR data since the late 1990s. Compared to the CDC data, however, both UCR datasets - and in particular the SHR data - undercount the number of murders. While trends are the same, UCR data reports thousands fewer murders per year than the CDC data, indicating how much of an issue underreporting is in this data.
+
+\includegraphics{ucrbook_files/figure-latex/shrVsOffenses-1.pdf}
+\#\# Important variables
+
+There data has demographic information for up to 11 victims and 11 offenders, as well as the information on the weapon used by each offender, the relationship between the first victim and each offender, and the circumstance of the murder. The data also has the traditional UCR set of variables about the agency: their ORI code, population, state, region and the month and year of this data. One key variable that is missing is the outcome of the homicide: there is no information on whether any of the offenders were arrested.
+
+While there is information on up to 11 victims and offenders, in most cases, there is only a single victim and a single offender in each incident. To see how the breakdown for the number of victims in each incident looks, Figure \ref{numberSHRVictims} shows the percent of incidents with each possible number of victims.\footnote{There is one incident where there are a reported 12 victims. For simplicity of the graph, this incident is not included.} In nearly all incidents - 96.1\% - there was only a single victim. This drops to 3.2\% of incidents for two victims, 0.5\% for three victims, and only about 0.2\% of incidents have four or more victims.
 
 \begin{figure}
 \centering
-\includegraphics{ucrbook_files/figure-latex/shrVsOffenses-1.pdf}
-\caption{\label{fig:shrVsOffenses}The annual number of murders from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset. Numbers differ because agencies voluntarily report and may not report to both datasets.}
+\includegraphics{ucrbook_files/figure-latex/numberSHRVictims-1.pdf}
+\caption{\label{fig:numberSHRVictims}The percent of incidents from 1976-2018 that have 1-11 victims.}
 \end{figure}
+
+Figure \ref{fig:numberSHROffenders} shows the breakdown of the number of offenders per homicide incident.\footnote{There is one incident where there are a reported 22 offenders and one with 12 offenders. For simplicity of the graph, these incidents are not included.} It's a little less concentrated than with victims but the vast majority of homicides are committed by one offender - or at least the police only report one offender. About 88\% of homicides have only one offender, 8.2\% have two, 2.4\% have three, and fewer than 1\% have four. Fewer than 0.5\% of homicides have more than four offenders. However, this is all a bit misleading. In cases where there is no information about the offender, including how many offenders there is, the data simply days that there is a single offender. So the number of homicides with a single offender is an overcount while the number with more offenders is an overcount.
+
+The variable ``situation'' says what type of victim-offender number combination the incident is - e.g.~``multiple victims/single offender'', ``single victim/multiple offenders'', etc. - and does indicate if the number of offenders is unknown (though curiously there are over 4,000 instances where the number of offenders is unknown but they still say there are two offenders) so you can use this variable to determine if the police don't know how many offenders there is. You're still limited, of course, in that the number of offenders is always what the police think there are, and they may be wrong. So use this variable - and anything that comes from it like the percent of offenders of a certain race - with caution.
+
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/numberSHROffenders-1.pdf}
+\caption{\label{fig:numberSHROffenders}The percent of incidents from 1976-2018 that have 1-11 offenders.}
+\end{figure}
+
+\hypertarget{offender-age}{%
+\subsection{Offender age}\label{offender-age}}
 
 \begin{verbatim}
 ## [1] 30.96352
@@ -1026,6 +1049,9 @@ Since this data is voluntary to
 \caption{\label{fig:shrOffenderAge}The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as `birth to 7 days old, including abandoned infant' and `7 days to 364 days old') and considered 0 years old. Victims reported as `99 years or older' are considered 99 years old.}
 \end{figure}
 
+\hypertarget{victim-age}{%
+\subsection{Victim age}\label{victim-age}}
+
 \begin{verbatim}
 ## [1] 32.87052
 \end{verbatim}
@@ -1036,7 +1062,18 @@ Since this data is voluntary to
 \caption{\label{fig:shrVictimAge}The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as `birth to 7 days old, including abandoned infant' and `7 days to 364 days old') and considered 0 years old. Victims reported as `99 years or older' are considered 99 years old.}
 \end{figure}
 
+\hypertarget{weapon-used}{%
+\subsection{Weapon used}\label{weapon-used}}
+
+\begin{figure}
+\centering
 \includegraphics{ucrbook_files/figure-latex/shrWeapon-1.png}
+\caption{\label{fig:shrWeapon}The weapon used in a homicide incident. In cases where there are multiple offenders, shows only the primary weapon for the first offender.}
+\end{figure}
+
+\hypertarget{relationship-between-first-victim-and-offenders}{%
+\subsection{Relationship between first victim and offenders}\label{relationship-between-first-victim-and-offenders}}
+
 An interesting and highly useful variable is the relationship between the first victim and each offender.
 
 \begin{figure}
@@ -1045,11 +1082,17 @@ An interesting and highly useful variable is the relationship between the first 
 \caption{\label{fig:shrRelationship}The relationship between the first victim and the first offender in a homicide incident.}
 \end{figure}
 
+\hypertarget{homicide-circumstance}{%
+\subsection{Homicide circumstance}\label{homicide-circumstance}}
+
 \begin{figure}
 \centering
 \includegraphics{ucrbook_files/figure-latex/shrCircumstance-1.png}
 \caption{\label{fig:shrCircumstance}The circumstance of the homicide for the first offender in a homicide incident.}
 \end{figure}
+
+\hypertarget{homicide-subcircumstance}{%
+\subsection{Homicide subcircumstance}\label{homicide-subcircumstance}}
 
 \begin{figure}
 \centering
@@ -1066,8 +1109,8 @@ So this data is really a narrower measure of hate crimes than it might seem. In 
 
 My main takeaway for this data is that it is inappropriate to use for most hate crime research. At most it can be used to look at within-city within-bias-motivation trends, while keeping in mind that even this narrow subset of data is limited by under-reporting by victims and potential changes in police practices of reporting such as how many months of data they report per year.
 
-\hypertarget{agencies-reporting-1}{%
-\section{Agencies reporting}\label{agencies-reporting-1}}
+\hypertarget{agencies-reporting-2}{%
+\section{Agencies reporting}\label{agencies-reporting-2}}
 
 We'll start by looking at how many agencies report hate crime each year. This is a bit tricky since
 
@@ -1078,38 +1121,6 @@ We'll start by looking at how many agencies report hate crime each year. This is
 \end{figure}
 
 The 2,000 or so agencies that report each year are not the same every year. Figure \ref{fig:hateCrimesEver} shows the cumulative number of agencies that have reported at least one hate crime between 1991 and 2018. There is a relatively steady growth in the cumulative number of agencies, with about 350 new agencies each year. This means that each year some new agencies report hate crimes while some agencies that reported a hate crime in the previous year don't report any hate crimes in the current year. Figure \ref{fig:hateCrimesPreviousYear} puts this into hard numbers by showing the percent of agencies who reported a hate crime in a certain year who \emph{also} reported a hate crime in the previous year. For most years between 50\% and 60\% of agencies which reported a hate crime in the year shown on the x-axis also reported a hate crime in the previous year, indicating somewhat high consistency in which agencies have hate crimes.
-
-\begin{verbatim}
-##    year total_agencies percent_in_previous_year
-## 1  1991            739                1.0000000
-## 2  1992           1420                0.5778078
-## 3  1993           2026                0.5703971
-## 4  1994           2424                0.4747551
-## 5  1995           3057                0.5416667
-## 6  1996           3630                0.5920462
-## 7  1997           4002                0.5441658
-## 8  1998           4391                0.5615251
-## 9  1999           4742                0.5505804
-## 10 2000           5085                0.5694598
-## 11 2001           5458                0.5946089
-## 12 2002           5717                0.5308642
-## 13 2003           6019                0.5715051
-## 14 2004           6321                0.5475343
-## 15 2005           6585                0.5547410
-## 16 2006           6827                0.5625920
-## 17 2007           7025                0.5603039
-## 18 2008           7273                0.5871605
-## 19 2009           7510                0.5254079
-## 20 2010           7702                0.5315712
-## 21 2011           7883                0.5346331
-## 22 2012           8035                0.5195473
-## 23 2013           8189                0.5002547
-## 24 2014           8321                0.4719780
-## 25 2015           8471                0.4936709
-## 26 2016           8608                0.4919262
-## 27 2017           8765                0.5427762
-## 28 2018           8927                0.5007437
-\end{verbatim}
 
 \begin{figure}
 \centering
@@ -1270,8 +1281,8 @@ For each type of arson it includes the number of arsons where the structure was 
 
 In cases where the arson led to a death, that death would be recorded as a murder on the Offenses Known and Clearances by Arrest dataset - but not indicated anywhere on this dataset. If an individual who responds to the arson dies because of it, such as a police officer or a firefighter, this is not considered a homicide (though the officer death is still included in the Law Enforcement Officers Killed and Assaulted data) unless the arsonists intended to cause their deaths. Even though the UCR uses the Hierarchy Rule, where only the most serious offense that occurs is recorded, all arsons are reported - arson is exempt from the Hierarchy Rule.
 
-\hypertarget{agencies-reporting-2}{%
-\section{Agencies reporting}\label{agencies-reporting-2}}
+\hypertarget{agencies-reporting-3}{%
+\section{Agencies reporting}\label{agencies-reporting-3}}
 
 Figure \ref{fig:arsonAgencies} shows the annual number of police agencies that reported at least one month that year. With data starting in 1979, there were a little over 12,000 agencies reporting a year until the early 2000s where it recovered from a sharp drop in agencies to steadily increase to about 16,000 a year. While arson data is available through 2019, this graph only shows data through 2018.
 
