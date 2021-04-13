@@ -24,7 +24,7 @@ This data only has a report when the agency has a murder that year and since mur
 
 Figure \@ref(fig:shrVsOffenses) shows the annual number of murder victims from each of these datasets starting in 1976 for the UCR data and in 1999 for the CDC data.^[1975 is actually the first year that the Supplementary Homicide Reports data is available but that dataset only has info for a single victim and offender - all later years has info for up to 11 victims and offenders - so 1976 is often used as the first year of data]. For the UCR data, in every year the numbers are fairly similar and the trends are the same over time, but the number of murders is never equal. The numbers have actually gotten worse over time with the difference between the datasets increasing and the Offenses Known data having consistently more murders reported than the SHR data since the late 1990s. Compared to the CDC data, however, both UCR datasets - and in particular the SHR data - undercount the number of murders. While trends are the same, UCR data reports thousands fewer murders per year than the CDC data, indicating how much of an issue underreporting is in this data.
 
-```{r shrVsOffenses, fig.cap = "The annual number of murders from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset. Numbers differ because agencies voluntarily report and may not report to both datasets. "}
+```{r shrVsOffenses, fig.cap = "The annual number of murders from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset. Numbers differ because agencies voluntarily report and may not report to both datasets."}
 
 cdc_homicides <- read_table2("data/cdc_wonder_homicide.txt") %>%
   rename_all(janitor::make_clean_names)
@@ -80,7 +80,8 @@ shr_1976_2018$number_offenders <- shr_1976_2018$additional_offender_count + 1
  shr_1976_2018 %>%
   filter(!number_victims %in% 12) %>%
   crimeutils::make_stat_count_plots("number_victims", count = "FALSE",
-                                    xlab = "# of Victims") 
+                                    xlab = "# of Victims") +
+   scale_x_continuous(breaks = 1:11)
 ```
 
 Figure \@ref(fig:numberSHROffenders) shows the breakdown of the number of offenders per homicide incident.^[There is one incident where there are a reported 22 offenders and one with 12 offenders. For simplicity of the graph, these incidents are not included.] It's a little less concentrated than with victims but the vast majority of homicides are committed by one offender - or at least the police only report one offender. About 88% of homicides have only one offender, 8.2% have two, 2.4% have three, and fewer than 1% have four. Fewer than 0.5% of homicides have more than four offenders. However, this is all a bit misleading. In cases where there is no information about the offender, including how many offenders there is, the data simply days that there is a single offender. So the number of homicides with a single offender is an overcount while the number with more offenders is an overcount. 
@@ -92,12 +93,22 @@ shr_1976_2018 %>%
   filter(!number_offenders %in% c(12, 22)) %>%
   crimeutils::make_stat_count_plots("number_offenders", count = "FALSE",
                                     xlab = "# of Offenders") +
-  scale_x_continuous(breaks = 1:12)
+  scale_x_continuous(breaks = 1:11)
 ```
 
+We'll now look at a number of important variables individually. Since the data can potentially have 11 victims and 11 offenders - but in practice has only one each in the vast majority of cases - we'll only look at the first victim/offender for each of these variables. Therefore, the results will not be entirely accurate, but will still give you a good overview of the data. The figures below will use data for all homicides from 1976 to 2018 so will cover all but the most recent year of data. 
 
-### Offender age
+### Demographics
 
+There are two broad categories of variables that we'll cover: demographics of the victim and offenders, and characteristics of the case. We start with demographics.
+
+#### Age
+
+This data includes the age (in years) for each victim and each offender. For those under one years old, it also breaks this down into those from birth to six days old "including abandoned infant" and those seven days old to 364 days old. So there's a bit more info on baby murders. It also maxes out the age at 99 so for victims or offenders older than that we don't get their exact age, just text that says "99 years or older" (which I turn to the number 99 in the figures below).  
+
+Figure \@ref(fig:shrOffenderAge) shows the percent of murders from 1976-2018 where the first offender in the case is of each age from 0-99. Offenders with unknown ages are excluded from this graph and make up about 27% of cases. The average (mean) age is 30.9 years old (shown in orange) which is due to a long right tail; the median age is 28 years old. If you look closely at the left side of the graph you can see that there are some very young offenders, with at least one offender aged 0-10 included in the data. It's not clear from this alone that these ages are a data entry. While a two-year-old certainly couldn't murder someone, the data does include deaths caused by "children playing with gun" (homicide circumstances will be discussed in Section \@ref(circumstance)) so these ages could potentially be correct. 
+
+If you're familiar with the age-crime curve in criminology - which basically says crime peaks in late teen years then falls dramatically - this shows that exact curve, though doesn't decline as the individual ages as quickly as we see with less serious crimes. 
 
 ```{r shrOffenderAge, fig.cap = "The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Victims reported as '99 years or older' are considered 99 years old."}
 temp <- shr_1976_2018
@@ -105,7 +116,6 @@ temp$offender_1_age[temp$offender_1_age %in% c("bb", "nb")] <- 0
 temp$offender_1_age[temp$offender_1_age %in% "99 years or older"] <- 99
 temp$offender_1_age[temp$offender_1_age %in% "unknown"] <- NA
 temp$offender_1_age <- readr::parse_number(temp$offender_1_age)
-mean(temp$offender_1_age, na.rm = TRUE) 
 crimeutils::make_stat_count_plots(temp, 
                                   column = "offender_1_age",
                                   ylab = "# of Offenders",
@@ -114,21 +124,101 @@ crimeutils::make_stat_count_plots(temp,
   geom_vline(aes(xintercept = mean(temp$offender_1_age, na.rm = TRUE)), color = "#d95f02", size = 1.07)
 ```
 
-### Victim age
+Figure \@ref(fig:shrVictimAge) repeats Figure \@ref(fig:shrOffenderAge) but with victim age rather than offender age. The mean victim age (shown in orange) is 32.9 and the median age is 30. Though the age victim age is a bit younger than the average offender age, trends are relatively similar for teenagers and older where deaths spikes in the late teen years and then declines steadily. The major difference is the U-shape for younger victims - for victims under age 15, homicides peak at age 0 (i.e. younger than their first birthday) with ~1.5% of all homicides being this this age. They then decline until plateauing at around age 6 before increasing again in the early teen years. 
 
 ```{r shrVictimAge, fig.cap = "The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Victims reported as '99 years or older' are considered 99 years old."}
 temp <- shr_1976_2018
-temp$victim_1_age[temp$victim_1_age %in% c("7 days to 364 days", "birth to 6 days, including abandoned infant")] <- 0
+temp$victim_1_age[temp$victim_1_age %in% c("7 days to 364 days", "birth to 6 days, including abandoned infant", "nn")] <- 0
 temp$victim_1_age[temp$victim_1_age %in% "99 years or older"] <- 99
 temp$victim_1_age[temp$victim_1_age %in% "unknown"] <- NA
 temp$victim_1_age <- readr::parse_number(temp$victim_1_age)
-mean(temp$victim_1_age, na.rm = TRUE) #32.87 years old
-crimeutils::make_stat_count_plots(temp, column = "victim_1_age", ylab = "# of Victims", xlab = "Age") +
-  geom_vline(aes(xintercept = mean(temp$victim_1_age, na.rm = TRUE) ), color = "#d95f02", size = 1.07)
+crimeutils::make_stat_count_plots(temp,
+                                  column = "victim_1_age",
+                                  count = FALSE, 
+                                  ylab = "# of Victims",
+                                  xlab = "Age") +
+  geom_vline(aes(xintercept = mean(temp$victim_1_age, na.rm = TRUE) ),
+             color = "#d95f02",
+             size = 1.07)
 ```
 
+#### Sex 
 
-### Weapon used
+We'll next look at victim and offender sex, a simple variable since only male and female are included. 
+
+About 62% of offenders, as seen in Figure \@ref(fig:shrOffenderSex) are male and about 8% are female, indicating a large disparity in the sex of homicide offenders. The remaining 30% of offenders do not have sex data available because the police do not know the sex of this individual. For offenders who aren't arrested, this variable may be inaccurate since it is perceived sex of the offender. 
+
+```{r shrOffenderSex, fig.cap = "The sex of offenders, 1976-2018."}
+shr_1976_2018$offender_1_sex[is.na(shr_1976_2018$offender_1_sex)] <- "Unknown"
+shr_1976_2018 %>%
+  mutate(offender_1_sex = capitalize_words(offender_1_sex)) %>%
+  crimeutils::make_barplots("offender_1_sex", count = "FALSE") +
+  ggplot2::scale_y_continuous(labels = scales::percent)
+```
+
+There is far less uncertainty for victim sex, with under 0.15% of victims having an unknown sex. Here again there is a large disparity between male and female with about 78% of victims being male and 22% being female. While there are more male victims than male offenders, this is probably just due to there being so many unknown offenders. 
+
+```{r shrVictimSex, fig.cap = "The sex of victims, 1976-2018."}
+shr_1976_2018 %>%
+  mutate(victim_1_sex = capitalize_words(victim_1_sex)) %>%
+  crimeutils::make_barplots("victim_1_sex", count = "FALSE") +
+  ggplot2::scale_y_continuous(labels = scales::percent)
+```
+
+#### Race
+
+This data also includes the race of the victims and offenders. This includes the following races: American Indian or Alaskan Native, Asian, Black, Native Hawaiian or Other Paficic Islander, and White. These are the only races included in the data; Hispanic is considered an ethnicity and is available as a separate, though flawed, variable. There is no category for bi- or multi-racial. As with other demographics info for offenders, in cases where no arrest is made (and we don't know in this data if one is made), there's no way to confirm the person's race (and race itself is hard to put into discrete boxes like done here) so these results may not be entirely accurate. 
+
+Figure \@ref(fig:shrOffenderRace) shows the percent of homicides in the data by race. Black and White victims are included are similar percents, at 34.2% and 33.8% of victims, respectively. Given that Black people are only about 13% of the population while White people are 76% of the population, according to 2019 Census data, this shows a large disparity in offender race rates. There are far more Black and far fewer White offenders than would be expected from their percent of the total United States population. The next most common group is Unknown at about 30.5% of offenders. Given that so many offenders have an unknown race, the reliability of the other race measures is limited. The remaining races are Asian at 0.9% of offenders, American Indian or Alaskan Native at 0.6%, and Native Hawaiian or Other Pacific Islander at 0.004%. 
+
+```{r shrOffenderRace, fig.cap = "The race of offenders, 1976-2018."}
+shr_1976_2018$offender_1_race[shr_1976_2018$offender_1_race %in% "p"] <- "Native Hawaiian or Pacific Islander"
+shr_1976_2018 %>%
+  mutate(offender_1_race = capitalize_words(offender_1_race)) %>%
+  crimeutils::make_barplots("offender_1_race", count = "FALSE") +
+  ggplot2::scale_y_continuous(labels = scales::percent)
+```
+For victim race, seen in Figure \@ref(fig:shrVictimRace), only about 1% of victim race's are unknown. This means we can be a lot more confidence in the race of the victims than in the race of the offender. Or, at least the challenge of categorizing people by race is not the major problem, not missing people. As with offenders, White and Black victims are the two most common races, with 49% and 47.7% of victims, respectively. There are almost double the percent of Asian victims than Asian offenders at 1.51% of victims (and 0.9% of offenders). American Indian or Alaskan Natives make up 0.8% of victims while Native Hawaiian or Pacific Islanders make up 0.005% of victims.
+
+```{r shrVictimRace, fig.cap = "The race of victims, 1976-2018"}
+shr_1976_2018$victim_1_race[shr_1976_2018$victim_1_race %in% c("P", "p")] <- "Native Hawaiian or Pacific Islander"
+shr_1976_2018 %>%
+  mutate(victim_1_race = capitalize_words(victim_1_race)) %>%
+  crimeutils::make_barplots("victim_1_race", count = "FALSE") +
+  ggplot2::scale_y_continuous(labels = scales::percent)
+```
+
+#### Ethnicity
+
+The final demographic variable is ethnicity which is whether the victim or offender is Hispanic or not Hispanic. The UCR data has a weird relationship with this variable (which is also in the Arrests by Age, Sex, and Race dataset, discussing in Chapter \@ref(arrests)) where ethnicity is technically a variable in the data but very rarely collected. As such, this is an unreliable variable that if you really want to use, needs careful attention to make sure it is being reported consistently by the agencies that you are looking at. 
+
+The vast majority - 71.6% - of offenders have an unknown ethnicity while 21.5% are not Hispanic and 6.9% are Hispanic. 
+
+```{r shrOffenderEthnicity, fig.cap = "The ethnicity of offenders, 1976-2018."}
+shr_1976_2018$offender_1_ethnic_origin[is.na(shr_1976_2018$offender_1_ethnic_origin)] <- "unknown"
+shr_1976_2018 %>%
+  mutate(offender_1_ethnic_origin = capitalize_words(offender_1_ethnic_origin)) %>%
+  crimeutils::make_barplots("offender_1_ethnic_origin", count = "FALSE") +
+  ggplot2::scale_y_continuous(labels = scales::percent)
+```
+
+Unlike the other demographic variables, there is still a huge amount of underreporting when it comes to victim ethnicity, though still less than for offender ethnicity. 59% of victims have an unknown ethnicity. Nearly 30% of victims are reported as not Hispanic while 10.8% are reported as Hispanic.
+
+```{r shrVictimEthnicity, fig.cap = "The ethnicity of victims, 1976-2018."}
+shr_1976_2018$victim_1_ethnic_origin[is.na(shr_1976_2018$victim_1_ethnic_origin)] <- "unknown"
+shr_1976_2018 %>%
+  mutate(victim_1_ethnic_origin = capitalize_words(victim_1_ethnic_origin)) %>%
+  crimeutils::make_barplots("victim_1_ethnic_origin", count = "FALSE") +
+  ggplot2::scale_y_continuous(labels = scales::percent)
+```
+
+### Case characteristics
+
+#### Weapon used
+
+The first variable we'll look at is the weapon used by each offender. Table \@ref(fig:shrWeapon) shows the weapon used by the first offender in every incident from 1976 to 2018. Each offender can only be reported as having a single weapon, so this table essentialyl shows the number (and percent) of murders caused by this weapon. This isn't entirely true since in reality an offender could use multiple weapons and there can be multiple offenders. 
+
+The most commonly used weapon is a handgun, which is used in nearly half of murders. This is followed by a knife or other sharp weapon used to cut at 15% of murders, and then by "firearm, type not stated" which is just a firearm where we don't know the exact type (it can include handguns) at 7.3% of murders. The fourth most common weapon is "personal weapons" at nearly 6% of murders. "Personal weapons" is a weird term to mean that there was no weapon - the "weapon" was the offender who beat the victim to death. Shotguns are involved in 5% of murders and all other weapons are involved in fewer than 5% of cases. In total there are 19 different weapons included though most are relatively uncommon. 
 
 ```{r shrWeapon, fig.cap = "The weapon used in a homicide incident. In cases where there are multiple offenders, shows only the primary weapon for the first offender."}
 temp <- make_frequency_table(shr_1976_2018, "offender_1_weapon",
@@ -138,30 +228,116 @@ datatable(temp, options = list(pageLength = 100)) %>%
   formatRound('# of Incidents', digits = 0)
 ```
 
-### Relationship between first victim and offenders
+#### Relationship between first victim and offenders
 
-An interesting and highly useful variable is the relationship between the first victim and each offender. 
+An interesting and highly useful variable is the relationship between the first victim and each offender. To be clear, this is only for the first victim; we don't have the relationship between other victims and offenders. However, as seen earlier, this isn't *too much* of an issue since nearly all incidents only have a single victim. There are 29 possible relationship types (including "unknown" relationship) which are broken into three categories: legal family members, people known to the victim but who aren't family, and people not known to the victim. 
 
 ```{r shrRelationship, fig.cap = "The relationship between the first victim and the first offender in a homicide incident."}
 temp <- make_frequency_table(shr_1976_2018, "victim_1_relation_to_offender_1",
                              c("Relationship", "# of Incidents", "% of Incidents"))
+
+temp$Category <- ""
+temp$Category[tolower(temp$Relationship) %in% c("brother",
+                                       "daughter",
+                                       "sister",
+                                       "in-law",
+                                       "other family",
+                                       "son",
+                                       "father",    
+                                       "wife",
+                                       "stepdaughter",
+                                       "stepson",
+                                       "common-law husband",
+                                       "common-law wife",
+                                       "mother",
+                                       "husband",
+                                       "stepmother",
+                                       "stepfather")] <- "Family"
+temp$Category[tolower(temp$Relationship) %in% c("other - known to victim",
+                                       "acquaintance",
+                                       "friend",
+                                       "neighbor",
+                                       "employee",
+                                       "girlfriend",
+                                       "boyfriend",
+                                       "ex-wife",
+                                       "employer",
+                                       "homosexual relationship",
+                                       "ex-husband")] <- "Not family (but known)"
+temp$Category[tolower(temp$Relationship) %in% c("stranger")] <- "Not known"
+
+temp <-
+  temp %>%
+  select(Relationship,
+         Category,
+         everything())
+
 datatable(temp, options = list(pageLength = 100)) %>%
   formatPercentage('% of Incidents', 2) %>%
   formatRound('# of Incidents', digits = 0)
 ```
 
-### Homicide circumstance
+#### Homicide circumstance {#circumstance}
+
+We also have information on the type of the murder, which this data calls the "circumstance". This comes is relatively broad categories that leave a lot to be desired in our understanding of what led to the murder. Table \@ref(fig:shrCircumstance) shows the number and percent of each circumstance for the first victim of each murder from 1976 to 2018. This data has 33 possible circumstances which it groups into five main categories: murders that coincide with committing another crime ("felony type" murders), murders that don't coincide with another crime ("non-felony type" murders), justifiable homicides, and negligent manslaughter. 
+
+The felony type murders are simply ones where another crime occurred during the murder. While this is called "felony type" it does included other crimes such as theft and gambling (which isn't always a felony) so is a bit of a misnomer. The "non-felony type" are murders that happen without another crime. This includes gang killings (where, supposedly, only the murder occurred), children killed by babysitters, fights among intoxicated (both of alcohol and drugs), and "lover's triangle" killings.  Justifiable homicides are when a person (civilian and police officer who kill a person committing a crime.^[This dataset is one source of information on how many people police kill each year. But it is a large undercount compared to other sources such as the Washington Post collection, so is not a very useful source of information on this topic.] Negligent manslaughter includes accidental shootings such as when children find and shoot a gun, but excludes deaths from traffic accidents. 
+
+The most common circumstances, accounting for 27.4%, 26.4%, and 12.5%, respectively, are "other arguments", "unknown", and "other non-felony type - not specified". Since the data includes "argument over money or property" as one category, the "other arguments" mean that it's an argument for a reason other than over money or property. The "other non-felony type" one does not mean that the murder did not occur alongside another crime, but also doesn't fall into the non-felony categories included. Robbery is the only remaining circumstance with more than 5% of murders, at 8%. 
 
 ```{r shrCircumstance, fig.cap = "The circumstance of the homicide for the first offender in a homicide incident."}
-shr_1976_2018$offender_1_circumstance[shr_1976_2018$offender_1_circumstance %in% "30"] <- NA
+shr_1976_2018$offender_1_circumstance[shr_1976_2018$offender_1_circumstance %in% "30"] <- "unknown"
+shr_1976_2018$offender_1_circumstance[shr_1976_2018$offender_1_circumstance %in% "circumstances undetermined"] <- "unknown"
 temp <- make_frequency_table(shr_1976_2018, "offender_1_circumstance",
                              c("Circumstance", "# of Incidents", "% of Incidents"))
+
+temp$Category <- ""
+temp$Category[tolower(temp$Circumstance) %in% c("abortion",
+                                                "all suspected felony type",
+                                                "arson",
+                                                "burglary",
+                                                "gambling",
+                                                "larceny",
+                                                "motor vehicle theft",
+                                                "narcotic drug laws",
+                                                "other - not specified",
+                                                "other felony type - not specified",
+                                                "other sex offenses",
+                                                "prostitution and commercialized vice",
+                                                "rape",
+                                                "robbery")] <- "Felony Type"
+temp$Category[tolower(temp$Circumstance) %in% c("other arguments",
+                                                "sniper attack",
+                                                "gangland killings",
+                                                "institutional killings",
+                                                "juvenile gang killings",
+                                                "argument over money or property",
+                                                "brawl due to influence of alcohol",
+                                                "brawl due to influence of narcotics",
+                                                "child killed by babysitter",
+                                                "lovers triangle",
+                                                "other non-felony type - not specified")] <- "Non-Felony Type"
+temp$Category[tolower(temp$Circumstance) %in% c("felon killed by police",
+                                                "felon killed by private citizen")] <- "Justifiable Homicide"
+temp$Category[tolower(temp$Circumstance) %in% c("all other manslaughter by negligence except traffic deaths",
+                                                "children playing with gun",
+                                                "gun cleaning death - other than self-inflicted",
+                                                "other negligent handling of gun which resulted in death of another",
+                                                "victim shot in hunting accident")] <- "Negligent Manslaughter"
+
+temp <-
+  temp %>%
+  select(Circumstance,
+         Category,
+         everything())
 datatable(temp, options = list(pageLength = 100)) %>%
   formatPercentage('% of Incidents', 2) %>%
   formatRound('# of Incidents', digits = 0)
 ```
 
-### Homicide subcircumstance
+#### Homicide subcircumstance
+
+The "subcircumstance" just tells you more information about justifiable homicides. This includes the circumstance leading up to the "felon" - which is how the person killed is described, though technically they don't need to have committed a felony - was killed. It includes if this person attached an officer (the one who killed them), a different officer, a civilian, or was comitting or fleeing a crime. 
 
 ```{r shrSubCircumstance, fig.cap = "The circumstance for the first offender in a homicide incident in cases where the offender is killed. This includes incidents where the only person who dies in the offender."}
 temp <- make_frequency_table(shr_1976_2018, "offender_1_subcircumstance",
