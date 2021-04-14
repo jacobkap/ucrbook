@@ -2,22 +2,87 @@
 
 
 
-The Property Stolen and Recovered data - sometimes called the Supplement to Return A (Return A being another name for the Offenses Known and Clearances by Arrest dataset, the "crime" dataset) - provides monthly information about property-related offenses (theft, motor vehicle theft, robbery, and burglary), including the location of the offense (in broad categories like "gas station" or "residence), what was stolen (e.g. clothing, livestock, firearms), and how much the stolen items were worth.^[It also includes the value of items stolen during rapes and murders, if anything was stolen.] The "recovered" part of this dataset covers the type and value of property recovered so you can use this, along with the type and value of property stolen, to determine what percent and type of items the police managed to recover. Like other UCR datasets this is at the agency-month level so you can, for example, learn how often burglaries occur at the victim's home during the day, and if that rate changes over the year or differs across agencies. The data, however, provides no information about the offender or the victim (other than if the victim was an individual or a commercial business [based on the location of the incident - "bank", "gas station", etc]). The value of the property stolen is primarily based on the victim's estimate of how much the item is worth (items that are decreased in value once used - such as cars - are supposed to be valued at the current market rate, but the data provides no indication of when it uses the current market rate or the victim's estimate) so it should be used as a very rough estimate of value.  
-
-## A brief history of the data
-
-### Changes in definitions
-
-## What does the data look like?
-
-### Raw data
 
 
 
-## What variables are in the data?
+<div class="figure">
+<img src="stolen_property_files/figure-html/propertyAgencies-1.png" alt="The annual number of police agencies that report at least month of data that year." width="672" />
+<p class="caption">(\#fig:propertyAgencies)The annual number of police agencies that report at least month of data that year.</p>
+</div>
 
-### Key variables
+The Property Stolen and Recovered data - sometimes called the Supplement to Return A (Return A being another name for the Offenses Known and Clearances by Arrest dataset, the "crime" dataset) - provides monthly information about property-related offenses (theft, motor vehicle theft, robbery, and burglary), including the location of the offense (in broad categories like "gas station" or "residence), what was stolen (e.g. clothing, livestock, firearms), and how much the stolen items were worth.^[It also includes the value of items stolen during rapes and murders, if anything was stolen.] The "recovered" part of this dataset covers the type and value of property recovered so you can use this, along with the type and value of property stolen, to determine what percent and type of items the police managed to recover. Like other UCR datasets this is at the agency-month level so you can, for example, learn how often burglaries occur at the victim's home during the day, and if that rate changes over the year or differs across agencies. 
 
-## Known issues with the data
+The data, however, provides no information about the offender or the victim (other than if the victim was an individual or a commercial business [based on the location of the incident - "bank", "gas station", etc]). The value of the property stolen is primarily based on the victim's estimate of how much the item is worth (items that are decreased in value once used - such as cars - are supposed to be valued at the current market rate, but the data provides no indication of when it uses the current market rate or the victim's estimate) so it should be used as a very rough estimate of value.  
 
-## Final thoughts
+## Agencies reporting
+
+## Important variables
+
+### A more detailed breakdown of property (and robbery) crimes
+
+
+* Burglary
+    + Home/residence during the day (6:00am - 5:59pm)
+    + Home/residence during the night (6:00pm - 5:59am)
+    + Home residence at unknown time
+    + Non-residence (i.e. all buildings other than victims home) during the day (6:00am - 5:59pm)
+    + Non-residence (i.e. all buildings other than victims home) during the night (6:00pm - 5:59am)
+    + Non-residence (i.e. all buildings other than victims home) at unknown time
+* Theft/larceny (excluding of a motor vehicle)
+    + <\$50
+    + \$50-\$199
+    + \$200 and up
+* Robbery
+    + Highway - This is an old term to say a place is outside and in generally accessible and visible areas. This includes robberies on public streets and alleys.
+    + Commercial building - This is robberies in a business other than ones stated below. Includes restaurants, stores, hotels, bars. 
+    + Gas station
+    + Chain/convenience store - a neighborhood store that generally is open late and sells food
+    + Home/residence
+    + Bank
+    + Miscellaneous/other - This is all other robberies not already covered.
+* Murder
+* Rape
+* Motor vehicle theft
+    + Stolen in current agency jurisdiction and found by that agency
+    + Stolen in current agency jurisdiction and found by another agency
+    + Stolen in another agency's jurisdiction and recovered by current agency
+    
+
+### The value of property stolen in property (and robbery) crimes
+
+* Theft/larceny (excluding of a motor vehicle)
+    + Pick pocket
+    + Purse snatching
+    + Shoplifting
+    + Stealing from a car (but not stealing the car itself)
+    + Stealing parts of a car, such as the car battery or the tires
+    + Stealing a bicycle
+    + Stealing from a building where the offender is allowed to be in (and is not counted already as shoplifting)
+    + Stealing from a "coin operated machine" which is mainly vending machines
+    + All other thefts
+    
+    
+### Value of stolen and recovered property by type of item stolen
+
+* Currency 
+    + This includes all money and signed documents that can be exchanged for money (e.g. checks). Blank checks and credit and debit cards are not included (they are in the Miscellaneous/other  category)
+* Jewelry and "previous metals"
+    + Only metals that are considered high value are included here. Metals that are generally worth little are counted in the Miscellaneous/other category.
+* Clothing and fur 
+    + This also includes items that you take with you when leaving the house (except for your phone): wallet, shoes, purse, backpacks.
+* Motor vehicle stolen in current agency jurisdiction 
+    + This includes only vehicles than can be driven on wheels so excludes trains and anything on water or that can fly.
+* Office equipment and electronics 
+    + This includes "typewriters" and "magnetic tapes" but is essentially any kind of equipment needed to run a business. So printers, computers, cash registers, computer equipment like a monitor or a mouse, and computer software. These items do not have to be stolen from a commercial building to be included in this category. 
+* Sound and picture equipment 
+    + This is a kind of odd category that is a product of its time. Anything that produces noise or pictures (including the fancy motion pictures) is included. This includes TVs, cameras, projectors, radios, MP3 players (but not phones that can play music) and (since again, this is a very old dataset) VHS cassettes. 
+* Guns 
+    + This includes all types of firearms other than toys or BB/pellet/paintball guns. 
+* Home furniture 
+    + This includes all of the "big things" in a house: begs, chairs, AC units, washer/dryer units, etc. However, items that are in the "Office equipment and electronics" category do not apply. 
+* Consumable goods 
+    + This is anything that can be consumed such as food, drinks, and drugs, or anything you use in the bathroom.
+* Livestock 
+    + This is all animals other than ones that you would consider a pet
+* Miscellaneous/other 
+    + Anything that is not part of the above categories would fall in here. Cell phones and credit cards are included. 

@@ -17,7 +17,6 @@ load("data/shr_1976_2018.rda")
 load("data/offenses_known_yearly_1960_2018.rda")
 ```
 
-
 ## Agencies reporting
 
 This data only has a report when the agency has a murder that year and since murder is rare it is difficult to measure underreporting. One way we can look at reporting is to compare murders in the SHR data with that of other datasets. We'll look at two of them: the Offenses Known and Clearances by Arrest which is covered in detail in Chapter \@ref(https://wonder.cdc.gov/), and the Center for Disease Control and Prevention (CDC) detail on national deaths from homicide.^[CDC WONDER data is available here: https://wonder.cdc.gov/] Both this dataset and the Offenses Known and Clearances by Arrest data are UCR datasets so you may think that the numbers of murders from each dataset should be the same. That is a perfectly reasonable assumption, but since this is UCR data we're talking about, you'd be wrong. Police agencies are free to report to either, both, or neither dataset so while the number of murders are close for each dataset, they are never equal. CDC WONDER data aggregates mortality data (among other data) from state death certificates which reduces the issue of voluntary reporting that we have in UCR data.
@@ -66,6 +65,7 @@ ggplot(shr_offenses_known_murders, aes(x = year)) +
 
 
 ```
+
 ## Important variables
 
 There data has demographic information for up to 11 victims and 11 offenders, as well as the information on the weapon used by each offender, the relationship between the first victim and each offender, and the circumstance of the murder. The data also has the traditional UCR set of variables about the agency: their ORI code, population, state, region and the month and year of this data. One key variable that is missing is the outcome of the homicide: there is no information on whether any of the offenders were arrested. 
@@ -167,7 +167,7 @@ shr_1976_2018 %>%
 
 #### Race
 
-This data also includes the race of the victims and offenders. This includes the following races: American Indian or Alaskan Native, Asian, Black, Native Hawaiian or Other Paficic Islander, and White. These are the only races included in the data; Hispanic is considered an ethnicity and is available as a separate, though flawed, variable. There is no category for bi- or multi-racial. As with other demographics info for offenders, in cases where no arrest is made (and we don't know in this data if one is made), there's no way to confirm the person's race (and race itself is hard to put into discrete boxes like done here) so these results may not be entirely accurate. 
+This data also includes the race of the victims and offenders. This includes the following races: American Indian or Alaskan Native, Asian, Black, Native Hawaiian or Other Pacific Islander, and White. These are the only races included in the data; Hispanic is considered an ethnicity and is available as a separate, though flawed, variable. There is no category for bi- or multi-racial. As with other demographics info for offenders, in cases where no arrest is made (and we don't know in this data if one is made), there's no way to confirm the person's race (and race itself is hard to put into discrete boxes like done here) so these results may not be entirely accurate. 
 
 Figure \@ref(fig:shrOffenderRace) shows the percent of homicides in the data by race. Black and White victims are included are similar percents, at 34.2% and 33.8% of victims, respectively. Given that Black people are only about 13% of the population while White people are 76% of the population, according to 2019 Census data, this shows a large disparity in offender race rates. There are far more Black and far fewer White offenders than would be expected from their percent of the total United States population. The next most common group is Unknown at about 30.5% of offenders. Given that so many offenders have an unknown race, the reliability of the other race measures is limited. The remaining races are Asian at 0.9% of offenders, American Indian or Alaskan Native at 0.6%, and Native Hawaiian or Other Pacific Islander at 0.004%. 
 
@@ -178,6 +178,7 @@ shr_1976_2018 %>%
   crimeutils::make_barplots("offender_1_race", count = "FALSE") +
   ggplot2::scale_y_continuous(labels = scales::percent)
 ```
+
 For victim race, seen in Figure \@ref(fig:shrVictimRace), only about 1% of victim race's are unknown. This means we can be a lot more confidence in the race of the victims than in the race of the offender. Or, at least the challenge of categorizing people by race is not the major problem, not missing people. As with offenders, White and Black victims are the two most common races, with 49% and 47.7% of victims, respectively. There are almost double the percent of Asian victims than Asian offenders at 1.51% of victims (and 0.9% of offenders). American Indian or Alaskan Natives make up 0.8% of victims while Native Hawaiian or Pacific Islanders make up 0.005% of victims.
 
 ```{r shrVictimRace, fig.cap = "The race of victims, 1976-2018"}
@@ -216,7 +217,7 @@ shr_1976_2018 %>%
 
 #### Weapon used
 
-The first variable we'll look at is the weapon used by each offender. Table \@ref(fig:shrWeapon) shows the weapon used by the first offender in every incident from 1976 to 2018. Each offender can only be reported as having a single weapon, so this table essentialyl shows the number (and percent) of murders caused by this weapon. This isn't entirely true since in reality an offender could use multiple weapons and there can be multiple offenders. 
+The first variable we'll look at is the weapon used by each offender. Table \@ref(fig:shrWeapon) shows the weapon used by the first offender in every incident from 1976 to 2018. Each offender can only be reported as having a single weapon, so this table essentially shows the number (and percent) of murders caused by this weapon. This isn't entirely true since in reality an offender could use multiple weapons and there can be multiple offenders. 
 
 The most commonly used weapon is a handgun, which is used in nearly half of murders. This is followed by a knife or other sharp weapon used to cut at 15% of murders, and then by "firearm, type not stated" which is just a firearm where we don't know the exact type (it can include handguns) at 7.3% of murders. The fourth most common weapon is "personal weapons" at nearly 6% of murders. "Personal weapons" is a weird term to mean that there was no weapon - the "weapon" was the offender who beat the victim to death. Shotguns are involved in 5% of murders and all other weapons are involved in fewer than 5% of cases. In total there are 19 different weapons included though most are relatively uncommon. 
 
@@ -337,7 +338,7 @@ datatable(temp, options = list(pageLength = 100)) %>%
 
 #### Homicide subcircumstance
 
-The "subcircumstance" just tells you more information about justifiable homicides. This includes the circumstance leading up to the "felon" - which is how the person killed is described, though technically they don't need to have committed a felony - was killed. It includes if this person attached an officer (the one who killed them), a different officer, a civilian, or was comitting or fleeing a crime. 
+The "subcircumstance" just tells you more information about justifiable homicides. This includes the circumstance leading up to the "felon" - which is how the person killed is described, though technically they don't need to have committed a felony - was killed. It includes if this person attached an officer (the one who killed them), a different officer, a civilian, or was committing or fleeing a crime. 
 
 ```{r shrSubCircumstance, fig.cap = "The circumstance for the first offender in a homicide incident in cases where the offender is killed. This includes incidents where the only person who dies in the offender."}
 temp <- make_frequency_table(shr_1976_2018, "offender_1_subcircumstance",

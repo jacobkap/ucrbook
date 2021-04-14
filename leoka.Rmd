@@ -15,18 +15,65 @@ The Law Enforcement Officers Killed and Assaulted data, often called just by its
 
 This data, as well as the privately-run site [Officer Down Memorial Page](https://www.odmp.org/) which covers law enforcement officers who have died, has also been used lately in the context of police using force against people out of fear of being harmed by that person. The discussion revolves around whether police are actually in high danger of being harmed by comparing the rate at which officers die to that of other professions. In general they find that police officers are among the most likely profession to die but are not at the top of this measure. 
 
-## A brief history of the data
+## Important variables
 
-### Changes in definitions
+### Number of employees 
 
-## What does the data look like?
+### Officers killed
+
+### Assaults by injury and weapon
+
+* Assaults with injury
+    + Offender has firearm
+    + Offender had knife
+    + Offender had other weapon
+    + Offender was unarmed
+* Assaults without injury
+    + Offender has firearm
+    + Offender had knife
+    + Offender had other weapon
+    + Offender was unarmed
+
+### Assaults by call type
+
+* Disturbance call (e.g. domestic violence, person carrying a gun in public)
+* Burglary
+* Robbery
+* Officers arresting someone for another crime
+* Civil disorder
+* Officer has custody of prisoners
+* Suspicious persons
+* Officers are ambushed
+* Mentally deranged person
+* Traffic pursuit and traffic stops
+* All other call types
 
 
+* Offender weapons
+    + Offender has firearm
+    + Offender had knife
+    + Offender had other weapon
+    + Offender was unarmed
+* Type of officer assignment
+    + In a vehicle with two officers
+    + In a vehicle alone
+    + In a vehicle alone but assisted by other officers
+    + Detective or special unit alone
+    + Detective or special unit assisted by other officers
+    + Other assignment alone
+    + Other assignment assisted by other officers
+    
+### Assaults by time
 
-## What variables are in the data?
-
-### Key variables
-
-## Known issues with the data
-
-## Final thoughts
+* 12:01am - 2:00am
+* 2:01am  - 4:00am
+* 4:01am  - 6:00am
+* 6:01am  - 8:00am
+* 8:01am  - 10:00am
+* 10:01am - 12:00pm
+* 12:01pm - 2:00pm
+* 2:01pm  - 4:00pm
+* 4:01pm  - 6:00pm
+* 6:01pm  - 8:00pm
+* 8:01pm  - 10:00pm
+* 10:01pm - 12:00pm

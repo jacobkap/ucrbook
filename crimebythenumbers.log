@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.3.19)  13 APR 2021 15:54
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.3.19)  13 APR 2021 22:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -851,18 +851,17 @@ Underfull \hbox (badness 3312) in paragraph at lines 20--20
  [][] [][]\TU/lmr/m/n/12 Law Enforcement Officers Killed and Assaulted 
  []
 
-[3] [4] [5] [6])
+[3] [4] [5])
 \tf@toc=\write4
 \openout4 = `crimebythenumbers.toc'.
 
-[7] [8
+[6] [7
 
-] [9] [10]
+] [8]
 
-Package natbib Warning: Citation `Book' on page 11 undefined on input line 143.
+Package natbib Warning: Citation `Book' on page 9 undefined on input line 143.
 
-
-[11]
+[9]
 Underfull \hbox (badness 10000) in paragraph at lines 158--159
 [][][][][][][][][] [] [][][][][][] [] [][][][][][][] [] [][][][][] [] [][][][][
 ][][][][] [] [][][][][][][][][][][][][][] [] [][][][][] []
@@ -874,20 +873,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 158--159
 ] [] [][][][][] [] [][][][][][][][] []
  []
 
-[12]
+[10]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
 (Font)              scaled to size 5.0pt on input line 160.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
 (Font)              scaled to size 5.00046pt on input line 160.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 4.99947pt on input line 160.
-[13] [14
+[11] [12
 
-] [15] [16
+] [13] [14
 
 ]
 Chapter 1.
-[17] [18]
+[15] [16]
 Underfull \hbox (badness 10000) in paragraph at lines 208--209
 
  []
@@ -897,7 +896,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 214--216
 
  []
 
-[19]
+[17]
 Underfull \hbox (badness 10000) in paragraph at lines 216--217
 
  []
@@ -977,7 +976,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 286--288
 
  []
 
-[20]
+[18]
 Underfull \hbox (badness 10000) in paragraph at lines 288--290
 
  []
@@ -1012,69 +1011,69 @@ Underfull \hbox (badness 10000) in paragraph at lines 310--311
 
  []
 
-[21] [22] [23]
+[19] [20] [21]
 File: crimebythenumbers_files/figure-latex/sfThefts-1.pdf Graphic file (type pd
 f)
 <use crimebythenumbers_files/figure-latex/sfThefts-1.pdf>
-[24] [25]
+[22] [23]
 File: crimebythenumbers_files/figure-latex/chicagoMurder-1.pdf Graphic file (ty
 pe pdf)
 <use crimebythenumbers_files/figure-latex/chicagoMurder-1.pdf>
-[26] [27]
+[24] [25]
 File: crimebythenumbers_files/figure-latex/simpleIndex-1.pdf Graphic file (type
  pdf)
 <use crimebythenumbers_files/figure-latex/simpleIndex-1.pdf>
-[28] [29] [30]
+[26] [27] [28]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[31]
+[29]
 File: crimebythenumbers_files/figure-latex/agenciesReporting-1.pdf Graphic file
  (type pdf)
 <use crimebythenumbers_files/figure-latex/agenciesReporting-1.pdf>
 File: crimebythenumbers_files/figure-latex/bigAgenciesReporting-1.pdf Graphic f
 ile (type pdf)
 <use crimebythenumbers_files/figure-latex/bigAgenciesReporting-1.pdf>
-[32] [33] [34]
+[30] [31] [32]
 File: crimebythenumbers_files/figure-latex/nycGunAssaults-1.pdf Graphic file (t
 ype pdf)
 <use crimebythenumbers_files/figure-latex/nycGunAssaults-1.pdf>
-[35]
+[33]
 File: crimebythenumbers_files/figure-latex/nycMurderMonthly-1.pdf Graphic file 
 (type pdf)
 <use crimebythenumbers_files/figure-latex/nycMurderMonthly-1.pdf>
 File: crimebythenumbers_files/figure-latex/nycMurderYearly-1.pdf Graphic file (
 type pdf)
 <use crimebythenumbers_files/figure-latex/nycMurderYearly-1.pdf>
-[36] [37]
+[34] [35]
 File: crimebythenumbers_files/figure-latex/miamiDadeMurderAnnual-1.pdf Graphic 
 file (type pdf)
 <use crimebythenumbers_files/figure-latex/miamiDadeMurderAnnual-1.pdf>
-[38]
+[36]
 File: crimebythenumbers_files/figure-latex/danvilleRape-1.pdf Graphic file (typ
 e pdf)
 <use crimebythenumbers_files/figure-latex/danvilleRape-1.pdf>
-[39] [40] [41]
+[37] [38] [39]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[42] [43]
+[40] [41]
 File: crimebythenumbers_files/figure-latex/hateCrimes-1.pdf Graphic file (type 
 pdf)
 <use crimebythenumbers_files/figure-latex/hateCrimes-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[44] [45]
+[42] [43]
 Underfull \hbox (badness 1253) in paragraph at lines 647--648
 \TU/lmr/m/n/12 In the UCR and other FBI data sets, agencies are identified usin
 g
  []
 
-[46]
+[44]
 File: images/offenses_known_raw_ascii_1960.png Graphic file (type bmp)
 <images/offenses_known_raw_ascii_1960.png>
-[47] [48] [49] [50]
+[45] [46] [47] [48]
 Chapter 2.
-[51
+[49
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 689--691
@@ -1136,7 +1135,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 729--730
 
  []
 
-[52]
+[50]
 Underfull \hbox (badness 10000) in paragraph at lines 737--739
 
  []
@@ -1176,162 +1175,140 @@ Underfull \hbox (badness 10000) in paragraph at lines 758--760
 
  []
 
-[53]
+[51]
 File: images/fbi_hierarchy.png Graphic file (type bmp)
 <images/fbi_hierarchy.png>
-[54] [55]
+[52] [53]
 File: crimebythenumbers_files/figure-latex/offensesAgenciesReporting-1.pdf Grap
 hic file (type pdf)
 <use crimebythenumbers_files/figure-latex/offensesAgenciesReporting-1.pdf>
 
 Underfull \vbox (badness 2600) has occurred while \output is active []
 
-[56] [57] [58]
+[54] [55] [56]
 File: crimebythenumbers_files/figure-latex/montgomeryClearances-1.pdf Graphic f
 ile (type pdf)
 <use crimebythenumbers_files/figure-latex/montgomeryClearances-1.pdf>
-[59] [60]
+[57] [58]
 File: crimebythenumbers_files/figure-latex/phillyRapeUnfound-1.pdf Graphic file
  (type pdf)
 <use crimebythenumbers_files/figure-latex/phillyRapeUnfound-1.pdf>
-[61] [62]
+[59] [60]
 File: crimebythenumbers_files/figure-latex/phillyRapeUnfoundPercent-1.pdf Graph
 ic file (type pdf)
 <use crimebythenumbers_files/figure-latex/phillyRapeUnfoundPercent-1.pdf>
 File: crimebythenumbers_files/figure-latex/phillyRobberyUnfoundPercent-1.pdf Gr
 aphic file (type pdf)
 <use crimebythenumbers_files/figure-latex/phillyRobberyUnfoundPercent-1.pdf>
-[63] [64]
+[61] [62]
 File: crimebythenumbers_files/figure-latex/rapePhilly-1.pdf Graphic file (type 
 pdf)
 <use crimebythenumbers_files/figure-latex/rapePhilly-1.pdf>
-[65] [66]
+[63] [64]
 File: crimebythenumbers_files/figure-latex/rapeNYC-1.pdf Graphic file (type pdf
 )
 <use crimebythenumbers_files/figure-latex/rapeNYC-1.pdf>
 File: crimebythenumbers_files/figure-latex/rapeLA-1.pdf Graphic file (type pdf)
 
 <use crimebythenumbers_files/figure-latex/rapeLA-1.pdf>
-[67] [68]
+[65] [66]
 File: crimebythenumbers_files/figure-latex/rapeJackson-1.pdf Graphic file (type
  pdf)
 <use crimebythenumbers_files/figure-latex/rapeJackson-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[69] [70]
+[67] [68]
 File: crimebythenumbers_files/figure-latex/manslaughterVsMurder-1.pdf Graphic f
 ile (type pdf)
 <use crimebythenumbers_files/figure-latex/manslaughterVsMurder-1.pdf>
 File: crimebythenumbers_files/figure-latex/manslaughterPercent-1.pdf Graphic fi
 le (type pdf)
 <use crimebythenumbers_files/figure-latex/manslaughterPercent-1.pdf>
-[71] [72]
+[69] [70]
 Chapter 3.
-[73
+[71
 
-] [74]
-Chapter 4.
-[75
+] [72] [73] [74] [75] [76
 
 ]
+Chapter 4.
+[77]
 Overfull \hbox (91.33757pt too wide) has occurred while \output is active
-\TU/lmr/m/n/12 76 \TU/lmr/m/sl/12 CHAPTER 4.  LAW ENFORCEMENT OFFICERS KILLED A
+\TU/lmr/m/n/12 78 \TU/lmr/m/sl/12 CHAPTER 4.  LAW ENFORCEMENT OFFICERS KILLED A
 ND ASSAULTED (LEOKA)
  []
 
-[76]
+[78] [79]
+Overfull \hbox (91.33757pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 80 \TU/lmr/m/sl/12 CHAPTER 4.  LAW ENFORCEMENT OFFICERS KILLED A
+ND ASSAULTED (LEOKA)
+ []
+
+[80]
 Chapter 5.
-[77
+[81
 
 ]
-
-LaTeX Warning: Reference `fig:shrVsOffenses' on page 78 undefined on input line
- 1009.
-
 File: crimebythenumbers_files/figure-latex/shrVsOffenses-1.pdf Graphic file (ty
 pe pdf)
 <use crimebythenumbers_files/figure-latex/shrVsOffenses-1.pdf>
-
-Underfull \hbox (badness 10000) in paragraph at lines 1011--1013
-[][]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[78]
+[82] [83]
 File: crimebythenumbers_files/figure-latex/numberSHRVictims-1.pdf Graphic file 
 (type pdf)
 <use crimebythenumbers_files/figure-latex/numberSHRVictims-1.pdf>
-[79] [80]
+[84]
 File: crimebythenumbers_files/figure-latex/numberSHROffenders-1.pdf Graphic fil
 e (type pdf)
 <use crimebythenumbers_files/figure-latex/numberSHROffenders-1.pdf>
-[81] [82]
+[85] [86]
 File: crimebythenumbers_files/figure-latex/shrOffenderAge-1.pdf Graphic file (t
 ype pdf)
 <use crimebythenumbers_files/figure-latex/shrOffenderAge-1.pdf>
 File: crimebythenumbers_files/figure-latex/shrVictimAge-1.pdf Graphic file (typ
 e pdf)
 <use crimebythenumbers_files/figure-latex/shrVictimAge-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[83] [84] [85]
+[87] [88] [89]
 File: crimebythenumbers_files/figure-latex/shrOffenderSex-1.pdf Graphic file (t
 ype pdf)
 <use crimebythenumbers_files/figure-latex/shrOffenderSex-1.pdf>
 File: crimebythenumbers_files/figure-latex/shrVictimSex-1.pdf Graphic file (typ
 e pdf)
 <use crimebythenumbers_files/figure-latex/shrVictimSex-1.pdf>
-[86] [87]
-
-LaTeX Warning: Reference `fig:shrOffenderRace' on page 88 undefined on input li
-ne 1090.
-
+[90] [91]
 File: crimebythenumbers_files/figure-latex/shrOffenderRace-1.pdf Graphic file (
 type pdf)
 <use crimebythenumbers_files/figure-latex/shrOffenderRace-1.pdf>
-
-Underfull \hbox (badness 10000) in paragraph at lines 1092--1094
-[][]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[88]
 File: crimebythenumbers_files/figure-latex/shrVictimRace-1.pdf Graphic file (ty
 pe pdf)
 <use crimebythenumbers_files/figure-latex/shrVictimRace-1.pdf>
-[89] [90]
+[92] [93] [94]
 File: crimebythenumbers_files/figure-latex/shrOffenderEthnicity-1.pdf Graphic f
 ile (type pdf)
 <use crimebythenumbers_files/figure-latex/shrOffenderEthnicity-1.pdf>
 File: crimebythenumbers_files/figure-latex/shrVictimEthnicity-1.pdf Graphic fil
 e (type pdf)
 <use crimebythenumbers_files/figure-latex/shrVictimEthnicity-1.pdf>
-[91] [92]
+[95] [96]
 File: crimebythenumbers_files/figure-latex/shrWeapon-1.png Graphic file (type b
 mp)
 <crimebythenumbers_files/figure-latex/shrWeapon-1.png>
 File: crimebythenumbers_files/figure-latex/shrRelationship-1.png Graphic file (
 type bmp)
 <crimebythenumbers_files/figure-latex/shrRelationship-1.png>
-[93] [94] [95]
+[97] [98] [99]
 File: crimebythenumbers_files/figure-latex/shrCircumstance-1.png Graphic file (
 type bmp)
 <crimebythenumbers_files/figure-latex/shrCircumstance-1.png>
 
-LaTeX Warning: Float too large for page by 39.10948pt on input line 1162.
+LaTeX Warning: Float too large for page by 39.10948pt on input line 1568.
 
 File: crimebythenumbers_files/figure-latex/shrSubCircumstance-1.png Graphic fil
 e (type bmp)
 <crimebythenumbers_files/figure-latex/shrSubCircumstance-1.png>
-[96] [97] [98]
+[100] [101] [102]
 Chapter 6.
-[99
+[103
 
 ]
 File: crimebythenumbers_files/figure-latex/hateAgencies-1.pdf Graphic file (typ
@@ -1343,66 +1320,86 @@ ype pdf)
 File: crimebythenumbers_files/figure-latex/hateCrimesPreviousYear-1.pdf Graphic
  file (type pdf)
 <use crimebythenumbers_files/figure-latex/hateCrimesPreviousYear-1.pdf>
-[100] [101] [102] [103]
+[104] [105] [106] [107]
 File: crimebythenumbers_files/figure-latex/hateCrimesMap-1.pdf Graphic file (ty
 pe pdf)
 <use crimebythenumbers_files/figure-latex/hateCrimesMap-1.pdf>
 File: crimebythenumbers_files/figure-latex/statePercentReporting-1.pdf Graphic 
 file (type pdf)
 <use crimebythenumbers_files/figure-latex/statePercentReporting-1.pdf>
-[104]
+[108]
 File: crimebythenumbers_files/figure-latex/hateCrimesByDay-1.pdf Graphic file (
 type pdf)
 <use crimebythenumbers_files/figure-latex/hateCrimesByDay-1.pdf>
-[105] [106]
+[109] [110]
 File: crimebythenumbers_files/figure-latex/crimesPerHateCrime-1.pdf Graphic fil
 e (type pdf)
 <use crimebythenumbers_files/figure-latex/crimesPerHateCrime-1.pdf>
-[107] [108]
+[111] [112]
 File: crimebythenumbers_files/figure-latex/hateBiasMotivation-1.png Graphic fil
 e (type bmp)
 <crimebythenumbers_files/figure-latex/hateBiasMotivation-1.png>
 
-LaTeX Warning: Float too large for page by 41.453pt on input line 1263.
+LaTeX Warning: Float too large for page by 41.453pt on input line 1669.
 
-[109] [110]
+[113] [114]
 File: crimebythenumbers_files/figure-latex/hateOffense-1.png Graphic file (type
  bmp)
 <crimebythenumbers_files/figure-latex/hateOffense-1.png>
 
-LaTeX Warning: Float too large for page by 41.45384pt on input line 1280.
+LaTeX Warning: Float too large for page by 41.45384pt on input line 1686.
 
 
 Underfull \vbox (badness 1484) has occurred while \output is active []
 
-[111] [112]
+[115] [116]
 File: crimebythenumbers_files/figure-latex/hateLocations-1.png Graphic file (ty
 pe bmp)
 <crimebythenumbers_files/figure-latex/hateLocations-1.png>
 
-LaTeX Warning: Float too large for page by 41.45384pt on input line 1295.
+LaTeX Warning: Float too large for page by 41.45384pt on input line 1701.
 
-[113] [114]
+[117] [118]
 File: crimebythenumbers_files/figure-latex/hateCrimeOffenderNumber-1.pdf Graphi
 c file (type pdf)
 <use crimebythenumbers_files/figure-latex/hateCrimeOffenderNumber-1.pdf>
-[115]
+[119]
 File: crimebythenumbers_files/figure-latex/hateCrimeOffenderRace-1.pdf Graphic 
 file (type pdf)
 <use crimebythenumbers_files/figure-latex/hateCrimeOffenderRace-1.pdf>
-[116]
+[120]
 Chapter 7.
-[117
+File: crimebythenumbers_files/figure-latex/propertyAgencies-1.pdf Graphic file 
+(type pdf)
+<use crimebythenumbers_files/figure-latex/propertyAgencies-1.pdf>
+[121
 
 ]
 Overfull \hbox (111.59628pt too wide) has occurred while \output is active
-\TU/lmr/m/n/12 118 \TU/lmr/m/sl/12 CHAPTER 7.  PROPERTY STOLEN AND RECOVERED (S
+\TU/lmr/m/n/12 122 \TU/lmr/m/sl/12 CHAPTER 7.  PROPERTY STOLEN AND RECOVERED (S
 UPPLEMENT TO RETURN A)
  []
 
-[118]
+[122] [123]
+Overfull \hbox (111.59628pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 124 \TU/lmr/m/sl/12 CHAPTER 7.  PROPERTY STOLEN AND RECOVERED (S
+UPPLEMENT TO RETURN A)
+ []
+
+[124]
+Underfull \hbox (badness 4441) in paragraph at lines 1906--1907
+[]\TU/lmr/m/n/12 This includes all types of firearms other than toys or
+ []
+
+[125]
+Overfull \hbox (111.59628pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 126 \TU/lmr/m/sl/12 CHAPTER 7.  PROPERTY STOLEN AND RECOVERED (S
+UPPLEMENT TO RETURN A)
+ []
+
+[126]
 Chapter 8.
-[119
+[127
 
 ]
 File: crimebythenumbers_files/figure-latex/arsonAgencies-1.pdf Graphic file (ty
@@ -1411,28 +1408,28 @@ pe pdf)
 
 Underfull \vbox (badness 3260) has occurred while \output is active []
 
-[120] [121]
+[128] [129]
 File: crimebythenumbers_files/figure-latex/arsonClearance-1.pdf Graphic file (t
 ype pdf)
 <use crimebythenumbers_files/figure-latex/arsonClearance-1.pdf>
-[122] [123] [124] [125]
+[130] [131] [132] [133]
 File: crimebythenumbers_files/figure-latex/residenceArson-1.pdf Graphic file (t
 ype pdf)
 <use crimebythenumbers_files/figure-latex/residenceArson-1.pdf>
 File: crimebythenumbers_files/figure-latex/arsonCost-1.pdf Graphic file (type p
 df)
 <use crimebythenumbers_files/figure-latex/arsonCost-1.pdf>
-[126] [127] [128]
+[134] [135] [136]
 Chapter 9.
-[129
+[137
 
 ]
 Overfull \hbox (41.07887pt too wide) has occurred while \output is active
-\TU/lmr/m/n/12 130 \TU/lmr/m/sl/12 CHAPTER 9.  COUNTY-LEVEL DETAILED ARREST AND
+\TU/lmr/m/n/12 138 \TU/lmr/m/sl/12 CHAPTER 9.  COUNTY-LEVEL DETAILED ARREST AND
  OFFENSE DATA
  []
 
-[130
+[138
 
 ] (./crimebythenumbers.bbl
 Underfull \hbox (badness 5133) in paragraph at lines 9--14
@@ -1516,7 +1513,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--43
 re-
  []
 
-[131
+[139
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 56--61
@@ -1538,20 +1535,17 @@ ute-
 
 Package natbib Warning: There were undefined citations.
 
-[132] (./crimebythenumbers.aux)
-
-LaTeX Warning: There were undefined references.
-
+[140] (./crimebythenumbers.aux)
 Package rerunfilecheck Info: File `crimebythenumbers.out' has not changed.
-(rerunfilecheck)             Checksum: ED2D6A07B30D07FF09E677EE861E832F;19241.
+(rerunfilecheck)             Checksum: 881B3350DE2380D107E17AFE602385B3;18228.
  ) 
 Here is how much of TeX's memory you used:
- 16464 strings out of 478922
- 308544 string characters out of 5865140
- 791894 words of memory out of 5000000
- 36043 multiletter control sequences out of 15000+600000
+ 16459 strings out of 478922
+ 308686 string characters out of 5865140
+ 792010 words of memory out of 5000000
+ 36037 multiletter control sequences out of 15000+600000
  407962 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  98i,8n,122p,1887b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on crimebythenumbers.pdf (132 pages).
+Output written on crimebythenumbers.pdf (140 pages).
