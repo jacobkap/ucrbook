@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.3.19)  17 APR 2021 23:44
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.3.19)  18 APR 2021 16:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1347,9 +1347,9 @@ Chapter 7.
 ]
 File: ucrbook_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/unnamed-chunk-3-1.pdf>
-File: ucrbook_files/figure-latex/phillyHomeBurglary2-1.pdf Graphic file (type p
-df)
-<use ucrbook_files/figure-latex/phillyHomeBurglary2-1.pdf>
+File: ucrbook_files/figure-latex/PhillyBurglaryCost-1.pdf Graphic file (type pd
+f)
+<use ucrbook_files/figure-latex/PhillyBurglaryCost-1.pdf>
 
 Overfull \hbox (111.59628pt too wide) has occurred while \output is active
 \TU/lmr/m/n/12 118 \TU/lmr/m/sl/12 CHAPTER 7.  PROPERTY STOLEN AND RECOVERED (S
@@ -1357,18 +1357,25 @@ UPPLEMENT TO RETURN A)
  []
 
 [118] [119]
-File: ucrbook_files/figure-latex/propertyAgencies-1.pdf Graphic file (type pdf)
-
-<use ucrbook_files/figure-latex/propertyAgencies-1.pdf>
-File: ucrbook_files/figure-latex/agenciesInBoth-1.pdf Graphic file (type pdf)
-<use ucrbook_files/figure-latex/agenciesInBoth-1.pdf>
+File: ucrbook_files/figure-latex/phillyHomeCostPerBurglary-1.pdf Graphic file (
+type pdf)
+<use ucrbook_files/figure-latex/phillyHomeCostPerBurglary-1.pdf>
 
 Overfull \hbox (111.59628pt too wide) has occurred while \output is active
 \TU/lmr/m/n/12 120 \TU/lmr/m/sl/12 CHAPTER 7.  PROPERTY STOLEN AND RECOVERED (S
 UPPLEMENT TO RETURN A)
  []
 
-[120] [121]
+[120]
+File: ucrbook_files/figure-latex/propertyAgencies-1.pdf Graphic file (type pdf)
+
+<use ucrbook_files/figure-latex/propertyAgencies-1.pdf>
+File: ucrbook_files/figure-latex/agenciesInBoth-1.pdf Graphic file (type pdf)
+<use ucrbook_files/figure-latex/agenciesInBoth-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[121]
 Overfull \hbox (111.59628pt too wide) has occurred while \output is active
 \TU/lmr/m/n/12 122 \TU/lmr/m/sl/12 CHAPTER 7.  PROPERTY STOLEN AND RECOVERED (S
 UPPLEMENT TO RETURN A)
@@ -1381,42 +1388,48 @@ UPPLEMENT TO RETURN A)
  []
 
 [124] [125]
-Underfull \hbox (badness 4441) in paragraph at lines 1971--1972
-[]\TU/lmr/m/n/12 This includes all types of firearms other than toys or
- []
-
-
 Overfull \hbox (111.59628pt too wide) has occurred while \output is active
 \TU/lmr/m/n/12 126 \TU/lmr/m/sl/12 CHAPTER 7.  PROPERTY STOLEN AND RECOVERED (S
 UPPLEMENT TO RETURN A)
  []
 
-[126] [127]
-Underfull \hbox (badness 4441) in paragraph at lines 2072--2073
+[126]
+Underfull \hbox (badness 4441) in paragraph at lines 2005--2006
 []\TU/lmr/m/n/12 This includes all types of firearms other than toys or
  []
 
-
+[127]
 Overfull \hbox (111.59628pt too wide) has occurred while \output is active
 \TU/lmr/m/n/12 128 \TU/lmr/m/sl/12 CHAPTER 7.  PROPERTY STOLEN AND RECOVERED (S
 UPPLEMENT TO RETURN A)
  []
 
-[128]
-File: ucrbook_files/figure-latex/nycLivestock-1.pdf Graphic file (type pdf)
-<use ucrbook_files/figure-latex/nycLivestock-1.pdf>
-File: ucrbook_files/figure-latex/phillyHomeBurglary-1.pdf Graphic file (type pd
-f)
-<use ucrbook_files/figure-latex/phillyHomeBurglary-1.pdf>
-[129]
+[128] [129]
+Underfull \hbox (badness 4441) in paragraph at lines 2108--2109
+[]\TU/lmr/m/n/12 This includes all types of firearms other than toys or
+ []
+
+
 Overfull \hbox (111.59628pt too wide) has occurred while \output is active
 \TU/lmr/m/n/12 130 \TU/lmr/m/sl/12 CHAPTER 7.  PROPERTY STOLEN AND RECOVERED (S
 UPPLEMENT TO RETURN A)
  []
 
-[130] [131]
+[130]
+File: ucrbook_files/figure-latex/nycLivestock-1.pdf Graphic file (type pdf)
+<use ucrbook_files/figure-latex/nycLivestock-1.pdf>
+[131]
+Overfull \hbox (111.59628pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 132 \TU/lmr/m/sl/12 CHAPTER 7.  PROPERTY STOLEN AND RECOVERED (S
+UPPLEMENT TO RETURN A)
+ []
+
+[132]
+File: ucrbook_files/figure-latex/phillyGunsValue-1.pdf Graphic file (type pdf)
+<use ucrbook_files/figure-latex/phillyGunsValue-1.pdf>
+[133]
 Chapter 8.
-[132
+[134
 
 ]
 File: ucrbook_files/figure-latex/arsonAgencies-1.pdf Graphic file (type pdf)
@@ -1424,17 +1437,17 @@ File: ucrbook_files/figure-latex/arsonAgencies-1.pdf Graphic file (type pdf)
 
 Underfull \vbox (badness 3260) has occurred while \output is active []
 
-[133] [134]
+[135] [136]
 File: ucrbook_files/figure-latex/arsonClearance-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/arsonClearance-1.pdf>
-[135] [136] [137] [138]
+[137] [138] [139] [140]
 File: ucrbook_files/figure-latex/residenceArson-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/residenceArson-1.pdf>
 File: ucrbook_files/figure-latex/arsonCost-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/arsonCost-1.pdf>
-[139] [140] [141]
+[141] [142] [143]
 Chapter 9.
-[142
+[144
 
 ] (./ucrbook.bbl
 Underfull \hbox (badness 5133) in paragraph at lines 9--14
@@ -1518,7 +1531,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--43
 re-
  []
 
-[143
+[145
 
 
 ]
@@ -1541,17 +1554,17 @@ ute-
 
 Package natbib Warning: There were undefined citations.
 
-[144] (./ucrbook.aux)
+[146] (./ucrbook.aux)
 Package rerunfilecheck Info: File `ucrbook.out' has not changed.
 (rerunfilecheck)             Checksum: D6D13313E394A42EA6FC47B022FF5AEC;18280.
  ) 
 Here is how much of TeX's memory you used:
- 16494 strings out of 478922
- 307313 string characters out of 5865140
- 792543 words of memory out of 5000000
- 36067 multiletter control sequences out of 15000+600000
+ 16501 strings out of 478922
+ 307665 string characters out of 5865140
+ 792616 words of memory out of 5000000
+ 36073 multiletter control sequences out of 15000+600000
  407962 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  98i,8n,122p,1877b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on ucrbook.pdf (144 pages).
+Output written on ucrbook.pdf (146 pages).

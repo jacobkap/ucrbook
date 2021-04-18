@@ -14,7 +14,6 @@ colorlinks: yes
 url: "https://ucrbook.com"
 fontsize: 12pt
 github-repo: "jacobkap/ucrbook"
-fontsize: 12pt
 classoption: openany
 ---
 

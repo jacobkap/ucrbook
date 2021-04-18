@@ -1,7 +1,7 @@
 --- 
 title: "Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide"
 author: "Jacob Kaplan"
-date: "2021-04-17"
+date: "2021-04-18"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -11,7 +11,9 @@ description: "This is a comprehensive guide to using the FBI's Uniform Crime Rep
 graphics: yes
 always_allow_html: yes 
 colorlinks: yes
+url: "https://ucrbook.com"
 fontsize: 12pt
+github-repo: "jacobkap/ucrbook"
 classoption: openany
 ---
 

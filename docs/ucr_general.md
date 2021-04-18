@@ -106,11 +106,17 @@ One of the first (and seemingly last) thing that people tend to learn about UCR 
 
 The biggest problem with index crimes is that it is simply the sum of 8 (or 7 since arson data usually isn’t available) crimes. Index crimes have a huge range in their seriousness - it includes, for example, both murder and theft - so summing up the crimes gives each crime equal weight. This is clearly wrong as 100 murders is more serious than 100 thefts. This is especially a problem as less serious crimes (theft mostly) are far more common than more serious crimes. In 2017, for example, there were 1.25 million violent index crimes in the United States. That same year had 5.5 million thefts. So using index crimes as your measure of crimes undercounts the seriousness of crimes. Looking at total index crimes is, in effect, mostly just looking at theft. Looking at violent index crimes mostly measures aggravated assault. This is especially a problem because it hides trends in violent crimes. San Francisco, as shown in Figure \@ref(fig:sfThefts), has had a huge increase in index crimes in the last several years. When looking closer, that increase is driven almost entirely by the near doubling of theft since 2011. During the same years, index violent crimes have stayed fairly steady. So the city isn’t getting more dangerous - at least not in terms of violent index crimes increasing - but it appears like it is due to just looking at total index crimes.
 
-![(\#fig:sfThefts)Thefts and total index crimes in San Francisco, 1960-2018.](ucrbook_files/figure-latex/sfThefts-1.pdf) 
+<div class="figure">
+<img src="ucr_general_files/figure-html/sfThefts-1.png" alt="Thefts and total index crimes in San Francisco, 1960-2018." width="672" />
+<p class="caption">(\#fig:sfThefts)Thefts and total index crimes in San Francisco, 1960-2018.</p>
+</div>
 
 While many researchers divide index crimes into violent and nonviolent categories, which helps but even this isn't entirely sufficient. Take Chicago as an example. It is a city infamous for its large number of murders. But as a fraction of index crimes, Chicago has a rounding error worth of murders. Their 653 murders in 2017 is only 0.5% of total index crimes. For violent index crimes, murder makes up 2.2%. As seen in Figure \@ref(fig:chicagoMurder), in no year where data is available did murders account for more than 3.5% of violent index crimes; and, while murders are increasing as a percent of violent index crimes they still account for no more than 2.5% in most years. What this means is that changes in murder are very difficult to detect. If Chicago had no murders this year, but a less serious crime (such as theft) increased slightly, we couldn't tell from looking at the number of index crimes, even from violent index crimes. As discussed in the below section, using this sample of crimes as the primary measure of crimes - and particularly of violent crimes - is also misleading as it excludes important - and highly common relative to index crimes - offenses, such as simple assault.
 
-![(\#fig:chicagoMurder)Murders in Chicago as a percent of violent index crimes, 1960-2018.](ucrbook_files/figure-latex/chicagoMurder-1.pdf) 
+<div class="figure">
+<img src="ucr_general_files/figure-html/chicagoMurder-1.png" alt="Murders in Chicago as a percent of violent index crimes, 1960-2018." width="672" />
+<p class="caption">(\#fig:chicagoMurder)Murders in Chicago as a percent of violent index crimes, 1960-2018.</p>
+</div>
 
 
 #### What is a violent crime?
@@ -125,7 +131,10 @@ The final reason is that it benefits some people's goals to classify violent cri
 
 As an example of this last point, \@ref(fig:simpleIndex) shows the number of violent index crimes and simple assaults each year from 1960 to 2018 in Houston, Texas (simple assault is not reported in UCR until 1964, which is why 1960-1963 show zero simple assaults). In every year where simple assault is reported, there are more simple assaults than aggravated assaults. Beginning in the late 1980s, there are also more simple assaults than total violent index crimes. Excluding simple assault from the being a violent crime greatly underestimates violence in the country. 
 
-![(\#fig:simpleIndex)Reported crimes in Philadelphia from 1960 to 2018. Violent index crimes are aggravated assault, rape, robbery, and murder.](ucrbook_files/figure-latex/simpleIndex-1.pdf) 
+<div class="figure">
+<img src="ucr_general_files/figure-html/simpleIndex-1.png" alt="Reported crimes in Philadelphia from 1960 to 2018. Violent index crimes are aggravated assault, rape, robbery, and murder." width="672" />
+<p class="caption">(\#fig:simpleIndex)Reported crimes in Philadelphia from 1960 to 2018. Violent index crimes are aggravated assault, rape, robbery, and murder.</p>
+</div>
 
 
 ## Issues common across UCR datasets
@@ -156,31 +165,49 @@ When an agency reports their data to the FBI, they do so voluntarily - there is 
 
 In general, more agencies report their data every year and once an agency begins reporting data they tend to keep reporting. The UCR datasets are a collection of separate, though related, datasets and an agency can report to as many of these datasets as they want - an agency that reports to one dataset does not mean that they report to other datasets. Figure \@ref(fig:agenciesReporting) shows the number of agencies that submitted at least one month of data to the Offenses Known and Clearances by Arrest data in the given year. For the first decade of available data under 8,000 agencies reported data and this grew to over 13,500 by the late 1970s before plateauing for about a decade. The number of agencies that reported their data actually declined in the 1990s, driven primarily by many Florida agencies temporarily dropping out, before growing steadily to nearly 17,000 agencies in 2010; from here it kept increasing but slower than before. 
 
-![(\#fig:agenciesReporting)The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.](ucrbook_files/figure-latex/agenciesReporting-1.pdf) 
+<div class="figure">
+<img src="ucr_general_files/figure-html/agenciesReporting-1.png" alt="The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year." width="672" />
+<p class="caption">(\#fig:agenciesReporting)The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.</p>
+</div>
 
 There are approximately 18,000 police agencies in the United States so recent data has reports from nearly all agencies, while older data has far fewer agencies reporting. When trying to estimate to larger geographies, such as state or national-level, later years will be more accurate as you're missing less data. For earlier data, however, you're dealing with a smaller share of agencies meaning that you have a large amount of missing data and a less representative sample. 
 
 Figure \@ref(fig:bigAgenciesReporting) repeats this figure but now including only agencies with 100,000 people or more in their jurisdiction. While these agencies have a far more linear trend than all agencies, the basic lesson is the same: recent data has most agencies reporting; old data excludes many agencies. 
 
-![(\#fig:bigAgenciesReporting)The annual number of agencies with a population of 100,000 or higher reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.](ucrbook_files/figure-latex/bigAgenciesReporting-1.pdf) 
+<div class="figure">
+<img src="ucr_general_files/figure-html/bigAgenciesReporting-1.png" alt="The annual number of agencies with a population of 100,000 or higher reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year." width="672" />
+<p class="caption">(\#fig:bigAgenciesReporting)The annual number of agencies with a population of 100,000 or higher reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.</p>
+</div>
 
 This voluntariness extends beyond whether they report or not, but into which variables they report. While in practice most agencies report every crime when they report any, they do have the choice to report only a subset of offenses. This is especially true for subsets of larger categories - such as gun assaults, a subset of aggravated assaults, or marijuana possession which is a subset of drug possession. As an example, Figure \@ref(fig:nycGunAssaults) shows the annual number of aggravated assaults with a gun in New York City. In 2003 the New York Police Department stopped reporting this category of offense, resuming only in 2013. They continued to report the broader aggravated assault category, but not any of the subsections of aggravated assaults which differentiate the weapon used. 
 
-![(\#fig:nycGunAssaults)Monthly reports of gun assaults in New York City, 1960-2018.](ucrbook_files/figure-latex/nycGunAssaults-1.pdf) 
+<div class="figure">
+<img src="ucr_general_files/figure-html/nycGunAssaults-1.png" alt="Monthly reports of gun assaults in New York City, 1960-2018." width="672" />
+<p class="caption">(\#fig:nycGunAssaults)Monthly reports of gun assaults in New York City, 1960-2018.</p>
+</div>
 
 Given that agencies can join or drop out of the UCR program at will, and report only partial data, it is highly important to carefully examine your data to make sure that there are no issues caused by this. 
 
 Even when an agency reports UCR data, and even when they report every crime category, they can report fewer than 12 months of data. In some cases they simply report all of their data in December, or report quarterly or semi-annually so some months have zero crimes reported while others count multiple months in that month's data. One example of this is New York City, shown in Figure \@ref(fig:nycMurderMonthly), in the early-2000s to the mid-2010s where they began reporting data quarterly instead of monthly. 
 
-![(\#fig:nycMurderMonthly)Monthly murders in New York City, 1990-2018. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting.](ucrbook_files/figure-latex/nycMurderMonthly-1.pdf) 
+<div class="figure">
+<img src="ucr_general_files/figure-html/nycMurderMonthly-1.png" alt="Monthly murders in New York City, 1990-2018. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting." width="672" />
+<p class="caption">(\#fig:nycMurderMonthly)Monthly murders in New York City, 1990-2018. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting.</p>
+</div>
 
 When you sum up each month into an annual count, as shown in Figure \@ref(fig:nycMurderYearly), the problem disappears since the zero months are accounted for in the months that have the quarterly data. If you're using monthly data and only examine the data at the annual level, you'll fall into the trap of having incorrect data that is hidden due to the level of aggregation examined. While cases like NYC are obvious when viewed monthly, for people that are including thousands of agencies in their data, it is unfeasible to look at each agency for each crime included. This can introduce errors as the best way to examine the data is manually viewing graphs and the automated method, looking for outliers through some kind of comparison to expected values, can be incorrect.   
 
-![(\#fig:nycMurderYearly)Annual murders in New York City, 1990-2018.](ucrbook_files/figure-latex/nycMurderYearly-1.pdf) 
+<div class="figure">
+<img src="ucr_general_files/figure-html/nycMurderYearly-1.png" alt="Annual murders in New York City, 1990-2018." width="672" />
+<p class="caption">(\#fig:nycMurderYearly)Annual murders in New York City, 1990-2018.</p>
+</div>
 
 In other cases when agencies report fewer than 12 months of the year, they simply report partial data and as a result undercount crimes. Figure \@ref(fig:miamiDadeMurderAnnual) shows annual murders in Miami-Dade, Florida and has three years of this issue occurring. The first two years with this issue are the two where zero murders are reported - this is because the agency didn't report any months of data. The final year is in 2018, the last year of data in this graph, where it looks like murder suddenly dropped significantly. That's just because Miami-Dade only reported through June, so they're missing half of 2018. 
 
-![(\#fig:miamiDadeMurderAnnual)Annual murders in Miami-Dade, Florida, 1960-2018.](ucrbook_files/figure-latex/miamiDadeMurderAnnual-1.pdf) 
+<div class="figure">
+<img src="ucr_general_files/figure-html/miamiDadeMurderAnnual-1.png" alt="Annual murders in Miami-Dade, Florida, 1960-2018." width="672" />
+<p class="caption">(\#fig:miamiDadeMurderAnnual)Annual murders in Miami-Dade, Florida, 1960-2018.</p>
+</div>
 
 
 ### Zero crimes vs no reports
@@ -192,7 +219,10 @@ In some cases it is easy to see when a zero crimes reported is actually the agen
 Differentiating zero crimes and no reports becomes tricky in agencies that tend to report few crimes, which most small towns do. As an example, Figure \@ref(fig:danvilleRape) shows the annual reports of rape in Danville, California, a city of approximately 45,000 people. The city reports on average 2.8 rapes per year and in five years reported zero rapes. In cases like this it's not clear whether we should consider those zero years as true zeros (that no one reported their rape to the police) or whether the agency simply didn't report rape data that year.  
 
 
-![(\#fig:danvilleRape)Annual rapes reported in Danville, CA, 1960-2018.](ucrbook_files/figure-latex/danvilleRape-1.pdf) 
+<div class="figure">
+<img src="ucr_general_files/figure-html/danvilleRape-1.png" alt="Annual rapes reported in Danville, CA, 1960-2018." width="672" />
+<p class="caption">(\#fig:danvilleRape)Annual rapes reported in Danville, CA, 1960-2018.</p>
+</div>
 
 ## A summary of each UCR dataset
 
@@ -222,7 +252,10 @@ This dataset covers crimes that are reported to the police and judged by the pol
 
 So this data is really a narrower measure of hate crimes than it might seem. In practice it is (some) crimes motivated by (some) kinds of hate that are reported to the police. It is also the most under-reported UCR dataset with most agencies not reporting any hate crimes to the FBI. This leads to huge gaps in the data with some states having extremely few agencies reporting crime - see, for example Figure \@ref(fig:hateCrimes) for state-level hate crimes in 2018 - agencies reporting some bias motivations but not others, agencies reporting some years but not others. While these problems exist for all of the UCR datasets, it is most severe in this data. This problem is exacerbated by hate crimes being rare even in agencies that report them - with such rare events, even minor changes in which agencies report or which types of offenses they include can have large effects. 
 
-![(\#fig:hateCrimes)Total reported hate crimes by state, 2018.](ucrbook_files/figure-latex/hateCrimes-1.pdf) 
+<div class="figure">
+<img src="ucr_general_files/figure-html/hateCrimes-1.png" alt="Total reported hate crimes by state, 2018." width="672" />
+<p class="caption">(\#fig:hateCrimes)Total reported hate crimes by state, 2018.</p>
+</div>
 
 
 ### Property Stolen and Recovered (Supplement to Return A)
@@ -243,9 +276,10 @@ For an easy way to find the ORI number of an agency, use [this page](http://crim
 
 We'll finish this overview of the UCR data by briefly talking about format of the data that is released by the FBI, before the processing done by myself or [NACJD](https://www.icpsr.umich.edu/web/pages/NACJD/index.html) that converts the data to a type that software like R or Stata or Excel can understand. The FBI releases their data as fixed-width ASCII files which are basically just an Excel file but with all of the columns squished together. As an example, below is the data as you receive it from the FBI for the Offenses Known and Clearances by Arrest dataset for 1960, the first year with data available. In the figure, it seems like there are multiple rows but that's just because the software that I opened the file in isn't wide enough - in reality what is shown is a single row that is extremely wide because there are over 1,500 columns in this data. If you scroll down enough you'll see the next row, but that isn't shown in the current image. What is shown is a single row with a ton of columns all pushed up next to each other. Since all of the columns are squished together (the gaps are just blank spaces because the value there is a space, but that doesn't mean there is a in the data. Spaces are possible values in the data and are meaningful), you need some way to figure out which parts of the data belong in which column. 
 
-\begin{figure}
-\includegraphics[width=8.75in]{images/offenses_known_raw_ascii_1960} \caption{Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset}(\#fig:unnamed-chunk-3)
-\end{figure}
+<div class="figure">
+<img src="images/offenses_known_raw_ascii_1960.PNG" alt="Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset" width="315" />
+<p class="caption">(\#fig:unnamed-chunk-3)Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset</p>
+</div>
 
 The "fixed-width" part of the file type is how this works (the ASCII part basically means it's a text file). Each row is the same width - literally the same number of characters, including blank spaces. So you must tell the software you are using to process this file - by literally write code in something called a "setup file" but is basically just instructions for whatever software you use (R, SPSS, Stata, SAS can all do this) - which characters are certain columns. For example, in this data the first character says which type of UCR data it is (1 means the Offenses Known and Clearances by Arrest data) and the next two characters (in the setup file written as 2-3 since it is characters 2 through 3 [inclusive]) are the state number (01 is the state code for Alabama). So we can read this row as the first column indicating it is an Offenses Known data, the second column indicating that it is for the state of Alabama, and so on for each of the remaining columns. To read in this data you'll need a setup file that covers every column in the data (some software, like R, can handle just reading in the specific columns you want and don't need to include every column in the setup file). 
 

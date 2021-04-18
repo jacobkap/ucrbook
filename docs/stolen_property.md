@@ -11,34 +11,58 @@ The Property Stolen and Recovered data - sometimes called the Supplement to Retu
 
 The data, however, provides no information about the offender or the victim (other than if the victim was an individual or a commercial business [based on the location of the incident - "bank", "gas station", etc]). The value of the property stolen is primarily based on the victim's estimate of how much the item is worth (items that are decreased in value once used - such as cars - are supposed to be valued at the current market rate, but the data provides no indication of when it uses the current market rate or the victim's estimate) so it should be used as a very rough estimate of value.  
 
-This data is highly useful to use as a rough measure of the cost of crime. This cost is limited to just the value of the property stolen - so excludes things like injuries, mental health effects of victimization, etc. - but is still better than nothing. Since this data includes both the number of offenses per month (broken down by type of theft and items stolen) and the value of the stolen property, we can also see if the average value of these thefts change over time.
+Before getting into the details of this data, let's look at one example of how this data can measure property crime in a few different ways. This data is highly useful to use as a rough measure of the cost of crime. This cost is limited to just the value of the property stolen - so excludes things like injuries, mental health effects of victimization, etc. - but is still better than nothing. Since this data includes, for some types of property stolen, both the number of offenses per month (broken down by type of theft and items stolen) and the value of the stolen property, we can also see if the average value of these thefts change over time. 
 
-![](ucrbook_files/figure-latex/unnamed-chunk-3-1.pdf)<!-- --> 
+We'll look at home burglaries that occur during the day in Philadelphia. First, we can look at the number of these kinds of burglaries each month or year. Figure \@ref(fig:phillyHomeBurglaryCount)  
 
 
 
-![(\#fig:phillyHomeBurglary2)The annual number of burglaries and cost per burglary for daytime home burglaries in Philadelphia, 1960-2019.](ucrbook_files/figure-latex/phillyHomeBurglary2-1.pdf) 
+<img src="stolen_property_files/figure-html/phillyHomeBurglaryCount-1.png" width="672" />
+
+Next we can see the total cost of daytime home burglaries in Philly for each year, which is shown in Figure \@ref(fig:PhillyBurglaryCost). The trend here is somewhat similar to 
+
+<div class="figure">
+<img src="stolen_property_files/figure-html/PhillyBurglaryCost-1.png" alt="The total annual cost of daytime home burglaries in Philadelphia." width="672" />
+<p class="caption">(\#fig:PhillyBurglaryCost)The total annual cost of daytime home burglaries in Philadelphia.</p>
+</div>
+
+We can put these variables together to look at the cost per burglary so we can roughly measure the cost for each burglary victim. Figure \@ref(fig:phillyHomeCostPerBurglary) shows the cost average cost per burglary for each year of data available. Now we have a different story than the other graphs. 
+
+<div class="figure">
+<img src="stolen_property_files/figure-html/phillyHomeCostPerBurglary-1.png" alt="The annual number of burglaries and cost per burglary for daytime home burglaries in Philadelphia, 1960-2019." width="672" />
+<p class="caption">(\#fig:phillyHomeCostPerBurglary)The annual number of burglaries and cost per burglary for daytime home burglaries in Philadelphia, 1960-2019.</p>
+</div>
 
 ## Agencies reporting
 
 We'll start by looking at which agencies report. The data is available from 1960 through 2019 though the columns about the value of the property only begin in 1964. Figure \@ref(fig:propertyAgencies) show the number of agencies each year that reported at least one month during that year. In the first several years of data barely any agencies reported data and then it spiked around 1966 to over 6,000 agencies per year then grew quickly until over 12,000 agencies reported data in the late 1970s. From here it actually gradually declined until fewer than 12,000 agencies in the late 1990s before reversing course again and growing to about 15,000 agencies by 2019 - down several hundred agencies from the peak a few years earlier. 
 
-![(\#fig:propertyAgencies)The annual number of police agencies that report at least month of data that year.](ucrbook_files/figure-latex/propertyAgencies-1.pdf) 
+<div class="figure">
+<img src="stolen_property_files/figure-html/propertyAgencies-1.png" alt="The annual number of police agencies that report at least month of data that year." width="672" />
+<p class="caption">(\#fig:propertyAgencies)The annual number of police agencies that report at least month of data that year.</p>
+</div>
 
 Since this data is called the "Supplement to Return A" we would expect that the agencies that report here are the same as the ones that report to the Offenses Known and Clearances by Arrest data, which is also called the Return A dataset. Figure \@ref(fig:agenciesInBoth) shows the percent of agencies in this dataset that are also in the Return A data. Except for the first several years of data in the 1960s, we can see that most years have nearly all agencies reporting to both, though this has declined in recent years. Since the late 1970s nearly 90% of agencies that report to the Offenses Known data also report to this dataset. 
 
-![(\#fig:agenciesInBoth)The percent of agencies in the Supplement to Return A data that are also in the Offenses Known and Clearances by Arrest (Return A) data in that year, 1960-2019.](ucrbook_files/figure-latex/agenciesInBoth-1.pdf) 
+<div class="figure">
+<img src="stolen_property_files/figure-html/agenciesInBoth-1.png" alt="The percent of agencies in the Supplement to Return A data that are also in the Offenses Known and Clearances by Arrest (Return A) data in that year, 1960-2019." width="672" />
+<p class="caption">(\#fig:agenciesInBoth)The percent of agencies in the Supplement to Return A data that are also in the Offenses Known and Clearances by Arrest (Return A) data in that year, 1960-2019.</p>
+</div>
 
 
 ## Important variables
 
-This data can really be broken into two parts: the monthly number of property (including robbery) crimes that occur that are more detailed than in the Offenses Known data, and the value of the property stolen (and recovered) from these crimes.^[I'm really not sure why this data isn't just merged with the Offenses Known data, especially the first part where it's just counts of crimes.] For each category I present the complete breakdown of the available offenses/items stolen and describe some of the important issues to know about them.
+This data can really be broken into two parts: the monthly number of property (including robbery) crimes that occur that are more detailed than in the Offenses Known data, and the value of the property stolen (and recovered) from these crimes.^[I'm really not sure why this data isn't just merged with the Offenses Known data, especially the first part where it's just counts of crimes.] For each category I present the complete breakdown of the available offenses/items stolen and describe some of the important issues to know about them. Like other UCR data, there are also variables that provide information about the agency - ORI codes, population under jurisdiction - the month and year that the data covers, and how many months reported data. 
 
 ### A more detailed breakdown of property (and robbery) crimes
 
-The first part of this data is just a monthly (or yearly in the annual data that I've released - the FBI, however, only releases data monthly so I just aggregated the months together) number of crimes of each type reported to the police (and that a police investigation discovered actually happened. For more on this process, please see Chapter \@ref(actual)). There are six crimes and their subsets included here: burglary, theft, robbery, and motor vehicle theft. The remaining two are rape and murder, but they don't break down these crimes into any subcategories.
+The first part of this data is just a monthly (or yearly in the annual data that I've released - the FBI, however, only releases data monthly so I just aggregated the months together) number of crimes of each type reported to the police (and that a police investigation discovered actually happened. For more on this process, please see Chapter \@ref(actual)). There are six crimes and their subsets included here: burglary, theft, robbery, and motor vehicle theft. The remaining two are rape and murder, but they don't break down these crimes into any subcategories and are only available starting in 1974.
 
-Burglary is reported based on whether the building burgled was the victim's residence or not, and also the time of the burglary. Time is either during the day (6am-5:59pm) or night (6:pm-5:59am) or if the time is unknown. For robbery, the subcategories are based on where the robberies occurred such as if it happened in a bank, a gas station, or a street. Theft is divided into three groups based on the value of items stolen: less than \$50, \$50-\$199, and \$200 and up. Finally, motor vehicle theft is broken into where the stolen vehicle was stolen and found: stolen in the reporting agency's jurisdiction and found by the same agency, stolen in the reporting agency's jurisdiction and found by a different agency, and stolen in a different agency's jurisdiction and found by the reporting agency. The complete list of each subsection and a brief definition for the complicated ones are presented below. 
+Burglary is reported based on whether the building burgled was the victim's residence or not, and also the time of the burglary. Time is either during the day (6am-5:59pm) or night (6:pm-5:59am) or if the time is unknown. Data is available since 1960 for both the day and night burglaries, but only since 1964 for the unknown time burglaries. For robbery, the subcategories are based on where the robberies occurred such as if it happened in a bank, a gas station, or a street. 
+
+Theft is divided into two groups. The first group is based on the value of items stolen: less than \$50, \$50-\$199, and \$200 and up. The second group of thefts is broken into the type of theft such as a shoplifting or stealing from someone's car. All theft variables begin in 1960 other than thefts from a coin machine and from a building which start in 1964 and the miscellaneous "All other thefts" variable that has data starting in 1961. Finally, motor vehicle theft is broken into where the stolen vehicle was stolen and found: stolen in the reporting agency's jurisdiction and found by the same agency, stolen in the reporting agency's jurisdiction and found by a different agency, and stolen in a different agency's jurisdiction and found by the reporting agency. 
+
+The complete list of each subsection and a brief definition for the non-obvious ones are presented below. 
 
 * Burglary
     + Home/residence during the day (6:00am - 5:59pm)
@@ -51,6 +75,15 @@ Burglary is reported based on whether the building burgled was the victim's resi
     + <\$50
     + \$50-\$199
     + \$200 and up
+    + Pick pocket
+    + Purse snatching
+    + Shoplifting
+    + Stealing from a car (but not stealing the car itself)
+    + Stealing parts of a car, such as the car battery or the tires
+    + Stealing a bicycle
+    + Stealing from a building where the offender is allowed to be in (and is not counted already as shoplifting)
+    + Stealing from a "coin operated machine" which is mainly vending machines
+    + All other thefts
 * Robbery
     + Highway - This is an old term to say a place is outside and in generally accessible and visible areas. This includes robberies on public streets and alleys.
     + Commercial building - This is robberies in a business other than ones stated below. Includes restaurants, stores, hotels, bars. 
@@ -122,14 +155,15 @@ This also includes the value of property stolen during rapes and murders. To be 
 * Miscellaneous/other 
     + Anything that is not part of the above categories would fall in here. Cell phones and credit cards are included. 
     
-    
 ### Value of recovered property by type of item stolen
 
 For the below subset of items stolen, this data includes the value of the items that were recovered. This is a subset of the section above - the value of property stolen. I don't know why but this data has more values for the property stolen than for property recovered. For example, we know how much was stolen during bank robberies but not how much was recovered from bank robberies. The only info we have for the value of recovered property is for the breakdown in the items themselves - not breakdowns of crimes such as robbery or burglary. So we can know the value of guns recovered, but not if those guns were taken from a burglary, a robbery, a theft, etc. 
 
+While this dataset began in 1960, the recovered property variables begin later, and in different years. For clothing and fur, currency, jewels and precious metals, motor vehicles, Miscellaneous/other, and the variable that sums up all of the recovered property variables, the first year with data was 1961. The remaining variables - consumable goods, guns, household goods/home furniture, livestock,  office equipment and electronics, and sound and picture equipment - began in 1975.
+
 Another issue is that it uses the value of the property as it is recovered, not as it is stolen. For example, if someone steals a laptop that's worth \$1,000 and then the police recover it damaged and it's now worth only \$200, we'd see \$1,000 for the stolen column for "office equipment and electronics" and only \$200 for the recovered column for that category. So an agency that recovers 100% of the items that were stolen can appear to only recover a fraction of them since the value of recovered items could be substantially lower than the value of stolen items - and there's no way to know how many items are actually recovered, we must rely on the value of stolen and recovered.^[Even if we look at the Offenses Known and Clearances by Arrest data, that only says if there was an arrest or exceptional clearance in the case, not if the property stolen was recovered]. 
 
-The full list of items recovered included in the data are below:
+The full list of items recovered and their definitions are below:
 
 * Currency 
     + This includes all money and signed documents that can be exchanged for money (e.g. checks). Blank checks and credit and debit cards are not included (they are in the Miscellaneous/other  category)
@@ -145,7 +179,7 @@ The full list of items recovered included in the data are below:
     + This is a kind of odd category that is a product of its time. Anything that produces noise or pictures (including the fancy motion pictures) is included. This includes TVs, cameras, projectors, radios, MP3 players (but not phones that can play music) and (since again, this is a very old dataset) VHS cassettes. 
 * Guns 
     + This includes all types of firearms other than toys or BB/pellet/paintball guns. 
-* Home furniture 
+* Household goods/Home furniture 
     + This includes all of the "big things" in a house: begs, chairs, AC units, washer/dryer units, etc. However, items that are in the "Office equipment and electronics" category do not apply. 
 * Consumable goods 
     + This is anything that can be consumed such as food, drinks, and drugs, or anything you use in the bathroom.
@@ -154,13 +188,22 @@ The full list of items recovered included in the data are below:
 * Miscellaneous/other 
     + Anything that is not part of the above categories would fall in here. Cell phones and credit cards are included. 
     
-    
 ## Data errors
 
-This dataset comes with a considerable number of data errors - basically enormous valuations for stolen property. Some of the values are so big that it is clearly an error and not just something very expensive stolen. However, this gets tricky since there can in fact simply be very expensive items stolen and make it look like an error. Some of the stolen property include variables for both the number of items of that type stolen and the total value of the items. From this we can make an average value per item stolen which can help our understanding of what was stolen. However, some items only have the value of the property stolen and the value of property recovered so we actually don't know how many of those items were stolen. These cases makes it even harder to believe that a large value is true and not just a data error since we don't know if the number of these thefts increased, causing the increase in the value reported. We'll look at a few examples of this and see how difficult it can be to trust this data.
+This dataset comes with a considerable number of data errors - basically enormous valuations for stolen property. Some of the values are so big that it is clearly an error and not just something very expensive stolen. However, this gets tricky since there can in fact simply be very expensive items stolen and make it look like an error. Some of the stolen property include variables for both the number of items of that type stolen and the total value of the items. From this we can make an average value per item stolen which can help our understanding of what was stolen. However, some items only have the value of the property stolen and the value of property recovered so we actually don't know how many of those items were stolen. These cases makes it even harder to believe that a large value is true and not just a data error since we don't know if the number of these thefts increased, causing the increase in the value reported. We'll look at a couple examples of this and see how difficult it can be to trust this data.
 
 First, we'll look at the value of livestock thefts in New York City. Livestock is one of the variables where we know the value stolen and recovered but not how many times it happened. Being a major urban city, we might expect that there are not many livestock animals in the city so the values should be low. Figure \@ref(fig:nycLivestock) shows the annual value of livestock thefts in NYC. There are two major issues here. First, In all but two years they report $0 in livestock thefts. This is likely wrong since even New York City has some livestock (even just the police horses and the horse carriages tourists like) that probably got stolen. The second issues is the massive spike of reported livestock theft value in 1993 with over \$15 million stolen (the only other year with reported thefts is 1975 with \$87,651 stolen). Clearly NYC didn't move from \$0 in thefts for decades to \$15 million in a year and then \$0 again so this is a blatant data error. 
 
-![(\#fig:nycLivestock)The annual cost of livestock thefts in New York City, 1960-2019.](ucrbook_files/figure-latex/nycLivestock-1.pdf) 
+<div class="figure">
+<img src="stolen_property_files/figure-html/nycLivestock-1.png" alt="The annual value of stolen livestock in New York City, 1960-2019." width="672" />
+<p class="caption">(\#fig:nycLivestock)The annual value of stolen livestock in New York City, 1960-2019.</p>
+</div>
 
-![(\#fig:phillyHomeBurglary)The annual cost per burglary of daytime home burglaries in Philadelphia, 1960-2019.](ucrbook_files/figure-latex/phillyHomeBurglary-1.pdf) 
+It gets harder to determine when a value is a mistake when it is simply a big spike - or drop - in reported value in a dataset that otherwise looks correct. Take, for example, the annual value of stolen clothing and fur in Philadelphia from 1960-2018. The annual value of these stolen items more than doubled in 1989 compared to the previous year and then declined rapidly in the following year. Is this real? Is it a data error? It's really hard to tell. Here we don't know how many clothing/fur thefts there were, only the value of the total thefts that month (which is aggregated annually here). It continues a multi-year trend of increasing value of thefts but it larger than previous increases in value. And while the spike is very large in percent terms, it's not so extraordinarily huge that we immediately think it's an error - though some outlier detection methods may think so if it's beyond the expected value for that year. 
+
+It's also important to have some understanding of what the data *should* look like when trying to figure out what data point may be incorrect. In this figure we see a huge spike in 1989. If we know, for example, that a ring of fur thieves were active this year, then that makes it far more likely that the data is real. This may be a rather odd example, but it is helpful to try to understand the context of the data to better understand when the "weird" data is an error and when it's just "weird but correct".
+
+<div class="figure">
+<img src="stolen_property_files/figure-html/phillyGunsValue-1.png" alt="The annual value of stolen guns in Philadelphia, PA, 1960-2018" width="672" />
+<p class="caption">(\#fig:phillyGunsValue)The annual value of stolen guns in Philadelphia, PA, 1960-2018</p>
+</div>
