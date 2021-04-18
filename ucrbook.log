@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.3.19)  12 APR 2021 08:36
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.3.19)  17 APR 2021 22:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -827,27 +827,27 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 [1
 
 
+] [2
+
 ] (./ucrbook.toc
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.4pt on input line 2.
+(Font)              scaled to size 8.4pt on input line 1.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 2.
+(Font)              scaled to size 6.0pt on input line 1.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.0011pt on input line 2.
+(Font)              scaled to size 12.0011pt on input line 1.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.40076pt on input line 2.
+(Font)              scaled to size 8.40076pt on input line 1.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00055pt on input line 2.
+(Font)              scaled to size 6.00055pt on input line 1.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 2.
+(Font)              scaled to size 11.99872pt on input line 1.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 8.3991pt on input line 2.
+(Font)              scaled to size 8.3991pt on input line 1.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 2.
-[2
+(Font)              scaled to size 5.99936pt on input line 1.
 
-]
-Underfull \hbox (badness 3312) in paragraph at lines 24--24
+Underfull \hbox (badness 3312) in paragraph at lines 20--20
  [][] [][]\TU/lmr/m/n/12 Law Enforcement Officers Killed and Assaulted 
  []
 
@@ -855,273 +855,291 @@ Underfull \hbox (badness 3312) in paragraph at lines 24--24
 \tf@toc=\write4
 \openout4 = `ucrbook.toc'.
 
-[6]
-Chapter 1.
-[7
+[6] [7
 
-]
+] [8]
+
+Package natbib Warning: Citation `Book' on page 9 undefined on input line 143.
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
+[][][][][][][][][] [] [][][][][][] [] [][][][][][][] [] [][][][][] [] [][][][][
+][][][][] [] [][][][][][][][][][][][][][] [] [][][][][] []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
+[][][][][][] [] [][][][][][][][][][][][][] [] [][][][][][][][][][][] [] [][][][
+] [] [][][][][] [] [][][][][][][][] []
+ []
+
+[10]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 121.
+(Font)              scaled to size 5.0pt on input line 160.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00046pt on input line 121.
+(Font)              scaled to size 5.00046pt on input line 160.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 121.
-[8] [9] [10]
-Underfull \vbox (badness 2600) has occurred while \output is active []
+(Font)              scaled to size 4.99947pt on input line 160.
+[11] [12
 
-[11]
-File: images/edit_button.png Graphic file (type bmp)
-<images/edit_button.png>
-[12] [13
+] [13] [14
 
 ]
-Chapter 2.
-[14
-
-] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 213--214
+Chapter 1.
+[15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 208--209
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 219--221
-
- []
-
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 221--222
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 229--230
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 235--237
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 237--238
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 245--246
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 251--253
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 253--255
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 255--257
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 257--258
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 265--266
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 271--273
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 273--275
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 275--277
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 277--278
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 285--286
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 291--293
+Underfull \hbox (badness 10000) in paragraph at lines 214--216
 
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 293--295
+Underfull \hbox (badness 10000) in paragraph at lines 216--217
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 295--296
+Underfull \hbox (badness 10000) in paragraph at lines 224--225
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 303--305
+Underfull \hbox (badness 10000) in paragraph at lines 230--232
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 305--306
+Underfull \hbox (badness 10000) in paragraph at lines 232--233
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 311--313
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 313--315
+Underfull \hbox (badness 10000) in paragraph at lines 246--248
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 315--316
+Underfull \hbox (badness 10000) in paragraph at lines 248--250
 
  []
 
-[18] [19] [20]
+
+Underfull \hbox (badness 10000) in paragraph at lines 250--252
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--253
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 260--261
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 266--268
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 268--270
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 270--272
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 272--273
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 280--281
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 286--288
+
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 288--290
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 290--291
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 298--300
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 300--301
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 306--308
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 308--310
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 310--311
+
+ []
+
+[19] [20] [21]
 File: ucrbook_files/figure-latex/sfThefts-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/sfThefts-1.pdf>
-[21] [22]
+[22] [23]
 File: ucrbook_files/figure-latex/chicagoMurder-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/chicagoMurder-1.pdf>
-[23] [24]
+[24] [25]
 File: ucrbook_files/figure-latex/simpleIndex-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/simpleIndex-1.pdf>
-[25] [26] [27]
+[26] [27] [28]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[28]
+[29]
 File: ucrbook_files/figure-latex/agenciesReporting-1.pdf Graphic file (type pdf
 )
 <use ucrbook_files/figure-latex/agenciesReporting-1.pdf>
 File: ucrbook_files/figure-latex/bigAgenciesReporting-1.pdf Graphic file (type 
 pdf)
 <use ucrbook_files/figure-latex/bigAgenciesReporting-1.pdf>
-[29] [30] [31]
+[30] [31] [32]
 File: ucrbook_files/figure-latex/nycGunAssaults-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/nycGunAssaults-1.pdf>
-[32]
+[33]
 File: ucrbook_files/figure-latex/nycMurderMonthly-1.pdf Graphic file (type pdf)
 
 <use ucrbook_files/figure-latex/nycMurderMonthly-1.pdf>
 File: ucrbook_files/figure-latex/nycMurderYearly-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/nycMurderYearly-1.pdf>
-[33] [34]
+[34] [35]
 File: ucrbook_files/figure-latex/miamiDadeMurderAnnual-1.pdf Graphic file (type
  pdf)
 <use ucrbook_files/figure-latex/miamiDadeMurderAnnual-1.pdf>
-[35]
+[36]
 File: ucrbook_files/figure-latex/danvilleRape-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/danvilleRape-1.pdf>
-[36] [37] [38]
+[37] [38] [39]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[39] [40]
+[40] [41]
 File: ucrbook_files/figure-latex/hateCrimes-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/hateCrimes-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[41] [42]
-Underfull \hbox (badness 1253) in paragraph at lines 652--653
+[42] [43]
+Underfull \hbox (badness 1253) in paragraph at lines 647--648
 \TU/lmr/m/n/12 In the UCR and other FBI data sets, agencies are identified usin
 g
  []
 
-[43]
+[44]
 File: images/offenses_known_raw_ascii_1960.png Graphic file (type bmp)
 <images/offenses_known_raw_ascii_1960.png>
-[44] [45] [46] [47]
-Chapter 3.
-[48
+[45] [46] [47] [48]
+Chapter 2.
+[49
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 694--696
+Underfull \hbox (badness 10000) in paragraph at lines 689--691
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 696--697
+Underfull \hbox (badness 10000) in paragraph at lines 691--692
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 704--706
+Underfull \hbox (badness 10000) in paragraph at lines 699--701
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--707
+Underfull \hbox (badness 10000) in paragraph at lines 701--702
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 714--716
+Underfull \hbox (badness 10000) in paragraph at lines 709--711
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 716--718
+Underfull \hbox (badness 10000) in paragraph at lines 711--713
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 718--720
+Underfull \hbox (badness 10000) in paragraph at lines 713--715
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 720--721
+Underfull \hbox (badness 10000) in paragraph at lines 715--716
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 728--730
+Underfull \hbox (badness 10000) in paragraph at lines 723--725
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 730--732
+Underfull \hbox (badness 10000) in paragraph at lines 725--727
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 732--734
+Underfull \hbox (badness 10000) in paragraph at lines 727--729
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 734--735
+Underfull \hbox (badness 10000) in paragraph at lines 729--730
 
  []
 
-[49]
-Underfull \hbox (badness 10000) in paragraph at lines 742--744
+[50]
+Underfull \hbox (badness 10000) in paragraph at lines 737--739
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 739--741
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 741--742
 
  []
 
@@ -1131,17 +1149,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 744--746
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 746--747
+Underfull \hbox (badness 10000) in paragraph at lines 751--753
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 749--751
+Underfull \hbox (badness 10000) in paragraph at lines 753--755
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 756--758
+Underfull \hbox (badness 10000) in paragraph at lines 755--756
 
  []
 
@@ -1150,121 +1168,126 @@ Underfull \hbox (badness 10000) in paragraph at lines 758--760
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 760--761
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 763--765
-
- []
-
-[50]
+[51]
 File: images/fbi_hierarchy.png Graphic file (type bmp)
 <images/fbi_hierarchy.png>
-[51] [52]
+[52] [53]
 File: ucrbook_files/figure-latex/offensesAgenciesReporting-1.pdf Graphic file (
 type pdf)
 <use ucrbook_files/figure-latex/offensesAgenciesReporting-1.pdf>
 
 Underfull \vbox (badness 2600) has occurred while \output is active []
 
-[53] [54] [55]
+[54] [55] [56]
 File: ucrbook_files/figure-latex/montgomeryClearances-1.pdf Graphic file (type 
 pdf)
 <use ucrbook_files/figure-latex/montgomeryClearances-1.pdf>
-[56] [57]
+[57] [58]
 File: ucrbook_files/figure-latex/phillyRapeUnfound-1.pdf Graphic file (type pdf
 )
 <use ucrbook_files/figure-latex/phillyRapeUnfound-1.pdf>
-[58] [59]
+[59] [60]
 File: ucrbook_files/figure-latex/phillyRapeUnfoundPercent-1.pdf Graphic file (t
 ype pdf)
 <use ucrbook_files/figure-latex/phillyRapeUnfoundPercent-1.pdf>
 File: ucrbook_files/figure-latex/phillyRobberyUnfoundPercent-1.pdf Graphic file
  (type pdf)
 <use ucrbook_files/figure-latex/phillyRobberyUnfoundPercent-1.pdf>
-[60] [61]
+[61] [62]
 File: ucrbook_files/figure-latex/rapePhilly-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/rapePhilly-1.pdf>
-[62] [63]
+[63] [64]
 File: ucrbook_files/figure-latex/rapeNYC-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/rapeNYC-1.pdf>
 File: ucrbook_files/figure-latex/rapeLA-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/rapeLA-1.pdf>
-[64] [65]
+[65] [66]
 File: ucrbook_files/figure-latex/rapeJackson-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/rapeJackson-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[66] [67]
+[67] [68]
 File: ucrbook_files/figure-latex/manslaughterVsMurder-1.pdf Graphic file (type 
 pdf)
 <use ucrbook_files/figure-latex/manslaughterVsMurder-1.pdf>
 File: ucrbook_files/figure-latex/manslaughterPercent-1.pdf Graphic file (type p
 df)
 <use ucrbook_files/figure-latex/manslaughterPercent-1.pdf>
-[68] [69]
-Chapter 4.
-[70
+[69] [70]
+Chapter 3.
+[71
 
-] [71]
-Chapter 5.
-[72
-
-] [73]
-Chapter 6.
-[74
+] [72] [73] [74] [75] [76
 
 ]
-
-LaTeX Warning: Reference `fig:shrVsOffenses' on page 75 undefined on input line
- 1014.
-
-File: ucrbook_files/figure-latex/shrVsOffenses-1.pdf Graphic file (type pdf)
-<use ucrbook_files/figure-latex/shrVsOffenses-1.pdf>
-
-Underfull \hbox (badness 10000) in paragraph at lines 1016--1018
-[][]
+Chapter 4.
+[77]
+Overfull \hbox (91.33757pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 78 \TU/lmr/m/sl/12 CHAPTER 4.  LAW ENFORCEMENT OFFICERS KILLED A
+ND ASSAULTED (LEOKA)
  []
 
+[78] [79]
+Overfull \hbox (91.33757pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 80 \TU/lmr/m/sl/12 CHAPTER 4.  LAW ENFORCEMENT OFFICERS KILLED A
+ND ASSAULTED (LEOKA)
+ []
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[80]
+Chapter 5.
+[81
 
-[75]
-
-LaTeX Warning: Reference `numberSHRVictims' on page 76 undefined on input line 
-1021.
-
+]
+File: ucrbook_files/figure-latex/shrVsOffenses-1.pdf Graphic file (type pdf)
+<use ucrbook_files/figure-latex/shrVsOffenses-1.pdf>
+[82] [83]
 File: ucrbook_files/figure-latex/numberSHRVictims-1.pdf Graphic file (type pdf)
 
 <use ucrbook_files/figure-latex/numberSHRVictims-1.pdf>
-[76] [77]
+[84]
 File: ucrbook_files/figure-latex/numberSHROffenders-1.pdf Graphic file (type pd
 f)
 <use ucrbook_files/figure-latex/numberSHROffenders-1.pdf>
+[85] [86]
 File: ucrbook_files/figure-latex/shrOffenderAge-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/shrOffenderAge-1.pdf>
 File: ucrbook_files/figure-latex/shrVictimAge-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/shrVictimAge-1.pdf>
+[87] [88] [89]
+File: ucrbook_files/figure-latex/shrOffenderSex-1.pdf Graphic file (type pdf)
+<use ucrbook_files/figure-latex/shrOffenderSex-1.pdf>
+File: ucrbook_files/figure-latex/shrVictimSex-1.pdf Graphic file (type pdf)
+<use ucrbook_files/figure-latex/shrVictimSex-1.pdf>
+[90] [91]
+File: ucrbook_files/figure-latex/shrOffenderRace-1.pdf Graphic file (type pdf)
+<use ucrbook_files/figure-latex/shrOffenderRace-1.pdf>
+File: ucrbook_files/figure-latex/shrVictimRace-1.pdf Graphic file (type pdf)
+<use ucrbook_files/figure-latex/shrVictimRace-1.pdf>
+[92] [93] [94]
+File: ucrbook_files/figure-latex/shrOffenderEthnicity-1.pdf Graphic file (type 
+pdf)
+<use ucrbook_files/figure-latex/shrOffenderEthnicity-1.pdf>
+File: ucrbook_files/figure-latex/shrVictimEthnicity-1.pdf Graphic file (type pd
+f)
+<use ucrbook_files/figure-latex/shrVictimEthnicity-1.pdf>
+[95] [96]
 File: ucrbook_files/figure-latex/shrWeapon-1.png Graphic file (type bmp)
 <ucrbook_files/figure-latex/shrWeapon-1.png>
 File: ucrbook_files/figure-latex/shrRelationship-1.png Graphic file (type bmp)
 <ucrbook_files/figure-latex/shrRelationship-1.png>
-[78] [79] [80] [81] [82]
+[97] [98] [99]
 File: ucrbook_files/figure-latex/shrCircumstance-1.png Graphic file (type bmp)
 <ucrbook_files/figure-latex/shrCircumstance-1.png>
 
-LaTeX Warning: Float too large for page by 39.125pt on input line 1092.
+LaTeX Warning: Float too large for page by 39.10948pt on input line 1568.
 
 File: ucrbook_files/figure-latex/shrSubCircumstance-1.png Graphic file (type bm
 p)
 <ucrbook_files/figure-latex/shrSubCircumstance-1.png>
-[83] [84] [85] [86]
-Chapter 7.
-[87
+[100] [101] [102]
+Chapter 6.
+[103
 
 ]
 File: ucrbook_files/figure-latex/hateAgencies-1.pdf Graphic file (type pdf)
@@ -1274,80 +1297,158 @@ File: ucrbook_files/figure-latex/hateCrimesEver-1.pdf Graphic file (type pdf)
 File: ucrbook_files/figure-latex/hateCrimesPreviousYear-1.pdf Graphic file (typ
 e pdf)
 <use ucrbook_files/figure-latex/hateCrimesPreviousYear-1.pdf>
-[88] [89] [90] [91]
+[104] [105] [106] [107]
 File: ucrbook_files/figure-latex/hateCrimesMap-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/hateCrimesMap-1.pdf>
 File: ucrbook_files/figure-latex/statePercentReporting-1.pdf Graphic file (type
  pdf)
 <use ucrbook_files/figure-latex/statePercentReporting-1.pdf>
-[92]
+[108]
 File: ucrbook_files/figure-latex/hateCrimesByDay-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/hateCrimesByDay-1.pdf>
-[93] [94]
+[109] [110]
 File: ucrbook_files/figure-latex/crimesPerHateCrime-1.pdf Graphic file (type pd
 f)
 <use ucrbook_files/figure-latex/crimesPerHateCrime-1.pdf>
-[95] [96]
+[111] [112]
 File: ucrbook_files/figure-latex/hateBiasMotivation-1.png Graphic file (type bm
 p)
 <ucrbook_files/figure-latex/hateBiasMotivation-1.png>
 
-LaTeX Warning: Float too large for page by 41.453pt on input line 1191.
+LaTeX Warning: Float too large for page by 41.453pt on input line 1669.
 
-[97] [98]
+[113] [114]
 File: ucrbook_files/figure-latex/hateOffense-1.png Graphic file (type bmp)
 <ucrbook_files/figure-latex/hateOffense-1.png>
 
-LaTeX Warning: Float too large for page by 41.45384pt on input line 1208.
+LaTeX Warning: Float too large for page by 41.45384pt on input line 1686.
 
 
 Underfull \vbox (badness 1484) has occurred while \output is active []
 
-[99] [100]
+[115] [116]
 File: ucrbook_files/figure-latex/hateLocations-1.png Graphic file (type bmp)
 <ucrbook_files/figure-latex/hateLocations-1.png>
 
-LaTeX Warning: Float too large for page by 41.45384pt on input line 1223.
+LaTeX Warning: Float too large for page by 41.45384pt on input line 1701.
 
-[101] [102]
+[117] [118]
 File: ucrbook_files/figure-latex/hateCrimeOffenderNumber-1.pdf Graphic file (ty
 pe pdf)
 <use ucrbook_files/figure-latex/hateCrimeOffenderNumber-1.pdf>
-[103]
+[119]
 File: ucrbook_files/figure-latex/hateCrimeOffenderRace-1.pdf Graphic file (type
  pdf)
 <use ucrbook_files/figure-latex/hateCrimeOffenderRace-1.pdf>
-[104]
-Chapter 8.
-[105
+[120]
+Chapter 7.
+[121
 
 ]
+File: ucrbook_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
+<use ucrbook_files/figure-latex/unnamed-chunk-3-1.pdf>
+File: ucrbook_files/figure-latex/phillyHomeBurglary2-1.pdf Graphic file (type p
+df)
+<use ucrbook_files/figure-latex/phillyHomeBurglary2-1.pdf>
+
 Overfull \hbox (111.59628pt too wide) has occurred while \output is active
-\TU/lmr/m/n/12 106 \TU/lmr/m/sl/12 CHAPTER 8.  PROPERTY STOLEN AND RECOVERED (S
+\TU/lmr/m/n/12 122 \TU/lmr/m/sl/12 CHAPTER 7.  PROPERTY STOLEN AND RECOVERED (S
 UPPLEMENT TO RETURN A)
  []
 
-[106]
-Chapter 9.
-[107
+[122] [123]
+File: ucrbook_files/figure-latex/propertyAgencies-1.pdf Graphic file (type pdf)
+
+<use ucrbook_files/figure-latex/propertyAgencies-1.pdf>
+File: ucrbook_files/figure-latex/agenciesInBoth-1.pdf Graphic file (type pdf)
+<use ucrbook_files/figure-latex/agenciesInBoth-1.pdf>
+
+Overfull \hbox (111.59628pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 124 \TU/lmr/m/sl/12 CHAPTER 7.  PROPERTY STOLEN AND RECOVERED (S
+UPPLEMENT TO RETURN A)
+ []
+
+[124] [125]
+Overfull \hbox (111.59628pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 126 \TU/lmr/m/sl/12 CHAPTER 7.  PROPERTY STOLEN AND RECOVERED (S
+UPPLEMENT TO RETURN A)
+ []
+
+[126] [127]
+Overfull \hbox (111.59628pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 128 \TU/lmr/m/sl/12 CHAPTER 7.  PROPERTY STOLEN AND RECOVERED (S
+UPPLEMENT TO RETURN A)
+ []
+
+[128] [129]
+Underfull \hbox (badness 4441) in paragraph at lines 1971--1972
+[]\TU/lmr/m/n/12 This includes all types of firearms other than toys or
+ []
+
+
+Overfull \hbox (111.59628pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 130 \TU/lmr/m/sl/12 CHAPTER 7.  PROPERTY STOLEN AND RECOVERED (S
+UPPLEMENT TO RETURN A)
+ []
+
+[130] [131]
+Underfull \hbox (badness 4441) in paragraph at lines 2072--2073
+[]\TU/lmr/m/n/12 This includes all types of firearms other than toys or
+ []
+
+
+Overfull \hbox (111.59628pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 132 \TU/lmr/m/sl/12 CHAPTER 7.  PROPERTY STOLEN AND RECOVERED (S
+UPPLEMENT TO RETURN A)
+ []
+
+[132]
+File: ucrbook_files/figure-latex/nycLivestock-1.pdf Graphic file (type pdf)
+<use ucrbook_files/figure-latex/nycLivestock-1.pdf>
+File: ucrbook_files/figure-latex/phillyHomeBurglary-1.pdf Graphic file (type pd
+f)
+<use ucrbook_files/figure-latex/phillyHomeBurglary-1.pdf>
+[133]
+Overfull \hbox (111.59628pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 134 \TU/lmr/m/sl/12 CHAPTER 7.  PROPERTY STOLEN AND RECOVERED (S
+UPPLEMENT TO RETURN A)
+ []
+
+[134] [135]
+Overfull \hbox (111.59628pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 136 \TU/lmr/m/sl/12 CHAPTER 7.  PROPERTY STOLEN AND RECOVERED (S
+UPPLEMENT TO RETURN A)
+ []
+
+[136
 
 ]
+Chapter 8.
+[137]
 File: ucrbook_files/figure-latex/arsonAgencies-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/arsonAgencies-1.pdf>
 
 Underfull \vbox (badness 3260) has occurred while \output is active []
 
-[108] [109]
+[138] [139]
 File: ucrbook_files/figure-latex/arsonClearance-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/arsonClearance-1.pdf>
-[110] [111] [112] [113]
+[140] [141] [142] [143]
 File: ucrbook_files/figure-latex/residenceArson-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/residenceArson-1.pdf>
 File: ucrbook_files/figure-latex/arsonCost-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/arsonCost-1.pdf>
-[114] [115] [116]
-Chapter 10.
-[117
+[144] [145] [146]
+Chapter 9.
+[147
+
+]
+Overfull \hbox (41.07887pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 148 \TU/lmr/m/sl/12 CHAPTER 9.  COUNTY-LEVEL DETAILED ARREST AND
+ OFFENSE DATA
+ []
+
+[148
 
 ] (./ucrbook.bbl
 Underfull \hbox (badness 5133) in paragraph at lines 9--14
@@ -1431,8 +1532,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--43
 re-
  []
 
-[118
-
+[149
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 56--61
@@ -1450,20 +1550,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 56--61
 ute-
  []
 
-) [119] (./ucrbook.aux)
+)
 
-LaTeX Warning: There were undefined references.
+Package natbib Warning: There were undefined citations.
 
+[150] (./ucrbook.aux)
 Package rerunfilecheck Info: File `ucrbook.out' has not changed.
-(rerunfilecheck)             Checksum: F321FDC79E2F647BF04075632A716710;20617.
+(rerunfilecheck)             Checksum: D6D13313E394A42EA6FC47B022FF5AEC;18280.
  ) 
 Here is how much of TeX's memory you used:
- 16437 strings out of 478922
- 304160 string characters out of 5865140
- 791498 words of memory out of 5000000
- 36019 multiletter control sequences out of 15000+600000
- 407970 words of font info for 74 fonts, out of 8000000 for 9000
+ 16494 strings out of 478922
+ 307313 string characters out of 5865140
+ 792534 words of memory out of 5000000
+ 36067 multiletter control sequences out of 15000+600000
+ 407962 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  98i,8n,122p,1877b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on ucrbook.pdf (119 pages).
+Output written on ucrbook.pdf (150 pages).

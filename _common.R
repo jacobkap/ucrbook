@@ -8,6 +8,7 @@ library(ggplot2)
 library(readr)
 library(mapproj)
 library(lubridate)
+library(gridExtra)
 #devtools::install_github("wmurphyrd/fiftystater")
 library(fiftystater) 
 

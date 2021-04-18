@@ -49,7 +49,11 @@ fig:hateOffense
 fig:hateLocations
 fig:hateCrimeOffenderNumber
 fig:hateCrimeOffenderRace
+fig:phillyHomeBurglary2
 fig:propertyAgencies
+fig:agenciesInBoth
+fig:nycLivestock
+fig:phillyHomeBurglary
 fig:arsonAgencies
 fig:arsonClearance
 fig:residenceArson
@@ -86,7 +90,7 @@ hierarchy-rule
 the-problem-with-using-index-crimes
 agencies-reporting
 important-variables
-actual-crimes
+actual
 total-cleared-crimes
 crimes-cleared-where-all-offenders-are-under-18-years-old
 unfounded-crimes
@@ -131,7 +135,8 @@ agencies-reporting-3
 important-variables-4
 a-more-detailed-breakdown-of-property-and-robbery-crimes
 the-value-of-property-stolen-in-property-and-robbery-crimes
-value-of-stolen-and-recovered-property-by-type-of-item-stolen
+value-of-recovered-property-by-type-of-item-stolen
+data-errors
 arson-1
 agencies-reporting-4
 important-variables-5
@@ -143,7 +148,7 @@ cleared-for-arsons-where-all-offenders-are-under-age-18
 uninhabited-building-arsons
 estimated-damage-cost
 arsonType
-data-errors
+data-errors-1
 county_level
 a-brief-history-of-the-data
 changes-in-definitions

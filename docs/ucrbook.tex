@@ -5,7 +5,7 @@
 %
 \documentclass[
   12pt,
-  openany]{book}
+]{book}
 \usepackage{lmodern}
 \usepackage{amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -39,7 +39,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide},
+  pdftitle={Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide},
   pdfauthor={Jacob Kaplan},
   colorlinks=true,
   linkcolor=Maroon,
@@ -81,9 +81,9 @@
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
-\title{Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide}
+\title{Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide}
 \author{Jacob Kaplan}
-\date{2021-04-12}
+\date{2021-04-17}
 
 \begin{document}
 \maketitle
@@ -93,10 +93,11 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
-\hypertarget{preface}{%
-\chapter{Preface}\label{preface}}
+\hypertarget{welcome}{%
+\chapter*{Welcome}\label{welcome}}
 
-If you've read an article about crime or arrests in the United States in the last half century, in most cases it was referring to the FBI's Uniform Crime Reporting Program Data, otherwise known as UCR data. UCR data is, with the exception of the more detailed data that only covers murders, a \emph{monthly number of crimes or arrests reported to a single police agency} which is then gathered by the FBI into one file that includes all reporting agencies. Think of your hometown. This data will tell you how many crimes were reported for a small number of crimes or how many people (broken down by age, sex, and race) were arrested for a (larger) set of crimes in that city (if the city has multiple police agencies, it will use the agency which is the primary agency on the case, usually the local police department) in a given month. This is a very broad measure of crime, and its uses in research - or understanding crime at all - is fairly limited. Yet is has become - and will likely remain among researchers for at least the next decade - the most important crime data in the United States.
+
+If you've read an article about crime or arrests in the United States in the last half century, in most cases it was referring to the FBI's Uniform Crime Reporting Program Data, otherwise known as UCR data. UCR data is, with the exception of the more detailed data that only covers murders, a \emph{monthly number of crimes or arrests reported to a single police agency} which is then gathered by the FBI into one file that includes all reporting agencies. Think of your home town. This data will tell you how many crimes were reported for a small number of crimes or how many people (broken down by age, sex, and race) were arrested for a (larger) set of crimes in that city (if the city has multiple police agencies, it will use the agency which is the primary agency on the case, usually the local police department) in a given month. This is a very broad measure of crime, and its uses in research - or understanding crime at all - is fairly limited. Yet is has become - and will likely remain among researchers for at least the next decade - the most important crime data in the United States.
 
 UCR data is important for three reasons:
 
@@ -104,70 +105,64 @@ UCR data is important for three reasons:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  The definitions are standardized and all agencies follow them so you can compare across agencies and over time.
+  The definitions are standard and all agencies follow them so you can compare across agencies and over time
 \item
-  The data is available since 1960 so there is a long period of available data.
+  The data is available since 1960 so there is a long period of available data
 \item
-  The data is available for most of the 18,000 police agencies in the United States so you can compare across agencies.
+  The data is available for most of the 18,000 police agencies in the United States so you can compare across agencies
 \end{enumerate}
 
-For most of this book we'll be discussing the caveats of the above reasons - or, more directly, why these assumptions are wrong - but these are the reasons why the data is so influential.
+More than most datasets, there are a lot of times when using UCR data that you'll think ``that's weird''. This book will cover this weirdness and when we think the weirdness is just an odd - but acceptable - quirk of the data, and when it is a sign of a big problem in the data or that particular variable and that we should avoid using it. For most of this book we'll be discussing the caveats of the above reasons - or, more directly, why these assumptions are wrong - but these are the reasons why the data is so influential.
 
-\hypertarget{motivation}{%
-\section{Motivation}\label{motivation}}
+\hypertarget{goal-of-the-book}{%
+\section{Goal of the book}\label{goal-of-the-book}}
 
-By the end of each chapter you should have a firm grasp on the dataset the covered and how to use it properly. However, this book can't possibly cover every potential use case for the data so make sure to carefully examine the data for your own particular use. This benefits you because you'll know your data better and become a better researcher because of it. This benefits me because it'll increase the quality of research in my field.
+By the end of each chapter you should have a firm grasp on the dataset the covered and how to use it properly. However, this book can't possibly cover every potential use case for the data so make sure to carefully examine the data for your own particular use.
 
-I get a lot of emails from people asking questions about this data so part of my motivation for writing this book is to create a single place that answers as many questions as I can about the data. Again, the UCR data collection are the most commonly used crime datasets and there are still many current papers published with incorrect information about the data (including such simple aspects like what geographic unit data is in and what time unit it is in). So hopefully this book will decrease the number of misconceptions about this data, increasing overall research quality.\footnote{Ideally, this will also decrease the number of emails and increase the number of citations I receive.}
+I get a lot of emails from people asking questions about this data so my own goal is to create a single place that answers as many questions as I can about the data. Again, this is among the most commonly used crime datasets and there are still many current papers published with incorrect information about the data (including such simple aspects like what geographic unit data is in and what time unit it is in). So hopefully this book will decrease the amount of misconceptions about this data, increasing overall research quality.
+
+Since manuals are boring, I'll try to include graphs and images to try to alleviate the boredom. That said, I don't think it's possible to make it too fun so sorry in advanced. This book is a mix of facts about the data, such as how many years are available, and my opinions about it, such as whether it is reliable. In cases of facts I'll just say a statement - e.g.~``the offenses data is available since 1960''. In cases of opinion I'll temper the statement by saying something like ``in my opinion\ldots{}''
 
 \hypertarget{structure-of-the-book}{%
 \section{Structure of the book}\label{structure-of-the-book}}
 
-The remainder of this book will be divided into eight chapters: an intro chapter briefly summarizing each dataset and going over overall issues with UCR data, seven chapters each covering one of the seven UCR datasets, and a final one covering county-level data, a highly flawed but common use of the UCR data. I highly recommend that you start with the intro chapter (Chapter \ref{ucrGeneral}) since it covers topics that apply to each UCR dataset - such as understanding agency unique identifiers and why the data (correctly) has negative numbers - that won't be covered in individual chapters. Each of the UCR dataset chapters will follow the same format: we'll start with a history of the data such as when it first because available and important changes in definitions or variables. We'll then look at which variables are available, and the most important (or most used) ones. The bulk of each chapter will be exploring the data to understand how reliable it is and what questions we can adequately answer using it.
+This book will be divided into eight chapters: an intro chapter briefly summarizing each dataset and going over overall issues with UCR data, six chapters each covering one of the six UCR datasets, and a final one covering county-level data, a highly flawed but common use of the UCR data. Each chapter will follow the same format: we'll start with a history of the data such as when it first because available and important changes in definitions or variables. Next we'll discuss what the data looks like initially when you get it from the FBI - literally what it looks like in it's fixed-width ASCII format you get from the FBI and what it looks like (what each row and column mean) once it's turned into a useful format that can be read into modern software like R and Stata. For most of the datasets this is a minor process but for data like the arrest or homicide datasets, the conversion process is harder - and this can actually lead to changes in the resulting data. For example, in an old version of the arrest data that I released, I aggregated certain arrestee ages together since my laptop at the time couldn't handle converting data from ASCII to R and Stata without aggregating the ages (more age groups means more columns which means more computer memory needed). So anyone using that data would have less detailed data than the current dataset.
 
-Since manuals are boring, I'll try to include graphs and images to try to alleviate the boredom. That said, I don't think it's possible to make it too fun so sorry in advance. This book is a mix of facts about the data, such as how many years are available, and my opinions about it, such as whether it is reliable. In cases of facts I'll just say a statement - e.g.~``the offenses data is available since 1960''. In cases of opinion I'll temper the statement by saying something like ``in my opinion\ldots{}'' or ``I think'' or ``I believe.''
+Understanding how the data moves from its rawest form (which in this case is after cleaning by the FBI) is important for being able to truly understand the data and its caveats. However, this is a fairly technical part of each chapter so feel free to skip it. Next in each chapter, we'll cover the variables included in the data and how to use them properly (including not using them at all) - this will be the bulk of each chapter. We'll end each chapter by briefly summarizing the data, how and when it's useful, and - most importantly - when you shouldn't use it.
 
 \hypertarget{citing-this-book}{%
 \section{Citing this book}\label{citing-this-book}}
 
-If this book was useful in your research, please cite it. To cite this book, please use the below citation:
+If this data was useful in your research, please cite it. To cite this book, please use the below citation:
 
-Kaplan J (2021). \emph{Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide}. \url{https://github.com/jacobkap/ucrbook}.
+Kaplan J (2021). \emph{Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide}. \url{https://github.com/jacobkap/ucrbook}.
 
 BibTeX format:
+
+\begin{quote}
+\citet{Book}\{,
+title = \{Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide\},
+author = \{Jacob Kaplan\},
+year = \{2021\},
+url = \{\url{https://github.com/jacobkap/ucrbook}\},
+\}
+\end{quote}
 
 \hypertarget{sources-of-ucr-data}{%
 \section{Sources of UCR data}\label{sources-of-ucr-data}}
 
-There are a few different sources of UCR data available today. First, and probably most commonly used, is the data put together by the \href{https://www.icpsr.umich.edu/web/pages/NACJD/index.html}{National Archive of Criminal Justice Data (NACJD)}). This a team out of the University of Michigan who manages a huge number of criminal justice datasets and makes them available to the public. If you have any questions about crime data - UCR or other data - I highly recommend you reach out to them for answers. They have a collection of data and excellent documentation available for UCR data available on their site \href{https://www.icpsr.umich.edu/web/NACJD/series/57}{here}. One limitation to their data, however, is that each year of data is available as an individual file meaning that you'll need to concatenate each year together into a single file. Some years also have different column names (generally minor changes like spelling robbery ``rob'' one year and ``robb'' the next) which requires more work to standardize before you could concatenate. They also only have data through 2016 which means that the most recent years (UCR data is available through 2019) of data are (as of this writing) unavailable.
+There are a few different sources of UCR data available today. First, and probably most commonly used, is the data put together by the \href{https://www.icpsr.umich.edu/web/pages/NACJD/index.html}{National Archive of Criminal Justice Data (NACJD)}). This a team of out of the University of Michigan who manages a huge number of criminal justice datasets and makes them available to the public. If you have any questions about crime data - UCR or other data - I highly recommend you reach out to them for answers. They have a collection of data and excellent documentation available for UCR data available on their site \href{https://www.icpsr.umich.edu/web/NACJD/series/57}{here}. One limitation to their data, however, is that each year of data is available as an individual file meaning that you'll need to concatenate each year together into a single file. Some years also have different column names (generally minor changes like spelling robbery ``rob'' one year and ``robb'' the next) which requires more work to standardize before you could concatenate. They also only have data through 2016 which means that the most recent years (UCR data is available through 2019) of data are (as of this writing) unavailable.
 
 Next, and most usable for the general public but limited to researchers, is the FBI's official website \href{https://crime-data-explorer.fr.cloud.gov/}{Crime Data Explorer}. On this site you can chose an agency and see annual crime data (remember, UCR data is monthly so this isn't as detailed as it can be) for certain crimes. This is okay for the general public but only provides a fraction of the data available in the actual data so is really not good for researchers.
 
-Finally, I have my own collection of UCR data \href{https://www.openicpsr.org/openicpsr/search/studies?start=0\&ARCHIVE=openicpsr\&sort=score\%20desc\%2CDATEUPDATED\%20desc\&rows=25\&q=jacob\%20kaplan\%27s\%20concatenated\%20files}{available publicly on openICPSR}, a site which allows people to submit their data for public access. For each of these datasets I've taken the raw data from the FBI (for early years of homicide data this is actually from NACJD since the FBI's raw data is wrong and can't be parsed. For later years of homicide data this is from the FBI's raw data.) and read it into R. Since the data is only available from the FBI as fixed-width ASCII files, I created a setup file (we'll explain exactly how reading in this kind of data works in the next chapter) and read the data and then very lightly cleaned the data (i.e.~only removing extreme outliers like an agency having millions of arsons in a month). For each of these datasets I detail what I've done to the data and briefly summarize the data (i.e.~a very short version of this book) on the data's page on openICPSR. The main advantage is that all my data has standard variable names and column names and, for data that is small enough, provide the data as a single file that has all years. For large datasets like the arrest data I break it down into parts of the data and not all years in a single file. The downside is that I don't provide documentation other than what's on the openICPSR page and only provide data in R and Stata format. I also have a similar site to the FBI's Crime Data Explorer but with more variables available, that site is available \href{jacobdkaplan.com/}{here}.
+Finally, I have my own collection of UCR data {[}\url{https://www.openicpsr.org/openicpsr/search/studies?start=0\&ARCHIVE=openicpsr\&sort=score\%20desc\%2CDATEUPDATED\%20desc\&rows=25\&q=jacob\%20kaplan\%27s\%20concatenated\%20files}{]} (available publicly on openICPSR), a site which allows people to submit their data for public access. For each of these datasets I've taken the raw data from the FBI (for early years of homicide data this is actually from NACJD since the FBI's raw data is wrong and can't be parsed. For later years of homicide data this is from the FBI's raw data.) and read it into R. Since the data is only available from the FBI as fixed-width ASCII files, I created a setup file (we'll explain exactly how reading in this kind of data works in the next chapter) and read the data and then very lightly cleaned the data (i.e.~only removing extreme outliers like an agency having millions of arsons in a month). For each of these datasets I detail what I've done to the data and briefly summarize the data (i.e.~a very short version of this book) on the data's page on openICPSR. The main advantage is that all my data has standard variable names and column names and, for data that is small enough, provide the data as a single file that has all years. For large datasets like the arrest data I break it down into parts of the data and not all years in a single file. The downside is that I don't provide documentation other than what's on the openICPSR page and only provide data in R and Stata format. I also have a similar site to the FBI's Crime Data Explorer but with more variables available, that site is available \href{jacobdkaplan.com/}{here}.
 
-It's worth mentioning a final source of UCR information. This is the annual Crimes in the United States report released by the FBI each year around the start of October.\footnote{They also release a report about the first 6 months of the most recent year of data before the October release, but this is generally an estimate from a sample of agencies so is far less useful.} As an example, here is the \href{https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019}{website for the 2019 report}. In this report is summarized data which in most cases estimates missing data and provides information about national and subnational (though rarely city-level) crime data. As with the FBI's site it is only a fraction of the true data available, so is not a very useful source of crime data. Still, this is a very common source of information used by researchers.
+It's worth mentioning a final source of UCR information. This is the annual Crimes in the United States report released by the FBI each year around the start of October.\footnote{They also release a report about the first 6-months of the most recent year of data before the October release but this is generally an estimate from a sample of agencies so is far less useful.} As an example, here is the \href{https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019}{website for the 2019 report}. In this report is summarized data which in most cases estimates missing data and provides information about national and subnational (though rarely city-level) crime data. As with the FBI's site it is only a fraction of the true data available so is not a very useful source of crime data. Still, this is a very common source of information used by researchers.
 
 \hypertarget{where-to-find-the-data-used-in-this-book}{%
-\section{Where to find the data used in this book}\label{where-to-find-the-data-used-in-this-book}}
+\subsection{Where to find the data used in this book}\label{where-to-find-the-data-used-in-this-book}}
 
-The data I am using in this book is the cleaned (we'll discuss in more detail exactly what I did to clean each dataset in the dataset's chapter, but the short answer is that I did very little.) and concatenated data that I put together from the raw data that the FBI releases. That data is available on my website \href{https://jacobdkaplan.com/data.html}{here}. I am hosting this book through GitHub which has a maximum file size allowed that is far smaller than these data so you'll need to go to my site to download the data, it's not available through this book's GitHub repo. For some examples I'm using the data before I cleaned it of outliers (as an example of the outliers present before I removed them) so that data is not publicly available.
-
-\hypertarget{nibrs-data}{%
-\section{NIBRS data}\label{nibrs-data}}
-
-Another source of FBI data, and one sometimes considered part of the UCR data collection, is the National Incident-Based Reporting System (NIBRS) data. Like its name implies this is an incident-level dataset which has detailed information about each incident reported to the police, including incident circumstances, and victim and offender information. This is also the data that the FBI has declared will replace UCR data starting in 2021, meaning that they will no longer collect UCR data and only allow agencies to submit NIBRS data. NIBRS data is a complex and highly rich dataset that deserves its own book to really understand, so I will not be discussing it any further in this book.
-
-\hypertarget{this-book-in-one-paragraph}{%
-\section{This book \ldots{} in one paragraph}\label{this-book-in-one-paragraph}}
-
-UCR data is complicated and riddled with limitations, so a naive use of it is certainly wrong. In my opinion, the vast majority of papers that use UCR data should have been rejected. They generally only briefly mention that the data used was UCR data and do not discuss issues with the data such as under-reporting, imputation procedures, or missing data. While their results may not change (or at least not change enough to affect the results) once they account for this, the lack of even bothering to discuss these issues is enough of an issue for an immediate desk reject. Surprisingly, this problem is even more severe for the worst UCR data, county-level imputed data and hate crime data, demonstrating that the authors who use that data are generally the ones least qualified (otherwise they wouldn't use it at all) to do so.
-
-\hypertarget{how-to-contribute-to-this-book}{%
-\section{How to contribute to this book}\label{how-to-contribute-to-this-book}}
-
-If you have any questions, suggestions, or find any issues, please email me at jkkaplan6 {[}@{]} gmail.com. For more minor issues like typos or grammar mistakes, you can edit the book directly through its GitHub page. That'll make an update for me to accept, which will change the book to include your edit. To do that, click the edit button at the top of the site - the button is highlighted in the below figure. You will need to make a GitHub account to make edits. When you click on that button you'll be taken to a page that looks like a Word Doc where you can make edits. Make any edits you want and then scroll to the bottom of the page. There you can write a short (please, no more than a sentence or two) description of what you've done and then submit the changes for me to review.
-
-\includegraphics[width=9.61in]{images/edit_button}
+The data I am using in this book is the cleaned (we'll discuss in more detail exactly what I did to clean each dataset in the dataset's chapter but the short answer is that I did very little.) and concatenated data that I put together from the raw data that the FBI releases. That data is available on my website \href{here}{https://jacobdkaplan.com/data.html}. I am hosting this book through GitHub which has a maximum file size allowed that is far smaller than these data so you'll need to go to my site to download the data, it's not available through this book's GitHub repo. For some examples I'm using the data before I cleaned it of outliers (as an example of the outliers present before I removed them) so that data is not publicly available.
 
 \hypertarget{about-the-author}{%
 \chapter*{About the author}\label{about-the-author}}
@@ -809,8 +804,8 @@ Figure \ref{fig:offensesAgenciesReporting} shows the annual number of police age
 
 For each crime we have four different categories indicating the number of crimes actually committed, the number cleared, and the number determined to not have occurred.
 
-\hypertarget{actual-crimes}{%
-\subsection{Actual crimes}\label{actual-crimes}}
+\hypertarget{actual}{%
+\subsection{Actual crimes}\label{actual}}
 
 This is the number of offenses that \emph{actually} occurred - where \emph{actually} means that a police investigation found that the crime report was accurate. For crimes that are reported that the police find did not occur (e.g.~report of an arson but turns that the fire began accidentally) are called ``unfounded'' crimes. So this variable is the one people use to measure \emph{crime}. For example if 10 people are murdered in a city the number of ``actual murders'' would be 10.
 
@@ -946,29 +941,308 @@ Figure \ref{fig:manslaughterPercent} shows another way to look at this data: man
 
 The Arrests by Age, Sex, and Race dataset - often called ASR or the ``arrests data'' - includes the monthly number of arrests for a variety of crimes and, unlike the crime data, breaks down this data by age and gender. This data includes a broader number of crime categories than the crime dataset (the Offenses Known and Clearances by Arrest data) though is less detailed on violent crimes since it does not breakdown aggravated assault or robberies by weapon type as the Offenses Known data does. For each crime it says the number of arrests for each gender-age group with younger ages (15-24) showing the arrestee's age to the year (e.g.~age 16) and other ages grouping years together (e.g.~age 25-29, 30-34, ``under 10''). It also breaks down arrests by race-age by including the number of arrestees of each race (American Indian, Asian, Black, and White) are the only included races) and if the arrestee is a juvenile (\textless18 years old) or an adult. The data does technically include a breakdown by ethnicity-age (e.g.~juvenile-Hispanic, juvenile-non-Hispanic) but almost no agencies report this data (for many years zero agencies report ethnicity) so in practice the data does not include ethnicity. As the data includes counts of arrestees, people who are arrested multiple times are included in the data multiple times - it is not a measure of unique arrestees.
 
-\hypertarget{a-brief-history-of-the-data}{%
-\section{A brief history of the data}\label{a-brief-history-of-the-data}}
+\hypertarget{crimes-included}{%
+\section{Crimes included}\label{crimes-included}}
 
-\hypertarget{changes-in-definitions}{%
-\subsection{Changes in definitions}\label{changes-in-definitions}}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Homicide
+\end{enumerate}
 
-\hypertarget{what-does-the-data-look-like}{%
-\section{What does the data look like?}\label{what-does-the-data-look-like}}
+\begin{itemize}
+\tightlist
+\item
+  Murder and non-negligent manslaughter
+\item
+  Manslaughter by negligence
+\end{itemize}
 
-\hypertarget{raw-data}{%
-\subsection{Raw data}\label{raw-data}}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Rape
+\item
+  Robbery
+\item
+  Aggravated assault
+\item
+  Burglary
+\item
+  Theft (other than of a motor vehicle)
+\item
+  Motor vehicle theft
+\item
+  Simple assault
+\item
+  Arson
+\item
+  Forgery and counterfeiting
+\item
+  Fraud
+\item
+  Embezzlement
+\item
+  Stolen property - buying, receiving, and possessing
+\item
+  Vandalism
+\item
+  Weapons offenses - carrying, possessing, etc.
+\item
+  Prostitution and commercialized vice
+\item
+  Sex offenses - other than rape or prostitution
+\item
+  Drug abuse violations - total
+\end{enumerate}
 
-\hypertarget{what-variables-are-in-the-data}{%
-\section{What variables are in the data?}\label{what-variables-are-in-the-data}}
+\begin{itemize}
+\tightlist
+\item
+  Drug sale or manufacturing
 
-\hypertarget{key-variables}{%
-\subsection{Key variables}\label{key-variables}}
+  \begin{itemize}
+  \tightlist
+  \item
+    Opium and cocaine, and their derivatives (including morphine and heroin)
+  \item
+    Marijuana
+  \item
+    Synthetic narcotics
+  \item
+    Other dangerous non-narcotic drugs
+  \end{itemize}
+\item
+  Drug possession
 
-\hypertarget{known-issues-with-the-data}{%
-\section{Known issues with the data}\label{known-issues-with-the-data}}
+  \begin{itemize}
+  \tightlist
+  \item
+    Opium and cocaine, and their derivatives (including morphine and heroin)
+  \item
+    Marijuana
+  \item
+    Synthetic narcotics
+  \item
+    Other dangerous non-narcotic drugs
+  \end{itemize}
+\end{itemize}
 
-\hypertarget{final-thoughts}{%
-\section{Final thoughts}\label{final-thoughts}}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{18}
+\tightlist
+\item
+  Gambling - total
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Bookmaking - horse and sports
+\item
+  Number and lottery
+\item
+  All other gambling
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{19}
+\tightlist
+\item
+  Offenses against family and children - nonviolent acts against family members. Includes neglect or abuse, nonpayment of child support or alimony.
+\item
+  Driving under the influence (DUI)
+\item
+  Liquor law violations - Includes illegal production, possession (e.g.~underage) or sale of alcohol, open container, or public use laws. Does not include DUIs and drunkenness.
+\item
+  Drunkenness - i.e.~public intoxication
+\item
+  Disorderly conduct
+\item
+  Vagrancy - includes begging, loitering (for adults only), homelessness, and being a ``suspicious person.''
+\item
+  All other offenses (other than traffic) - a catch-all category for any arrest that is not otherwise specified in this list. Does not include traffic offenses. Very wide variety of crimes are included - use caution when using!
+\item
+  Suspicion - ``Arrested for no specific offense and released without formal charges being placed.''
+\item
+  Curfew and loitering law violations - for minors only.
+\item
+  Runaways - for minors only.
+\end{enumerate}
+
+\hypertarget{age}{%
+\subsection{Age}\label{age}}
+
+\begin{itemize}
+\tightlist
+\item
+  Female
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Under 10
+  \item
+    10-12
+  \item
+    13-14
+  \item
+    15
+  \item
+    16
+  \item
+    17
+  \item
+    18
+  \item
+    19
+  \item
+    20
+  \item
+    21
+  \item
+    22
+  \item
+    23
+  \item
+    24
+  \item
+    25-29
+  \item
+    30-34
+  \item
+    35-39
+  \item
+    40-44
+  \item
+    45-49
+  \item
+    50-54
+  \item
+    55-59
+  \item
+    60-64
+  \item
+    65 and older
+  \end{itemize}
+\item
+  Male
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Under 10
+  \item
+    10-12
+  \item
+    13-14
+  \item
+    15
+  \item
+    16
+  \item
+    17
+  \item
+    18
+  \item
+    19
+  \item
+    20
+  \item
+    21
+  \item
+    22
+  \item
+    23
+  \item
+    24
+  \item
+    25-29
+  \item
+    30-34
+  \item
+    35-39
+  \item
+    40-44
+  \item
+    45-49
+  \item
+    50-54
+  \item
+    55-59
+  \item
+    60-64
+  \item
+    65 and older
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{race}{%
+\subsection{Race}\label{race}}
+
+\begin{itemize}
+\tightlist
+\item
+  Adult
+
+  \begin{itemize}
+  \tightlist
+  \item
+    American Indian
+  \item
+    Asian
+  \item
+    Black
+  \item
+    White
+  \end{itemize}
+\item
+  Juvenile
+
+  \begin{itemize}
+  \tightlist
+  \item
+    American Indian
+  \item
+    Asian
+  \item
+    Black
+  \item
+    White
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{ethnicity}{%
+\subsection{Ethnicity}\label{ethnicity}}
+
+\begin{itemize}
+\tightlist
+\item
+  Adult
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Hispanic
+  \item
+    Non-Hispanic
+  \end{itemize}
+\item
+  Juvenile
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Hispanic
+  \item
+    Non-Hispanic
+  \end{itemize}
+\end{itemize}
 
 \hypertarget{leoka}{%
 \chapter{Law Enforcement Officers Killed and Assaulted (LEOKA)}\label{leoka}}
@@ -980,26 +1254,142 @@ The Law Enforcement Officers Killed and Assaulted data, often called just by its
 
 This data, as well as the privately-run site \href{https://www.odmp.org/}{Officer Down Memorial Page} which covers law enforcement officers who have died, has also been used lately in the context of police using force against people out of fear of being harmed by that person. The discussion revolves around whether police are actually in high danger of being harmed by comparing the rate at which officers die to that of other professions. In general they find that police officers are among the most likely profession to die but are not at the top of this measure.
 
-\hypertarget{a-brief-history-of-the-data-1}{%
-\section{A brief history of the data}\label{a-brief-history-of-the-data-1}}
+\hypertarget{important-variables-1}{%
+\section{Important variables}\label{important-variables-1}}
 
-\hypertarget{changes-in-definitions-1}{%
-\subsection{Changes in definitions}\label{changes-in-definitions-1}}
+\hypertarget{number-of-employees}{%
+\subsection{Number of employees}\label{number-of-employees}}
 
-\hypertarget{what-does-the-data-look-like-1}{%
-\section{What does the data look like?}\label{what-does-the-data-look-like-1}}
+\hypertarget{officers-killed}{%
+\subsection{Officers killed}\label{officers-killed}}
 
-\hypertarget{what-variables-are-in-the-data-1}{%
-\section{What variables are in the data?}\label{what-variables-are-in-the-data-1}}
+\hypertarget{assaults-by-injury-and-weapon}{%
+\subsection{Assaults by injury and weapon}\label{assaults-by-injury-and-weapon}}
 
-\hypertarget{key-variables-1}{%
-\subsection{Key variables}\label{key-variables-1}}
+\begin{itemize}
+\tightlist
+\item
+  Assaults with injury
 
-\hypertarget{known-issues-with-the-data-1}{%
-\section{Known issues with the data}\label{known-issues-with-the-data-1}}
+  \begin{itemize}
+  \tightlist
+  \item
+    Offender has firearm
+  \item
+    Offender had knife
+  \item
+    Offender had other weapon
+  \item
+    Offender was unarmed
+  \end{itemize}
+\item
+  Assaults without injury
 
-\hypertarget{final-thoughts-1}{%
-\section{Final thoughts}\label{final-thoughts-1}}
+  \begin{itemize}
+  \tightlist
+  \item
+    Offender has firearm
+  \item
+    Offender had knife
+  \item
+    Offender had other weapon
+  \item
+    Offender was unarmed
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{assaults-by-call-type}{%
+\subsection{Assaults by call type}\label{assaults-by-call-type}}
+
+\begin{itemize}
+\item
+  Disturbance call (e.g.~domestic violence, person carrying a gun in public)
+\item
+  Burglary
+\item
+  Robbery
+\item
+  Officers arresting someone for another crime
+\item
+  Civil disorder
+\item
+  Officer has custody of prisoners
+\item
+  Suspicious persons
+\item
+  Officers are ambushed
+\item
+  Mentally deranged person
+\item
+  Traffic pursuit and traffic stops
+\item
+  All other call types
+\item
+  Offender weapons
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Offender has firearm
+  \item
+    Offender had knife
+  \item
+    Offender had other weapon
+  \item
+    Offender was unarmed
+  \end{itemize}
+\item
+  Type of officer assignment
+
+  \begin{itemize}
+  \tightlist
+  \item
+    In a vehicle with two officers
+  \item
+    In a vehicle alone
+  \item
+    In a vehicle alone but assisted by other officers
+  \item
+    Detective or special unit alone
+  \item
+    Detective or special unit assisted by other officers
+  \item
+    Other assignment alone
+  \item
+    Other assignment assisted by other officers
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{assaults-by-time}{%
+\subsection{Assaults by time}\label{assaults-by-time}}
+
+\begin{itemize}
+\tightlist
+\item
+  12:01am - 2:00am
+\item
+  2:01am - 4:00am
+\item
+  4:01am - 6:00am
+\item
+  6:01am - 8:00am
+\item
+  8:01am - 10:00am
+\item
+  10:01am - 12:00pm
+\item
+  12:01pm - 2:00pm
+\item
+  2:01pm - 4:00pm
+\item
+  4:01pm - 6:00pm
+\item
+  6:01pm - 8:00pm
+\item
+  8:01pm - 10:00pm
+\item
+  10:01pm - 12:00pm
+\end{itemize}
 
 \hypertarget{shr}{%
 \chapter{Supplementary Homicide Reports (SHR)}\label{shr}}
@@ -1013,12 +1403,18 @@ This data only has a report when the agency has a murder that year and since mur
 
 Figure \ref{fig:shrVsOffenses} shows the annual number of murder victims from each of these datasets starting in 1976 for the UCR data and in 1999 for the CDC data.\footnote{1975 is actually the first year that the Supplementary Homicide Reports data is available but that dataset only has info for a single victim and offender - all later years has info for up to 11 victims and offenders - so 1976 is often used as the first year of data}. For the UCR data, in every year the numbers are fairly similar and the trends are the same over time, but the number of murders is never equal. The numbers have actually gotten worse over time with the difference between the datasets increasing and the Offenses Known data having consistently more murders reported than the SHR data since the late 1990s. Compared to the CDC data, however, both UCR datasets - and in particular the SHR data - undercount the number of murders. While trends are the same, UCR data reports thousands fewer murders per year than the CDC data, indicating how much of an issue underreporting is in this data.
 
+\begin{figure}
+\centering
 \includegraphics{ucrbook_files/figure-latex/shrVsOffenses-1.pdf}
-\#\# Important variables
+\caption{\label{fig:shrVsOffenses}The annual number of murders from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset. Numbers differ because agencies voluntarily report and may not report to both datasets.}
+\end{figure}
+
+\hypertarget{important-variables-2}{%
+\section{Important variables}\label{important-variables-2}}
 
 There data has demographic information for up to 11 victims and 11 offenders, as well as the information on the weapon used by each offender, the relationship between the first victim and each offender, and the circumstance of the murder. The data also has the traditional UCR set of variables about the agency: their ORI code, population, state, region and the month and year of this data. One key variable that is missing is the outcome of the homicide: there is no information on whether any of the offenders were arrested.
 
-While there is information on up to 11 victims and offenders, in most cases, there is only a single victim and a single offender in each incident. To see how the breakdown for the number of victims in each incident looks, Figure \ref{numberSHRVictims} shows the percent of incidents with each possible number of victims.\footnote{There is one incident where there are a reported 12 victims. For simplicity of the graph, this incident is not included.} In nearly all incidents - 96.1\% - there was only a single victim. This drops to 3.2\% of incidents for two victims, 0.5\% for three victims, and only about 0.2\% of incidents have four or more victims.
+While there is information on up to 11 victims and offenders, in most cases, there is only a single victim and a single offender in each incident. To see how the breakdown for the number of victims in each incident looks, Figure \ref{fig:numberSHRVictims} shows the percent of incidents with each possible number of victims.\footnote{There is one incident where there are a reported 12 victims. For simplicity of the graph, this incident is not included.} In nearly all incidents - 96.1\% - there was only a single victim. This drops to 3.2\% of incidents for two victims, 0.5\% for three victims, and only about 0.2\% of incidents have four or more victims.
 
 \begin{figure}
 \centering
@@ -1036,12 +1432,21 @@ The variable ``situation'' says what type of victim-offender number combination 
 \caption{\label{fig:numberSHROffenders}The percent of incidents from 1976-2018 that have 1-11 offenders.}
 \end{figure}
 
-\hypertarget{offender-age}{%
-\subsection{Offender age}\label{offender-age}}
+We'll now look at a number of important variables individually. Since the data can potentially have 11 victims and 11 offenders - but in practice has only one each in the vast majority of cases - we'll only look at the first victim/offender for each of these variables. Therefore, the results will not be entirely accurate, but will still give you a good overview of the data. The figures below will use data for all homicides from 1976 to 2018 so will cover all but the most recent year of data.
 
-\begin{verbatim}
-## [1] 30.96352
-\end{verbatim}
+\hypertarget{demographics}{%
+\subsection{Demographics}\label{demographics}}
+
+There are two broad categories of variables that we'll cover: demographics of the victim and offenders, and characteristics of the case. We start with demographics.
+
+\hypertarget{age-1}{%
+\subsubsection{Age}\label{age-1}}
+
+This data includes the age (in years) for each victim and each offender. For those under one years old, it also breaks this down into those from birth to six days old ``including abandoned infant'' and those seven days old to 364 days old. So there's a bit more info on baby murders. It also maxes out the age at 99 so for victims or offenders older than that we don't get their exact age, just text that says ``99 years or older'' (which I turn to the number 99 in the figures below).
+
+Figure \ref{fig:shrOffenderAge} shows the percent of murders from 1976-2018 where the first offender in the case is of each age from 0-99. Offenders with unknown ages are excluded from this graph and make up about 27\% of cases. The average (mean) age is 30.9 years old (shown in orange) which is due to a long right tail; the median age is 28 years old. If you look closely at the left side of the graph you can see that there are some very young offenders, with at least one offender aged 0-10 included in the data. It's not clear from this alone that these ages are a data entry. While a two-year-old certainly couldn't murder someone, the data does include deaths caused by ``children playing with gun'' (homicide circumstances will be discussed in Section \ref{circumstance}) so these ages could potentially be correct.
+
+If you're familiar with the age-crime curve in criminology - which basically says crime peaks in late teen years then falls dramatically - this shows that exact curve, though doesn't decline as the individual ages as quickly as we see with less serious crimes.
 
 \begin{figure}
 \centering
@@ -1049,12 +1454,7 @@ The variable ``situation'' says what type of victim-offender number combination 
 \caption{\label{fig:shrOffenderAge}The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as `birth to 7 days old, including abandoned infant' and `7 days to 364 days old') and considered 0 years old. Victims reported as `99 years or older' are considered 99 years old.}
 \end{figure}
 
-\hypertarget{victim-age}{%
-\subsection{Victim age}\label{victim-age}}
-
-\begin{verbatim}
-## [1] 32.87052
-\end{verbatim}
+Figure \ref{fig:shrVictimAge} repeats Figure \ref{fig:shrOffenderAge} but with victim age rather than offender age. The mean victim age (shown in orange) is 32.9 and the median age is 30. Though the age victim age is a bit younger than the average offender age, trends are relatively similar for teenagers and older where deaths spikes in the late teen years and then declines steadily. The major difference is the U-shape for younger victims - for victims under age 15, homicides peak at age 0 (i.e.~younger than their first birthday) with \textasciitilde1.5\% of all homicides being this this age. They then decline until plateauing at around age 6 before increasing again in the early teen years.
 
 \begin{figure}
 \centering
@@ -1062,8 +1462,78 @@ The variable ``situation'' says what type of victim-offender number combination 
 \caption{\label{fig:shrVictimAge}The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as `birth to 7 days old, including abandoned infant' and `7 days to 364 days old') and considered 0 years old. Victims reported as `99 years or older' are considered 99 years old.}
 \end{figure}
 
+\hypertarget{sex}{%
+\subsubsection{Sex}\label{sex}}
+
+We'll next look at victim and offender sex, a simple variable since only male and female are included.
+
+About 62\% of offenders, as seen in Figure \ref{fig:shrOffenderSex} are male and about 8\% are female, indicating a large disparity in the sex of homicide offenders. The remaining 30\% of offenders do not have sex data available because the police do not know the sex of this individual. For offenders who aren't arrested, this variable may be inaccurate since it is perceived sex of the offender.
+
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/shrOffenderSex-1.pdf}
+\caption{\label{fig:shrOffenderSex}The sex of offenders, 1976-2018.}
+\end{figure}
+
+There is far less uncertainty for victim sex, with under 0.15\% of victims having an unknown sex. Here again there is a large disparity between male and female with about 78\% of victims being male and 22\% being female. While there are more male victims than male offenders, this is probably just due to there being so many unknown offenders.
+
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/shrVictimSex-1.pdf}
+\caption{\label{fig:shrVictimSex}The sex of victims, 1976-2018.}
+\end{figure}
+
+\hypertarget{race-1}{%
+\subsubsection{Race}\label{race-1}}
+
+This data also includes the race of the victims and offenders. This includes the following races: American Indian or Alaskan Native, Asian, Black, Native Hawaiian or Other Pacific Islander, and White. These are the only races included in the data; Hispanic is considered an ethnicity and is available as a separate, though flawed, variable. There is no category for bi- or multi-racial. As with other demographics info for offenders, in cases where no arrest is made (and we don't know in this data if one is made), there's no way to confirm the person's race (and race itself is hard to put into discrete boxes like done here) so these results may not be entirely accurate.
+
+Figure \ref{fig:shrOffenderRace} shows the percent of homicides in the data by race. Black and White victims are included are similar percents, at 34.2\% and 33.8\% of victims, respectively. Given that Black people are only about 13\% of the population while White people are 76\% of the population, according to 2019 Census data, this shows a large disparity in offender race rates. There are far more Black and far fewer White offenders than would be expected from their percent of the total United States population. The next most common group is Unknown at about 30.5\% of offenders. Given that so many offenders have an unknown race, the reliability of the other race measures is limited. The remaining races are Asian at 0.9\% of offenders, American Indian or Alaskan Native at 0.6\%, and Native Hawaiian or Other Pacific Islander at 0.004\%.
+
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/shrOffenderRace-1.pdf}
+\caption{\label{fig:shrOffenderRace}The race of offenders, 1976-2018.}
+\end{figure}
+
+For victim race, seen in Figure \ref{fig:shrVictimRace}, only about 1\% of victim race's are unknown. This means we can be a lot more confidence in the race of the victims than in the race of the offender. Or, at least the challenge of categorizing people by race is not the major problem, not missing people. As with offenders, White and Black victims are the two most common races, with 49\% and 47.7\% of victims, respectively. There are almost double the percent of Asian victims than Asian offenders at 1.51\% of victims (and 0.9\% of offenders). American Indian or Alaskan Natives make up 0.8\% of victims while Native Hawaiian or Pacific Islanders make up 0.005\% of victims.
+
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/shrVictimRace-1.pdf}
+\caption{\label{fig:shrVictimRace}The race of victims, 1976-2018}
+\end{figure}
+
+\hypertarget{ethnicity-1}{%
+\subsubsection{Ethnicity}\label{ethnicity-1}}
+
+The final demographic variable is ethnicity which is whether the victim or offender is Hispanic or not Hispanic. The UCR data has a weird relationship with this variable (which is also in the Arrests by Age, Sex, and Race dataset, discussing in Chapter \ref{arrests}) where ethnicity is technically a variable in the data but very rarely collected. As such, this is an unreliable variable that if you really want to use, needs careful attention to make sure it is being reported consistently by the agencies that you are looking at.
+
+The vast majority - 71.6\% - of offenders have an unknown ethnicity while 21.5\% are not Hispanic and 6.9\% are Hispanic.
+
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/shrOffenderEthnicity-1.pdf}
+\caption{\label{fig:shrOffenderEthnicity}The ethnicity of offenders, 1976-2018.}
+\end{figure}
+
+Unlike the other demographic variables, there is still a huge amount of underreporting when it comes to victim ethnicity, though still less than for offender ethnicity. 59\% of victims have an unknown ethnicity. Nearly 30\% of victims are reported as not Hispanic while 10.8\% are reported as Hispanic.
+
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/shrVictimEthnicity-1.pdf}
+\caption{\label{fig:shrVictimEthnicity}The ethnicity of victims, 1976-2018.}
+\end{figure}
+
+\hypertarget{case-characteristics}{%
+\subsection{Case characteristics}\label{case-characteristics}}
+
 \hypertarget{weapon-used}{%
-\subsection{Weapon used}\label{weapon-used}}
+\subsubsection{Weapon used}\label{weapon-used}}
+
+The first variable we'll look at is the weapon used by each offender. Table \ref{fig:shrWeapon} shows the weapon used by the first offender in every incident from 1976 to 2018. Each offender can only be reported as having a single weapon, so this table essentially shows the number (and percent) of murders caused by this weapon. This isn't entirely true since in reality an offender could use multiple weapons and there can be multiple offenders.
+
+The most commonly used weapon is a handgun, which is used in nearly half of murders. This is followed by a knife or other sharp weapon used to cut at 15\% of murders, and then by ``firearm, type not stated'' which is just a firearm where we don't know the exact type (it can include handguns) at 7.3\% of murders. The fourth most common weapon is ``personal weapons'' at nearly 6\% of murders. ``Personal weapons'' is a weird term to mean that there was no weapon - the ``weapon'' was the offender who beat the victim to death. Shotguns are involved in 5\% of murders and all other weapons are involved in fewer than 5\% of cases. In total there are 19 different weapons included though most are relatively uncommon.
 
 \begin{figure}
 \centering
@@ -1072,9 +1542,9 @@ The variable ``situation'' says what type of victim-offender number combination 
 \end{figure}
 
 \hypertarget{relationship-between-first-victim-and-offenders}{%
-\subsection{Relationship between first victim and offenders}\label{relationship-between-first-victim-and-offenders}}
+\subsubsection{Relationship between first victim and offenders}\label{relationship-between-first-victim-and-offenders}}
 
-An interesting and highly useful variable is the relationship between the first victim and each offender.
+An interesting and highly useful variable is the relationship between the first victim and each offender. To be clear, this is only for the first victim; we don't have the relationship between other victims and offenders. However, as seen earlier, this isn't \emph{too much} of an issue since nearly all incidents only have a single victim. There are 29 possible relationship types (including ``unknown'' relationship) which are broken into three categories: legal family members, people known to the victim but who aren't family, and people not known to the victim.
 
 \begin{figure}
 \centering
@@ -1082,8 +1552,14 @@ An interesting and highly useful variable is the relationship between the first 
 \caption{\label{fig:shrRelationship}The relationship between the first victim and the first offender in a homicide incident.}
 \end{figure}
 
-\hypertarget{homicide-circumstance}{%
-\subsection{Homicide circumstance}\label{homicide-circumstance}}
+\hypertarget{circumstance}{%
+\subsubsection{Homicide circumstance}\label{circumstance}}
+
+We also have information on the type of the murder, which this data calls the ``circumstance''. This comes is relatively broad categories that leave a lot to be desired in our understanding of what led to the murder. Table \ref{fig:shrCircumstance} shows the number and percent of each circumstance for the first victim of each murder from 1976 to 2018. This data has 33 possible circumstances which it groups into five main categories: murders that coincide with committing another crime (``felony type'' murders), murders that don't coincide with another crime (``non-felony type'' murders), justifiable homicides, and negligent manslaughter.
+
+The felony type murders are simply ones where another crime occurred during the murder. While this is called ``felony type'' it does included other crimes such as theft and gambling (which isn't always a felony) so is a bit of a misnomer. The ``non-felony type'' are murders that happen without another crime. This includes gang killings (where, supposedly, only the murder occurred), children killed by babysitters, fights among intoxicated (both of alcohol and drugs), and ``lover's triangle'' killings. Justifiable homicides are when a person (civilian and police officer who kill a person committing a crime.\footnote{This dataset is one source of information on how many people police kill each year. But it is a large undercount compared to other sources such as the Washington Post collection, so is not a very useful source of information on this topic.} Negligent manslaughter includes accidental shootings such as when children find and shoot a gun, but excludes deaths from traffic accidents.
+
+The most common circumstances, accounting for 27.4\%, 26.4\%, and 12.5\%, respectively, are ``other arguments'', ``unknown'', and ``other non-felony type - not specified''. Since the data includes ``argument over money or property'' as one category, the ``other arguments'' mean that it's an argument for a reason other than over money or property. The ``other non-felony type'' one does not mean that the murder did not occur alongside another crime, but also doesn't fall into the non-felony categories included. Robbery is the only remaining circumstance with more than 5\% of murders, at 8\%.
 
 \begin{figure}
 \centering
@@ -1092,7 +1568,9 @@ An interesting and highly useful variable is the relationship between the first 
 \end{figure}
 
 \hypertarget{homicide-subcircumstance}{%
-\subsection{Homicide subcircumstance}\label{homicide-subcircumstance}}
+\subsubsection{Homicide subcircumstance}\label{homicide-subcircumstance}}
+
+The ``subcircumstance'' just tells you more information about justifiable homicides. This includes the circumstance leading up to the ``felon'' - which is how the person killed is described, though technically they don't need to have committed a felony - was killed. It includes if this person attached an officer (the one who killed them), a different officer, a civilian, or was committing or fleeing a crime.
 
 \begin{figure}
 \centering
@@ -1103,7 +1581,7 @@ An interesting and highly useful variable is the relationship between the first 
 \hypertarget{hate_crimes}{%
 \chapter{Hate Crime Data}\label{hate_crimes}}
 
-This dataset covers crimes that are reported to the police and judged by the police to be motivated by hate More specifically, they are, first, crimes which were, second, motivated - at least in part - by bias towards a certain person or group of people because of characteristics about them such as race, sexual orientation, or religion. The first part is key, they must be crimes - and really must be the selection of crimes that the FBI collects for this dataset. Biased actions that don't meet the standard of a crime, or are of a crime not included in this data, are not considered hate crimes. For example, if someone yells at a Black person and uses racial slurs against them, it is clearly a racist action. For it to be included in this data, however, it would have to extend to a threat since ``intimidation'' is a crime included in this data but lesser actions such as simply insulting someone is not included. For the second part, the bias motivation, it must be against a group that the FBI includes in this data. When this data collection began crimes against transgender people were not counted so if a transgender person was assaulted or killed because they were transgender, this is not a hate crime recorded in the data.\footnote{The first year where transgender as a group was a considered a bias motivation was in 2013.}
+This dataset covers crimes that are reported to the police and judged by the police to be motivated by hate. More specifically, they are, first, crimes which were, second, motivated - at least in part - by bias towards a certain person or group of people because of characteristics about them such as race, sexual orientation, or religion. The first part is key, they must be crimes - and really must be the selection of crimes that the FBI collects for this dataset. Biased actions that don't meet the standard of a crime, or are of a crime not included in this data, are not considered hate crimes. For example, if someone yells at a Black person and uses racial slurs against them, it is clearly a racist action. For it to be included in this data, however, it would have to extend to a threat since ``intimidation'' is a crime included in this data but lesser actions such as simply insulting someone is not included. For the second part, the bias motivation, it must be against a group that the FBI includes in this data. When this data collection began crimes against transgender people were not counted so if a transgender person was assaulted or killed because they were transgender, this is not a hate crime recorded in the data.\footnote{The first year where transgender as a group was a considered a bias motivation was in 2013.}
 
 So this data is really a narrower measure of hate crimes than it might seem. In practice it is (some) crimes motivated by (some) kinds of hate that are reported to the police. It is also the most under-reported UCR dataset with most agencies not reporting any hate crimes to the FBI. This leads to huge gaps in the data with some states having zero agencies report crime, agencies reporting some bias motivations but not others, agencies reporting some years but not others. While these problems exist for all of the UCR datasets, it is most severe in this data. This problem is exacerbated by hate crimes being rare even in agencies that report them - with such rare events, even minor changes in which agencies report or which types of offenses they include can have large effects.
 
@@ -1150,8 +1628,8 @@ Since the number of state-wide hate crimes is partially influenced by population
 \caption{\label{fig:statePercentReporting}The percent of agencies in each state that reported at least one hate crime in 2018.}
 \end{figure}
 
-\hypertarget{important-variables-1}{%
-\section{Important variables}\label{important-variables-1}}
+\hypertarget{important-variables-3}{%
+\section{Important variables}\label{important-variables-3}}
 
 This data has the standard set of variables describing the agency that is reporting. This includes the agency ORI - which is the unique ID for that agency - the agency name, their state, and the population under their jurisdiction.
 
@@ -1246,31 +1724,405 @@ The data also includes the race of the offenders as a group, though not the ethn
 \hypertarget{stolen_property}{%
 \chapter{Property Stolen and Recovered (Supplement to Return A)}\label{stolen_property}}
 
-The Property Stolen and Recovered data - sometimes called the Supplement to Return A (Return A being another name for the Offenses Known and Clearances by Arrest dataset, the ``crime'' dataset) - provides monthly information about property-related offenses (theft, motor vehicle theft, robbery, and burglary), including the location of the offense (in broad categories like ``gas station'' or ``residence), what was stolen (e.g.~clothing, livestock, firearms), and how much the stolen items were worth.\footnote{It also includes the value of items stolen during rapes and murders, if anything was stolen.} The''recovered" part of this dataset covers the type and value of property recovered so you can use this, along with the type and value of property stolen, to determine what percent and type of items the police managed to recover. Like other UCR datasets this is at the agency-month level so you can, for example, learn how often burglaries occur at the victim's home during the day, and if that rate changes over the year or differs across agencies. The data, however, provides no information about the offender or the victim (other than if the victim was an individual or a commercial business {[}based on the location of the incident - ``bank'', ``gas station'', etc{]}). The value of the property stolen is primarily based on the victim's estimate of how much the item is worth (items that are decreased in value once used - such as cars - are supposed to be valued at the current market rate, but the data provides no indication of when it uses the current market rate or the victim's estimate) so it should be used as a very rough estimate of value.
+The Property Stolen and Recovered data - sometimes called the Supplement to Return A (Return A being another name for the Offenses Known and Clearances by Arrest dataset, the ``crime'' dataset) - provides monthly information about property-related offenses (theft, motor vehicle theft, robbery, and burglary), including the location of the offense (in broad categories like ``gas station'' or ``residence), what was stolen (e.g.~clothing, livestock, firearms), and how much the stolen items were worth.\footnote{It also includes the value of items stolen during rapes and murders, if anything was stolen.} The''recovered" part of this dataset covers the type and value of property recovered so you can use this, along with the type and value of property stolen, to determine what percent and type of items the police managed to recover. Like other UCR datasets this is at the agency-month level so you can, for example, learn how often burglaries occur at the victim's home during the day, and if that rate changes over the year or differs across agencies.
 
-\hypertarget{a-brief-history-of-the-data-2}{%
-\section{A brief history of the data}\label{a-brief-history-of-the-data-2}}
+The data, however, provides no information about the offender or the victim (other than if the victim was an individual or a commercial business {[}based on the location of the incident - ``bank'', ``gas station'', etc{]}). The value of the property stolen is primarily based on the victim's estimate of how much the item is worth (items that are decreased in value once used - such as cars - are supposed to be valued at the current market rate, but the data provides no indication of when it uses the current market rate or the victim's estimate) so it should be used as a very rough estimate of value.
 
-\hypertarget{changes-in-definitions-2}{%
-\subsection{Changes in definitions}\label{changes-in-definitions-2}}
+This data is highly useful to use as a rough measure of the cost of crime. This cost is limited to just the value of the property stolen - so excludes things like injuries, mental health effects of victimization, etc. - but is still better than nothing. Since this data includes both the number of offenses per month (broken down by type of theft and items stolen) and the value of the stolen property, we can also see if the average value of these thefts change over time.
 
-\hypertarget{what-does-the-data-look-like-2}{%
-\section{What does the data look like?}\label{what-does-the-data-look-like-2}}
+\includegraphics{ucrbook_files/figure-latex/unnamed-chunk-3-1.pdf}
 
-\hypertarget{raw-data-1}{%
-\subsection{Raw data}\label{raw-data-1}}
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/phillyHomeBurglary2-1.pdf}
+\caption{\label{fig:phillyHomeBurglary2}The annual number of burglaries and cost per burglary for daytime home burglaries in Philadelphia, 1960-2019.}
+\end{figure}
 
-\hypertarget{what-variables-are-in-the-data-2}{%
-\section{What variables are in the data?}\label{what-variables-are-in-the-data-2}}
+\hypertarget{agencies-reporting-3}{%
+\section{Agencies reporting}\label{agencies-reporting-3}}
 
-\hypertarget{key-variables-2}{%
-\subsection{Key variables}\label{key-variables-2}}
+We'll start by looking at which agencies report. The data is available from 1960 through 2019 though the columns about the value of the property only begin in 1964. Figure \ref{fig:propertyAgencies} show the number of agencies each year that reported at least one month during that year. In the first several years of data barely any agencies reported data and then it spiked around 1966 to over 6,000 agencies per year then grew quickly until over 12,000 agencies reported data in the late 1970s. From here it actually gradually declined until fewer than 12,000 agencies in the late 1990s before reversing course again and growing to about 15,000 agencies by 2019 - down several hundred agencies from the peak a few years earlier.
 
-\hypertarget{known-issues-with-the-data-2}{%
-\section{Known issues with the data}\label{known-issues-with-the-data-2}}
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/propertyAgencies-1.pdf}
+\caption{\label{fig:propertyAgencies}The annual number of police agencies that report at least month of data that year.}
+\end{figure}
 
-\hypertarget{final-thoughts-2}{%
-\section{Final thoughts}\label{final-thoughts-2}}
+Since this data is called the ``Supplement to Return A'' we would expect that the agencies that report here are the same as the ones that report to the Offenses Known and Clearances by Arrest data, which is also called the Return A dataset. Figure \ref{fig:agenciesInBoth} shows the percent of agencies in this dataset that are also in the Return A data. Except for the first several years of data in the 1960s, we can see that most years have nearly all agencies reporting to both, though this has declined in recent years. Since the late 1970s nearly 90\% of agencies that report to the Offenses Known data also report to this dataset.
+
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/agenciesInBoth-1.pdf}
+\caption{\label{fig:agenciesInBoth}The percent of agencies in the Supplement to Return A data that are also in the Offenses Known and Clearances by Arrest (Return A) data in that year, 1960-2019.}
+\end{figure}
+
+\hypertarget{important-variables-4}{%
+\section{Important variables}\label{important-variables-4}}
+
+This data can really be broken into two parts: the monthly number of property (including robbery) crimes that occur that are more detailed than in the Offenses Known data, and the value of the property stolen (and recovered) from these crimes.\footnote{I'm really not sure why this data isn't just merged with the Offenses Known data, especially the first part where it's just counts of crimes.} For each category I present the complete breakdown of the available offenses/items stolen and describe some of the important issues to know about them.
+
+\hypertarget{a-more-detailed-breakdown-of-property-and-robbery-crimes}{%
+\subsection{A more detailed breakdown of property (and robbery) crimes}\label{a-more-detailed-breakdown-of-property-and-robbery-crimes}}
+
+The first part of this data is just a monthly (or yearly in the annual data that I've released - the FBI, however, only releases data monthly so I just aggregated the months together) number of crimes of each type reported to the police (and that a police investigation discovered actually happened. For more on this process, please see Chapter \ref{actual}). There are six crimes and their subsets included here: burglary, theft, robbery, and motor vehicle theft. The remaining two are rape and murder, but they don't break down these crimes into any subcategories.
+
+Burglary is reported based on whether the building burgled was the victim's residence or not, and also the time of the burglary. Time is either during the day (6am-5:59pm) or night (6:pm-5:59am) or if the time is unknown. For robbery, the subcategories are based on where the robberies occurred such as if it happened in a bank, a gas station, or a street. Theft is divided into three groups based on the value of items stolen: less than \$50, \$50-\$199, and \$200 and up. Finally, motor vehicle theft is broken into where the stolen vehicle was stolen and found: stolen in the reporting agency's jurisdiction and found by the same agency, stolen in the reporting agency's jurisdiction and found by a different agency, and stolen in a different agency's jurisdiction and found by the reporting agency. The complete list of each subsection and a brief definition for the complicated ones are presented below.
+
+\begin{itemize}
+\tightlist
+\item
+  Burglary
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Home/residence during the day (6:00am - 5:59pm)
+  \item
+    Home/residence during the night (6:00pm - 5:59am)
+  \item
+    Home residence at unknown time
+  \item
+    Non-residence (i.e.~all buildings other than victims home) during the day (6:00am - 5:59pm)
+  \item
+    Non-residence (i.e.~all buildings other than victims home) during the night (6:00pm - 5:59am)
+  \item
+    Non-residence (i.e.~all buildings other than victims home) at unknown time
+  \end{itemize}
+\item
+  Theft/larceny (excluding of a motor vehicle)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textless\$50
+  \item
+    \$50-\$199
+  \item
+    \$200 and up
+  \end{itemize}
+\item
+  Robbery
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Highway - This is an old term to say a place is outside and in generally accessible and visible areas. This includes robberies on public streets and alleys.
+  \item
+    Commercial building - This is robberies in a business other than ones stated below. Includes restaurants, stores, hotels, bars.
+  \item
+    Gas station
+  \item
+    Chain/convenience store - a neighborhood store that generally is open late and sells food
+  \item
+    Home/residence
+  \item
+    Bank
+  \item
+    Miscellaneous/other - This is all other robberies not already covered.
+  \end{itemize}
+\item
+  Motor vehicle theft
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Stolen in current agency jurisdiction and found by that agency
+  \item
+    Stolen in current agency jurisdiction and found by another agency
+  \item
+    Stolen in another agency's jurisdiction and recovered by current agency
+  \end{itemize}
+\item
+  Murder
+\item
+  Rape
+\end{itemize}
+
+\hypertarget{the-value-of-property-stolen-in-property-and-robbery-crimes}{%
+\subsection{The value of property stolen in property (and robbery) crimes}\label{the-value-of-property-stolen-in-property-and-robbery-crimes}}
+
+The cost is the cost for the victim to replace the stolen item. So the current market price for that item (though factoring in the current state the item is in, e.g.~if it's already damaged) and, for businesses, the cost to buy that item and \emph{not} the cost they sell it for. This is not an exact science so I recommend only interpreting these values are estimates - and potentially rough estimates.
+
+This also includes the value of property stolen during rapes and murders. To be clear, this is \emph{only} the value of the property stolen during the crime. The cost of any injuries (mental or physical) or any lasting cost to the victim, their family, and society for these crimes are not included. This, of course, vastly underestimates the cost of these crimes so please don't use this measure as a cost of crime. It is the cost of property only.
+
+\begin{itemize}
+\tightlist
+\item
+  Burglary
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Home/residence during the day (6:00am - 5:59pm)
+  \item
+    Home/residence during the night (6:00pm - 5:59am)
+  \item
+    Home residence at unknown time
+  \item
+    Non-residence (i.e.~all buildings other than victims home) during the day (6:00am - 5:59pm)
+  \item
+    Non-residence (i.e.~all buildings other than victims home) during the night (6:00pm - 5:59am)
+  \item
+    Non-residence (i.e.~all buildings other than victims home) at unknown time
+  \end{itemize}
+\item
+  Murder
+\item
+  Rape
+\item
+  Robbery
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Highway - This is an old term to say a place is outside and in generally accessible and visible areas. This includes robberies on public streets and alleys.
+  \item
+    Commercial building - This is robberies in a business other than ones stated below. Includes restaurants, stores, hotels, bars.
+  \item
+    Gas station
+  \item
+    Chain/convenience store - a neighborhood store that generally is open late and sells food
+  \item
+    Home/residence
+  \item
+    Bank
+  \item
+    Miscellaneous/other - This is all other robberies not already covered.
+  \end{itemize}
+\item
+  Theft/larceny (excluding of a motor vehicle)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Pick pocket
+  \item
+    Purse snatching
+  \item
+    Shoplifting
+  \item
+    Stealing from a car (but not stealing the car itself)
+  \item
+    Stealing parts of a car, such as the car battery or the tires
+  \item
+    Stealing a bicycle
+  \item
+    Stealing from a building where the offender is allowed to be in (and is not counted already as shoplifting)
+  \item
+    Stealing from a ``coin operated machine'' which is mainly vending machines
+  \item
+    All other thefts
+  \end{itemize}
+\item
+  Currency
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This includes all money and signed documents that can be exchanged for money (e.g.~checks). Blank checks and credit and debit cards are not included (they are in the Miscellaneous/other category)
+  \end{itemize}
+\item
+  Jewelry and ``previous metals''
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Only metals that are considered high value are included here. Metals that are generally worth little are counted in the Miscellaneous/other category.
+  \end{itemize}
+\item
+  Clothing and fur
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This also includes items that you take with you when leaving the house (except for your phone): wallet, shoes, purse, backpacks.
+  \end{itemize}
+\item
+  Motor vehicle stolen in current agency jurisdiction
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This includes only vehicles than can be driven on wheels so excludes trains and anything on water or that can fly.
+  \end{itemize}
+\item
+  Office equipment and electronics
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This includes ``typewriters'' and ``magnetic tapes'' but is essentially any kind of equipment needed to run a business. So printers, computers, cash registers, computer equipment like a monitor or a mouse, and computer software. These items do not have to be stolen from a commercial building to be included in this category.
+  \end{itemize}
+\item
+  Sound and picture equipment
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This is a kind of odd category that is a product of its time. Anything that produces noise or pictures (including the fancy motion pictures) is included. This includes TVs, cameras, projectors, radios, MP3 players (but not phones that can play music) and (since again, this is a very old dataset) VHS cassettes.
+  \end{itemize}
+\item
+  Guns
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This includes all types of firearms other than toys or BB/pellet/paintball guns.
+  \end{itemize}
+\item
+  Home furniture
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This includes all of the ``big things'' in a house: begs, chairs, AC units, washer/dryer units, etc. However, items that are in the ``Office equipment and electronics'' category do not apply.
+  \end{itemize}
+\item
+  Consumable goods
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This is anything that can be consumed such as food, drinks, and drugs, or anything you use in the bathroom.
+  \end{itemize}
+\item
+  Livestock
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This is all animals other than ones that you would consider a pet
+  \end{itemize}
+\item
+  Miscellaneous/other
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Anything that is not part of the above categories would fall in here. Cell phones and credit cards are included.
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{value-of-recovered-property-by-type-of-item-stolen}{%
+\subsection{Value of recovered property by type of item stolen}\label{value-of-recovered-property-by-type-of-item-stolen}}
+
+For the below subset of items stolen, this data includes the value of the items that were recovered. This is a subset of the section above - the value of property stolen. I don't know why but this data has more values for the property stolen than for property recovered. For example, we know how much was stolen during bank robberies but not how much was recovered from bank robberies. The only info we have for the value of recovered property is for the breakdown in the items themselves - not breakdowns of crimes such as robbery or burglary. So we can know the value of guns recovered, but not if those guns were taken from a burglary, a robbery, a theft, etc.
+
+Another issue is that it uses the value of the property as it is recovered, not as it is stolen. For example, if someone steals a laptop that's worth \$1,000 and then the police recover it damaged and it's now worth only \$200, we'd see \$1,000 for the stolen column for ``office equipment and electronics'' and only \$200 for the recovered column for that category. So an agency that recovers 100\% of the items that were stolen can appear to only recover a fraction of them since the value of recovered items could be substantially lower than the value of stolen items - and there's no way to know how many items are actually recovered, we must rely on the value of stolen and recovered.\footnote{Even if we look at the Offenses Known and Clearances by Arrest data, that only says if there was an arrest or exceptional clearance in the case, not if the property stolen was recovered}.
+
+The full list of items recovered included in the data are below:
+
+\begin{itemize}
+\tightlist
+\item
+  Currency
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This includes all money and signed documents that can be exchanged for money (e.g.~checks). Blank checks and credit and debit cards are not included (they are in the Miscellaneous/other category)
+  \end{itemize}
+\item
+  Jewelry and ``previous metals''
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Only metals that are considered high value are included here. Metals that are generally worth little are counted in the Miscellaneous/other category.
+  \end{itemize}
+\item
+  Clothing and fur
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This also includes items that you take with you when leaving the house (except for your phone): wallet, shoes, purse, backpacks.
+  \end{itemize}
+\item
+  Motor vehicle stolen in current agency jurisdiction
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This includes only vehicles than can be driven on wheels so excludes trains and anything on water or that can fly.
+  \end{itemize}
+\item
+  Office equipment and electronics
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This includes ``typewriters'' and ``magnetic tapes'' but is essentially any kind of equipment needed to run a business. So printers, computers, cash registers, computer equipment like a monitor or a mouse, and computer software. These items do not have to be stolen from a commercial building to be included in this category.
+  \end{itemize}
+\item
+  Sound and picture equipment
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This is a kind of odd category that is a product of its time. Anything that produces noise or pictures (including the fancy motion pictures) is included. This includes TVs, cameras, projectors, radios, MP3 players (but not phones that can play music) and (since again, this is a very old dataset) VHS cassettes.
+  \end{itemize}
+\item
+  Guns
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This includes all types of firearms other than toys or BB/pellet/paintball guns.
+  \end{itemize}
+\item
+  Home furniture
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This includes all of the ``big things'' in a house: begs, chairs, AC units, washer/dryer units, etc. However, items that are in the ``Office equipment and electronics'' category do not apply.
+  \end{itemize}
+\item
+  Consumable goods
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This is anything that can be consumed such as food, drinks, and drugs, or anything you use in the bathroom.
+  \end{itemize}
+\item
+  Livestock
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This is all animals other than ones that you would consider a pet
+  \end{itemize}
+\item
+  Miscellaneous/other
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Anything that is not part of the above categories would fall in here. Cell phones and credit cards are included.
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{data-errors}{%
+\section{Data errors}\label{data-errors}}
+
+This dataset comes with a considerable number of data errors - basically enormous valuations for stolen property. Some of the values are so big that it is clearly an error and not just something very expensive stolen. However, this gets tricky since there can in fact simply be very expensive items stolen and make it look like an error. Some of the stolen property include variables for both the number of items of that type stolen and the total value of the items. From this we can make an average value per item stolen which can help our understanding of what was stolen. However, some items only have the value of the property stolen and the value of property recovered so we actually don't know how many of those items were stolen. These cases makes it even harder to believe that a large value is true and not just a data error since we don't know if the number of these thefts increased, causing the increase in the value reported. We'll look at a few examples of this and see how difficult it can be to trust this data.
+
+First, we'll look at the value of livestock thefts in New York City. Livestock is one of the variables where we know the value stolen and recovered but not how many times it happened. Being a major urban city, we might expect that there are not many livestock animals in the city so the values should be low. Figure \ref{fig:nycLivestock} shows the annual value of livestock thefts in NYC. There are two major issues here. First, In all but two years they report \$0 in livestock thefts. This is likely wrong since even New York City has some livestock (even just the police horses and the horse carriages tourists like) that probably got stolen. The second issues is the massive spike of reported livestock theft value in 1993 with over \$15 million stolen (the only other year with reported thefts is 1975 with \$87,651 stolen). Clearly NYC didn't move from \$0 in thefts for decades to \$15 million in a year and then \$0 again so this is a blatant data error.
+
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/nycLivestock-1.pdf}
+\caption{\label{fig:nycLivestock}The annual cost of livestock thefts in New York City, 1960-2019.}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{ucrbook_files/figure-latex/phillyHomeBurglary-1.pdf}
+\caption{\label{fig:phillyHomeBurglary}The annual cost per burglary of daytime home burglaries in Philadelphia, 1960-2019.}
+\end{figure}
 
 \hypertarget{arson-1}{%
 \chapter{Arson}\label{arson-1}}
@@ -1281,8 +2133,8 @@ For each type of arson it includes the number of arsons where the structure was 
 
 In cases where the arson led to a death, that death would be recorded as a murder on the Offenses Known and Clearances by Arrest dataset - but not indicated anywhere on this dataset. If an individual who responds to the arson dies because of it, such as a police officer or a firefighter, this is not considered a homicide (though the officer death is still included in the Law Enforcement Officers Killed and Assaulted data) unless the arsonists intended to cause their deaths. Even though the UCR uses the Hierarchy Rule, where only the most serious offense that occurs is recorded, all arsons are reported - arson is exempt from the Hierarchy Rule.
 
-\hypertarget{agencies-reporting-3}{%
-\section{Agencies reporting}\label{agencies-reporting-3}}
+\hypertarget{agencies-reporting-4}{%
+\section{Agencies reporting}\label{agencies-reporting-4}}
 
 Figure \ref{fig:arsonAgencies} shows the annual number of police agencies that reported at least one month that year. With data starting in 1979, there were a little over 12,000 agencies reporting a year until the early 2000s where it recovered from a sharp drop in agencies to steadily increase to about 16,000 a year. While arson data is available through 2019, this graph only shows data through 2018.
 
@@ -1292,8 +2144,8 @@ Figure \ref{fig:arsonAgencies} shows the annual number of police agencies that r
 \caption{\label{fig:arsonAgencies}The annual number of police agencies that report at least month of data that year.}
 \end{figure}
 
-\hypertarget{important-variables-2}{%
-\section{Important variables}\label{important-variables-2}}
+\hypertarget{important-variables-5}{%
+\section{Important variables}\label{important-variables-5}}
 
 Similar to the Offenses Known and Clearances by Arrest data, which is covered in Chapter @ref(offenses\_known), this data shows the monthly number of crimes - in this case only arsons - reported or discovered by the police, the number found by police to be unfounded, and the number cleared by the police. In addition, it includes the number of arsons in structures that were uninhabited, and the estimated cost of the damage caused by the arsons. For each variable, the arsons also broken into several categories of arsons, which we'll talk about in Section \ref{arsonType}. Like other UCR data, there are also variables that provide information about the agency - ORI codes, population under jurisdiction - the month and year that the data covers, and how many months reported data.
 
@@ -1390,8 +2242,8 @@ For each of the arson categories above, this dataset has information for ten dif
 
 Some arsons can burn down multiple types or structures or cars - fire, after all, tends to spread. This data defines the arson based on where the fire originated. So an arson that starts in someone's house and also burns down their car in the garage would be a single-family home arson, not a vehicle arson. This is true even if the damage is more severe for a type other than where the fire started. So if someone threw a Molotov cocktail at a car parked outside a house and it lightly damaged the car but spread to homes nearby and destroyed those homes, it is still a vehicle arson (though the damage recorded would include the homes burned.)
 
-\hypertarget{data-errors}{%
-\section{Data errors}\label{data-errors}}
+\hypertarget{data-errors-1}{%
+\section{Data errors}\label{data-errors-1}}
 
 Like the other UCR data, there are some cases where there are obvious data entry errors leading to impossible numbers of reported arsons or the price of an arson. As an example, Figure \ref{fig:residenceArson} shows the annual number of single-family home arsons in Byron City, Illinois, which has a population of slightly over 3,600 people. Every year with data available there are zero arsons reported until 2003 when 469 arsons are reported. Since it is exceedingly unlikely that suddenly an eighth of the city suddenly burned down, and the city never again had a residence arson, this is almost certainly a data entry error. As arsons are relatively rare, having errors - and especially ones like this - can drastically change the results of your analysis so it is important to check your data carefully for more errors. For those using the data that I have cleaned and concatenated, the complete list of obvious outliers that I removed is available on the data's \href{https://www.openicpsr.org/openicpsr/project/103540/version/V9/view}{page on openICPSR}.
 
@@ -1412,32 +2264,32 @@ There are also cases where it is less clear when a value is a data error or is s
 \hypertarget{county_level}{%
 \chapter{County-Level Detailed Arrest and Offense Data}\label{county_level}}
 
-\hypertarget{a-brief-history-of-the-data-3}{%
-\section{A brief history of the data}\label{a-brief-history-of-the-data-3}}
+\hypertarget{a-brief-history-of-the-data}{%
+\section{A brief history of the data}\label{a-brief-history-of-the-data}}
 
-\hypertarget{changes-in-definitions-3}{%
-\subsection{Changes in definitions}\label{changes-in-definitions-3}}
+\hypertarget{changes-in-definitions}{%
+\subsection{Changes in definitions}\label{changes-in-definitions}}
 
-\hypertarget{what-does-the-data-look-like-3}{%
-\section{What does the data look like?}\label{what-does-the-data-look-like-3}}
+\hypertarget{what-does-the-data-look-like}{%
+\section{What does the data look like?}\label{what-does-the-data-look-like}}
 
-\hypertarget{raw-data-2}{%
-\subsection{Raw data}\label{raw-data-2}}
+\hypertarget{raw-data}{%
+\subsection{Raw data}\label{raw-data}}
 
 \hypertarget{cleaned-data}{%
 \subsection{Cleaned data}\label{cleaned-data}}
 
-\hypertarget{what-variables-are-in-the-data-3}{%
-\section{What variables are in the data?}\label{what-variables-are-in-the-data-3}}
+\hypertarget{what-variables-are-in-the-data}{%
+\section{What variables are in the data?}\label{what-variables-are-in-the-data}}
 
-\hypertarget{key-variables-3}{%
-\subsection{Key variables}\label{key-variables-3}}
+\hypertarget{key-variables}{%
+\subsection{Key variables}\label{key-variables}}
 
-\hypertarget{known-issues-with-the-data-3}{%
-\subsection{Known issues with the data}\label{known-issues-with-the-data-3}}
+\hypertarget{known-issues-with-the-data}{%
+\subsection{Known issues with the data}\label{known-issues-with-the-data}}
 
-\hypertarget{final-thoughts-3}{%
-\section{Final thoughts}\label{final-thoughts-3}}
+\hypertarget{final-thoughts}{%
+\section{Final thoughts}\label{final-thoughts}}
 
 \backmatter
 

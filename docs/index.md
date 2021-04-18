@@ -1,7 +1,7 @@
 --- 
 title: "Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide"
 author: "Jacob Kaplan"
-date: "2021-04-13"
+date: "2021-04-17"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -26,7 +26,7 @@ UCR data is important for three reasons:
 2. The data is available since 1960 so there is a long period of available data
 3. The data is available for most of the 18,000 police agencies in the United States so you can compare across agencies
 
-For most of this book we'll be discussing the caveats of the above reasons - or, more directly, why these assumptions are wrong - but these are the reasons why the data is so influential. 
+More than most datasets, there are a lot of times when using UCR data that you'll think "that's weird". This book will cover this weirdness and when we think the weirdness is just an odd - but acceptable - quirk of the data, and when it is a sign of a big problem in the data or that particular variable and that we should avoid using it. For most of this book we'll be discussing the caveats of the above reasons - or, more directly, why these assumptions are wrong - but these are the reasons why the data is so influential. 
 
 ## Goal of the book
 

@@ -80,7 +80,7 @@ Figure \@ref(fig:offensesAgenciesReporting) shows the annual number of police ag
 
 For each crime we have four different categories indicating the number of crimes actually committed, the number cleared, and the number determined to not have occurred. 
 
-### Actual crimes
+### Actual crimes {#actual}
 
 This is the number of offenses that *actually* occurred - where *actually* means that a police investigation found that the crime report was accurate. For crimes that are reported that the police find did not occur (e.g. report of an arson but turns that the fire began accidentally) are called "unfounded" crimes. So this variable is the one people use to measure *crime*. For example if 10 people are murdered in a city the number of "actual murders" would be 10. 
 
