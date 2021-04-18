@@ -13,30 +13,21 @@ The data, however, provides no information about the offender or the victim (oth
 
 This data is highly useful to use as a rough measure of the cost of crime. This cost is limited to just the value of the property stolen - so excludes things like injuries, mental health effects of victimization, etc. - but is still better than nothing. Since this data includes both the number of offenses per month (broken down by type of theft and items stolen) and the value of the stolen property, we can also see if the average value of these thefts change over time.
 
-<img src="stolen_property_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+![](ucrbook_files/figure-latex/unnamed-chunk-3-1.pdf)<!-- --> 
 
 
 
-<div class="figure">
-<img src="stolen_property_files/figure-html/phillyHomeBurglary2-1.png" alt="The annual number of burglaries and cost per burglary for daytime home burglaries in Philadelphia, 1960-2019." width="672" />
-<p class="caption">(\#fig:phillyHomeBurglary2)The annual number of burglaries and cost per burglary for daytime home burglaries in Philadelphia, 1960-2019.</p>
-</div>
+![(\#fig:phillyHomeBurglary2)The annual number of burglaries and cost per burglary for daytime home burglaries in Philadelphia, 1960-2019.](ucrbook_files/figure-latex/phillyHomeBurglary2-1.pdf) 
 
 ## Agencies reporting
 
 We'll start by looking at which agencies report. The data is available from 1960 through 2019 though the columns about the value of the property only begin in 1964. Figure \@ref(fig:propertyAgencies) show the number of agencies each year that reported at least one month during that year. In the first several years of data barely any agencies reported data and then it spiked around 1966 to over 6,000 agencies per year then grew quickly until over 12,000 agencies reported data in the late 1970s. From here it actually gradually declined until fewer than 12,000 agencies in the late 1990s before reversing course again and growing to about 15,000 agencies by 2019 - down several hundred agencies from the peak a few years earlier. 
 
-<div class="figure">
-<img src="stolen_property_files/figure-html/propertyAgencies-1.png" alt="The annual number of police agencies that report at least month of data that year." width="672" />
-<p class="caption">(\#fig:propertyAgencies)The annual number of police agencies that report at least month of data that year.</p>
-</div>
+![(\#fig:propertyAgencies)The annual number of police agencies that report at least month of data that year.](ucrbook_files/figure-latex/propertyAgencies-1.pdf) 
 
 Since this data is called the "Supplement to Return A" we would expect that the agencies that report here are the same as the ones that report to the Offenses Known and Clearances by Arrest data, which is also called the Return A dataset. Figure \@ref(fig:agenciesInBoth) shows the percent of agencies in this dataset that are also in the Return A data. Except for the first several years of data in the 1960s, we can see that most years have nearly all agencies reporting to both, though this has declined in recent years. Since the late 1970s nearly 90% of agencies that report to the Offenses Known data also report to this dataset. 
 
-<div class="figure">
-<img src="stolen_property_files/figure-html/agenciesInBoth-1.png" alt="The percent of agencies in the Supplement to Return A data that are also in the Offenses Known and Clearances by Arrest (Return A) data in that year, 1960-2019." width="672" />
-<p class="caption">(\#fig:agenciesInBoth)The percent of agencies in the Supplement to Return A data that are also in the Offenses Known and Clearances by Arrest (Return A) data in that year, 1960-2019.</p>
-</div>
+![(\#fig:agenciesInBoth)The percent of agencies in the Supplement to Return A data that are also in the Offenses Known and Clearances by Arrest (Return A) data in that year, 1960-2019.](ucrbook_files/figure-latex/agenciesInBoth-1.pdf) 
 
 
 ## Important variables
@@ -170,12 +161,6 @@ This dataset comes with a considerable number of data errors - basically enormou
 
 First, we'll look at the value of livestock thefts in New York City. Livestock is one of the variables where we know the value stolen and recovered but not how many times it happened. Being a major urban city, we might expect that there are not many livestock animals in the city so the values should be low. Figure \@ref(fig:nycLivestock) shows the annual value of livestock thefts in NYC. There are two major issues here. First, In all but two years they report $0 in livestock thefts. This is likely wrong since even New York City has some livestock (even just the police horses and the horse carriages tourists like) that probably got stolen. The second issues is the massive spike of reported livestock theft value in 1993 with over \$15 million stolen (the only other year with reported thefts is 1975 with \$87,651 stolen). Clearly NYC didn't move from \$0 in thefts for decades to \$15 million in a year and then \$0 again so this is a blatant data error. 
 
-<div class="figure">
-<img src="stolen_property_files/figure-html/nycLivestock-1.png" alt="The annual cost of livestock thefts in New York City, 1960-2019." width="672" />
-<p class="caption">(\#fig:nycLivestock)The annual cost of livestock thefts in New York City, 1960-2019.</p>
-</div>
+![(\#fig:nycLivestock)The annual cost of livestock thefts in New York City, 1960-2019.](ucrbook_files/figure-latex/nycLivestock-1.pdf) 
 
-<div class="figure">
-<img src="stolen_property_files/figure-html/phillyHomeBurglary-1.png" alt="The annual cost per burglary of daytime home burglaries in Philadelphia, 1960-2019." width="672" />
-<p class="caption">(\#fig:phillyHomeBurglary)The annual cost per burglary of daytime home burglaries in Philadelphia, 1960-2019.</p>
-</div>
+![(\#fig:phillyHomeBurglary)The annual cost per burglary of daytime home burglaries in Philadelphia, 1960-2019.](ucrbook_files/figure-latex/phillyHomeBurglary-1.pdf) 

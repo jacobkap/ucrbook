@@ -12,6 +12,7 @@ graphics: yes
 always_allow_html: yes 
 colorlinks: yes
 fontsize: 12pt
+classoption: openany
 ---
 
 

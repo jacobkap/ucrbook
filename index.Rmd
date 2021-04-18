@@ -11,7 +11,11 @@ description: "This is a comprehensive guide to using the FBI's Uniform Crime Rep
 graphics: yes
 always_allow_html: yes 
 colorlinks: yes
+url: "https://ucrbook.com"
 fontsize: 12pt
+github-repo: "jacobkap/ucrbook"
+fontsize: 12pt
+classoption: openany
 ---
 
 ```{r setup, include=FALSE}
