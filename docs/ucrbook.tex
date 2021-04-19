@@ -7,6 +7,7 @@
   12pt,
   openany]{book}
 \usepackage{lmodern}
+\usepackage{setspace}
 \usepackage{amsmath}
 \usepackage{ifxetex,ifluatex}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
@@ -48,6 +49,46 @@
   urlcolor=Blue,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.33,0.33,0.33}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.61,0.61,0.61}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.06,0.06,0.06}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.5,0.5,0.5}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0,0,0}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.27,0.27,0.27}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.27,0.27,0.27}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.06,0.06,0.06}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.14,0.14,0.14}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.06,0.06,0.06}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0,0,0}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.27,0.27,0.27}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.43,0.43,0.43}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0,0,0}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.5,0.5,0.5}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.5,0.5,0.5}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0,0,0}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.5,0.5,0.5}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -71,6 +112,8 @@
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
+% Make links footnotes instead of hotlinks:
+\DeclareRobustCommand{\href}[2]{#2\footnote{\url{#1}}}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -83,7 +126,7 @@
 
 \title{Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide}
 \author{Jacob Kaplan}
-\date{2021-04-18}
+\date{2021-04-19}
 
 \begin{document}
 \maketitle
@@ -93,9 +136,11 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
-\hypertarget{welcome}{%
-\chapter*{Welcome}\label{welcome}}
-
+\listoftables
+\listoffigures
+\setstretch{1.15}
+\hypertarget{preface}{%
+\chapter{Preface}\label{preface}}
 
 If you've read an article about crime or arrests in the United States in the last half century, in most cases it was referring to the FBI's Uniform Crime Reporting Program Data, otherwise known as UCR data. UCR data is, with the exception of the more detailed data that only covers murders, a \emph{monthly number of crimes or arrests reported to a single police agency} which is then gathered by the FBI into one file that includes all reporting agencies. Think of your home town. This data will tell you how many crimes were reported for a small number of crimes or how many people (broken down by age, sex, and race) were arrested for a (larger) set of crimes in that city (if the city has multiple police agencies, it will use the agency which is the primary agency on the case, usually the local police department) in a given month. This is a very broad measure of crime, and its uses in research - or understanding crime at all - is fairly limited. Yet is has become - and will likely remain among researchers for at least the next decade - the most important crime data in the United States.
 
@@ -126,27 +171,27 @@ Since manuals are boring, I'll try to include graphs and images to try to allevi
 \hypertarget{structure-of-the-book}{%
 \section{Structure of the book}\label{structure-of-the-book}}
 
-This book will be divided into eight chapters: an intro chapter briefly summarizing each dataset and going over overall issues with UCR data, six chapters each covering one of the six UCR datasets, and a final one covering county-level data, a highly flawed but common use of the UCR data. Each chapter will follow the same format: we'll start with a history of the data such as when it first because available and important changes in definitions or variables. Next we'll discuss what the data looks like initially when you get it from the FBI - literally what it looks like in it's fixed-width ASCII format you get from the FBI and what it looks like (what each row and column mean) once it's turned into a useful format that can be read into modern software like R and Stata. For most of the datasets this is a minor process but for data like the arrest or homicide datasets, the conversion process is harder - and this can actually lead to changes in the resulting data. For example, in an old version of the arrest data that I released, I aggregated certain arrestee ages together since my laptop at the time couldn't handle converting data from ASCII to R and Stata without aggregating the ages (more age groups means more columns which means more computer memory needed). So anyone using that data would have less detailed data than the current dataset.
-
-Understanding how the data moves from its rawest form (which in this case is after cleaning by the FBI) is important for being able to truly understand the data and its caveats. However, this is a fairly technical part of each chapter so feel free to skip it. Next in each chapter, we'll cover the variables included in the data and how to use them properly (including not using them at all) - this will be the bulk of each chapter. We'll end each chapter by briefly summarizing the data, how and when it's useful, and - most importantly - when you shouldn't use it.
+This book will be divided into eight chapters: an intro chapter briefly summarizing each dataset and going over overall issues with UCR data, and seven chapters each covering one of the seven UCR datasets. Each chapter will follow the same format: we'll start with a brief summary of the data such as when it first because available and how it can be used. Next we'll look at how many agencies report their data to this dataset, often looking at how to measure this reporting rate a couple of different ways. Finally, we'll cover the variables included in the data and how to use them properly (including not using them at all) - this will be the bulk of each chapter.
 
 \hypertarget{citing-this-book}{%
 \section{Citing this book}\label{citing-this-book}}
 
 If this data was useful in your research, please cite it. To cite this book, please use the below citation:
 
-Kaplan J (2021). \emph{Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide}. \url{https://github.com/jacobkap/ucrbook}.
+Kaplan J (2021). \emph{Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide}. \url{https://ucrbook.com/}.
 
 BibTeX format:
 
-\begin{quote}
-\citet{Book}\{,
-title = \{Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide\},
-author = \{Jacob Kaplan\},
-year = \{2021\},
-url = \{\url{https://github.com/jacobkap/ucrbook}\},
-\}
-\end{quote}
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{@Manual}\NormalTok{\{}\OtherTok{ucrbook}\NormalTok{,}
+  \DataTypeTok{title}\NormalTok{ = \{Uniform Crime Reporting (UCR) Program Data: A Practitioner\textquotesingle{}s Guide\},}
+  \DataTypeTok{author}\NormalTok{ = \{\{Jacob Kaplan\}\},}
+  \DataTypeTok{year}\NormalTok{ = \{2021\},}
+  \DataTypeTok{url}\NormalTok{ = \{https://ucrbook.com/\},}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{sources-of-ucr-data}{%
 \section{Sources of UCR data}\label{sources-of-ucr-data}}
@@ -165,7 +210,7 @@ It's worth mentioning a final source of UCR information. This is the annual Crim
 The data I am using in this book is the cleaned (we'll discuss in more detail exactly what I did to clean each dataset in the dataset's chapter but the short answer is that I did very little.) and concatenated data that I put together from the raw data that the FBI releases. That data is available on my website \href{here}{https://jacobdkaplan.com/data.html}. I am hosting this book through GitHub which has a maximum file size allowed that is far smaller than these data so you'll need to go to my site to download the data, it's not available through this book's GitHub repo. For some examples I'm using the data before I cleaned it of outliers (as an example of the outliers present before I removed them) so that data is not publicly available.
 
 \hypertarget{about-the-author}{%
-\chapter*{About the author}\label{about-the-author}}
+\chapter*{About the Author}\label{about-the-author}}
 
 
 \textbf{Jacob Kaplan} holds a PhD and a master's degree in criminology from the University of Pennsylvania and a bachelor's degree in criminal justice from California State University, Sacramento. His research focuses on Crime Prevention Through Environmental Design (CPTED), specifically on the effect of outdoor lighting on crime. He is the author of several R packages that make it easier to work with data, including \href{https://jacobkap.github.io/fastDummies/}{fastDummies} and \href{https://jacobkap.github.io/asciiSetupReader/}{asciiSetupReader}. His \href{http://jacobdkaplan.com/}{website} allows easy analysis of crime-related data and he has released over a \href{http://jacobdkaplan.com/data.html}{dozen crime data sets} (primarily FBI UCR data) on openICPSR that he has compiled, cleaned, and made available to the public.
@@ -462,17 +507,23 @@ One of the first (and seemingly last) thing that people tend to learn about UCR 
 The biggest problem with index crimes is that it is simply the sum of 8 (or 7 since arson data usually isn't available) crimes. Index crimes have a huge range in their seriousness - it includes, for example, both murder and theft - so summing up the crimes gives each crime equal weight. This is clearly wrong as 100 murders is more serious than 100 thefts. This is especially a problem as less serious crimes (theft mostly) are far more common than more serious crimes. In 2017, for example, there were 1.25 million violent index crimes in the United States. That same year had 5.5 million thefts. So using index crimes as your measure of crimes undercounts the seriousness of crimes. Looking at total index crimes is, in effect, mostly just looking at theft. Looking at violent index crimes mostly measures aggravated assault. This is especially a problem because it hides trends in violent crimes. San Francisco, as shown in Figure \ref{fig:sfThefts}, has had a huge increase in index crimes in the last several years. When looking closer, that increase is driven almost entirely by the near doubling of theft since 2011. During the same years, index violent crimes have stayed fairly steady. So the city isn't getting more dangerous - at least not in terms of violent index crimes increasing - but it appears like it is due to just looking at total index crimes.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/sfThefts-1.pdf}
-\caption{\label{fig:sfThefts}Thefts and total index crimes in San Francisco, 1960-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/sfThefts-1} 
+
+}
+
+\caption{Thefts and total index crimes in San Francisco, 1960-2018.}\label{fig:sfThefts}
 \end{figure}
 
 While many researchers divide index crimes into violent and nonviolent categories, which helps but even this isn't entirely sufficient. Take Chicago as an example. It is a city infamous for its large number of murders. But as a fraction of index crimes, Chicago has a rounding error worth of murders. Their 653 murders in 2017 is only 0.5\% of total index crimes. For violent index crimes, murder makes up 2.2\%. As seen in Figure \ref{fig:chicagoMurder}, in no year where data is available did murders account for more than 3.5\% of violent index crimes; and, while murders are increasing as a percent of violent index crimes they still account for no more than 2.5\% in most years. What this means is that changes in murder are very difficult to detect. If Chicago had no murders this year, but a less serious crime (such as theft) increased slightly, we couldn't tell from looking at the number of index crimes, even from violent index crimes. As discussed in the below section, using this sample of crimes as the primary measure of crimes - and particularly of violent crimes - is also misleading as it excludes important - and highly common relative to index crimes - offenses, such as simple assault.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/chicagoMurder-1.pdf}
-\caption{\label{fig:chicagoMurder}Murders in Chicago as a percent of violent index crimes, 1960-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/chicagoMurder-1} 
+
+}
+
+\caption{Murders in Chicago as a percent of violent index crimes, 1960-2018.}\label{fig:chicagoMurder}
 \end{figure}
 
 \hypertarget{what-is-a-violent-crime}{%
@@ -489,9 +540,12 @@ The final reason is that it benefits some people's goals to classify violent cri
 As an example of this last point, \ref{fig:simpleIndex} shows the number of violent index crimes and simple assaults each year from 1960 to 2018 in Houston, Texas (simple assault is not reported in UCR until 1964, which is why 1960-1963 show zero simple assaults). In every year where simple assault is reported, there are more simple assaults than aggravated assaults. Beginning in the late 1980s, there are also more simple assaults than total violent index crimes. Excluding simple assault from the being a violent crime greatly underestimates violence in the country.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/simpleIndex-1.pdf}
-\caption{\label{fig:simpleIndex}Reported crimes in Philadelphia from 1960 to 2018. Violent index crimes are aggravated assault, rape, robbery, and murder.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/simpleIndex-1} 
+
+}
+
+\caption{Reported crimes in Philadelphia from 1960 to 2018. Violent index crimes are aggravated assault, rape, robbery, and murder.}\label{fig:simpleIndex}
 \end{figure}
 
 \hypertarget{issues-common-across-ucr-datasets}{%
@@ -527,9 +581,12 @@ When an agency reports their data to the FBI, they do so voluntarily - there is 
 In general, more agencies report their data every year and once an agency begins reporting data they tend to keep reporting. The UCR datasets are a collection of separate, though related, datasets and an agency can report to as many of these datasets as they want - an agency that reports to one dataset does not mean that they report to other datasets. Figure \ref{fig:agenciesReporting} shows the number of agencies that submitted at least one month of data to the Offenses Known and Clearances by Arrest data in the given year. For the first decade of available data under 8,000 agencies reported data and this grew to over 13,500 by the late 1970s before plateauing for about a decade. The number of agencies that reported their data actually declined in the 1990s, driven primarily by many Florida agencies temporarily dropping out, before growing steadily to nearly 17,000 agencies in 2010; from here it kept increasing but slower than before.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/agenciesReporting-1.pdf}
-\caption{\label{fig:agenciesReporting}The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/agenciesReporting-1} 
+
+}
+
+\caption{The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.}\label{fig:agenciesReporting}
 \end{figure}
 
 There are approximately 18,000 police agencies in the United States so recent data has reports from nearly all agencies, while older data has far fewer agencies reporting. When trying to estimate to larger geographies, such as state or national-level, later years will be more accurate as you're missing less data. For earlier data, however, you're dealing with a smaller share of agencies meaning that you have a large amount of missing data and a less representative sample.
@@ -537,17 +594,23 @@ There are approximately 18,000 police agencies in the United States so recent da
 Figure \ref{fig:bigAgenciesReporting} repeats this figure but now including only agencies with 100,000 people or more in their jurisdiction. While these agencies have a far more linear trend than all agencies, the basic lesson is the same: recent data has most agencies reporting; old data excludes many agencies.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/bigAgenciesReporting-1.pdf}
-\caption{\label{fig:bigAgenciesReporting}The annual number of agencies with a population of 100,000 or higher reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/bigAgenciesReporting-1} 
+
+}
+
+\caption{The annual number of agencies with a population of 100,000 or higher reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.}\label{fig:bigAgenciesReporting}
 \end{figure}
 
 This voluntariness extends beyond whether they report or not, but into which variables they report. While in practice most agencies report every crime when they report any, they do have the choice to report only a subset of offenses. This is especially true for subsets of larger categories - such as gun assaults, a subset of aggravated assaults, or marijuana possession which is a subset of drug possession. As an example, Figure \ref{fig:nycGunAssaults} shows the annual number of aggravated assaults with a gun in New York City. In 2003 the New York Police Department stopped reporting this category of offense, resuming only in 2013. They continued to report the broader aggravated assault category, but not any of the subsections of aggravated assaults which differentiate the weapon used.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/nycGunAssaults-1.pdf}
-\caption{\label{fig:nycGunAssaults}Monthly reports of gun assaults in New York City, 1960-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/nycGunAssaults-1} 
+
+}
+
+\caption{Monthly reports of gun assaults in New York City, 1960-2018.}\label{fig:nycGunAssaults}
 \end{figure}
 
 Given that agencies can join or drop out of the UCR program at will, and report only partial data, it is highly important to carefully examine your data to make sure that there are no issues caused by this.
@@ -555,25 +618,34 @@ Given that agencies can join or drop out of the UCR program at will, and report 
 Even when an agency reports UCR data, and even when they report every crime category, they can report fewer than 12 months of data. In some cases they simply report all of their data in December, or report quarterly or semi-annually so some months have zero crimes reported while others count multiple months in that month's data. One example of this is New York City, shown in Figure \ref{fig:nycMurderMonthly}, in the early-2000s to the mid-2010s where they began reporting data quarterly instead of monthly.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/nycMurderMonthly-1.pdf}
-\caption{\label{fig:nycMurderMonthly}Monthly murders in New York City, 1990-2018. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/nycMurderMonthly-1} 
+
+}
+
+\caption{Monthly murders in New York City, 1990-2018. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting.}\label{fig:nycMurderMonthly}
 \end{figure}
 
 When you sum up each month into an annual count, as shown in Figure \ref{fig:nycMurderYearly}, the problem disappears since the zero months are accounted for in the months that have the quarterly data. If you're using monthly data and only examine the data at the annual level, you'll fall into the trap of having incorrect data that is hidden due to the level of aggregation examined. While cases like NYC are obvious when viewed monthly, for people that are including thousands of agencies in their data, it is unfeasible to look at each agency for each crime included. This can introduce errors as the best way to examine the data is manually viewing graphs and the automated method, looking for outliers through some kind of comparison to expected values, can be incorrect.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/nycMurderYearly-1.pdf}
-\caption{\label{fig:nycMurderYearly}Annual murders in New York City, 1990-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/nycMurderYearly-1} 
+
+}
+
+\caption{Annual murders in New York City, 1990-2018.}\label{fig:nycMurderYearly}
 \end{figure}
 
 In other cases when agencies report fewer than 12 months of the year, they simply report partial data and as a result undercount crimes. Figure \ref{fig:miamiDadeMurderAnnual} shows annual murders in Miami-Dade, Florida and has three years of this issue occurring. The first two years with this issue are the two where zero murders are reported - this is because the agency didn't report any months of data. The final year is in 2018, the last year of data in this graph, where it looks like murder suddenly dropped significantly. That's just because Miami-Dade only reported through June, so they're missing half of 2018.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/miamiDadeMurderAnnual-1.pdf}
-\caption{\label{fig:miamiDadeMurderAnnual}Annual murders in Miami-Dade, Florida, 1960-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/miamiDadeMurderAnnual-1} 
+
+}
+
+\caption{Annual murders in Miami-Dade, Florida, 1960-2018.}\label{fig:miamiDadeMurderAnnual}
 \end{figure}
 
 \hypertarget{zero-crimes-vs-no-reports}{%
@@ -586,9 +658,12 @@ In some cases it is easy to see when a zero crimes reported is actually the agen
 Differentiating zero crimes and no reports becomes tricky in agencies that tend to report few crimes, which most small towns do. As an example, Figure \ref{fig:danvilleRape} shows the annual reports of rape in Danville, California, a city of approximately 45,000 people. The city reports on average 2.8 rapes per year and in five years reported zero rapes. In cases like this it's not clear whether we should consider those zero years as true zeros (that no one reported their rape to the police) or whether the agency simply didn't report rape data that year.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/danvilleRape-1.pdf}
-\caption{\label{fig:danvilleRape}Annual rapes reported in Danville, CA, 1960-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/danvilleRape-1} 
+
+}
+
+\caption{Annual rapes reported in Danville, CA, 1960-2018.}\label{fig:danvilleRape}
 \end{figure}
 
 \hypertarget{a-summary-of-each-ucr-dataset}{%
@@ -626,9 +701,12 @@ This dataset covers crimes that are reported to the police and judged by the pol
 So this data is really a narrower measure of hate crimes than it might seem. In practice it is (some) crimes motivated by (some) kinds of hate that are reported to the police. It is also the most under-reported UCR dataset with most agencies not reporting any hate crimes to the FBI. This leads to huge gaps in the data with some states having extremely few agencies reporting crime - see, for example Figure \ref{fig:hateCrimes} for state-level hate crimes in 2018 - agencies reporting some bias motivations but not others, agencies reporting some years but not others. While these problems exist for all of the UCR datasets, it is most severe in this data. This problem is exacerbated by hate crimes being rare even in agencies that report them - with such rare events, even minor changes in which agencies report or which types of offenses they include can have large effects.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/hateCrimes-1.pdf}
-\caption{\label{fig:hateCrimes}Total reported hate crimes by state, 2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimes-1} 
+
+}
+
+\caption{Total reported hate crimes by state, 2018.}\label{fig:hateCrimes}
 \end{figure}
 
 \hypertarget{property-stolen-and-recovered-supplement-to-return-a}{%
@@ -654,7 +732,12 @@ For an easy way to find the ORI number of an agency, use \href{http://crimedatat
 We'll finish this overview of the UCR data by briefly talking about format of the data that is released by the FBI, before the processing done by myself or \href{https://www.icpsr.umich.edu/web/pages/NACJD/index.html}{NACJD} that converts the data to a type that software like R or Stata or Excel can understand. The FBI releases their data as fixed-width ASCII files which are basically just an Excel file but with all of the columns squished together. As an example, below is the data as you receive it from the FBI for the Offenses Known and Clearances by Arrest dataset for 1960, the first year with data available. In the figure, it seems like there are multiple rows but that's just because the software that I opened the file in isn't wide enough - in reality what is shown is a single row that is extremely wide because there are over 1,500 columns in this data. If you scroll down enough you'll see the next row, but that isn't shown in the current image. What is shown is a single row with a ton of columns all pushed up next to each other. Since all of the columns are squished together (the gaps are just blank spaces because the value there is a space, but that doesn't mean there is a in the data. Spaces are possible values in the data and are meaningful), you need some way to figure out which parts of the data belong in which column.
 
 \begin{figure}
-\includegraphics[width=8.75in]{images/offenses_known_raw_ascii_1960} \caption{Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset}\label{fig:unnamed-chunk-3}
+
+{\centering \includegraphics[width=0.9\linewidth]{images/offenses_known_raw_ascii_1960} 
+
+}
+
+\caption{Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset}\label{fig:unnamed-chunk-4}
 \end{figure}
 
 The ``fixed-width'' part of the file type is how this works (the ASCII part basically means it's a text file). Each row is the same width - literally the same number of characters, including blank spaces. So you must tell the software you are using to process this file - by literally write code in something called a ``setup file'' but is basically just instructions for whatever software you use (R, SPSS, Stata, SAS can all do this) - which characters are certain columns. For example, in this data the first character says which type of UCR data it is (1 means the Offenses Known and Clearances by Arrest data) and the next two characters (in the setup file written as 2-3 since it is characters 2 through 3 {[}inclusive{]}) are the state number (01 is the state code for Alabama). So we can read this row as the first column indicating it is an Offenses Known data, the second column indicating that it is for the state of Alabama, and so on for each of the remaining columns. To read in this data you'll need a setup file that covers every column in the data (some software, like R, can handle just reading in the specific columns you want and don't need to include every column in the setup file).
@@ -764,8 +847,8 @@ Arson is considered an index crime but is not reported in this data - you need t
 
 Each of the crimes in the list above, and their subcategories, are included in the UCR data. In most news and academic articles, however, you'll see them reported as the total number of index crimes, summing up categories 1-7 and reporting that as ``crime.'' These index crimes are often divided into violent index crimes - murder, rape, robbery, and aggravated assault - and property index crimes - burglary, theft, motor vehicle theft.
 
-\hypertarget{hierarchy-rule}{%
-\subsection{Hierarchy Rule}\label{hierarchy-rule}}
+\hypertarget{hierarchy}{%
+\subsection{Hierarchy Rule}\label{hierarchy}}
 
 This dataset uses what is called the Hierarchy Rule where only the most serious crime in an incident is reported (except for motor vehicle theft and arson, which are always included). For example if there is an incident where the victim is robbed and then murdered, only the murder is counted as it is considered more serious than the robbery. That the data uses the Hierarchy Rule is an oft-cited (by academics, reporters, random people on Twitter) criticism of the data that are, in my opinion, overblown.
 
@@ -774,7 +857,12 @@ In practice, the Hierarchy Rule has only modest effects on the data, undercounti
 The FBI also released a report \href{https://ucr.fbi.gov/nibrs/2014/resource-pages/effects_of_nibrs_on_crime_statistics_final.pdf}{available here} in 2015 that directly examined this issue by taking NIBRS data from 2014 and examined how NIBRS data (which includes all crimes) compares to using the Hierarchy Rule and keeping only the most serious crime. Figure @ref\{fig:fbiHierarchy\} is a screenshot from their report showing the percent increases in crimes when including all crimes in an incident relative to following the Hierarchy Rule. They find that 10.6\% of incidents have multiple crimes occurring, which is similar to other years that I have examined myself. For violent crime, murder and rape have no change; for the remaining violent crimes - robbery and aggravated assault - crimes increased by 0.6\%.\footnote{Murder is not shown in this figure since murder is always reported so cannot change.} Burglary increased by 1\% and the largest increases came from theft and motor vehicle theft, increasing by 2.6\% and 2.7\%, respectively. Curiously motor vehicle theft increased even though the FBI's documentation for this data says that it is exempt from the Hierarchy Rule and should always be reported. This suggests either non-compliance or that the manual is incorrect.
 
 \begin{figure}
-\includegraphics[width=9.85in]{images/fbi_hierarchy} \caption{The FBI's findings of how crime reporting changes when using the Hierarchy Rule using NIBRS 2014 data.}\label{fig:fbiHierarchy}
+
+{\centering \includegraphics[width=0.9\linewidth]{images/fbi_hierarchy} 
+
+}
+
+\caption{The FBI's findings of how crime reporting changes when using the Hierarchy Rule using NIBRS 2014 data.}\label{fig:fbiHierarchy}
 \end{figure}
 
 So using the Hierarchy Rule does undercount crime, but this is a small undercounting and is primarily led by property crime. Violent crime is only slightly undercounted. Please keep in mind that this is for crimes that the police record and is unaffected by outside decisions like what the district attorney charges or what the defendant is ultimately convicted of.
@@ -794,9 +882,12 @@ Many researchers divide index crimes into violent and nonviolent categories, whi
 Figure \ref{fig:offensesAgenciesReporting} shows the annual number of police agencies that reported at least one month that year. With data starting in 1960, there were a little under 7,500 agencies reporting a year until 1970 when the number of agencies began increasing. This continued until the late 1970s when about 14,000 agencies reported, and this remained steady for over a decade before declining in the 1990s until about 12,500 in the latter half of the decade. Then the number of agencies reporting increased steadily until about 16,500 agencies reported in 2010. The number of agencies have slowly increased since then, adding a few hundred agencies from 2010 to 2018. While this data is available through 2019, this graph only shows data through 2018. As this graph shows agencies that report at least one month, it overcounts reporting agencies as some report fewer than every month in the year. Agencies that do report, however, tend to report all 12 months of the year so this problem is not serious.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/offensesAgenciesReporting-1.pdf}
-\caption{\label{fig:offensesAgenciesReporting}The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/offensesAgenciesReporting-1} 
+
+}
+
+\caption{The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.}\label{fig:offensesAgenciesReporting}
 \end{figure}
 
 \hypertarget{important-variables}{%
@@ -823,9 +914,12 @@ Clearances are reported in the month that they occur, regardless of when the cri
 Still, there are occasionally months - and even years - where there are more reported crimes cleared than crimes that occur. Figure \ref{fig:montgomeryClearances} shows the number of actual and cleared murders from the Montgomery County Police Department in Maryland. Several years have more murders cleared than were committed - a sign that the month of clearance does not correspond to the month of occurrence, rather than the police solving crime before it happened.\footnote{The Minority Report is not yet a documentary.}
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/montgomeryClearances-1.pdf}
-\caption{\label{fig:montgomeryClearances}The annual number of actual and cleared murders from the Montgomery County Police Department, MD, 1960-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/montgomeryClearances-1} 
+
+}
+
+\caption{The annual number of actual and cleared murders from the Montgomery County Police Department, MD, 1960-2018.}\label{fig:montgomeryClearances}
 \end{figure}
 
 \hypertarget{crimes-cleared-where-all-offenders-are-under-18-years-old}{%
@@ -843,25 +937,34 @@ Other unfounded crimes would include when someone reports a crime but later says
 Figure \ref{fig:phillyRapeUnfound} provides one example of this by showing the number of actual - that is, rapes that the police say actually occurred - and unfounded rapes annually from 1960-2018 in Philadelphia, PA. Interestingly, the spike in actual rapes in 2013 due to the new rape definition that year does not correspond to a spike in unfounded rapes - which suggests that this variable is not being reported properly. It is unlikely that the number of rapes would spike so much without any corresponding increase - and an actual decrease - in unfounded rapes. Since unfounded rapes are so common, especially compared to other crimes - and evidence that police also misreport clearances for rape - this variable is likely to be manipulated by the police to make it appear that there are fewer rapes than there actually is. As such, this variable is not reliable, especially for rapes.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/phillyRapeUnfound-1.pdf}
-\caption{\label{fig:phillyRapeUnfound}The annual number of actual and unfounded rapes in Philadephia, PA, 1960-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/phillyRapeUnfound-1} 
+
+}
+
+\caption{The annual number of actual and unfounded rapes in Philadephia, PA, 1960-2018.}\label{fig:phillyRapeUnfound}
 \end{figure}
 
 Another way to look at this data is the percent of rapes that were unfounded. Since unfounded and actual rapes are distinct categories, we'll need to divide unfounded rapes by the sum of actual and unfounded rapes and then multiple the result by 100. Please note that unfounding occurs in the month the police discover the case to be unfounded, it is not tied to the month of the original report. So this graph isn't really showing the percent that year that were unfounded - but for our purposes of getting a general sense it is acceptable. Usually about 10\% of reported rapes are unfounded in Philadelphia. The 44\% in 1983, the first year with data, is probably high due to it accounting for unfounded cases in previous years that weren't reported in the data until 1983.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/phillyRapeUnfoundPercent-1.pdf}
-\caption{\label{fig:phillyRapeUnfoundPercent}The percent of reported rapes that the police recorded as unfounded in Philadephia, PA, 1960-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/phillyRapeUnfoundPercent-1} 
+
+}
+
+\caption{The percent of reported rapes that the police recorded as unfounded in Philadephia, PA, 1960-2018.}\label{fig:phillyRapeUnfoundPercent}
 \end{figure}
 
 As a comparison, Figure \ref{fig:phillyRobberyUnfoundPercent} shows the percent of robberies that are recorded as unfounded in Philadelphia over the same time period. While the percent has been increasing, for most of the data it is under 1\% and never exceeds 3\%. To me this suggests that the Philly Police, and they aren't unique, are overcounting rapes as unfounded to improve their rape statistic data.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/phillyRobberyUnfoundPercent-1.pdf}
-\caption{\label{fig:phillyRobberyUnfoundPercent}The percent of reported robberies that the police recorded as unfounded in Philadephia, PA, 1960-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/phillyRobberyUnfoundPercent-1} 
+
+}
+
+\caption{The percent of reported robberies that the police recorded as unfounded in Philadephia, PA, 1960-2018.}\label{fig:phillyRobberyUnfoundPercent}
 \end{figure}
 
 \hypertarget{important-issues}{%
@@ -881,34 +984,46 @@ As this revised definition is broader than the original one post-2013, rape data
 We'll start with the Philadelphia Police Department in Philadelphia, PA, shown in Figure \ref{fig:rapePhilly} which shows the annual number of rapes from 2000-2018. It's declining slowly but steadily over the 2000-2012 time period until spiking sharply in 2013. Since the rape definition change in 2013 is far broader than previous year's definition, this makes sense. A broader definition should lead to a sudden increase in reported rapes if the agency is reporting correctly.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/rapePhilly-1.pdf}
-\caption{\label{fig:rapePhilly}The annual number of rapes reported in Philadelphia, Pennsylvania, 2000-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/rapePhilly-1} 
+
+}
+
+\caption{The annual number of rapes reported in Philadelphia, Pennsylvania, 2000-2018.}\label{fig:rapePhilly}
 \end{figure}
 
 In comparison, New York City has the sudden spike a year later, which indicates that they didn't start using the new definition until 2014. Figure \ref{fig:rapeNYC} shows that rape is fairly steady, though increasing, in the years leading up to 2013 and has almost no change from 2012 to 2013, but a huge increase in 2014 and then steadily increases from there, spiking again in 2018. This seems like a fairly clear indicator that NYC simply didn't follow the new definition until 2014.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/rapeNYC-1.pdf}
-\caption{\label{fig:rapeNYC}The annual number of rapes reported in New York City, 2000-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/rapeNYC-1} 
+
+}
+
+\caption{The annual number of rapes reported in New York City, 2000-2018.}\label{fig:rapeNYC}
 \end{figure}
 
 Less clear is what's happening in San Francisco, California, shown in Figure \ref{fig:rapeLA}.
 Here we do see an increase in 2013 which while it appears small on the graph is actually a 49\% increase from 2012. Then there is a much larger spike in 2014 - a 120\% increase - which may suggest that part of the agency started following the new definition in 2013 and the remainder followed in 2014. However, large increases or decreases are relatively common in San Francisco so it could also be that the agency only switched to the new definition in 2014 and the spike in 2013 is just a coincidence
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/rapeLA-1.pdf}
-\caption{\label{fig:rapeLA}The annual number of rapes reported in San Francisco, California, 2000-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/rapeLA-1} 
+
+}
+
+\caption{The annual number of rapes reported in San Francisco, California, 2000-2018.}\label{fig:rapeLA}
 \end{figure}
 
 Finally, we'll look at Jackson Police Department in Mississippi where the definition change seems to have had no effect. As seen in Figure \ref{fig:rapeJackson}, reported rapes start to undulate in 2010 with 2013 data perfectly in line with the before and after trends - no sign that there is a change in reporting. This suggests that Jackson simply did not follow the definition change and continues to report using the old definition.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/rapeJackson-1.pdf}
-\caption{\label{fig:rapeJackson}The annual number of rapes reported in Jackson, Mississippi, 2000-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/rapeJackson-1} 
+
+}
+
+\caption{The annual number of rapes reported in Jackson, Mississippi, 2000-2018.}\label{fig:rapeJackson}
 \end{figure}
 
 My takeaway from this is that rape should not be used at all for years after 2012. While the definition change makes pre-2013 and 2013+ years non-comparable, the differences in agency responses to this change - i.e.~if they follow the rules or not - is such a mess that the data is too flawed to use.
@@ -923,17 +1038,23 @@ I would assume that manslaughter by negligence would remain at a relatively stea
 Murder is always more common than manslaughter but these values are not that far apart in the early decade of data and manslaughter doesn't become rare until the end of the 1970s. This makes me suspicious that what was recorded as manslaughter were actually murders but simply misclassified. If this is true then, as seen in Figure \ref{fig:manslaughterVsMurder} in the purple line, murders actually peaked in the United States in the middle of the 1970s, not the early 1990s as has been oft-been claimed - and generally using this data as evidence. Certainly not all reported manslaughter by negligence in the 1960s and 1970s were actually murders, but it seems extremely unlikely that the entire decline is truly due to a decline in people killing others through negligence; such a sudden and persistent decline cannot occur in nature.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/manslaughterVsMurder-1.pdf}
-\caption{\label{fig:manslaughterVsMurder}The annual number of murder and non-negligent manslaughter, manslaughter by negligence, and the sum of the two, nationwide from 1960-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/manslaughterVsMurder-1} 
+
+}
+
+\caption{The annual number of murder and non-negligent manslaughter, manslaughter by negligence, and the sum of the two, nationwide from 1960-2018.}\label{fig:manslaughterVsMurder}
 \end{figure}
 
 Figure \ref{fig:manslaughterPercent} shows another way to look at this data: manslaughter as a percent of reported murder. In the early years of our data manslaughter was fairly common, with about 70-80\% as many manslaughters reported as murders. This declined sharply in the mid-1960s until there were around 45\% as many manslaughters as murders in the mid-1970s. Again this declined until it was about 4\% in 1980, and it has remained around there ever since.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/manslaughterPercent-1.pdf}
-\caption{\label{fig:manslaughterPercent}Reported manslaughter by negligence as a percent of reported murder and non-negligent manslaughter, nationwide 1960-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/manslaughterPercent-1} 
+
+}
+
+\caption{Reported manslaughter by negligence as a percent of reported murder and non-negligent manslaughter, nationwide 1960-2018.}\label{fig:manslaughterPercent}
 \end{figure}
 
 \hypertarget{arrests}{%
@@ -1404,9 +1525,12 @@ This data only has a report when the agency has a murder that year and since mur
 Figure \ref{fig:shrVsOffenses} shows the annual number of murder victims from each of these datasets starting in 1976 for the UCR data and in 1999 for the CDC data.\footnote{1975 is actually the first year that the Supplementary Homicide Reports data is available but that dataset only has info for a single victim and offender - all later years has info for up to 11 victims and offenders - so 1976 is often used as the first year of data}. For the UCR data, in every year the numbers are fairly similar and the trends are the same over time, but the number of murders is never equal. The numbers have actually gotten worse over time with the difference between the datasets increasing and the Offenses Known data having consistently more murders reported than the SHR data since the late 1990s. Compared to the CDC data, however, both UCR datasets - and in particular the SHR data - undercount the number of murders. While trends are the same, UCR data reports thousands fewer murders per year than the CDC data, indicating how much of an issue underreporting is in this data.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/shrVsOffenses-1.pdf}
-\caption{\label{fig:shrVsOffenses}The annual number of murders from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset. Numbers differ because agencies voluntarily report and may not report to both datasets.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrVsOffenses-1} 
+
+}
+
+\caption{The annual number of murders from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset. Numbers differ because agencies voluntarily report and may not report to both datasets.}\label{fig:shrVsOffenses}
 \end{figure}
 
 \hypertarget{important-variables-2}{%
@@ -1417,9 +1541,12 @@ There data has demographic information for up to 11 victims and 11 offenders, as
 While there is information on up to 11 victims and offenders, in most cases, there is only a single victim and a single offender in each incident. To see how the breakdown for the number of victims in each incident looks, Figure \ref{fig:numberSHRVictims} shows the percent of incidents with each possible number of victims.\footnote{There is one incident where there are a reported 12 victims. For simplicity of the graph, this incident is not included.} In nearly all incidents - 96.1\% - there was only a single victim. This drops to 3.2\% of incidents for two victims, 0.5\% for three victims, and only about 0.2\% of incidents have four or more victims.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/numberSHRVictims-1.pdf}
-\caption{\label{fig:numberSHRVictims}The percent of incidents from 1976-2018 that have 1-11 victims.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/numberSHRVictims-1} 
+
+}
+
+\caption{The percent of incidents from 1976-2018 that have 1-11 victims.}\label{fig:numberSHRVictims}
 \end{figure}
 
 Figure \ref{fig:numberSHROffenders} shows the breakdown of the number of offenders per homicide incident.\footnote{There is one incident where there are a reported 22 offenders and one with 12 offenders. For simplicity of the graph, these incidents are not included.} It's a little less concentrated than with victims but the vast majority of homicides are committed by one offender - or at least the police only report one offender. About 88\% of homicides have only one offender, 8.2\% have two, 2.4\% have three, and fewer than 1\% have four. Fewer than 0.5\% of homicides have more than four offenders. However, this is all a bit misleading. In cases where there is no information about the offender, including how many offenders there is, the data simply days that there is a single offender. So the number of homicides with a single offender is an overcount while the number with more offenders is an overcount.
@@ -1427,9 +1554,12 @@ Figure \ref{fig:numberSHROffenders} shows the breakdown of the number of offende
 The variable ``situation'' says what type of victim-offender number combination the incident is - e.g.~``multiple victims/single offender'', ``single victim/multiple offenders'', etc. - and does indicate if the number of offenders is unknown (though curiously there are over 4,000 instances where the number of offenders is unknown but they still say there are two offenders) so you can use this variable to determine if the police don't know how many offenders there is. You're still limited, of course, in that the number of offenders is always what the police think there are, and they may be wrong. So use this variable - and anything that comes from it like the percent of offenders of a certain race - with caution.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/numberSHROffenders-1.pdf}
-\caption{\label{fig:numberSHROffenders}The percent of incidents from 1976-2018 that have 1-11 offenders.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/numberSHROffenders-1} 
+
+}
+
+\caption{The percent of incidents from 1976-2018 that have 1-11 offenders.}\label{fig:numberSHROffenders}
 \end{figure}
 
 We'll now look at a number of important variables individually. Since the data can potentially have 11 victims and 11 offenders - but in practice has only one each in the vast majority of cases - we'll only look at the first victim/offender for each of these variables. Therefore, the results will not be entirely accurate, but will still give you a good overview of the data. The figures below will use data for all homicides from 1976 to 2018 so will cover all but the most recent year of data.
@@ -1449,17 +1579,23 @@ Figure \ref{fig:shrOffenderAge} shows the percent of murders from 1976-2018 wher
 If you're familiar with the age-crime curve in criminology - which basically says crime peaks in late teen years then falls dramatically - this shows that exact curve, though doesn't decline as the individual ages as quickly as we see with less serious crimes.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/shrOffenderAge-1.pdf}
-\caption{\label{fig:shrOffenderAge}The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as `birth to 7 days old, including abandoned infant' and `7 days to 364 days old') and considered 0 years old. Victims reported as `99 years or older' are considered 99 years old.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrOffenderAge-1} 
+
+}
+
+\caption{The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Victims reported as '99 years or older' are considered 99 years old.}\label{fig:shrOffenderAge}
 \end{figure}
 
 Figure \ref{fig:shrVictimAge} repeats Figure \ref{fig:shrOffenderAge} but with victim age rather than offender age. The mean victim age (shown in orange) is 32.9 and the median age is 30. Though the age victim age is a bit younger than the average offender age, trends are relatively similar for teenagers and older where deaths spikes in the late teen years and then declines steadily. The major difference is the U-shape for younger victims - for victims under age 15, homicides peak at age 0 (i.e.~younger than their first birthday) with \textasciitilde1.5\% of all homicides being this this age. They then decline until plateauing at around age 6 before increasing again in the early teen years.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/shrVictimAge-1.pdf}
-\caption{\label{fig:shrVictimAge}The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as `birth to 7 days old, including abandoned infant' and `7 days to 364 days old') and considered 0 years old. Victims reported as `99 years or older' are considered 99 years old.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrVictimAge-1} 
+
+}
+
+\caption{The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Victims reported as '99 years or older' are considered 99 years old.}\label{fig:shrVictimAge}
 \end{figure}
 
 \hypertarget{sex}{%
@@ -1470,17 +1606,23 @@ We'll next look at victim and offender sex, a simple variable since only male an
 About 62\% of offenders, as seen in Figure \ref{fig:shrOffenderSex} are male and about 8\% are female, indicating a large disparity in the sex of homicide offenders. The remaining 30\% of offenders do not have sex data available because the police do not know the sex of this individual. For offenders who aren't arrested, this variable may be inaccurate since it is perceived sex of the offender.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/shrOffenderSex-1.pdf}
-\caption{\label{fig:shrOffenderSex}The sex of offenders, 1976-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrOffenderSex-1} 
+
+}
+
+\caption{The sex of offenders, 1976-2018.}\label{fig:shrOffenderSex}
 \end{figure}
 
 There is far less uncertainty for victim sex, with under 0.15\% of victims having an unknown sex. Here again there is a large disparity between male and female with about 78\% of victims being male and 22\% being female. While there are more male victims than male offenders, this is probably just due to there being so many unknown offenders.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/shrVictimSex-1.pdf}
-\caption{\label{fig:shrVictimSex}The sex of victims, 1976-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrVictimSex-1} 
+
+}
+
+\caption{The sex of victims, 1976-2018.}\label{fig:shrVictimSex}
 \end{figure}
 
 \hypertarget{race-1}{%
@@ -1491,17 +1633,23 @@ This data also includes the race of the victims and offenders. This includes the
 Figure \ref{fig:shrOffenderRace} shows the percent of homicides in the data by race. Black and White victims are included are similar percents, at 34.2\% and 33.8\% of victims, respectively. Given that Black people are only about 13\% of the population while White people are 76\% of the population, according to 2019 Census data, this shows a large disparity in offender race rates. There are far more Black and far fewer White offenders than would be expected from their percent of the total United States population. The next most common group is Unknown at about 30.5\% of offenders. Given that so many offenders have an unknown race, the reliability of the other race measures is limited. The remaining races are Asian at 0.9\% of offenders, American Indian or Alaskan Native at 0.6\%, and Native Hawaiian or Other Pacific Islander at 0.004\%.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/shrOffenderRace-1.pdf}
-\caption{\label{fig:shrOffenderRace}The race of offenders, 1976-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrOffenderRace-1} 
+
+}
+
+\caption{The race of offenders, 1976-2018.}\label{fig:shrOffenderRace}
 \end{figure}
 
 For victim race, seen in Figure \ref{fig:shrVictimRace}, only about 1\% of victim race's are unknown. This means we can be a lot more confidence in the race of the victims than in the race of the offender. Or, at least the challenge of categorizing people by race is not the major problem, not missing people. As with offenders, White and Black victims are the two most common races, with 49\% and 47.7\% of victims, respectively. There are almost double the percent of Asian victims than Asian offenders at 1.51\% of victims (and 0.9\% of offenders). American Indian or Alaskan Natives make up 0.8\% of victims while Native Hawaiian or Pacific Islanders make up 0.005\% of victims.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/shrVictimRace-1.pdf}
-\caption{\label{fig:shrVictimRace}The race of victims, 1976-2018}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrVictimRace-1} 
+
+}
+
+\caption{The race of victims, 1976-2018}\label{fig:shrVictimRace}
 \end{figure}
 
 \hypertarget{ethnicity-1}{%
@@ -1512,17 +1660,23 @@ The final demographic variable is ethnicity which is whether the victim or offen
 The vast majority - 71.6\% - of offenders have an unknown ethnicity while 21.5\% are not Hispanic and 6.9\% are Hispanic.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/shrOffenderEthnicity-1.pdf}
-\caption{\label{fig:shrOffenderEthnicity}The ethnicity of offenders, 1976-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrOffenderEthnicity-1} 
+
+}
+
+\caption{The ethnicity of offenders, 1976-2018.}\label{fig:shrOffenderEthnicity}
 \end{figure}
 
 Unlike the other demographic variables, there is still a huge amount of underreporting when it comes to victim ethnicity, though still less than for offender ethnicity. 59\% of victims have an unknown ethnicity. Nearly 30\% of victims are reported as not Hispanic while 10.8\% are reported as Hispanic.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/shrVictimEthnicity-1.pdf}
-\caption{\label{fig:shrVictimEthnicity}The ethnicity of victims, 1976-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrVictimEthnicity-1} 
+
+}
+
+\caption{The ethnicity of victims, 1976-2018.}\label{fig:shrVictimEthnicity}
 \end{figure}
 
 \hypertarget{case-characteristics}{%
@@ -1535,22 +1689,18 @@ The first variable we'll look at is the weapon used by each offender. Table \ref
 
 The most commonly used weapon is a handgun, which is used in nearly half of murders. This is followed by a knife or other sharp weapon used to cut at 15\% of murders, and then by ``firearm, type not stated'' which is just a firearm where we don't know the exact type (it can include handguns) at 7.3\% of murders. The fourth most common weapon is ``personal weapons'' at nearly 6\% of murders. ``Personal weapons'' is a weird term to mean that there was no weapon - the ``weapon'' was the offender who beat the victim to death. Shotguns are involved in 5\% of murders and all other weapons are involved in fewer than 5\% of cases. In total there are 19 different weapons included though most are relatively uncommon.
 
-\begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/shrWeapon-1.png}
-\caption{\label{fig:shrWeapon}The weapon used in a homicide incident. In cases where there are multiple offenders, shows only the primary weapon for the first offender.}
-\end{figure}
+\textbackslash begin\{figure\}
+
+\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrWeapon-1}
 
 \hypertarget{relationship-between-first-victim-and-offenders}{%
 \subsubsection{Relationship between first victim and offenders}\label{relationship-between-first-victim-and-offenders}}
 
 An interesting and highly useful variable is the relationship between the first victim and each offender. To be clear, this is only for the first victim; we don't have the relationship between other victims and offenders. However, as seen earlier, this isn't \emph{too much} of an issue since nearly all incidents only have a single victim. There are 29 possible relationship types (including ``unknown'' relationship) which are broken into three categories: legal family members, people known to the victim but who aren't family, and people not known to the victim.
 
-\begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/shrRelationship-1.png}
-\caption{\label{fig:shrRelationship}The relationship between the first victim and the first offender in a homicide incident.}
-\end{figure}
+\textbackslash begin\{figure\}
+
+\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrRelationship-1}
 
 \hypertarget{circumstance}{%
 \subsubsection{Homicide circumstance}\label{circumstance}}
@@ -1561,22 +1711,18 @@ The felony type murders are simply ones where another crime occurred during the 
 
 The most common circumstances, accounting for 27.4\%, 26.4\%, and 12.5\%, respectively, are ``other arguments'', ``unknown'', and ``other non-felony type - not specified''. Since the data includes ``argument over money or property'' as one category, the ``other arguments'' mean that it's an argument for a reason other than over money or property. The ``other non-felony type'' one does not mean that the murder did not occur alongside another crime, but also doesn't fall into the non-felony categories included. Robbery is the only remaining circumstance with more than 5\% of murders, at 8\%.
 
-\begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/shrCircumstance-1.png}
-\caption{\label{fig:shrCircumstance}The circumstance of the homicide for the first offender in a homicide incident.}
-\end{figure}
+\textbackslash begin\{figure\}
+
+\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrCircumstance-1}
 
 \hypertarget{homicide-subcircumstance}{%
 \subsubsection{Homicide subcircumstance}\label{homicide-subcircumstance}}
 
 The ``subcircumstance'' just tells you more information about justifiable homicides. This includes the circumstance leading up to the ``felon'' - which is how the person killed is described, though technically they don't need to have committed a felony - was killed. It includes if this person attached an officer (the one who killed them), a different officer, a civilian, or was committing or fleeing a crime.
 
-\begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/shrSubCircumstance-1.png}
-\caption{\label{fig:shrSubCircumstance}The circumstance for the first offender in a homicide incident in cases where the offender is killed. This includes incidents where the only person who dies in the offender.}
-\end{figure}
+\textbackslash begin\{figure\}
+
+\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrSubCircumstance-1}
 
 \hypertarget{hate_crimes}{%
 \chapter{Hate Crime Data}\label{hate_crimes}}
@@ -1593,39 +1739,54 @@ My main takeaway for this data is that it is inappropriate to use for most hate 
 We'll start by looking at how many agencies report hate crime each year. This is a bit tricky since
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/hateAgencies-1.pdf}
-\caption{\label{fig:hateAgencies}The annual number of police agencies that report at least one hate crime incident in that year.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateAgencies-1} 
+
+}
+
+\caption{The annual number of police agencies that report at least one hate crime incident in that year.}\label{fig:hateAgencies}
 \end{figure}
 
 The 2,000 or so agencies that report each year are not the same every year. Figure \ref{fig:hateCrimesEver} shows the cumulative number of agencies that have reported at least one hate crime between 1991 and 2018. There is a relatively steady growth in the cumulative number of agencies, with about 350 new agencies each year. This means that each year some new agencies report hate crimes while some agencies that reported a hate crime in the previous year don't report any hate crimes in the current year. Figure \ref{fig:hateCrimesPreviousYear} puts this into hard numbers by showing the percent of agencies who reported a hate crime in a certain year who \emph{also} reported a hate crime in the previous year. For most years between 50\% and 60\% of agencies which reported a hate crime in the year shown on the x-axis also reported a hate crime in the previous year, indicating somewhat high consistency in which agencies have hate crimes.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/hateCrimesEver-1.pdf}
-\caption{\label{fig:hateCrimesEver}The cumulative number of agencies that have reported one or more hate crimes between 1991 to 2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimesEver-1} 
+
+}
+
+\caption{The cumulative number of agencies that have reported one or more hate crimes between 1991 to 2018.}\label{fig:hateCrimesEver}
 \end{figure}
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/hateCrimesPreviousYear-1.pdf}
-\caption{\label{fig:hateCrimesPreviousYear}The percent of agencies that report a hate crime in a given year that also reported a hate crime in the previous year, 1992-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimesPreviousYear-1} 
+
+}
+
+\caption{The percent of agencies that report a hate crime in a given year that also reported a hate crime in the previous year, 1992-2018.}\label{fig:hateCrimesPreviousYear}
 \end{figure}
 
 Another way to understand reporting is to look at the number of reported hate crimes by state and see which states report and which don't. Figure \ref{fig:hateCrimesMap} does this for 2018 data by showing the number of reported hate crime incidents by state. While every state other than Wyoming reporting at least one hate crime in 2018, there are large differences between states because even in states that have reporting agencies, not all agencies in that state report. For example, Alabama reported only two hate crimes in 2018, the least of any state other than Wyoming.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/hateCrimesMap-1.pdf}
-\caption{\label{fig:hateCrimesMap}Total reported hate crimes by state, 2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimesMap-1} 
+
+}
+
+\caption{Total reported hate crimes by state, 2018.}\label{fig:hateCrimesMap}
 \end{figure}
 
 Since the number of state-wide hate crimes is partially influenced by population, we'll also look at it as the percent of agencies in the state that report at least one hate crime. Again this is limited by population as agencies in each state cover different populations - and most agencies are small so a few large agencies can account for a large share of crimes, including hate crimes. Still, this is a useful exercise as we can easily see where very few agencies report. Figure \ref{fig:statePercentReporting} shows the percent of agencies for each state that reported at least one hate crime in 2018. In Connecticut, the state with the highest percent of agencies reporting, 28\% of agencies reported at least one hate crime. In 34 states, fewer than 10\% of agencies reported a hate crime, and in 19 states fewer than 5\% of agencies did so. One interesting finding from this graph is the more liberal states - Connecticut, New Jersey, Vermont, California, Washington - have the highest share of agencies reporting a hate crime, indicating that the culture of the state may influence whether agencies report hate crimes.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/statePercentReporting-1.pdf}
-\caption{\label{fig:statePercentReporting}The percent of agencies in each state that reported at least one hate crime in 2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/statePercentReporting-1} 
+
+}
+
+\caption{The percent of agencies in each state that reported at least one hate crime in 2018.}\label{fig:statePercentReporting}
 \end{figure}
 
 \hypertarget{important-variables-3}{%
@@ -1636,9 +1797,12 @@ This data has the standard set of variables describing the agency that is report
 They also have a variable with the exact date that the hate crime occurred on - and not the date it was reported on. Figure \ref{fig:hateCrimesByDay} shows the percent of hates crimes between 1991 and 2018 that occurred on each day of the week. Interestingly, the most common day for a hate crime to occur is on Wednesday, not on Friday or Saturday as non-hate crimes most frequently occur. This suggests that hate crimes don't follow the same trends as other crimes.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/hateCrimesByDay-1.pdf}
-\caption{\label{fig:hateCrimesByDay}The day of the week that hate crimes occurred on, 1991-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimesByDay-1} 
+
+}
+
+\caption{The day of the week that hate crimes occurred on, 1991-2018.}\label{fig:hateCrimesByDay}
 \end{figure}
 
 Each hate crime incident can cover up to 10 different crimes occurring - e.g.~a person who burglarizes a synagogue and spray paints a swastika on the wall would be have both vandalism and burglary reported in this data. With each crime, this data has the bias motivation for that crime, the location of the crime (in broad categories, not the actual location in the city like a street address would have), and the number of victims for that offense. In practice, in most hate crimes with multiple offenses recorded, the bias motivation, location, and victim count is the same for each offense.
@@ -1646,9 +1810,12 @@ Each hate crime incident can cover up to 10 different crimes occurring - e.g.~a 
 Figure \ref{fig:crimesPerHateCrime} shows the number of crimes per incident for each hate crime reported between 1991 and 2018. In 96.6\% of cases, there is only one offense in that incident.\footnote{In 0.0005\% of hate crimes there is no recorded offense. This is not shown in the graph.} This drops sharply to 3.2\% of incidents having two offenses, 0.21\% having three offenses, 0.016\% having four offenses, and 0.002\% having five offenses. Even though this data does allow up to 10 offenses per hate crime incident, there has never been a recorded case with more than five offenses.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/crimesPerHateCrime-1.pdf}
-\caption{\label{fig:crimesPerHateCrime}The number of offenses per hate crime incident.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/crimesPerHateCrime-1} 
+
+}
+
+\caption{The number of offenses per hate crime incident.}\label{fig:crimesPerHateCrime}
 \end{figure}
 
 \hypertarget{the-bias-motivation-who-the-hate-is-against}{%
@@ -1662,11 +1829,9 @@ Bias motivation is based on the offender's perceptions of the victim so even if 
 
 The biases that the FBI includes in this data has grown over time, with new bias motivations being added in 1997, 2012, 2013, and 2015. Table \ref{fig:hateBiasMotivation} shows each bias motivation in this data, the year it was first reported, how many hate crimes there were for this bias motivation from 1991-2018 and what percent of hate crimes that bias motivation makes up. For ease of seeing how bias motivations changed over time, the table is sorted by year and by frequency of incident within that year. If you're viewing this on a computer or phone, you can sort the table yourself. The year is the first year with that bias motivation - as hate crimes for certain groups are very rare, the bias motivation could have technically been available in previous years. The last column in this table shows the percent of hate crimes from 1991-2018, though this is a very rough measure since some groups are so small that even accounting for a small percent of total hate crimes can mean that are massively disproportionately targeted.
 
-\begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/hateBiasMotivation-1.png}
-\caption{\label{fig:hateBiasMotivation}The bias motivation for hate crime incidents. In incidents with multiple bias motivation, this shows only the first bias motivation recorded.}
-\end{figure}
+\textbackslash begin\{figure\}
+
+\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateBiasMotivation-1}
 
 2015 is the most year of new bias motivations, as of data through 2018. This year added a number of religions such as Anti-Buddhist, Anti-Sikh, and Anti-Jehovah's Witness. In 2013, anti-Transgender was added and this is the most common of the bias motivations added since data began in 1991 with 513 hate crimes between 2013-2018 - 0.26\% of all hate crimes from 1991-2018. That year also added anti-male and Anti-Native Hawaiian or Other Pacific Islander, which is the most recent racial group added. In 2012, anti-gender non-conforming and anti-female were included, while in 1997 both anti-mental and anti-physical disability were added. In part due to having fewer years of data available, these newer bias motivations make up a small percent of total hate crimes, accounting for \textasciitilde1.4\%.
 
@@ -1679,11 +1844,9 @@ The ``crime'' part of hate crimes is which criminal offense occurred during the 
 
 Nearly all hate crimes are vandalism/destruction of property (31\%), intimidation (30\%), and simple assault (20\%) or aggravated assault (11\%) with no remaining crime making up more than 2\% of total hate crimes.
 
-\begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/hateOffense-1.png}
-\caption{\label{fig:hateOffense}The offense type for hate crime incidents. In incidents with multiple offense types, this shows only the first offense type recorded.}
-\end{figure}
+\textbackslash begin\{figure\}
+
+\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateOffense-1}
 
 Agencies that report to the FBI's National Incident-Based Reporting System (NIBRS) can also report bias motivations for their crimes, and these reports are included in this dataset. One tricky thing is that the crimes included are different depending on if the agency reported through NIBRS or to the dataset directly, and are not NIBRS reporting agencies. The above table shows all crimes included, but agencies who report directly can only submit a subset of crimes. These crimes are the same as in the Offenses Known and Clearances by Arrest dataset that is detailed in Chapter @ref(offenses\_known) as well as vandalism/destruction of property and human trafficking.
 
@@ -1694,11 +1857,9 @@ This data is interesting because it includes the location - in categories for ty
 
 As with the crime and the bias motivation, the available locations have increased as time went on, though these newer locations are relatively uncommon. One important change in location is that starting in 2010 the location of school/college was split to have one location be for elementary and high schools and another location be for colleges and universities. The majority of hate crimes occur in the victim's home (30\%), on a road or alley (19\%), in an unknown location (13.6\%), and in a parking lot or parking garage. All other locations occur in fewer than 5\% of hate crimes.
 
-\begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/hateLocations-1.png}
-\caption{\label{fig:hateLocations}The location of hate crime incidents. In incidents with multiple locations, this shows only the first location recorded.}
-\end{figure}
+\textbackslash begin\{figure\}
+
+\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateLocations-1}
 
 \hypertarget{number-and-race-of-offenders}{%
 \subsection{Number and race of offenders}\label{number-and-race-of-offenders}}
@@ -1708,17 +1869,23 @@ There are two variables that have information about the people who commit the ha
 When the police do not have any information about the number of offenders (which is common in cases of property crimes such as vandalism but rare in violent crimes), this data considers that to have zero offenders. The zero is just a placeholder that means that the police have no idea how many offenders there are, not that they think there were actually no offenders. Figure \ref{fig:hateCrimeOffenderNumber} shows the percent of hate crimes from 1991-2018 that have each number of offenders recorded. In the actual data it says the actual number of offenders, with the largest group in the current data going to 99 offenders - in this graph I group 10 or more offenders together for simplicity. I also relabel zero offenders as ``Unknown'' offenders in the graph since that's more accurate. The most common number of offenders per hate crime is one offender, at about 46\% of hate crimes from 1991-2018 having only one offender. This drops sharply to 9\% of hate crimes having 2 offenders and continues to drop as the number of offenders increase. However, about a third (36.8\%) of hate crimes have an unknown number of offenders.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/hateCrimeOffenderNumber-1.pdf}
-\caption{\label{fig:hateCrimeOffenderNumber}The race of offenders, as a group, for hate crime incidents, 1991-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimeOffenderNumber-1} 
+
+}
+
+\caption{The race of offenders, as a group, for hate crime incidents, 1991-2018.}\label{fig:hateCrimeOffenderNumber}
 \end{figure}
 
 The data also includes the race of the offenders as a group, though not the ethnicity (Hispanic or not) of the offenders. In cases where there are multiple races among offenders, that will be classified as a ``multi-racial group''. As shown in Figure \ref{fig:hateCrimeOffenderNumber} The most common racial group is ``unknown'' since the police do not know the race of the offenders. Then are White offenders at nearly 40\% of hate crimes followed by Black offenders at nearly 13\% of hate crimes. The remaining racial groups are rare with about 2\% of hate crimes being committed by a multi-racial group of offenders and 0.72\% of hate crimes committed by Asian or Pacific Islander offenders and 0.54\% committed by American Indian or Native Alaskan offenders.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/hateCrimeOffenderRace-1.pdf}
-\caption{\label{fig:hateCrimeOffenderRace}The race of offenders, as a group, for hate crime incidents, 1991-2018.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimeOffenderRace-1} 
+
+}
+
+\caption{The race of offenders, as a group, for hate crime incidents, 1991-2018.}\label{fig:hateCrimeOffenderRace}
 \end{figure}
 
 \hypertarget{stolen_property}{%
@@ -1730,24 +1897,50 @@ The data, however, provides no information about the offender or the victim (oth
 
 Before getting into the details of this data, let's look at one example of how this data can measure property crime in a few different ways. This data is highly useful to use as a rough measure of the cost of crime. This cost is limited to just the value of the property stolen - so excludes things like injuries, mental health effects of victimization, etc. - but is still better than nothing. Since this data includes, for some types of property stolen, both the number of offenses per month (broken down by type of theft and items stolen) and the value of the stolen property, we can also see if the average value of these thefts change over time.
 
-We'll look at home burglaries that occur during the day in Philadelphia. First, we can look at the number of these kinds of burglaries each month or year. Figure @ref()
-
-\includegraphics{ucrbook_files/figure-latex/unnamed-chunk-3-1.pdf}
-
-Next we can see the total cost of daytime home burglaries in Philly for each year, which is shown in Figure \ref{fig:PhillyBurglaryCost}. The trend here is somewhat similar to
+We'll look at home burglaries that occur during the day in Philadelphia. First, we can look at the number of these kinds of burglaries each month or year. Figure \ref{fig:phillyHomeBurglaryCount} shows the annual number of daytime home burglaries and in recent years it has declined sharply into having the fewest on record in 2019. So citywide, Philadelphia has never been safer when it comes to daytime home burglaries. But when considering the cost of crime, we also want to know the actually monetary cost of that incident. This encompasses a lot of different values including physical and emotional harm to the victim (including harm to structures such as broken doors and windows) and changes in people's behavior (e.g.~quit job to avoid going to a certain part of town). With this data we only have the value of the physical items stolen, so while it is still a cost of crime it's a rather shallow one.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/PhillyBurglaryCost-1.pdf}
-\caption{\label{fig:PhillyBurglaryCost}The total annual cost of daytime home burglaries in Philadelphia.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/phillyHomeBurglaryCount-1} 
+
+}
+
+\caption{The annual number of daytime home burglaries reported in Philadelphia, PA, 1960-2019.}\label{fig:phillyHomeBurglaryCount}
 \end{figure}
 
-We can put these variables together to look at the cost per burglary so we can roughly measure the cost for each burglary victim. Figure \ref{fig:phillyHomeCostPerBurglary} shows the cost average cost per burglary for each year of data available. Now we have a different story than the other graphs.
+Figure \ref{fig:PhillyBurglaryCost} measures this cost of crime by showing the annual sum of the value of the property stolen for daytime home burglaries in Philadelphia. The trend here is different than the previous graph which showed undulations in the number of burglaries but not major trend changes until the 2010s; here is a steady increase, though with varying speed of increase, until it peaked in the late 2000s/early 2010s before declining substantially in recent years. While the number of burglaries peaked in the early 1980s, the total value of burglaries didn't peak until the early 2010s, so the cost of this crime (even this very narrow measure of cost) can't be ascertained from knowing the number of burglaries alone. From this measure we can say that daytime home burglaries were worse in the early 2010s and are substantially better currently.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/phillyHomeCostPerBurglary-1.pdf}
-\caption{\label{fig:phillyHomeCostPerBurglary}The annual number of burglaries and cost per burglary for daytime home burglaries in Philadelphia, 1960-2019.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/PhillyBurglaryCost-1} 
+
+}
+
+\caption{The total annual cost of daytime home burglaries in Philadelphia.}\label{fig:PhillyBurglaryCost}
+\end{figure}
+
+The final way we can measure daytime home burglaries is to put the previous variables together to look at the cost per burglary. This will give us the average amount of property stolen from each burglary victim. Figure \ref{fig:phillyHomeCostPerBurglary} shows the cost average cost per burglary for each year of data available. Now we have a different story than the other graphs. Even though the number of daytime home burglaries declined substantially over the last decade and the total cost is around the level seen in the 1980s, the cost per burglary remains at record highs in recent years, though down from the peak in the mid-2010s. This suggests that while burglaries are down, the burden on each burglary victim has continued to grow.
+
+Part of this - and part of the long-term increase seen in Figure \ref{fig:PhillyBurglaryCost} - is simply due to inflation. \$1 in 1963, the first year we have data on the value of burglaries, is worth \$8.28 in 2019, according to the Bureau of Labor Statistics. The values in this data are \emph{not} adjusted for inflation so you need to do that adjustment yourself before any analyses, otherwise your results will be quite a bit off.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/phillyHomeCostPerBurglary-1} 
+
+}
+
+\caption{The annual number of burglaries and cost per burglary for daytime home burglaries in Philadelphia, 1960-2019.}\label{fig:phillyHomeCostPerBurglary}
+\end{figure}
+
+When we adjust all values to 2019 dollars, as shown in Figure \ref{fig:phillyHomeCostPerBurglaryInflation}, the trend becomes changes a bit. There's still a steady increase in cost per burglary over time but it is far more gradual than in Figure \ref{fig:phillyHomeCostPerBurglary}. And now the difference from the cost in early years and late years are far smaller.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/phillyHomeCostPerBurglaryInflation-1} 
+
+}
+
+\caption{The inflation-adjusted annual number of burglaries and cost per burglary for daytime home burglaries in Philadelphia, 1960-2019.}\label{fig:phillyHomeCostPerBurglaryInflation}
 \end{figure}
 
 \hypertarget{agencies-reporting-3}{%
@@ -1756,17 +1949,23 @@ We can put these variables together to look at the cost per burglary so we can r
 We'll start by looking at which agencies report. The data is available from 1960 through 2019 though the columns about the value of the property only begin in 1964. Figure \ref{fig:propertyAgencies} show the number of agencies each year that reported at least one month during that year. In the first several years of data barely any agencies reported data and then it spiked around 1966 to over 6,000 agencies per year then grew quickly until over 12,000 agencies reported data in the late 1970s. From here it actually gradually declined until fewer than 12,000 agencies in the late 1990s before reversing course again and growing to about 15,000 agencies by 2019 - down several hundred agencies from the peak a few years earlier.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/propertyAgencies-1.pdf}
-\caption{\label{fig:propertyAgencies}The annual number of police agencies that report at least month of data that year.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/propertyAgencies-1} 
+
+}
+
+\caption{The annual number of police agencies that report at least month of data that year.}\label{fig:propertyAgencies}
 \end{figure}
 
 Since this data is called the ``Supplement to Return A'' we would expect that the agencies that report here are the same as the ones that report to the Offenses Known and Clearances by Arrest data, which is also called the Return A dataset. Figure \ref{fig:agenciesInBoth} shows the percent of agencies in this dataset that are also in the Return A data. Except for the first several years of data in the 1960s, we can see that most years have nearly all agencies reporting to both, though this has declined in recent years. Since the late 1970s nearly 90\% of agencies that report to the Offenses Known data also report to this dataset.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/agenciesInBoth-1.pdf}
-\caption{\label{fig:agenciesInBoth}The percent of agencies in the Supplement to Return A data that are also in the Offenses Known and Clearances by Arrest (Return A) data in that year, 1960-2019.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/agenciesInBoth-1} 
+
+}
+
+\caption{The percent of agencies in the Supplement to Return A data that are also in the Offenses Known and Clearances by Arrest (Return A) data in that year, 1960-2019.}\label{fig:agenciesInBoth}
 \end{figure}
 
 \hypertarget{important-variables-4}{%
@@ -1774,8 +1973,8 @@ Since this data is called the ``Supplement to Return A'' we would expect that th
 
 This data can really be broken into two parts: the monthly number of property (including robbery) crimes that occur that are more detailed than in the Offenses Known data, and the value of the property stolen (and recovered) from these crimes.\footnote{I'm really not sure why this data isn't just merged with the Offenses Known data, especially the first part where it's just counts of crimes.} For each category I present the complete breakdown of the available offenses/items stolen and describe some of the important issues to know about them. Like other UCR data, there are also variables that provide information about the agency - ORI codes, population under jurisdiction - the month and year that the data covers, and how many months reported data.
 
-\hypertarget{a-more-detailed-breakdown-of-property-and-robbery-crimes}{%
-\subsection{A more detailed breakdown of property (and robbery) crimes}\label{a-more-detailed-breakdown-of-property-and-robbery-crimes}}
+\hypertarget{propertycount}{%
+\subsection{A more detailed breakdown of property (and robbery) crimes}\label{propertycount}}
 
 The first part of this data is just a monthly (or yearly in the annual data that I've released - the FBI, however, only releases data monthly so I just aggregated the months together) number of crimes of each type reported to the police (and that a police investigation discovered actually happened. For more on this process, please see Chapter \ref{actual}). There are six crimes and their subsets included here: burglary, theft, robbery, and motor vehicle theft. The remaining two are rape and murder, but they don't break down these crimes into any subcategories and are only available starting in 1974.
 
@@ -1876,9 +2075,13 @@ The complete list of each subsection and a brief definition for the non-obvious 
 \hypertarget{the-value-of-property-stolen-in-property-and-robbery-crimes}{%
 \subsection{The value of property stolen in property (and robbery) crimes}\label{the-value-of-property-stolen-in-property-and-robbery-crimes}}
 
-The cost is the cost for the victim to replace the stolen item. So the current market price for that item (though factoring in the current state the item is in, e.g.~if it's already damaged) and, for businesses, the cost to buy that item and \emph{not} the cost they sell it for. This is not an exact science so I recommend only interpreting these values are estimates - and potentially rough estimates.
+The next set of variables is the value of the property stolen in each crime, as well as the value of property stolen broken down by the type of property (e.g.~clothing, electronics, etc.). To be clear, this is \emph{only} the value of the property stolen during the crime. The cost of any injuries (mental or physical) or any lasting cost to the victim, their family, and society for these crimes are not included. This, of course, vastly underestimates the cost of these crimes so please understand that while this is a measure of the cost of crime, it is only a narrow slice of the true cost.
 
-This also includes the value of property stolen during rapes and murders. To be clear, this is \emph{only} the value of the property stolen during the crime. The cost of any injuries (mental or physical) or any lasting cost to the victim, their family, and society for these crimes are not included. This, of course, vastly underestimates the cost of these crimes so please don't use this measure as a cost of crime. It is the cost of property only.
+The cost is the cost for the victim to replace the stolen item. So the current market price for that item (though factoring in the current state the item is in, e.g.~if it's already damaged) and, for businesses, the cost to buy that item and \emph{not} the cost they sell it for. While the police can ask the victim how much the property was worth, they aren't required to use the exact amount given as victim's may exaggerate the value of items. This is not an exact science so I recommend only interpreting these values are estimates - and potentially rough estimates.
+
+The value of the property stolen is broken into two overlapping categories: by crime type, and by type of property that was stolen. These are the exact same categories as covered in Section \ref{propertycount} but now is the dollar amount of the items stolen from those types of crimes. The second group is what type of items, based on several discrete categories, was stolen. Please note that multiple items can be stolen in each category - i.e.~there is no Hierarchy Rule used here (for more in the Hierarchy Rule that is used in other UCR data, please see Section \ref{hierarchy}). And it counts the property stolen for each crime type \emph{as well as} for each item type. So if you sum up all of the crime variables and all of the item type variables together you'll overcount the value of property stolen. Each of the item types and their definitions - some categories include or exclude things that you may not expect them to - are detailed below.
+
+Though this data starts in 1960, not all variables are available then. 1963 and 1964 saw many new variables added - the values in these variables are reported as 0 in previous years - and in 1974 and 1975 even more variables are added. In 1963 the value of burglaries where the time of the burglary was known, thefts broken down categories based on the value of property taken, from of car parts, theft from cars, shoplifting, and ``other'' thefts was added to the data. In the following year this data began including the value of property stolen from burglaries where the time of the burglary was unknown was added as well as thefts of bicycles, from ``coin operated machines'' (i.e.~vending machines), purse snatching, and pick pocketing. The value of property stolen during rapes and murders was first reported in 1974. Finally, 1975 was the last year with near variables, with this year including consumable goods, stolen guns, household goods, livestock, office equipment and electronics, and sound and picture equipment.
 
 \begin{itemize}
 \tightlist
@@ -2149,19 +2352,25 @@ This dataset comes with a considerable number of data errors - basically enormou
 First, we'll look at the value of livestock thefts in New York City. Livestock is one of the variables where we know the value stolen and recovered but not how many times it happened. Being a major urban city, we might expect that there are not many livestock animals in the city so the values should be low. Figure \ref{fig:nycLivestock} shows the annual value of livestock thefts in NYC. There are two major issues here. First, In all but two years they report \$0 in livestock thefts. This is likely wrong since even New York City has some livestock (even just the police horses and the horse carriages tourists like) that probably got stolen. The second issues is the massive spike of reported livestock theft value in 1993 with over \$15 million stolen (the only other year with reported thefts is 1975 with \$87,651 stolen). Clearly NYC didn't move from \$0 in thefts for decades to \$15 million in a year and then \$0 again so this is a blatant data error.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/nycLivestock-1.pdf}
-\caption{\label{fig:nycLivestock}The annual value of stolen livestock in New York City, 1960-2019.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/nycLivestock-1} 
+
+}
+
+\caption{The annual value of stolen livestock in New York City, 1960-2019.}\label{fig:nycLivestock}
 \end{figure}
 
-It gets harder to determine when a value is a mistake when it is simply a big spike - or drop - in reported value in a dataset that otherwise looks correct. Take, for example, the annual value of stolen clothing and fur in Philadelphia from 1960-2018. The annual value of these stolen items more than doubled in 1989 compared to the previous year and then declined rapidly in the following year. Is this real? Is it a data error? It's really hard to tell. Here we don't know how many clothing/fur thefts there were, only the value of the total thefts that month (which is aggregated annually here). It continues a multi-year trend of increasing value of thefts but it larger than previous increases in value. And while the spike is very large in percent terms, it's not so extraordinarily huge that we immediately think it's an error - though some outlier detection methods may think so if it's beyond the expected value for that year.
+It gets harder to determine when a value is a mistake when it is simply a big spike - or drop - in reported value in a dataset that otherwise looks correct. Take, for example, the annual value of stolen clothing and fur in Philadelphia from 1960-2019, shown in Figure \ref{fig:phillyFurValue}. The annual value of these stolen items more than doubled in 1989 compared to the previous year and then declined rapidly in the following year. Is this real? Is it a data error? It's really hard to tell. Here we don't know how many clothing/fur thefts there were, only the value of the total thefts that month (which is aggregated annually here). It continues a multi-year trend of increasing value of thefts but it larger than previous increases in value. And while the spike is very large in percent terms, it's not so extraordinarily huge that we immediately think it's an error - though some outlier detection methods may think so if it's beyond the expected value for that year.
 
 It's also important to have some understanding of what the data \emph{should} look like when trying to figure out what data point may be incorrect. In this figure we see a huge spike in 1989. If we know, for example, that a ring of fur thieves were active this year, then that makes it far more likely that the data is real. This may be a rather odd example, but it is helpful to try to understand the context of the data to better understand when the ``weird'' data is an error and when it's just ``weird but correct''.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/phillyGunsValue-1.pdf}
-\caption{\label{fig:phillyGunsValue}The annual value of stolen guns in Philadelphia, PA, 1960-2018}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/phillyFurValue-1} 
+
+}
+
+\caption{The annual value of stolen clothing and fur in Philadelphia, PA, 1960-2019}\label{fig:phillyFurValue}
 \end{figure}
 
 \hypertarget{arson-1}{%
@@ -2179,9 +2388,12 @@ In cases where the arson led to a death, that death would be recorded as a murde
 Figure \ref{fig:arsonAgencies} shows the annual number of police agencies that reported at least one month that year. With data starting in 1979, there were a little over 12,000 agencies reporting a year until the early 2000s where it recovered from a sharp drop in agencies to steadily increase to about 16,000 a year. While arson data is available through 2019, this graph only shows data through 2018.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/arsonAgencies-1.pdf}
-\caption{\label{fig:arsonAgencies}The annual number of police agencies that report at least month of data that year.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/arsonAgencies-1} 
+
+}
+
+\caption{The annual number of police agencies that report at least month of data that year.}\label{fig:arsonAgencies}
 \end{figure}
 
 \hypertarget{important-variables-5}{%
@@ -2216,9 +2428,12 @@ Please note that this data is at the incident-level which means that having mult
 Figure \ref{fig:arsonClearance} shows the number of actual arsons (reports that are founded) and clearances for single-family home arsons in League City, Texas, a city of about 100,000 outside of Houston. In most years there were fewer clearances than arsons, but in four years (1982, 1981, 1992, and 2007) there were more clearances than arsons. This is simply because clearances are reported in the month they occur, regardless of when the arson they are clearance occurred.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/arsonClearance-1.pdf}
-\caption{\label{fig:arsonClearance}The annual number of single-family home arsons and clearances in League City, Texas.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/arsonClearance-1} 
+
+}
+
+\caption{The annual number of single-family home arsons and clearances in League City, Texas.}\label{fig:arsonClearance}
 \end{figure}
 
 It is rare that there are more clearances than crimes in a given month though this is partially just due to few cases every being cleared. According to the 2019 NIBRS, it takes on average 7 days between the incident and the arrest (median = 0 days) for all crimes, and an average of 11.6 days from incident to arrest for arsons specifically (median = 0 days) for offenders who get arrested. This means that most clearances will be for crimes committed that month, though certainly not all. Therefore, use caution when trying to use this variable to measure crime clearance rates.
@@ -2288,48 +2503,24 @@ Some arsons can burn down multiple types or structures or cars - fire, after all
 Like the other UCR data, there are some cases where there are obvious data entry errors leading to impossible numbers of reported arsons or the price of an arson. As an example, Figure \ref{fig:residenceArson} shows the annual number of single-family home arsons in Byron City, Illinois, which has a population of slightly over 3,600 people. Every year with data available there are zero arsons reported until 2003 when 469 arsons are reported. Since it is exceedingly unlikely that suddenly an eighth of the city suddenly burned down, and the city never again had a residence arson, this is almost certainly a data entry error. As arsons are relatively rare, having errors - and especially ones like this - can drastically change the results of your analysis so it is important to check your data carefully for more errors. For those using the data that I have cleaned and concatenated, the complete list of obvious outliers that I removed is available on the data's \href{https://www.openicpsr.org/openicpsr/project/103540/version/V9/view}{page on openICPSR}.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/residenceArson-1.pdf}
-\caption{\label{fig:residenceArson}Annual single-family home arsons in Byron City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this dataset.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/residenceArson-1} 
+
+}
+
+\caption{Annual single-family home arsons in Byron  City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this dataset. }\label{fig:residenceArson}
 \end{figure}
 
 There are also cases where it is less clear when a value is a data error or is simply due to an outlier - but real - value. For example, Figure \ref{fig:arsonCost} shows the annual average cost of a single-family home fire in Los Angeles, California. In most years the damage is low - since an arson can damage only part of the house, these low values likely mean that on average only part of the house was damaged, not the entire house. In 2009, however, the average damage is about \$540,000 per arson. Is this a data entry error that simply inputs a damage value that is too high? It's certainly possible. However, it could also be that some extraordinarily expensive homes were destroyed that year. In 2009 Los Angeles only reported 63 single-family home arsons so having one, or a few, super mansions - which LA has plenty of - destroyed could mean that this huge value is real.
 
 \begin{figure}
-\centering
-\includegraphics{ucrbook_files/figure-latex/arsonCost-1.pdf}
-\caption{\label{fig:arsonCost}The annual average cost per single-family home arson in Los Angeles, California.}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/arsonCost-1} 
+
+}
+
+\caption{The annual average cost per single-family home arson in Los Angeles, California.}\label{fig:arsonCost}
 \end{figure}
-
-\hypertarget{county_level}{%
-\chapter{County-Level Detailed Arrest and Offense Data}\label{county_level}}
-
-\hypertarget{a-brief-history-of-the-data}{%
-\section{A brief history of the data}\label{a-brief-history-of-the-data}}
-
-\hypertarget{changes-in-definitions}{%
-\subsection{Changes in definitions}\label{changes-in-definitions}}
-
-\hypertarget{what-does-the-data-look-like}{%
-\section{What does the data look like?}\label{what-does-the-data-look-like}}
-
-\hypertarget{raw-data}{%
-\subsection{Raw data}\label{raw-data}}
-
-\hypertarget{cleaned-data}{%
-\subsection{Cleaned data}\label{cleaned-data}}
-
-\hypertarget{what-variables-are-in-the-data}{%
-\section{What variables are in the data?}\label{what-variables-are-in-the-data}}
-
-\hypertarget{key-variables}{%
-\subsection{Key variables}\label{key-variables}}
-
-\hypertarget{known-issues-with-the-data}{%
-\subsection{Known issues with the data}\label{known-issues-with-the-data}}
-
-\hypertarget{final-thoughts}{%
-\section{Final thoughts}\label{final-thoughts}}
 
 \backmatter
 

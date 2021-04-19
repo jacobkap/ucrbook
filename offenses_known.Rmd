@@ -9,6 +9,13 @@ knitr::opts_chunk$set(
 )
 ```
 
+```{r include = FALSE}
+if (!knitr:::is_html_output()) {
+  options("width" = 56)
+  knitr::opts_chunk$set(tidy.opts = list(width.cutoff = 56, indent = 2), tidy = TRUE)
+  }
+```
+
 ```{r}
 load("data/offenses_known_yearly_1960_2018.rda")
 ```
@@ -53,7 +60,7 @@ Arson is considered an index crime but is not reported in this data - you need t
 
 Each of the crimes in the list above, and their subcategories, are included in the UCR data. In most news and academic articles, however, you'll see them reported as the total number of index crimes, summing up categories 1-7 and reporting that as "crime." These index crimes are often divided into violent index crimes - murder, rape, robbery, and aggravated assault - and property index crimes - burglary, theft, motor vehicle theft. 
 
-### Hierarchy Rule
+### Hierarchy Rule {#hierarchy}
 
 This dataset uses what is called the Hierarchy Rule where only the most serious crime in an incident is reported (except for motor vehicle theft and arson, which are always included). For example if there is an incident where the victim is robbed and then murdered, only the murder is counted as it is considered more serious than the robbery. That the data uses the Hierarchy Rule is an oft-cited (by academics, reporters, random people on Twitter) criticism of the data that are, in my opinion, overblown. 
 

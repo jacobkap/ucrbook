@@ -11,6 +11,18 @@ library(lubridate)
 library(gridExtra)
 #devtools::install_github("wmurphyrd/fiftystater")
 library(fiftystater) 
+library(blscrapeR)
+
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  out.width = "90%",
+  fig.align = 'center',
+  fig.width = 7,
+  fig.asp = 0.618,  # 1 / phi
+  fig.show = "hold",
+  error = TRUE
+)
 
 make_frequency_table_year <- function(data, column, col_names) {
   temp <- unique(data[, column])

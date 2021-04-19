@@ -1,9 +1,11 @@
 --- 
 title: "Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide"
 author: "Jacob Kaplan"
-date: "2021-04-18"
+date: "2021-04-19"
 site: bookdown::bookdown_site
 documentclass: book
+lot: yes
+lof: yes
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
@@ -15,11 +17,15 @@ url: "https://ucrbook.com"
 fontsize: 12pt
 github-repo: "jacobkap/ucrbook"
 classoption: openany
+links-as-notes: true
+linestretch: 1.15
 ---
 
 
 
-# Welcome {-}
+
+
+# Preface 
 
 If you've read an article about crime or arrests in the United States in the last half century, in most cases it was referring to the FBI's Uniform Crime Reporting Program Data, otherwise known as UCR data. UCR data is, with the exception of the more detailed data that only covers murders, a *monthly number of crimes or arrests reported to a single police agency* which is then gathered by the FBI into one file that includes all reporting agencies. Think of your home town. This data will tell you how many crimes were reported for a small number of crimes or how many people (broken down by age, sex, and race) were arrested for a (larger) set of crimes in that city (if the city has multiple police agencies, it will use the agency which is the primary agency on the case, usually the local police department) in a given month. This is a very broad measure of crime, and its uses in research - or understanding crime at all - is fairly limited. Yet is has become - and will likely remain among researchers for at least the next decade - the most important crime data in the United States.
 
@@ -41,24 +47,24 @@ Since manuals are boring, I'll try to include graphs and images to try to allevi
 
 ## Structure of the book
 
-This book will be divided into eight chapters: an intro chapter briefly summarizing each dataset and going over overall issues with UCR data, six chapters each covering one of the six UCR datasets, and a final one covering county-level data, a highly flawed but common use of the UCR data. Each chapter will follow the same format: we'll start with a history of the data such as when it first because available and important changes in definitions or variables. Next we'll discuss what the data looks like initially when you get it from the FBI - literally what it looks like in it's fixed-width ASCII format you get from the FBI and what it looks like (what each row and column mean) once it's turned into a useful format that can be read into modern software like R and Stata. For most of the datasets this is a minor process but for data like the arrest or homicide datasets, the conversion process is harder - and this can actually lead to changes in the resulting data. For example, in an old version of the arrest data that I released, I aggregated certain arrestee ages together since my laptop at the time couldn't handle converting data from ASCII to R and Stata without aggregating the ages (more age groups means more columns which means more computer memory needed). So anyone using that data would have less detailed data than the current dataset. 
-
-Understanding how the data moves from its rawest form (which in this case is after cleaning by the FBI) is important for being able to truly understand the data and its caveats. However, this is a fairly technical part of each chapter so feel free to skip it. Next in each chapter, we'll cover the variables included in the data and how to use them properly (including not using them at all) - this will be the bulk of each chapter. We'll end each chapter by briefly summarizing the data, how and when it's useful, and - most importantly - when you shouldn't use it. 
+This book will be divided into eight chapters: an intro chapter briefly summarizing each dataset and going over overall issues with UCR data, and seven chapters each covering one of the seven UCR datasets. Each chapter will follow the same format: we'll start with a brief summary of the data such as when it first because available and how it can be used. Next we'll look at how many agencies report their data to this dataset, often looking at how to measure this reporting rate a couple of different ways. Finally, we'll cover the variables included in the data and how to use them properly (including not using them at all) - this will be the bulk of each chapter. 
 
 ## Citing this book
 
 If this data was useful in your research, please cite it. To cite this book, please use the below citation: 
 
-Kaplan J (2021). *Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide*. https://github.com/jacobkap/ucrbook. 
+Kaplan J (2021). *Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide*. https://ucrbook.com/. 
 
 BibTeX format:
 
-> @Book{,
-    title = {Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide},
-    author = {Jacob Kaplan},
-    year = {2021},
-    url = {https://github.com/jacobkap/ucrbook},
-  }
+```bibtex
+@Manual{ucrbook,
+  title = {Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide},
+  author = {{Jacob Kaplan}},
+  year = {2021},
+  url = {https://ucrbook.com/},
+}
+```
 
 ## Sources of UCR data
 
