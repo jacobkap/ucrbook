@@ -17,10 +17,7 @@ url: "https://ucrbook.com"
 fontsize: 12pt
 github-repo: "jacobkap/ucrbook"
 classoption: openany
-links-as-notes: true
-linestretch: 1.15
 ---
-
 
 
 

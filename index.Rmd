@@ -1,5 +1,5 @@
 --- 
-title: "Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide"
+title: "Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide"
 author: "Jacob Kaplan"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -17,8 +17,6 @@ url: "https://ucrbook.com"
 fontsize: 12pt
 github-repo: "jacobkap/ucrbook"
 classoption: openany
-links-as-notes: true
-linestretch: 1.15
 ---
 
 ```{r setup, include=FALSE}
@@ -40,12 +38,6 @@ options(
 
 ```
 
-```{r include = FALSE}
-if (!knitr:::is_html_output()) {
-  options("width" = 56)
-  knitr::opts_chunk$set(tidy.opts = list(width.cutoff = 56, indent = 2), tidy = TRUE)
-  }
-```
 
 # Preface 
 

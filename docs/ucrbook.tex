@@ -7,7 +7,6 @@
   12pt,
   openany]{book}
 \usepackage{lmodern}
-\usepackage{setspace}
 \usepackage{amsmath}
 \usepackage{ifxetex,ifluatex}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
@@ -112,8 +111,6 @@
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
-% Make links footnotes instead of hotlinks:
-\DeclareRobustCommand{\href}[2]{#2\footnote{\url{#1}}}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -138,7 +135,6 @@
 }
 \listoftables
 \listoffigures
-\setstretch{1.15}
 \hypertarget{preface}{%
 \chapter{Preface}\label{preface}}
 
@@ -737,7 +733,7 @@ We'll finish this overview of the UCR data by briefly talking about format of th
 
 }
 
-\caption{Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset}\label{fig:unnamed-chunk-4}
+\caption{Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset}\label{fig:unnamed-chunk-3}
 \end{figure}
 
 The ``fixed-width'' part of the file type is how this works (the ASCII part basically means it's a text file). Each row is the same width - literally the same number of characters, including blank spaces. So you must tell the software you are using to process this file - by literally write code in something called a ``setup file'' but is basically just instructions for whatever software you use (R, SPSS, Stata, SAS can all do this) - which characters are certain columns. For example, in this data the first character says which type of UCR data it is (1 means the Offenses Known and Clearances by Arrest data) and the next two characters (in the setup file written as 2-3 since it is characters 2 through 3 {[}inclusive{]}) are the state number (01 is the state code for Alabama). So we can read this row as the first column indicating it is an Offenses Known data, the second column indicating that it is for the state of Alabama, and so on for each of the remaining columns. To read in this data you'll need a setup file that covers every column in the data (some software, like R, can handle just reading in the specific columns you want and don't need to include every column in the setup file).
