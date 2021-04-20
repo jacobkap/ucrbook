@@ -1,10 +1,9 @@
 --- 
-title: "Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide"
+title: "Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide"
 author: "Jacob Kaplan"
 date: "2021-04-19"
 site: bookdown::bookdown_site
 documentclass: book
-lot: yes
 lof: yes
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
@@ -16,7 +15,8 @@ colorlinks: yes
 url: "https://ucrbook.com"
 fontsize: 12pt
 github-repo: "jacobkap/ucrbook"
-classoption: openany
+classoption: twoside,symmetric
+linestretch: 1.15
 ---
 
 
