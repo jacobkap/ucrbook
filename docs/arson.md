@@ -15,14 +15,10 @@ In cases where the arson led to a death, that death would be recorded as a murde
 
 Figure \@ref(fig:arsonAgencies) shows the annual number of police agencies that reported at least one month that year. With data starting in 1979, there were a little over 12,000 agencies reporting a year until the early 2000s where it recovered from a sharp drop in agencies to steadily increase to about 16,000 a year. While arson data is available through 2019, this graph only shows data through 2018. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/arsonAgencies-1} 
-
-}
-
-\caption{The annual number of police agencies that report at least month of data that year.}(\#fig:arsonAgencies)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="arson_files/figure-html/arsonAgencies-1.png" alt="The annual number of police agencies that report at least month of data that year." width="90%" />
+<p class="caption">(\#fig:arsonAgencies)The annual number of police agencies that report at least month of data that year.</p>
+</div>
 
 ## Important variables
 
@@ -50,14 +46,10 @@ Please note that this data is at the incident-level which means that having mult
 
 Figure \@ref(fig:arsonClearance) shows the number of actual arsons (reports that are founded) and clearances for single-family home arsons in League City, Texas, a city of about 100,000 outside of Houston. In most years there were fewer clearances than arsons, but in four years (1982, 1981, 1992, and 2007) there were more clearances than arsons. This is simply because clearances are reported in the month they occur, regardless of when the arson they are clearance occurred. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/arsonClearance-1} 
-
-}
-
-\caption{The annual number of single-family home arsons and clearances in League City, Texas.}(\#fig:arsonClearance)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="arson_files/figure-html/arsonClearance-1.png" alt="The annual number of single-family home arsons and clearances in League City, Texas." width="90%" />
+<p class="caption">(\#fig:arsonClearance)The annual number of single-family home arsons and clearances in League City, Texas.</p>
+</div>
 
 It is rare that there are more clearances than crimes in a given month though this is partially just due to few cases every being cleared. According to the 2019 NIBRS, it takes on average 7 days between the incident and the arrest (median = 0 days) for all crimes, and an average of 11.6 days from incident to arrest for arsons specifically (median = 0 days) for offenders who get arrested. This means that most clearances will be for crimes committed that month, though certainly not all. Therefore, use caution when trying to use this variable to measure crime clearance rates. 
 
@@ -96,22 +88,14 @@ Some arsons can burn down multiple types or structures or cars - fire, after all
 
 Like the other UCR data, there are some cases where there are obvious data entry errors leading to impossible numbers of reported arsons or the price of an arson. As an example, Figure \@ref(fig:residenceArson) shows the annual number of single-family home arsons in Byron City, Illinois, which has a population of slightly over 3,600 people. Every year with data available there are zero arsons reported until 2003 when 469 arsons are reported. Since it is exceedingly unlikely that suddenly an eighth of the city suddenly burned down, and the city never again had a residence arson, this is almost certainly a data entry error. As arsons are relatively rare, having errors - and especially ones like this - can drastically change the results of your analysis so it is important to check your data carefully for more errors. For those using the data that I have cleaned and concatenated, the complete list of obvious outliers that I removed is available on the data's [page on openICPSR](https://www.openicpsr.org/openicpsr/project/103540/version/V9/view).
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/residenceArson-1} 
-
-}
-
-\caption{Annual single-family home arsons in Byron  City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this dataset. }(\#fig:residenceArson)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="arson_files/figure-html/residenceArson-1.png" alt="Annual single-family home arsons in Byron  City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this dataset. " width="90%" />
+<p class="caption">(\#fig:residenceArson)Annual single-family home arsons in Byron  City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this dataset. </p>
+</div>
 
 There are also cases where it is less clear when a value is a data error or is simply due to an outlier - but real - value. For example, Figure \@ref(fig:arsonCost) shows the annual average cost of a single-family home fire in Los Angeles, California. In most years the damage is low - since an arson can damage only part of the house, these low values likely mean that on average only part of the house was damaged, not the entire house. In 2009, however, the average damage is about $540,000 per arson. Is this a data entry error that simply inputs a damage value that is too high? It's certainly possible. However, it could also be that some extraordinarily expensive homes were destroyed that year. In 2009 Los Angeles only reported 63 single-family home arsons so having one, or a few, super mansions - which LA has plenty of - destroyed could mean that this huge value is real. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/arsonCost-1} 
-
-}
-
-\caption{The annual average cost per single-family home arson in Los Angeles, California.}(\#fig:arsonCost)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="arson_files/figure-html/arsonCost-1.png" alt="The annual average cost per single-family home arson in Los Angeles, California." width="90%" />
+<p class="caption">(\#fig:arsonCost)The annual average cost per single-family home arson in Los Angeles, California.</p>
+</div>

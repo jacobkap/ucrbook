@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Overview of the Data | Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide</title>
+  <title>Chapter 2 Overview of the Data | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Overview of the Data | Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide" />
+  <meta property="og:title" content="Chapter 2 Overview of the Data | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://ucrbook.com" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jacobkap/ucrbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Overview of the Data | Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide" />
+  <meta name="twitter:title" content="Chapter 2 Overview of the Data | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide" />
   
   <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2021-04-19" />
+<meta name="date" content="2021-04-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -279,7 +279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioners Guide</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</a>
           </h1>
         </div>
 
@@ -603,7 +603,7 @@ Figure 2.11: Total reported hate crimes by state, 2018.
 <div id="the-data-as-you-get-it-from-the-fbi" class="section level2" number="2.5">
 <h2><span class="header-section-number">2.5</span> The data as you get it from the FBI</h2>
 <p>We’ll finish this overview of the UCR data by briefly talking about format of the data that is released by the FBI, before the processing done by myself or <a href="https://www.icpsr.umich.edu/web/pages/NACJD/index.html">NACJD</a> that converts the data to a type that software like R or Stata or Excel can understand. The FBI releases their data as fixed-width ASCII files which are basically just an Excel file but with all of the columns squished together. As an example, below is the data as you receive it from the FBI for the Offenses Known and Clearances by Arrest dataset for 1960, the first year with data available. In the figure, it seems like there are multiple rows but that’s just because the software that I opened the file in isn’t wide enough - in reality what is shown is a single row that is extremely wide because there are over 1,500 columns in this data. If you scroll down enough you’ll see the next row, but that isn’t shown in the current image. What is shown is a single row with a ton of columns all pushed up next to each other. Since all of the columns are squished together (the gaps are just blank spaces because the value there is a space, but that doesn’t mean there is a in the data. Spaces are possible values in the data and are meaningful), you need some way to figure out which parts of the data belong in which column.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
 <img src="images/offenses_known_raw_ascii_1960.PNG" alt="Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset" width="90%" />
 <p class="caption">
 Figure 2.12: Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset

@@ -15,8 +15,9 @@ colorlinks: yes
 url: "https://ucrbook.com"
 fontsize: 12pt
 github-repo: "jacobkap/ucrbook"
-classoption: twoside,symmetric
+classoption: openany
 linestretch: 1.15
+geometry: margin=1in
 ---
 
 ```{r setup, include=FALSE}

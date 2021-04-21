@@ -25,6 +25,8 @@ bookdown::pdf_book:
  stylesheet: style.css
  documentclass: book
  classoption: openany
+ linestretch: 1.15
+ geometry: margin=1in
 bookdown::epub_book:
   dev: svglite
   stylesheet: style.css
