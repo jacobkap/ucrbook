@@ -123,10 +123,10 @@ The biggest problem with index crimes is that it is simply the sum of 8 (or 7 si
 ```{r sfThefts, fig.cap = "Thefts and total index crimes in San Francisco, 1960-2018." }
 sf <- offenses_known_yearly_1960_2018[offenses_known_yearly_1960_2018$ori %in% "CA03801", ]
 
-ggplot(sf, aes(x = year, y = actual_index_total, color = "Total Index Crimes")) +
+ggplot(sf, aes(x = year, y = actual_index_total, color = "Total Index")) +
   geom_line(size = 1.05) +
   geom_line(aes(y = actual_theft_total, color = "Theft"), size = 1.05) +
-  geom_line(aes(y = actual_index_violent, color = "Violent Index Crimes"), size = 1.05) +
+  geom_line(aes(y = actual_index_violent, color = "Violent Index"), size = 1.05) +
   xlab("Year") +
   ylab("Crimes Reported") +
   labs(color = "Crime") +
