@@ -125,7 +125,7 @@
 
 \title{Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide}
 \author{Jacob Kaplan}
-\date{2021-04-20}
+\date{2021-04-22}
 
 \begin{document}
 \maketitle
@@ -148,11 +148,11 @@ UCR data is important for three reasons:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  The definitions are standard and all agencies follow them so you can compare across agencies and over time
+  The definitions are standard, and all agencies follow them so you can compare across agencies and over time.
 \item
-  The data is available since 1960 so there is a long period of available data
+  The data is available since 1960 so there is a long period of available data.
 \item
-  The data is available for most of the 18,000 police agencies in the United States so you can compare across agencies
+  The data is available for most of the 18,000 police agencies in the United States so you can compare across agencies.
 \end{enumerate}
 
 More than most datasets, there are a lot of times when using UCR data that you'll think ``that's weird''. This book will cover this weirdness and when we think the weirdness is just an odd - but acceptable - quirk of the data, and when it is a sign of a big problem in the data or that particular variable and that we should avoid using it. For most of this book we'll be discussing the caveats of the above reasons - or, more directly, why these assumptions are wrong - but these are the reasons why the data is so influential.
@@ -162,7 +162,7 @@ More than most datasets, there are a lot of times when using UCR data that you'l
 
 By the end of each chapter you should have a firm grasp on the dataset the covered and how to use it properly. However, this book can't possibly cover every potential use case for the data so make sure to carefully examine the data for your own particular use.
 
-I get a lot of emails from people asking questions about this data so my own goal is to create a single place that answers as many questions as I can about the data. Again, this is among the most commonly used crime datasets and there are still many current papers published with incorrect information about the data (including such simple aspects like what geographic unit data is in and what time unit it is in). So hopefully this book will decrease the amount of misconceptions about this data, increasing overall research quality.
+I get a lot of emails from people asking questions about this data so my own goal is to create a single place that answers as many questions as I can about the data. Again, this is among the most commonly used crime datasets and there are still many current papers published with incorrect information about the data (including such simple aspects like what geographic unit data is in and what time unit it is in). So hopefully this book will decrease the number of misconceptions about this data, increasing overall research quality.
 
 Since manuals are boring, I'll try to include graphs and images to try to alleviate the boredom. That said, I don't think it's possible to make it too fun so sorry in advanced. This book is a mix of facts about the data, such as how many years are available, and my opinions about it, such as whether it is reliable. In cases of facts I'll just say a statement - e.g.~``the offenses data is available since 1960''. In cases of opinion I'll temper the statement by saying something like ``in my opinion\ldots{}''
 
@@ -205,7 +205,7 @@ It's worth mentioning a final source of UCR information. This is the annual Crim
 \hypertarget{where-to-find-the-data-used-in-this-book}{%
 \subsection{Where to find the data used in this book}\label{where-to-find-the-data-used-in-this-book}}
 
-The data I am using in this book is the cleaned (we'll discuss in more detail exactly what I did to clean each dataset in the dataset's chapter but the short answer is that I did very little.) and concatenated data that I put together from the raw data that the FBI releases. That data is available on my website \href{here}{https://jacobdkaplan.com/data.html}. I am hosting this book through GitHub which has a maximum file size allowed that is far smaller than these data so you'll need to go to my site to download the data, it's not available through this book's GitHub repo. For some examples I'm using the data before I cleaned it of outliers (as an example of the outliers present before I removed them) so that data is not publicly available.
+The data I am using in this book is the cleaned (we'll discuss in more detail exactly what I did to clean each dataset in the dataset's chapter, but the short answer is that I did very little.) and concatenated data that I put together from the raw data that the FBI releases. That data is available on my website \href{here}{https://jacobdkaplan.com/data.html}. I am hosting this book through GitHub which has a maximum file size allowed that is far smaller than these data, so you'll need to go to my site to download the data, it's not available through this book's GitHub repo. For some examples I'm using the data before I cleaned it of outliers (as an example of the outliers present before I removed them) so that data is not publicly available.
 
 \hypertarget{about-the-author}{%
 \chapter*{About the Author}\label{about-the-author}}
@@ -230,9 +230,7 @@ Next, we have to know what geographic and time unit to measure crimes at since t
 
 The final question is that when a crime occurs, how do we know? That is, when we want to count how many crimes occurred do we ask people how often they've been victimized, do we ask people how often they commit a crime, do we look at crimes reported to police, crimes charged in a criminal court? Each of these measures will likely give different answers as to how many crimes occurred.\footnote{The Bureau of Justice Statistics does measure crime by asking a random sample of people whether they were the victim of a crime. For more on this, please see their National Crime Victimization Survey reports}
 
-The FBI answered all of these questions in 1929 when they began the Uniform Crime Reporting (UCR) Program Data, or UCR data for short. \textbf{Crime consists of eight crime categories - murder, rape, robbery, aggravated assault, burglary, motor vehicle theft, theft, and simple assault - that are reported to the police and is collected each month from each agency in the country.} These decisions, born primarily out of the resource limitations of 1929 (e.g.~no computers), have had a major impact on criminology research. The first seven crime categories - known as ``Index Crimes'' or ``Part 1 crimes'' (or ``Part I'' sometimes) - are the ones used to measure crime in many criminology papers, even when the researchers have access to data that covers a broader selection of crimes than these.\footnote{Arson is also an index crime but was added after these initial seven were chosen and is not included in the crimes dataset (though is available separately) so is generally not included in studies that use index crimes.} The crime data actually also includes the final crime, simple assault, though it is not included as an index crime and is, therefore, generally ignored by researchers - a relatively large flaw in most studies that we'll discuss in more detail in Section @ref(index\_crimes).
-
-If you think that decisions made nearly a century ago are probably not the most useful for current research - and they're almost certainly not the decisions that you would have made - then you've struck at the core of this book. As researchers, we are relying on datasets whose creation was made so long ago that
+The FBI answered all of these questions in 1929 when they began the Uniform Crime Reporting (UCR) Program Data, or UCR data for short. \textbf{Crime consists of eight crime categories - murder, rape, robbery, aggravated assault, burglary, motor vehicle theft, theft, and simple assault - that are reported to the police and is collected each month from each agency in the country.} These decisions, born primarily out of the resource limitations of 1929 (e.g.~no computers), have had a major impact on criminology research. The first seven crime categories - known as ``Index Crimes'' or ``Part 1 crimes'' (or ``Part I'' sometimes) - are the ones used to measure crime in many criminology papers, even when the researchers have access to data that covers a broader selection of crimes than these.\footnote{Arson is also an index crime but was added after these initial seven were chosen and is not included in the crimes dataset (though is available separately) so is generally not included in studies that use index crimes.} The crime data actually also includes the final crime, simple assault, though it is not included as an index crime and is, therefore, generally ignored by researchers - a relatively large flaw in most studies that we'll discuss in more detail in Section \ref{indexCrimes}.
 
 \hypertarget{crimes-included-in-the-ucr-datasets}{%
 \section{Crimes included in the UCR datasets}\label{crimes-included-in-the-ucr-datasets}}
@@ -497,8 +495,8 @@ The crimes included in the Arrests by Age, Sex, and Race - the ``arrest'' data t
   Runaways - for minors only.
 \end{enumerate}
 
-\hypertarget{index_crimes}{%
-\subsection{What is an index (or part 1) crime?}\label{index_crimes}}
+\hypertarget{indexCrimes}{%
+\subsection{What is an index (or part 1) crime?}\label{indexCrimes}}
 
 One of the first (and seemingly last) thing that people tend to learn about UCR crime data is that it covers something called an ``index crime.''\footnote{Index crimes are sometimes capitalized as ``Index Crimes'' though I've seen it written both ways. In this book I keep it lowercase as ``index crimes.''} Index crimes, sometimes written as Part 1 or Part I crimes, are the seven crimes originally chosen by the FBI to be included in their measure of crimes as these offenses were both considered serious and generally well-reported so would be a useful measure of crime. Index crimes are often broken down into property index crimes - burglary, theft, and motor vehicle theft (and arson now, though that's often not included and is poorly reported) - and violent index crimes (murder, rape, robbery, and aggravated assault). The ``index'' is simply that all of the crimes are summed up into a total count of crimes (violent, property, or total) for that police agency.
 
@@ -563,18 +561,18 @@ Negative values occur when the unfounding happens in a later month than the crim
 \hypertarget{agency-population-value}{%
 \subsection{Agency population value}\label{agency-population-value}}
 
-Each of the UCR datasets include a population variable that has the estimated population under the jurisdiction of that agency.\footnote{Jurisdiction here refers to the boundaries of the local government, not any legal authority for where the officer can make arrests. For example, the Los Angeles Police Department's jurisdiction in this case refers to crimes that happen inside the city or are otherwise investigated by the LAPD - and are not primarily investigated by another agency.} This variable is often used to create crime rates that control for population. In cases where jurisdiction overlaps, such as when a city has university police agencies or county sheriff's in counties where the cities in that county have their own police, UCR data assigns the population covered to the most local agency and zero population to the overlapping agency. So an agency's population is the number of people in that jurisdiction that isn't already covered by a different agency.
+Each of the UCR datasets include a population variable that has the estimated population under the jurisdiction of that agency.\footnote{Jurisdiction here refers to the boundaries of the local government, not any legal authority for where the officer can make arrests. For example, the Los Angeles Police Department's jurisdiction in this case refers to crimes that happen inside the city or are otherwise investigated by the LAPD - and are not primarily investigated by another agency.} This variable is often used to create crime rates that control for population. In cases where jurisdiction overlaps, such as when a city has university police agencies or county sheriffs in counties where the cities in that county have their own police, UCR data assigns the population covered to the most local agency and zero population to the overlapping agency. So an agency's population is the number of people in that jurisdiction that isn't already covered by a different agency.
 
 For example, in the city of Los Angeles in California has nearly four million residents according to the US Census. There are multiple police agencies in the city, including the Los Angeles Police Department, the Los Angeles County Sheriff's Office, the California Highway Patrol that operates in the area, airport and port police, and university police departments. If each agency reported the number of people in their jurisdiction - which all overlap with each other - we would end up with a population far higher than LA's four million people. To prevent double-counting population when agency's jurisdictions overlap, the non-primary agency will report a population of 0, even though they still report crime data like normal. As an example, in 2018 California State University - Los Angeles reported 92 thefts and a population of 0. Those 92 thefts are not counted in the Los Angeles Police Department data, even though the department counts the population. To get complete crime counts in Los Angeles, you'd need to add up all police agencies within in the city; since the population value is 0 for non-LAPD agencies, both the population and the crime sum will be correct.
 
 The UCR uses this method even when only parts of a jurisdiction overlaps. Los Angeles County Sheriff has a population of about one million people, far less than the actual county population (the number of residents, according to the Census) of about 10 million people. This is because the other nine million people are accounted for by other agencies, mainly the local police agencies in the cities that make up Los Angeles County.
 
-The population value is the population who reside in that jurisdiction, and does not count people who are in the area but don't live there, such as tourists or people who commute there for work. This means that using the population value to determine a rate can be misleading as some places have much higher numbers of non-residents in the area (e.g.~Las Vegas, Washington D.C.) than others.
+The population value is the population who reside in that jurisdiction and does not count people who are in the area but don't live there, such as tourists or people who commute there for work. This means that using the population value to determine a rate can be misleading as some places have much higher numbers of non-residents in the area (e.g.~Las Vegas, Washington D.C.) than others.
 
 \hypertarget{voluntary}{%
 \subsection{Reporting is voluntary \ldots{} so some agencies don't (or report partially)}\label{voluntary}}
 
-When an agency reports their data to the FBI, they do so voluntarily - there is no nationally requirement to report.\footnote{Some states do mandate that their agencies report, but this is not always followed.} This means that there is inconsistency in which agencies report, how many months of the year they report for, and which variables they include in their data submissions. This can lead
+When an agency reports their data to the FBI, they do so voluntarily - there is no nationally requirement to report.\footnote{Some states do mandate that their agencies report, but this is not always followed.} This means that there is inconsistency in which agencies report, how many months of the year they report for, and which variables they include in their data submissions.
 
 In general, more agencies report their data every year and once an agency begins reporting data they tend to keep reporting. The UCR datasets are a collection of separate, though related, datasets and an agency can report to as many of these datasets as they want - an agency that reports to one dataset does not mean that they report to other datasets. Figure \ref{fig:agenciesReporting} shows the number of agencies that submitted at least one month of data to the Offenses Known and Clearances by Arrest data in the given year. For the first decade of available data under 8,000 agencies reported data and this grew to over 13,500 by the late 1970s before plateauing for about a decade. The number of agencies that reported their data actually declined in the 1990s, driven primarily by many Florida agencies temporarily dropping out, before growing steadily to nearly 17,000 agencies in 2010; from here it kept increasing but slower than before.
 
@@ -674,7 +672,7 @@ Each of these datasets will have its own chapter in this book where we discuss t
 \hypertarget{offenses-known-and-clearances-by-arrest}{%
 \subsection{Offenses Known and Clearances by Arrest}\label{offenses-known-and-clearances-by-arrest}}
 
-The Offenses Known and Clearances by Arrest dataset - often called Return A, ``Offenses Known'' or, less commonly, OKCA - is the oldest and most commonly used dataset and measures crimes reported to the police. For this reason it is used as the main measure of crime in the United States and I tend to call it the ``crimes dataset.'' This data includes the monthly number of crimes reported to the police or otherwise known to the police (e.g.~discovered while on patrol) for a small selection of crimes, as well as the number of crimes cleared by arrest or by ``exceptional means'' (a relatively flawed and manipulable measure of whether the case is ``solved''). It also covers the number reported but found by police to have not occurred. Since this data has monthly agency-level crime information it is often used to measure crime trends between police agencies and over time. The data uses something called a Hierarchy Rule which means that in incidents with multiple crimes, only the most serious is recorded - though in practice this affects only a small percent of cases, and primarily affects property crimes.
+The Offenses Known and Clearances by Arrest dataset - often called Return A, ``Offenses Known'' or, less commonly, OKCA - is the oldest and most commonly used dataset and measures crimes reported to the police. For this reason it is used as the main measure of crime in the United States, and I tend to call it the ``crimes dataset.'' This data includes the monthly number of crimes reported to the police or otherwise known to the police (e.g.~discovered while on patrol) for a small selection of crimes, as well as the number of crimes cleared by arrest or by ``exceptional means'' (a relatively flawed and manipulable measure of whether the case is ``solved''). It also covers the number reported but found by police to have not occurred. Since this data has monthly agency-level crime information it is often used to measure crime trends between police agencies and over time. The data uses something called a Hierarchy Rule which means that in incidents with multiple crimes, only the most serious is recorded - though in practice this affects only a small percent of cases, and primarily affects property crimes.
 
 \hypertarget{arrests-by-age-sex-and-race}{%
 \subsection{Arrests by Age, Sex, and Race}\label{arrests-by-age-sex-and-race}}
@@ -710,7 +708,7 @@ So this data is really a narrower measure of hate crimes than it might seem. In 
 \hypertarget{property-stolen-and-recovered-supplement-to-return-a}{%
 \subsection{Property Stolen and Recovered (Supplement to Return A)}\label{property-stolen-and-recovered-supplement-to-return-a}}
 
-The Property Stolen and Recovered data - sometimes called the Supplement to Return A (Return A being another name for the Offenses Known and Clearances by Arrest dataset, the ``crime'' dataset) - provides monthly information about property-related offenses (theft, motor vehicle theft, robbery, and burglary), including the location of the offense (in broad categories like ``gas station'' or ``residence), what was stolen (e.g.~clothing, livestock, firearms), and how much the stolen items were worth.\footnote{It also includes the value of items stolen during rapes and murders, if anything was stolen.} The''recovered" part of this dataset covers the type and value of property recovered so you can use this, along with the type and value of property stolen, to determine what percent and type of items the police managed to recover. Like other UCR datasets this is at the agency-month level so you can, for example, learn how often burglaries occur at the victim's home during the day, and if that rate changes over the year or differs across agencies. The data, however, provides no information about the offender or the victim (other than if the victim was an individual or a commercial business {[}based on the location of the incident - ``bank'', ``gas station'', etc{]}). The value of the property stolen is primarily based on the victim's estimate of how much the item is worth (items that are decreased in value once used - such as cars - are supposed to be valued at the current market rate, but the data provides no indication of when it uses the current market rate or the victim's estimate) so it should be used as a very rough estimate of value.
+The Property Stolen and Recovered data - sometimes called the Supplement to Return A (Return A being another name for the Offenses Known and Clearances by Arrest dataset, the ``crime'' dataset) - provides monthly information about property-related offenses (theft, motor vehicle theft, robbery, and burglary), including the location of the offense (in broad categories like ``gas station'' or ``residence), what was stolen (e.g.~clothing, livestock, firearms), and how much the stolen items were worth.\footnote{It also includes the value of items stolen during rapes and murders, if anything was stolen.} The''recovered" part of this dataset covers the type and value of property recovered so you can use this, along with the type and value of property stolen, to determine what percent and type of items the police managed to recover. Like other UCR datasets this is at the agency-month level so you can, for example, learn how often burglaries occur at the victim's home during the day, and if that rate changes over the year or differs across agencies. The data, however, provides no information about the offender or the victim (other than if the victim was an individual or a commercial business {[}based on the location of the incident - ``bank'', ``gas station'', etc.{]}). The value of the property stolen is primarily based on the victim's estimate of how much the item is worth (items that are decreased in value once used - such as cars - are supposed to be valued at the current market rate, but the data provides no indication of when it uses the current market rate or the victim's estimate) so it should be used as a very rough estimate of value.
 
 \hypertarget{arson}{%
 \subsection{Arson}\label{arson}}
@@ -744,12 +742,12 @@ The second important thing to know about reading in a fixed-width ASCII file is 
 
 Fixed-width ASCII files may seem awful to you reading it today, and it is awful to use. But it appears to be an efficient way to store data back many decades ago when data releases began but now is extremely inefficient - in terms of speed, file size, ease of use - compared to modern software so I'm not sure why they \emph{still} release data in this format. But they do, and even the more \emph{modern} (if starting in 1991, before I was born, is modern!) NIBRS data comes in this format. For you, however, the important part to understand is not how exactly to read this type of data, but to understand that people who made this data publicly available (such as myself and the team at NACJD) must made this conversion process.\footnote{For those interested in reading in this type of data, please see my R package asciiSetupReader.} \textbf{This conversion process, from fixed-width ASCII to a useful format is the most dangerous step taken in using this data - and one that is nearly entirely unseen by researchers.}
 
-Every line of code you write (or, for SPSS users, click you make) invites the possibility of making a mistake.\footnote{Even highly experienced programmers who are doing something like can make mistakes. For example, if you type out ``2+2'' 100 times - something extremely simple that anyone can do - how often will you mistype a character and get a wrong result? I'd guess that at least once you'd make a mistake.} The FBI does not provide a setup file with the fixed-width ASCII data so to read in this data you need to make it yourself. Since some UCR data are massive, this involves assigning the column width for thousands of columns and the value labels for hundreds of different value labels.\footnote{With the exception of the arrest data and some value label changes in hate crimes and homicide data, the setup files remain consistent you a single file will work for all years for a given dataset. You do not need to make a setup file for each year.} A typo anywhere could have potentially far-reaching consequences, so this is a crucial weakpoint in the data cleaning process - and one in which I have not seen anything written about before. While I have been diligent in checking the setup files and my code to seek out any issues - and I know that NACJD has a robust checking process for their own work - that doesn't mean our work is perfect.\footnote{For evidence of this, please see any of the openICPSR pages for my detail as they detail changes I've made in the data such as decisions on what level to aggregate to and mistakes that I made and later found and fixed.} Even with perfection in processing the raw data to useful files, decisions we make (e.g.~what level to aggregate to, what is an outlier) can affect both what type of questions you can ask when using this data, and how well you can answer them.
+Every line of code you write (or, for SPSS users, click you make) invites the possibility of making a mistake.\footnote{Even highly experienced programmers who are doing something like can make mistakes. For example, if you type out ``2+2'' 100 times - something extremely simple that anyone can do - how often will you mistype a character and get a wrong result? I'd guess that at least once you'd make a mistake.} The FBI does not provide a setup file with the fixed-width ASCII data so to read in this data you need to make it yourself. Since some UCR data are massive, this involves assigning the column width for thousands of columns and the value labels for hundreds of different value labels.\footnote{With the exception of the arrest data and some value label changes in hate crimes and homicide data, the setup files remain consistent you a single file will work for all years for a given dataset. You do not need to make a setup file for each year.} A typo anywhere could have potentially far-reaching consequences, so this is a crucial weak point in the data cleaning process - and one in which I have not seen anything written about before. While I have been diligent in checking the setup files and my code to seek out any issues - and I know that NACJD has a robust checking process for their own work - that doesn't mean our work is perfect.\footnote{For evidence of this, please see any of the openICPSR pages for my detail as they detail changes I've made in the data such as decisions on what level to aggregate to and mistakes that I made and later found and fixed.} Even with perfection in processing the raw data to useful files, decisions we make (e.g.~what level to aggregate to, what is an outlier) can affect both what type of questions you can ask when using this data, and how well you can answer them.
 
-\hypertarget{offenses_known}{%
-\chapter{Offenses Known and Clearances by Arrest}\label{offenses_known}}
+\hypertarget{offensesKnown}{%
+\chapter{Offenses Known and Clearances by Arrest}\label{offensesKnown}}
 
-The Offenses Known and Clearances by Arrest dataset - often called Return A, ``Offenses Known'' or, less commonly, OKCA - is the oldest and most commonly used dataset and measures crimes reported to the police. For this reason it is used as the main measure of crime in the United States and I tend to call it the ``crimes dataset.'' This data includes the monthly number of crimes reported to the police or otherwise known to the police (e.g.~discovered while on patrol) for a small selection of crimes, as well as the number of crimes cleared by arrest or by ``exceptional means'' (a relatively flawed and manipulable measure of whether the case is ``solved''). It also covers the number reported but found by police to have not occurred. Since this data has monthly agency-level crime information it is often used to measure crime trends between police agencies and over time. The data uses something called a Hierarchy Rule which means that in incidents with multiple crimes, only the most serious is recorded - though in practice this affects only a small percent of cases, and primarily affects property crimes.
+The Offenses Known and Clearances by Arrest dataset - often called Return A, ``Offenses Known'' or, less commonly, OKCA - is the oldest and most commonly used dataset and measures crimes reported to the police. For this reason it is used as the main measure of crime in the United States, and I tend to call it the ``crimes dataset.'' This data includes the monthly number of crimes reported to the police or otherwise known to the police (e.g.~discovered while on patrol) for a small selection of crimes, as well as the number of crimes cleared by arrest or by ``exceptional means'' (a relatively flawed and manipulable measure of whether the case is ``solved''). It also covers the number reported but found by police to have not occurred. Since this data has monthly agency-level crime information it is often used to measure crime trends between police agencies and over time. The data uses something called a Hierarchy Rule which means that in incidents with multiple crimes, only the most serious is recorded - though in practice this affects only a small percent of cases, and primarily affects property crimes.
 
 \hypertarget{which-crimes-are-included}{%
 \section{Which crimes are included?}\label{which-crimes-are-included}}
@@ -870,14 +868,14 @@ So using the Hierarchy Rule does undercount crime, but this is a small undercoun
 
 The biggest problem with index crimes is that it is simply the sum of 8 (or 7 since arson data usually isn't available) crimes. Index crimes have a huge range in their seriousness - it includes both murder and theft. This is clearly wrong as 100 murders is more serious than 100 thefts. This is especially a problem as less serious crimes (theft mostly) are far more common than more serious crimes (in 2017 there were 1.25 million violent index crimes in the United States. That same year had 5.5 million thefts.). So index crimes under-count the seriousness of crimes. Looking at total index crimes is, in effect, mostly just looking at theft.
 
-This is especially a problem because it hides trends in violent crimes. San Francisco, as an example, has had a huge increase in index crimes in the last several years. When looking closer, that increase is driven almost entirely by the near doubling of theft since 2011. During the same years, violent crime has stayed fairly steady. So the city isn't getting more dangerous but it appears like it is due to just looking at total index crimes.
+This is especially a problem because it hides trends in violent crimes. San Francisco, as an example, has had a huge increase in index crimes in the last several years. When looking closer, that increase is driven almost entirely by the near doubling of theft since 2011. During the same years, violent crime has stayed fairly steady. So the city isn't getting more dangerous, but it appears like it is due to just looking at total index crimes.
 
 Many researchers divide index crimes into violent and nonviolent categories, which helps but is still not entirely sufficient. Take Chicago as an example. It is a city infamous for its large number of murders. But as a fraction of index crimes, Chicago has a rounding error worth of murders. Their 653 murders in 2017 is only 0.5\% of total index crimes. For violent index crimes, murder makes up 2.2\%. What this means is that changes in murder are very difficult to detect. If Chicago had no murders this year, but a less serious crime (such as theft) increased slightly, we couldn't tell from looking at the number of index crimes.
 
 \hypertarget{agencies-reporting}{%
 \section{Agencies reporting}\label{agencies-reporting}}
 
-Figure \ref{fig:offensesAgenciesReporting} shows the annual number of police agencies that reported at least one month that year. With data starting in 1960, there were a little under 7,500 agencies reporting a year until 1970 when the number of agencies began increasing. This continued until the late 1970s when about 14,000 agencies reported, and this remained steady for over a decade before declining in the 1990s until about 12,500 in the latter half of the decade. Then the number of agencies reporting increased steadily until about 16,500 agencies reported in 2010. The number of agencies have slowly increased since then, adding a few hundred agencies from 2010 to 2018. While this data is available through 2019, this graph only shows data through 2018. As this graph shows agencies that report at least one month, it overcounts reporting agencies as some report fewer than every month in the year. Agencies that do report, however, tend to report all 12 months of the year so this problem is not serious.
+Figure \ref{fig:offensesAgenciesReporting} shows the annual number of police agencies that reported at least one month that year. With data starting in 1960, there were a little under 7,500 agencies reporting a year until 1970 when the number of agencies began increasing. This continued until the late 1970s when about 14,000 agencies reported, and this remained steady for over a decade before declining in the 1990s until about 12,500 in the latter half of the decade. Then the number of agencies reporting increased steadily until about 16,500 agencies reported in 2010. The number of agencies has slowly increased since then, adding a few hundred agencies from 2010 to 2018. While this data is available through 2019, this graph only shows data through 2018. As this graph shows agencies that report at least one month, it overcounts reporting agencies as some report fewer than every month in the year. Agencies that do report, however, tend to report all 12 months of the year so this problem is not serious.
 
 \begin{figure}
 
@@ -903,7 +901,7 @@ This is the number of offenses that \emph{actually} occurred - where \emph{actua
 
 A crime is cleared when an offender is arrested or when the case is considered cleared by exceptional means. To be more specific, this data counts crime as a crime incident, regardless of the number of offenders. For example, if 3 people robbed a person, that is one crime of robbery, not 3 separate crimes. This crime is cleared when one of the three robbers is arrested - no matter the outcome for the other two robbers. Arresting all 3 still counts as a single robbery cleared.
 
-Even though this dataset is formally named ``Offenses Known and Clearances by Arrest'' it does include clearances where no one is arrested, which are called ``exceptional clearances'' or ``clearances by exceptional means.'' For exceptional clearances, police must have identified the offender, have sufficient evidence to arrest that offender, know where they are (so they can actually be apprehended) and only then be unable to make the arrest. Exceptional clearances include cases where the offender dies before an arrest (by any means, including suicide, accidental, illness, killed by someone including a police officer) or when the police are unable to arrest the person since they are already in custody by another jurisdiction (including out of the country or in custody of another agency) and extradition is denied. Two other potential causes of exceptional clearance is when prosecution of the case cannot go forward because the district attorney refuses to prosecute the case, for reasons other than lack of evidence, or when a victim refuses to assist the prosecution in the case.
+Even though this dataset is formally named ``Offenses Known and Clearances by Arrest'' it does include clearances where no one is arrested, which are called ``exceptional clearances'' or ``clearances by exceptional means.'' For exceptional clearances, police must have identified the offender, have sufficient evidence to arrest that offender, know where they are (so they can actually be apprehended) and only then be unable to make the arrest. Exceptional clearances include cases where the offender dies before an arrest (by any means, including suicide, accidental, illness, killed by someone including a police officer) or when the police are unable to arrest the person since they are already in custody by another jurisdiction (including out of the country or in custody of another agency) and extradition is denied. Two other potential causes of exceptional clearance are when prosecution of the case cannot go forward because the district attorney refuses to prosecute the case, for reasons other than lack of evidence, or when a victim refuses to assist the prosecution in the case.
 
 Unfortunately, this data does not differentiate between clearances by arrest or by exceptional means so there's no way to determine how many clearances mean the offender is actually arrested - and even more problematic, how many clearances have all of the offenders arrested.\footnote{NIBRS data does differentiate these types of clearances} There is also evidence that police agencies report classify large numbers of clearances as clearances through exception means (again, we have no way to tell which is which using this data) even though exceptional clearances should be rare given that times where the offender is known but cannot be arrested are likely far less common than when they are arrested. This is particularly a problem in the case of rapes where in some cases there are far more exceptional clearances than clearances by arrest \citep{yeung2018comes}. For an excellent investigation into this issue, please read the \citet{yeung2018comes} article available on ProPublica's website \href{https://www.propublica.org/article/when-it-comes-to-rape-just-because-a-case-is-cleared-does-not-mean-solved}{here}
 
@@ -928,7 +926,7 @@ This variable is a subset of the Total Cleared variable and only includes cleara
 \hypertarget{unfounded-crimes}{%
 \subsection{Unfounded crimes}\label{unfounded-crimes}}
 
-An unfounded crime is one in which a police investigation has determined that the reported crime did not actually happen. For example I observed during a ride-along a report of a burglary where the homeowners said that they came home and the front door was open and they thought it might have been their son who forgot to close it but could also be a burglar so they called the police just in case. This would be recorded as a burglary and if it turned out to be the son, the police would then record this as an unfounded burglary.
+An unfounded crime is one in which a police investigation has determined that the reported crime did not actually happen. For example I observed during a ride-along a report of a burglary where the homeowners said that they came home, and the front door was open and they thought it might have been their son who forgot to close it but were worried that it could be a burglar, so they called the police just in case. This would be recorded as a burglary and if it turned out to be the son, the police would then record this as an unfounded burglary.
 
 Other unfounded crimes would include when someone reports a crime but later says that the report wasn't true. For example, a person could report a burglary to the police to collect insurance money on the items they claim was stolen. If the police discover this they would unfound the case - and the lying to the police and fraud would not be counted as neither of those are crimes included in this dataset. Unfounding crimes are especially common for rapes. If a person reports that they were raped and then later say that this report isn't true - and doing so is relatively common, especially for child sexual abuse victims, even when the rape did actually happen - then the police will unfound the case {[}@{]}.
 
@@ -940,7 +938,7 @@ Figure \ref{fig:phillyRapeUnfound} provides one example of this by showing the n
 
 }
 
-\caption{The annual number of actual and unfounded rapes in Philadephia, PA, 1960-2018.}\label{fig:phillyRapeUnfound}
+\caption{The annual number of actual and unfounded rapes in Philadelphia, PA, 1960-2018.}\label{fig:phillyRapeUnfound}
 \end{figure}
 
 Another way to look at this data is the percent of rapes that were unfounded. Since unfounded and actual rapes are distinct categories, we'll need to divide unfounded rapes by the sum of actual and unfounded rapes and then multiple the result by 100. Please note that unfounding occurs in the month the police discover the case to be unfounded, it is not tied to the month of the original report. So this graph isn't really showing the percent that year that were unfounded - but for our purposes of getting a general sense it is acceptable. Usually about 10\% of reported rapes are unfounded in Philadelphia. The 44\% in 1983, the first year with data, is probably high due to it accounting for unfounded cases in previous years that weren't reported in the data until 1983.
@@ -951,7 +949,7 @@ Another way to look at this data is the percent of rapes that were unfounded. Si
 
 }
 
-\caption{The percent of reported rapes that the police recorded as unfounded in Philadephia, PA, 1960-2018.}\label{fig:phillyRapeUnfoundPercent}
+\caption{The percent of reported rapes that the police recorded as unfounded in Philadelphia, PA, 1960-2018.}\label{fig:phillyRapeUnfoundPercent}
 \end{figure}
 
 As a comparison, Figure \ref{fig:phillyRobberyUnfoundPercent} shows the percent of robberies that are recorded as unfounded in Philadelphia over the same time period. While the percent has been increasing, for most of the data it is under 1\% and never exceeds 3\%. To me this suggests that the Philly Police, and they aren't unique, are overcounting rapes as unfounded to improve their rape statistic data.
@@ -962,7 +960,7 @@ As a comparison, Figure \ref{fig:phillyRobberyUnfoundPercent} shows the percent 
 
 }
 
-\caption{The percent of reported robberies that the police recorded as unfounded in Philadephia, PA, 1960-2018.}\label{fig:phillyRobberyUnfoundPercent}
+\caption{The percent of reported robberies that the police recorded as unfounded in Philadelphia, PA, 1960-2018.}\label{fig:phillyRobberyUnfoundPercent}
 \end{figure}
 
 \hypertarget{important-issues}{%
@@ -1002,7 +1000,7 @@ In comparison, New York City has the sudden spike a year later, which indicates 
 \end{figure}
 
 Less clear is what's happening in San Francisco, California, shown in Figure \ref{fig:rapeLA}.
-Here we do see an increase in 2013 which while it appears small on the graph is actually a 49\% increase from 2012. Then there is a much larger spike in 2014 - a 120\% increase - which may suggest that part of the agency started following the new definition in 2013 and the remainder followed in 2014. However, large increases or decreases are relatively common in San Francisco so it could also be that the agency only switched to the new definition in 2014 and the spike in 2013 is just a coincidence
+Here we do see an increase in 2013 which while it appears small on the graph is actually a 49\% increase from 2012. Then there is a much larger spike in 2014 - a 120\% increase - which may suggest that part of the agency started following the new definition in 2013 and the remainder followed in 2014. However, large increases or decreases are relatively common in San Francisco so it could also be that the agency only switched to the new definition in 2014 and the spike in 2013 is just a coincidence.
 
 \begin{figure}
 
@@ -1058,7 +1056,43 @@ Figure \ref{fig:manslaughterPercent} shows another way to look at this data: man
 \hypertarget{arrests}{%
 \chapter{Arrests by Age, Sex, and Race}\label{arrests}}
 
-The Arrests by Age, Sex, and Race dataset - often called ASR or the ``arrests data'' - includes the monthly number of arrests for a variety of crimes and, unlike the crime data, breaks down this data by age and gender. This data includes a broader number of crime categories than the crime dataset (the Offenses Known and Clearances by Arrest data) though is less detailed on violent crimes since it does not breakdown aggravated assault or robberies by weapon type as the Offenses Known data does. For each crime it says the number of arrests for each gender-age group with younger ages (15-24) showing the arrestee's age to the year (e.g.~age 16) and other ages grouping years together (e.g.~age 25-29, 30-34, ``under 10''). It also breaks down arrests by race-age by including the number of arrestees of each race (American Indian, Asian, Black, and White) are the only included races) and if the arrestee is a juvenile (\textless18 years old) or an adult. The data does technically include a breakdown by ethnicity-age (e.g.~juvenile-Hispanic, juvenile-non-Hispanic) but almost no agencies report this data (for many years zero agencies report ethnicity) so in practice the data does not include ethnicity. As the data includes counts of arrestees, people who are arrested multiple times are included in the data multiple times - it is not a measure of unique arrestees.
+\begin{verbatim}
+#>             used   (Mb) gc trigger    (Mb)   max used    (Mb)
+#> Ncells   1093149   58.4    2193471   117.2    1244675    66.5
+#> Vcells 751966747 5737.1 1568329631 11965.5 1502141692 11460.5
+#>              used   (Mb) gc trigger    (Mb)   max used    (Mb)
+#> Ncells    1094858   58.5    2193471   117.2    1244675    66.5
+#> Vcells 1287286330 9821.3 1884398914 14376.9 1822639897 13905.7
+\end{verbatim}
+
+The Arrests by Age, Sex, and Race dataset - often called ASR, or the ``arrests data'', or the ``Arrests by Age, Sex, Race, and Ethnicity (ASRE) though this is really misleading since most years don't even report ethnicity data - includes the monthly number of arrests for a variety of crimes and, unlike the crime data, breaks down this data by age and gender. This data includes a broader number of crime categories than the crime dataset (the Offenses Known and Clearances by Arrest data) though is less detailed on violent crimes since it does not breakdown aggravated assault or robberies by weapon type as the Offenses Known data does. For each crime it says the number of arrests for each gender-age group with younger ages (15-24) showing the arrestee's age to the year (e.g.~age 16) and other ages grouping years together (e.g.~age 25-29, 30-34,''under 10"). It also breaks down arrests by race-age by including the number of arrestees of each race (American Indian, Asian, Black, and White) are the only included races) and if the arrestee is a juvenile (\textless18 years old) or an adult. The data does technically include a breakdown by ethnicity-age (e.g.~juvenile-Hispanic, juvenile-non-Hispanic) but almost no agencies report this data (for many years zero agencies report ethnicity) so in practice the data does not include ethnicity. As the data includes counts of arrestees, people who are arrested multiple times are included in the data multiple times - it is not a measure of unique arrestees.
+
+\hypertarget{agencies-reporting-1}{%
+\section{Agencies reporting}\label{agencies-reporting-1}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/arrestsAgenciesReporting-1} 
+
+}
+
+\caption{The annual number of agencies reporting at least one month of data in that year.}\label{fig:arrestsAgenciesReporting}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/arrestsAgenciesReporting12Months-1} 
+
+}
+
+\caption{The annual number of agencies reporting 12 months of data in that year.}\label{fig:arrestsAgenciesReporting12Months}
+\end{figure}
+
+\hypertarget{what-is-an-arrest-what-unit-is-this-data-in}{%
+\section{What is an arrest? (what unit is this data in?)}\label{what-is-an-arrest-what-unit-is-this-data-in}}
+
+\hypertarget{the-hierarchy-rule}{%
+\subsection{The Hierarchy Rule}\label{the-hierarchy-rule}}
 
 \hypertarget{crimes-included}{%
 \section{Crimes included}\label{crimes-included}}
@@ -1197,6 +1231,8 @@ The Arrests by Age, Sex, and Race dataset - often called ASR or the ``arrests da
 \hypertarget{age}{%
 \subsection{Age}\label{age}}
 
+For each crime the data provides the number of people of each gender by age, with several years in the peak offending age given as the specific age and younger and older ages broken into groups. Only female and male genders are available, and there is no variable for ``unknown'' gender. So to get a total arrests for that crime for that age, just add the female and male variables together.
+
 \begin{itemize}
 \tightlist
 \item
@@ -1304,6 +1340,12 @@ The Arrests by Age, Sex, and Race dataset - often called ASR or the ``arrests da
 \hypertarget{race}{%
 \subsection{Race}\label{race}}
 
+The data also breaks down the number of arrests for each crime by race, with the only included races being American Indian, Asian, Black, and White. This is further broken down into if the arrestee was an adult (18 years or older) or a juvenile (under 18). Whether the arrestee is Hispanic is in a separate (and nearly universally non-reported variable). Since the ethnicity variable is separate, and since the data is not at the arrestee-level unit, there's no way to interact the race and ethnicity variables. So, for example, there is no way to determine how many White-Hispanic or White-Non-Hispanic arrestees. Just total White arrestees and total Hispanic arrestees.
+
+As with race variables in other UCR datasets - and, really, any dataset - you should be cautious about using this variables since it is the officer's perception of the arrestee's race - though of course some arrests do have other data about the arrestee's race such as what they tell the officer.
+
+Even though there is information about the specific age of arrestee (or the age range, depending on the arrestee's age) and their gender, there is no gender information combined with race and no age beyond the adult/juvenile binary. If you add up all arrests that are broken down by gender-age and compare it to the sum of all of the arrests broken down by adult/juvenile-race here, in some cases these numbers don't add up. That's because while most agencies do report the age variables, not all agencies report the race variables. So summing up the race variables will actually undercount the total number of arrests.
+
 \begin{itemize}
 \tightlist
 \item
@@ -1362,6 +1404,18 @@ The Arrests by Age, Sex, and Race dataset - often called ASR or the ``arrests da
     Non-Hispanic
   \end{itemize}
 \end{itemize}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/theftHispanic-1} 
+
+}
+
+\caption{The national annual number of Hispanic arrestees for theft. This includes all agencies that year that reporting any number of months. Hispanic arrestees include both juvenile and adult arrestees}\label{fig:theftHispanic}
+\end{figure}
+
+\hypertarget{juvenile-referrals}{%
+\subsection{Juvenile referrals}\label{juvenile-referrals}}
 
 \hypertarget{leoka}{%
 \chapter{Law Enforcement Officers Killed and Assaulted (LEOKA)}\label{leoka}}
@@ -1515,10 +1569,10 @@ This data, as well as the privately-run site \href{https://www.odmp.org/}{Office
 
 The Supplementary Homicide Reports dataset - often abbreviated to SHR - is the most detailed of the UCR datasets and provides information about the circumstances and participants (victim and offender demographics and relationship status) for homicides.\footnote{If you're familiar with the National Incident-Based Reporting System (NIBRS) data that is replacing UCR, this dataset is the closest UCR data to it, though it is still less detailed than NIBRS data.} For each homicide incident it tells you the age, gender, race, and ethnicity of each victim and offender as well as the relationship between the first victim and each of the offenders (but not the other victims in cases where there are multiple victims). It also tells you the weapon used by each offender and the circumstance of the killing, such as a ``lovers triangle'' or a gang-related murder. As with other UCR data, it also tells you the agency it occurred in and the month and year when the crime happened.
 
-\hypertarget{agencies-reporting-1}{%
-\section{Agencies reporting}\label{agencies-reporting-1}}
+\hypertarget{agencies-reporting-2}{%
+\section{Agencies reporting}\label{agencies-reporting-2}}
 
-This data only has a report when the agency has a murder that year and since murder is rare it is difficult to measure underreporting. One way we can look at reporting is to compare murders in the SHR data with that of other datasets. We'll look at two of them: the Offenses Known and Clearances by Arrest which is covered in detail in Chapter @ref(\url{https://wonder.cdc.gov/}), and the Center for Disease Control and Prevention (CDC) detail on national deaths from homicide.\footnote{CDC WONDER data is available here: \url{https://wonder.cdc.gov/}} Both this dataset and the Offenses Known and Clearances by Arrest data are UCR datasets so you may think that the numbers of murders from each dataset should be the same. That is a perfectly reasonable assumption, but since this is UCR data we're talking about, you'd be wrong. Police agencies are free to report to either, both, or neither dataset so while the number of murders are close for each dataset, they are never equal. CDC WONDER data aggregates mortality data (among other data) from state death certificates which reduces the issue of voluntary reporting that we have in UCR data.
+This data only has a report when the agency has a murder that year and since murder is rare it is difficult to measure underreporting. One way we can look at reporting is to compare murders in the SHR data with that of other datasets. We'll look at two of them: the Offenses Known and Clearances by Arrest which is covered in detail in Chapter \ref{offensesKnown}, and the Center for Disease Control and Prevention (CDC) detail on national deaths from homicide.\footnote{CDC WONDER data is available here: \url{https://wonder.cdc.gov/}} Both this dataset and the Offenses Known and Clearances by Arrest data are UCR datasets so you may think that the numbers of murders from each dataset should be the same. That is a perfectly reasonable assumption, but since this is UCR data we're talking about, you'd be wrong. Police agencies are free to report to either, both, or neither dataset so while the number of murders are close for each dataset, they are never equal. CDC WONDER data aggregates mortality data (among other data) from state death certificates which reduces the issue of voluntary reporting that we have in UCR data.
 
 Figure \ref{fig:shrVsOffenses} shows the annual number of murder victims from each of these datasets starting in 1976 for the UCR data and in 1999 for the CDC data.\footnote{1975 is actually the first year that the Supplementary Homicide Reports data is available but that dataset only has info for a single victim and offender - all later years has info for up to 11 victims and offenders - so 1976 is often used as the first year of data}. For the UCR data, in every year the numbers are fairly similar and the trends are the same over time, but the number of murders is never equal. The numbers have actually gotten worse over time with the difference between the datasets increasing and the Offenses Known data having consistently more murders reported than the SHR data since the late 1990s. Compared to the CDC data, however, both UCR datasets - and in particular the SHR data - undercount the number of murders. While trends are the same, UCR data reports thousands fewer murders per year than the CDC data, indicating how much of an issue underreporting is in this data.
 
@@ -1639,7 +1693,7 @@ Figure \ref{fig:shrOffenderRace} shows the percent of homicides in the data by r
 \caption{The race of offenders, 1976-2018.}\label{fig:shrOffenderRace}
 \end{figure}
 
-For victim race, seen in Figure \ref{fig:shrVictimRace}, only about 1\% of victim race's are unknown. This means we can be a lot more confidence in the race of the victims than in the race of the offender. Or, at least the challenge of categorizing people by race is not the major problem, not missing people. As with offenders, White and Black victims are the two most common races, with 49\% and 47.7\% of victims, respectively. There are almost double the percent of Asian victims than Asian offenders at 1.51\% of victims (and 0.9\% of offenders). American Indian or Alaskan Natives make up 0.8\% of victims while Native Hawaiian or Pacific Islanders make up 0.005\% of victims.
+For victim race, seen in Figure \ref{fig:shrVictimRace}, only about 1\% of victim races are unknown. This means we can be a lot more confidence in the race of the victims than in the race of the offender. Or, at least the challenge of categorizing people by race is not the major problem, not missing people. As with offenders, White and Black victims are the two most common races, with 49\% and 47.7\% of victims, respectively. There are almost double the percent of Asian victims than Asian offenders at 1.51\% of victims (and 0.9\% of offenders). American Indian or Alaskan Natives make up 0.8\% of victims while Native Hawaiian or Pacific Islanders make up 0.005\% of victims.
 
 \begin{figure}
 
@@ -1705,7 +1759,7 @@ An interesting and highly useful variable is the relationship between the first 
 
 We also have information on the type of the murder, which this data calls the ``circumstance''. This comes is relatively broad categories that leave a lot to be desired in our understanding of what led to the murder. Table \ref{fig:shrCircumstance} shows the number and percent of each circumstance for the first victim of each murder from 1976 to 2018. This data has 33 possible circumstances which it groups into five main categories: murders that coincide with committing another crime (``felony type'' murders), murders that don't coincide with another crime (``non-felony type'' murders), justifiable homicides, and negligent manslaughter.
 
-The felony type murders are simply ones where another crime occurred during the murder. While this is called ``felony type'' it does included other crimes such as theft and gambling (which isn't always a felony) so is a bit of a misnomer. The ``non-felony type'' are murders that happen without another crime. This includes gang killings (where, supposedly, only the murder occurred), children killed by babysitters, fights among intoxicated (both of alcohol and drugs), and ``lover's triangle'' killings. Justifiable homicides are when a person (civilian and police officer who kill a person committing a crime.\footnote{This dataset is one source of information on how many people police kill each year. But it is a large undercount compared to other sources such as the Washington Post collection, so is not a very useful source of information on this topic.} Negligent manslaughter includes accidental shootings such as when children find and shoot a gun, but excludes deaths from traffic accidents.
+The felony type murders are simply ones where another crime occurred during the murder. While this is called ``felony type'' it does include other crimes such as theft and gambling (which isn't always a felony) so is a bit of a misnomer. The ``non-felony type'' are murders that happen without another crime. This includes gang killings (where, supposedly, only the murder occurred), children killed by babysitters, fights among intoxicated (both of alcohol and drugs), and ``lover's triangle'' killings. Justifiable homicides are when a person (civilian and police officer who kill a person committing a crime.\footnote{This dataset is one source of information on how many people police kill each year. But it is a large undercount compared to other sources such as the Washington Post collection, so is not a very useful source of information on this topic.} Negligent manslaughter includes accidental shootings such as when children find and shoot a gun, but excludes deaths from traffic accidents.
 
 The most common circumstances, accounting for 27.4\%, 26.4\%, and 12.5\%, respectively, are ``other arguments'', ``unknown'', and ``other non-felony type - not specified''. Since the data includes ``argument over money or property'' as one category, the ``other arguments'' mean that it's an argument for a reason other than over money or property. The ``other non-felony type'' one does not mean that the murder did not occur alongside another crime, but also doesn't fall into the non-felony categories included. Robbery is the only remaining circumstance with more than 5\% of murders, at 8\%.
 
@@ -1731,8 +1785,8 @@ So this data is really a narrower measure of hate crimes than it might seem. In 
 
 My main takeaway for this data is that it is inappropriate to use for most hate crime research. At most it can be used to look at within-city within-bias-motivation trends, while keeping in mind that even this narrow subset of data is limited by under-reporting by victims and potential changes in police practices of reporting such as how many months of data they report per year.
 
-\hypertarget{agencies-reporting-2}{%
-\section{Agencies reporting}\label{agencies-reporting-2}}
+\hypertarget{agencies-reporting-3}{%
+\section{Agencies reporting}\label{agencies-reporting-3}}
 
 We'll start by looking at how many agencies report hate crime each year. This is a bit tricky since
 
@@ -1803,7 +1857,7 @@ They also have a variable with the exact date that the hate crime occurred on - 
 \caption{The day of the week that hate crimes occurred on, 1991-2018.}\label{fig:hateCrimesByDay}
 \end{figure}
 
-Each hate crime incident can cover up to 10 different crimes occurring - e.g.~a person who burglarizes a synagogue and spray paints a swastika on the wall would be have both vandalism and burglary reported in this data. With each crime, this data has the bias motivation for that crime, the location of the crime (in broad categories, not the actual location in the city like a street address would have), and the number of victims for that offense. In practice, in most hate crimes with multiple offenses recorded, the bias motivation, location, and victim count is the same for each offense.
+Each hate crime incident can cover up to 10 different crimes occurring - e.g.~a person who burglarizes a synagogue and spray paints a swastika on the wall would have both vandalism and burglary reported in this data. With each crime, this data has the bias motivation for that crime, the location of the crime (in broad categories, not the actual location in the city like a street address would have), and the number of victims for that offense. In practice, in most hate crimes with multiple offenses recorded, the bias motivation, location, and victim count is the same for each offense.
 
 Figure \ref{fig:crimesPerHateCrime} shows the number of crimes per incident for each hate crime reported between 1991 and 2018. In 96.6\% of cases, there is only one offense in that incident.\footnote{In 0.0005\% of hate crimes there is no recorded offense. This is not shown in the graph.} This drops sharply to 3.2\% of incidents having two offenses, 0.21\% having three offenses, 0.016\% having four offenses, and 0.002\% having five offenses. Even though this data does allow up to 10 offenses per hate crime incident, there has never been a recorded case with more than five offenses.
 
@@ -1833,7 +1887,7 @@ The biases that the FBI includes in this data has grown over time, with new bias
 
 2015 is the most year of new bias motivations, as of data through 2018. This year added a number of religions such as Anti-Buddhist, Anti-Sikh, and Anti-Jehovah's Witness. In 2013, anti-Transgender was added and this is the most common of the bias motivations added since data began in 1991 with 513 hate crimes between 2013-2018 - 0.26\% of all hate crimes from 1991-2018. That year also added anti-male and Anti-Native Hawaiian or Other Pacific Islander, which is the most recent racial group added. In 2012, anti-gender non-conforming and anti-female were included, while in 1997 both anti-mental and anti-physical disability were added. In part due to having fewer years of data available, these newer bias motivations make up a small percent of total hate crimes, accounting for \textasciitilde1.4\%.
 
-The original hate crimes - that is, those in the data in 1991 when this dataset was released - are far more common. The most common bias motivation is anti-Black at 34\% of hate crimes, anti-Jewish at 13\%, anti-White at 12\%, anti-male homosexual (gay) at 10\%, anti-Hispanic at 6\%, and anti-ethnicity other than Hispanic (this group means a crime against a ethnic group that isn't Hispanic, though it is occasionally reported as anti-non-Hispanic which is incorrect.) at 5\%. All other bias motivations are less than 5\% of hate crimes and consist of a variety of ethnic, racial, religious, or sexual orientation. Some hate crimes can potentially fall in multiple categories. For example, there is a bias motivation of ``anti-male homosexual (gay)'' and of ``anti-lesbian, gay, bisexual, or transgender, mixed group (LGBT)'' so there is some overlap between them.
+The original hate crimes - that is, those in the data in 1991 when this dataset was released - are far more common. The most common bias motivation is anti-Black at 34\% of hate crimes, anti-Jewish at 13\%, anti-White at 12\%, anti-male homosexual (gay) at 10\%, anti-Hispanic at 6\%, and anti-ethnicity other than Hispanic (this group means a crime against an ethnic group that isn't Hispanic, though it is occasionally reported as anti-non-Hispanic which is incorrect.) at 5\%. All other bias motivations are less than 5\% of hate crimes and consist of a variety of ethnic, racial, religious, or sexual orientation. Some hate crimes can potentially fall in multiple categories. For example, there is a bias motivation of ``anti-male homosexual (gay)'' and of ``anti-lesbian, gay, bisexual, or transgender, mixed group (LGBT)'' so there is some overlap between them.
 
 \hypertarget{the-crime-that-occurred}{%
 \subsection{The crime that occurred}\label{the-crime-that-occurred}}
@@ -1891,7 +1945,7 @@ The data also includes the race of the offenders as a group, though not the ethn
 
 The Property Stolen and Recovered data - sometimes called the Supplement to Return A (Return A being another name for the Offenses Known and Clearances by Arrest dataset, the ``crime'' dataset) - provides monthly information about property-related offenses (theft, motor vehicle theft, robbery, and burglary), including the location of the offense (in broad categories like ``gas station'' or ``residence), what was stolen (e.g.~clothing, livestock, firearms), and how much the stolen items were worth.\footnote{It also includes the value of items stolen during rapes and murders, if anything was stolen.} The''recovered" part of this dataset covers the type and value of property recovered so you can use this, along with the type and value of property stolen, to determine what percent and type of items the police managed to recover. Like other UCR datasets this is at the agency-month level so you can, for example, learn how often burglaries occur at the victim's home during the day, and if that rate changes over the year or differs across agencies.
 
-The data, however, provides no information about the offender or the victim (other than if the victim was an individual or a commercial business {[}based on the location of the incident - ``bank'', ``gas station'', etc{]}). The value of the property stolen is primarily based on the victim's estimate of how much the item is worth (items that are decreased in value once used - such as cars - are supposed to be valued at the current market rate, but the data provides no indication of when it uses the current market rate or the victim's estimate) so it should be used as a very rough estimate of value.
+The data, however, provides no information about the offender or the victim (other than if the victim was an individual or a commercial business {[}based on the location of the incident - ``bank'', ``gas station'', etc.{]}). The value of the property stolen is primarily based on the victim's estimate of how much the item is worth (items that are decreased in value once used - such as cars - are supposed to be valued at the current market rate, but the data provides no indication of when it uses the current market rate or the victim's estimate) so it should be used as a very rough estimate of value.
 
 Before getting into the details of this data, let's look at one example of how this data can measure property crime in a few different ways. This data is highly useful to use as a rough measure of the cost of crime. This cost is limited to just the value of the property stolen - so excludes things like injuries, mental health effects of victimization, etc. - but is still better than nothing. Since this data includes, for some types of property stolen, both the number of offenses per month (broken down by type of theft and items stolen) and the value of the stolen property, we can also see if the average value of these thefts change over time.
 
@@ -1941,8 +1995,8 @@ When we adjust all values to 2019 dollars, as shown in Figure \ref{fig:phillyHom
 \caption{The inflation-adjusted annual number of burglaries and cost per burglary for daytime home burglaries in Philadelphia, 1960-2019.}\label{fig:phillyHomeCostPerBurglaryInflation}
 \end{figure}
 
-\hypertarget{agencies-reporting-3}{%
-\section{Agencies reporting}\label{agencies-reporting-3}}
+\hypertarget{agencies-reporting-4}{%
+\section{Agencies reporting}\label{agencies-reporting-4}}
 
 We'll start by looking at which agencies report. The data is available from 1960 through 2019 though the columns about the value of the property only begin in 1964. Figure \ref{fig:propertyAgencies} show the number of agencies each year that reported at least one month during that year. In the first several years of data barely any agencies reported data and then it spiked around 1966 to over 6,000 agencies per year then grew quickly until over 12,000 agencies reported data in the late 1970s. From here it actually gradually declined until fewer than 12,000 agencies in the late 1990s before reversing course again and growing to about 15,000 agencies by 2019 - down several hundred agencies from the peak a few years earlier.
 
@@ -1996,11 +2050,11 @@ The complete list of each subsection and a brief definition for the non-obvious 
   \item
     Home residence at unknown time
   \item
-    Non-residence (i.e.~all buildings other than victims home) during the day (6:00am - 5:59pm)
+    Non-residence (i.e.~all buildings other than victim's home) during the day (6:00am - 5:59pm)
   \item
-    Non-residence (i.e.~all buildings other than victims home) during the night (6:00pm - 5:59am)
+    Non-residence (i.e.~all buildings other than victim's home) during the night (6:00pm - 5:59am)
   \item
-    Non-residence (i.e.~all buildings other than victims home) at unknown time
+    Non-residence (i.e.~all buildings other than victim's home) at unknown time
   \end{itemize}
 \item
   Theft/larceny (excluding of a motor vehicle)
@@ -2058,9 +2112,9 @@ The complete list of each subsection and a brief definition for the non-obvious 
   \begin{itemize}
   \tightlist
   \item
-    Stolen in current agency jurisdiction and found by that agency
+    Stolen in current agency's jurisdiction and found by that agency
   \item
-    Stolen in current agency jurisdiction and found by another agency
+    Stolen in current agency's jurisdiction and found by another agency
   \item
     Stolen in another agency's jurisdiction and recovered by current agency
   \end{itemize}
@@ -2075,7 +2129,7 @@ The complete list of each subsection and a brief definition for the non-obvious 
 
 The next set of variables is the value of the property stolen in each crime, as well as the value of property stolen broken down by the type of property (e.g.~clothing, electronics, etc.). To be clear, this is \emph{only} the value of the property stolen during the crime. The cost of any injuries (mental or physical) or any lasting cost to the victim, their family, and society for these crimes are not included. This, of course, vastly underestimates the cost of these crimes so please understand that while this is a measure of the cost of crime, it is only a narrow slice of the true cost.
 
-The cost is the cost for the victim to replace the stolen item. So the current market price for that item (though factoring in the current state the item is in, e.g.~if it's already damaged) and, for businesses, the cost to buy that item and \emph{not} the cost they sell it for. While the police can ask the victim how much the property was worth, they aren't required to use the exact amount given as victim's may exaggerate the value of items. This is not an exact science so I recommend only interpreting these values are estimates - and potentially rough estimates.
+The cost is the cost for the victim to replace the stolen item. So the current market price for that item (though factoring in the current state the item is in, e.g.~if it's already damaged) and, for businesses, the cost to buy that item and \emph{not} the cost they sell it for. While the police can ask the victim how much the property was worth, they aren't required to use the exact amount given as victims may exaggerate the value of items. This is not an exact science, so I recommend only interpreting these values are estimates - and potentially rough estimates.
 
 The value of the property stolen is broken into two overlapping categories: by crime type, and by type of property that was stolen. These are the exact same categories as covered in Section \ref{propertycount} but now is the dollar amount of the items stolen from those types of crimes. The second group is what type of items, based on several discrete categories, was stolen. Please note that multiple items can be stolen in each category - i.e.~there is no Hierarchy Rule used here (for more in the Hierarchy Rule that is used in other UCR data, please see Section \ref{hierarchy}). And it counts the property stolen for each crime type \emph{as well as} for each item type. So if you sum up all of the crime variables and all of the item type variables together you'll overcount the value of property stolen. Each of the item types and their definitions - some categories include or exclude things that you may not expect them to - are detailed below.
 
@@ -2095,11 +2149,11 @@ Though this data starts in 1960, not all variables are available then. 1963 and 
   \item
     Home residence at unknown time
   \item
-    Non-residence (i.e.~all buildings other than victims home) during the day (6:00am - 5:59pm)
+    Non-residence (i.e.~all buildings other than victim's home) during the day (6:00am - 5:59pm)
   \item
-    Non-residence (i.e.~all buildings other than victims home) during the night (6:00pm - 5:59am)
+    Non-residence (i.e.~all buildings other than victim's home) during the night (6:00pm - 5:59am)
   \item
-    Non-residence (i.e.~all buildings other than victims home) at unknown time
+    Non-residence (i.e.~all buildings other than victim's home) at unknown time
   \end{itemize}
 \item
   Murder
@@ -2158,7 +2212,7 @@ Though this data starts in 1960, not all variables are available then. 1963 and 
     This includes all money and signed documents that can be exchanged for money (e.g.~checks). Blank checks and credit and debit cards are not included (they are in the Miscellaneous/other category)
   \end{itemize}
 \item
-  Jewelry and ``previous metals''
+  Jewelry and ``precious metals''
 
   \begin{itemize}
   \tightlist
@@ -2174,7 +2228,7 @@ Though this data starts in 1960, not all variables are available then. 1963 and 
     This also includes items that you take with you when leaving the house (except for your phone): wallet, shoes, purse, backpacks.
   \end{itemize}
 \item
-  Motor vehicle stolen in current agency jurisdiction
+  Motor vehicle stolen in current agency's jurisdiction
 
   \begin{itemize}
   \tightlist
@@ -2261,7 +2315,7 @@ The full list of items recovered and their definitions are below:
     This includes all money and signed documents that can be exchanged for money (e.g.~checks). Blank checks and credit and debit cards are not included (they are in the Miscellaneous/other category)
   \end{itemize}
 \item
-  Jewelry and ``previous metals''
+  Jewelry and ``precious metals''
 
   \begin{itemize}
   \tightlist
@@ -2277,7 +2331,7 @@ The full list of items recovered and their definitions are below:
     This also includes items that you take with you when leaving the house (except for your phone): wallet, shoes, purse, backpacks.
   \end{itemize}
 \item
-  Motor vehicle stolen in current agency jurisdiction
+  Motor vehicle stolen in current agency's jurisdiction
 
   \begin{itemize}
   \tightlist
@@ -2345,9 +2399,9 @@ The full list of items recovered and their definitions are below:
 \hypertarget{data-errors}{%
 \section{Data errors}\label{data-errors}}
 
-This dataset comes with a considerable number of data errors - basically enormous valuations for stolen property. Some of the values are so big that it is clearly an error and not just something very expensive stolen. However, this gets tricky since there can in fact simply be very expensive items stolen and make it look like an error. Some of the stolen property include variables for both the number of items of that type stolen and the total value of the items. From this we can make an average value per item stolen which can help our understanding of what was stolen. However, some items only have the value of the property stolen and the value of property recovered so we actually don't know how many of those items were stolen. These cases makes it even harder to believe that a large value is true and not just a data error since we don't know if the number of these thefts increased, causing the increase in the value reported. We'll look at a couple examples of this and see how difficult it can be to trust this data.
+This dataset comes with a considerable number of data errors - basically enormous valuations for stolen property. Some of the values are so big that it is clearly an error and not just something very expensive stolen. However, this gets tricky since there can in fact simply be very expensive items stolen and make it look like an error. Some of the stolen property include variables for both the number of items of that type stolen and the total value of the items. From this we can make an average value per item stolen which can help our understanding of what was stolen. However, some items only have the value of the property stolen and the value of property recovered so we actually don't know how many of those items were stolen. These cases make it even harder to believe that a large value is true and not just a data error since we don't know if the number of these thefts increased, causing the increase in the value reported. We'll look at a couple examples of this and see how difficult it can be to trust this data.
 
-First, we'll look at the value of livestock thefts in New York City. Livestock is one of the variables where we know the value stolen and recovered but not how many times it happened. Being a major urban city, we might expect that there are not many livestock animals in the city so the values should be low. Figure \ref{fig:nycLivestock} shows the annual value of livestock thefts in NYC. There are two major issues here. First, In all but two years they report \$0 in livestock thefts. This is likely wrong since even New York City has some livestock (even just the police horses and the horse carriages tourists like) that probably got stolen. The second issues is the massive spike of reported livestock theft value in 1993 with over \$15 million stolen (the only other year with reported thefts is 1975 with \$87,651 stolen). Clearly NYC didn't move from \$0 in thefts for decades to \$15 million in a year and then \$0 again so this is a blatant data error.
+First, we'll look at the value of livestock thefts in New York City. Livestock is one of the variables where we know the value stolen and recovered but not how many times it happened. Being a major urban city, we might expect that there are not many livestock animals in the city so the values should be low. Figure \ref{fig:nycLivestock} shows the annual value of livestock thefts in NYC. There are two major issues here. First, in all but two years they report \$0 in livestock thefts. This is likely wrong since even New York City has some livestock (even just the police horses and the horse carriages tourists like) that probably got stolen. The second issue is the massive spike of reported livestock theft value in 1993 with over \$15 million stolen (the only other year with reported thefts is 1975 with \$87,651 stolen). Clearly NYC didn't move from \$0 in thefts for decades to \$15 million in a year and then \$0 again so this is a blatant data error.
 
 \begin{figure}
 
@@ -2378,10 +2432,10 @@ The arson dataset provides monthly counts at the police agency-level for arsons 
 
 For each type of arson it includes the number of arsons where the structure was uninhabited or otherwise not in use, so you can estimate the percent of arsons of buildings which had the potential to harm people. This measure is for structures where people normally did not inhabit the structure - such as a vacant building where no one lives. A home where no one is home \emph{at the time of the arson} does not count as an uninhabited building.
 
-In cases where the arson led to a death, that death would be recorded as a murder on the Offenses Known and Clearances by Arrest dataset - but not indicated anywhere on this dataset. If an individual who responds to the arson dies because of it, such as a police officer or a firefighter, this is not considered a homicide (though the officer death is still included in the Law Enforcement Officers Killed and Assaulted data) unless the arsonists intended to cause their deaths. Even though the UCR uses the Hierarchy Rule, where only the most serious offense that occurs is recorded, all arsons are reported - arson is exempt from the Hierarchy Rule.
+In cases where the arson led to a death, that death would be recorded as a murder on the Offenses Known and Clearances by Arrest dataset - but not indicated anywhere on this dataset. If an individual who responds to the arson dies because of it, such as a police officer or a firefighter, this is not considered a homicide (though the officer death is still included in the Law Enforcement Officers Killed and Assaulted data) unless the arsonist intended to cause their deaths. Even though the UCR uses the Hierarchy Rule, where only the most serious offense that occurs is recorded, all arsons are reported - arson is exempt from the Hierarchy Rule.
 
-\hypertarget{agencies-reporting-4}{%
-\section{Agencies reporting}\label{agencies-reporting-4}}
+\hypertarget{agencies-reporting-5}{%
+\section{Agencies reporting}\label{agencies-reporting-5}}
 
 Figure \ref{fig:arsonAgencies} shows the annual number of police agencies that reported at least one month that year. With data starting in 1979, there were a little over 12,000 agencies reporting a year until the early 2000s where it recovered from a sharp drop in agencies to steadily increase to about 16,000 a year. While arson data is available through 2019, this graph only shows data through 2018.
 
@@ -2397,7 +2451,7 @@ Figure \ref{fig:arsonAgencies} shows the annual number of police agencies that r
 \hypertarget{important-variables-5}{%
 \section{Important variables}\label{important-variables-5}}
 
-Similar to the Offenses Known and Clearances by Arrest data, which is covered in Chapter @ref(offenses\_known), this data shows the monthly number of crimes - in this case only arsons - reported or discovered by the police, the number found by police to be unfounded, and the number cleared by the police. In addition, it includes the number of arsons in structures that were uninhabited, and the estimated cost of the damage caused by the arsons. For each variable, the arsons also broken into several categories of arsons, which we'll talk about in Section \ref{arsonType}. Like other UCR data, there are also variables that provide information about the agency - ORI codes, population under jurisdiction - the month and year that the data covers, and how many months reported data.
+Similar to the Offenses Known and Clearances by Arrest data, which is covered in Chapter \ref{offensesKnown}, this data shows the monthly number of crimes - in this case only arsons - reported or discovered by the police, the number found by police to be unfounded, and the number cleared by the police. In addition, it includes the number of arsons in structures that were uninhabited, and the estimated cost of the damage caused by the arsons. For each variable, the arsons also broken into several categories of arsons, which we'll talk about in Section \ref{arsonType}. Like other UCR data, there are also variables that provide information about the agency - ORI codes, population under jurisdiction - the month and year that the data covers, and how many months reported data.
 
 \hypertarget{actual-arsons}{%
 \subsection{Actual arsons}\label{actual-arsons}}
@@ -2417,13 +2471,13 @@ This variable is the sum of actual arsons and unfounded arsons - it is the total
 \hypertarget{cleared-arsons}{%
 \subsection{Cleared arsons}\label{cleared-arsons}}
 
-This shows the number of arsons where at least one offender is arrested or when an arrest cannot be made for some reason but the police know who the offender is - the latter option is called ``exceptional clearances'' or ``clearances by exceptional means.'' There is no way to tell if an clearance is due to an arrest or due to exceptional means.\footnote{NIBRS data does tell more information about the type of arrest, but UCR data does not}.
+This shows the number of arsons where at least one offender is arrested or when an arrest cannot be made for some reason, but the police know who the offender is - the latter option is called ``exceptional clearances'' or ``clearances by exceptional means.'' There is no way to tell if a clearance is due to an arrest or due to exceptional means.\footnote{NIBRS data does tell more information about the type of arrest, but UCR data does not}.
 
 For exceptional clearances, police must have identified the offender, have sufficient evidence to arrest that offender, know where they are (so they can actually be apprehended) and only then be unable to make the arrest. Exceptional clearances include cases where the offender dies before an arrest (by any means, including suicide, accidental, illness, killed by someone including a police officer) or when the police are unable to arrest the person since they are already in custody by another jurisdiction (including out of the country or in custody of another agency) and extradition is denied. Two other potential causes of exceptional clearance is when prosecution of the case cannot go forward because the district attorney refuses to prosecute the case, for reasons other than lack of evidence, or when a victim refuses to assist the prosecution in the case.
 
 Please note that this data is at the incident-level which means that having multiple people arrested for an incident still only is a clearance for that single incident. Clearances are also reported in the month they occur, not in the month that the initial crime happened. This can lead to cases where there are more clearances than crimes, incorrectly leading to the conclusion that police solve \textgreater100\% of crimes.
 
-Figure \ref{fig:arsonClearance} shows the number of actual arsons (reports that are founded) and clearances for single-family home arsons in League City, Texas, a city of about 100,000 outside of Houston. In most years there were fewer clearances than arsons, but in four years (1982, 1981, 1992, and 2007) there were more clearances than arsons. This is simply because clearances are reported in the month they occur, regardless of when the arson they are clearance occurred.
+Figure \ref{fig:arsonClearance} shows the number of actual arsons (reports that are founded) and clearances for single-family home arsons in League City, Texas, a city of about 100,000 outside of Houston. In most years there were fewer clearances than arsons, but in four years (1982, 1981, 1992, and 2007) there were more clearances than arsons. This is simply because clearances are reported in the month they occur, regardless of when the arson they are clearancing occurred.
 
 \begin{figure}
 

@@ -1,7 +1,7 @@
 --- 
 title: "Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide"
 author: "Jacob Kaplan"
-date: "2021-04-21"
+date: "2021-04-22"
 site: bookdown::bookdown_site
 documentclass: book
 lof: yes
@@ -29,9 +29,9 @@ If you've read an article about crime or arrests in the United States in the las
 
 UCR data is important for three reasons: 
 
-1. The definitions are standard and all agencies follow them so you can compare across agencies and over time
-2. The data is available since 1960 so there is a long period of available data
-3. The data is available for most of the 18,000 police agencies in the United States so you can compare across agencies
+1. The definitions are standard, and all agencies follow them so you can compare across agencies and over time.
+2. The data is available since 1960 so there is a long period of available data.
+3. The data is available for most of the 18,000 police agencies in the United States so you can compare across agencies. 
 
 More than most datasets, there are a lot of times when using UCR data that you'll think "that's weird". This book will cover this weirdness and when we think the weirdness is just an odd - but acceptable - quirk of the data, and when it is a sign of a big problem in the data or that particular variable and that we should avoid using it. For most of this book we'll be discussing the caveats of the above reasons - or, more directly, why these assumptions are wrong - but these are the reasons why the data is so influential. 
 
@@ -39,7 +39,7 @@ More than most datasets, there are a lot of times when using UCR data that you'l
 
 By the end of each chapter you should have a firm grasp on the dataset the covered and how to use it properly. However, this book can't possibly cover every potential use case for the data so make sure to carefully examine the data for your own particular use. 
 
-I get a lot of emails from people asking questions about this data so my own goal is to create a single place that answers as many questions as I can about the data. Again, this is among the most commonly used crime datasets and there are still many current papers published with incorrect information about the data (including such simple aspects like what geographic unit data is in and what time unit it is in). So hopefully this book will decrease the amount of misconceptions about this data, increasing overall research quality.
+I get a lot of emails from people asking questions about this data so my own goal is to create a single place that answers as many questions as I can about the data. Again, this is among the most commonly used crime datasets and there are still many current papers published with incorrect information about the data (including such simple aspects like what geographic unit data is in and what time unit it is in). So hopefully this book will decrease the number of misconceptions about this data, increasing overall research quality.
 
 Since manuals are boring, I'll try to include graphs and images to try to alleviate the boredom. That said, I don't think it's possible to make it too fun so sorry in advanced. This book is a mix of facts about the data, such as how many years are available, and my opinions about it, such as whether it is reliable. In cases of facts I'll just say a statement - e.g. "the offenses data is available since 1960". In cases of opinion I'll temper the statement by saying something like "in my opinion..." 
 
@@ -76,4 +76,4 @@ It's worth mentioning a final source of UCR information. This is the annual Crim
 
 ### Where to find the data used in this book 
 
-The data I am using in this book is the cleaned (we'll discuss in more detail exactly what I did to clean each dataset in the dataset's chapter but the short answer is that I did very little.) and concatenated data that I put together from the raw data that the FBI releases. That data is available on my website [https://jacobdkaplan.com/data.html](here). I am hosting this book through GitHub which has a maximum file size allowed that is far smaller than these data so you'll need to go to my site to download the data, it's not available through this book's GitHub repo. For some examples I'm using the data before I cleaned it of outliers (as an example of the outliers present before I removed them) so that data is not publicly available. 
+The data I am using in this book is the cleaned (we'll discuss in more detail exactly what I did to clean each dataset in the dataset's chapter, but the short answer is that I did very little.) and concatenated data that I put together from the raw data that the FBI releases. That data is available on my website [https://jacobdkaplan.com/data.html](here). I am hosting this book through GitHub which has a maximum file size allowed that is far smaller than these data, so you'll need to go to my site to download the data, it's not available through this book's GitHub repo. For some examples I'm using the data before I cleaned it of outliers (as an example of the outliers present before I removed them) so that data is not publicly available. 
