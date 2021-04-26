@@ -125,7 +125,7 @@
 
 \title{Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide}
 \author{Jacob Kaplan}
-\date{2021-04-22}
+\date{2021-04-25}
 
 \begin{document}
 \maketitle
@@ -749,8 +749,8 @@ Every line of code you write (or, for SPSS users, click you make) invites the po
 
 The Offenses Known and Clearances by Arrest dataset - often called Return A, ``Offenses Known'' or, less commonly, OKCA - is the oldest and most commonly used dataset and measures crimes reported to the police. For this reason it is used as the main measure of crime in the United States, and I tend to call it the ``crimes dataset.'' This data includes the monthly number of crimes reported to the police or otherwise known to the police (e.g.~discovered while on patrol) for a small selection of crimes, as well as the number of crimes cleared by arrest or by ``exceptional means'' (a relatively flawed and manipulable measure of whether the case is ``solved''). It also covers the number reported but found by police to have not occurred. Since this data has monthly agency-level crime information it is often used to measure crime trends between police agencies and over time. The data uses something called a Hierarchy Rule which means that in incidents with multiple crimes, only the most serious is recorded - though in practice this affects only a small percent of cases, and primarily affects property crimes.
 
-\hypertarget{which-crimes-are-included}{%
-\section{Which crimes are included?}\label{which-crimes-are-included}}
+\hypertarget{indexCrimesOffensesKnown}{%
+\section{Which crimes are included?}\label{indexCrimesOffensesKnown}}
 
 This data set contains information on the number of ``Index Crimes'' (sometimes called Part I crimes) reported to each agency. These index crimes are a collection of eight crimes that, for historical reasons based largely by perceived importance and reliable of their reporting in the 1920's when the UCR program was first developed, are used as the primary measure of crime today. Other data sets in the UCR, such as the Arrests by Age, Sex, and Race data and the Hate Crime data have more crimes reported.
 
@@ -1053,893 +1053,6 @@ Figure \ref{fig:manslaughterPercent} shows another way to look at this data: man
 \caption{Reported manslaughter by negligence as a percent of reported murder and non-negligent manslaughter, nationwide 1960-2018.}\label{fig:manslaughterPercent}
 \end{figure}
 
-\hypertarget{arrests}{%
-\chapter{Arrests by Age, Sex, and Race}\label{arrests}}
-
-\begin{verbatim}
-#>             used   (Mb) gc trigger    (Mb)   max used    (Mb)
-#> Ncells   1093149   58.4    2193471   117.2    1244675    66.5
-#> Vcells 751966747 5737.1 1568329631 11965.5 1502141692 11460.5
-#>              used   (Mb) gc trigger    (Mb)   max used    (Mb)
-#> Ncells    1094858   58.5    2193471   117.2    1244675    66.5
-#> Vcells 1287286330 9821.3 1884398914 14376.9 1822639897 13905.7
-\end{verbatim}
-
-The Arrests by Age, Sex, and Race dataset - often called ASR, or the ``arrests data'', or the ``Arrests by Age, Sex, Race, and Ethnicity (ASRE) though this is really misleading since most years don't even report ethnicity data - includes the monthly number of arrests for a variety of crimes and, unlike the crime data, breaks down this data by age and gender. This data includes a broader number of crime categories than the crime dataset (the Offenses Known and Clearances by Arrest data) though is less detailed on violent crimes since it does not breakdown aggravated assault or robberies by weapon type as the Offenses Known data does. For each crime it says the number of arrests for each gender-age group with younger ages (15-24) showing the arrestee's age to the year (e.g.~age 16) and other ages grouping years together (e.g.~age 25-29, 30-34,''under 10"). It also breaks down arrests by race-age by including the number of arrestees of each race (American Indian, Asian, Black, and White) are the only included races) and if the arrestee is a juvenile (\textless18 years old) or an adult. The data does technically include a breakdown by ethnicity-age (e.g.~juvenile-Hispanic, juvenile-non-Hispanic) but almost no agencies report this data (for many years zero agencies report ethnicity) so in practice the data does not include ethnicity. As the data includes counts of arrestees, people who are arrested multiple times are included in the data multiple times - it is not a measure of unique arrestees.
-
-\hypertarget{agencies-reporting-1}{%
-\section{Agencies reporting}\label{agencies-reporting-1}}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/arrestsAgenciesReporting-1} 
-
-}
-
-\caption{The annual number of agencies reporting at least one month of data in that year.}\label{fig:arrestsAgenciesReporting}
-\end{figure}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/arrestsAgenciesReporting12Months-1} 
-
-}
-
-\caption{The annual number of agencies reporting 12 months of data in that year.}\label{fig:arrestsAgenciesReporting12Months}
-\end{figure}
-
-\hypertarget{what-is-an-arrest-what-unit-is-this-data-in}{%
-\section{What is an arrest? (what unit is this data in?)}\label{what-is-an-arrest-what-unit-is-this-data-in}}
-
-\hypertarget{the-hierarchy-rule}{%
-\subsection{The Hierarchy Rule}\label{the-hierarchy-rule}}
-
-\hypertarget{crimes-included}{%
-\section{Crimes included}\label{crimes-included}}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Homicide
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  Murder and non-negligent manslaughter
-\item
-  Manslaughter by negligence
-\end{itemize}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  Rape
-\item
-  Robbery
-\item
-  Aggravated assault
-\item
-  Burglary
-\item
-  Theft (other than of a motor vehicle)
-\item
-  Motor vehicle theft
-\item
-  Simple assault
-\item
-  Arson
-\item
-  Forgery and counterfeiting
-\item
-  Fraud
-\item
-  Embezzlement
-\item
-  Stolen property - buying, receiving, and possessing
-\item
-  Vandalism
-\item
-  Weapons offenses - carrying, possessing, etc.
-\item
-  Prostitution and commercialized vice
-\item
-  Sex offenses - other than rape or prostitution
-\item
-  Drug abuse violations - total
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  Drug sale or manufacturing
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Opium and cocaine, and their derivatives (including morphine and heroin)
-  \item
-    Marijuana
-  \item
-    Synthetic narcotics
-  \item
-    Other dangerous non-narcotic drugs
-  \end{itemize}
-\item
-  Drug possession
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Opium and cocaine, and their derivatives (including morphine and heroin)
-  \item
-    Marijuana
-  \item
-    Synthetic narcotics
-  \item
-    Other dangerous non-narcotic drugs
-  \end{itemize}
-\end{itemize}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{18}
-\tightlist
-\item
-  Gambling - total
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  Bookmaking - horse and sports
-\item
-  Number and lottery
-\item
-  All other gambling
-\end{itemize}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{19}
-\tightlist
-\item
-  Offenses against family and children - nonviolent acts against family members. Includes neglect or abuse, nonpayment of child support or alimony.
-\item
-  Driving under the influence (DUI)
-\item
-  Liquor law violations - Includes illegal production, possession (e.g.~underage) or sale of alcohol, open container, or public use laws. Does not include DUIs and drunkenness.
-\item
-  Drunkenness - i.e.~public intoxication
-\item
-  Disorderly conduct
-\item
-  Vagrancy - includes begging, loitering (for adults only), homelessness, and being a ``suspicious person.''
-\item
-  All other offenses (other than traffic) - a catch-all category for any arrest that is not otherwise specified in this list. Does not include traffic offenses. Very wide variety of crimes are included - use caution when using!
-\item
-  Suspicion - ``Arrested for no specific offense and released without formal charges being placed.''
-\item
-  Curfew and loitering law violations - for minors only.
-\item
-  Runaways - for minors only.
-\end{enumerate}
-
-\hypertarget{age}{%
-\subsection{Age}\label{age}}
-
-For each crime the data provides the number of people of each gender by age, with several years in the peak offending age given as the specific age and younger and older ages broken into groups. Only female and male genders are available, and there is no variable for ``unknown'' gender. So to get a total arrests for that crime for that age, just add the female and male variables together.
-
-\begin{itemize}
-\tightlist
-\item
-  Female
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Under 10
-  \item
-    10-12
-  \item
-    13-14
-  \item
-    15
-  \item
-    16
-  \item
-    17
-  \item
-    18
-  \item
-    19
-  \item
-    20
-  \item
-    21
-  \item
-    22
-  \item
-    23
-  \item
-    24
-  \item
-    25-29
-  \item
-    30-34
-  \item
-    35-39
-  \item
-    40-44
-  \item
-    45-49
-  \item
-    50-54
-  \item
-    55-59
-  \item
-    60-64
-  \item
-    65 and older
-  \end{itemize}
-\item
-  Male
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Under 10
-  \item
-    10-12
-  \item
-    13-14
-  \item
-    15
-  \item
-    16
-  \item
-    17
-  \item
-    18
-  \item
-    19
-  \item
-    20
-  \item
-    21
-  \item
-    22
-  \item
-    23
-  \item
-    24
-  \item
-    25-29
-  \item
-    30-34
-  \item
-    35-39
-  \item
-    40-44
-  \item
-    45-49
-  \item
-    50-54
-  \item
-    55-59
-  \item
-    60-64
-  \item
-    65 and older
-  \end{itemize}
-\end{itemize}
-
-\hypertarget{race}{%
-\subsection{Race}\label{race}}
-
-The data also breaks down the number of arrests for each crime by race, with the only included races being American Indian, Asian, Black, and White. This is further broken down into if the arrestee was an adult (18 years or older) or a juvenile (under 18). Whether the arrestee is Hispanic is in a separate (and nearly universally non-reported variable). Since the ethnicity variable is separate, and since the data is not at the arrestee-level unit, there's no way to interact the race and ethnicity variables. So, for example, there is no way to determine how many White-Hispanic or White-Non-Hispanic arrestees. Just total White arrestees and total Hispanic arrestees.
-
-As with race variables in other UCR datasets - and, really, any dataset - you should be cautious about using this variables since it is the officer's perception of the arrestee's race - though of course some arrests do have other data about the arrestee's race such as what they tell the officer.
-
-Even though there is information about the specific age of arrestee (or the age range, depending on the arrestee's age) and their gender, there is no gender information combined with race and no age beyond the adult/juvenile binary. If you add up all arrests that are broken down by gender-age and compare it to the sum of all of the arrests broken down by adult/juvenile-race here, in some cases these numbers don't add up. That's because while most agencies do report the age variables, not all agencies report the race variables. So summing up the race variables will actually undercount the total number of arrests.
-
-\begin{itemize}
-\tightlist
-\item
-  Adult
-
-  \begin{itemize}
-  \tightlist
-  \item
-    American Indian
-  \item
-    Asian
-  \item
-    Black
-  \item
-    White
-  \end{itemize}
-\item
-  Juvenile
-
-  \begin{itemize}
-  \tightlist
-  \item
-    American Indian
-  \item
-    Asian
-  \item
-    Black
-  \item
-    White
-  \end{itemize}
-\end{itemize}
-
-\hypertarget{ethnicity}{%
-\subsection{Ethnicity}\label{ethnicity}}
-
-\begin{itemize}
-\tightlist
-\item
-  Adult
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Hispanic
-  \item
-    Non-Hispanic
-  \end{itemize}
-\item
-  Juvenile
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Hispanic
-  \item
-    Non-Hispanic
-  \end{itemize}
-\end{itemize}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/theftHispanic-1} 
-
-}
-
-\caption{The national annual number of Hispanic arrestees for theft. This includes all agencies that year that reporting any number of months. Hispanic arrestees include both juvenile and adult arrestees}\label{fig:theftHispanic}
-\end{figure}
-
-\hypertarget{juvenile-referrals}{%
-\subsection{Juvenile referrals}\label{juvenile-referrals}}
-
-\hypertarget{leoka}{%
-\chapter{Law Enforcement Officers Killed and Assaulted (LEOKA)}\label{leoka}}
-
-The Law Enforcement Officers Killed and Assaulted data, often called just by its acronym LEOKA, has two main purposes.\footnote{This data is also sometimes called the ``Police Employees'' dataset.} First, it provides counts of employees employed by each agency - broken down by if they are civilian employees or sworn officers, and also broken down by gender. And second, it measures how many officers were assaulted or killed (including officers who die accidentally such as in a car crash) in a given month. The assault data is also broken down into shift type and type (e.g.~alone, with a partner, on foot, in a car, etc.), the offender's weapon, and type of call they are responding to (e.g.~robbery, disturbance, traffic stop). The killed data simply says how many officers are killed feloniously (i.e.~murdered) or died accidentally (e.g.~car crash) in a given month. The employee information is at the year-level so you know, for example, how many male police officers were employed in a given year at an agency, but don't know any more than that such as how many officers were on patrol, were detectives, were in special units, etc. This dataset is commonly used as a measure of police employees and is a generally reliable - though imperfect as we'll see - measure of how many police are employed by a police agency. The second part of this data, measuring assaults and deaths, is more flawed with missing data issues and data error issues (e.g.~more officers killed than employed in an agency).
-
-\hypertarget{common-uses-of-this-data}{%
-\section{Common uses of this data}\label{common-uses-of-this-data}}
-
-This data, as well as the privately-run site \href{https://www.odmp.org/}{Officer Down Memorial Page} which covers law enforcement officers who have died, has also been used lately in the context of police using force against people out of fear of being harmed by that person. The discussion revolves around whether police are actually in high danger of being harmed by comparing the rate at which officers die to that of other professions. In general they find that police officers are among the most likely profession to die but are not at the top of this measure.
-
-\hypertarget{important-variables-1}{%
-\section{Important variables}\label{important-variables-1}}
-
-\hypertarget{number-of-employees}{%
-\subsection{Number of employees}\label{number-of-employees}}
-
-\hypertarget{officers-killed}{%
-\subsection{Officers killed}\label{officers-killed}}
-
-\hypertarget{assaults-by-injury-and-weapon}{%
-\subsection{Assaults by injury and weapon}\label{assaults-by-injury-and-weapon}}
-
-\begin{itemize}
-\tightlist
-\item
-  Assaults with injury
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Offender has firearm
-  \item
-    Offender had knife
-  \item
-    Offender had other weapon
-  \item
-    Offender was unarmed
-  \end{itemize}
-\item
-  Assaults without injury
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Offender has firearm
-  \item
-    Offender had knife
-  \item
-    Offender had other weapon
-  \item
-    Offender was unarmed
-  \end{itemize}
-\end{itemize}
-
-\hypertarget{assaults-by-call-type}{%
-\subsection{Assaults by call type}\label{assaults-by-call-type}}
-
-\begin{itemize}
-\item
-  Disturbance call (e.g.~domestic violence, person carrying a gun in public)
-\item
-  Burglary
-\item
-  Robbery
-\item
-  Officers arresting someone for another crime
-\item
-  Civil disorder
-\item
-  Officer has custody of prisoners
-\item
-  Suspicious persons
-\item
-  Officers are ambushed
-\item
-  Mentally deranged person
-\item
-  Traffic pursuit and traffic stops
-\item
-  All other call types
-\item
-  Offender weapons
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Offender has firearm
-  \item
-    Offender had knife
-  \item
-    Offender had other weapon
-  \item
-    Offender was unarmed
-  \end{itemize}
-\item
-  Type of officer assignment
-
-  \begin{itemize}
-  \tightlist
-  \item
-    In a vehicle with two officers
-  \item
-    In a vehicle alone
-  \item
-    In a vehicle alone but assisted by other officers
-  \item
-    Detective or special unit alone
-  \item
-    Detective or special unit assisted by other officers
-  \item
-    Other assignment alone
-  \item
-    Other assignment assisted by other officers
-  \end{itemize}
-\end{itemize}
-
-\hypertarget{assaults-by-time}{%
-\subsection{Assaults by time}\label{assaults-by-time}}
-
-\begin{itemize}
-\tightlist
-\item
-  12:01am - 2:00am
-\item
-  2:01am - 4:00am
-\item
-  4:01am - 6:00am
-\item
-  6:01am - 8:00am
-\item
-  8:01am - 10:00am
-\item
-  10:01am - 12:00pm
-\item
-  12:01pm - 2:00pm
-\item
-  2:01pm - 4:00pm
-\item
-  4:01pm - 6:00pm
-\item
-  6:01pm - 8:00pm
-\item
-  8:01pm - 10:00pm
-\item
-  10:01pm - 12:00pm
-\end{itemize}
-
-\hypertarget{shr}{%
-\chapter{Supplementary Homicide Reports (SHR)}\label{shr}}
-
-The Supplementary Homicide Reports dataset - often abbreviated to SHR - is the most detailed of the UCR datasets and provides information about the circumstances and participants (victim and offender demographics and relationship status) for homicides.\footnote{If you're familiar with the National Incident-Based Reporting System (NIBRS) data that is replacing UCR, this dataset is the closest UCR data to it, though it is still less detailed than NIBRS data.} For each homicide incident it tells you the age, gender, race, and ethnicity of each victim and offender as well as the relationship between the first victim and each of the offenders (but not the other victims in cases where there are multiple victims). It also tells you the weapon used by each offender and the circumstance of the killing, such as a ``lovers triangle'' or a gang-related murder. As with other UCR data, it also tells you the agency it occurred in and the month and year when the crime happened.
-
-\hypertarget{agencies-reporting-2}{%
-\section{Agencies reporting}\label{agencies-reporting-2}}
-
-This data only has a report when the agency has a murder that year and since murder is rare it is difficult to measure underreporting. One way we can look at reporting is to compare murders in the SHR data with that of other datasets. We'll look at two of them: the Offenses Known and Clearances by Arrest which is covered in detail in Chapter \ref{offensesKnown}, and the Center for Disease Control and Prevention (CDC) detail on national deaths from homicide.\footnote{CDC WONDER data is available here: \url{https://wonder.cdc.gov/}} Both this dataset and the Offenses Known and Clearances by Arrest data are UCR datasets so you may think that the numbers of murders from each dataset should be the same. That is a perfectly reasonable assumption, but since this is UCR data we're talking about, you'd be wrong. Police agencies are free to report to either, both, or neither dataset so while the number of murders are close for each dataset, they are never equal. CDC WONDER data aggregates mortality data (among other data) from state death certificates which reduces the issue of voluntary reporting that we have in UCR data.
-
-Figure \ref{fig:shrVsOffenses} shows the annual number of murder victims from each of these datasets starting in 1976 for the UCR data and in 1999 for the CDC data.\footnote{1975 is actually the first year that the Supplementary Homicide Reports data is available but that dataset only has info for a single victim and offender - all later years has info for up to 11 victims and offenders - so 1976 is often used as the first year of data}. For the UCR data, in every year the numbers are fairly similar and the trends are the same over time, but the number of murders is never equal. The numbers have actually gotten worse over time with the difference between the datasets increasing and the Offenses Known data having consistently more murders reported than the SHR data since the late 1990s. Compared to the CDC data, however, both UCR datasets - and in particular the SHR data - undercount the number of murders. While trends are the same, UCR data reports thousands fewer murders per year than the CDC data, indicating how much of an issue underreporting is in this data.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrVsOffenses-1} 
-
-}
-
-\caption{The annual number of murders from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset. Numbers differ because agencies voluntarily report and may not report to both datasets.}\label{fig:shrVsOffenses}
-\end{figure}
-
-\hypertarget{important-variables-2}{%
-\section{Important variables}\label{important-variables-2}}
-
-There data has demographic information for up to 11 victims and 11 offenders, as well as the information on the weapon used by each offender, the relationship between the first victim and each offender, and the circumstance of the murder. The data also has the traditional UCR set of variables about the agency: their ORI code, population, state, region and the month and year of this data. One key variable that is missing is the outcome of the homicide: there is no information on whether any of the offenders were arrested.
-
-While there is information on up to 11 victims and offenders, in most cases, there is only a single victim and a single offender in each incident. To see how the breakdown for the number of victims in each incident looks, Figure \ref{fig:numberSHRVictims} shows the percent of incidents with each possible number of victims.\footnote{There is one incident where there are a reported 12 victims. For simplicity of the graph, this incident is not included.} In nearly all incidents - 96.1\% - there was only a single victim. This drops to 3.2\% of incidents for two victims, 0.5\% for three victims, and only about 0.2\% of incidents have four or more victims.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/numberSHRVictims-1} 
-
-}
-
-\caption{The percent of incidents from 1976-2018 that have 1-11 victims.}\label{fig:numberSHRVictims}
-\end{figure}
-
-Figure \ref{fig:numberSHROffenders} shows the breakdown of the number of offenders per homicide incident.\footnote{There is one incident where there are a reported 22 offenders and one with 12 offenders. For simplicity of the graph, these incidents are not included.} It's a little less concentrated than with victims but the vast majority of homicides are committed by one offender - or at least the police only report one offender. About 88\% of homicides have only one offender, 8.2\% have two, 2.4\% have three, and fewer than 1\% have four. Fewer than 0.5\% of homicides have more than four offenders. However, this is all a bit misleading. In cases where there is no information about the offender, including how many offenders there is, the data simply days that there is a single offender. So the number of homicides with a single offender is an overcount while the number with more offenders is an overcount.
-
-The variable ``situation'' says what type of victim-offender number combination the incident is - e.g.~``multiple victims/single offender'', ``single victim/multiple offenders'', etc. - and does indicate if the number of offenders is unknown (though curiously there are over 4,000 instances where the number of offenders is unknown but they still say there are two offenders) so you can use this variable to determine if the police don't know how many offenders there is. You're still limited, of course, in that the number of offenders is always what the police think there are, and they may be wrong. So use this variable - and anything that comes from it like the percent of offenders of a certain race - with caution.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/numberSHROffenders-1} 
-
-}
-
-\caption{The percent of incidents from 1976-2018 that have 1-11 offenders.}\label{fig:numberSHROffenders}
-\end{figure}
-
-We'll now look at a number of important variables individually. Since the data can potentially have 11 victims and 11 offenders - but in practice has only one each in the vast majority of cases - we'll only look at the first victim/offender for each of these variables. Therefore, the results will not be entirely accurate, but will still give you a good overview of the data. The figures below will use data for all homicides from 1976 to 2018 so will cover all but the most recent year of data.
-
-\hypertarget{demographics}{%
-\subsection{Demographics}\label{demographics}}
-
-There are two broad categories of variables that we'll cover: demographics of the victim and offenders, and characteristics of the case. We start with demographics.
-
-\hypertarget{age-1}{%
-\subsubsection{Age}\label{age-1}}
-
-This data includes the age (in years) for each victim and each offender. For those under one years old, it also breaks this down into those from birth to six days old ``including abandoned infant'' and those seven days old to 364 days old. So there's a bit more info on baby murders. It also maxes out the age at 99 so for victims or offenders older than that we don't get their exact age, just text that says ``99 years or older'' (which I turn to the number 99 in the figures below).
-
-Figure \ref{fig:shrOffenderAge} shows the percent of murders from 1976-2018 where the first offender in the case is of each age from 0-99. Offenders with unknown ages are excluded from this graph and make up about 27\% of cases. The average (mean) age is 30.9 years old (shown in orange) which is due to a long right tail; the median age is 28 years old. If you look closely at the left side of the graph you can see that there are some very young offenders, with at least one offender aged 0-10 included in the data. It's not clear from this alone that these ages are a data entry. While a two-year-old certainly couldn't murder someone, the data does include deaths caused by ``children playing with gun'' (homicide circumstances will be discussed in Section \ref{circumstance}) so these ages could potentially be correct.
-
-If you're familiar with the age-crime curve in criminology - which basically says crime peaks in late teen years then falls dramatically - this shows that exact curve, though doesn't decline as the individual ages as quickly as we see with less serious crimes.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrOffenderAge-1} 
-
-}
-
-\caption{The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Victims reported as '99 years or older' are considered 99 years old.}\label{fig:shrOffenderAge}
-\end{figure}
-
-Figure \ref{fig:shrVictimAge} repeats Figure \ref{fig:shrOffenderAge} but with victim age rather than offender age. The mean victim age (shown in orange) is 32.9 and the median age is 30. Though the age victim age is a bit younger than the average offender age, trends are relatively similar for teenagers and older where deaths spikes in the late teen years and then declines steadily. The major difference is the U-shape for younger victims - for victims under age 15, homicides peak at age 0 (i.e.~younger than their first birthday) with \textasciitilde1.5\% of all homicides being this this age. They then decline until plateauing at around age 6 before increasing again in the early teen years.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrVictimAge-1} 
-
-}
-
-\caption{The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Victims reported as '99 years or older' are considered 99 years old.}\label{fig:shrVictimAge}
-\end{figure}
-
-\hypertarget{sex}{%
-\subsubsection{Sex}\label{sex}}
-
-We'll next look at victim and offender sex, a simple variable since only male and female are included.
-
-About 62\% of offenders, as seen in Figure \ref{fig:shrOffenderSex} are male and about 8\% are female, indicating a large disparity in the sex of homicide offenders. The remaining 30\% of offenders do not have sex data available because the police do not know the sex of this individual. For offenders who aren't arrested, this variable may be inaccurate since it is perceived sex of the offender.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrOffenderSex-1} 
-
-}
-
-\caption{The sex of offenders, 1976-2018.}\label{fig:shrOffenderSex}
-\end{figure}
-
-There is far less uncertainty for victim sex, with under 0.15\% of victims having an unknown sex. Here again there is a large disparity between male and female with about 78\% of victims being male and 22\% being female. While there are more male victims than male offenders, this is probably just due to there being so many unknown offenders.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrVictimSex-1} 
-
-}
-
-\caption{The sex of victims, 1976-2018.}\label{fig:shrVictimSex}
-\end{figure}
-
-\hypertarget{race-1}{%
-\subsubsection{Race}\label{race-1}}
-
-This data also includes the race of the victims and offenders. This includes the following races: American Indian or Alaskan Native, Asian, Black, Native Hawaiian or Other Pacific Islander, and White. These are the only races included in the data; Hispanic is considered an ethnicity and is available as a separate, though flawed, variable. There is no category for bi- or multi-racial. As with other demographics info for offenders, in cases where no arrest is made (and we don't know in this data if one is made), there's no way to confirm the person's race (and race itself is hard to put into discrete boxes like done here) so these results may not be entirely accurate.
-
-Figure \ref{fig:shrOffenderRace} shows the percent of homicides in the data by race. Black and White victims are included are similar percents, at 34.2\% and 33.8\% of victims, respectively. Given that Black people are only about 13\% of the population while White people are 76\% of the population, according to 2019 Census data, this shows a large disparity in offender race rates. There are far more Black and far fewer White offenders than would be expected from their percent of the total United States population. The next most common group is Unknown at about 30.5\% of offenders. Given that so many offenders have an unknown race, the reliability of the other race measures is limited. The remaining races are Asian at 0.9\% of offenders, American Indian or Alaskan Native at 0.6\%, and Native Hawaiian or Other Pacific Islander at 0.004\%.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrOffenderRace-1} 
-
-}
-
-\caption{The race of offenders, 1976-2018.}\label{fig:shrOffenderRace}
-\end{figure}
-
-For victim race, seen in Figure \ref{fig:shrVictimRace}, only about 1\% of victim races are unknown. This means we can be a lot more confidence in the race of the victims than in the race of the offender. Or, at least the challenge of categorizing people by race is not the major problem, not missing people. As with offenders, White and Black victims are the two most common races, with 49\% and 47.7\% of victims, respectively. There are almost double the percent of Asian victims than Asian offenders at 1.51\% of victims (and 0.9\% of offenders). American Indian or Alaskan Natives make up 0.8\% of victims while Native Hawaiian or Pacific Islanders make up 0.005\% of victims.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrVictimRace-1} 
-
-}
-
-\caption{The race of victims, 1976-2018}\label{fig:shrVictimRace}
-\end{figure}
-
-\hypertarget{ethnicity-1}{%
-\subsubsection{Ethnicity}\label{ethnicity-1}}
-
-The final demographic variable is ethnicity which is whether the victim or offender is Hispanic or not Hispanic. The UCR data has a weird relationship with this variable (which is also in the Arrests by Age, Sex, and Race dataset, discussing in Chapter \ref{arrests}) where ethnicity is technically a variable in the data but very rarely collected. As such, this is an unreliable variable that if you really want to use, needs careful attention to make sure it is being reported consistently by the agencies that you are looking at.
-
-The vast majority - 71.6\% - of offenders have an unknown ethnicity while 21.5\% are not Hispanic and 6.9\% are Hispanic.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrOffenderEthnicity-1} 
-
-}
-
-\caption{The ethnicity of offenders, 1976-2018.}\label{fig:shrOffenderEthnicity}
-\end{figure}
-
-Unlike the other demographic variables, there is still a huge amount of underreporting when it comes to victim ethnicity, though still less than for offender ethnicity. 59\% of victims have an unknown ethnicity. Nearly 30\% of victims are reported as not Hispanic while 10.8\% are reported as Hispanic.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrVictimEthnicity-1} 
-
-}
-
-\caption{The ethnicity of victims, 1976-2018.}\label{fig:shrVictimEthnicity}
-\end{figure}
-
-\hypertarget{case-characteristics}{%
-\subsection{Case characteristics}\label{case-characteristics}}
-
-\hypertarget{weapon-used}{%
-\subsubsection{Weapon used}\label{weapon-used}}
-
-The first variable we'll look at is the weapon used by each offender. Table \ref{fig:shrWeapon} shows the weapon used by the first offender in every incident from 1976 to 2018. Each offender can only be reported as having a single weapon, so this table essentially shows the number (and percent) of murders caused by this weapon. This isn't entirely true since in reality an offender could use multiple weapons and there can be multiple offenders.
-
-The most commonly used weapon is a handgun, which is used in nearly half of murders. This is followed by a knife or other sharp weapon used to cut at 15\% of murders, and then by ``firearm, type not stated'' which is just a firearm where we don't know the exact type (it can include handguns) at 7.3\% of murders. The fourth most common weapon is ``personal weapons'' at nearly 6\% of murders. ``Personal weapons'' is a weird term to mean that there was no weapon - the ``weapon'' was the offender who beat the victim to death. Shotguns are involved in 5\% of murders and all other weapons are involved in fewer than 5\% of cases. In total there are 19 different weapons included though most are relatively uncommon.
-
-\textbackslash begin\{figure\}
-
-\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrWeapon-1}
-
-\hypertarget{relationship-between-first-victim-and-offenders}{%
-\subsubsection{Relationship between first victim and offenders}\label{relationship-between-first-victim-and-offenders}}
-
-An interesting and highly useful variable is the relationship between the first victim and each offender. To be clear, this is only for the first victim; we don't have the relationship between other victims and offenders. However, as seen earlier, this isn't \emph{too much} of an issue since nearly all incidents only have a single victim. There are 29 possible relationship types (including ``unknown'' relationship) which are broken into three categories: legal family members, people known to the victim but who aren't family, and people not known to the victim.
-
-\textbackslash begin\{figure\}
-
-\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrRelationship-1}
-
-\hypertarget{circumstance}{%
-\subsubsection{Homicide circumstance}\label{circumstance}}
-
-We also have information on the type of the murder, which this data calls the ``circumstance''. This comes is relatively broad categories that leave a lot to be desired in our understanding of what led to the murder. Table \ref{fig:shrCircumstance} shows the number and percent of each circumstance for the first victim of each murder from 1976 to 2018. This data has 33 possible circumstances which it groups into five main categories: murders that coincide with committing another crime (``felony type'' murders), murders that don't coincide with another crime (``non-felony type'' murders), justifiable homicides, and negligent manslaughter.
-
-The felony type murders are simply ones where another crime occurred during the murder. While this is called ``felony type'' it does include other crimes such as theft and gambling (which isn't always a felony) so is a bit of a misnomer. The ``non-felony type'' are murders that happen without another crime. This includes gang killings (where, supposedly, only the murder occurred), children killed by babysitters, fights among intoxicated (both of alcohol and drugs), and ``lover's triangle'' killings. Justifiable homicides are when a person (civilian and police officer who kill a person committing a crime.\footnote{This dataset is one source of information on how many people police kill each year. But it is a large undercount compared to other sources such as the Washington Post collection, so is not a very useful source of information on this topic.} Negligent manslaughter includes accidental shootings such as when children find and shoot a gun, but excludes deaths from traffic accidents.
-
-The most common circumstances, accounting for 27.4\%, 26.4\%, and 12.5\%, respectively, are ``other arguments'', ``unknown'', and ``other non-felony type - not specified''. Since the data includes ``argument over money or property'' as one category, the ``other arguments'' mean that it's an argument for a reason other than over money or property. The ``other non-felony type'' one does not mean that the murder did not occur alongside another crime, but also doesn't fall into the non-felony categories included. Robbery is the only remaining circumstance with more than 5\% of murders, at 8\%.
-
-\textbackslash begin\{figure\}
-
-\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrCircumstance-1}
-
-\hypertarget{homicide-subcircumstance}{%
-\subsubsection{Homicide subcircumstance}\label{homicide-subcircumstance}}
-
-The ``subcircumstance'' just tells you more information about justifiable homicides. This includes the circumstance leading up to the ``felon'' - which is how the person killed is described, though technically they don't need to have committed a felony - was killed. It includes if this person attached an officer (the one who killed them), a different officer, a civilian, or was committing or fleeing a crime.
-
-\textbackslash begin\{figure\}
-
-\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrSubCircumstance-1}
-
-\hypertarget{hate_crimes}{%
-\chapter{Hate Crime Data}\label{hate_crimes}}
-
-This dataset covers crimes that are reported to the police and judged by the police to be motivated by hate. More specifically, they are, first, crimes which were, second, motivated - at least in part - by bias towards a certain person or group of people because of characteristics about them such as race, sexual orientation, or religion. The first part is key, they must be crimes - and really must be the selection of crimes that the FBI collects for this dataset. Biased actions that don't meet the standard of a crime, or are of a crime not included in this data, are not considered hate crimes. For example, if someone yells at a Black person and uses racial slurs against them, it is clearly a racist action. For it to be included in this data, however, it would have to extend to a threat since ``intimidation'' is a crime included in this data but lesser actions such as simply insulting someone is not included. For the second part, the bias motivation, it must be against a group that the FBI includes in this data. When this data collection began crimes against transgender people were not counted so if a transgender person was assaulted or killed because they were transgender, this is not a hate crime recorded in the data.\footnote{The first year where transgender as a group was a considered a bias motivation was in 2013.}
-
-So this data is really a narrower measure of hate crimes than it might seem. In practice it is (some) crimes motivated by (some) kinds of hate that are reported to the police. It is also the most under-reported UCR dataset with most agencies not reporting any hate crimes to the FBI. This leads to huge gaps in the data with some states having zero agencies report crime, agencies reporting some bias motivations but not others, agencies reporting some years but not others. While these problems exist for all of the UCR datasets, it is most severe in this data. This problem is exacerbated by hate crimes being rare even in agencies that report them - with such rare events, even minor changes in which agencies report or which types of offenses they include can have large effects.
-
-My main takeaway for this data is that it is inappropriate to use for most hate crime research. At most it can be used to look at within-city within-bias-motivation trends, while keeping in mind that even this narrow subset of data is limited by under-reporting by victims and potential changes in police practices of reporting such as how many months of data they report per year.
-
-\hypertarget{agencies-reporting-3}{%
-\section{Agencies reporting}\label{agencies-reporting-3}}
-
-We'll start by looking at how many agencies report hate crime each year. This is a bit tricky since
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateAgencies-1} 
-
-}
-
-\caption{The annual number of police agencies that report at least one hate crime incident in that year.}\label{fig:hateAgencies}
-\end{figure}
-
-The 2,000 or so agencies that report each year are not the same every year. Figure \ref{fig:hateCrimesEver} shows the cumulative number of agencies that have reported at least one hate crime between 1991 and 2018. There is a relatively steady growth in the cumulative number of agencies, with about 350 new agencies each year. This means that each year some new agencies report hate crimes while some agencies that reported a hate crime in the previous year don't report any hate crimes in the current year. Figure \ref{fig:hateCrimesPreviousYear} puts this into hard numbers by showing the percent of agencies who reported a hate crime in a certain year who \emph{also} reported a hate crime in the previous year. For most years between 50\% and 60\% of agencies which reported a hate crime in the year shown on the x-axis also reported a hate crime in the previous year, indicating somewhat high consistency in which agencies have hate crimes.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimesEver-1} 
-
-}
-
-\caption{The cumulative number of agencies that have reported one or more hate crimes between 1991 to 2018.}\label{fig:hateCrimesEver}
-\end{figure}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimesPreviousYear-1} 
-
-}
-
-\caption{The percent of agencies that report a hate crime in a given year that also reported a hate crime in the previous year, 1992-2018.}\label{fig:hateCrimesPreviousYear}
-\end{figure}
-
-Another way to understand reporting is to look at the number of reported hate crimes by state and see which states report and which don't. Figure \ref{fig:hateCrimesMap} does this for 2018 data by showing the number of reported hate crime incidents by state. While every state other than Wyoming reporting at least one hate crime in 2018, there are large differences between states because even in states that have reporting agencies, not all agencies in that state report. For example, Alabama reported only two hate crimes in 2018, the least of any state other than Wyoming.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimesMap-1} 
-
-}
-
-\caption{Total reported hate crimes by state, 2018.}\label{fig:hateCrimesMap}
-\end{figure}
-
-Since the number of state-wide hate crimes is partially influenced by population, we'll also look at it as the percent of agencies in the state that report at least one hate crime. Again this is limited by population as agencies in each state cover different populations - and most agencies are small so a few large agencies can account for a large share of crimes, including hate crimes. Still, this is a useful exercise as we can easily see where very few agencies report. Figure \ref{fig:statePercentReporting} shows the percent of agencies for each state that reported at least one hate crime in 2018. In Connecticut, the state with the highest percent of agencies reporting, 28\% of agencies reported at least one hate crime. In 34 states, fewer than 10\% of agencies reported a hate crime, and in 19 states fewer than 5\% of agencies did so. One interesting finding from this graph is the more liberal states - Connecticut, New Jersey, Vermont, California, Washington - have the highest share of agencies reporting a hate crime, indicating that the culture of the state may influence whether agencies report hate crimes.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/statePercentReporting-1} 
-
-}
-
-\caption{The percent of agencies in each state that reported at least one hate crime in 2018.}\label{fig:statePercentReporting}
-\end{figure}
-
-\hypertarget{important-variables-3}{%
-\section{Important variables}\label{important-variables-3}}
-
-This data has the standard set of variables describing the agency that is reporting. This includes the agency ORI - which is the unique ID for that agency - the agency name, their state, and the population under their jurisdiction.
-
-They also have a variable with the exact date that the hate crime occurred on - and not the date it was reported on. Figure \ref{fig:hateCrimesByDay} shows the percent of hates crimes between 1991 and 2018 that occurred on each day of the week. Interestingly, the most common day for a hate crime to occur is on Wednesday, not on Friday or Saturday as non-hate crimes most frequently occur. This suggests that hate crimes don't follow the same trends as other crimes.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimesByDay-1} 
-
-}
-
-\caption{The day of the week that hate crimes occurred on, 1991-2018.}\label{fig:hateCrimesByDay}
-\end{figure}
-
-Each hate crime incident can cover up to 10 different crimes occurring - e.g.~a person who burglarizes a synagogue and spray paints a swastika on the wall would have both vandalism and burglary reported in this data. With each crime, this data has the bias motivation for that crime, the location of the crime (in broad categories, not the actual location in the city like a street address would have), and the number of victims for that offense. In practice, in most hate crimes with multiple offenses recorded, the bias motivation, location, and victim count is the same for each offense.
-
-Figure \ref{fig:crimesPerHateCrime} shows the number of crimes per incident for each hate crime reported between 1991 and 2018. In 96.6\% of cases, there is only one offense in that incident.\footnote{In 0.0005\% of hate crimes there is no recorded offense. This is not shown in the graph.} This drops sharply to 3.2\% of incidents having two offenses, 0.21\% having three offenses, 0.016\% having four offenses, and 0.002\% having five offenses. Even though this data does allow up to 10 offenses per hate crime incident, there has never been a recorded case with more than five offenses.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/crimesPerHateCrime-1} 
-
-}
-
-\caption{The number of offenses per hate crime incident.}\label{fig:crimesPerHateCrime}
-\end{figure}
-
-\hypertarget{the-bias-motivation-who-the-hate-is-against}{%
-\subsection{The bias motivation (who the hate is against)}\label{the-bias-motivation-who-the-hate-is-against}}
-
-The most important variable in this data is the ``bias motivation'' which is the FBI's term for the cause of the hate. A hate crime targeted against Black people would be an ``anti-Black'' bias motivation. For the police to classify an incident as a hate crime, and to assign a particular bias motivation, the police must have \emph{some} evidence that the crime was motivated by hate. The victim saying that the crime is a hate crime alone is not sufficient - though if large portions of the victim's community believe that the crime is a hate crime, this is a factor in the police's assessment. The evidence required is not major, it includes things as explicit as racial slurs said during an incident and less obvious factors like the victim is celebrating their community (e.g.~attending a holiday event) or the crime occurring on an important holiday for that community (e.g.~Martin Luther King Day, religious holidays). The FBI also encourages police to consider the totality of the evidence even if none alone strongly suggests that the crime was a hate crime in making their determination about whether the incident was a hate crime or not.
-
-This also means that many (likely most) hate crimes will not be recorded as hate crimes since there is no evidence that the crime is motivated by hate. For example, if a man committed a crime against Asian people for crimes because they are Asian, that would in reality be a hate crime. However, if the offender does not say anything anti-Asian to the victim, which is the mostly likely thing to indicate that this is a hate crime, the crime would not likely be recorded as a hate crime. For example, at the time of this writing (Spring, 2021), there are numerous media reports discussing an increase in anti-Asian hate crimes as a result of racism relating to the pandemic.\footnote{This dataset for 2020 won't be released until Fall 2021 so this data is not useful for measuring urgent policies about current events.} This data would likely undercount both anti-Asian behavior and anti-Asian hate crimes. First, if someone walked to an Asian person and called them an anti-Asian slur, that is clearly a hateful act and would be classified as a hate crime under some organization's collections methods. However, as hateful as this incident is, \emph{this alone} would not be classified as a hate crime in this dataset as a slur is not a crime. If accompanied by other criminal behavior, or if it continues to the point where it can be considered intimidation, it would then be classified as a hate crime. Second, crimes against Asian victims that are in fact hate crimes, but have no evidence that they are hate crimes would not be classified as hate crimes in this data.
-
-Bias motivation is based on the offender's perceptions of the victim so even if they are incorrect in who their victim is, if they intended to target someone for their perceived group membership, that is still a hate crime. For example, if a person assaults a man because they think he is gay, that is a hate crime because the assault was motivated by hate towards gay people. Whether the victim is actually gay or not is not relevant - the offender perceived him to be gay so it is an anti-gay hate crime. To make this even more complicated, the offender must have committed the crime because they are motivated, at least to some degree, by their bias against the victim. Being biased against the victim but targeting them for some other reason means that the crime is not a hate crime.
-
-The biases that the FBI includes in this data has grown over time, with new bias motivations being added in 1997, 2012, 2013, and 2015. Table \ref{fig:hateBiasMotivation} shows each bias motivation in this data, the year it was first reported, how many hate crimes there were for this bias motivation from 1991-2018 and what percent of hate crimes that bias motivation makes up. For ease of seeing how bias motivations changed over time, the table is sorted by year and by frequency of incident within that year. If you're viewing this on a computer or phone, you can sort the table yourself. The year is the first year with that bias motivation - as hate crimes for certain groups are very rare, the bias motivation could have technically been available in previous years. The last column in this table shows the percent of hate crimes from 1991-2018, though this is a very rough measure since some groups are so small that even accounting for a small percent of total hate crimes can mean that are massively disproportionately targeted.
-
-\textbackslash begin\{figure\}
-
-\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateBiasMotivation-1}
-
-2015 is the most year of new bias motivations, as of data through 2018. This year added a number of religions such as Anti-Buddhist, Anti-Sikh, and Anti-Jehovah's Witness. In 2013, anti-Transgender was added and this is the most common of the bias motivations added since data began in 1991 with 513 hate crimes between 2013-2018 - 0.26\% of all hate crimes from 1991-2018. That year also added anti-male and Anti-Native Hawaiian or Other Pacific Islander, which is the most recent racial group added. In 2012, anti-gender non-conforming and anti-female were included, while in 1997 both anti-mental and anti-physical disability were added. In part due to having fewer years of data available, these newer bias motivations make up a small percent of total hate crimes, accounting for \textasciitilde1.4\%.
-
-The original hate crimes - that is, those in the data in 1991 when this dataset was released - are far more common. The most common bias motivation is anti-Black at 34\% of hate crimes, anti-Jewish at 13\%, anti-White at 12\%, anti-male homosexual (gay) at 10\%, anti-Hispanic at 6\%, and anti-ethnicity other than Hispanic (this group means a crime against an ethnic group that isn't Hispanic, though it is occasionally reported as anti-non-Hispanic which is incorrect.) at 5\%. All other bias motivations are less than 5\% of hate crimes and consist of a variety of ethnic, racial, religious, or sexual orientation. Some hate crimes can potentially fall in multiple categories. For example, there is a bias motivation of ``anti-male homosexual (gay)'' and of ``anti-lesbian, gay, bisexual, or transgender, mixed group (LGBT)'' so there is some overlap between them.
-
-\hypertarget{the-crime-that-occurred}{%
-\subsection{The crime that occurred}\label{the-crime-that-occurred}}
-
-The ``crime'' part of hate crimes is which criminal offense occurred during the incident. A hateful act where the action is not one of the crimes that the FBI records would not be considered a hate crime. This is likely most common when considering something like a person calling someone by a hateful slur (e.g.~``You're a {[}slur{]}'', ``go back to your own country'') but where the action is not technically a crime. Another layer of difficulty in using this data is that not all crimes that the FBI includes were initially included when data become available in 1991. Every several years the FBI adds new crimes to be included in this data. Table \ref{fig:hateOffense} shows each crime in the data, the first year that this crime was reported, the total number of these crimes reported between 1991 and 2018, and the percent of all incidents this crime makes up.\footnote{This tables uses only the first offense in an incident so counts are slightly lower than if all crimes in every incident is used.} This table is sorted with the most recent years first, and within year by how common the crime was.
-
-Nearly all hate crimes are vandalism/destruction of property (31\%), intimidation (30\%), and simple assault (20\%) or aggravated assault (11\%) with no remaining crime making up more than 2\% of total hate crimes.
-
-\textbackslash begin\{figure\}
-
-\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateOffense-1}
-
-Agencies that report to the FBI's National Incident-Based Reporting System (NIBRS) can also report bias motivations for their crimes, and these reports are included in this dataset. One tricky thing is that the crimes included are different depending on if the agency reported through NIBRS or to the dataset directly, and are not NIBRS reporting agencies. The above table shows all crimes included, but agencies who report directly can only submit a subset of crimes. These crimes are the same as in the Offenses Known and Clearances by Arrest dataset that is detailed in Chapter @ref(offenses\_known) as well as vandalism/destruction of property and human trafficking.
-
-\hypertarget{the-location-of-the-crime}{%
-\subsection{The location of the crime}\label{the-location-of-the-crime}}
-
-This data is interesting because it includes the location - in categories for types of places, not actual location in the city - of the incident. This is important since the type of location can be a factor in whether the incident is classified as a hate crime. For example, spray paint on a synagogue or a mosque is much more likely to be a hate crime than spray paint on a wall of an abandoned building. Table \ref{fig:hateLocations} shows the locations of hate crimes sorted by the year that location was first included in the data and then by frequency of hate crimes. Each hate crime incident can have multiple locations since each offense can have its own incident, but in most cases (96.6\%) a hate crime only has a single location.
-
-As with the crime and the bias motivation, the available locations have increased as time went on, though these newer locations are relatively uncommon. One important change in location is that starting in 2010 the location of school/college was split to have one location be for elementary and high schools and another location be for colleges and universities. The majority of hate crimes occur in the victim's home (30\%), on a road or alley (19\%), in an unknown location (13.6\%), and in a parking lot or parking garage. All other locations occur in fewer than 5\% of hate crimes.
-
-\textbackslash begin\{figure\}
-
-\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateLocations-1}
-
-\hypertarget{number-and-race-of-offenders}{%
-\subsection{Number and race of offenders}\label{number-and-race-of-offenders}}
-
-There are two variables that have information about the people who commit the hate crime: the number of offenders and the race of the offenders (as a single value with the race of the group if all are of the same race or it will say a ``multi-racial'' group). Unfortunately, important information like the age of the offenders, their criminal history, their relationship to the victim, their gender, or whether they are arrested are completely unavailable in this dataset.
-
-When the police do not have any information about the number of offenders (which is common in cases of property crimes such as vandalism but rare in violent crimes), this data considers that to have zero offenders. The zero is just a placeholder that means that the police have no idea how many offenders there are, not that they think there were actually no offenders. Figure \ref{fig:hateCrimeOffenderNumber} shows the percent of hate crimes from 1991-2018 that have each number of offenders recorded. In the actual data it says the actual number of offenders, with the largest group in the current data going to 99 offenders - in this graph I group 10 or more offenders together for simplicity. I also relabel zero offenders as ``Unknown'' offenders in the graph since that's more accurate. The most common number of offenders per hate crime is one offender, at about 46\% of hate crimes from 1991-2018 having only one offender. This drops sharply to 9\% of hate crimes having 2 offenders and continues to drop as the number of offenders increase. However, about a third (36.8\%) of hate crimes have an unknown number of offenders.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimeOffenderNumber-1} 
-
-}
-
-\caption{The race of offenders, as a group, for hate crime incidents, 1991-2018.}\label{fig:hateCrimeOffenderNumber}
-\end{figure}
-
-The data also includes the race of the offenders as a group, though not the ethnicity (Hispanic or not) of the offenders. In cases where there are multiple races among offenders, that will be classified as a ``multi-racial group''. As shown in Figure \ref{fig:hateCrimeOffenderNumber} The most common racial group is ``unknown'' since the police do not know the race of the offenders. Then are White offenders at nearly 40\% of hate crimes followed by Black offenders at nearly 13\% of hate crimes. The remaining racial groups are rare with about 2\% of hate crimes being committed by a multi-racial group of offenders and 0.72\% of hate crimes committed by Asian or Pacific Islander offenders and 0.54\% committed by American Indian or Native Alaskan offenders.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimeOffenderRace-1} 
-
-}
-
-\caption{The race of offenders, as a group, for hate crime incidents, 1991-2018.}\label{fig:hateCrimeOffenderRace}
-\end{figure}
-
 \hypertarget{stolen_property}{%
 \chapter{Property Stolen and Recovered (Supplement to Return A)}\label{stolen_property}}
 
@@ -1995,8 +1108,8 @@ When we adjust all values to 2019 dollars, as shown in Figure \ref{fig:phillyHom
 \caption{The inflation-adjusted annual number of burglaries and cost per burglary for daytime home burglaries in Philadelphia, 1960-2019.}\label{fig:phillyHomeCostPerBurglaryInflation}
 \end{figure}
 
-\hypertarget{agencies-reporting-4}{%
-\section{Agencies reporting}\label{agencies-reporting-4}}
+\hypertarget{agencies-reporting-1}{%
+\section{Agencies reporting}\label{agencies-reporting-1}}
 
 We'll start by looking at which agencies report. The data is available from 1960 through 2019 though the columns about the value of the property only begin in 1964. Figure \ref{fig:propertyAgencies} show the number of agencies each year that reported at least one month during that year. In the first several years of data barely any agencies reported data and then it spiked around 1966 to over 6,000 agencies per year then grew quickly until over 12,000 agencies reported data in the late 1970s. From here it actually gradually declined until fewer than 12,000 agencies in the late 1990s before reversing course again and growing to about 15,000 agencies by 2019 - down several hundred agencies from the peak a few years earlier.
 
@@ -2020,8 +1133,8 @@ Since this data is called the ``Supplement to Return A'' we would expect that th
 \caption{The percent of agencies in the Supplement to Return A data that are also in the Offenses Known and Clearances by Arrest (Return A) data in that year, 1960-2019.}\label{fig:agenciesInBoth}
 \end{figure}
 
-\hypertarget{important-variables-4}{%
-\section{Important variables}\label{important-variables-4}}
+\hypertarget{important-variables-1}{%
+\section{Important variables}\label{important-variables-1}}
 
 This data can really be broken into two parts: the monthly number of property (including robbery) crimes that occur that are more detailed than in the Offenses Known data, and the value of the property stolen (and recovered) from these crimes.\footnote{I'm really not sure why this data isn't just merged with the Offenses Known data, especially the first part where it's just counts of crimes.} For each category I present the complete breakdown of the available offenses/items stolen and describe some of the important issues to know about them. Like other UCR data, there are also variables that provide information about the agency - ORI codes, population under jurisdiction - the month and year that the data covers, and how many months reported data.
 
@@ -2425,6 +1538,774 @@ It's also important to have some understanding of what the data \emph{should} lo
 \caption{The annual value of stolen clothing and fur in Philadelphia, PA, 1960-2019}\label{fig:phillyFurValue}
 \end{figure}
 
+\hypertarget{arrests}{%
+\chapter{Arrests by Age, Sex, and Race}\label{arrests}}
+
+\begin{verbatim}
+#>             used   (Mb) gc trigger    (Mb)   max used    (Mb)
+#> Ncells   1093211   58.4    2193648   117.2    1244675    66.5
+#> Vcells 751969161 5737.1 1568332528 11965.5 1502144106 11460.5
+#>              used   (Mb) gc trigger    (Mb)   max used    (Mb)
+#> Ncells    1094920   58.5    2193648   117.2    1244675    66.5
+#> Vcells 1287288744 9821.3 1884401811 14376.9 1822642311 13905.7
+\end{verbatim}
+
+The Arrests by Age, Sex, and Race dataset - often called ASR, or the ``arrests data'', or the ``Arrests by Age, Sex, Race, and Ethnicity (ASRE) though this is really misleading since most years don't even report ethnicity data - includes the monthly number of arrests for a variety of crimes and, unlike the crime data, breaks down this data by age and gender. This data includes a broader number of crime categories than the crime dataset (the Offenses Known and Clearances by Arrest data) though is less detailed on violent crimes since it does not breakdown aggravated assault or robberies by weapon type as the Offenses Known data does. For each crime it says the number of arrests for each gender-age group with younger ages (15-24) showing the arrestee's age to the year (e.g.~age 16) and other ages grouping years together (e.g.~age 25-29, 30-34,''under 10"). It also breaks down arrests by race-age by including the number of arrestees of each race (American Indian, Asian, Black, and White) are the only included races) and if the arrestee is a juvenile (\textless18 years old) or an adult. The data does technically include a breakdown by ethnicity-age (e.g.~juvenile-Hispanic, juvenile-non-Hispanic) but almost no agencies report this data (for many years zero agencies report ethnicity) so in practice the data does not include ethnicity. As the data includes counts of arrestees, people who are arrested multiple times are included in the data multiple times - it is not a measure of unique arrestees.
+
+\hypertarget{agencies-reporting-2}{%
+\section{Agencies reporting}\label{agencies-reporting-2}}
+
+I'm not sure why there's a dip in 1980. Since it immediately reverses itself in the next year I think it's just a data issue, not a real decrease in the number of agencies that report.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/arrestsAgenciesReporting-1} 
+
+}
+
+\caption{The annual number of agencies reporting at least one month of data in that year.}\label{fig:arrestsAgenciesReporting}
+\end{figure}
+
+If we look at agencies that report all 12 months of the year, as seen in Figure \ref{arrestsAgenciesReporting12Months}, now far fewer agencies report. In almost every year about 45-53\% of agencies that report at all report report all 12 months. This means that we're missing data for about half of agencies.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/arrestsAgenciesReporting12Months-1} 
+
+}
+
+\caption{The annual number of agencies reporting 12 months of data in that year.}\label{fig:arrestsAgenciesReporting12Months}
+\end{figure}
+
+\hypertarget{what-is-an-arrest-what-unit-is-this-data-in}{%
+\section{What is an arrest? (what unit is this data in?)}\label{what-is-an-arrest-what-unit-is-this-data-in}}
+
+A key part of understanding this data is knowing what unit of analysis it's in. This data is the monthly number of \emph{total arrests for a given crime, with only the most serious crime per incident included}. Consider for example, a person who robs a bank, shooting a killing a guard and pointing their gun at other people in the bank. They are arrested and then released from jail (just imagine that this is true) and are rearrested the next day for shoplifting. And let's further assume that both arrests were in the same month in the same agency. How many arrests are here? They committed multiple crimes in the first incident (murder, robbery, aggravated assault) but in this dataset they would only be classified as an arrest for the most serious crime, murder. And then separately they'd also be an arrested for shoplifting. So assuming that no other arrests occurred in that police agency that month, there would be two arrests reported: one for murder and one for shoplifting.
+
+There's no way to tell how many unique people were arrested, or of those arrested multiple times which crimes they were arrested for. So if you have 100 arrests there may be 1 person arrested 100 times or 100 people arrested once - though, of course, the true number is somewhere in between. This means that studies that try to use this data as a measure of unique people or even the percent of arrestees by group (age, gender, or race) relative to some base rate of the population such as the number of people living in that city are going to be wrong - though how wrong is unclear.\footnote{While all studies are going to be estimates of the real effect, that's no reason to be flippant in using data (UCR and other data). Without having a high level of confidence that your estimates are close to the actual value, you shouldn't do that study.}
+
+Common uses of this data - more common in more news articles or advocacy group reports than in peer-reviewed research articles - compare the percent of arrestees of a certain group to the percent of a city's population of that group. Any differences between the arrestee percent and the resident percent is, according to these reports, evidence of a disparity (this is most common for looking at differences by race. Since these analyses are generally looking at annual data, it assumes that people of each group (usually they look at race but gender and age data is also available) are rearrested at the same rate. That is, White people, for example, are rearrested in the same year for the same crime at the exact same rate as Black people. If not, then you're be comparing different things since one group would have more overall people arrested while the other would have fewer people but who are arrested more. Whether this distinction between arrests and unique people arrested affects your interpretation of the data depends on the study you are doing, but it's important to consider in your research. One way to address this is to use other data on the rate of rearrest by group, though you'd have to be very careful to not extrapolate the results of the other study beyond what they could tell you of the specific time and place they studied.
+
+\hypertarget{the-hierarchy-rule}{%
+\subsection{The Hierarchy Rule}\label{the-hierarchy-rule}}
+
+In incidents where the arrestee commits multiple crimes, only the most serious crime is counted as the crime that the person was arrested for. For a comprehensive overview of the Hierarchy Rule, please see Section \ref{hierarchy}. Basically, the FBI chose seven crimes in 1929 that they call Index Crimes - or sometimes called Part I crimes - and these were considered the most important crimes to be recorded. For more on Index Crimes, please see Section \ref{indexCrimesOffensesKnown}. If a person is arrested for multiple crimes and an Index Crime is one of those crimes, then the Index Crime at the top of the Hierarchy is the one recorded in this data. Section \ref{arrestsCrimesIncluded} shows all crimes included and the crimes 1-7 as well as 9 (arson) are the Index Crimes. The top of the Hierarchy is the crime with the lowest number. So murder is always reported in incidents where there's a murder; rape is always reported when there's an incident with rape but no murder; etc.
+
+In incidents where the arrestee committed both an Index Crime and a Part II crime, then only the top Index Crime is recorded. This can lead to rather silly results since some Part II crimes are certainly more serious than some Index Crimes. Consider, for example, a person arrested for simple assault, carrying a firearm, pimping, and of theft. The first three crimes are, in my opinion, clearly more serious than theft. But since theft is an Index Crime, this person would be considered to have been arrested for theft.
+
+The remaining crimes are called Part II crimes and are not arranged in any particular way. So a lower value numbered crime is not higher on the Hierarchy than a higher value number - Part II crimes don't follow the Hierarchy. If all of the crimes in an incident are Part II crimes then the agency must decide for themselves which crime is the most serious. This can lead to agencies deciding their own hierarchy differently than others which makes this data much less comparable across agencies than if there was a standard rule.
+
+\hypertarget{arrestsCrimesIncluded}{%
+\section{Crimes included}\label{arrestsCrimesIncluded}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Homicide
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Murder and non-negligent manslaughter
+\item
+  Manslaughter by negligence
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Rape
+\item
+  Robbery
+\item
+  Aggravated assault
+\item
+  Burglary
+\item
+  Theft (other than of a motor vehicle)
+\item
+  Motor vehicle theft
+\item
+  Simple assault
+\item
+  Arson
+\item
+  Forgery and counterfeiting
+\item
+  Fraud
+\item
+  Embezzlement
+\item
+  Stolen property - buying, receiving, and possessing
+\item
+  Vandalism
+\item
+  Weapons offenses - carrying, possessing, etc.
+\item
+  Prostitution and commercialized vice
+\item
+  Sex offenses - other than rape or prostitution
+\item
+  Drug abuse violations - total
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Drug sale or manufacturing
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Opium and cocaine, and their derivatives (including morphine and heroin)
+  \item
+    Marijuana
+  \item
+    Synthetic narcotics
+  \item
+    Other dangerous non-narcotic drugs
+  \end{itemize}
+\item
+  Drug possession
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Opium and cocaine, and their derivatives (including morphine and heroin)
+  \item
+    Marijuana
+  \item
+    Synthetic narcotics
+  \item
+    Other dangerous non-narcotic drugs
+  \end{itemize}
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{18}
+\tightlist
+\item
+  Gambling - total
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Bookmaking - horse and sports
+\item
+  Number and lottery
+\item
+  All other gambling
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{19}
+\tightlist
+\item
+  Offenses against family and children - nonviolent acts against family members. Includes neglect or abuse, nonpayment of child support or alimony.
+\item
+  Driving under the influence (DUI)
+\item
+  Liquor law violations - Includes illegal production, possession (e.g.~underage) or sale of alcohol, open container, or public use laws. Does not include DUIs and drunkenness.
+\item
+  Drunkenness - i.e.~public intoxication
+\item
+  Disorderly conduct
+\item
+  Vagrancy - includes begging, loitering (for adults only), homelessness, and being a ``suspicious person.''
+\item
+  All other offenses (other than traffic) - a catch-all category for any arrest that is not otherwise specified in this list. Does not include traffic offenses. Very wide variety of crimes are included - use caution when using!
+\item
+  Suspicion - ``Arrested for no specific offense and released without formal charges being placed.''
+\item
+  Curfew and loitering law violations - for minors only.
+\item
+  Runaways - for minors only.
+\end{enumerate}
+
+\hypertarget{age}{%
+\subsection{Age}\label{age}}
+
+For each crime the data provides the number of people of each gender by age, with several years in the peak offending age given as the specific age and younger and older ages broken into groups. Only female and male genders are available, and there is no variable for ``unknown'' gender. So to get a total arrests for that crime for that age, just add the female and male variables together.
+
+\begin{itemize}
+\tightlist
+\item
+  Female
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Under 10
+  \item
+    10-12
+  \item
+    13-14
+  \item
+    15
+  \item
+    16
+  \item
+    17
+  \item
+    18
+  \item
+    19
+  \item
+    20
+  \item
+    21
+  \item
+    22
+  \item
+    23
+  \item
+    24
+  \item
+    25-29
+  \item
+    30-34
+  \item
+    35-39
+  \item
+    40-44
+  \item
+    45-49
+  \item
+    50-54
+  \item
+    55-59
+  \item
+    60-64
+  \item
+    65 and older
+  \end{itemize}
+\item
+  Male
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Under 10
+  \item
+    10-12
+  \item
+    13-14
+  \item
+    15
+  \item
+    16
+  \item
+    17
+  \item
+    18
+  \item
+    19
+  \item
+    20
+  \item
+    21
+  \item
+    22
+  \item
+    23
+  \item
+    24
+  \item
+    25-29
+  \item
+    30-34
+  \item
+    35-39
+  \item
+    40-44
+  \item
+    45-49
+  \item
+    50-54
+  \item
+    55-59
+  \item
+    60-64
+  \item
+    65 and older
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{race}{%
+\subsection{Race}\label{race}}
+
+The data also breaks down the number of arrests for each crime by race, with the only included races being American Indian, Asian, Black, and White. This is further broken down into if the arrestee was an adult (18 years or older) or a juvenile (under 18). Whether the arrestee is Hispanic is in a separate (and nearly universally non-reported variable). Since the ethnicity variable is separate, and since the data is not at the arrestee-level unit, there's no way to interact the race and ethnicity variables. So, for example, there is no way to determine how many White-Hispanic or White-Non-Hispanic arrestees. Just total White arrestees and total Hispanic arrestees.
+
+As with race variables in other UCR datasets - and, really, any dataset - you should be cautious about using this variables since it is the officer's perception of the arrestee's race - though of course some arrests do have other data about the arrestee's race such as what they tell the officer.
+
+Even though there is information about the specific age of arrestee (or the age range, depending on the arrestee's age) and their gender, there is no gender information combined with race and no age beyond the adult/juvenile binary. If you add up all arrests that are broken down by gender-age and compare it to the sum of all of the arrests broken down by adult/juvenile-race here, in some cases these numbers don't add up. That's because while most agencies do report the age variables, not all agencies report the race variables. So summing up the race variables will actually undercount the total number of arrests.
+
+\begin{itemize}
+\tightlist
+\item
+  Adult
+
+  \begin{itemize}
+  \tightlist
+  \item
+    American Indian
+  \item
+    Asian
+  \item
+    Black
+  \item
+    White
+  \end{itemize}
+\item
+  Juvenile
+
+  \begin{itemize}
+  \tightlist
+  \item
+    American Indian
+  \item
+    Asian
+  \item
+    Black
+  \item
+    White
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{ethnicity}{%
+\subsection{Ethnicity}\label{ethnicity}}
+
+While technically included, the ethnicity variable is largely useless since for most years no agencies reported it and for the years where agencies do report ethnicity, not all agencies do so. The ethnicities included are Hispanic and non-Hispanic are are broken down by if the arrestee is an adult (18+ years old) or a juvenile (\textless18 years old).
+
+\begin{itemize}
+\tightlist
+\item
+  Adult
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Hispanic
+  \item
+    Non-Hispanic
+  \end{itemize}
+\item
+  Juvenile
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Hispanic
+  \item
+    Non-Hispanic
+  \end{itemize}
+\end{itemize}
+
+Figure \ref{fig:theftHispanic} shows the annual number of Hispanic arrestees for theft for all agencies that reported any data that year.\footnote{Theft is used as it's one of the most common crimes.} For several years no agencies reported until the number of Hispanic arrestees start climbing in 1980 and peaks in 1986 at about 136 thousand arrestees. Then there are zero Hispanic arrestees for a few years, 4 Hispanic arrestees in 1990s, and then again zero Hispanic arrestees, this time for decades. Only in 2017 do the number of Hispanic theft arrestees begin to creep up. From 2017 to 2019 (the lasy year available at the time of this writing) there are Hispanic arrestees reported every year, though now only about 30,000 per year.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/theftHispanic-1} 
+
+}
+
+\caption{The national annual number of Hispanic arrestees for theft. This includes all agencies that year that reporting any number of months. Hispanic arrestees include both juvenile and adult arrestees}\label{fig:theftHispanic}
+\end{figure}
+
+Perhaps a better way to look at this data is to see what percent of agencies report ethnicity data. Figure \ref{fig:theftHispanicPercentAgencies} show the percent of agencies each year that report at least one Hispanic or non-Hispanic (which are the only choices, but showing only Hispanic arrests would exclude agencies where no Hispanic people truly were arrested) arrest for theft, of all agencies that reported theft data. About 90-95\% of agencies reported ethnicity data in the early 80s and then only a couple agencies report in 1990 and 1991. Other than those agencies, none report between 1987 and 2017. Starting in 2017, 36\% of agencies report and this number has grown by about five percentage points a year to 46\% in 2019. Since fewer than half of agencies currently report, I strongly recommend against using these variables, even for the recent years of data.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/theftHispanicPercentAgencies-1} 
+
+}
+
+\caption{The annual percent of agencies that report theft arrests that reported at least one Hispanic person or one non-Hispanic person arrested for theft. Arrestees include both juvenile and adult arrestees.}\label{fig:theftHispanicPercentAgencies}
+\end{figure}
+
+\hypertarget{juvenile-referrals}{%
+\subsection{Juvenile referrals}\label{juvenile-referrals}}
+
+\begin{itemize}
+\tightlist
+\item
+  Handled within department and released
+\item
+  Referred to juvenile court of probation department
+\item
+  Referred to welfare agency
+\item
+  Referred to other police agency
+\item
+  Referred to criminal or adult court
+\end{itemize}
+
+\hypertarget{shr}{%
+\chapter{Supplementary Homicide Reports (SHR)}\label{shr}}
+
+The Supplementary Homicide Reports dataset - often abbreviated to SHR - is the most detailed of the UCR datasets and provides information about the circumstances and participants (victim and offender demographics and relationship status) for homicides.\footnote{If you're familiar with the National Incident-Based Reporting System (NIBRS) data that is replacing UCR, this dataset is the closest UCR data to it, though it is still less detailed than NIBRS data.} For each homicide incident it tells you the age, gender, race, and ethnicity of each victim and offender as well as the relationship between the first victim and each of the offenders (but not the other victims in cases where there are multiple victims). It also tells you the weapon used by each offender and the circumstance of the killing, such as a ``lovers triangle'' or a gang-related murder. As with other UCR data, it also tells you the agency it occurred in and the month and year when the crime happened.
+
+\hypertarget{agencies-reporting-3}{%
+\section{Agencies reporting}\label{agencies-reporting-3}}
+
+This data only has a report when the agency has a murder that year and since murder is rare it is difficult to measure underreporting. One way we can look at reporting is to compare murders in the SHR data with that of other datasets. We'll look at two of them: the Offenses Known and Clearances by Arrest which is covered in detail in Chapter \ref{offensesKnown}, and the Center for Disease Control and Prevention (CDC) detail on national deaths from homicide.\footnote{CDC WONDER data is available here: \url{https://wonder.cdc.gov/}} Both this dataset and the Offenses Known and Clearances by Arrest data are UCR datasets so you may think that the numbers of murders from each dataset should be the same. That is a perfectly reasonable assumption, but since this is UCR data we're talking about, you'd be wrong. Police agencies are free to report to either, both, or neither dataset so while the number of murders are close for each dataset, they are never equal. CDC WONDER data aggregates mortality data (among other data) from state death certificates which reduces the issue of voluntary reporting that we have in UCR data.
+
+Figure \ref{fig:shrVsOffenses} shows the annual number of murder victims from each of these datasets starting in 1976 for the UCR data and in 1999 for the CDC data.\footnote{1975 is actually the first year that the Supplementary Homicide Reports data is available but that dataset only has info for a single victim and offender - all later years has info for up to 11 victims and offenders - so 1976 is often used as the first year of data}. For the UCR data, in every year the numbers are fairly similar and the trends are the same over time, but the number of murders is never equal. The numbers have actually gotten worse over time with the difference between the datasets increasing and the Offenses Known data having consistently more murders reported than the SHR data since the late 1990s. Compared to the CDC data, however, both UCR datasets - and in particular the SHR data - undercount the number of murders. While trends are the same, UCR data reports thousands fewer murders per year than the CDC data, indicating how much of an issue underreporting is in this data.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrVsOffenses-1} 
+
+}
+
+\caption{The annual number of murders from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset. Numbers differ because agencies voluntarily report and may not report to both datasets.}\label{fig:shrVsOffenses}
+\end{figure}
+
+\hypertarget{important-variables-2}{%
+\section{Important variables}\label{important-variables-2}}
+
+There data has demographic information for up to 11 victims and 11 offenders, as well as the information on the weapon used by each offender, the relationship between the first victim and each offender, and the circumstance of the murder. The data also has the traditional UCR set of variables about the agency: their ORI code, population, state, region and the month and year of this data. One key variable that is missing is the outcome of the homicide: there is no information on whether any of the offenders were arrested.
+
+While there is information on up to 11 victims and offenders, in most cases, there is only a single victim and a single offender in each incident. To see how the breakdown for the number of victims in each incident looks, Figure \ref{fig:numberSHRVictims} shows the percent of incidents with each possible number of victims.\footnote{There is one incident where there are a reported 12 victims. For simplicity of the graph, this incident is not included.} In nearly all incidents - 96.1\% - there was only a single victim. This drops to 3.2\% of incidents for two victims, 0.5\% for three victims, and only about 0.2\% of incidents have four or more victims.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/numberSHRVictims-1} 
+
+}
+
+\caption{The percent of incidents from 1976-2018 that have 1-11 victims.}\label{fig:numberSHRVictims}
+\end{figure}
+
+Figure \ref{fig:numberSHROffenders} shows the breakdown of the number of offenders per homicide incident.\footnote{There is one incident where there are a reported 22 offenders and one with 12 offenders. For simplicity of the graph, these incidents are not included.} It's a little less concentrated than with victims but the vast majority of homicides are committed by one offender - or at least the police only report one offender. About 88\% of homicides have only one offender, 8.2\% have two, 2.4\% have three, and fewer than 1\% have four. Fewer than 0.5\% of homicides have more than four offenders. However, this is all a bit misleading. In cases where there is no information about the offender, including how many offenders there is, the data simply days that there is a single offender. So the number of homicides with a single offender is an overcount while the number with more offenders is an overcount.
+
+The variable ``situation'' says what type of victim-offender number combination the incident is - e.g.~``multiple victims/single offender'', ``single victim/multiple offenders'', etc. - and does indicate if the number of offenders is unknown (though curiously there are over 4,000 instances where the number of offenders is unknown but they still say there are two offenders) so you can use this variable to determine if the police don't know how many offenders there is. You're still limited, of course, in that the number of offenders is always what the police think there are, and they may be wrong. So use this variable - and anything that comes from it like the percent of offenders of a certain race - with caution.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/numberSHROffenders-1} 
+
+}
+
+\caption{The percent of incidents from 1976-2018 that have 1-11 offenders.}\label{fig:numberSHROffenders}
+\end{figure}
+
+We'll now look at a number of important variables individually. Since the data can potentially have 11 victims and 11 offenders - but in practice has only one each in the vast majority of cases - we'll only look at the first victim/offender for each of these variables. Therefore, the results will not be entirely accurate, but will still give you a good overview of the data. The figures below will use data for all homicides from 1976 to 2018 so will cover all but the most recent year of data.
+
+\hypertarget{demographics}{%
+\subsection{Demographics}\label{demographics}}
+
+There are two broad categories of variables that we'll cover: demographics of the victim and offenders, and characteristics of the case. We start with demographics.
+
+\hypertarget{age-1}{%
+\subsubsection{Age}\label{age-1}}
+
+This data includes the age (in years) for each victim and each offender. For those under one years old, it also breaks this down into those from birth to six days old ``including abandoned infant'' and those seven days old to 364 days old. So there's a bit more info on baby murders. It also maxes out the age at 99 so for victims or offenders older than that we don't get their exact age, just text that says ``99 years or older'' (which I turn to the number 99 in the figures below).
+
+Figure \ref{fig:shrOffenderAge} shows the percent of murders from 1976-2018 where the first offender in the case is of each age from 0-99. Offenders with unknown ages are excluded from this graph and make up about 27\% of cases. The average (mean) age is 30.9 years old (shown in orange) which is due to a long right tail; the median age is 28 years old. If you look closely at the left side of the graph you can see that there are some very young offenders, with at least one offender aged 0-10 included in the data. It's not clear from this alone that these ages are a data entry. While a two-year-old certainly couldn't murder someone, the data does include deaths caused by ``children playing with gun'' (homicide circumstances will be discussed in Section \ref{circumstance}) so these ages could potentially be correct.
+
+If you're familiar with the age-crime curve in criminology - which basically says crime peaks in late teen years then falls dramatically - this shows that exact curve, though doesn't decline as the individual ages as quickly as we see with less serious crimes.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrOffenderAge-1} 
+
+}
+
+\caption{The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Victims reported as '99 years or older' are considered 99 years old.}\label{fig:shrOffenderAge}
+\end{figure}
+
+Figure \ref{fig:shrVictimAge} repeats Figure \ref{fig:shrOffenderAge} but with victim age rather than offender age. The mean victim age (shown in orange) is 32.9 and the median age is 30. Though the age victim age is a bit younger than the average offender age, trends are relatively similar for teenagers and older where deaths spikes in the late teen years and then declines steadily. The major difference is the U-shape for younger victims - for victims under age 15, homicides peak at age 0 (i.e.~younger than their first birthday) with \textasciitilde1.5\% of all homicides being this this age. They then decline until plateauing at around age 6 before increasing again in the early teen years.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrVictimAge-1} 
+
+}
+
+\caption{The age of homicide offenders, based on the first offender in any homicide incident. Victims under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Victims reported as '99 years or older' are considered 99 years old.}\label{fig:shrVictimAge}
+\end{figure}
+
+\hypertarget{sex}{%
+\subsubsection{Sex}\label{sex}}
+
+We'll next look at victim and offender sex, a simple variable since only male and female are included.
+
+About 62\% of offenders, as seen in Figure \ref{fig:shrOffenderSex} are male and about 8\% are female, indicating a large disparity in the sex of homicide offenders. The remaining 30\% of offenders do not have sex data available because the police do not know the sex of this individual. For offenders who aren't arrested, this variable may be inaccurate since it is perceived sex of the offender.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrOffenderSex-1} 
+
+}
+
+\caption{The sex of offenders, 1976-2018.}\label{fig:shrOffenderSex}
+\end{figure}
+
+There is far less uncertainty for victim sex, with under 0.15\% of victims having an unknown sex. Here again there is a large disparity between male and female with about 78\% of victims being male and 22\% being female. While there are more male victims than male offenders, this is probably just due to there being so many unknown offenders.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrVictimSex-1} 
+
+}
+
+\caption{The sex of victims, 1976-2018.}\label{fig:shrVictimSex}
+\end{figure}
+
+\hypertarget{race-1}{%
+\subsubsection{Race}\label{race-1}}
+
+This data also includes the race of the victims and offenders. This includes the following races: American Indian or Alaskan Native, Asian, Black, Native Hawaiian or Other Pacific Islander, and White. These are the only races included in the data; Hispanic is considered an ethnicity and is available as a separate, though flawed, variable. There is no category for bi- or multi-racial. As with other demographics info for offenders, in cases where no arrest is made (and we don't know in this data if one is made), there's no way to confirm the person's race (and race itself is hard to put into discrete boxes like done here) so these results may not be entirely accurate.
+
+Figure \ref{fig:shrOffenderRace} shows the percent of homicides in the data by race. Black and White victims are included are similar percents, at 34.2\% and 33.8\% of victims, respectively. Given that Black people are only about 13\% of the population while White people are 76\% of the population, according to 2019 Census data, this shows a large disparity in offender race rates. There are far more Black and far fewer White offenders than would be expected from their percent of the total United States population. The next most common group is Unknown at about 30.5\% of offenders. Given that so many offenders have an unknown race, the reliability of the other race measures is limited. The remaining races are Asian at 0.9\% of offenders, American Indian or Alaskan Native at 0.6\%, and Native Hawaiian or Other Pacific Islander at 0.004\%.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrOffenderRace-1} 
+
+}
+
+\caption{The race of offenders, 1976-2018.}\label{fig:shrOffenderRace}
+\end{figure}
+
+For victim race, seen in Figure \ref{fig:shrVictimRace}, only about 1\% of victim races are unknown. This means we can be a lot more confidence in the race of the victims than in the race of the offender. Or, at least the challenge of categorizing people by race is not the major problem, not missing people. As with offenders, White and Black victims are the two most common races, with 49\% and 47.7\% of victims, respectively. There are almost double the percent of Asian victims than Asian offenders at 1.51\% of victims (and 0.9\% of offenders). American Indian or Alaskan Natives make up 0.8\% of victims while Native Hawaiian or Pacific Islanders make up 0.005\% of victims.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrVictimRace-1} 
+
+}
+
+\caption{The race of victims, 1976-2018}\label{fig:shrVictimRace}
+\end{figure}
+
+\hypertarget{ethnicity-1}{%
+\subsubsection{Ethnicity}\label{ethnicity-1}}
+
+The final demographic variable is ethnicity which is whether the victim or offender is Hispanic or not Hispanic. The UCR data has a weird relationship with this variable (which is also in the Arrests by Age, Sex, and Race dataset, discussing in Chapter \ref{arrests}) where ethnicity is technically a variable in the data but very rarely collected. As such, this is an unreliable variable that if you really want to use, needs careful attention to make sure it is being reported consistently by the agencies that you are looking at.
+
+The vast majority - 71.6\% - of offenders have an unknown ethnicity while 21.5\% are not Hispanic and 6.9\% are Hispanic.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrOffenderEthnicity-1} 
+
+}
+
+\caption{The ethnicity of offenders, 1976-2018.}\label{fig:shrOffenderEthnicity}
+\end{figure}
+
+Unlike the other demographic variables, there is still a huge amount of underreporting when it comes to victim ethnicity, though still less than for offender ethnicity. 59\% of victims have an unknown ethnicity. Nearly 30\% of victims are reported as not Hispanic while 10.8\% are reported as Hispanic.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrVictimEthnicity-1} 
+
+}
+
+\caption{The ethnicity of victims, 1976-2018.}\label{fig:shrVictimEthnicity}
+\end{figure}
+
+\hypertarget{case-characteristics}{%
+\subsection{Case characteristics}\label{case-characteristics}}
+
+\hypertarget{weapon-used}{%
+\subsubsection{Weapon used}\label{weapon-used}}
+
+The first variable we'll look at is the weapon used by each offender. Table \ref{fig:shrWeapon} shows the weapon used by the first offender in every incident from 1976 to 2018. Each offender can only be reported as having a single weapon, so this table essentially shows the number (and percent) of murders caused by this weapon. This isn't entirely true since in reality an offender could use multiple weapons and there can be multiple offenders.
+
+The most commonly used weapon is a handgun, which is used in nearly half of murders. This is followed by a knife or other sharp weapon used to cut at 15\% of murders, and then by ``firearm, type not stated'' which is just a firearm where we don't know the exact type (it can include handguns) at 7.3\% of murders. The fourth most common weapon is ``personal weapons'' at nearly 6\% of murders. ``Personal weapons'' is a weird term to mean that there was no weapon - the ``weapon'' was the offender who beat the victim to death. Shotguns are involved in 5\% of murders and all other weapons are involved in fewer than 5\% of cases. In total there are 19 different weapons included though most are relatively uncommon.
+
+\textbackslash begin\{figure\}
+
+\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrWeapon-1}
+
+\hypertarget{relationship-between-first-victim-and-offenders}{%
+\subsubsection{Relationship between first victim and offenders}\label{relationship-between-first-victim-and-offenders}}
+
+An interesting and highly useful variable is the relationship between the first victim and each offender. To be clear, this is only for the first victim; we don't have the relationship between other victims and offenders. However, as seen earlier, this isn't \emph{too much} of an issue since nearly all incidents only have a single victim. There are 29 possible relationship types (including ``unknown'' relationship) which are broken into three categories: legal family members, people known to the victim but who aren't family, and people not known to the victim.
+
+\textbackslash begin\{figure\}
+
+\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrRelationship-1}
+
+\hypertarget{circumstance}{%
+\subsubsection{Homicide circumstance}\label{circumstance}}
+
+We also have information on the type of the murder, which this data calls the ``circumstance''. This comes is relatively broad categories that leave a lot to be desired in our understanding of what led to the murder. Table \ref{fig:shrCircumstance} shows the number and percent of each circumstance for the first victim of each murder from 1976 to 2018. This data has 33 possible circumstances which it groups into five main categories: murders that coincide with committing another crime (``felony type'' murders), murders that don't coincide with another crime (``non-felony type'' murders), justifiable homicides, and negligent manslaughter.
+
+The felony type murders are simply ones where another crime occurred during the murder. While this is called ``felony type'' it does include other crimes such as theft and gambling (which isn't always a felony) so is a bit of a misnomer. The ``non-felony type'' are murders that happen without another crime. This includes gang killings (where, supposedly, only the murder occurred), children killed by babysitters, fights among intoxicated (both of alcohol and drugs), and ``lover's triangle'' killings. Justifiable homicides are when a person (civilian and police officer who kill a person committing a crime.\footnote{This dataset is one source of information on how many people police kill each year. But it is a large undercount compared to other sources such as the Washington Post collection, so is not a very useful source of information on this topic.} Negligent manslaughter includes accidental shootings such as when children find and shoot a gun, but excludes deaths from traffic accidents.
+
+The most common circumstances, accounting for 27.4\%, 26.4\%, and 12.5\%, respectively, are ``other arguments'', ``unknown'', and ``other non-felony type - not specified''. Since the data includes ``argument over money or property'' as one category, the ``other arguments'' mean that it's an argument for a reason other than over money or property. The ``other non-felony type'' one does not mean that the murder did not occur alongside another crime, but also doesn't fall into the non-felony categories included. Robbery is the only remaining circumstance with more than 5\% of murders, at 8\%.
+
+\textbackslash begin\{figure\}
+
+\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrCircumstance-1}
+
+\hypertarget{homicide-subcircumstance}{%
+\subsubsection{Homicide subcircumstance}\label{homicide-subcircumstance}}
+
+The ``subcircumstance'' just tells you more information about justifiable homicides. This includes the circumstance leading up to the ``felon'' - which is how the person killed is described, though technically they don't need to have committed a felony - was killed. It includes if this person attached an officer (the one who killed them), a different officer, a civilian, or was committing or fleeing a crime.
+
+\textbackslash begin\{figure\}
+
+\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrSubCircumstance-1}
+
+\hypertarget{leoka}{%
+\chapter{Law Enforcement Officers Killed and Assaulted (LEOKA)}\label{leoka}}
+
+The Law Enforcement Officers Killed and Assaulted data, often called just by its acronym LEOKA, has two main purposes.\footnote{This data is also sometimes called the ``Police Employees'' dataset.} First, it provides counts of employees employed by each agency - broken down by if they are civilian employees or sworn officers, and also broken down by gender. And second, it measures how many officers were assaulted or killed (including officers who die accidentally such as in a car crash) in a given month. The assault data is also broken down into shift type and type (e.g.~alone, with a partner, on foot, in a car, etc.), the offender's weapon, and type of call they are responding to (e.g.~robbery, disturbance, traffic stop). The killed data simply says how many officers are killed feloniously (i.e.~murdered) or died accidentally (e.g.~car crash) in a given month. The employee information is at the year-level so you know, for example, how many male police officers were employed in a given year at an agency, but don't know any more than that such as how many officers were on patrol, were detectives, were in special units, etc. This dataset is commonly used as a measure of police employees and is a generally reliable - though imperfect as we'll see - measure of how many police are employed by a police agency. The second part of this data, measuring assaults and deaths, is more flawed with missing data issues and data error issues (e.g.~more officers killed than employed in an agency).
+
+\hypertarget{common-uses-of-this-data}{%
+\section{Common uses of this data}\label{common-uses-of-this-data}}
+
+This data, as well as the privately-run site \href{https://www.odmp.org/}{Officer Down Memorial Page} which covers law enforcement officers who have died, has also been used lately in the context of police using force against people out of fear of being harmed by that person. The discussion revolves around whether police are actually in high danger of being harmed by comparing the rate at which officers die to that of other professions. In general they find that police officers are among the most likely profession to die but are not at the top of this measure.
+
+\hypertarget{important-variables-3}{%
+\section{Important variables}\label{important-variables-3}}
+
+\hypertarget{number-of-employees}{%
+\subsection{Number of employees}\label{number-of-employees}}
+
+\hypertarget{officers-killed}{%
+\subsection{Officers killed}\label{officers-killed}}
+
+\hypertarget{assaults-by-injury-and-weapon}{%
+\subsection{Assaults by injury and weapon}\label{assaults-by-injury-and-weapon}}
+
+\begin{itemize}
+\tightlist
+\item
+  Assaults with injury
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Offender has firearm
+  \item
+    Offender had knife
+  \item
+    Offender had other weapon
+  \item
+    Offender was unarmed
+  \end{itemize}
+\item
+  Assaults without injury
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Offender has firearm
+  \item
+    Offender had knife
+  \item
+    Offender had other weapon
+  \item
+    Offender was unarmed
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{assaults-by-call-type}{%
+\subsection{Assaults by call type}\label{assaults-by-call-type}}
+
+\begin{itemize}
+\item
+  Disturbance call (e.g.~domestic violence, person carrying a gun in public)
+\item
+  Burglary
+\item
+  Robbery
+\item
+  Officers arresting someone for another crime
+\item
+  Civil disorder
+\item
+  Officer has custody of prisoners
+\item
+  Suspicious persons
+\item
+  Officers are ambushed
+\item
+  Mentally deranged person
+\item
+  Traffic pursuit and traffic stops
+\item
+  All other call types
+\item
+  Offender weapons
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Offender has firearm
+  \item
+    Offender had knife
+  \item
+    Offender had other weapon
+  \item
+    Offender was unarmed
+  \end{itemize}
+\item
+  Type of officer assignment
+
+  \begin{itemize}
+  \tightlist
+  \item
+    In a vehicle with two officers
+  \item
+    In a vehicle alone
+  \item
+    In a vehicle alone but assisted by other officers
+  \item
+    Detective or special unit alone
+  \item
+    Detective or special unit assisted by other officers
+  \item
+    Other assignment alone
+  \item
+    Other assignment assisted by other officers
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{assaults-by-time}{%
+\subsection{Assaults by time}\label{assaults-by-time}}
+
+\begin{itemize}
+\tightlist
+\item
+  12:01am - 2:00am
+\item
+  2:01am - 4:00am
+\item
+  4:01am - 6:00am
+\item
+  6:01am - 8:00am
+\item
+  8:01am - 10:00am
+\item
+  10:01am - 12:00pm
+\item
+  12:01pm - 2:00pm
+\item
+  2:01pm - 4:00pm
+\item
+  4:01pm - 6:00pm
+\item
+  6:01pm - 8:00pm
+\item
+  8:01pm - 10:00pm
+\item
+  10:01pm - 12:00pm
+\end{itemize}
+
 \hypertarget{arson-1}{%
 \chapter{Arson}\label{arson-1}}
 
@@ -2434,8 +2315,8 @@ For each type of arson it includes the number of arsons where the structure was 
 
 In cases where the arson led to a death, that death would be recorded as a murder on the Offenses Known and Clearances by Arrest dataset - but not indicated anywhere on this dataset. If an individual who responds to the arson dies because of it, such as a police officer or a firefighter, this is not considered a homicide (though the officer death is still included in the Law Enforcement Officers Killed and Assaulted data) unless the arsonist intended to cause their deaths. Even though the UCR uses the Hierarchy Rule, where only the most serious offense that occurs is recorded, all arsons are reported - arson is exempt from the Hierarchy Rule.
 
-\hypertarget{agencies-reporting-5}{%
-\section{Agencies reporting}\label{agencies-reporting-5}}
+\hypertarget{agencies-reporting-4}{%
+\section{Agencies reporting}\label{agencies-reporting-4}}
 
 Figure \ref{fig:arsonAgencies} shows the annual number of police agencies that reported at least one month that year. With data starting in 1979, there were a little over 12,000 agencies reporting a year until the early 2000s where it recovered from a sharp drop in agencies to steadily increase to about 16,000 a year. While arson data is available through 2019, this graph only shows data through 2018.
 
@@ -2448,8 +2329,8 @@ Figure \ref{fig:arsonAgencies} shows the annual number of police agencies that r
 \caption{The annual number of police agencies that report at least month of data that year.}\label{fig:arsonAgencies}
 \end{figure}
 
-\hypertarget{important-variables-5}{%
-\section{Important variables}\label{important-variables-5}}
+\hypertarget{important-variables-4}{%
+\section{Important variables}\label{important-variables-4}}
 
 Similar to the Offenses Known and Clearances by Arrest data, which is covered in Chapter \ref{offensesKnown}, this data shows the monthly number of crimes - in this case only arsons - reported or discovered by the police, the number found by police to be unfounded, and the number cleared by the police. In addition, it includes the number of arsons in structures that were uninhabited, and the estimated cost of the damage caused by the arsons. For each variable, the arsons also broken into several categories of arsons, which we'll talk about in Section \ref{arsonType}. Like other UCR data, there are also variables that provide information about the agency - ORI codes, population under jurisdiction - the month and year that the data covers, and how many months reported data.
 
@@ -2572,6 +2453,170 @@ There are also cases where it is less clear when a value is a data error or is s
 }
 
 \caption{The annual average cost per single-family home arson in Los Angeles, California.}\label{fig:arsonCost}
+\end{figure}
+
+\hypertarget{hate_crimes}{%
+\chapter{Hate Crime Data}\label{hate_crimes}}
+
+This dataset covers crimes that are reported to the police and judged by the police to be motivated by hate. More specifically, they are, first, crimes which were, second, motivated - at least in part - by bias towards a certain person or group of people because of characteristics about them such as race, sexual orientation, or religion. The first part is key, they must be crimes - and really must be the selection of crimes that the FBI collects for this dataset. Biased actions that don't meet the standard of a crime, or are of a crime not included in this data, are not considered hate crimes. For example, if someone yells at a Black person and uses racial slurs against them, it is clearly a racist action. For it to be included in this data, however, it would have to extend to a threat since ``intimidation'' is a crime included in this data but lesser actions such as simply insulting someone is not included. For the second part, the bias motivation, it must be against a group that the FBI includes in this data. When this data collection began crimes against transgender people were not counted so if a transgender person was assaulted or killed because they were transgender, this is not a hate crime recorded in the data.\footnote{The first year where transgender as a group was a considered a bias motivation was in 2013.}
+
+So this data is really a narrower measure of hate crimes than it might seem. In practice it is (some) crimes motivated by (some) kinds of hate that are reported to the police. It is also the most under-reported UCR dataset with most agencies not reporting any hate crimes to the FBI. This leads to huge gaps in the data with some states having zero agencies report crime, agencies reporting some bias motivations but not others, agencies reporting some years but not others. While these problems exist for all of the UCR datasets, it is most severe in this data. This problem is exacerbated by hate crimes being rare even in agencies that report them - with such rare events, even minor changes in which agencies report or which types of offenses they include can have large effects.
+
+My main takeaway for this data is that it is inappropriate to use for most hate crime research. At most it can be used to look at within-city within-bias-motivation trends, while keeping in mind that even this narrow subset of data is limited by under-reporting by victims and potential changes in police practices of reporting such as how many months of data they report per year.
+
+\hypertarget{agencies-reporting-5}{%
+\section{Agencies reporting}\label{agencies-reporting-5}}
+
+We'll start by looking at how many agencies report hate crime each year. This is a bit tricky since
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateAgencies-1} 
+
+}
+
+\caption{The annual number of police agencies that report at least one hate crime incident in that year.}\label{fig:hateAgencies}
+\end{figure}
+
+The 2,000 or so agencies that report each year are not the same every year. Figure \ref{fig:hateCrimesEver} shows the cumulative number of agencies that have reported at least one hate crime between 1991 and 2018. There is a relatively steady growth in the cumulative number of agencies, with about 350 new agencies each year. This means that each year some new agencies report hate crimes while some agencies that reported a hate crime in the previous year don't report any hate crimes in the current year. Figure \ref{fig:hateCrimesPreviousYear} puts this into hard numbers by showing the percent of agencies who reported a hate crime in a certain year who \emph{also} reported a hate crime in the previous year. For most years between 50\% and 60\% of agencies which reported a hate crime in the year shown on the x-axis also reported a hate crime in the previous year, indicating somewhat high consistency in which agencies have hate crimes.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimesEver-1} 
+
+}
+
+\caption{The cumulative number of agencies that have reported one or more hate crimes between 1991 to 2018.}\label{fig:hateCrimesEver}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimesPreviousYear-1} 
+
+}
+
+\caption{The percent of agencies that report a hate crime in a given year that also reported a hate crime in the previous year, 1992-2018.}\label{fig:hateCrimesPreviousYear}
+\end{figure}
+
+Another way to understand reporting is to look at the number of reported hate crimes by state and see which states report and which don't. Figure \ref{fig:hateCrimesMap} does this for 2018 data by showing the number of reported hate crime incidents by state. While every state other than Wyoming reporting at least one hate crime in 2018, there are large differences between states because even in states that have reporting agencies, not all agencies in that state report. For example, Alabama reported only two hate crimes in 2018, the least of any state other than Wyoming.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimesMap-1} 
+
+}
+
+\caption{Total reported hate crimes by state, 2018.}\label{fig:hateCrimesMap}
+\end{figure}
+
+Since the number of state-wide hate crimes is partially influenced by population, we'll also look at it as the percent of agencies in the state that report at least one hate crime. Again this is limited by population as agencies in each state cover different populations - and most agencies are small so a few large agencies can account for a large share of crimes, including hate crimes. Still, this is a useful exercise as we can easily see where very few agencies report. Figure \ref{fig:statePercentReporting} shows the percent of agencies for each state that reported at least one hate crime in 2018. In Connecticut, the state with the highest percent of agencies reporting, 28\% of agencies reported at least one hate crime. In 34 states, fewer than 10\% of agencies reported a hate crime, and in 19 states fewer than 5\% of agencies did so. One interesting finding from this graph is the more liberal states - Connecticut, New Jersey, Vermont, California, Washington - have the highest share of agencies reporting a hate crime, indicating that the culture of the state may influence whether agencies report hate crimes.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/statePercentReporting-1} 
+
+}
+
+\caption{The percent of agencies in each state that reported at least one hate crime in 2018.}\label{fig:statePercentReporting}
+\end{figure}
+
+\hypertarget{important-variables-5}{%
+\section{Important variables}\label{important-variables-5}}
+
+This data has the standard set of variables describing the agency that is reporting. This includes the agency ORI - which is the unique ID for that agency - the agency name, their state, and the population under their jurisdiction.
+
+They also have a variable with the exact date that the hate crime occurred on - and not the date it was reported on. Figure \ref{fig:hateCrimesByDay} shows the percent of hates crimes between 1991 and 2018 that occurred on each day of the week. Interestingly, the most common day for a hate crime to occur is on Wednesday, not on Friday or Saturday as non-hate crimes most frequently occur. This suggests that hate crimes don't follow the same trends as other crimes.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimesByDay-1} 
+
+}
+
+\caption{The day of the week that hate crimes occurred on, 1991-2018.}\label{fig:hateCrimesByDay}
+\end{figure}
+
+Each hate crime incident can cover up to 10 different crimes occurring - e.g.~a person who burglarizes a synagogue and spray paints a swastika on the wall would have both vandalism and burglary reported in this data. With each crime, this data has the bias motivation for that crime, the location of the crime (in broad categories, not the actual location in the city like a street address would have), and the number of victims for that offense. In practice, in most hate crimes with multiple offenses recorded, the bias motivation, location, and victim count is the same for each offense.
+
+Figure \ref{fig:crimesPerHateCrime} shows the number of crimes per incident for each hate crime reported between 1991 and 2018. In 96.6\% of cases, there is only one offense in that incident.\footnote{In 0.0005\% of hate crimes there is no recorded offense. This is not shown in the graph.} This drops sharply to 3.2\% of incidents having two offenses, 0.21\% having three offenses, 0.016\% having four offenses, and 0.002\% having five offenses. Even though this data does allow up to 10 offenses per hate crime incident, there has never been a recorded case with more than five offenses.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/crimesPerHateCrime-1} 
+
+}
+
+\caption{The number of offenses per hate crime incident.}\label{fig:crimesPerHateCrime}
+\end{figure}
+
+\hypertarget{the-bias-motivation-who-the-hate-is-against}{%
+\subsection{The bias motivation (who the hate is against)}\label{the-bias-motivation-who-the-hate-is-against}}
+
+The most important variable in this data is the ``bias motivation'' which is the FBI's term for the cause of the hate. A hate crime targeted against Black people would be an ``anti-Black'' bias motivation. For the police to classify an incident as a hate crime, and to assign a particular bias motivation, the police must have \emph{some} evidence that the crime was motivated by hate. The victim saying that the crime is a hate crime alone is not sufficient - though if large portions of the victim's community believe that the crime is a hate crime, this is a factor in the police's assessment. The evidence required is not major, it includes things as explicit as racial slurs said during an incident and less obvious factors like the victim is celebrating their community (e.g.~attending a holiday event) or the crime occurring on an important holiday for that community (e.g.~Martin Luther King Day, religious holidays). The FBI also encourages police to consider the totality of the evidence even if none alone strongly suggests that the crime was a hate crime in making their determination about whether the incident was a hate crime or not.
+
+This also means that many (likely most) hate crimes will not be recorded as hate crimes since there is no evidence that the crime is motivated by hate. For example, if a man committed a crime against Asian people for crimes because they are Asian, that would in reality be a hate crime. However, if the offender does not say anything anti-Asian to the victim, which is the mostly likely thing to indicate that this is a hate crime, the crime would not likely be recorded as a hate crime. For example, at the time of this writing (Spring, 2021), there are numerous media reports discussing an increase in anti-Asian hate crimes as a result of racism relating to the pandemic.\footnote{This dataset for 2020 won't be released until Fall 2021 so this data is not useful for measuring urgent policies about current events.} This data would likely undercount both anti-Asian behavior and anti-Asian hate crimes. First, if someone walked to an Asian person and called them an anti-Asian slur, that is clearly a hateful act and would be classified as a hate crime under some organization's collections methods. However, as hateful as this incident is, \emph{this alone} would not be classified as a hate crime in this dataset as a slur is not a crime. If accompanied by other criminal behavior, or if it continues to the point where it can be considered intimidation, it would then be classified as a hate crime. Second, crimes against Asian victims that are in fact hate crimes, but have no evidence that they are hate crimes would not be classified as hate crimes in this data.
+
+Bias motivation is based on the offender's perceptions of the victim so even if they are incorrect in who their victim is, if they intended to target someone for their perceived group membership, that is still a hate crime. For example, if a person assaults a man because they think he is gay, that is a hate crime because the assault was motivated by hate towards gay people. Whether the victim is actually gay or not is not relevant - the offender perceived him to be gay so it is an anti-gay hate crime. To make this even more complicated, the offender must have committed the crime because they are motivated, at least to some degree, by their bias against the victim. Being biased against the victim but targeting them for some other reason means that the crime is not a hate crime.
+
+The biases that the FBI includes in this data has grown over time, with new bias motivations being added in 1997, 2012, 2013, and 2015. Table \ref{fig:hateBiasMotivation} shows each bias motivation in this data, the year it was first reported, how many hate crimes there were for this bias motivation from 1991-2018 and what percent of hate crimes that bias motivation makes up. For ease of seeing how bias motivations changed over time, the table is sorted by year and by frequency of incident within that year. If you're viewing this on a computer or phone, you can sort the table yourself. The year is the first year with that bias motivation - as hate crimes for certain groups are very rare, the bias motivation could have technically been available in previous years. The last column in this table shows the percent of hate crimes from 1991-2018, though this is a very rough measure since some groups are so small that even accounting for a small percent of total hate crimes can mean that are massively disproportionately targeted.
+
+\textbackslash begin\{figure\}
+
+\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateBiasMotivation-1}
+
+2015 is the most year of new bias motivations, as of data through 2018. This year added a number of religions such as Anti-Buddhist, Anti-Sikh, and Anti-Jehovah's Witness. In 2013, anti-Transgender was added and this is the most common of the bias motivations added since data began in 1991 with 513 hate crimes between 2013-2018 - 0.26\% of all hate crimes from 1991-2018. That year also added anti-male and Anti-Native Hawaiian or Other Pacific Islander, which is the most recent racial group added. In 2012, anti-gender non-conforming and anti-female were included, while in 1997 both anti-mental and anti-physical disability were added. In part due to having fewer years of data available, these newer bias motivations make up a small percent of total hate crimes, accounting for \textasciitilde1.4\%.
+
+The original hate crimes - that is, those in the data in 1991 when this dataset was released - are far more common. The most common bias motivation is anti-Black at 34\% of hate crimes, anti-Jewish at 13\%, anti-White at 12\%, anti-male homosexual (gay) at 10\%, anti-Hispanic at 6\%, and anti-ethnicity other than Hispanic (this group means a crime against an ethnic group that isn't Hispanic, though it is occasionally reported as anti-non-Hispanic which is incorrect.) at 5\%. All other bias motivations are less than 5\% of hate crimes and consist of a variety of ethnic, racial, religious, or sexual orientation. Some hate crimes can potentially fall in multiple categories. For example, there is a bias motivation of ``anti-male homosexual (gay)'' and of ``anti-lesbian, gay, bisexual, or transgender, mixed group (LGBT)'' so there is some overlap between them.
+
+\hypertarget{the-crime-that-occurred}{%
+\subsection{The crime that occurred}\label{the-crime-that-occurred}}
+
+The ``crime'' part of hate crimes is which criminal offense occurred during the incident. A hateful act where the action is not one of the crimes that the FBI records would not be considered a hate crime. This is likely most common when considering something like a person calling someone by a hateful slur (e.g.~``You're a {[}slur{]}'', ``go back to your own country'') but where the action is not technically a crime. Another layer of difficulty in using this data is that not all crimes that the FBI includes were initially included when data become available in 1991. Every several years the FBI adds new crimes to be included in this data. Table \ref{fig:hateOffense} shows each crime in the data, the first year that this crime was reported, the total number of these crimes reported between 1991 and 2018, and the percent of all incidents this crime makes up.\footnote{This tables uses only the first offense in an incident so counts are slightly lower than if all crimes in every incident is used.} This table is sorted with the most recent years first, and within year by how common the crime was.
+
+Nearly all hate crimes are vandalism/destruction of property (31\%), intimidation (30\%), and simple assault (20\%) or aggravated assault (11\%) with no remaining crime making up more than 2\% of total hate crimes.
+
+\textbackslash begin\{figure\}
+
+\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateOffense-1}
+
+Agencies that report to the FBI's National Incident-Based Reporting System (NIBRS) can also report bias motivations for their crimes, and these reports are included in this dataset. One tricky thing is that the crimes included are different depending on if the agency reported through NIBRS or to the dataset directly, and are not NIBRS reporting agencies. The above table shows all crimes included, but agencies who report directly can only submit a subset of crimes. These crimes are the same as in the Offenses Known and Clearances by Arrest dataset that is detailed in Chapter @ref(offenses\_known) as well as vandalism/destruction of property and human trafficking.
+
+\hypertarget{the-location-of-the-crime}{%
+\subsection{The location of the crime}\label{the-location-of-the-crime}}
+
+This data is interesting because it includes the location - in categories for types of places, not actual location in the city - of the incident. This is important since the type of location can be a factor in whether the incident is classified as a hate crime. For example, spray paint on a synagogue or a mosque is much more likely to be a hate crime than spray paint on a wall of an abandoned building. Table \ref{fig:hateLocations} shows the locations of hate crimes sorted by the year that location was first included in the data and then by frequency of hate crimes. Each hate crime incident can have multiple locations since each offense can have its own incident, but in most cases (96.6\%) a hate crime only has a single location.
+
+As with the crime and the bias motivation, the available locations have increased as time went on, though these newer locations are relatively uncommon. One important change in location is that starting in 2010 the location of school/college was split to have one location be for elementary and high schools and another location be for colleges and universities. The majority of hate crimes occur in the victim's home (30\%), on a road or alley (19\%), in an unknown location (13.6\%), and in a parking lot or parking garage. All other locations occur in fewer than 5\% of hate crimes.
+
+\textbackslash begin\{figure\}
+
+\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateLocations-1}
+
+\hypertarget{number-and-race-of-offenders}{%
+\subsection{Number and race of offenders}\label{number-and-race-of-offenders}}
+
+There are two variables that have information about the people who commit the hate crime: the number of offenders and the race of the offenders (as a single value with the race of the group if all are of the same race or it will say a ``multi-racial'' group). Unfortunately, important information like the age of the offenders, their criminal history, their relationship to the victim, their gender, or whether they are arrested are completely unavailable in this dataset.
+
+When the police do not have any information about the number of offenders (which is common in cases of property crimes such as vandalism but rare in violent crimes), this data considers that to have zero offenders. The zero is just a placeholder that means that the police have no idea how many offenders there are, not that they think there were actually no offenders. Figure \ref{fig:hateCrimeOffenderNumber} shows the percent of hate crimes from 1991-2018 that have each number of offenders recorded. In the actual data it says the actual number of offenders, with the largest group in the current data going to 99 offenders - in this graph I group 10 or more offenders together for simplicity. I also relabel zero offenders as ``Unknown'' offenders in the graph since that's more accurate. The most common number of offenders per hate crime is one offender, at about 46\% of hate crimes from 1991-2018 having only one offender. This drops sharply to 9\% of hate crimes having 2 offenders and continues to drop as the number of offenders increase. However, about a third (36.8\%) of hate crimes have an unknown number of offenders.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimeOffenderNumber-1} 
+
+}
+
+\caption{The race of offenders, as a group, for hate crime incidents, 1991-2018.}\label{fig:hateCrimeOffenderNumber}
+\end{figure}
+
+The data also includes the race of the offenders as a group, though not the ethnicity (Hispanic or not) of the offenders. In cases where there are multiple races among offenders, that will be classified as a ``multi-racial group''. As shown in Figure \ref{fig:hateCrimeOffenderNumber} The most common racial group is ``unknown'' since the police do not know the race of the offenders. Then are White offenders at nearly 40\% of hate crimes followed by Black offenders at nearly 13\% of hate crimes. The remaining racial groups are rare with about 2\% of hate crimes being committed by a multi-racial group of offenders and 0.72\% of hate crimes committed by Asian or Pacific Islander offenders and 0.54\% committed by American Indian or Native Alaskan offenders.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimeOffenderRace-1} 
+
+}
+
+\caption{The race of offenders, as a group, for hate crime incidents, 1991-2018.}\label{fig:hateCrimeOffenderRace}
 \end{figure}
 
 \backmatter

@@ -15,20 +15,18 @@ rmd_files: [
   "ucr_general.Rmd",
   # Offenses Known and Clearances by Arrest
   "offenses_known.Rmd",
-  # Arrests by Age, Sex, and Race
-  "arrests.Rmd",
-  # LEOKA
-  "leoka.Rmd",
-  # SHR
-  "shr.Rmd",
-  # Hate Crime
-  "hate_crime.Rmd",
   # Stolen property
   "stolen_property.Rmd",
+  # Arrests by Age, Sex, and Race
+  "arrests.Rmd",
+  # SHR
+  "shr.Rmd",
+  # LEOKA
+  "leoka.Rmd",
   # Arson
   "arson.Rmd",
-  # County-Level Data
-  #"county_level_data.Rmd",
+  # Hate Crime
+  "hate_crime.Rmd",
   
   "references.Rmd"
 ]
