@@ -3,14 +3,6 @@
 
 
 
-```
-#>             used   (Mb) gc trigger    (Mb)   max used    (Mb)
-#> Ncells   1098175   58.7    2207842   118.0    1244675    66.5
-#> Vcells 751973598 5737.2 1568337852 11965.5 1502148543 11460.5
-#>              used   (Mb) gc trigger    (Mb)   max used    (Mb)
-#> Ncells    1099884   58.8    2207842   118.0    1244675    66.5
-#> Vcells 1287293181 9821.3 1884407135 14376.9 1822646748 13905.7
-```
 
 
 The Arrests by Age, Sex, and Race dataset - often called ASR, or the "arrests data", or the "Arrests by Age, Sex, Race, and Ethnicity (ASRE) though this is really misleading since most years don't even report ethnicity data - includes the monthly number of arrests for a variety of crimes and, unlike the crime data, breaks down this data by age and gender. This data includes a broader number of crime categories than the crime dataset (the Offenses Known and Clearances by Arrest data) though is less detailed on violent crimes since it does not breakdown aggravated assault or robberies by weapon type as the Offenses Known data does. For each crime it says the number of arrests for each gender-age group with younger ages (15-24) showing the arrestee's age to the year (e.g. age 16) and other ages grouping years together (e.g. age 25-29, 30-34, "under 10"). It also breaks down arrests by race-age by including the number of arrestees of each race (American Indian, Asian, Black, and White) are the only included races) and if the arrestee is a juvenile (<18 years old) or an adult. The data does technically include a breakdown by ethnicity-age (e.g. juvenile-Hispanic, juvenile-non-Hispanic) but almost no agencies report this data (for many years zero agencies report ethnicity) so in practice the data does not include ethnicity. As the data includes counts of arrestees, people who are arrested multiple times are included in the data multiple times - it is not a measure of unique arrestees. 
@@ -19,17 +11,27 @@ The Arrests by Age, Sex, and Race dataset - often called ASR, or the "arrests da
 
 I'm not sure why there's a dip in 1980. Since it immediately reverses itself in the next year I think it's just a data issue, not a real decrease in the number of agencies that report. 
 
-<div class="figure" style="text-align: center">
-<img src="arrests_files/figure-html/arrestsAgenciesReporting-1.png" alt="The annual number of agencies reporting at least one month of data in that year." width="90%" />
-<p class="caption">(\#fig:arrestsAgenciesReporting)The annual number of agencies reporting at least one month of data in that year.</p>
-</div>
+\begin{figure}
 
-If we look at agencies that report all 12 months of the year, as seen in Figure \@ref(arrestsAgenciesReporting12Months), now far fewer agencies report. In almost every year about 45-53% of agencies that report at all report report all 12 months. This means that we're missing data for about half of agencies. 
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/arrestsAgenciesReporting-1} 
 
-<div class="figure" style="text-align: center">
-<img src="arrests_files/figure-html/arrestsAgenciesReporting12Months-1.png" alt="The annual number of agencies reporting 12 months of data in that year." width="90%" />
-<p class="caption">(\#fig:arrestsAgenciesReporting12Months)The annual number of agencies reporting 12 months of data in that year.</p>
-</div>
+}
+
+\caption{The annual number of agencies reporting at least one month of data in that year.}(\#fig:arrestsAgenciesReporting)
+\end{figure}
+
+If we look at agencies that report all 12 months of the year, as seen in Figure \@ref(fig:arrestsAgenciesReporting12Months), now far fewer agencies report. In almost every year about 45-55% of agencies that report at all report report all 12 months. This means that we're missing data for about half of agencies. When an agency reports at all, they tend to report more months than fewer. For example, there are about twice as many agency-years with 11 months reported than with only 1 month reported. So having only about half of agencies report all 12 months of the year doesn't mean that we're missing a ton of data from the remaining half of agencies - but does merit close attention to which agencies you use in your research and how much missingness there is for those agencies. 
+
+Another issue is that agencies can report only some crimes. So, for example, they may report how many people were arrested for theft but not for murder, and it's unclear when that means that truly zero people were arrested for murder and when the agency just didn't report. This isn't in the original data but in my version of this data (available [here](https://www.openicpsr.org/openicpsr/project/102263/version/V12/view)), I added variables for the number of months reported (based on the agency reporting at least arrest for that crime in that year) for each crime category. Again, please note that when there are fewer than 12 months reported in that year for that variable, that could simply mean that there were no arrests for that crime that year (The FBI does tell agencies not to even submit a report in these cases) - but we don't know that for sure. 
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/arrestsAgenciesReporting12Months-1} 
+
+}
+
+\caption{The annual number of agencies reporting 12 months of data in that year.}(\#fig:arrestsAgenciesReporting12Months)
+\end{figure}
 
 ## What is an arrest? (what unit is this data in?)
 
@@ -38,7 +40,6 @@ A key part of understanding this data is knowing what unit of analysis it's in. 
 There's no way to tell how many unique people were arrested, or of those arrested multiple times which crimes they were arrested for. So if you have 100 arrests there may be 1 person arrested 100 times or 100 people arrested once - though, of course, the true number is somewhere in between. This means that studies that try to use this data as a measure of unique people or even the percent of arrestees by group (age, gender, or race) relative to some base rate of the population such as the number of people living in that city are going to be wrong - though how wrong is unclear.^[While all studies are going to be estimates of the real effect, that's no reason to be flippant in using data (UCR and other data). Without having a high level of confidence that your estimates are close to the actual value, you shouldn't do that study.] 
 
 Common uses of this data - more common in more news articles or advocacy group reports than in peer-reviewed research articles - compare the percent of arrestees of a certain group to the percent of a city's population of that group. Any differences between the arrestee percent and the resident percent is, according to these reports, evidence of a disparity (this is most common for looking at differences by race. Since these analyses are generally looking at annual data, it assumes that people of each group (usually they look at race but gender and age data is also available) are rearrested at the same rate. That is, White people, for example, are rearrested in the same year for the same crime at the exact same rate as Black people. If not, then you're be comparing different things since one group would have more overall people arrested while the other would have fewer people but who are arrested more. Whether this distinction between arrests and unique people arrested affects your interpretation of the data depends on the study you are doing, but it's important to consider in your research. One way to address this is to use other data on the rate of rearrest by group, though you'd have to be very careful to not extrapolate the results of the other study beyond what they could tell you of the specific time and place they studied. 
-
 
 ### The Hierarchy Rule
 
@@ -145,6 +146,17 @@ For each crime the data provides the number of people of each gender by age, wit
     + 55-59
     + 60-64
     + 65 and older
+    
+    
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/phillyRapeAge-1} 
+
+}
+
+\caption{The total number of rapes reported by arrestee age in Philadelphia, 1974-2019.}(\#fig:phillyRapeAge)
+\end{figure}
+
 
 ### Race
 
@@ -164,6 +176,28 @@ Even though there is information about the specific age of arrestee (or the age 
     + Asian
     + Black
     + White
+    
+Figure \@ref(fig:phillyMarijuanaRacePercent) shows one example of an analysis of this data by showing the percent of arrests of adults for marijuana possession by the arrestee's race in Philadelphia, PA for all years of data we have available, 1976-2019. At the bottom are American Indian and Asian arrestees who make up nearly none of the arrests for this crime. Black arrestees, shown in purple, make up the bulk of arrests with only a few years making up under 60% of arrests and growing to around 80% of arrests since the mid-2000s. As White arrestees, shown in black, are the only other race category included, they make up a near perfect mirror image of Black arrestees, composing of around 40% of arrests until decreasing starting in the 1990s to end up with about 20% of arrests in recent years. 
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/phillyMarijuanaRacePercent-1} 
+
+}
+
+\caption{The annual percent of adult marijuana possession arrests in Philadelphia by arrestee race, 1976-2019.}(\#fig:phillyMarijuanaRacePercent)
+\end{figure}
+
+Interestingly, while the disparity between Black-White arrests has grown dramatically in recent decades, the total number of arrests have a very different trend as shown in Figure \@ref(fig:phillyMarijuanaRaceCount). Total marijuana possession arrests declined in the mid-1980s then increased in the mid-1990s from only a few hundred arrests in the early 1990s to nearly 6,000 arrests in the late-2000s before dropping precipitously to about 700 each year in the late-2010s. Yet throughout this latter period as a percent of arrests, Black people consistently grew for years before plateauing around 2007 with a small decline in the last few years. Philadelphia decriminalized marijuana possession in 2014 under Mayor Nutter which is right when the steepest decline in arrests happened, though in the last couple of years also saw a decline in arrests. This suggests that who is arrested, in terms of race, is relatively unrelated to the total number of arrests, at least for marijuana.
+    
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/phillyMarijuanaRaceCount-1} 
+
+}
+
+\caption{The annual number of adult marijuana possession arrests in Philadelphia by arrestee race, 1976-2019.}(\#fig:phillyMarijuanaRaceCount)
+\end{figure}
   
 ### Ethnicity
 
@@ -178,17 +212,25 @@ While technically included, the ethnicity variable is largely useless since for 
 
 Figure \@ref(fig:theftHispanic) shows the annual number of Hispanic arrestees for theft for all agencies that reported any data that year.^[Theft is used as it's one of the most common crimes.] For several years no agencies reported until the number of Hispanic arrestees start climbing in 1980 and peaks in 1986 at about 136 thousand arrestees. Then there are zero Hispanic arrestees for a few years, 4 Hispanic arrestees in 1990s, and then again zero Hispanic arrestees, this time for decades. Only in 2017 do the number of Hispanic theft arrestees begin to creep up. From 2017 to 2019 (the lasy year available at the time of this writing) there are Hispanic arrestees reported every year, though now only about 30,000 per year. 
     
-<div class="figure" style="text-align: center">
-<img src="arrests_files/figure-html/theftHispanic-1.png" alt="The national annual number of Hispanic arrestees for theft. This includes all agencies that year that reporting any number of months. Hispanic arrestees include both juvenile and adult arrestees" width="90%" />
-<p class="caption">(\#fig:theftHispanic)The national annual number of Hispanic arrestees for theft. This includes all agencies that year that reporting any number of months. Hispanic arrestees include both juvenile and adult arrestees</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/theftHispanic-1} 
+
+}
+
+\caption{The national annual number of Hispanic arrestees for theft. This includes all agencies that year that reporting any number of months. Hispanic arrestees include both juvenile and adult arrestees}(\#fig:theftHispanic)
+\end{figure}
 
 Perhaps a better way to look at this data is to see what percent of agencies report ethnicity data. Figure \@ref(fig:theftHispanicPercentAgencies) show the percent of agencies each year that report at least one Hispanic or non-Hispanic (which are the only choices, but showing only Hispanic arrests would exclude agencies where no Hispanic people truly were arrested) arrest for theft, of all agencies that reported theft data. About 90-95% of agencies reported ethnicity data in the early 80s and then only a couple agencies report in 1990 and 1991. Other than those agencies, none report between 1987 and 2017. Starting in 2017, 36% of agencies report and this number has grown by about five percentage points a year to 46% in 2019. Since fewer than half of agencies currently report, I strongly recommend against using these variables, even for the recent years of data. 
 
-<div class="figure" style="text-align: center">
-<img src="arrests_files/figure-html/theftHispanicPercentAgencies-1.png" alt="The annual percent of agencies that report theft arrests that reported at least one Hispanic person or one non-Hispanic person arrested for theft. Arrestees include both juvenile and adult arrestees." width="90%" />
-<p class="caption">(\#fig:theftHispanicPercentAgencies)The annual percent of agencies that report theft arrests that reported at least one Hispanic person or one non-Hispanic person arrested for theft. Arrestees include both juvenile and adult arrestees.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/theftHispanicPercentAgencies-1} 
+
+}
+
+\caption{The annual percent of agencies that report theft arrests that reported at least one Hispanic person or one non-Hispanic person arrested for theft. Arrestees include both juvenile and adult arrestees.}(\#fig:theftHispanicPercentAgencies)
+\end{figure}
 
 
 ### Juvenile referrals
