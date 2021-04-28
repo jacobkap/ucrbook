@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.19)  28 APR 2021 11:20
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.19)  28 APR 2021 11:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1096,13 +1096,13 @@ File: ucrbook_files/figure-latex/simpleIndex-1.pdf Graphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[24]
+[24] [25]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[25]
+[26]
 Underfull \vbox (badness 5050) has occurred while \output is active []
 
-[26]
+[27]
 File: ucrbook_files/figure-latex/agenciesReporting-1.pdf Graphic file (type pdf
 )
 <use ucrbook_files/figure-latex/agenciesReporting-1.pdf>
@@ -1111,37 +1111,34 @@ pdf)
 <use ucrbook_files/figure-latex/bigAgenciesReporting-1.pdf>
 File: ucrbook_files/figure-latex/nycGunAssaults-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/nycGunAssaults-1.pdf>
-[27]
+[28] [29] [30]
 File: ucrbook_files/figure-latex/nycMurderMonthly-1.pdf Graphic file (type pdf)
 
 <use ucrbook_files/figure-latex/nycMurderMonthly-1.pdf>
-[28] [29]
 File: ucrbook_files/figure-latex/nycMurderYearly-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/nycMurderYearly-1.pdf>
+[31] [32]
 File: ucrbook_files/figure-latex/miamiDadeMurderAnnual-1.pdf Graphic file (type
  pdf)
 <use ucrbook_files/figure-latex/miamiDadeMurderAnnual-1.pdf>
-[30] [31]
+[33] [34]
 File: ucrbook_files/figure-latex/danvilleRape-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/danvilleRape-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[32] [33] [34]
+[35] [36] [37]
 File: ucrbook_files/figure-latex/hateCrimes-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/hateCrimes-1.pdf>
 
 Underfull \vbox (badness 8019) has occurred while \output is active []
 
-[35]
+[38]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[36] [37]
+[39] [40]
 File: images/offenses_known_raw_ascii_1960.png Graphic file (type bmp)
 <images/offenses_known_raw_ascii_1960.png>
-[38] [39] [40] [41]
+[41] [42] [43] [44]
 Chapter 3.
-[42
+[45
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 768--770
@@ -1223,7 +1220,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 823--825
 
  []
 
-[43]
+[46]
 Underfull \hbox (badness 10000) in paragraph at lines 830--832
 
  []
@@ -1243,58 +1240,52 @@ Underfull \hbox (badness 10000) in paragraph at lines 837--839
 
  []
 
-[44]
+[47]
 File: images/fbi_hierarchy.png Graphic file (type bmp)
 <images/fbi_hierarchy.png>
-[45]
+[48]
 File: ucrbook_files/figure-latex/offensesAgenciesReporting-1.pdf Graphic file (
 type pdf)
 <use ucrbook_files/figure-latex/offensesAgenciesReporting-1.pdf>
-[46] [47]
+[49] [50] [51]
 File: ucrbook_files/figure-latex/montgomeryClearances-1.pdf Graphic file (type 
 pdf)
 <use ucrbook_files/figure-latex/montgomeryClearances-1.pdf>
-
-Underfull \vbox (badness 4846) has occurred while \output is active []
-
-[48] [49]
+[52]
 File: ucrbook_files/figure-latex/phillyRapeUnfound-1.pdf Graphic file (type pdf
 )
 <use ucrbook_files/figure-latex/phillyRapeUnfound-1.pdf>
-[50]
+[53] [54]
 File: ucrbook_files/figure-latex/phillyRapeUnfoundPercent-1.pdf Graphic file (t
 ype pdf)
 <use ucrbook_files/figure-latex/phillyRapeUnfoundPercent-1.pdf>
 File: ucrbook_files/figure-latex/phillyRobberyUnfoundPercent-1.pdf Graphic file
  (type pdf)
 <use ucrbook_files/figure-latex/phillyRobberyUnfoundPercent-1.pdf>
-[51]
-Underfull \vbox (badness 1178) has occurred while \output is active []
 
-[52]
+Underfull \vbox (badness 1484) has occurred while \output is active []
+
+[55] [56]
 File: ucrbook_files/figure-latex/rapePhilly-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/rapePhilly-1.pdf>
+[57] [58]
 File: ucrbook_files/figure-latex/rapeNYC-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/rapeNYC-1.pdf>
-[53]
 File: ucrbook_files/figure-latex/rapeLA-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/rapeLA-1.pdf>
 File: ucrbook_files/figure-latex/rapeJackson-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/rapeJackson-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[54] [55]
+[59] [60] [61]
 File: ucrbook_files/figure-latex/manslaughterVsMurder-1.pdf Graphic file (type 
 pdf)
 <use ucrbook_files/figure-latex/manslaughterVsMurder-1.pdf>
-[56]
+[62]
 File: ucrbook_files/figure-latex/manslaughterPercent-1.pdf Graphic file (type p
 df)
 <use ucrbook_files/figure-latex/manslaughterPercent-1.pdf>
-[57] [58]
+[63] [64]
 Chapter 4.
-[59
+[65
 
 ]
 File: ucrbook_files/figure-latex/phillyHomeBurglaryCount-1.pdf Graphic file (ty
@@ -1302,18 +1293,18 @@ pe pdf)
 <use ucrbook_files/figure-latex/phillyHomeBurglaryCount-1.pdf>
 
 Overfull \hbox (25.96126pt too wide) has occurred while \output is active
-\TU/lmr/m/n/12 60 \TU/lmr/m/sl/12 CHAPTER 4.  PROPERTY STOLEN AND RECOVERED (SU
+\TU/lmr/m/n/12 66 \TU/lmr/m/sl/12 CHAPTER 4.  PROPERTY STOLEN AND RECOVERED (SU
 PPLEMENT TO RETURN A)
  []
 
-[60]
+[66]
 File: ucrbook_files/figure-latex/PhillyBurglaryCost-1.pdf Graphic file (type pd
 f)
 <use ucrbook_files/figure-latex/PhillyBurglaryCost-1.pdf>
 File: ucrbook_files/figure-latex/phillyHomeCostPerBurglary-1.pdf Graphic file (
 type pdf)
 <use ucrbook_files/figure-latex/phillyHomeCostPerBurglary-1.pdf>
-[61]
+[67]
 File: ucrbook_files/figure-latex/phillyHomeCostPerBurglaryInflation-1.pdf Graph
 ic file (type pdf)
 <use ucrbook_files/figure-latex/phillyHomeCostPerBurglaryInflation-1.pdf>
@@ -1321,33 +1312,6 @@ File: ucrbook_files/figure-latex/propertyAgencies-1.pdf Graphic file (type pdf)
 
 <use ucrbook_files/figure-latex/propertyAgencies-1.pdf>
 
-Overfull \hbox (25.96126pt too wide) has occurred while \output is active
-\TU/lmr/m/n/12 62 \TU/lmr/m/sl/12 CHAPTER 4.  PROPERTY STOLEN AND RECOVERED (SU
-PPLEMENT TO RETURN A)
- []
-
-[62] [63]
-File: ucrbook_files/figure-latex/agenciesInBoth-1.pdf Graphic file (type pdf)
-<use ucrbook_files/figure-latex/agenciesInBoth-1.pdf>
-
-Underfull \vbox (badness 1596) has occurred while \output is active []
-
-
-Overfull \hbox (25.96126pt too wide) has occurred while \output is active
-\TU/lmr/m/n/12 64 \TU/lmr/m/sl/12 CHAPTER 4.  PROPERTY STOLEN AND RECOVERED (SU
-PPLEMENT TO RETURN A)
- []
-
-[64] [65]
-Underfull \vbox (badness 3724) has occurred while \output is active []
-
-
-Overfull \hbox (25.96126pt too wide) has occurred while \output is active
-\TU/lmr/m/n/12 66 \TU/lmr/m/sl/12 CHAPTER 4.  PROPERTY STOLEN AND RECOVERED (SU
-PPLEMENT TO RETURN A)
- []
-
-[66] [67]
 Overfull \hbox (25.96126pt too wide) has occurred while \output is active
 \TU/lmr/m/n/12 68 \TU/lmr/m/sl/12 CHAPTER 4.  PROPERTY STOLEN AND RECOVERED (SU
 PPLEMENT TO RETURN A)
@@ -1359,164 +1323,188 @@ Overfull \hbox (25.96126pt too wide) has occurred while \output is active
 PPLEMENT TO RETURN A)
  []
 
-[70] [71]
-File: ucrbook_files/figure-latex/nycLivestock-1.pdf Graphic file (type pdf)
-<use ucrbook_files/figure-latex/nycLivestock-1.pdf>
-
+[70]
+File: ucrbook_files/figure-latex/agenciesInBoth-1.pdf Graphic file (type pdf)
+<use ucrbook_files/figure-latex/agenciesInBoth-1.pdf>
+[71]
 Overfull \hbox (25.96126pt too wide) has occurred while \output is active
 \TU/lmr/m/n/12 72 \TU/lmr/m/sl/12 CHAPTER 4.  PROPERTY STOLEN AND RECOVERED (SU
 PPLEMENT TO RETURN A)
  []
 
-[72]
-File: ucrbook_files/figure-latex/phillyFurValue-1.pdf Graphic file (type pdf)
-<use ucrbook_files/figure-latex/phillyFurValue-1.pdf>
-[73]
+[72] [73]
 Overfull \hbox (25.96126pt too wide) has occurred while \output is active
 \TU/lmr/m/n/12 74 \TU/lmr/m/sl/12 CHAPTER 4.  PROPERTY STOLEN AND RECOVERED (SU
 PPLEMENT TO RETURN A)
  []
 
-[74]
+[74] [75]
+Overfull \hbox (25.96126pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 76 \TU/lmr/m/sl/12 CHAPTER 4.  PROPERTY STOLEN AND RECOVERED (SU
+PPLEMENT TO RETURN A)
+ []
+
+[76] [77]
+Overfull \hbox (25.96126pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 78 \TU/lmr/m/sl/12 CHAPTER 4.  PROPERTY STOLEN AND RECOVERED (SU
+PPLEMENT TO RETURN A)
+ []
+
+[78]
+File: ucrbook_files/figure-latex/nycLivestock-1.pdf Graphic file (type pdf)
+<use ucrbook_files/figure-latex/nycLivestock-1.pdf>
+[79]
+File: ucrbook_files/figure-latex/phillyFurValue-1.pdf Graphic file (type pdf)
+<use ucrbook_files/figure-latex/phillyFurValue-1.pdf>
+
+Overfull \hbox (25.96126pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 80 \TU/lmr/m/sl/12 CHAPTER 4.  PROPERTY STOLEN AND RECOVERED (SU
+PPLEMENT TO RETURN A)
+ []
+
+[80] [81]
 Chapter 5.
-[75
+[82
 
 ]
 File: ucrbook_files/figure-latex/arrestsAgenciesReporting-1.pdf Graphic file (t
 ype pdf)
 <use ucrbook_files/figure-latex/arrestsAgenciesReporting-1.pdf>
-[76]
+[83]
 File: ucrbook_files/figure-latex/arrestsAgenciesReporting12Months-1.pdf Graphic
  file (type pdf)
 <use ucrbook_files/figure-latex/arrestsAgenciesReporting12Months-1.pdf>
-[77] [78] [79] [80] [81] [82]
+[84] [85] [86] [87] [88] [89]
 File: ucrbook_files/figure-latex/phillyRapeAge-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/phillyRapeAge-1.pdf>
-[83]
+[90]
 File: ucrbook_files/figure-latex/phillyMarijuanaRacePercent-1.pdf Graphic file 
 (type pdf)
 <use ucrbook_files/figure-latex/phillyMarijuanaRacePercent-1.pdf>
+[91] [92]
 File: ucrbook_files/figure-latex/phillyMarijuanaRaceCount-1.pdf Graphic file (t
 ype pdf)
 <use ucrbook_files/figure-latex/phillyMarijuanaRaceCount-1.pdf>
-[84] [85]
+[93]
 File: ucrbook_files/figure-latex/theftHispanic-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/theftHispanic-1.pdf>
+[94]
 File: ucrbook_files/figure-latex/theftHispanicPercentAgencies-1.pdf Graphic fil
 e (type pdf)
 <use ucrbook_files/figure-latex/theftHispanicPercentAgencies-1.pdf>
-[86] [87] [88]
+[95]
 File: ucrbook_files/figure-latex/phillyJuvenileReferrals-1.pdf Graphic file (ty
 pe pdf)
 <use ucrbook_files/figure-latex/phillyJuvenileReferrals-1.pdf>
-[89] [90]
+[96] [97]
 Chapter 6.
-[91
+[98
 
 ]
 File: ucrbook_files/figure-latex/shrVsOffenses-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/shrVsOffenses-1.pdf>
-
-Underfull \vbox (badness 4846) has occurred while \output is active []
-
-[92]
+[99]
 File: ucrbook_files/figure-latex/numberSHRVictims-1.pdf Graphic file (type pdf)
 
 <use ucrbook_files/figure-latex/numberSHRVictims-1.pdf>
-[93]
+[100]
 File: ucrbook_files/figure-latex/numberSHROffenders-1.pdf Graphic file (type pd
 f)
 <use ucrbook_files/figure-latex/numberSHROffenders-1.pdf>
-[94]
+[101]
 File: ucrbook_files/figure-latex/shrOffenderAge-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/shrOffenderAge-1.pdf>
 File: ucrbook_files/figure-latex/shrVictimAge-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/shrVictimAge-1.pdf>
-
-Underfull \vbox (badness 1152) has occurred while \output is active []
-
-[95] [96] [97]
+[102] [103] [104]
 File: ucrbook_files/figure-latex/shrOffenderSex-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/shrOffenderSex-1.pdf>
 File: ucrbook_files/figure-latex/shrVictimSex-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/shrVictimSex-1.pdf>
-[98]
+[105] [106]
 File: ucrbook_files/figure-latex/shrOffenderRace-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/shrOffenderRace-1.pdf>
-[99]
+
+Underfull \vbox (badness 2591) has occurred while \output is active []
+
+[107]
 File: ucrbook_files/figure-latex/shrVictimRace-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/shrVictimRace-1.pdf>
+[108]
 File: ucrbook_files/figure-latex/shrOffenderEthnicity-1.pdf Graphic file (type 
 pdf)
 <use ucrbook_files/figure-latex/shrOffenderEthnicity-1.pdf>
-[100] [101]
 File: ucrbook_files/figure-latex/shrVictimEthnicity-1.pdf Graphic file (type pd
 f)
 <use ucrbook_files/figure-latex/shrVictimEthnicity-1.pdf>
 
-LaTeX Warning: Reference `fig:shrWeapon' on page 102 undefined on input line 21
+LaTeX Warning: Reference `fig:shrWeapon' on page 109 undefined on input line 21
 87.
 
-[102]
+[109] [110]
 File: ucrbook_files/figure-latex/shrWeapon-1.png Graphic file (type bmp)
 <ucrbook_files/figure-latex/shrWeapon-1.png>
+[111]
 File: ucrbook_files/figure-latex/shrRelationship-1.png Graphic file (type bmp)
 <ucrbook_files/figure-latex/shrRelationship-1.png>
-[103]
 
-LaTeX Warning: Reference `fig:shrCircumstance' on page 104 undefined on input l
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[112]
+
+LaTeX Warning: Reference `fig:shrCircumstance' on page 113 undefined on input l
 ine 2207.
 
-[104]
+[113]
 File: ucrbook_files/figure-latex/shrCircumstance-1.png Graphic file (type bmp)
 <ucrbook_files/figure-latex/shrCircumstance-1.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[105]
+[114]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[106]
+[115]
 File: ucrbook_files/figure-latex/shrSubCircumstance-1.png Graphic file (type bm
 p)
 <ucrbook_files/figure-latex/shrSubCircumstance-1.png>
-[107]
+[116]
 Chapter 7.
-[108
+[117
 
-] [109]
+]
 Overfull \hbox (17.46255pt too wide) has occurred while \output is active
-\TU/lmr/m/n/12 110 \TU/lmr/m/sl/12 CHAPTER 7.  LAW ENFORCEMENT OFFICERS KILLED 
+\TU/lmr/m/n/12 118 \TU/lmr/m/sl/12 CHAPTER 7.  LAW ENFORCEMENT OFFICERS KILLED 
 AND ASSAULTED (LEOKA)
  []
 
-[110]
+[118] [119]
 Chapter 8.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[111
+[120
 
 ]
 File: ucrbook_files/figure-latex/arsonAgencies-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/arsonAgencies-1.pdf>
-[112] [113]
+[121] [122]
 File: ucrbook_files/figure-latex/arsonClearance-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/arsonClearance-1.pdf>
-[114] [115] [116]
+[123] [124] [125]
 File: ucrbook_files/figure-latex/residenceArson-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/residenceArson-1.pdf>
-[117]
+[126]
 File: ucrbook_files/figure-latex/arsonCost-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/arsonCost-1.pdf>
-[118]
+[127]
 Chapter 9.
-[119
+[128
 
 ]
 File: ucrbook_files/figure-latex/hateAgencies-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/hateAgencies-1.pdf>
-[120]
+[129]
 File: ucrbook_files/figure-latex/hateCrimesEver-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/hateCrimesEver-1.pdf>
 File: ucrbook_files/figure-latex/hateCrimesPreviousYear-1.pdf Graphic file (typ
@@ -1524,41 +1512,42 @@ e pdf)
 <use ucrbook_files/figure-latex/hateCrimesPreviousYear-1.pdf>
 File: ucrbook_files/figure-latex/hateCrimesMap-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/hateCrimesMap-1.pdf>
-[121] [122]
+[130] [131]
 File: ucrbook_files/figure-latex/statePercentReporting-1.pdf Graphic file (type
  pdf)
 <use ucrbook_files/figure-latex/statePercentReporting-1.pdf>
 File: ucrbook_files/figure-latex/hateCrimesByDay-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/hateCrimesByDay-1.pdf>
-[123]
+[132] [133]
 File: ucrbook_files/figure-latex/crimesPerHateCrime-1.pdf Graphic file (type pd
 f)
 <use ucrbook_files/figure-latex/crimesPerHateCrime-1.pdf>
-[124] [125]
+[134]
 
-LaTeX Warning: Reference `fig:hateBiasMotivation' on page 126 undefined on inpu
+LaTeX Warning: Reference `fig:hateBiasMotivation' on page 135 undefined on inpu
 t line 2625.
 
+[135]
 File: ucrbook_files/figure-latex/hateBiasMotivation-1.png Graphic file (type bm
 p)
 <ucrbook_files/figure-latex/hateBiasMotivation-1.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[126] [127]
+[136] [137]
 
-LaTeX Warning: Reference `fig:hateOffense' on page 128 undefined on input line 
+LaTeX Warning: Reference `fig:hateOffense' on page 138 undefined on input line 
 2638.
 
-[128]
+[138]
 File: ucrbook_files/figure-latex/hateOffense-1.png Graphic file (type bmp)
 <ucrbook_files/figure-latex/hateOffense-1.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[129] [130]
+[139] [140]
 
-LaTeX Warning: Reference `fig:hateLocations' on page 131 undefined on input lin
+LaTeX Warning: Reference `fig:hateLocations' on page 141 undefined on input lin
 e 2651.
 
 File: ucrbook_files/figure-latex/hateLocations-1.png Graphic file (type bmp)
@@ -1566,14 +1555,14 @@ File: ucrbook_files/figure-latex/hateLocations-1.png Graphic file (type bmp)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[131] [132]
+[141] [142]
 File: ucrbook_files/figure-latex/hateCrimeOffenderNumber-1.pdf Graphic file (ty
 pe pdf)
 <use ucrbook_files/figure-latex/hateCrimeOffenderNumber-1.pdf>
 File: ucrbook_files/figure-latex/hateCrimeOffenderRace-1.pdf Graphic file (type
  pdf)
 <use ucrbook_files/figure-latex/hateCrimeOffenderRace-1.pdf>
-[133] [134] (./ucrbook.bbl
+[143] [144] [145] (./ucrbook.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 16--21
 []\TU/lmr/m/n/12 Earlenbaugh, E. (2020).  More people were arrested for cannabi
 s last
@@ -1603,10 +1592,10 @@ Underfull \hbox (badness 2269) in paragraph at lines 31--36
 /12/police-
  []
 
-[135
+[146
 
 
-]) [136] (./ucrbook.aux)
+]) [147] (./ucrbook.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1616,10 +1605,10 @@ Package rerunfilecheck Info: File `ucrbook.out' has not changed.
 Here is how much of TeX's memory you used:
  17626 strings out of 478918
  330195 string characters out of 5865075
- 804742 words of memory out of 5000000
+ 804753 words of memory out of 5000000
  37167 multiletter control sequences out of 15000+600000
  407970 words of font info for 74 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  98i,8n,122p,1878b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on ucrbook.pdf (136 pages).
+Output written on ucrbook.pdf (147 pages).

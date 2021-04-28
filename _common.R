@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
   out.width = "90%",
   fig.align = 'center',
   fig.width = 14,
-  fig.asp = 0.67,  # 1 / phi
+  fig.asp = 0.74,  # 1 / phi
   fig.show = "hold",
   error = TRUE
 )
@@ -27,9 +27,9 @@ knitr::opts_chunk$set(
 make_frequency_table_year <- function(data, column, col_names) {
   temp <- unique(data[, column])
   temp <- temp[!is.na(temp)]
-  temp_df <- data.frame(col1 = temp,
+  temp_df <- data.frame(col1       = temp,
                         first_year = NA,
-                        number   = NA) 
+                        number     = NA) 
   
   for (i in 1:nrow(temp_df)) {
     loop_value <- temp_df$col1[i]
