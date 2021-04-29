@@ -248,19 +248,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7" data-path="leoka.html"><a href="leoka.html"><i class="fa fa-check"></i><b>7</b> Law Enforcement Officers Killed and Assaulted (LEOKA)</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="leoka.html"><a href="leoka.html#common-uses-of-this-data"><i class="fa fa-check"></i><b>7.1</b> Common uses of this data</a></li>
+<li class="chapter" data-level="7.1" data-path="leoka.html"><a href="leoka.html#agencies-reporting-4"><i class="fa fa-check"></i><b>7.1</b> Agencies reporting</a></li>
 <li class="chapter" data-level="7.2" data-path="leoka.html"><a href="leoka.html#important-variables-4"><i class="fa fa-check"></i><b>7.2</b> Important variables</a>
 <ul>
 <li class="chapter" data-level="7.2.1" data-path="leoka.html"><a href="leoka.html#number-of-employees"><i class="fa fa-check"></i><b>7.2.1</b> Number of employees</a></li>
-<li class="chapter" data-level="7.2.2" data-path="leoka.html"><a href="leoka.html#officers-killed"><i class="fa fa-check"></i><b>7.2.2</b> Officers killed</a></li>
-<li class="chapter" data-level="7.2.3" data-path="leoka.html"><a href="leoka.html#assaults-by-injury-and-weapon"><i class="fa fa-check"></i><b>7.2.3</b> Assaults by injury and weapon</a></li>
-<li class="chapter" data-level="7.2.4" data-path="leoka.html"><a href="leoka.html#assaults-by-call-type"><i class="fa fa-check"></i><b>7.2.4</b> Assaults by call type</a></li>
-<li class="chapter" data-level="7.2.5" data-path="leoka.html"><a href="leoka.html#assaults-by-time"><i class="fa fa-check"></i><b>7.2.5</b> Assaults by time</a></li>
+<li class="chapter" data-level="7.2.2" data-path="leoka.html"><a href="leoka.html#patrol-shifts"><i class="fa fa-check"></i><b>7.2.2</b> Patrol shifts</a></li>
+<li class="chapter" data-level="7.2.3" data-path="leoka.html"><a href="leoka.html#officers-killed"><i class="fa fa-check"></i><b>7.2.3</b> Officers killed</a></li>
+<li class="chapter" data-level="7.2.4" data-path="leoka.html"><a href="leoka.html#assaults-by-injury-and-weapon"><i class="fa fa-check"></i><b>7.2.4</b> Assaults by injury and weapon</a></li>
+<li class="chapter" data-level="7.2.5" data-path="leoka.html"><a href="leoka.html#assaults-by-call-type"><i class="fa fa-check"></i><b>7.2.5</b> Assaults by call type</a></li>
+<li class="chapter" data-level="7.2.6" data-path="leoka.html"><a href="leoka.html#assaults-by-time"><i class="fa fa-check"></i><b>7.2.6</b> Assaults by time</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="arson-1.html"><a href="arson-1.html"><i class="fa fa-check"></i><b>8</b> Arson</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="arson-1.html"><a href="arson-1.html#agencies-reporting-4"><i class="fa fa-check"></i><b>8.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="8.1" data-path="arson-1.html"><a href="arson-1.html#agencies-reporting-5"><i class="fa fa-check"></i><b>8.1</b> Agencies reporting</a></li>
 <li class="chapter" data-level="8.2" data-path="arson-1.html"><a href="arson-1.html#important-variables-5"><i class="fa fa-check"></i><b>8.2</b> Important variables</a>
 <ul>
 <li class="chapter" data-level="8.2.1" data-path="arson-1.html"><a href="arson-1.html#actual-arsons"><i class="fa fa-check"></i><b>8.2.1</b> Actual arsons</a></li>
@@ -276,7 +277,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9" data-path="hate-crimes.html"><a href="hate-crimes.html"><i class="fa fa-check"></i><b>9</b> Hate Crime Data</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="hate-crimes.html"><a href="hate-crimes.html#agencies-reporting-5"><i class="fa fa-check"></i><b>9.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="9.1" data-path="hate-crimes.html"><a href="hate-crimes.html#agencies-reporting-6"><i class="fa fa-check"></i><b>9.1</b> Agencies reporting</a></li>
 <li class="chapter" data-level="9.2" data-path="hate-crimes.html"><a href="hate-crimes.html#important-variables-6"><i class="fa fa-check"></i><b>9.2</b> Important variables</a>
 <ul>
 <li class="chapter" data-level="9.2.1" data-path="hate-crimes.html"><a href="hate-crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>9.2.1</b> The bias motivation (who the hate is against)</a></li>
@@ -306,20 +307,84 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="leoka" class="section level1" number="7">
 <h1><span class="header-section-number">Chapter 7</span> Law Enforcement Officers Killed and Assaulted (LEOKA)</h1>
 <p>The Law Enforcement Officers Killed and Assaulted data, often called just by its acronym LEOKA, has two main purposes.<a href="#fn40" class="footnote-ref" id="fnref40"><sup>40</sup></a> First, it provides counts of employees employed by each agency - broken down by if they are civilian employees or sworn officers, and also broken down by gender. And second, it measures how many officers were assaulted or killed (including officers who die accidentally such as in a car crash) in a given month. The assault data is also broken down into shift type and type (e.g. alone, with a partner, on foot, in a car, etc.), the offender’s weapon, and type of call they are responding to (e.g. robbery, disturbance, traffic stop). The killed data simply says how many officers are killed feloniously (i.e. murdered) or died accidentally (e.g. car crash) in a given month. The employee information is at the year-level so you know, for example, how many male police officers were employed in a given year at an agency, but don’t know any more than that such as how many officers were on patrol, were detectives, were in special units, etc. This dataset is commonly used as a measure of police employees and is a generally reliable - though imperfect as we’ll see - measure of how many police are employed by a police agency. The second part of this data, measuring assaults and deaths, is more flawed with missing data issues and data error issues (e.g. more officers killed than employed in an agency).</p>
-<div id="common-uses-of-this-data" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> Common uses of this data</h2>
-<p>This data, as well as the privately-run site <a href="https://www.odmp.org/">Officer Down Memorial Page</a> which covers law enforcement officers who have died, has also been used lately in the context of police using force against people out of fear of being harmed by that person. The discussion revolves around whether police are actually in high danger of being harmed by comparing the rate at which officers die to that of other professions. In general they find that police officers are among the most likely profession to die but are not at the top of this measure.</p>
+<div id="agencies-reporting-4" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Agencies reporting</h2>
 </div>
 <div id="important-variables-4" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Important variables</h2>
 <div id="number-of-employees" class="section level3" number="7.2.1">
 <h3><span class="header-section-number">7.2.1</span> Number of employees</h3>
+<ul>
+<li>Female employees
+<ul>
+<li>Officers</li>
+<li>Civilians</li>
+</ul></li>
+<li>Male employees
+<ul>
+<li>Officers</li>
+<li>Civilians</li>
+</ul></li>
+</ul>
 </div>
-<div id="officers-killed" class="section level3" number="7.2.2">
-<h3><span class="header-section-number">7.2.2</span> Officers killed</h3>
+<div id="patrol-shifts" class="section level3" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Patrol shifts</h3>
+<ul>
+<li>One officer vehicle patrol
+<ul>
+<li>Day shift</li>
+<li>Evening shift</li>
+<li>Night shift</li>
+<li>Other shift</li>
+<li>Total shifts - sum of above</li>
+</ul></li>
+<li>Two officer vehicle patrol
+<ul>
+<li>Day shift</li>
+<li>Evening shift</li>
+<li>Night shift</li>
+<li>Other shift</li>
+<li>Total shifts - sum of above</li>
+</ul></li>
+<li>One officer foot patrol
+<ul>
+<li>Day shift</li>
+<li>Evening shift</li>
+<li>Night shift</li>
+<li>Other shift</li>
+<li>Total shifts - sum of above</li>
+</ul></li>
+<li>Two officer foot patrol
+<ul>
+<li>Day shift</li>
+<li>Evening shift</li>
+<li>Night shift</li>
+<li>Other shift</li>
+<li>Total shifts - sum of above</li>
+</ul></li>
+<li>Other patrols
+<ul>
+<li>Day shift</li>
+<li>Evening shift</li>
+<li>Night shift</li>
+<li>Other shift</li>
+<li>Total shifts - sum of above</li>
+</ul></li>
+<li>Total patrols
+<ul>
+<li>Day shift</li>
+<li>Evening shift</li>
+<li>Night shift</li>
+<li>Other shift</li>
+<li>Total shifts - sum of above</li>
+</ul></li>
+</ul>
 </div>
-<div id="assaults-by-injury-and-weapon" class="section level3" number="7.2.3">
-<h3><span class="header-section-number">7.2.3</span> Assaults by injury and weapon</h3>
+<div id="officers-killed" class="section level3" number="7.2.3">
+<h3><span class="header-section-number">7.2.3</span> Officers killed</h3>
+</div>
+<div id="assaults-by-injury-and-weapon" class="section level3" number="7.2.4">
+<h3><span class="header-section-number">7.2.4</span> Assaults by injury and weapon</h3>
 <ul>
 <li>Assaults with injury
 <ul>
@@ -337,8 +402,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul>
 </div>
-<div id="assaults-by-call-type" class="section level3" number="7.2.4">
-<h3><span class="header-section-number">7.2.4</span> Assaults by call type</h3>
+<div id="assaults-by-call-type" class="section level3" number="7.2.5">
+<h3><span class="header-section-number">7.2.5</span> Assaults by call type</h3>
 <ul>
 <li><p>Disturbance call (e.g. domestic violence, person carrying a gun in public)</p></li>
 <li><p>Burglary</p></li>
@@ -351,6 +416,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Mentally deranged person</p></li>
 <li><p>Traffic pursuit and traffic stops</p></li>
 <li><p>All other call types</p></li>
+<li><p>Total - sum of all call types</p></li>
 <li><p>Offender weapons</p>
 <ul>
 <li>Offender has firearm</li>
@@ -368,10 +434,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Other assignment alone</li>
 <li>Other assignment assisted by other officers</li>
 </ul></li>
+<li><p>Number of assaults on police cleared</p></li>
 </ul>
 </div>
-<div id="assaults-by-time" class="section level3" number="7.2.5">
-<h3><span class="header-section-number">7.2.5</span> Assaults by time</h3>
+<div id="assaults-by-time" class="section level3" number="7.2.6">
+<h3><span class="header-section-number">7.2.6</span> Assaults by time</h3>
 <ul>
 <li>12:01am - 2:00am</li>
 <li>2:01am - 4:00am</li>
@@ -384,8 +451,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>4:01pm - 6:00pm</li>
 <li>6:01pm - 8:00pm</li>
 <li>8:01pm - 10:00pm</li>
-<li>10:01pm - 12:00pm</li>
+<li>10:01pm - 12:00am</li>
 </ul>
+<div class="figure" style="text-align: center"><span id="fig:phoenixAssaultTimes"></span>
+<img src="leoka_files/figure-html/phoenixAssaultTimes-1.png" alt="The number of assaults against Phoenix Police Department officers by hourly grouping for all years with data available, 1971-2018." width="90%" />
+<p class="caption">
+Figure 7.1: The number of assaults against Phoenix Police Department officers by hourly grouping for all years with data available, 1971-2018.
+</p>
+</div>
 
 </div>
 </div>

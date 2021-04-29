@@ -198,7 +198,7 @@ There are a few different sources of UCR data available today. First, and probab
 
 Next, and most usable for the general public but limited to researchers, is the FBI's official website \href{https://crime-data-explorer.fr.cloud.gov/}{Crime Data Explorer}. On this site you can chose an agency and see annual crime data (remember, UCR data is monthly so this isn't as detailed as it can be) for certain crimes. This is okay for the general public but only provides a fraction of the data available in the actual data so is really not good for researchers.
 
-Finally, I have my own collection of UCR data {[}\url{https://www.openicpsr.org/openicpsr/search/studies?start=0\&ARCHIVE=openicpsr\&sort=score\%20desc\%2CDATEUPDATED\%20desc\&rows=25\&q=jacob\%20kaplan\%27s\%20concatenated\%20files}{]} (available publicly on openICPSR), a site which allows people to submit their data for public access. For each of these datasets I've taken the raw data from the FBI (for early years of homicide data this is actually from NACJD since the FBI's raw data is wrong and can't be parsed. For later years of homicide data this is from the FBI's raw data.) and read it into R. Since the data is only available from the FBI as fixed-width ASCII files, I created a setup file (we'll explain exactly how reading in this kind of data works in the next chapter) and read the data and then very lightly cleaned the data (i.e.~only removing extreme outliers like an agency having millions of arsons in a month). For each of these datasets I detail what I've done to the data and briefly summarize the data (i.e.~a very short version of this book) on the data's page on openICPSR. The main advantage is that all my data has standard variable names and column names and, for data that is small enough, provide the data as a single file that has all years. For large datasets like the arrest data I break it down into parts of the data and not all years in a single file. The downside is that I don't provide documentation other than what's on the openICPSR page and only provide data in R and Stata format. I also have a similar site to the FBI's Crime Data Explorer but with more variables available, that site is available \href{jacobdkaplan.com/}{here}.
+Finally, I have my own collection of UCR data \href{available\%20publicly\%20on\%20openICPSR}{https://www.openicpsr.org/openicpsr/search/studies?start=0\&ARCHIVE=openicpsr\&sort=score\%20desc\%2CDATEUPDATED\%20desc\&rows=25\&q=jacob\%20kaplan\%27s\%20concatenated\%20files}, a site which allows people to submit their data for public access. For each of these datasets I've taken the raw data from the FBI (for early years of homicide data this is actually from NACJD since the FBI's raw data is wrong and can't be parsed. For later years of homicide data this is from the FBI's raw data.) and read it into R. Since the data is only available from the FBI as fixed-width ASCII files, I created a setup file (we'll explain exactly how reading in this kind of data works in the next chapter) and read the data and then very lightly cleaned the data (i.e.~only removing extreme outliers like an agency having millions of arsons in a month). For each of these datasets I detail what I've done to the data and briefly summarize the data (i.e.~a very short version of this book) on the data's page on openICPSR. The main advantage is that all my data has standard variable names and column names and, for data that is small enough, provide the data as a single file that has all years. For large datasets like the arrest data I break it down into parts of the data and not all years in a single file. The downside is that I don't provide documentation other than what's on the openICPSR page and only provide data in R and Stata format. I also have a similar site to the FBI's Crime Data Explorer but with more variables available, that site is available \href{jacobdkaplan.com/}{here}.
 
 It's worth mentioning a final source of UCR information. This is the annual Crimes in the United States report released by the FBI each year around the start of October.\footnote{They also release a report about the first 6-months of the most recent year of data before the October release but this is generally an estimate from a sample of agencies so is far less useful.} As an example, here is the \href{https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019}{website for the 2019 report}. In this report is summarized data which in most cases estimates missing data and provides information about national and subnational (though rarely city-level) crime data. As with the FBI's site it is only a fraction of the true data available so is not a very useful source of crime data. Still, this is a very common source of information used by researchers.
 
@@ -2228,16 +2228,141 @@ The ``subcircumstance'' just tells you more information about justifiable homici
 
 The Law Enforcement Officers Killed and Assaulted data, often called just by its acronym LEOKA, has two main purposes.\footnote{This data is also sometimes called the ``Police Employees'' dataset.} First, it provides counts of employees employed by each agency - broken down by if they are civilian employees or sworn officers, and also broken down by gender. And second, it measures how many officers were assaulted or killed (including officers who die accidentally such as in a car crash) in a given month. The assault data is also broken down into shift type and type (e.g.~alone, with a partner, on foot, in a car, etc.), the offender's weapon, and type of call they are responding to (e.g.~robbery, disturbance, traffic stop). The killed data simply says how many officers are killed feloniously (i.e.~murdered) or died accidentally (e.g.~car crash) in a given month. The employee information is at the year-level so you know, for example, how many male police officers were employed in a given year at an agency, but don't know any more than that such as how many officers were on patrol, were detectives, were in special units, etc. This dataset is commonly used as a measure of police employees and is a generally reliable - though imperfect as we'll see - measure of how many police are employed by a police agency. The second part of this data, measuring assaults and deaths, is more flawed with missing data issues and data error issues (e.g.~more officers killed than employed in an agency).
 
-\hypertarget{common-uses-of-this-data}{%
-\section{Common uses of this data}\label{common-uses-of-this-data}}
-
-This data, as well as the privately-run site \href{https://www.odmp.org/}{Officer Down Memorial Page} which covers law enforcement officers who have died, has also been used lately in the context of police using force against people out of fear of being harmed by that person. The discussion revolves around whether police are actually in high danger of being harmed by comparing the rate at which officers die to that of other professions. In general they find that police officers are among the most likely profession to die but are not at the top of this measure.
+\hypertarget{agencies-reporting-4}{%
+\section{Agencies reporting}\label{agencies-reporting-4}}
 
 \hypertarget{important-variables-4}{%
 \section{Important variables}\label{important-variables-4}}
 
 \hypertarget{number-of-employees}{%
 \subsection{Number of employees}\label{number-of-employees}}
+
+\begin{itemize}
+\tightlist
+\item
+  Female employees
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Officers
+  \item
+    Civilians
+  \end{itemize}
+\item
+  Male employees
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Officers
+  \item
+    Civilians
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{patrol-shifts}{%
+\subsection{Patrol shifts}\label{patrol-shifts}}
+
+\begin{itemize}
+\tightlist
+\item
+  One officer vehicle patrol
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Day shift
+  \item
+    Evening shift
+  \item
+    Night shift
+  \item
+    Other shift
+  \item
+    Total shifts - sum of above
+  \end{itemize}
+\item
+  Two officer vehicle patrol
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Day shift
+  \item
+    Evening shift
+  \item
+    Night shift
+  \item
+    Other shift
+  \item
+    Total shifts - sum of above
+  \end{itemize}
+\item
+  One officer foot patrol
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Day shift
+  \item
+    Evening shift
+  \item
+    Night shift
+  \item
+    Other shift
+  \item
+    Total shifts - sum of above
+  \end{itemize}
+\item
+  Two officer foot patrol
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Day shift
+  \item
+    Evening shift
+  \item
+    Night shift
+  \item
+    Other shift
+  \item
+    Total shifts - sum of above
+  \end{itemize}
+\item
+  Other patrols
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Day shift
+  \item
+    Evening shift
+  \item
+    Night shift
+  \item
+    Other shift
+  \item
+    Total shifts - sum of above
+  \end{itemize}
+\item
+  Total patrols
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Day shift
+  \item
+    Evening shift
+  \item
+    Night shift
+  \item
+    Other shift
+  \item
+    Total shifts - sum of above
+  \end{itemize}
+\end{itemize}
 
 \hypertarget{officers-killed}{%
 \subsection{Officers killed}\label{officers-killed}}
@@ -2304,6 +2429,8 @@ This data, as well as the privately-run site \href{https://www.odmp.org/}{Office
 \item
   All other call types
 \item
+  Total - sum of all call types
+\item
   Offender weapons
 
   \begin{itemize}
@@ -2337,6 +2464,8 @@ This data, as well as the privately-run site \href{https://www.odmp.org/}{Office
   \item
     Other assignment assisted by other officers
   \end{itemize}
+\item
+  Number of assaults on police cleared
 \end{itemize}
 
 \hypertarget{assaults-by-time}{%
@@ -2367,8 +2496,17 @@ This data, as well as the privately-run site \href{https://www.odmp.org/}{Office
 \item
   8:01pm - 10:00pm
 \item
-  10:01pm - 12:00pm
+  10:01pm - 12:00am
 \end{itemize}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/phoenixAssaultTimes-1} 
+
+}
+
+\caption{The number of assaults against Phoenix Police Department officers by hourly grouping for all years with data available, 1971-2018.}\label{fig:phoenixAssaultTimes}
+\end{figure}
 
 \hypertarget{arson-1}{%
 \chapter{Arson}\label{arson-1}}
@@ -2379,8 +2517,8 @@ For each type of arson it includes the number of arsons where the structure was 
 
 In cases where the arson led to a death, that death would be recorded as a murder on the Offenses Known and Clearances by Arrest dataset - but not indicated anywhere on this dataset. If an individual who responds to the arson dies because of it, such as a police officer or a firefighter, this is not considered a homicide (though the officer death is still included in the Law Enforcement Officers Killed and Assaulted data) unless the arsonist intended to cause their deaths. Even though the UCR uses the Hierarchy Rule, where only the most serious offense that occurs is recorded, all arsons are reported - arson is exempt from the Hierarchy Rule.
 
-\hypertarget{agencies-reporting-4}{%
-\section{Agencies reporting}\label{agencies-reporting-4}}
+\hypertarget{agencies-reporting-5}{%
+\section{Agencies reporting}\label{agencies-reporting-5}}
 
 Figure \ref{fig:arsonAgencies} shows the annual number of police agencies that reported at least one month that year. With data starting in 1979, there were a little over 12,000 agencies reporting a year until the early 2000s where it recovered from a sharp drop in agencies to steadily increase to about 16,000 a year. While arson data is available through 2019, this graph only shows data through 2018.
 
@@ -2528,8 +2666,8 @@ So this data is really a narrower measure of hate crimes than it might seem. In 
 
 My main takeaway for this data is that it is inappropriate to use for most hate crime research. At most it can be used to look at within-city within-bias-motivation trends, while keeping in mind that even this narrow subset of data is limited by under-reporting by victims and potential changes in police practices of reporting such as how many months of data they report per year.
 
-\hypertarget{agencies-reporting-5}{%
-\section{Agencies reporting}\label{agencies-reporting-5}}
+\hypertarget{agencies-reporting-6}{%
+\section{Agencies reporting}\label{agencies-reporting-6}}
 
 We'll start by looking at how many agencies report hate crime each year. This is a bit tricky since
 
