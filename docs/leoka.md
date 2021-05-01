@@ -11,7 +11,7 @@ The Law Enforcement Officers Killed and Assaulted data, often called just by its
 ## Important variables
 
 ### Number of employees 
-
+ 
 * Female employees
     + Officers
     + Civilians
@@ -60,6 +60,8 @@ The Law Enforcement Officers Killed and Assaulted data, often called just by its
 
 
 ### Officers killed
+
+There is almost no information about officers killed. The data only breaks this down into if they died "feloniously" which just means that someone killed them on purpose (e.g. shooting them, intentionally hitting them with a car) or if they died "accidentally" such as if they die during a car crash while on duty. The FBI actually collects more information on officer deaths than they release in this data. This includes the circumstances of each death such as the type of death (e.g. car crash, shooting, ambush, etc.), what weapon the offender had if feloniously killed, and even a detailed written summary of what occurred for each officer killed. They post this information in their annual LEOKA report which is part of their Crime in the United States report. The 2019 report, the latest year available, can be found on their site [here](https://ucr.fbi.gov/leoka/2019/home).
 
 ### Assaults by injury and weapon
 
