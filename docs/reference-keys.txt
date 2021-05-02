@@ -53,6 +53,16 @@ fig:shrWeapon
 fig:shrRelationship
 fig:shrCircumstance
 fig:shrSubCircumstance
+fig:leokaAgencies
+fig:leokaAgencies12Months
+fig:leokaCivilianOfficers
+fig:leokaOfficersGender
+fig:leokaOfficersKilled
+fig:leokaOfficersKilledNational
+fig:leokaAssaultsInjuryYear
+fig:leokaAssaultCallType
+fig:leokaDisturbanceWeapon
+fig:leokaShiftAssignment
 fig:phoenixAssaultTimes
 fig:arsonAgencies
 fig:arsonClearance

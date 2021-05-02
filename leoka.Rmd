@@ -17,6 +17,34 @@ The Law Enforcement Officers Killed and Assaulted data, often called just by its
 
 ## Agencies reporting
 
+```{r leokaAgencies, fig.cap = "The annual number of police agencies that report at least month of data that year, 1960-2018"}
+leoka_yearly_1960_2018 %>%
+  dplyr::filter(number_of_months_reported > 0) %>%
+  dplyr::distinct(ori, year, .keep_all = TRUE) %>%
+  count(year) %>%
+  ggplot(aes(x = year, y = n)) +
+  geom_line(size = 1.05) +
+  xlab("Year") +
+  ylab("# of Agencies") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  expand_limits(y = 0)
+```
+
+```{r leokaAgencies12Months, fig.cap = "The annual number of police agencies that report all 12 months of data that year, 1960-2018"}
+leoka_yearly_1960_2018 %>%
+  dplyr::filter(number_of_months_reported %in% 12) %>%
+  dplyr::distinct(ori, year, .keep_all = TRUE) %>%
+  count(year) %>%
+  ggplot(aes(x = year, y = n)) +
+  geom_line(size = 1.05) +
+  xlab("Year") +
+  ylab("# of Agencies") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  expand_limits(y = 0)
+```
+
 ## Important variables
 
 ### Number of employees 
@@ -27,6 +55,36 @@ The Law Enforcement Officers Killed and Assaulted data, often called just by its
 * Male employees
     + Officers
     + Civilians
+    
+```{r leokaCivilianOfficers, fig.cap = "The number of civilian employees and sworn officers in Philadelphia, 1960-2018"}
+leoka_yearly_1960_2018 %>%
+  dplyr::filter(ori %in% "PAPEP00") %>%
+  ggplot(aes(x = year, y = total_employees_officers, color = "Officers")) +
+  geom_line(size = 1.05) +
+  geom_line(aes(y = total_employees_civilians, color = "Civilians"), size = 1.05) +
+  xlab("Year") +
+  ylab("# of Employees") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  expand_limits(y = 0) +
+  labs(color = "Employee Type") +
+  scale_color_crim()
+```
+
+```{r leokaOfficersGender, fig.cap = "The number of female and male sworn officers in Philadelphia, 1960-2018"}
+leoka_yearly_1960_2018 %>%
+  dplyr::filter(ori %in% "PAPEP00") %>%
+  ggplot(aes(x = year, y = female_employees_officers, color = "Female Officers")) +
+  geom_line(size = 1.05) +
+  geom_line(aes(y = male_employees_officers, color = "Male Officers"), size = 1.05) +
+  xlab("Year") +
+  ylab("# of Employees") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  expand_limits(y = 0) +
+  labs(color = "") +
+  scale_color_crim()
+```
     
 ### Patrol shifts
 
@@ -72,6 +130,41 @@ The Law Enforcement Officers Killed and Assaulted data, often called just by its
 
 There is almost no information about officers killed. The data only breaks this down into if they died "feloniously" which just means that someone killed them on purpose (e.g. shooting them, intentionally hitting them with a car) or if they died "accidentally" such as if they die during a car crash while on duty. The FBI actually collects more information on officer deaths than they release in this data. This includes the circumstances of each death such as the type of death (e.g. car crash, shooting, ambush, etc.), what weapon the offender had if feloniously killed, and even a detailed written summary of what occurred for each officer killed. They post this information in their annual LEOKA report which is part of their Crime in the United States report. The 2019 report, the latest year available, can be found on their site [here](https://ucr.fbi.gov/leoka/2019/home).
 
+```{r leokaOfficersKilled, fig.cap = "The number of officers killed by felony and killed accidentally in Los Angeles, 1960-2018"}
+leoka_yearly_1960_2018 %>%
+  dplyr::filter(ori %in% "CA01942") %>%
+  ggplot(aes(x = year, y = officers_killed_by_felony, color = "Killed by Felony")) +
+  geom_line(size = 1.05) +
+  geom_line(aes(y = officers_killed_by_accident, color = "Killed accidentally"), size = 1.05) +
+  xlab("Year") +
+  ylab("# of Officers") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  expand_limits(y = 0) +
+  labs(color = "") +
+  scale_color_crim()
+```
+
+```{r leokaOfficersKilledNational, fig.cap = "The national number of officers killed by felony and killed accidentally, 1960-2018"}
+leoka_yearly_1960_2018 %>%
+  group_by(year) %>%
+  summarize(officers_killed_by_felony = sum(officers_killed_by_felony, na.rm = TRUE),
+            officers_killed_by_accident = sum(officers_killed_by_accident, na.rm = TRUE)) %>%
+  ggplot(aes(x = year, y = officers_killed_by_felony, color = "Killed by Felony")) +
+  geom_line(size = 1.05) +
+  geom_line(aes(y = officers_killed_by_accident, color = "Killed accidentally"), size = 1.05) +
+  xlab("Year") +
+  ylab("# of Officers") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  expand_limits(y = 0) +
+  labs(color = "") +
+  scale_color_crim()
+```
+
+
+
+
 ### Assaults by injury and weapon
 
 * Assaults with injury
@@ -84,6 +177,78 @@ There is almost no information about officers killed. The data only breaks this 
     + Offender had knife
     + Offender had other weapon
     + Offender was unarmed
+    
+    
+```{r leokaAssaultTypeInjury, The total number of assaults on officers by injury sustained and offender weapon in Los Angeles, 1960-2018.}
+assault_type <- leoka_yearly_1960_2018 %>%
+  filter(ori %in% "CA01942") %>%
+  mutate(dummy = 1,
+         assaults_total_assaults = assaults_with_injury_total + assaults_no_injury_total) %>%
+  select(dummy,
+         "assaults_total_assaults",
+         "assaults_with_injury_gun",
+         "assaults_with_injury_knife",
+         "assaults_with_injury_oth_weap",
+         "assaults_with_injury_unarmed",
+         "assaults_with_injury_total",
+         "assaults_no_injury_gun",
+         "assaults_no_injury_knife",
+         "assaults_no_injury_oth_weap",
+         "assaults_no_injury_unarmed",
+         "assaults_no_injury_total") %>%
+  group_by(dummy) %>%
+  summarize_all(sum)
+
+assault_type$dummy <- NULL
+assault_type <- t(assault_type)
+assault_type <- data.frame(assault_type)
+assault_type$type <- rownames(assault_type)
+rownames(assault_type) <- NULL
+assault_type$type <- gsub("assaults_", "", assault_type$type)
+names(assault_type)[1] <- "assaults"
+assault_type$type <- gsub("_", " ", assault_type$type)
+assault_type$type <- capitalize_words(assault_type$type)
+assault_type <- assault_type %>% arrange(desc(assaults))
+assault_type$type <- gsub("Injury", "Injury - ", assault_type$type)
+assault_type$type <- gsub("Oth Weap", "Other Weapon", assault_type$type)
+assault_type$type <- factor(assault_type$type, levels = rev(assault_type$type))
+
+
+ggplot(assault_type, aes(x = assaults, y = type)) +
+  geom_col(width    = 0.5,    
+           position = position_dodge(0.5)) +
+  xlab("# of Assaults") +
+  ylab("Assault Type") +
+  expand_limits(x = 0) + 
+  theme_crim() +
+  scale_x_continuous(labels = scales::comma)
+
+```
+
+
+```{r leokaAssaultsInjuryYear, fig.cap = "The annual number of assaults on officers by injury sustained in Los Angeles, 1960-2018."}
+leoka_yearly_1960_2018 %>%
+  filter(ori %in% "CA01942") %>%
+  mutate(assaults_total_assaults = assaults_with_injury_total + assaults_no_injury_total) %>%
+  group_by(year) %>%
+  summarize(assaults_total_assaults = sum(assaults_total_assaults),
+         assaults_with_injury_total = sum(assaults_with_injury_total),
+         assaults_no_injury_total   = sum(assaults_no_injury_total)) %>%
+ggplot(aes(x = year, y = assaults_total_assaults, color = "Total Assaults")) +
+  geom_line(size = 1.05) +
+  geom_line(aes(y = assaults_with_injury_total, color = "With Injuries"), size = 1.05) +
+  geom_line(aes(y = assaults_no_injury_total, color = "No Injuries"), size = 1.05) +
+  xlab("Year") +
+  ylab("# of Assaults") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  expand_limits(y = 0) +
+  labs(color = "") +
+  scale_color_crim()
+
+
+```
+
 
 ### Assaults by call type
 
@@ -100,6 +265,55 @@ There is almost no information about officers killed. The data only breaks this 
 * All other call types
 * Total - sum of all call types
 
+```{r leokaAssaultCallType, fig.cap = "Assaults on Los Angeles Police Department officers by type of call where they were assaulted at, 1960-2018."}
+call_type <- leoka_yearly_1960_2018 %>%
+  filter(ori %in% "CA01942") %>%
+  mutate(dummy = 1) %>%
+  select(dummy,
+         "ambush_total_assaults",
+         "oth_arrest_total_assaults",
+         "burglary_total_assaults",
+         "deranged_total_assaults",
+         "disturbance_total_assaults",
+         "prisoner_total_assaults",
+         "riot_total_assaults",
+         "robbery_total_assaults",
+         "susp_pers_total_assaults",
+         "traffic_total_assaults",
+         "all_other_total_assaults",
+         "total_assaults_total",
+         "total_assaults_cleared" ) %>%
+  group_by(dummy) %>%
+  summarize_all(sum)
+
+call_type$dummy <- NULL
+call_type <- t(call_type)
+call_type <- data.frame(call_type)
+call_type$type <- rownames(call_type)
+rownames(call_type) <- NULL
+call_type$type <- gsub("assaults_", "", call_type$type)
+names(call_type)[1] <- "assaults"
+call_type$type <- gsub("_", " ", call_type$type)
+call_type$type <- capitalize_words(call_type$type)
+call_type <- call_type %>% arrange(desc(assaults))
+call_type$type <- gsub("Total Assaults", "", call_type$type)
+call_type$type <- gsub("Total Total", "Total Assaults", call_type$type)
+call_type$type <- gsub("Susp Pers", "Suspicious Person", call_type$type)
+call_type$type <- gsub("Oth ", "Other ", call_type$type)
+call_type$type <- factor(call_type$type, levels = rev(call_type$type))
+
+
+ggplot(call_type, aes(x = assaults, y = type)) +
+  geom_col(width    = 0.5,    
+           position = position_dodge(0.5)) +
+  xlab("# of Assaults") +
+  ylab("Call Type") +
+  expand_limits(x = 0) + 
+  theme_crim() +
+  scale_x_continuous(labels = scales::comma)
+
+```
+
 
 * Offender weapons
     + Offender has firearm
@@ -115,6 +329,92 @@ There is almost no information about officers killed. The data only breaks this 
     + Other assignment alone
     + Other assignment assisted by other officers
 * Number of assaults on police cleared
+
+```{r leokaDisturbanceWeapon, fig.cap = "The number of assaults on Los Angeles Police Department officers in distrubance calls by the injury sustained by the officer, 1960-2018."}
+call_type <- leoka_yearly_1960_2018 %>%
+  filter(ori %in% "CA01942") %>%
+  mutate(dummy = 1) %>%
+  select(dummy,
+         "disturbance_total_assaults",
+         "disturbance_assault_gun",
+         "disturbance_assault_knife",
+         "disturbance_assault_oth_weap",
+         "disturbance_assault_unarmed") %>%
+  group_by(dummy) %>%
+  summarize_all(sum)
+
+call_type$dummy <- NULL
+call_type <- t(call_type)
+call_type <- data.frame(call_type)
+call_type$type <- rownames(call_type)
+rownames(call_type) <- NULL
+call_type$type <- gsub("disturbance_", "", call_type$type)
+names(call_type)[1] <- "assaults"
+call_type$type <- gsub("_", " ", call_type$type)
+call_type$type <- capitalize_words(call_type$type)
+call_type <- call_type %>% arrange(desc(assaults))
+call_type$type <- gsub("Susp Pers", "Suspicious Person", call_type$type)
+call_type$type <- gsub("Oth Weap", "Other Weapon", call_type$type)
+call_type$type <- gsub("Veh", "Vehicle", call_type$type)
+call_type$type <- factor(call_type$type, levels = rev(call_type$type))
+
+
+ggplot(call_type, aes(x = assaults, y = type)) +
+  geom_col(width    = 0.5,    
+           position = position_dodge(0.5)) +
+  xlab("# of Assaults") +
+  ylab("Offender Weapon") +
+  expand_limits(x = 0) + 
+  theme_crim() +
+  scale_x_continuous(labels = scales::comma)
+
+```
+
+
+```{r leokaShiftAssignment, fig.cap = "The number of assaults on Los Angeles Police Department officers in distrubance calls by the injury sustained by the shift assignment of the officer, 1960-2018."}
+call_type <- leoka_yearly_1960_2018 %>%
+  filter(ori %in% "CA01942") %>%
+  mutate(dummy = 1) %>%
+  select(dummy,
+         "disturbance_total_assaults",
+         "disturbance_two_man_veh",
+         "disturbance_one_man_alone",
+         "disturbance_one_man_assist",
+         "disturbance_detective_alone",
+         "disturbance_detective_assist",
+         "disturbance_other_alone",
+         "disturbance_other_assist",
+         "disturbance_assaults_cleared") %>%
+  group_by(dummy) %>%
+  summarize_all(sum)
+
+call_type$dummy <- NULL
+call_type <- t(call_type)
+call_type <- data.frame(call_type)
+call_type$type <- rownames(call_type)
+rownames(call_type) <- NULL
+call_type$type <- gsub("disturbance_", "", call_type$type)
+names(call_type)[1] <- "assaults"
+call_type$type <- gsub("_", " ", call_type$type)
+call_type$type <- capitalize_words(call_type$type)
+call_type <- call_type %>% arrange(desc(assaults))
+call_type$type <- gsub("Susp Pers", "Suspicious Person", call_type$type)
+call_type$type <- gsub("Oth Weap", "Other Weapon", call_type$type)
+call_type$type <- gsub("Veh", "Vehicle", call_type$type)
+call_type$type <- factor(call_type$type, levels = rev(call_type$type))
+
+
+ggplot(call_type, aes(x = assaults, y = type)) +
+  geom_col(width    = 0.5,    
+           position = position_dodge(0.5)) +
+  xlab("# of Assaults") +
+  ylab("Offender Weapon") +
+  expand_limits(x = 0) + 
+  theme_crim() +
+  scale_x_continuous(labels = scales::comma)
+
+```
+
     
 ### Assaults by time
 

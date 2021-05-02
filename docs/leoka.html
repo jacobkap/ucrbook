@@ -24,7 +24,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2021-05-01" />
+<meta name="date" content="2021-05-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -309,6 +309,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The Law Enforcement Officers Killed and Assaulted data, often called just by its acronym LEOKA, has two main purposes.<a href="#fn40" class="footnote-ref" id="fnref40"><sup>40</sup></a> First, it provides counts of employees employed by each agency - broken down by if they are civilian employees or sworn officers, and also broken down by gender. And second, it measures how many officers were assaulted or killed (including officers who die accidentally such as in a car crash) in a given month. The assault data is also broken down into shift type and type (e.g. alone, with a partner, on foot, in a car, etc.), the offender’s weapon, and type of call they are responding to (e.g. robbery, disturbance, traffic stop). The killed data simply says how many officers are killed feloniously (i.e. murdered) or died accidentally (e.g. car crash) in a given month. The employee information is at the year-level so you know, for example, how many male police officers were employed in a given year at an agency, but don’t know any more than that such as how many officers were on patrol, were detectives, were in special units, etc. This dataset is commonly used as a measure of police employees and is a generally reliable - though imperfect as we’ll see - measure of how many police are employed by a police agency. The second part of this data, measuring assaults and deaths, is more flawed with missing data issues and data error issues (e.g. more officers killed than employed in an agency).</p>
 <div id="agencies-reporting-4" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Agencies reporting</h2>
+<div class="figure" style="text-align: center"><span id="fig:leokaAgencies"></span>
+<img src="leoka_files/figure-html/leokaAgencies-1.png" alt="The annual number of police agencies that report at least month of data that year, 1960-2018" width="90%" />
+<p class="caption">
+Figure 7.1: The annual number of police agencies that report at least month of data that year, 1960-2018
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:leokaAgencies12Months"></span>
+<img src="leoka_files/figure-html/leokaAgencies12Months-1.png" alt="The annual number of police agencies that report all 12 months of data that year, 1960-2018" width="90%" />
+<p class="caption">
+Figure 7.2: The annual number of police agencies that report all 12 months of data that year, 1960-2018
+</p>
+</div>
 </div>
 <div id="important-variables-4" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Important variables</h2>
@@ -326,6 +338,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Civilians</li>
 </ul></li>
 </ul>
+<div class="figure" style="text-align: center"><span id="fig:leokaCivilianOfficers"></span>
+<img src="leoka_files/figure-html/leokaCivilianOfficers-1.png" alt="The number of civilian employees and sworn officers in Philadelphia, 1960-2018" width="90%" />
+<p class="caption">
+Figure 7.3: The number of civilian employees and sworn officers in Philadelphia, 1960-2018
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:leokaOfficersGender"></span>
+<img src="leoka_files/figure-html/leokaOfficersGender-1.png" alt="The number of female and male sworn officers in Philadelphia, 1960-2018" width="90%" />
+<p class="caption">
+Figure 7.4: The number of female and male sworn officers in Philadelphia, 1960-2018
+</p>
+</div>
 </div>
 <div id="patrol-shifts" class="section level3" number="7.2.2">
 <h3><span class="header-section-number">7.2.2</span> Patrol shifts</h3>
@@ -383,6 +407,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="officers-killed" class="section level3" number="7.2.3">
 <h3><span class="header-section-number">7.2.3</span> Officers killed</h3>
 <p>There is almost no information about officers killed. The data only breaks this down into if they died “feloniously” which just means that someone killed them on purpose (e.g. shooting them, intentionally hitting them with a car) or if they died “accidentally” such as if they die during a car crash while on duty. The FBI actually collects more information on officer deaths than they release in this data. This includes the circumstances of each death such as the type of death (e.g. car crash, shooting, ambush, etc.), what weapon the offender had if feloniously killed, and even a detailed written summary of what occurred for each officer killed. They post this information in their annual LEOKA report which is part of their Crime in the United States report. The 2019 report, the latest year available, can be found on their site <a href="https://ucr.fbi.gov/leoka/2019/home">here</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:leokaOfficersKilled"></span>
+<img src="leoka_files/figure-html/leokaOfficersKilled-1.png" alt="The number of officers killed by felony and killed accidentally in Los Angeles, 1960-2018" width="90%" />
+<p class="caption">
+Figure 7.5: The number of officers killed by felony and killed accidentally in Los Angeles, 1960-2018
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:leokaOfficersKilledNational"></span>
+<img src="leoka_files/figure-html/leokaOfficersKilledNational-1.png" alt="The national number of officers killed by felony and killed accidentally, 1960-2018" width="90%" />
+<p class="caption">
+Figure 7.6: The national number of officers killed by felony and killed accidentally, 1960-2018
+</p>
+</div>
 </div>
 <div id="assaults-by-injury-and-weapon" class="section level3" number="7.2.4">
 <h3><span class="header-section-number">7.2.4</span> Assaults by injury and weapon</h3>
@@ -402,30 +438,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Offender was unarmed</li>
 </ul></li>
 </ul>
+<p><img src="leoka_files/figure-html/leokaAssaultTypeInjury,%20The%20total%20number%20of%20assaults%20on%20officers%20by%20injury%20sustained%20and%20offender%20weapon%20in%20Los%20Angeles,%201960-2018.-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="figure" style="text-align: center"><span id="fig:leokaAssaultsInjuryYear"></span>
+<img src="leoka_files/figure-html/leokaAssaultsInjuryYear-1.png" alt="The annual number of assaults on officers by injury sustained in Los Angeles, 1960-2018." width="90%" />
+<p class="caption">
+Figure 7.7: The annual number of assaults on officers by injury sustained in Los Angeles, 1960-2018.
+</p>
+</div>
 </div>
 <div id="assaults-by-call-type" class="section level3" number="7.2.5">
 <h3><span class="header-section-number">7.2.5</span> Assaults by call type</h3>
 <ul>
-<li><p>Disturbance call (e.g. domestic violence, person carrying a gun in public)</p></li>
-<li><p>Burglary</p></li>
-<li><p>Robbery</p></li>
-<li><p>Officers arresting someone for another crime</p></li>
-<li><p>Civil disorder</p></li>
-<li><p>Officer has custody of prisoners</p></li>
-<li><p>Suspicious persons</p></li>
-<li><p>Officers are ambushed</p></li>
-<li><p>Mentally deranged person</p></li>
-<li><p>Traffic pursuit and traffic stops</p></li>
-<li><p>All other call types</p></li>
-<li><p>Total - sum of all call types</p></li>
-<li><p>Offender weapons</p>
+<li>Disturbance call (e.g. domestic violence, person carrying a gun in public)</li>
+<li>Burglary</li>
+<li>Robbery</li>
+<li>Officers arresting someone for another crime</li>
+<li>Civil disorder</li>
+<li>Officer has custody of prisoners</li>
+<li>Suspicious persons</li>
+<li>Officers are ambushed</li>
+<li>Mentally deranged person</li>
+<li>Traffic pursuit and traffic stops</li>
+<li>All other call types</li>
+<li>Total - sum of all call types</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:leokaAssaultCallType"></span>
+<img src="leoka_files/figure-html/leokaAssaultCallType-1.png" alt="Assaults on Los Angeles Police Department officers by type of call where they were assaulted at, 1960-2018." width="90%" />
+<p class="caption">
+Figure 7.8: Assaults on Los Angeles Police Department officers by type of call where they were assaulted at, 1960-2018.
+</p>
+</div>
+<ul>
+<li>Offender weapons
 <ul>
 <li>Offender has firearm</li>
 <li>Offender had knife</li>
 <li>Offender had other weapon</li>
 <li>Offender was unarmed</li>
 </ul></li>
-<li><p>Type of officer assignment</p>
+<li>Type of officer assignment
 <ul>
 <li>In a vehicle with two officers</li>
 <li>In a vehicle alone</li>
@@ -435,8 +486,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Other assignment alone</li>
 <li>Other assignment assisted by other officers</li>
 </ul></li>
-<li><p>Number of assaults on police cleared</p></li>
+<li>Number of assaults on police cleared</li>
 </ul>
+<div class="figure" style="text-align: center"><span id="fig:leokaDisturbanceWeapon"></span>
+<img src="leoka_files/figure-html/leokaDisturbanceWeapon-1.png" alt="The number of assaults on Los Angeles Police Department officers in distrubance calls by the injury sustained by the officer, 1960-2018." width="90%" />
+<p class="caption">
+Figure 7.9: The number of assaults on Los Angeles Police Department officers in distrubance calls by the injury sustained by the officer, 1960-2018.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:leokaShiftAssignment"></span>
+<img src="leoka_files/figure-html/leokaShiftAssignment-1.png" alt="The number of assaults on Los Angeles Police Department officers in distrubance calls by the injury sustained by the shift assignment of the officer, 1960-2018." width="90%" />
+<p class="caption">
+Figure 7.10: The number of assaults on Los Angeles Police Department officers in distrubance calls by the injury sustained by the shift assignment of the officer, 1960-2018.
+</p>
+</div>
 </div>
 <div id="assaults-by-time" class="section level3" number="7.2.6">
 <h3><span class="header-section-number">7.2.6</span> Assaults by time</h3>
@@ -457,7 +520,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="figure" style="text-align: center"><span id="fig:phoenixAssaultTimes"></span>
 <img src="leoka_files/figure-html/phoenixAssaultTimes-1.png" alt="The number of assaults against Phoenix Police Department officers by hourly grouping for all years with data available, 1971-2018." width="90%" />
 <p class="caption">
-Figure 7.1: The number of assaults against Phoenix Police Department officers by hourly grouping for all years with data available, 1971-2018.
+Figure 7.11: The number of assaults against Phoenix Police Department officers by hourly grouping for all years with data available, 1971-2018.
 </p>
 </div>
 
