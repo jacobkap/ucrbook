@@ -114,7 +114,7 @@ the-problem-with-using-index-crimes
 agencies-reporting
 important-variables
 actual
-total-cleared-crimes
+clearedCrimes
 crimes-cleared-where-all-offenders-are-under-18-years-old
 unfounded-crimes
 important-issues
@@ -154,7 +154,6 @@ leoka
 agencies-reporting-4
 important-variables-4
 number-of-employees
-patrol-shifts
 officers-killed
 assaults-by-injury-and-weapon
 assaults-by-call-type

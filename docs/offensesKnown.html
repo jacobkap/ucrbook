@@ -24,7 +24,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2021-05-02" />
+<meta name="date" content="2021-05-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -200,7 +200,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="offensesKnown.html"><a href="offensesKnown.html#important-variables"><i class="fa fa-check"></i><b>3.3</b> Important variables</a>
 <ul>
 <li class="chapter" data-level="3.3.1" data-path="offensesKnown.html"><a href="offensesKnown.html#actual"><i class="fa fa-check"></i><b>3.3.1</b> Actual crimes</a></li>
-<li class="chapter" data-level="3.3.2" data-path="offensesKnown.html"><a href="offensesKnown.html#total-cleared-crimes"><i class="fa fa-check"></i><b>3.3.2</b> Total cleared crimes</a></li>
+<li class="chapter" data-level="3.3.2" data-path="offensesKnown.html"><a href="offensesKnown.html#clearedCrimes"><i class="fa fa-check"></i><b>3.3.2</b> Total cleared crimes</a></li>
 <li class="chapter" data-level="3.3.3" data-path="offensesKnown.html"><a href="offensesKnown.html#crimes-cleared-where-all-offenders-are-under-18-years-old"><i class="fa fa-check"></i><b>3.3.3</b> Crimes cleared where all offenders are under 18 years old</a></li>
 <li class="chapter" data-level="3.3.4" data-path="offensesKnown.html"><a href="offensesKnown.html#unfounded-crimes"><i class="fa fa-check"></i><b>3.3.4</b> Unfounded crimes</a></li>
 </ul></li>
@@ -252,11 +252,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2" data-path="leoka.html"><a href="leoka.html#important-variables-4"><i class="fa fa-check"></i><b>7.2</b> Important variables</a>
 <ul>
 <li class="chapter" data-level="7.2.1" data-path="leoka.html"><a href="leoka.html#number-of-employees"><i class="fa fa-check"></i><b>7.2.1</b> Number of employees</a></li>
-<li class="chapter" data-level="7.2.2" data-path="leoka.html"><a href="leoka.html#patrol-shifts"><i class="fa fa-check"></i><b>7.2.2</b> Patrol shifts</a></li>
-<li class="chapter" data-level="7.2.3" data-path="leoka.html"><a href="leoka.html#officers-killed"><i class="fa fa-check"></i><b>7.2.3</b> Officers killed</a></li>
-<li class="chapter" data-level="7.2.4" data-path="leoka.html"><a href="leoka.html#assaults-by-injury-and-weapon"><i class="fa fa-check"></i><b>7.2.4</b> Assaults by injury and weapon</a></li>
-<li class="chapter" data-level="7.2.5" data-path="leoka.html"><a href="leoka.html#assaults-by-call-type"><i class="fa fa-check"></i><b>7.2.5</b> Assaults by call type</a></li>
-<li class="chapter" data-level="7.2.6" data-path="leoka.html"><a href="leoka.html#assaults-by-time"><i class="fa fa-check"></i><b>7.2.6</b> Assaults by time</a></li>
+<li class="chapter" data-level="7.2.2" data-path="leoka.html"><a href="leoka.html#officers-killed"><i class="fa fa-check"></i><b>7.2.2</b> Officers killed</a></li>
+<li class="chapter" data-level="7.2.3" data-path="leoka.html"><a href="leoka.html#assaults-by-injury-and-weapon"><i class="fa fa-check"></i><b>7.2.3</b> Assaults by injury and weapon</a></li>
+<li class="chapter" data-level="7.2.4" data-path="leoka.html"><a href="leoka.html#assaults-by-call-type"><i class="fa fa-check"></i><b>7.2.4</b> Assaults by call type</a></li>
+<li class="chapter" data-level="7.2.5" data-path="leoka.html"><a href="leoka.html#assaults-by-time"><i class="fa fa-check"></i><b>7.2.5</b> Assaults by time</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="arson-1.html"><a href="arson-1.html"><i class="fa fa-check"></i><b>8</b> Arson</a>
@@ -411,7 +410,7 @@ Figure 3.2: The annual number of agencies reporting to the Offenses Known and Cl
 <h3><span class="header-section-number">3.3.1</span> Actual crimes</h3>
 <p>This is the number of offenses that <em>actually</em> occurred - where <em>actually</em> means that a police investigation found that the crime report was accurate. For crimes that are reported that the police find did not occur (e.g. report of an arson but turns that the fire began accidentally) are called “unfounded” crimes. So this variable is the one people use to measure <em>crime</em>. For example if 10 people are murdered in a city the number of “actual murders” would be 10.</p>
 </div>
-<div id="total-cleared-crimes" class="section level3" number="3.3.2">
+<div id="clearedCrimes" class="section level3" number="3.3.2">
 <h3><span class="header-section-number">3.3.2</span> Total cleared crimes</h3>
 <p>A crime is cleared when an offender is arrested or when the case is considered cleared by exceptional means. To be more specific, this data counts crime as a crime incident, regardless of the number of offenders. For example, if 3 people robbed a person, that is one crime of robbery, not 3 separate crimes. This crime is cleared when one of the three robbers is arrested - no matter the outcome for the other two robbers. Arresting all 3 still counts as a single robbery cleared.</p>
 <p>Even though this dataset is formally named “Offenses Known and Clearances by Arrest” it does include clearances where no one is arrested, which are called “exceptional clearances” or “clearances by exceptional means.” For exceptional clearances, police must have identified the offender, have sufficient evidence to arrest that offender, know where they are (so they can actually be apprehended) and only then be unable to make the arrest. Exceptional clearances include cases where the offender dies before an arrest (by any means, including suicide, accidental, illness, killed by someone including a police officer) or when the police are unable to arrest the person since they are already in custody by another jurisdiction (including out of the country or in custody of another agency) and extradition is denied. Two other potential causes of exceptional clearance are when prosecution of the case cannot go forward because the district attorney refuses to prosecute the case, for reasons other than lack of evidence, or when a victim refuses to assist the prosecution in the case.</p>

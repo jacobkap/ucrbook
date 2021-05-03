@@ -47,7 +47,11 @@ leoka_yearly_1960_2018 %>%
 
 ## Important variables
 
+The important variables can be divided into two section: information on people employed by the department, and information about assaults against officers. The employee information is a snapshot in time during the year while the assault information tells you the number of assaults, broken down several different ways, each month of the year. Like other UCR data, there are also variables that provide information about the agency - ORI codes, population under jurisdiction - the month and year that the data covers, and how many months reported data. 
+
 ### Number of employees 
+
+This data includes the number of people hired by the department with breakdowns by if they are civilian employees or sworn officers (i.e. carries a gun and badge and can make arrests) as well as by gender. The only genders available are female and male. This is the number of employees as of Halloween that year so it is a single point in time. Though this helps us as it is consistent every year, we don't know exactly when certain officer classes start, which we'd likely see through a jump in employment that year, or if hiring patterns change over the year. 
  
 * Female employees
     + Officers
@@ -55,6 +59,8 @@ leoka_yearly_1960_2018 %>%
 * Male employees
     + Officers
     + Civilians
+    
+We'll look first at the number of employees that are civilian and that are sworn officers through examining Philadelphia in Figure \@ref(fig:leokaCivilianOfficers). The number of civilian employees has remained at a little under 1,000 employees from about 1970 through the end of our data, though declining very slightly since the middle 2000s. This is curious since crime has changed dramatically over this time and the ability of civilian employees to contribute has also changed, such as they now have computers.^[The last time I heard which was several years ago, patrol officers in Philadelphia still had to write up certain reports using typewriters. So tech apparently is still about 1960 level.] In contrast, the number of police has changed far more than civilians, growing rapidly in the 1960s and 1970s to peaking a little over 8,000 officers in the mid-1970s before declining substantially to the 6,000s. in the late-1980s. As with many agencies nationwide, the number of officers increased in the 1990s and then has decreased steadily in ensuing years. By recent years there are about as many officers as in the late-1980s, even though the city's population has grown substantially since then. 
     
 ```{r leokaCivilianOfficers, fig.cap = "The number of civilian employees and sworn officers in Philadelphia, 1960-2018"}
 leoka_yearly_1960_2018 %>%
@@ -71,71 +77,38 @@ leoka_yearly_1960_2018 %>%
   scale_color_crim()
 ```
 
-```{r leokaOfficersGender, fig.cap = "The number of female and male sworn officers in Philadelphia, 1960-2018"}
+We can also look at the number of officers (or civilian employees) by gender. Figure \@ref(fig:leokaOfficersGender) shows the percent of Philadelphia police officers by gender. For the first decade of data all female officers (or civilians) were recorded as male, so that variable should be interpreted as "total officers" until 1971 when it is split into gender. Starting at basically 0% of officers in 1971, female officers grew until they made up about a quarter of officers in 2000 and then has declined slowly since then. 
+
+```{r leokaOfficersGender, fig.cap = "The percent of female and male sworn officers in Philadelphia, 1960-2018"}
 leoka_yearly_1960_2018 %>%
   dplyr::filter(ori %in% "PAPEP00") %>%
+  mutate(total_officers = female_employees_officers+male_employees_officers,
+         male_employees_officers = male_employees_officers / total_officers,
+         female_employees_officers = female_employees_officers / total_officers) %>%
   ggplot(aes(x = year, y = female_employees_officers, color = "Female Officers")) +
   geom_line(size = 1.05) +
   geom_line(aes(y = male_employees_officers, color = "Male Officers"), size = 1.05) +
   xlab("Year") +
   ylab("# of Employees") +
   theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::percent) +
   expand_limits(y = 0) +
   labs(color = "") +
   scale_color_crim()
 ```
-    
-### Patrol shifts
-
-* One officer vehicle patrol
-    + Day shift
-    + Evening shift
-    + Night shift
-    + Other shift
-    + Total shifts - sum of above
-* Two officer vehicle patrol
-    + Day shift
-    + Evening shift
-    + Night shift
-    + Other shift
-    + Total shifts - sum of above
-* One officer foot patrol
-    + Day shift
-    + Evening shift
-    + Night shift
-    + Other shift
-    + Total shifts - sum of above
-* Two officer foot patrol
-    + Day shift
-    + Evening shift
-    + Night shift
-    + Other shift
-    + Total shifts - sum of above
-* Other patrols
-    + Day shift
-    + Evening shift
-    + Night shift
-    + Other shift
-    + Total shifts - sum of above
-* Total patrols
-    + Day shift
-    + Evening shift
-    + Night shift
-    + Other shift
-    + Total shifts - sum of above
-
 
 ### Officers killed
 
 There is almost no information about officers killed. The data only breaks this down into if they died "feloniously" which just means that someone killed them on purpose (e.g. shooting them, intentionally hitting them with a car) or if they died "accidentally" such as if they die during a car crash while on duty. The FBI actually collects more information on officer deaths than they release in this data. This includes the circumstances of each death such as the type of death (e.g. car crash, shooting, ambush, etc.), what weapon the offender had if feloniously killed, and even a detailed written summary of what occurred for each officer killed. They post this information in their annual LEOKA report which is part of their Crime in the United States report. The 2019 report, the latest year available, can be found on their site [here](https://ucr.fbi.gov/leoka/2019/home).
+
+We can look at this visually through Figure \@ref(fig:leokaOfficersKilled) which shows the number of Los Angeles Police Department officers killed over type. There are no accidental killings until 1975 though this is highly misleading because that accidental killings variable is no reported until 1971, which is a year in which many other variables in this data began reporting. So we actually have no idea how many officers were killed accidentally from 1960-1970 since this variable is always reported as 0. In general it seems like there are about one officer killed in recent decades while the period from 1980 to 2000 was the time of highest danger with as many as five officers killed in a single year. We can also see some trend changes with felonious killings more common than accidental killings in the 1990s and then accidental killings becoming far more common starting in 2000.
 
 ```{r leokaOfficersKilled, fig.cap = "The number of officers killed by felony and killed accidentally in Los Angeles, 1960-2018"}
 leoka_yearly_1960_2018 %>%
   dplyr::filter(ori %in% "CA01942") %>%
   ggplot(aes(x = year, y = officers_killed_by_felony, color = "Killed by Felony")) +
   geom_line(size = 1.05) +
-  geom_line(aes(y = officers_killed_by_accident, color = "Killed accidentally"), size = 1.05) +
+  geom_line(aes(y = officers_killed_by_accident, color = "Killed Accidentally"), size = 1.05) +
   xlab("Year") +
   ylab("# of Officers") +
   theme_crim() +
@@ -144,6 +117,10 @@ leoka_yearly_1960_2018 %>%
   labs(color = "") +
   scale_color_crim()
 ```
+
+We can also look at the national number of officers killed as in Figure \@ref(fig:leokaOfficersKilledNational). Please note that this is simply summing up the number of officers killed by all agencies that report that year so changes over time are certainly partially due to different agencies reporting each year. Therefore, we'll focus on interpreting the different between felony and accidental killings rather than counts over time - though even this may be off if agencies that reported more felony or more accidental killings differ in their reporting over time. Again we see that there are no officers killed accidentally, due to that variable not being reported, until 1971. The difference between officers killed by felony and killed accidentally is widest are the start of our data and narrows considerable until there are only several more felonious killings than accidental killings by the late 1990s. Though this trend reverses in the early 2010s with accidental killings decreasing and felonious killings increasing again.
+
+What can we make of this? It's hard to say. Interpreting this properly requires adding some other key variables such as the number of officers employed, the number of circumstances they respond to (e.g. are they patrolling more, apprehending violent offenders more, etc.), the number of guns on the street, the quality or availability or body armor, among others. 
 
 ```{r leokaOfficersKilledNational, fig.cap = "The national number of officers killed by felony and killed accidentally, 1960-2018"}
 leoka_yearly_1960_2018 %>%
@@ -152,7 +129,7 @@ leoka_yearly_1960_2018 %>%
             officers_killed_by_accident = sum(officers_killed_by_accident, na.rm = TRUE)) %>%
   ggplot(aes(x = year, y = officers_killed_by_felony, color = "Killed by Felony")) +
   geom_line(size = 1.05) +
-  geom_line(aes(y = officers_killed_by_accident, color = "Killed accidentally"), size = 1.05) +
+  geom_line(aes(y = officers_killed_by_accident, color = "Killed Accidentally"), size = 1.05) +
   xlab("Year") +
   ylab("# of Officers") +
   theme_crim() +
@@ -162,10 +139,9 @@ leoka_yearly_1960_2018 %>%
   scale_color_crim()
 ```
 
-
-
-
 ### Assaults by injury and weapon
+
+This data breaks down the monthly number of assaults on officers in a few different ways. Here, we'll look at the number of assaults where the officer is injured or not injured and within these categories by which weapon the offender had. This is the number of officers assaulted so if an incident has three officers assaulted, that will count as three different assaults. If the offender used multiple weapons then only the most serious weapon would be counted. For example, if an offender used a knife and a gun during the assault, the assault would be counted as a gun assault. Unfortunately we only know if an officer was injured or not and not the severity of the injury. So we can't tell if the officer is merely bruised or was shot or stabbed. 
 
 * Assaults with injury
     + Offender has firearm
@@ -178,8 +154,9 @@ leoka_yearly_1960_2018 %>%
     + Offender had other weapon
     + Offender was unarmed
     
+We can start by looking at the breakdown of assaults by injury and weapon type for officers in the Los Angeles Police Department. Figure \@ref(fig:leokaAssaultTypeInjury) shows the number of assaults from all years reported for these categories. Over the complete time period there were almost 40,000 officers assaulted with about example three-quarters of these assaults - 30,000 assaults - leading to no injuries. A little under a quarter of assaults lead to officer injury with most of these from unarmed offenders. Interestingly, there are far more gun and knife assaults where the officer is not injured than where the officer is injured. 
     
-```{r leokaAssaultTypeInjury, The total number of assaults on officers by injury sustained and offender weapon in Los Angeles, 1960-2018.}
+```{r leokaAssaultTypeInjury, fig.cap = "The total number of assaults on officers by injury sustained and offender weapon in Los Angeles, 1960-2018."}
 assault_type <- leoka_yearly_1960_2018 %>%
   filter(ori %in% "CA01942") %>%
   mutate(dummy = 1,
@@ -225,6 +202,7 @@ ggplot(assault_type, aes(x = assaults, y = type)) +
 
 ```
 
+We can also look at assaults over time. Figure \@ref(fig:leokaAssaultsInjuryYear) shows the number of assaults, assaults with injury, and assault without injury for the Los Angeles Police Department from 1960 to 2018. We can immediately see some data issues are there are years with no assaults recorded. And in the late-2000s there is a sudden from to nearly zero officer injuries reported a year, from about 250 for the last few decades before that. This strongly suggests some change in reporting rather than a true decrease in assaults with injuries. For the decades where the data is less obviously wrong, there is a consistent trend of most assaults leading to no injuries, though the distance between the number of injury and non-injury assaults fluctuates over time. 
 
 ```{r leokaAssaultsInjuryYear, fig.cap = "The annual number of assaults on officers by injury sustained in Los Angeles, 1960-2018."}
 leoka_yearly_1960_2018 %>%
@@ -245,12 +223,12 @@ ggplot(aes(x = year, y = assaults_total_assaults, color = "Total Assaults")) +
   expand_limits(y = 0) +
   labs(color = "") +
   scale_color_crim()
-
-
 ```
 
 
 ### Assaults by call type
+
+The next group of ways that assaults are broken down is by the type of call the officer is assigned when they are assaulted. For example, if an officer is responding to a burglary report, any assault they experience on that call will be classified as "burglary" related. In addition, we know how many assaults were cleared by arrest or cleared through exceptional means (for more on this, please see \@ref(clearedCrimes)) though it doesn't differential between the two.  Since assaults are based on the number of officers assaulted, not the number of incidents where officers are assaulted, arresting a single person can clear multiple assaults. The possible call types are below:
 
 * Disturbance call (e.g. domestic violence, person carrying a gun in public)
 * Burglary
@@ -264,6 +242,8 @@ ggplot(aes(x = year, y = assaults_total_assaults, color = "Total Assaults")) +
 * Traffic pursuit and traffic stops
 * All other call types
 * Total - sum of all call types
+
+Figure \@ref(fig:leokaAssaultCallType) shows the number of assaults on Los Angeles Police Department officers by the type of call for all years of data available, 1960-2018. There were about 38,000 assaults against Los Angeles Police Department officers with a little over 31,000 of these assaults cleared. An important thing to note is that the number of assaults here is less than the nearly 40,000 assaults for the same agency over the same time period we saw in Figure \@ref(fig:leokaAssaultCallType). This is because some variables are not reported for all years and agencies are free to report which variables they want to report in any given year. This makes it massively tricky to use this data since even simple statistics for the same agency for supposedly the same variable (here it's technically different variables but should still be the total number of officers assaulted) can be different. So this data is highly risky to use, more so than other UCR datasets. The most common type of call where officers are assaulted are disturbance calls which include domestic violence and reports of dangerous individuals such as people carrying guns in public. The least common call type is ambush calls, though in these calls the police are called to a scene by the offender who intends to assault or kill the officers, so is likely far more dangerous than other call types, even though it is rare. 
 
 ```{r leokaAssaultCallType, fig.cap = "Assaults on Los Angeles Police Department officers by type of call where they were assaulted at, 1960-2018."}
 call_type <- leoka_yearly_1960_2018 %>%
@@ -314,13 +294,14 @@ ggplot(call_type, aes(x = assaults, y = type)) +
 
 ```
 
+Within these call types is also a breakdown by offender weapon use, with the same weapons as above, and the type of officer assignment which is essentially if they are alone or not and if they're on foot or not. Finally, it says how many assaults are cleared by arrest or cleared through exceptional means though it doesn't differential between the two. The shift assignment is essentially how they go through their normal day, if this is in a vehicle, alone, as a detective, or under a different assignment (including being off-duty). For example, being in a vehicle with two officers  means that their normal assignment is driving in a vehicle, not that they were actually assaulted in said vehicle. This also doesn't necessarily mean that these are the only officers at the scene. It is simply the shift assignment of the officer who is assaulted. For example, if an officer who normally works alone in a vehicle shows up to a scene where other officers are present, and who are under different shift assignments, and gets assaulted - and no one else gets assaulted - that is an assault for officers "in a vehicle alone". 
 
 * Offender weapons
     + Offender has firearm
     + Offender had knife
     + Offender had other weapon
     + Offender was unarmed
-* Type of officer assignment
+* Type of officer shift assignment
     + In a vehicle with two officers
     + In a vehicle alone
     + In a vehicle alone but assisted by other officers
@@ -329,6 +310,8 @@ ggplot(call_type, aes(x = assaults, y = type)) +
     + Other assignment alone
     + Other assignment assisted by other officers
 * Number of assaults on police cleared
+
+We'll look specifically at disturbance calls since they are the most common call type, at least for the Los Angeles Police Department. Figure \@ref(fig:leokaDisturbanceWeapon) shows the total number of disturbance assaults by offender weapon in Los Angeles. Most assaults have an unarmed offender with a sharp decline to the number of offenders with a weapon other than a gun or knife. Assaults by a gun and by a knife are the least common. 
 
 ```{r leokaDisturbanceWeapon, fig.cap = "The number of assaults on Los Angeles Police Department officers in distrubance calls by the injury sustained by the officer, 1960-2018."}
 call_type <- leoka_yearly_1960_2018 %>%
@@ -370,6 +353,7 @@ ggplot(call_type, aes(x = assaults, y = type)) +
 
 ```
 
+Again using disturbance calls for the Los Angeles Police Department, we can look at assaults by the officer assignment, as seen in Figure \@ref(fig:leokaShiftAssignment). In the vast majority of assaults it is of officers who are in a vehicle along with a partner. This drops very sharply to several hundred assaults on detectives who are assisting other officers and then increasingly declines to the other shift assignments to the least common assault being against detectives who are acting alone. 
 
 ```{r leokaShiftAssignment, fig.cap = "The number of assaults on Los Angeles Police Department officers in distrubance calls by the injury sustained by the shift assignment of the officer, 1960-2018."}
 call_type <- leoka_yearly_1960_2018 %>%
@@ -383,8 +367,7 @@ call_type <- leoka_yearly_1960_2018 %>%
          "disturbance_detective_alone",
          "disturbance_detective_assist",
          "disturbance_other_alone",
-         "disturbance_other_assist",
-         "disturbance_assaults_cleared") %>%
+         "disturbance_other_assist",) %>%
   group_by(dummy) %>%
   summarize_all(sum)
 
@@ -408,7 +391,7 @@ ggplot(call_type, aes(x = assaults, y = type)) +
   geom_col(width    = 0.5,    
            position = position_dodge(0.5)) +
   xlab("# of Assaults") +
-  ylab("Offender Weapon") +
+  ylab("Shift Assignment") +
   expand_limits(x = 0) + 
   theme_crim() +
   scale_x_continuous(labels = scales::comma)
@@ -417,6 +400,8 @@ ggplot(call_type, aes(x = assaults, y = type)) +
 
     
 ### Assaults by time
+
+The final breakdown in assaults is by the time they occur, divided into 12 two-hour chunks starting at 12:01am. Like some other variables this data is only available starting in 1971. There is no more information than total assaults in this time so we don't know if the assaults led to injuries, the type of call or shift assignment the officer was on, or the offender's weapons. 
 
 * 12:01am - 2:00am
 * 2:01am  - 4:00am
@@ -430,6 +415,8 @@ ggplot(call_type, aes(x = assaults, y = type)) +
 * 6:01pm  - 8:00pm
 * 8:01pm  - 10:00pm
 * 10:01pm - 12:00am
+
+We'll look at these time chunks in Figure \@ref(fig:phoenixAssaultTimes) which shows the total number of assaults by time of day from 1971 to 2018 in Phoenix, Arizona. The most common times for officers to be assaulted looks like a mirror imagine of when crime is highest: late night and early morning. The 12:01am to 2am chunk is the most common time followed by 10pm to midnight, with assaults increasing at the day grows later and at its lowest point from 6-8am. This strongly suggests that officers are assaulted at crime scenes, such as responding to crimes or making arrests. 
 
 ```{r phoenixAssaultTimes, fig.cap = "The number of assaults against Phoenix Police Department officers by hourly grouping for all years with data available, 1971-2018."}
 time <- leoka_yearly_1960_2018 %>%

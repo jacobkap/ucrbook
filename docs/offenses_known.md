@@ -85,7 +85,7 @@ For each crime we have four different categories indicating the number of crimes
 
 This is the number of offenses that *actually* occurred - where *actually* means that a police investigation found that the crime report was accurate. For crimes that are reported that the police find did not occur (e.g. report of an arson but turns that the fire began accidentally) are called "unfounded" crimes. So this variable is the one people use to measure *crime*. For example if 10 people are murdered in a city the number of "actual murders" would be 10. 
 
-### Total cleared crimes
+### Total cleared crimes {#clearedCrimes}
 
 A crime is cleared when an offender is arrested or when the case is considered cleared by exceptional means. To be more specific, this data counts crime as a crime incident, regardless of the number of offenders. For example, if 3 people robbed a person, that is one crime of robbery, not 3 separate crimes. This crime is cleared when one of the three robbers is arrested - no matter the outcome for the other two robbers. Arresting all 3 still counts as a single robbery cleared.
 
