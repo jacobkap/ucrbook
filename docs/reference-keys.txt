@@ -55,7 +55,6 @@ fig:shrRelationship
 fig:shrCircumstance
 fig:shrSubCircumstance
 fig:leokaAgencies
-fig:leokaAgencies12Months
 fig:leokaCivilianOfficers
 fig:leokaOfficersGender
 fig:leokaOfficersKilled

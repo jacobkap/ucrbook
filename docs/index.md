@@ -1,7 +1,7 @@
 --- 
 title: "Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide"
 author: "Jacob Kaplan"
-date: "2021-05-09"
+date: "2021-05-10"
 site: bookdown::bookdown_site
 documentclass: book
 lof: yes

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.19)  9 MAY 2021 23:27
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.19)  10 MAY 2021 11:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -929,11 +929,11 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 
 [5] (./ucrbook.lof [6
 
-] [7] [8] [9])
+] [7] [8])
 \tf@lof=\write6
 \openout6 = `ucrbook.lof'.
 
-[10]
+[9] [10]
 Chapter 1.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
 (Font)              scaled to size 5.0pt on input line 145.
@@ -1281,6 +1281,9 @@ File: ucrbook_files/figure-latex/phillyHomeCostPerBurglaryInflation-1.pdf Graph
 ic file (type pdf)
 <use ucrbook_files/figure-latex/phillyHomeCostPerBurglaryInflation-1.pdf>
 
+Underfull \vbox (badness 3000) has occurred while \output is active []
+
+
 Overfull \hbox (25.96126pt too wide) has occurred while \output is active
 \TU/lmr/m/n/12 62 \TU/lmr/m/sl/12 CHAPTER 4.  PROPERTY STOLEN AND RECOVERED (SU
 PPLEMENT TO RETURN A)
@@ -1345,11 +1348,10 @@ Chapter 5.
 File: ucrbook_files/figure-latex/arrestsAgenciesReporting-1.pdf Graphic file (t
 ype pdf)
 <use ucrbook_files/figure-latex/arrestsAgenciesReporting-1.pdf>
-[77]
 File: ucrbook_files/figure-latex/arrestsAgenciesReporting12Months-1.pdf Graphic
  file (type pdf)
 <use ucrbook_files/figure-latex/arrestsAgenciesReporting12Months-1.pdf>
-[78] [79] [80] [81] [82] [83]
+[77] [78] [79] [80] [81] [82] [83]
 File: ucrbook_files/figure-latex/phillyRapeAge-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/phillyRapeAge-1.pdf>
 [84]
@@ -1365,11 +1367,14 @@ File: ucrbook_files/figure-latex/theftHispanic-1.pdf Graphic file (type pdf)
 File: ucrbook_files/figure-latex/theftHispanicPercentAgencies-1.pdf Graphic fil
 e (type pdf)
 <use ucrbook_files/figure-latex/theftHispanicPercentAgencies-1.pdf>
-[87] [88]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[87] [88] [89]
 File: ucrbook_files/figure-latex/phillyJuvenileReferrals-1.pdf Graphic file (ty
 pe pdf)
 <use ucrbook_files/figure-latex/phillyJuvenileReferrals-1.pdf>
-[89] [90]
+[90]
 Chapter 6.
 [91
 
@@ -1413,8 +1418,8 @@ File: ucrbook_files/figure-latex/shrVictimEthnicity-1.pdf Graphic file (type pd
 f)
 <use ucrbook_files/figure-latex/shrVictimEthnicity-1.pdf>
 
-LaTeX Warning: Reference `fig:shrWeapon' on page 100 undefined on input line 22
-01.
+LaTeX Warning: Reference `fig:shrWeapon' on page 100 undefined on input line 21
+99.
 
 [100]
 File: ucrbook_files/figure-latex/shrWeapon-1.png Graphic file (type bmp)
@@ -1425,7 +1430,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [101]
 
 LaTeX Warning: Reference `fig:shrRelationship' on page 102 undefined on input l
-ine 2212.
+ine 2210.
 
 [102]
 File: ucrbook_files/figure-latex/shrRelationship-1.png Graphic file (type bmp)
@@ -1436,7 +1441,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [103]
 
 LaTeX Warning: Reference `fig:shrCircumstance' on page 104 undefined on input l
-ine 2223.
+ine 2221.
 
 [104]
 File: ucrbook_files/figure-latex/shrCircumstance-1.png Graphic file (type bmp)
@@ -1453,30 +1458,25 @@ p)
 <ucrbook_files/figure-latex/shrSubCircumstance-1.png>
 [107]
 Chapter 7.
-File: ucrbook_files/figure-latex/leokaAgencies-1.pdf Graphic file (type pdf)
-<use ucrbook_files/figure-latex/leokaAgencies-1.pdf>
-File: ucrbook_files/figure-latex/leokaAgencies12Months-1.pdf Graphic file (type
- pdf)
-<use ucrbook_files/figure-latex/leokaAgencies12Months-1.pdf>
-
-Underfull \vbox (badness 1019) has occurred while \output is active []
-
 [108
 
-] [109]
-Overfull \hbox (17.46255pt too wide) has occurred while \output is active
-\TU/lmr/m/n/12 110 \TU/lmr/m/sl/12 CHAPTER 7.  LAW ENFORCEMENT OFFICERS KILLED 
-AND ASSAULTED (LEOKA)
- []
-
-[110]
+]
+File: ucrbook_files/figure-latex/leokaAgencies-1.pdf Graphic file (type pdf)
+<use ucrbook_files/figure-latex/leokaAgencies-1.pdf>
+[109]
 File: ucrbook_files/figure-latex/leokaCivilianOfficers-1.pdf Graphic file (type
  pdf)
 <use ucrbook_files/figure-latex/leokaCivilianOfficers-1.pdf>
 File: ucrbook_files/figure-latex/leokaOfficersGender-1.pdf Graphic file (type p
 df)
 <use ucrbook_files/figure-latex/leokaOfficersGender-1.pdf>
-[111]
+
+Overfull \hbox (17.46255pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 110 \TU/lmr/m/sl/12 CHAPTER 7.  LAW ENFORCEMENT OFFICERS KILLED 
+AND ASSAULTED (LEOKA)
+ []
+
+[110] [111]
 File: ucrbook_files/figure-latex/leokaOfficersKilled-1.pdf Graphic file (type p
 df)
 <use ucrbook_files/figure-latex/leokaOfficersKilled-1.pdf>
@@ -1494,41 +1494,39 @@ File: ucrbook_files/figure-latex/leokaOfficersKilledNational-1.pdf Graphic file
 File: ucrbook_files/figure-latex/leokaAssaultTypeInjury-1.pdf Graphic file (typ
 e pdf)
 <use ucrbook_files/figure-latex/leokaAssaultTypeInjury-1.pdf>
+File: ucrbook_files/figure-latex/leokaAssaultsInjuryYear-1.pdf Graphic file (ty
+pe pdf)
+<use ucrbook_files/figure-latex/leokaAssaultsInjuryYear-1.pdf>
 
 Overfull \hbox (17.46255pt too wide) has occurred while \output is active
 \TU/lmr/m/n/12 114 \TU/lmr/m/sl/12 CHAPTER 7.  LAW ENFORCEMENT OFFICERS KILLED 
 AND ASSAULTED (LEOKA)
  []
 
-[114]
-File: ucrbook_files/figure-latex/leokaAssaultsInjuryYear-1.pdf Graphic file (ty
-pe pdf)
-<use ucrbook_files/figure-latex/leokaAssaultsInjuryYear-1.pdf>
-[115]
+[114] [115]
+File: ucrbook_files/figure-latex/leokaAssaultCallType-1.pdf Graphic file (type 
+pdf)
+<use ucrbook_files/figure-latex/leokaAssaultCallType-1.pdf>
+
 Overfull \hbox (17.46255pt too wide) has occurred while \output is active
 \TU/lmr/m/n/12 116 \TU/lmr/m/sl/12 CHAPTER 7.  LAW ENFORCEMENT OFFICERS KILLED 
 AND ASSAULTED (LEOKA)
  []
 
-[116]
-File: ucrbook_files/figure-latex/leokaAssaultCallType-1.pdf Graphic file (type 
-pdf)
-<use ucrbook_files/figure-latex/leokaAssaultCallType-1.pdf>
-[117]
+[116] [117]
 File: ucrbook_files/figure-latex/leokaDisturbanceWeapon-1.pdf Graphic file (typ
 e pdf)
 <use ucrbook_files/figure-latex/leokaDisturbanceWeapon-1.pdf>
+File: ucrbook_files/figure-latex/leokaShiftAssignment-1.pdf Graphic file (type 
+pdf)
+<use ucrbook_files/figure-latex/leokaShiftAssignment-1.pdf>
 
 Overfull \hbox (17.46255pt too wide) has occurred while \output is active
 \TU/lmr/m/n/12 118 \TU/lmr/m/sl/12 CHAPTER 7.  LAW ENFORCEMENT OFFICERS KILLED 
 AND ASSAULTED (LEOKA)
  []
 
-[118]
-File: ucrbook_files/figure-latex/leokaShiftAssignment-1.pdf Graphic file (type 
-pdf)
-<use ucrbook_files/figure-latex/leokaShiftAssignment-1.pdf>
-[119]
+[118] [119]
 File: ucrbook_files/figure-latex/phoenixAssaultTimes-1.pdf Graphic file (type p
 df)
 <use ucrbook_files/figure-latex/phoenixAssaultTimes-1.pdf>
@@ -1563,9 +1561,9 @@ Chapter 9.
 ]
 File: ucrbook_files/figure-latex/hateAgencies-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/hateAgencies-1.pdf>
+[130]
 File: ucrbook_files/figure-latex/hateCrimesEver-1.pdf Graphic file (type pdf)
 <use ucrbook_files/figure-latex/hateCrimesEver-1.pdf>
-[130]
 File: ucrbook_files/figure-latex/hateCrimesPreviousYear-1.pdf Graphic file (typ
 e pdf)
 <use ucrbook_files/figure-latex/hateCrimesPreviousYear-1.pdf>
@@ -1584,7 +1582,7 @@ f)
 [134] [135]
 
 LaTeX Warning: Reference `fig:hateBiasMotivation' on page 136 undefined on inpu
-t line 2816.
+t line 2809.
 
 File: ucrbook_files/figure-latex/hateBiasMotivation-1.png Graphic file (type bm
 p)
@@ -1595,7 +1593,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [136] [137]
 
 LaTeX Warning: Reference `fig:hateOffense' on page 138 undefined on input line 
-2829.
+2822.
 
 [138]
 File: ucrbook_files/figure-latex/hateOffense-1.png Graphic file (type bmp)
@@ -1606,7 +1604,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [139] [140]
 
 LaTeX Warning: Reference `fig:hateLocations' on page 141 undefined on input lin
-e 2842.
+e 2835.
 
 File: ucrbook_files/figure-latex/hateLocations-1.png Graphic file (type bmp)
 <ucrbook_files/figure-latex/hateLocations-1.png>
@@ -1661,10 +1659,10 @@ Package rerunfilecheck Info: File `ucrbook.out' has not changed.
 (rerunfilecheck)             Checksum: F6BF4B4A4837F3778075E20C8A3BAC99;17395.
  ) 
 Here is how much of TeX's memory you used:
- 17731 strings out of 478918
- 335418 string characters out of 5865075
- 807527 words of memory out of 5000000
- 37259 multiletter control sequences out of 15000+600000
+ 17723 strings out of 478918
+ 335016 string characters out of 5865075
+ 807424 words of memory out of 5000000
+ 37252 multiletter control sequences out of 15000+600000
  407970 words of font info for 74 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  98i,8n,122p,1877b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
