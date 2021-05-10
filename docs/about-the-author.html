@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>About the Author | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="About the Author | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2021-05-03" />
+<meta name="date" content="2021-05-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,9 +51,11 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.17/datatables.js"></script>
+<script src="libs/datatables-binding-0.18/datatables.js"></script>
 <link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
@@ -134,6 +136,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -159,6 +184,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#where-to-find-the-data-used-in-this-book"><i class="fa fa-check"></i><b>1.4.1</b> Where to find the data used in this book</a></li>
 </ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#recommended-reading"><i class="fa fa-check"></i><b>1.5</b> Recommended reading</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
 <li class="chapter" data-level="2" data-path="ucrGeneral.html"><a href="ucrGeneral.html"><i class="fa fa-check"></i><b>2</b> Overview of the Data</a>
@@ -194,7 +220,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="offensesKnown.html"><a href="offensesKnown.html#indexCrimesOffensesKnown"><i class="fa fa-check"></i><b>3.1</b> Which crimes are included?</a>
 <ul>
 <li class="chapter" data-level="3.1.1" data-path="offensesKnown.html"><a href="offensesKnown.html#hierarchy"><i class="fa fa-check"></i><b>3.1.1</b> Hierarchy Rule</a></li>
-<li class="chapter" data-level="3.1.2" data-path="offensesKnown.html"><a href="offensesKnown.html#the-problem-with-using-index-crimes"><i class="fa fa-check"></i><b>3.1.2</b> The problem with using index crimes</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="offensesKnown.html"><a href="offensesKnown.html#agencies-reporting"><i class="fa fa-check"></i><b>3.2</b> Agencies reporting</a></li>
 <li class="chapter" data-level="3.3" data-path="offensesKnown.html"><a href="offensesKnown.html#important-variables"><i class="fa fa-check"></i><b>3.3</b> Important variables</a>
@@ -258,21 +283,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.5" data-path="leoka.html"><a href="leoka.html#assaults-by-time"><i class="fa fa-check"></i><b>7.2.5</b> Assaults by time</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="arson-1.html"><a href="arson-1.html"><i class="fa fa-check"></i><b>8</b> Arson</a>
+<li class="chapter" data-level="8" data-path="arsonChapter.html"><a href="arsonChapter.html"><i class="fa fa-check"></i><b>8</b> Arson</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="arson-1.html"><a href="arson-1.html#agencies-reporting-5"><i class="fa fa-check"></i><b>8.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="8.2" data-path="arson-1.html"><a href="arson-1.html#important-variables-5"><i class="fa fa-check"></i><b>8.2</b> Important variables</a>
+<li class="chapter" data-level="8.1" data-path="arsonChapter.html"><a href="arsonChapter.html#agencies-reporting-5"><i class="fa fa-check"></i><b>8.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="8.2" data-path="arsonChapter.html"><a href="arsonChapter.html#important-variables-5"><i class="fa fa-check"></i><b>8.2</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="8.2.1" data-path="arson-1.html"><a href="arson-1.html#actual-arsons"><i class="fa fa-check"></i><b>8.2.1</b> Actual arsons</a></li>
-<li class="chapter" data-level="8.2.2" data-path="arson-1.html"><a href="arson-1.html#unfounded-arsons"><i class="fa fa-check"></i><b>8.2.2</b> Unfounded arsons</a></li>
-<li class="chapter" data-level="8.2.3" data-path="arson-1.html"><a href="arson-1.html#reported-arsons"><i class="fa fa-check"></i><b>8.2.3</b> Reported arsons</a></li>
-<li class="chapter" data-level="8.2.4" data-path="arson-1.html"><a href="arson-1.html#cleared-arsons"><i class="fa fa-check"></i><b>8.2.4</b> Cleared arsons</a></li>
-<li class="chapter" data-level="8.2.5" data-path="arson-1.html"><a href="arson-1.html#cleared-for-arsons-where-all-offenders-are-under-age-18"><i class="fa fa-check"></i><b>8.2.5</b> Cleared for arsons where all offenders are under age 18</a></li>
-<li class="chapter" data-level="8.2.6" data-path="arson-1.html"><a href="arson-1.html#uninhabited-building-arsons"><i class="fa fa-check"></i><b>8.2.6</b> Uninhabited building arsons</a></li>
-<li class="chapter" data-level="8.2.7" data-path="arson-1.html"><a href="arson-1.html#estimated-damage-cost"><i class="fa fa-check"></i><b>8.2.7</b> Estimated damage cost</a></li>
+<li class="chapter" data-level="8.2.1" data-path="arsonChapter.html"><a href="arsonChapter.html#actual-arsons"><i class="fa fa-check"></i><b>8.2.1</b> Actual arsons</a></li>
+<li class="chapter" data-level="8.2.2" data-path="arsonChapter.html"><a href="arsonChapter.html#unfounded-arsons"><i class="fa fa-check"></i><b>8.2.2</b> Unfounded arsons</a></li>
+<li class="chapter" data-level="8.2.3" data-path="arsonChapter.html"><a href="arsonChapter.html#reported-arsons"><i class="fa fa-check"></i><b>8.2.3</b> Reported arsons</a></li>
+<li class="chapter" data-level="8.2.4" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-arsons"><i class="fa fa-check"></i><b>8.2.4</b> Cleared arsons</a></li>
+<li class="chapter" data-level="8.2.5" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-for-arsons-where-all-offenders-are-under-age-18"><i class="fa fa-check"></i><b>8.2.5</b> Cleared for arsons where all offenders are under age 18</a></li>
+<li class="chapter" data-level="8.2.6" data-path="arsonChapter.html"><a href="arsonChapter.html#uninhabited-building-arsons"><i class="fa fa-check"></i><b>8.2.6</b> Uninhabited building arsons</a></li>
+<li class="chapter" data-level="8.2.7" data-path="arsonChapter.html"><a href="arsonChapter.html#estimated-damage-cost"><i class="fa fa-check"></i><b>8.2.7</b> Estimated damage cost</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="arson-1.html"><a href="arson-1.html#arsonType"><i class="fa fa-check"></i><b>8.3</b> Types of arsons</a></li>
-<li class="chapter" data-level="8.4" data-path="arson-1.html"><a href="arson-1.html#data-errors-1"><i class="fa fa-check"></i><b>8.4</b> Data errors</a></li>
+<li class="chapter" data-level="8.3" data-path="arsonChapter.html"><a href="arsonChapter.html#arsonType"><i class="fa fa-check"></i><b>8.3</b> Types of arsons</a></li>
+<li class="chapter" data-level="8.4" data-path="arsonChapter.html"><a href="arsonChapter.html#data-errors-1"><i class="fa fa-check"></i><b>8.4</b> Data errors</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="hate-crimes.html"><a href="hate-crimes.html"><i class="fa fa-check"></i><b>9</b> Hate Crime Data</a>
 <ul>
@@ -305,9 +330,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="about-the-author" class="section level1 unnumbered">
 <h1>About the Author</h1>
-<p><strong>Jacob Kaplan</strong> holds a PhD and a master’s degree in criminology from the University of Pennsylvania and a bachelor’s degree in criminal justice from California State University, Sacramento. His research focuses on Crime Prevention Through Environmental Design (CPTED), specifically on the effect of outdoor lighting on crime. He is the author of several R packages that make it easier to work with data, including <a href="https://jacobkap.github.io/fastDummies/">fastDummies</a> and <a href="https://jacobkap.github.io/asciiSetupReader/">asciiSetupReader</a>. His <a href="http://jacobdkaplan.com/">website</a> allows easy analysis of crime-related data and he has released over a <a href="http://jacobdkaplan.com/data.html">dozen crime data sets</a> (primarily FBI UCR data) on openICPSR that he has compiled, cleaned, and made available to the public.</p>
+<p><strong>Jacob Kaplan</strong> holds a PhD and a master’s degree in criminology from the University of Pennsylvania and a bachelor’s degree in criminal justice from California State University, Sacramento. He is the Chief Data Scientist at the Research on Policing Reform and Accountability <a href="https://policingresearch.org/team/">RoPRA</a> at Princeton University. His current research portfolio includes evaluating police policy and reforms, place-based crime prevention, <a href="https://doi.org/10.1177/0022427820984213">measuring spatial crime concentration</a>, and simulating how firing ‘bad apples’ affects police complaints and uses of force.
+In the past he’s written on the effect of <a href="https://doi.org/10.1177/0886260520961876">marijuana decriminalization on domestic violence</a>, how <a href="https://doi.org/10.1111/1745-9133.12424">increasing the number of police officers affects prison trends</a>, how outdoor lighting affects crime and <a href="https://link.springer.com/article/10.1057/s41284-021-00296-0">perception of safety</a>, and public perceptions of forensic science techniques. He is the author of several R packages that make it easier to work with data, including <a href="https://jacobkap.github.io/fastDummies/">fastDummies</a> and <a href="https://jacobkap.github.io/asciiSetupReader/">asciiSetupReader</a>. His <a href="http://jacobdkaplan.com/">website</a> allows for easy visualization of crime-related data and he has released over a <a href="http://jacobdkaplan.com/data.html">dozen crime data sets</a> (primarily FBI UCR data) on openICPSR that he has compiled, cleaned, and made available to the public.</p>
 <p>For a list of papers he has written (including working papers), please see <a href="http://jacobdkaplan.com/research.html">here</a>.</p>
-<p>For a list of data sets he has cleaned, aggregated, and made public, please see <a href="http://jacobdkaplan.com/data.html">here</a>.</p>
+<p>For a list of data sets he has cleaned, concatenated, and made public, please see <a href="http://jacobdkaplan.com/data.html">here</a>.</p>
 <p>For a list of R packages he has created, please see <a href="https://jacobdkaplan.com/packages.html">here</a>.</p>
 
 </div>

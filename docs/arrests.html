@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Arrests by Age, Sex, and Race | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Arrests by Age, Sex, and Race | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2021-05-03" />
+<meta name="date" content="2021-05-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,9 +51,11 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.17/datatables.js"></script>
+<script src="libs/datatables-binding-0.18/datatables.js"></script>
 <link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
@@ -134,6 +136,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -159,6 +184,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#where-to-find-the-data-used-in-this-book"><i class="fa fa-check"></i><b>1.4.1</b> Where to find the data used in this book</a></li>
 </ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#recommended-reading"><i class="fa fa-check"></i><b>1.5</b> Recommended reading</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
 <li class="chapter" data-level="2" data-path="ucrGeneral.html"><a href="ucrGeneral.html"><i class="fa fa-check"></i><b>2</b> Overview of the Data</a>
@@ -194,7 +220,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="offensesKnown.html"><a href="offensesKnown.html#indexCrimesOffensesKnown"><i class="fa fa-check"></i><b>3.1</b> Which crimes are included?</a>
 <ul>
 <li class="chapter" data-level="3.1.1" data-path="offensesKnown.html"><a href="offensesKnown.html#hierarchy"><i class="fa fa-check"></i><b>3.1.1</b> Hierarchy Rule</a></li>
-<li class="chapter" data-level="3.1.2" data-path="offensesKnown.html"><a href="offensesKnown.html#the-problem-with-using-index-crimes"><i class="fa fa-check"></i><b>3.1.2</b> The problem with using index crimes</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="offensesKnown.html"><a href="offensesKnown.html#agencies-reporting"><i class="fa fa-check"></i><b>3.2</b> Agencies reporting</a></li>
 <li class="chapter" data-level="3.3" data-path="offensesKnown.html"><a href="offensesKnown.html#important-variables"><i class="fa fa-check"></i><b>3.3</b> Important variables</a>
@@ -258,21 +283,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.5" data-path="leoka.html"><a href="leoka.html#assaults-by-time"><i class="fa fa-check"></i><b>7.2.5</b> Assaults by time</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="arson-1.html"><a href="arson-1.html"><i class="fa fa-check"></i><b>8</b> Arson</a>
+<li class="chapter" data-level="8" data-path="arsonChapter.html"><a href="arsonChapter.html"><i class="fa fa-check"></i><b>8</b> Arson</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="arson-1.html"><a href="arson-1.html#agencies-reporting-5"><i class="fa fa-check"></i><b>8.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="8.2" data-path="arson-1.html"><a href="arson-1.html#important-variables-5"><i class="fa fa-check"></i><b>8.2</b> Important variables</a>
+<li class="chapter" data-level="8.1" data-path="arsonChapter.html"><a href="arsonChapter.html#agencies-reporting-5"><i class="fa fa-check"></i><b>8.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="8.2" data-path="arsonChapter.html"><a href="arsonChapter.html#important-variables-5"><i class="fa fa-check"></i><b>8.2</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="8.2.1" data-path="arson-1.html"><a href="arson-1.html#actual-arsons"><i class="fa fa-check"></i><b>8.2.1</b> Actual arsons</a></li>
-<li class="chapter" data-level="8.2.2" data-path="arson-1.html"><a href="arson-1.html#unfounded-arsons"><i class="fa fa-check"></i><b>8.2.2</b> Unfounded arsons</a></li>
-<li class="chapter" data-level="8.2.3" data-path="arson-1.html"><a href="arson-1.html#reported-arsons"><i class="fa fa-check"></i><b>8.2.3</b> Reported arsons</a></li>
-<li class="chapter" data-level="8.2.4" data-path="arson-1.html"><a href="arson-1.html#cleared-arsons"><i class="fa fa-check"></i><b>8.2.4</b> Cleared arsons</a></li>
-<li class="chapter" data-level="8.2.5" data-path="arson-1.html"><a href="arson-1.html#cleared-for-arsons-where-all-offenders-are-under-age-18"><i class="fa fa-check"></i><b>8.2.5</b> Cleared for arsons where all offenders are under age 18</a></li>
-<li class="chapter" data-level="8.2.6" data-path="arson-1.html"><a href="arson-1.html#uninhabited-building-arsons"><i class="fa fa-check"></i><b>8.2.6</b> Uninhabited building arsons</a></li>
-<li class="chapter" data-level="8.2.7" data-path="arson-1.html"><a href="arson-1.html#estimated-damage-cost"><i class="fa fa-check"></i><b>8.2.7</b> Estimated damage cost</a></li>
+<li class="chapter" data-level="8.2.1" data-path="arsonChapter.html"><a href="arsonChapter.html#actual-arsons"><i class="fa fa-check"></i><b>8.2.1</b> Actual arsons</a></li>
+<li class="chapter" data-level="8.2.2" data-path="arsonChapter.html"><a href="arsonChapter.html#unfounded-arsons"><i class="fa fa-check"></i><b>8.2.2</b> Unfounded arsons</a></li>
+<li class="chapter" data-level="8.2.3" data-path="arsonChapter.html"><a href="arsonChapter.html#reported-arsons"><i class="fa fa-check"></i><b>8.2.3</b> Reported arsons</a></li>
+<li class="chapter" data-level="8.2.4" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-arsons"><i class="fa fa-check"></i><b>8.2.4</b> Cleared arsons</a></li>
+<li class="chapter" data-level="8.2.5" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-for-arsons-where-all-offenders-are-under-age-18"><i class="fa fa-check"></i><b>8.2.5</b> Cleared for arsons where all offenders are under age 18</a></li>
+<li class="chapter" data-level="8.2.6" data-path="arsonChapter.html"><a href="arsonChapter.html#uninhabited-building-arsons"><i class="fa fa-check"></i><b>8.2.6</b> Uninhabited building arsons</a></li>
+<li class="chapter" data-level="8.2.7" data-path="arsonChapter.html"><a href="arsonChapter.html#estimated-damage-cost"><i class="fa fa-check"></i><b>8.2.7</b> Estimated damage cost</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="arson-1.html"><a href="arson-1.html#arsonType"><i class="fa fa-check"></i><b>8.3</b> Types of arsons</a></li>
-<li class="chapter" data-level="8.4" data-path="arson-1.html"><a href="arson-1.html#data-errors-1"><i class="fa fa-check"></i><b>8.4</b> Data errors</a></li>
+<li class="chapter" data-level="8.3" data-path="arsonChapter.html"><a href="arsonChapter.html#arsonType"><i class="fa fa-check"></i><b>8.3</b> Types of arsons</a></li>
+<li class="chapter" data-level="8.4" data-path="arsonChapter.html"><a href="arsonChapter.html#data-errors-1"><i class="fa fa-check"></i><b>8.4</b> Data errors</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="hate-crimes.html"><a href="hate-crimes.html"><i class="fa fa-check"></i><b>9</b> Hate Crime Data</a>
 <ul>
@@ -327,7 +352,7 @@ Figure 5.2: The annual number of agencies reporting 12 months of data in that ye
 <div id="what-is-an-arrest-what-unit-is-this-data-in" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> What is an arrest? (what unit is this data in?)</h2>
 <p>A key part of understanding this data is knowing what unit of analysis it’s in. This data is the monthly number of <em>total arrests for a given crime, with only the most serious crime per incident included</em>. Consider for example, a person who robs a bank, shooting a killing a guard and pointing their gun at other people in the bank. They are arrested and then released from jail (just imagine that this is true) and are rearrested the next day for shoplifting. And let’s further assume that both arrests were in the same month in the same agency. How many arrests are here? They committed multiple crimes in the first incident (murder, robbery, aggravated assault) but in this dataset they would only be classified as an arrest for the most serious crime, murder. And then separately they’d also be an arrested for shoplifting. So assuming that no other arrests occurred in that police agency that month, there would be two arrests reported: one for murder and one for shoplifting.</p>
-<p>There’s no way to tell how many unique people were arrested, or of those arrested multiple times which crimes they were arrested for. So if you have 100 arrests there may be 1 person arrested 100 times or 100 people arrested once - though, of course, the true number is somewhere in between. This means that studies that try to use this data as a measure of unique people or even the percent of arrestees by group (age, gender, or race) relative to some base rate of the population such as the number of people living in that city are going to be wrong - though how wrong is unclear.<a href="#fn32" class="footnote-ref" id="fnref32"><sup>32</sup></a></p>
+<p>There’s no way to tell how many unique people were arrested, or of those arrested multiple times which crimes they were arrested for. So if you have 100 arrests there may be 1 person arrested 100 times or 100 people arrested once - though, of course, the true number is somewhere in between. This means that studies that try to use this data as a measure of unique people or even the percent of arrestees by group (age, gender, or race) relative to some base rate of the population such as the number of people living in that city are going to be wrong - though how wrong is unclear.<a href="#fn36" class="footnote-ref" id="fnref36"><sup>36</sup></a></p>
 <p>Common uses of this data - more common in more news articles or advocacy group reports than in peer-reviewed research articles - compare the percent of arrestees of a certain group to the percent of a city’s population of that group. Any differences between the arrestee percent and the resident percent is, according to these reports, evidence of a disparity (this is most common for looking at differences by race. Since these analyses are generally looking at annual data, it assumes that people of each group (usually they look at race but gender and age data is also available) are rearrested at the same rate. That is, White people, for example, are rearrested in the same year for the same crime at the exact same rate as Black people. If not, then you’re be comparing different things since one group would have more overall people arrested while the other would have fewer people but who are arrested more. Whether this distinction between arrests and unique people arrested affects your interpretation of the data depends on the study you are doing, but it’s important to consider in your research. One way to address this is to use other data on the rate of rearrest by group, though you’d have to be very careful to not extrapolate the results of the other study beyond what they could tell you of the specific time and place they studied.</p>
 <div id="the-hierarchy-rule" class="section level3" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> The Hierarchy Rule</h3>
@@ -519,7 +544,7 @@ Figure 5.5: The annual number of adult marijuana possession arrests in Philadelp
 <li>Non-Hispanic</li>
 </ul></li>
 </ul>
-<p>Figure <a href="arrests.html#fig:theftHispanic">5.6</a> shows the annual number of Hispanic arrestees for theft for all agencies that reported any data that year.<a href="#fn33" class="footnote-ref" id="fnref33"><sup>33</sup></a> For several years no agencies reported until the number of Hispanic arrestees start climbing in 1980 and peaks in 1986 at about 136 thousand arrestees. Then there are zero Hispanic arrestees for a few years, 4 Hispanic arrestees in 1990s, and then again zero Hispanic arrestees, this time for decades. Only in 2017 do the number of Hispanic theft arrestees begin to creep up. From 2017 to 2019 (the last year available at the time of this writing) there are Hispanic arrestees reported every year, though now only about 30,000 per year.</p>
+<p>Figure <a href="arrests.html#fig:theftHispanic">5.6</a> shows the annual number of Hispanic arrestees for theft for all agencies that reported any data that year.<a href="#fn37" class="footnote-ref" id="fnref37"><sup>37</sup></a> For several years no agencies reported until the number of Hispanic arrestees start climbing in 1980 and peaks in 1986 at about 136 thousand arrestees. Then there are zero Hispanic arrestees for a few years, 4 Hispanic arrestees in 1990s, and then again zero Hispanic arrestees, this time for decades. Only in 2017 do the number of Hispanic theft arrestees begin to creep up. From 2017 to 2019 (the last year available at the time of this writing) there are Hispanic arrestees reported every year, though now only about 30,000 per year.</p>
 <div class="figure" style="text-align: center"><span id="fig:theftHispanic"></span>
 <img src="arrests_files/figure-html/theftHispanic-1.png" alt="The national annual number of Hispanic arrestees for theft. This includes all agencies that year that reporting any number of months. Hispanic arrestees include both juvenile and adult arrestees" width="90%" />
 <p class="caption">
@@ -566,9 +591,9 @@ Figure 5.8: The annual number of juvenile referrals in Philadelphia by referral 
 </div>
 <div class="footnotes">
 <hr />
-<ol start="32">
-<li id="fn32"><p>While all studies are going to be estimates of the real effect, that’s no reason to be flippant in using data (UCR and other data). Without having a high level of confidence that your estimates are close to the actual value, you shouldn’t do that study.<a href="arrests.html#fnref32" class="footnote-back">↩︎</a></p></li>
-<li id="fn33"><p>Theft is used as it’s one of the most common crimes.<a href="arrests.html#fnref33" class="footnote-back">↩︎</a></p></li>
+<ol start="36">
+<li id="fn36"><p>While all studies are going to be estimates of the real effect, that’s no reason to be flippant in using data (UCR and other data). Without having a high level of confidence that your estimates are close to the actual value, you shouldn’t do that study.<a href="arrests.html#fnref36" class="footnote-back">↩︎</a></p></li>
+<li id="fn37"><p>Theft is used as it’s one of the most common crimes.<a href="arrests.html#fnref37" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

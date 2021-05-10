@@ -84,7 +84,10 @@ This data breaks down the monthly number of assaults on officers in a few differ
     
 We can start by looking at the breakdown of assaults by injury and weapon type for officers in the Los Angeles Police Department. Figure \@ref(fig:leokaAssaultTypeInjury) shows the number of assaults from all years reported for these categories. Over the complete time period there were almost 40,000 officers assaulted with about example three-quarters of these assaults - 30,000 assaults - leading to no injuries. A little under a quarter of assaults lead to officer injury with most of these from unarmed offenders. Interestingly, there are far more gun and knife assaults where the officer is not injured than where the officer is injured. 
     
-<img src="leoka_files/figure-html/leokaAssaultTypeInjury, The total number of assaults on officers by injury sustained and offender weapon in Los Angeles, 1960-2018.-1.png" width="90%" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="leoka_files/figure-html/leokaAssaultTypeInjury-1.png" alt="The total number of assaults on officers by injury sustained and offender weapon in Los Angeles, 1960-2018." width="90%" />
+<p class="caption">(\#fig:leokaAssaultTypeInjury)The total number of assaults on officers by injury sustained and offender weapon in Los Angeles, 1960-2018.</p>
+</div>
 
 We can also look at assaults over time. Figure \@ref(fig:leokaAssaultsInjuryYear) shows the number of assaults, assaults with injury, and assault without injury for the Los Angeles Police Department from 1960 to 2018. We can immediately see some data issues are there are years with no assaults recorded. And in the late-2000s there is a sudden from to nearly zero officer injuries reported a year, from about 250 for the last few decades before that. This strongly suggests some change in reporting rather than a true decrease in assaults with injuries. For the decades where the data is less obviously wrong, there is a consistent trend of most assaults leading to no injuries, though the distance between the number of injury and non-injury assaults fluctuates over time. 
 

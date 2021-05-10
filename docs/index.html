@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2021-05-03" />
+<meta name="date" content="2021-05-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,9 +51,11 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.17/datatables.js"></script>
+<script src="libs/datatables-binding-0.18/datatables.js"></script>
 <link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
@@ -134,6 +136,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -159,6 +184,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#where-to-find-the-data-used-in-this-book"><i class="fa fa-check"></i><b>1.4.1</b> Where to find the data used in this book</a></li>
 </ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#recommended-reading"><i class="fa fa-check"></i><b>1.5</b> Recommended reading</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
 <li class="chapter" data-level="2" data-path="ucrGeneral.html"><a href="ucrGeneral.html"><i class="fa fa-check"></i><b>2</b> Overview of the Data</a>
@@ -194,7 +220,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="offensesKnown.html"><a href="offensesKnown.html#indexCrimesOffensesKnown"><i class="fa fa-check"></i><b>3.1</b> Which crimes are included?</a>
 <ul>
 <li class="chapter" data-level="3.1.1" data-path="offensesKnown.html"><a href="offensesKnown.html#hierarchy"><i class="fa fa-check"></i><b>3.1.1</b> Hierarchy Rule</a></li>
-<li class="chapter" data-level="3.1.2" data-path="offensesKnown.html"><a href="offensesKnown.html#the-problem-with-using-index-crimes"><i class="fa fa-check"></i><b>3.1.2</b> The problem with using index crimes</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="offensesKnown.html"><a href="offensesKnown.html#agencies-reporting"><i class="fa fa-check"></i><b>3.2</b> Agencies reporting</a></li>
 <li class="chapter" data-level="3.3" data-path="offensesKnown.html"><a href="offensesKnown.html#important-variables"><i class="fa fa-check"></i><b>3.3</b> Important variables</a>
@@ -258,21 +283,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.5" data-path="leoka.html"><a href="leoka.html#assaults-by-time"><i class="fa fa-check"></i><b>7.2.5</b> Assaults by time</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="arson-1.html"><a href="arson-1.html"><i class="fa fa-check"></i><b>8</b> Arson</a>
+<li class="chapter" data-level="8" data-path="arsonChapter.html"><a href="arsonChapter.html"><i class="fa fa-check"></i><b>8</b> Arson</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="arson-1.html"><a href="arson-1.html#agencies-reporting-5"><i class="fa fa-check"></i><b>8.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="8.2" data-path="arson-1.html"><a href="arson-1.html#important-variables-5"><i class="fa fa-check"></i><b>8.2</b> Important variables</a>
+<li class="chapter" data-level="8.1" data-path="arsonChapter.html"><a href="arsonChapter.html#agencies-reporting-5"><i class="fa fa-check"></i><b>8.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="8.2" data-path="arsonChapter.html"><a href="arsonChapter.html#important-variables-5"><i class="fa fa-check"></i><b>8.2</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="8.2.1" data-path="arson-1.html"><a href="arson-1.html#actual-arsons"><i class="fa fa-check"></i><b>8.2.1</b> Actual arsons</a></li>
-<li class="chapter" data-level="8.2.2" data-path="arson-1.html"><a href="arson-1.html#unfounded-arsons"><i class="fa fa-check"></i><b>8.2.2</b> Unfounded arsons</a></li>
-<li class="chapter" data-level="8.2.3" data-path="arson-1.html"><a href="arson-1.html#reported-arsons"><i class="fa fa-check"></i><b>8.2.3</b> Reported arsons</a></li>
-<li class="chapter" data-level="8.2.4" data-path="arson-1.html"><a href="arson-1.html#cleared-arsons"><i class="fa fa-check"></i><b>8.2.4</b> Cleared arsons</a></li>
-<li class="chapter" data-level="8.2.5" data-path="arson-1.html"><a href="arson-1.html#cleared-for-arsons-where-all-offenders-are-under-age-18"><i class="fa fa-check"></i><b>8.2.5</b> Cleared for arsons where all offenders are under age 18</a></li>
-<li class="chapter" data-level="8.2.6" data-path="arson-1.html"><a href="arson-1.html#uninhabited-building-arsons"><i class="fa fa-check"></i><b>8.2.6</b> Uninhabited building arsons</a></li>
-<li class="chapter" data-level="8.2.7" data-path="arson-1.html"><a href="arson-1.html#estimated-damage-cost"><i class="fa fa-check"></i><b>8.2.7</b> Estimated damage cost</a></li>
+<li class="chapter" data-level="8.2.1" data-path="arsonChapter.html"><a href="arsonChapter.html#actual-arsons"><i class="fa fa-check"></i><b>8.2.1</b> Actual arsons</a></li>
+<li class="chapter" data-level="8.2.2" data-path="arsonChapter.html"><a href="arsonChapter.html#unfounded-arsons"><i class="fa fa-check"></i><b>8.2.2</b> Unfounded arsons</a></li>
+<li class="chapter" data-level="8.2.3" data-path="arsonChapter.html"><a href="arsonChapter.html#reported-arsons"><i class="fa fa-check"></i><b>8.2.3</b> Reported arsons</a></li>
+<li class="chapter" data-level="8.2.4" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-arsons"><i class="fa fa-check"></i><b>8.2.4</b> Cleared arsons</a></li>
+<li class="chapter" data-level="8.2.5" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-for-arsons-where-all-offenders-are-under-age-18"><i class="fa fa-check"></i><b>8.2.5</b> Cleared for arsons where all offenders are under age 18</a></li>
+<li class="chapter" data-level="8.2.6" data-path="arsonChapter.html"><a href="arsonChapter.html#uninhabited-building-arsons"><i class="fa fa-check"></i><b>8.2.6</b> Uninhabited building arsons</a></li>
+<li class="chapter" data-level="8.2.7" data-path="arsonChapter.html"><a href="arsonChapter.html#estimated-damage-cost"><i class="fa fa-check"></i><b>8.2.7</b> Estimated damage cost</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="arson-1.html"><a href="arson-1.html#arsonType"><i class="fa fa-check"></i><b>8.3</b> Types of arsons</a></li>
-<li class="chapter" data-level="8.4" data-path="arson-1.html"><a href="arson-1.html#data-errors-1"><i class="fa fa-check"></i><b>8.4</b> Data errors</a></li>
+<li class="chapter" data-level="8.3" data-path="arsonChapter.html"><a href="arsonChapter.html#arsonType"><i class="fa fa-check"></i><b>8.3</b> Types of arsons</a></li>
+<li class="chapter" data-level="8.4" data-path="arsonChapter.html"><a href="arsonChapter.html#data-errors-1"><i class="fa fa-check"></i><b>8.4</b> Data errors</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="hate-crimes.html"><a href="hate-crimes.html"><i class="fa fa-check"></i><b>9</b> Hate Crime Data</a>
 <ul>
@@ -306,27 +331,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</h1>
 <p class="author"><em>Jacob Kaplan</em></p>
-<p class="date"><em>2021-05-03</em></p>
+<p class="date" style="margin-top: 1.5em;"><em>2021-05-09</em></p>
 </div>
 <div id="preface" class="section level1" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Preface</h1>
-<p>If you’ve read an article about crime or arrests in the United States in the last half century, in most cases it was referring to the FBI’s Uniform Crime Reporting Program Data, otherwise known as UCR data. UCR data is, with the exception of the more detailed data that only covers murders, a <em>monthly number of crimes or arrests reported to a single police agency</em> which is then gathered by the FBI into one file that includes all reporting agencies. Think of your home town. This data will tell you how many crimes were reported for a small number of crimes or how many people (broken down by age, sex, and race) were arrested for a (larger) set of crimes in that city (if the city has multiple police agencies, it will use the agency which is the primary agency on the case, usually the local police department) in a given month. This is a very broad measure of crime, and its uses in research - or understanding crime at all - is fairly limited. Yet is has become - and will likely remain among researchers for at least the next decade - the most important crime data in the United States.</p>
+<p>If you’ve read an article about crime or arrests in the United States in the last half century, in most cases it was referring to the FBI’s Uniform Crime Reporting Program Data, otherwise known as UCR data. UCR data is, with the exception of the more detailed data that only covers murders, a <em>monthly number of crimes or arrests reported to a single police agency</em> which is then gathered by the FBI into one file that includes all reporting agencies. It is actually a collection of different datasets, all of which have information about crimes and arrests that occur in a particular jurisdiction. Think of your home town. This data will tell you how many crimes were reported for a small number of crime categories or how many people (broken down by age, sex, and race) were arrested for a (larger) set of crime categories in that city (if the city has multiple police agencies then each agency will report crimes/arrests under their jurisdiction though the largest agency - usually the local police department - will cover the vast majority of crimes/arrests in that city) in a given month.</p>
+<p>This is a very broad measure of crime, and its uses in research - or uses for understanding crime at all - is fairly limited. Yet is has become over much of the last century - and will likely remain among researchers for at least the next decade - the most important crime data in the United States.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <p>UCR data is important for three reasons:</p>
 <ol style="list-style-type: decimal">
-<li>The definitions are standard, and all agencies follow them so you can compare across agencies and over time.</li>
-<li>The data is available since 1960 so there is a long period of available data.</li>
+<li>The definitions are standard, and all agencies (tend to) follow them so you can compare across agencies and over time.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></li>
+<li>The data is available since 1960 (for most of the datasets) so there is a long period of available data.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></li>
 <li>The data is available for most of the 18,000 police agencies in the United States so you can compare across agencies.</li>
 </ol>
-<p>More than most datasets, there are a lot of times when using UCR data that you’ll think “that’s weird.” This book will cover this weirdness and when we think the weirdness is just an odd - but acceptable - quirk of the data, and when it is a sign of a big problem in the data or that particular variable and that we should avoid using it. For most of this book we’ll be discussing the caveats of the above reasons - or, more directly, why these assumptions are wrong - but these are the reasons why the data is so influential.</p>
+<p>More than many other datasets, there will be times when using UCR data that you’ll think “that’s weird.” This book will cover this weirdness and when we think the weirdness is just an odd - but acceptable - quirk of the data, and when it is a sign of a big problem in the data or in that particular variable and that we should avoid using it. For most of this book we’ll be discussing the caveats of the above reasons - or, more directly, why these assumptions are wrong - but these are the reasons why the data is so influential.</p>
 <div id="goal-of-the-book" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Goal of the book</h2>
-<p>By the end of each chapter you should have a firm grasp on the dataset the covered and how to use it properly. However, this book can’t possibly cover every potential use case for the data so make sure to carefully examine the data for your own particular use.</p>
+<p>By the end of each chapter you should have a firm grasp on the dataset that is covered and how to use it properly. However, this book can’t possibly cover every potential use case for the data so make sure to carefully examine the data yourself for your own particular use.</p>
 <p>I get a lot of emails from people asking questions about this data so my own goal is to create a single place that answers as many questions as I can about the data. Again, this is among the most commonly used crime datasets and there are still many current papers published with incorrect information about the data (including such simple aspects like what geographic unit data is in and what time unit it is in). So hopefully this book will decrease the number of misconceptions about this data, increasing overall research quality.</p>
-<p>Since manuals are boring, I’ll try to include graphs and images to try to alleviate the boredom. That said, I don’t think it’s possible to make it too fun so sorry in advanced. This book is a mix of facts about the data, such as how many years are available, and my opinions about it, such as whether it is reliable. In cases of facts I’ll just say a statement - e.g. “the offenses data is available since 1960.” In cases of opinion I’ll temper the statement by saying something like “in my opinion…”</p>
+<p>Since manuals are boring, I’ll try to include graphs and images to try to alleviate the boredom. That said, I don’t think it’s possible to make it too fun so sorry in advanced. This book is a mix of facts about the data, such as how many years are available, and my opinions about it, such as whether it is reliable. In cases of facts I’ll just say a statement - e.g. “the offenses data is available since 1960.” In cases of opinion I’ll temper the statement by saying something like “in my opinion…” or “I think.”</p>
 </div>
 <div id="structure-of-the-book" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Structure of the book</h2>
-<p>This book will be divided into eight chapters: an intro chapter briefly summarizing each dataset and going over overall issues with UCR data, and seven chapters each covering one of the seven UCR datasets. Each chapter will follow the same format: we’ll start with a brief summary of the data such as when it first because available and how it can be used. Next we’ll look at how many agencies report their data to this dataset, often looking at how to measure this reporting rate a couple of different ways. Finally, we’ll cover the variables included in the data and how to use them properly (including not using them at all) - this will be the bulk of each chapter.</p>
+<p>This book will be divided into nine chapters: this chapter, an intro chapter briefly summarizing each dataset and going over overall issues with UCR data, and seven chapters each covering one of the seven UCR datasets. Each chapter will follow the same format: we’ll start with a brief summary of the data such as when it first because available and how it can be used. Next we’ll look at how many agencies report their data to this dataset, often looking at how to measure this reporting rate a couple of different ways. Finally, we’ll cover the important variables included in the data and how to use them properly (including not using them at all) - this will be the bulk of each chapter.</p>
 </div>
 <div id="citing-this-book" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> Citing this book</h2>
@@ -342,21 +368,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="sources-of-ucr-data" class="section level2" number="1.4">
 <h2><span class="header-section-number">1.4</span> Sources of UCR data</h2>
-<p>There are a few different sources of UCR data available today. First, and probably most commonly used, is the data put together by the <a href="https://www.icpsr.umich.edu/web/pages/NACJD/index.html">National Archive of Criminal Justice Data (NACJD)</a>). This a team of out of the University of Michigan who manages a huge number of criminal justice datasets and makes them available to the public. If you have any questions about crime data - UCR or other data - I highly recommend you reach out to them for answers. They have a collection of data and excellent documentation available for UCR data available on their site <a href="https://www.icpsr.umich.edu/web/NACJD/series/57">here</a>. One limitation to their data, however, is that each year of data is available as an individual file meaning that you’ll need to concatenate each year together into a single file. Some years also have different column names (generally minor changes like spelling robbery “rob” one year and “robb” the next) which requires more work to standardize before you could concatenate. They also only have data through 2016 which means that the most recent years (UCR data is available through 2019) of data are (as of this writing) unavailable.</p>
-<p>Next, and most usable for the general public but limited to researchers, is the FBI’s official website <a href="https://crime-data-explorer.fr.cloud.gov/">Crime Data Explorer</a>. On this site you can chose an agency and see annual crime data (remember, UCR data is monthly so this isn’t as detailed as it can be) for certain crimes. This is okay for the general public but only provides a fraction of the data available in the actual data so is really not good for researchers.</p>
-<p>Finally, I have my own collection of UCR data <a href="available%20publicly%20on%20openICPSR">https://www.openicpsr.org/openicpsr/search/studies?start=0&amp;ARCHIVE=openicpsr&amp;sort=score%20desc%2CDATEUPDATED%20desc&amp;rows=25&amp;q=jacob%20kaplan%27s%20concatenated%20files</a>, a site which allows people to submit their data for public access. For each of these datasets I’ve taken the raw data from the FBI (for early years of homicide data this is actually from NACJD since the FBI’s raw data is wrong and can’t be parsed. For later years of homicide data this is from the FBI’s raw data.) and read it into R. Since the data is only available from the FBI as fixed-width ASCII files, I created a setup file (we’ll explain exactly how reading in this kind of data works in the next chapter) and read the data and then very lightly cleaned the data (i.e. only removing extreme outliers like an agency having millions of arsons in a month). For each of these datasets I detail what I’ve done to the data and briefly summarize the data (i.e. a very short version of this book) on the data’s page on openICPSR. The main advantage is that all my data has standard variable names and column names and, for data that is small enough, provide the data as a single file that has all years. For large datasets like the arrest data I break it down into parts of the data and not all years in a single file. The downside is that I don’t provide documentation other than what’s on the openICPSR page and only provide data in R and Stata format. I also have a similar site to the FBI’s Crime Data Explorer but with more variables available, that site is available <a href="jacobdkaplan.com/">here</a>.</p>
-<p>It’s worth mentioning a final source of UCR information. This is the annual Crimes in the United States report released by the FBI each year around the start of October.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> As an example, here is the <a href="https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019">website for the 2019 report</a>. In this report is summarized data which in most cases estimates missing data and provides information about national and subnational (though rarely city-level) crime data. As with the FBI’s site it is only a fraction of the true data available so is not a very useful source of crime data. Still, this is a very common source of information used by researchers.</p>
+<p>There are a few different sources of UCR data available today. First, and probably most commonly used, is the data put together by the <a href="https://www.icpsr.umich.edu/web/pages/NACJD/index.html">National Archive of Criminal Justice Data (NACJD)</a>). This a team out of the University of Michigan who manages a huge number of criminal justice datasets and makes them available to the public. If you have any questions about crime data - UCR or other crime data - I highly recommend you reach out to them for answers. They have a collection of data and excellent documentation available for UCR data available on their site <a href="https://www.icpsr.umich.edu/web/NACJD/series/57">here</a>. One limitation to their data, however, is that each year of data is available as an individual file meaning that you’ll need to concatenate each year together into a single file. Some years also have different column names (generally minor changes like spelling robbery “rob” one year and “robb” the next) which requires more work to standardize before you could concatenate. They also only have data through 2016 which means that the most recent years (UCR data is available through 2019) of data are (as of this writing) unavailable.</p>
+<p>Next, and most usable for the general public - but limited for researchers - is the FBI’s official website <a href="https://crime-data-explorer.fr.cloud.gov/">Crime Data Explorer</a>. On this site you can chose an agency and see annual crime data (remember, UCR data is monthly so this isn’t as detailed as it can be) for certain crimes (and not even all the crimes actually available in the data). This is okay for the general public but only provides a fraction of the data available in the actual data so is really not good for researchers.</p>
+<p>Finally, I have my own collection of UCR data <a href="https://www.openicpsr.org/openicpsr/search/studies?start=0&amp;ARCHIVE=openicpsr&amp;sort=score%20desc%2CDATEUPDATED%20desc&amp;rows=25&amp;q=jacob%20kaplan%27s%20concatenated%20files">available publicly on openICPSR</a>, a site which allows people to submit their data for public access. For each of these datasets I’ve taken the raw data from the FBI (for early years of homicide data this is actually from NACJD since the FBI’s raw data is wrong and can’t be parsed. For later years of homicide data this is from the FBI’s raw data.) and read it into R. Since the data is only available from the FBI as fixed-width ASCII files, I created a setup file (we’ll explain exactly how reading in this kind of data works in the next chapter) and read the data and then very lightly cleaned the data (i.e. only removing extreme outliers like an agency having millions of arsons in a month). For each of these datasets I detail what I’ve done to the data and briefly summarize the data (i.e. a very short version of this book) on the data’s page on openICPSR. The main advantage is that all my data has standard variable names and column names and, for data that is small enough, provide the data as a single file that has all years. For large datasets like the arrest data I break it down into parts of the data and not all years in a single file. The downside is that I don’t provide documentation other than what’s on the openICPSR page and only provide data in R and Stata format. I also have a similar site to the FBI’s Crime Data Explorer but with more variables available - that site is available <a href="jacobdkaplan.com/">here</a>.</p>
+<p>It’s worth mentioning a final source of UCR information. This is the annual Crimes in the United States report released by the FBI each year around the start of October.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> As an example, here is the <a href="https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019">website for the 2019 report</a>. In this report is summarized data which in most cases estimates missing data and provides information about national and subnational (though rarely city-level) crime data. As with the FBI’s site, it is only a fraction of the true data available so is not a very useful source of crime data for quality research. Still, this is a very common source of information used by researchers.</p>
 <div id="where-to-find-the-data-used-in-this-book" class="section level3" number="1.4.1">
 <h3><span class="header-section-number">1.4.1</span> Where to find the data used in this book</h3>
-<p>The data I am using in this book is the cleaned (we’ll discuss in more detail exactly what I did to clean each dataset in the dataset’s chapter, but the short answer is that I did very little.) and concatenated data that I put together from the raw data that the FBI releases. That data is available on my website <a href="here">https://jacobdkaplan.com/data.html</a>. I am hosting this book through GitHub which has a maximum file size allowed that is far smaller than these data, so you’ll need to go to my site to download the data, it’s not available through this book’s GitHub repo. For some examples I’m using the data before I cleaned it of outliers (as an example of the outliers present before I removed them) so that data is not publicly available.</p>
-
+<p>The data I am using in this book is the cleaned (we’ll discuss in more detail exactly what I did to clean each dataset in the dataset’s chapter, but the short answer is that I did very little) and concatenated data that I put together from the raw data that the FBI releases. That data is available on my website <a href="https://jacobdkaplan.com/data.html">here</a>. I am hosting this book through GitHub which has a maximum file size allowed that is far smaller than these data, so you’ll need to go to my site to download the data; it’s not available through this book’s GitHub repo.</p>
 </div>
+</div>
+<div id="recommended-reading" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> Recommended reading</h2>
+<p>While this book is designed to help researchers use this data, the FBI has an excellent manual on this data designed to help police agencies submit their data. That manual, called the “Summary Reporting System (SRS) User Manual” provides excellent definitions and examples of many variables included in the data. In this book when I quote the FBI, such as defining a crime, I quote from this manual. The manual is available to download as a PDF on the FBI’s site and I’ve also posted it on my GitHub page in case the FBI ever take down the PDF.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> The link on my GitHub page is <a href="https://github.com/jacobkap/ucrbook/blob/main/FBI%20Uniform%20Crime%20Reporting%20(UCR)%20Program%20User%20Manual.pdf">here</a>. I highly recommend that you read this manual before using the data. That manual, alongside this book which tries to explain when and how the agencies don’t follow the manual, will provide a solid foundation for your understanding of UCR data.</p>
+
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="1">
-<li id="fn1"><p>They also release a report about the first 6-months of the most recent year of data before the October release but this is generally an estimate from a sample of agencies so is far less useful.<a href="index.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>The FBI has said they will no longer accept UCR data after 2020, instead only accepting the more detailed National Incident-Based Reporting System (NIBRS) data. However, only about half of agencies reported NIBRS data in 2019 and this number decreases steadily for earlier years. This means that UCR data has the longevity that NIBRS doesn’t have, as most agencies have reported for decades, and will still be useful even though the data becomes increasingly outdated.<a href="index.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>We’ll see many examples of when agencies do not follow the definitions, which really limits this data.<a href="index.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>While the original UCR data first reported in 1929, there is only machine-readable data since 1960.<a href="index.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>They also release a report about the first 6-months of the most recent year of data before the October release but this is generally an estimate from a sample of agencies so is far less useful.<a href="index.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>This is far more likely to happen as a result of standard government changing a site and forgetting to update the link rather than intentionally making the manual unavailable.<a href="index.html#fnref5" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

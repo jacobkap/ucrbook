@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>References | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="References | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2021-05-03" />
+<meta name="date" content="2021-05-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,9 +51,11 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.17/datatables.js"></script>
+<script src="libs/datatables-binding-0.18/datatables.js"></script>
 <link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
@@ -134,6 +136,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -159,6 +184,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#where-to-find-the-data-used-in-this-book"><i class="fa fa-check"></i><b>1.4.1</b> Where to find the data used in this book</a></li>
 </ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#recommended-reading"><i class="fa fa-check"></i><b>1.5</b> Recommended reading</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
 <li class="chapter" data-level="2" data-path="ucrGeneral.html"><a href="ucrGeneral.html"><i class="fa fa-check"></i><b>2</b> Overview of the Data</a>
@@ -194,7 +220,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="offensesKnown.html"><a href="offensesKnown.html#indexCrimesOffensesKnown"><i class="fa fa-check"></i><b>3.1</b> Which crimes are included?</a>
 <ul>
 <li class="chapter" data-level="3.1.1" data-path="offensesKnown.html"><a href="offensesKnown.html#hierarchy"><i class="fa fa-check"></i><b>3.1.1</b> Hierarchy Rule</a></li>
-<li class="chapter" data-level="3.1.2" data-path="offensesKnown.html"><a href="offensesKnown.html#the-problem-with-using-index-crimes"><i class="fa fa-check"></i><b>3.1.2</b> The problem with using index crimes</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="offensesKnown.html"><a href="offensesKnown.html#agencies-reporting"><i class="fa fa-check"></i><b>3.2</b> Agencies reporting</a></li>
 <li class="chapter" data-level="3.3" data-path="offensesKnown.html"><a href="offensesKnown.html#important-variables"><i class="fa fa-check"></i><b>3.3</b> Important variables</a>
@@ -258,21 +283,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.5" data-path="leoka.html"><a href="leoka.html#assaults-by-time"><i class="fa fa-check"></i><b>7.2.5</b> Assaults by time</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="arson-1.html"><a href="arson-1.html"><i class="fa fa-check"></i><b>8</b> Arson</a>
+<li class="chapter" data-level="8" data-path="arsonChapter.html"><a href="arsonChapter.html"><i class="fa fa-check"></i><b>8</b> Arson</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="arson-1.html"><a href="arson-1.html#agencies-reporting-5"><i class="fa fa-check"></i><b>8.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="8.2" data-path="arson-1.html"><a href="arson-1.html#important-variables-5"><i class="fa fa-check"></i><b>8.2</b> Important variables</a>
+<li class="chapter" data-level="8.1" data-path="arsonChapter.html"><a href="arsonChapter.html#agencies-reporting-5"><i class="fa fa-check"></i><b>8.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="8.2" data-path="arsonChapter.html"><a href="arsonChapter.html#important-variables-5"><i class="fa fa-check"></i><b>8.2</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="8.2.1" data-path="arson-1.html"><a href="arson-1.html#actual-arsons"><i class="fa fa-check"></i><b>8.2.1</b> Actual arsons</a></li>
-<li class="chapter" data-level="8.2.2" data-path="arson-1.html"><a href="arson-1.html#unfounded-arsons"><i class="fa fa-check"></i><b>8.2.2</b> Unfounded arsons</a></li>
-<li class="chapter" data-level="8.2.3" data-path="arson-1.html"><a href="arson-1.html#reported-arsons"><i class="fa fa-check"></i><b>8.2.3</b> Reported arsons</a></li>
-<li class="chapter" data-level="8.2.4" data-path="arson-1.html"><a href="arson-1.html#cleared-arsons"><i class="fa fa-check"></i><b>8.2.4</b> Cleared arsons</a></li>
-<li class="chapter" data-level="8.2.5" data-path="arson-1.html"><a href="arson-1.html#cleared-for-arsons-where-all-offenders-are-under-age-18"><i class="fa fa-check"></i><b>8.2.5</b> Cleared for arsons where all offenders are under age 18</a></li>
-<li class="chapter" data-level="8.2.6" data-path="arson-1.html"><a href="arson-1.html#uninhabited-building-arsons"><i class="fa fa-check"></i><b>8.2.6</b> Uninhabited building arsons</a></li>
-<li class="chapter" data-level="8.2.7" data-path="arson-1.html"><a href="arson-1.html#estimated-damage-cost"><i class="fa fa-check"></i><b>8.2.7</b> Estimated damage cost</a></li>
+<li class="chapter" data-level="8.2.1" data-path="arsonChapter.html"><a href="arsonChapter.html#actual-arsons"><i class="fa fa-check"></i><b>8.2.1</b> Actual arsons</a></li>
+<li class="chapter" data-level="8.2.2" data-path="arsonChapter.html"><a href="arsonChapter.html#unfounded-arsons"><i class="fa fa-check"></i><b>8.2.2</b> Unfounded arsons</a></li>
+<li class="chapter" data-level="8.2.3" data-path="arsonChapter.html"><a href="arsonChapter.html#reported-arsons"><i class="fa fa-check"></i><b>8.2.3</b> Reported arsons</a></li>
+<li class="chapter" data-level="8.2.4" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-arsons"><i class="fa fa-check"></i><b>8.2.4</b> Cleared arsons</a></li>
+<li class="chapter" data-level="8.2.5" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-for-arsons-where-all-offenders-are-under-age-18"><i class="fa fa-check"></i><b>8.2.5</b> Cleared for arsons where all offenders are under age 18</a></li>
+<li class="chapter" data-level="8.2.6" data-path="arsonChapter.html"><a href="arsonChapter.html#uninhabited-building-arsons"><i class="fa fa-check"></i><b>8.2.6</b> Uninhabited building arsons</a></li>
+<li class="chapter" data-level="8.2.7" data-path="arsonChapter.html"><a href="arsonChapter.html#estimated-damage-cost"><i class="fa fa-check"></i><b>8.2.7</b> Estimated damage cost</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="arson-1.html"><a href="arson-1.html#arsonType"><i class="fa fa-check"></i><b>8.3</b> Types of arsons</a></li>
-<li class="chapter" data-level="8.4" data-path="arson-1.html"><a href="arson-1.html#data-errors-1"><i class="fa fa-check"></i><b>8.4</b> Data errors</a></li>
+<li class="chapter" data-level="8.3" data-path="arsonChapter.html"><a href="arsonChapter.html#arsonType"><i class="fa fa-check"></i><b>8.3</b> Types of arsons</a></li>
+<li class="chapter" data-level="8.4" data-path="arsonChapter.html"><a href="arsonChapter.html#data-errors-1"><i class="fa fa-check"></i><b>8.4</b> Data errors</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="hate-crimes.html"><a href="hate-crimes.html"><i class="fa fa-check"></i><b>9</b> Hate Crime Data</a>
 <ul>
@@ -307,38 +332,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1>References</h1>
 
 <div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-bennice2003marital" class="csl-entry">
+<div class="csl-entry">
 Bennice, Jennifer A, and Patricia A Resick. 2003. <span>“Marital Rape: History, Research, and Practice.”</span> <em>Trauma, Violence, &amp; Abuse</em> 4 (3): 228–46.
 </div>
-<div id="ref-devito2020" class="csl-entry">
+<div class="csl-entry">
 Devito, Lee. 2020. <span>“Marijuana Arrests on the Decline but Still Outnumber Violent Crime Arrests, According to <span>FBI</span> Data.”</span> City Beat; https://www.citybeat.com/news/blog/21145113/marijuana-arrests-on-the-decline-but-still-outnumber-violent-crime-arrests-according-to-fbi-data.
 </div>
-<div id="ref-earlenbaugh2020" class="csl-entry">
+<div class="csl-entry">
 Earlenbaugh, Emily. 2020. <span>“More People Were Arrested for Cannabis Last Year Than for All Violent Crimes Put Together, According to <span>FBI</span> Data.”</span> Forbes; https://www.forbes.com/sites/emilyearlenbaugh/2020/10/06/more-people-were-arrested-for-cannabis-last-year-than-for-all-violent-crimes-put-together-according-to-fbi-data/?sh=7dd59ad6122f.
 </div>
-<div id="ref-aclu2020" class="csl-entry">
+<div class="csl-entry">
 Edwards, Ezekiel, Emily Greytak, Brooke Madubuonwu, Thania Sanchez, Sophie Beiers, Charlotte Resing, Paige Fernandez, and Galai Sagiv. 2020. <span>“A Tale of Two Countries: Racially Targeted Arrests in the Era of Marijuana Reform.”</span> American Civil Liberties Union; https://www.aclu.org/report/tale-two-countries-racially-targeted-arrests-era-marijuana-reform.
 </div>
-<div id="ref-ingraham2016" class="csl-entry">
+<div class="csl-entry">
 Ingraham, Christopher. 2016. <span>“Police Arrest More People for Marijuana Use Than for All Violent Crimes — Combined.”</span> The Washington Post; https://www.washingtonpost.com/news/wonk/wp/2016/10/12/police-arrest-more-people-for-marijuana-use-than-for-all-violent-crimes-combined/.
 </div>
-<div id="ref-kertscher2019" class="csl-entry">
+<div class="csl-entry">
 Kertscher, Tom. 2019. <span>“More Arrests in the US for Marijuana Possession Than Violent Crimes, 2020 Hopeful Cory Booker Says.”</span> Politifact; https://www.politifact.com/factchecks/2019/jul/11/cory-booker/more-arrests-us-marijuana-possession-violent-crime/.
 </div>
-<div id="ref-mcmahon2009criminalizing" class="csl-entry">
+<div class="csl-entry">
 McMahon-Howard, Jennifer, Jody Clay-Warner, and Linda Renzulli. 2009. <span>“Criminalizing Spousal Rape: The Diffusion of Legal Reforms.”</span> <em>Sociological Perspectives</em> 52 (4): 505–31.
 </div>
-<div id="ref-neusteter2019every" class="csl-entry">
+<div class="csl-entry">
 Neusteter, S Rebecca, and Megan O’Toole. 2019. <span>“Every Three Seconds: Unlocking Police Data on Arrests.”</span> Very Institute of Justice; https://www.vera.org/publications/arrest-trends-every-three-seconds-landing/arrest-trends-every-three-seconds/overview.
 </div>
-<div id="ref-speri2019" class="csl-entry">
+<div class="csl-entry">
 Speri, Alice. 2019. <span>“Police Make More Than 10 Million Arrests a Year, but That Doesn’t Mean They’re Solving Crimes.”</span> The Intercept; https://theintercept.com/2019/01/31/arrests-policing-vera-institute-of-justice/.
 </div>
-<div id="ref-yeung2018comes" class="csl-entry">
+<div class="csl-entry">
 Yeung, B, M Greenblatt, M Fahey, and E Harris. 2018. <span>“When It Comes to Rape, Just Because a Case Is Cleared Doesn’t Mean It’s Solved.”</span> <em>ProPublica</em>.
 </div>
 </div>
 </div>
+
+
+
+
 
 
 
