@@ -24,7 +24,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2021-05-10" />
+<meta name="date" content="2021-05-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="stolen-property.html"/>
 <link rel="next" href="shr.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-3.5.1/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -352,7 +352,7 @@ Figure 5.2: The annual number of agencies reporting 12 months of data in that ye
 <div id="what-is-an-arrest-what-unit-is-this-data-in" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> What is an arrest? (what unit is this data in?)</h2>
 <p>A key part of understanding this data is knowing what unit of analysis it’s in. This data is the monthly number of <em>total arrests for a given crime, with only the most serious crime per incident included</em>. Consider for example, a person who robs a bank, shooting and killing a guard and pointing their gun at other people in the bank. They are arrested and then released from jail (just imagine that this is true) and are rearrested the next day for shoplifting. And let’s further assume that both arrests were in the same month in the same agency. How many arrests are here? They committed multiple crimes in the first incident (murder, robbery, aggravated assault) but in this dataset they would only be classified as an arrest for the most serious crime, murder. And then separately they’d also be an arrested for shoplifting. So assuming that no other arrests occurred in that police agency that month, there would be two arrests reported: one for murder and one for shoplifting.</p>
-<p>There’s no way to tell how many unique people were arrested, or of those arrested multiple times which crimes they were arrested for. So if you have 100 arrests there may be 1 person arrested 100 times or 100 people arrested once - though, of course, the true number is likely somewhere in between. This means that studies that try to use this data as a measure of unique people or even the percent of arrestees by group (age, gender, or race) relative to some base rate of the population such as the number of people living in that city are going to be wrong - though how wrong is unclear.<a href="#fn36" class="footnote-ref" id="fnref36"><sup>36</sup></a></p>
+<p>There’s no way to tell how many unique people were arrested, or of those arrested multiple times which crimes they were arrested for. So if you have 100 arrests there may be 1 person arrested 100 times or 100 people arrested once - though, of course, the true number is likely somewhere in between. This means that studies that try to use this data as a measure of unique people or even the percent of arrestees by group (age, gender, or race) relative to some base rate of the population such as the number of people living in that city are going to be wrong - though how wrong is unclear.<a href="#fn35" class="footnote-ref" id="fnref35"><sup>35</sup></a></p>
 <p>Common uses of this data - more common in more news articles or advocacy group reports than in peer-reviewed research articles - compare the percent of arrestees of a certain group to the percent of a city’s population of that group. Any differences between the arrestee percent and the resident percent is, according to these reports, evidence of a disparity (this is most common for looking at differences by race). Since these analyses are generally looking at annual data, it assumes that people of each group (usually they look at race but gender and age data is also available) are rearrested at the same rate. That is, White people, for example, are rearrested in the same year for the same crime at the exact same rate as Black people. If not, then you’re be comparing different things since one group would have more overall people arrested while the other would have fewer people but who are arrested more frequently. Whether this distinction between arrests and unique people arrested affects your interpretation of the data depends on the study you are doing, but it’s important to consider in your research. One way to address this is to use other data on the rate of rearrest by group, though you’d have to be very careful to not extrapolate the results of the other study too far beyond what they could tell you of the specific time and place they studied.</p>
 <div id="the-hierarchy-rule" class="section level3" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> The Hierarchy Rule</h3>
@@ -544,7 +544,7 @@ Figure 5.5: The annual number of adult marijuana possession arrests in Philadelp
 <li>Non-Hispanic</li>
 </ul></li>
 </ul>
-<p>Figure <a href="arrests.html#fig:theftHispanic">5.6</a> shows the annual number of Hispanic arrestees for theft for all agencies that reported any data that year.<a href="#fn37" class="footnote-ref" id="fnref37"><sup>37</sup></a> For several years no agencies reported until the number of Hispanic arrestees start climbing in 1980 and peaks in 1986 at about 136,000 arrestees. Then there are zero Hispanic arrestees for a few years, four Hispanic arrestees in 1990, and then again zero Hispanic arrestees, this time for decades. Only in 2017 do the number of Hispanic theft arrestees begin to creep up. From 2017 to 2019 (the last year available at the time of this writing) there are Hispanic arrestees reported every year, though now only about 30,000 per year.</p>
+<p>Figure <a href="arrests.html#fig:theftHispanic">5.6</a> shows the annual number of Hispanic arrestees for theft for all agencies that reported any data that year.<a href="#fn36" class="footnote-ref" id="fnref36"><sup>36</sup></a> For several years no agencies reported until the number of Hispanic arrestees start climbing in 1980 and peaks in 1986 at about 136,000 arrestees. Then there are zero Hispanic arrestees for a few years, four Hispanic arrestees in 1990, and then again zero Hispanic arrestees, this time for decades. Only in 2017 do the number of Hispanic theft arrestees begin to creep up. From 2017 to 2019 (the last year available at the time of this writing) there are Hispanic arrestees reported every year, though now only about 30,000 per year.</p>
 <div class="figure" style="text-align: center"><span id="fig:theftHispanic"></span>
 <img src="arrests_files/figure-html/theftHispanic-1.png" alt="The national annual number of Hispanic arrestees for theft. This includes all agencies that year that reporting any number of months. Hispanic arrestees include both juvenile and adult arrestees" width="90%" />
 <p class="caption">
@@ -591,9 +591,9 @@ Figure 5.8: The annual number of juvenile referrals in Philadelphia by referral 
 </div>
 <div class="footnotes">
 <hr />
-<ol start="36">
-<li id="fn36"><p>While all studies are going to be estimates of the real effect, that’s no reason to be flippant in using data (UCR and other data). Without having a high level of confidence that your estimates are close to the actual value, you shouldn’t do that study.<a href="arrests.html#fnref36" class="footnote-back">↩︎</a></p></li>
-<li id="fn37"><p>Theft is used as it’s one of the most common crimes.<a href="arrests.html#fnref37" class="footnote-back">↩︎</a></p></li>
+<ol start="35">
+<li id="fn35"><p>While all studies are going to be estimates of the real effect, that’s no reason to be flippant in using data (UCR and other data). Without having a high level of confidence that your estimates are close to the actual value, you shouldn’t do that study.<a href="arrests.html#fnref35" class="footnote-back">↩︎</a></p></li>
+<li id="fn36"><p>Theft is used as it’s one of the most common crimes.<a href="arrests.html#fnref36" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
