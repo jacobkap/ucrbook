@@ -215,7 +215,8 @@ temp <- make_frequency_table_year(ucr_hate_crimes_1991_2018,
 temp$`Bias Motivation` <- gsub("lgbt", "LGBT", ignore.case = TRUE, temp$`Bias Motivation`)
 datatable(temp, options = list(pageLength = 100)) %>%
   formatPercentage('% of Incidents', 2) %>%
-  formatRound('# of Incidents', digits = 0)
+  formatRound('# of Incidents', digits = 0) %>%
+  formatStyle(1, `text-align` = 'left')
 ```
 
 2015 is the most year of new bias motivations, as of data through 2018. This year added a number of religions such as Anti-Buddhist, Anti-Sikh, and Anti-Jehovah's Witness. In 2013, anti-Transgender was added and this is the most common of the bias motivations added since data began in 1991 with 513 hate crimes between 2013-2018 - 0.26% of all hate crimes from 1991-2018. That year also added anti-male and Anti-Native Hawaiian or Other Pacific Islander, which is the most recent racial group added.  In 2012, anti-gender non-conforming and anti-female were included, while in 1997 both anti-mental and anti-physical disability were added. In part due to having fewer years of data available, these newer bias motivations make up a small percent of total hate crimes, accounting for ~1.4%. 
@@ -234,7 +235,8 @@ temp <- make_frequency_table_year(ucr_hate_crimes_1991_2018, "ucr_offense_code_1
                              c("Offense", "First Year Reported", "# of Incidents", "% of Incidents"))
 datatable(temp, options = list(pageLength = 100)) %>%
   formatPercentage('% of Incidents', 2) %>%
-  formatRound('# of Incidents', digits = 0)
+  formatRound('# of Incidents', digits = 0) %>%
+  formatStyle(1, `text-align` = 'left')
 ```
 
 Agencies that report to the FBI's National Incident-Based Reporting System (NIBRS) can also report bias motivations for their crimes, and these reports are included in this dataset. One tricky thing is that the crimes included are different depending on if the agency reported through NIBRS or to the dataset directly, and are not NIBRS reporting agencies. The above table shows all crimes included, but agencies who report directly can only submit a subset of crimes. For these agencies the only possible crimes are the ones that are included Offenses Known and Clearances by Arrest dataset, that is detailed in Chapter \@ref(offensesKnown), as well as vandalism/destruction of property and human trafficking. 
@@ -251,7 +253,8 @@ temp <- make_frequency_table_year(ucr_hate_crimes_1991_2018, "location_code_offe
                              c("Location", "First Year Reported", "# of Incidents", "% of Incidents"))
 datatable(temp, options = list(pageLength = 100)) %>%
   formatPercentage('% of Incidents', 2) %>%
-  formatRound('# of Incidents', digits = 0)
+  formatRound('# of Incidents', digits = 0) %>%
+  formatStyle(1, `text-align` = 'left')
 ```
 
 ### Number and race of offenders

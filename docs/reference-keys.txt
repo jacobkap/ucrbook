@@ -1,3 +1,4 @@
+fig:unnamed-chunk-1
 fig:sfThefts
 fig:chicagoMurder
 fig:simpleIndex
@@ -88,6 +89,7 @@ citing-this-book
 sources-of-ucr-data
 where-to-find-the-data-used-in-this-book
 recommended-reading
+how-to-contribute-to-this-book
 ucrGeneral
 crimes-included-in-the-ucr-datasets
 crimes-in-the-offenses-known-and-clearances-by-arrest-dataset

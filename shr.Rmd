@@ -227,7 +227,8 @@ temp <- make_frequency_table(shr_1976_2018, "offender_1_weapon",
                              c("Weapon", "# of Incidents", "% of Incidents"))
 datatable(temp, options = list(pageLength = 100)) %>%
   formatPercentage('% of Incidents', 2) %>%
-  formatRound('# of Incidents', digits = 0)
+  formatRound('# of Incidents', digits = 0) %>%
+  formatStyle(1, `text-align` = 'left')
 ```
 
 #### Relationship between first victim and offenders
@@ -278,7 +279,8 @@ temp <-
 
 datatable(temp, options = list(pageLength = 100)) %>%
   formatPercentage('% of Incidents', 2) %>%
-  formatRound('# of Incidents', digits = 0)
+  formatRound('# of Incidents', digits = 0) %>%
+  formatStyle(1, `text-align` = 'left')
 ```
 
 #### Homicide circumstance {#circumstance}
@@ -336,7 +338,8 @@ temp <-
          everything())
 datatable(temp, options = list(pageLength = 100)) %>%
   formatPercentage('% of Incidents', 2) %>%
-  formatRound('# of Incidents', digits = 0)
+  formatRound('# of Incidents', digits = 0) %>%
+  formatStyle(1, `text-align` = 'left')
 ```
 
 #### Homicide subcircumstance
@@ -348,6 +351,7 @@ temp <- make_frequency_table(shr_1976_2018, "offender_1_subcircumstance",
                              c("Subcircumstance", "# of Incidents", "% of Incidents"))
 datatable(temp, options = list(pageLength = 100)) %>%
   formatPercentage('% of Incidents', 2) %>%
-  formatRound('# of Incidents', digits = 0)
+  formatRound('# of Incidents', digits = 0) %>%
+  formatStyle(1, `text-align` = 'left')
 ```
 

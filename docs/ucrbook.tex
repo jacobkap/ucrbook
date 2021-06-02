@@ -125,7 +125,7 @@
 
 \title{Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide}
 \author{Jacob Kaplan}
-\date{2021-05-21}
+\date{2021-06-01}
 
 \begin{document}
 \maketitle
@@ -213,6 +213,20 @@ The data I am using in this book is the cleaned (we'll discuss in more detail ex
 \section{Recommended reading}\label{recommended-reading}}
 
 While this book is designed to help researchers use this data, the FBI has an excellent manual on this data designed to help police agencies submit their data. That manual, called the ``Summary Reporting System (SRS) User Manual'' provides excellent definitions and examples of many variables included in the data. In this book when I quote the FBI, such as defining a crime, I quote from this manual. The manual is available to download as a PDF on the FBI's site and I've also posted it on my GitHub page in case the FBI ever take down the PDF.\footnote{This is far more likely to happen as a result of standard government changing a site and forgetting to update the link rather than intentionally making the manual unavailable.} The link on my GitHub page is \href{https://github.com/jacobkap/ucrbook/blob/main/FBI\%20Uniform\%20Crime\%20Reporting\%20(UCR)\%20Program\%20User\%20Manual.pdf}{here}. I highly recommend that you read this manual before using the data. That manual, alongside this book which tries to explain when and how the agencies don't follow the manual, will provide a solid foundation for your understanding of UCR data.
+
+\hypertarget{how-to-contribute-to-this-book}{%
+\section{How to contribute to this book}\label{how-to-contribute-to-this-book}}
+
+If you have any questions, suggestions, or find any issues, please email me at jkkaplan6 {[}@{]} gmail.com. For more minor issues like typos or grammar mistakes, you can edit the book directly through its GitHub page. That'll make an update for me to accept, which will change the book to include your edit. To do that, click the edit button at the top of the site - the button is highlighted in the below figure. You will need to make a GitHub account to make edits. When you click on that button you'll be taken to a page that looks like a Word Doc where you can make edits. Make any edits you want and then scroll to the bottom of the page. There you can write a short (please, no more than a sentence or two) description of what you've done and then submit the changes for me to review.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{images/edit_button} 
+
+}
+
+\caption{The edit button for how to make edits of this book.}\label{fig:unnamed-chunk-1}
+\end{figure}
 
 \hypertarget{about-the-author}{%
 \chapter*{About the Author}\label{about-the-author}}
@@ -510,7 +524,7 @@ The crimes included in the Arrests by Age, Sex, and Race - the ``arrest'' data t
 
 One of the first (and seemingly only) thing that people tend to learn about UCR crime data is that it covers something called an ``index crime.''\footnote{Index crimes are sometimes capitalized as ``Index Crimes'' though I've seen it written both ways. In this book I keep it lowercase as ``index crimes.''} Index crimes, sometimes written as Part 1 or Part I crimes, are the seven crimes originally chosen by the FBI to be included in their measure of crimes as these offenses were both considered serious and generally well-reported so would be a useful measure of crime. Index crimes are often broken down into property index crimes - burglary, theft, and motor vehicle theft (and arson now, though that's often not included and is reported less often by agencies) - and violent index crimes (murder, rape, robbery, and aggravated assault). The ``index'' is simply that all of the crimes are summed up into a total count of crimes (violent, property, or total) for that police agency.
 
-The biggest problem with index crimes is that it is simply the sum of 8 (or 7 since arson data usually isn't included) crimes. Index crimes have a huge range in their seriousness - it includes, for example, both murder and theft - so summing up the crimes gives each crime equal weight. This is clearly wrong as 100 murders is more serious than 100 thefts. This is especially a problem as less serious crimes (theft mostly) are far more common than more serious crimes. In 2017, for example, there were 1.25 million violent index crimes in the United States. That same year had 5.5 million thefts. So using index crimes as your measure of crimes undercounts the seriousness of crimes. Looking at total index crimes is, in effect, mostly just looking at theft. Looking at violent index crimes alone mostly measures aggravated assault. This is especially a problem because it hides trends in violent crimes. As an example, San Francisco, shown in Figure \ref{fig:sfThefts}, has had a huge increase - about 50\% - in index crimes in the last several years. When looking closer, that increase is driven almost entirely by the near doubling of theft since 2011. During the same years, index violent crimes have stayed fairly steady. So the city isn't getting more dangerous - at least not in terms of violent index crimes increasing - but it appears like it is due to just looking at total index crimes.
+The biggest problem with index crimes is that it is simply the sum of 8 (or 7 since arson data usually isn't included) crimes. Index crimes have a huge range in their seriousness - it includes, for example, both murder and theft - so summing up the crimes gives each crime equal weight. This is clearly wrong as 100 murders is more serious than 100 thefts. This is especially a problem as less serious crimes (theft mostly) are far more common than more serious crimes. In 2017, for example, there were 1.25 million violent index crimes in the United States. That same year had 5.5 million thefts. So using index crimes as your measure of crimes fails to account for the seriousness of crimes. Looking at total index crimes is, in effect, mostly just looking at theft. Looking at violent index crimes alone mostly measures aggravated assault. This is especially a problem because it hides trends in violent crimes. As an example, San Francisco, shown in Figure \ref{fig:sfThefts}, has had a huge increase - about 50\% - in index crimes in the last several years. When looking closer, that increase is driven almost entirely by the near doubling of theft since 2011. During the same years, index violent crimes have stayed fairly steady. So the city isn't getting more dangerous - at least not in terms of violent index crimes increasing - but it appears like it is due to just looking at total index crimes.
 
 \begin{figure}
 
@@ -734,7 +748,7 @@ In cases where the arson led to a death, that death would be recorded as a murde
 
 In the UCR and other FBI data sets, agencies are identified using \textbf{OR}iginating Agency \textbf{I}dentifiers or an ORI. An ORI is a unique ID code used to identify an agency.\footnote{I will refer to this an ``ORI'', ``ORI code'', and ``ORI number'', all of which mean the same thing.} If we used the agency's name we'd end up with some duplicates since there can be multiple agencies in the country (and in a state, those this is very rare) with the same name. For example, if you looked for the Philadelphia Police Department using the agency name, you'd find both the ``Philadelphia Police Department'' in Pennsylvania and the one in Mississippi. Each ORI is a 7-digit value starting with the state abbreviation (for some reason the FBI incorrectly puts the abbreviation for Nebraska as NB instead of NE) followed by 5 numbers.\footnote{In the NIBRS data (another FBI data set) the ORI uses a 9-digit code - expanding the 5 numbers to 7 numbers.} When dealing with specific agencies, make sure to use the ORI rather than the agency name to avoid any mistakes.
 
-For an easy way to find the ORI number of an agency, use \href{http://crimedatatool.com/crosswalk.html}{this page} on my site. Type an agency name or an ORI code into the search section and it will return everything that is a match.
+For an easy way to find the ORI number of an agency, use \href{https://jacobdkaplan.com/crosswalk.html}{this page} on my site. Type an agency name or an ORI code into the search section and it will return everything that is a match.
 
 \hypertarget{the-data-as-you-get-it-from-the-fbi}{%
 \section{The data as you get it from the FBI}\label{the-data-as-you-get-it-from-the-fbi}}
