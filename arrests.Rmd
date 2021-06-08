@@ -70,7 +70,7 @@ To aid in analysis of reporting patterns, in my openICPSR data users will find a
 - UCR data provided by the FBI does not differentiate between "no arrests" and "nothing reported" (see [Section 2.2.4](https://ucrbook.com/ucrGeneral.html#zero-crimes-vs-no-reports)), so `number_of_months_reported` may underestimate actual months reported if an agency just has a month with no arrests (since it just counts months with any arrests accounted). Obviously this is unlikely to be a concern for bigger agencies, but it may be an issue for smaller agencies. 
 - Agencies have the option of only reporting arrests for specific crimes. Thus it is always possible that an agency that reports some crimes in every month of the year may *not* be reporting arrests for all categies of crime in every month. So if you're interested in a particular category of crime, make sure to inspect the `num_months_[crime]` in the data (remembering the concern above). 
 
-**Nota bene:** the `number_of_months_reported` variable in my openICPSR data released prior May 25th 2021 sometimes under-estimated the number of months with reported arrests, so be sure to use the most up-to-date version of the openICPSR data to ensure your analysis reflects the collective wisdom of all users.
+**Nota bene:** the `number_of_months_reported` variable in my openICPSR data released prior to data Version 13 sometimes under-estimated the number of months with reported arrests, so be sure to use the most up-to-date version of the openICPSR data to ensure your analysis reflects the collective wisdom of all users.
 
 ## What is an arrest? (what unit is this data in?)
 
