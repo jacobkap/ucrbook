@@ -121,65 +121,141 @@ Unlike the other demographic variables, there is still a huge amount of underrep
 
 #### Weapon used
 
-The first variable we'll look at is the weapon used by each offender. Table \@ref(fig:shrWeapon) shows the weapon used by the first offender in every incident from 1976 to 2018. Each offender can only be reported as having a single weapon, so this table essentially shows the number (and percent) of murders caused by this weapon. This isn't entirely true since in reality an offender could use multiple weapons and there can be multiple offenders. In these cases the police include what they believe is the "primary" weapon used by this offender.
+The first variable we'll look at is the weapon used by each offender. Table \@ref(tab:shrWeapon) shows the weapon used by the first offender in every incident from 1976 to 2018. Each offender can only be reported as having a single weapon, so this table essentially shows the number (and percent) of murders caused by this weapon. This isn't entirely true since in reality an offender could use multiple weapons and there can be multiple offenders. In these cases the police include what they believe is the "primary" weapon used by this offender.
 
 The most commonly used weapon is a handgun, which is used in nearly half of murders. This is followed by a knife or other sharp weapon used to cut at 15% of murders, and then by "firearm, type not stated" which is just a firearm where we don't know the exact type (it can include handguns) at 7.3% of murders. The fourth most common weapon is "personal weapons" at nearly 6% of murders. "Personal weapons" is a weird term to mean that there was no weapon - the "weapon" was the offender who beat the victim to death. Shotguns are involved in 5% of murders and all other weapons are involved in fewer than 5% of cases. In total there are 19 different weapons included though most are very uncommon. 
 
-<div class="figure" style="text-align: center">
 
-```{=html}
-<div id="htmlwidget-671f55cd52afe129a26a" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-671f55cd52afe129a26a">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19"],["Handgun","Knife Or Cutting Instrument","Firearm, Type Not Stated","Personal Weapons - Includes Beating","Shotgun","Other Or Unknown Weapon","Blunt Object","Rifle","Strangulation - Includes Hanging","Fire","Asphyxiation - Includes Death By Gas","Other Gun","Narcotics/Drugs - Includes Sleeping Pills","Drowning","Other Or Type Unknown","Poison - Does Not Include Gas","Explosives","Pushed Or Thrown Out of Window","Narcotics Or Drugs"],[359188,109670,52638,42763,36072,35073,33291,26314,9619,5089,4420,2668,2058,1367,586,467,374,251,48],[0.497520624525594,0.151906764401155,0.0729102604590861,0.0592321415709545,0.0499642637501454,0.0485805229127537,0.0461122284460549,0.0364482045997263,0.0133235266415128,0.00704890602751414,0.00612225675802958,0.00369551607023143,0.00285058923258481,0.00189346719190643,0.000811683814526093,0.000646853824886835,0.00051803711029481,0.000347666616802132,6.64860462410452e-05]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Weapon<\/th>\n      <th># of Incidents<\/th>\n      <th>% of Incidents<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":100,"columnDefs":[{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 0, 3, \",\", \".\");\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatPercentage(data, 2, 3, \",\", \".\");\n  }"},{"className":"dt-right","targets":[2,3]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'left'});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.rowCallback"],"jsHooks":[]}</script>
-```
+Table: (\#tab:shrWeapon)The weapon used in a homicide incident. In cases where there are multiple offenders, shows only the primary weapon for the first offender.
 
-<p class="caption">(\#fig:shrWeapon)The weapon used in a homicide incident. In cases where there are multiple offenders, shows only the primary weapon for the first offender.</p>
-</div>
+|Weapon                                    | \# of Incidents| \% of Incidents|
+|:-----------------------------------------|---------------:|---------------:|
+|Handgun                                   |         359,188|         49.75\%|
+|Knife Or Cutting Instrument               |         109,670|         15.19\%|
+|Firearm, Type Not Stated                  |          52,638|          7.29\%|
+|Personal Weapons - Includes Beating       |          42,763|          5.92\%|
+|Shotgun                                   |          36,072|          5.00\%|
+|Other Or Unknown Weapon                   |          35,073|          4.86\%|
+|Blunt Object                              |          33,291|          4.61\%|
+|Rifle                                     |          26,314|          3.64\%|
+|Strangulation - Includes Hanging          |           9,619|          1.33\%|
+|Fire                                      |           5,089|          0.70\%|
+|Asphyxiation - Includes Death By Gas      |           4,420|          0.61\%|
+|Other Gun                                 |           2,668|          0.37\%|
+|Narcotics/Drugs - Includes Sleeping Pills |           2,058|          0.29\%|
+|Drowning                                  |           1,367|          0.19\%|
+|Other Or Type Unknown                     |             586|          0.08\%|
+|Poison - Does Not Include Gas             |             467|          0.06\%|
+|Explosives                                |             374|          0.05\%|
+|Pushed Or Thrown Out of Window            |             251|          0.03\%|
+|Narcotics Or Drugs                        |              48|          0.01\%|
+|Total                                     |         721,956|           100\%|
 
 #### Relationship between first victim and offenders
 
-An interesting and highly useful variable is the relationship between the first victim and each offender. To be clear, this is only for the first victim; we don't have the relationship between other victims and offenders. However, as seen earlier, this isn't *too much* of an issue since nearly all incidents only have a single victim. There are 29 possible relationship types (including "unknown" relationship) which are broken into three categories: legal family members, people known to the victim but who aren't family, and people not known to the victim. Table \@ref(fig:shrRelationship) shows these relationships and the number and percent of murders with these relationships. If you're looking at this on a computer you can sort or search through this table. 
+An interesting and highly useful variable is the relationship between the first victim and each offender. To be clear, this is only for the first victim; we don't have the relationship between other victims and offenders. However, as seen earlier, this isn't *too much* of an issue since nearly all incidents only have a single victim. There are 29 possible relationship types (including "unknown" relationship) which are broken into three categories: legal family members, people known to the victim but who aren't family, and people not known to the victim. Table \@ref(tab:shrRelationship) shows these relationships and the number and percent of murders with these relationships. If you're looking at this on a computer you can sort or search through this table. 
 
 The most common relationship, with a little over a third of murders, is that the police don't know the relationship. So there is a good deal of uncertainty in the relationship between victims and offenders. Next is that the victim is the offender's acquaintance at 20.5% or is a stranger at 15.5%. The next is "other - known to victim" which is similar to being an acquaintance at almost 5% of murders. The 5th most common relationship, at 3.65% is that the victim is the wife of the offender, so is murdered by her husband, and is the first familial relationship of this list. This is followed by the victim being the friend of the murderer at 3.62%. The remaining relationships all make up fewer than 3% of all murders. 
 
-<div class="figure" style="text-align: center">
 
-```{=html}
-<div id="htmlwidget-f4555affe9fd1b3b223f" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f4555affe9fd1b3b223f">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29"],["Unknown","Acquaintance","Stranger","Other - Known To Victim","Wife","Friend","Girlfriend","Husband","Other Family","Son","Boyfriend","Neighbor","Daughter","Brother","Father","Mother","In-Law","Common-Law Wife","Common-Law Husband","Ex-Wife","Stepfather","Homosexual Relationship","Stepson","Sister","Ex-Husband","Stepdaughter","Employer","Employee","Stepmother"],["","Not family (but known)","Not known","Not family (but known)","Family","Not family (but known)","Not family (but known)","Family","Family","Family","Not family (but known)","Not family (but known)","Family","Family","Family","Family","Family","Family","Family","Not family (but known)","Family","Not family (but known)","Family","Family","Not family (but known)","Family","Not family (but known)","Not family (but known)","Family"],[263237,147741,111955,33426,26353,26143,19194,11700,10400,10342,9041,7569,7436,6403,5059,4578,4392,3209,2690,2205,1693,1663,1381,1344,876,747,530,422,227],[0.364616403215708,0.204639894952047,0.155071777227421,0.0462992204511078,0.0365022245122971,0.0362113480599926,0.0265861077406379,0.0162059737712548,0.0144053100188931,0.0143249727130185,0.0125229238346935,0.0104840184166348,0.0102997966635086,0.00886896154336275,0.00700735224861349,0.00634110666023968,0.00608347323105563,0.00444486921640654,0.00372598884142524,0.00305420274919801,0.0023450182559602,0.00230346447705954,0.0019128589553934,0.00186160929474926,0.00121337034389907,0.00103468909462627,0.000734116760578207,0.000584523156535855,0.000314423593681609]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Relationship<\/th>\n      <th>Category<\/th>\n      <th># of Incidents<\/th>\n      <th>% of Incidents<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":100,"columnDefs":[{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 0, 3, \",\", \".\");\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatPercentage(data, 2, 3, \",\", \".\");\n  }"},{"className":"dt-right","targets":[3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'left'});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.rowCallback"],"jsHooks":[]}</script>
-```
+Table: (\#tab:shrRelationship)The relationship between the first victim and the first offender in a homicide incident.
 
-<p class="caption">(\#fig:shrRelationship)The relationship between the first victim and the first offender in a homicide incident.</p>
-</div>
+|Relationship            |               Category| \# of Incidents|\% of Incidents |
+|:-----------------------|----------------------:|---------------:|:---------------|
+|Unknown                 |                       |         263,237|36.46\%         |
+|Acquaintance            | Not family (but known)|         147,741|20.46\%         |
+|Stranger                |              Not known|         111,955|15.51\%         |
+|Other - Known To Victim | Not family (but known)|          33,426|4.63\%          |
+|Wife                    |                 Family|          26,353|3.65\%          |
+|Friend                  | Not family (but known)|          26,143|3.62\%          |
+|Girlfriend              | Not family (but known)|          19,194|2.66\%          |
+|Husband                 |                 Family|          11,700|1.62\%          |
+|Other Family            |                 Family|          10,400|1.44\%          |
+|Son                     |                 Family|          10,342|1.43\%          |
+|Boyfriend               | Not family (but known)|           9,041|1.25\%          |
+|Neighbor                | Not family (but known)|           7,569|1.05\%          |
+|Daughter                |                 Family|           7,436|1.03\%          |
+|Brother                 |                 Family|           6,403|0.89\%          |
+|Father                  |                 Family|           5,059|0.70\%          |
+|Mother                  |                 Family|           4,578|0.63\%          |
+|In-Law                  |                 Family|           4,392|0.61\%          |
+|Common-Law Wife         |                 Family|           3,209|0.44\%          |
+|Common-Law Husband      |                 Family|           2,690|0.37\%          |
+|Ex-Wife                 | Not family (but known)|           2,205|0.31\%          |
+|Stepfather              |                 Family|           1,693|0.23\%          |
+|Homosexual Relationship | Not family (but known)|           1,663|0.23\%          |
+|Stepson                 |                 Family|           1,381|0.19\%          |
+|Sister                  |                 Family|           1,344|0.19\%          |
+|Ex-Husband              | Not family (but known)|             876|0.12\%          |
+|Stepdaughter            |                 Family|             747|0.10\%          |
+|Employer                | Not family (but known)|             530|0.07\%          |
+|Employee                | Not family (but known)|             422|0.06\%          |
+|Stepmother              |                 Family|             227|0.03\%          |
+|Total                   |                       |         721,956|100\%           |
 
 #### Homicide circumstance {#circumstance}
 
-We also have information on the type of the murder, which this data calls the "circumstance". This comes as relatively broad categories that leave a lot to be desired in our understanding of what led to the murder. Table \@ref(fig:shrCircumstance) shows the number and percent of each circumstance for the first victim of each murder from 1976 to 2018. This data has 33 possible circumstances which it groups into four main categories: murders that coincide with committing another crime ("felony type" murders), murders that don't coincide with another crime ("non-felony type" murders), justifiable homicides, and negligent manslaughter. 
+We also have information on the type of the murder, which this data calls the "circumstance". This comes as relatively broad categories that leave a lot to be desired in our understanding of what led to the murder. Table \@ref(tab:shrCircumstance) shows the number and percent of each circumstance for the first victim of each murder from 1976 to 2018. This data has 33 possible circumstances which it groups into four main categories: murders that coincide with committing another crime ("felony type" murders), murders that don't coincide with another crime ("non-felony type" murders), justifiable homicides, and negligent manslaughter. 
 
 The felony type murders are simply ones where another crime occurred during the murder. While this is called "felony type" it does include other crimes such as theft and gambling (which isn't always a felony) so is a bit of a misnomer. The "non-felony type" are murders that happen without another crime. This includes gang killings (where, supposedly, only the murder occurred), children killed by babysitters, fights among intoxicated (both of alcohol and drugs) people, and "lover's triangle" killings.  Justifiable homicides are when a person (civilian or police officer) kill a person who is committing a crime.^[This dataset is one source of information on how many people police kill each year. But it is a large undercount compared to other sources such as the Washington Post collection, so is not a very useful source of information on this topic.] Negligent manslaughter includes accidental shootings such as when children find and shoot a gun, but excludes deaths from traffic accidents. 
 
 The most common circumstances, accounting for 27.4%, 26.4%, and 12.5%, respectively, are "other arguments", "unknown", and "other non-felony type - not specified". Since the data includes "argument over money or property" as one category, the "other arguments" mean that it's an argument for a reason other than over money or property. The "other non-felony type" one does not mean that the murder did not occur alongside another crime, but also doesn't fall into the non-felony categories included. Robbery is the only remaining circumstance with more than 5% of murders, at 8%. 
 
-<div class="figure" style="text-align: center">
 
-```{=html}
-<div id="htmlwidget-1d54d898772b215ba893" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1d54d898772b215ba893">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33"],["Other Arguments","Unknown","Other Non-Felony Type - Not Specified","Robbery","Narcotic Drug Laws","Juvenile Gang Killings","Felon Killed By Police","Brawl Due To Influence of Alcohol","Argument Over Money Or Property","Other Felony Type - Not Specified","All Suspected Felony Type","Felon Killed By Private Citizen","Lovers Triangle","Burglary","Brawl Due To Influence of Narcotics","Gangland Killings","All Other Manslaughter By Negligence Except Traffic Deaths","Rape","Other Negligent Handling of Gun Which Resulted In Death of Another","Arson","Other Sex Offenses","Child Killed By Babysitter","Children Playing With Gun","Motor Vehicle Theft","Institutional Killings","Gambling","Larceny","Prostitution And Commercialized Vice","Other - Not Specified","Sniper Attack","Victim Shot In Hunting Accident","Gun Cleaning Death - Other Than Self-Inflicted","Abortion"],["Non-Felony Type","","Non-Felony Type","Felony Type","Felony Type","Non-Felony Type","Justifiable Homicide","Non-Felony Type","Non-Felony Type","Felony Type","Felony Type","Justifiable Homicide","Non-Felony Type","Felony Type","Non-Felony Type","Non-Felony Type","Negligent Manslaughter","Felony Type","Negligent Manslaughter","Felony Type","Felony Type","Non-Felony Type","Negligent Manslaughter","Felony Type","Non-Felony Type","Felony Type","Felony Type","Felony Type","Felony Type","Non-Felony Type","Negligent Manslaughter","Negligent Manslaughter","Felony Type"],[197905,190837,90203,57312,26489,23292,16394,15174,14667,13902,12743,12376,10372,6052,4704,4693,4339,4086,3266,2982,1408,1297,1272,1259,1055,1031,753,601,554,474,329,125,10],[0.274123353777793,0.264333283468799,0.124942517272521,0.0793843392118079,0.0366906016433134,0.0322623539384672,0.0227077550432436,0.0210179013679504,0.0203156425045294,0.0192560211425627,0.0176506601510341,0.0171423189224828,0.0143665264919192,0.00838278233022511,0.00651563253162243,0.00650039614602552,0.00601006155499781,0.00565962468626897,0.00452382139631778,0.00413044562272493,0.00195025735640399,0.00179650837447157,0.0017618802253877,0.00174387358786408,0.00146130789133964,0.00142806486821912,0.0010429998504064,0.00083246070397642,0.00076735978369873,0.000656549706630321,0.00045570644194383,0.000173140745419388,1.38512596335511e-05]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Circumstance<\/th>\n      <th>Category<\/th>\n      <th># of Incidents<\/th>\n      <th>% of Incidents<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":100,"columnDefs":[{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 0, 3, \",\", \".\");\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatPercentage(data, 2, 3, \",\", \".\");\n  }"},{"className":"dt-right","targets":[3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'left'});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.rowCallback"],"jsHooks":[]}</script>
-```
+Table: (\#tab:shrCircumstance)The circumstance of the homicide for the first offender in a homicide incident.
 
-<p class="caption">(\#fig:shrCircumstance)The circumstance of the homicide for the first offender in a homicide incident.</p>
-</div>
+|Circumstance                                                       |               Category| \# of Incidents|\% of Incidents |
+|:------------------------------------------------------------------|----------------------:|---------------:|:---------------|
+|Other Arguments                                                    |        Non-Felony Type|         197,905|27.41\%         |
+|Unknown                                                            |                       |         190,837|26.43\%         |
+|Other Non-Felony Type - Not Specified                              |        Non-Felony Type|          90,203|12.49\%         |
+|Robbery                                                            |            Felony Type|          57,312|7.94\%          |
+|Narcotic Drug Laws                                                 |            Felony Type|          26,489|3.67\%          |
+|Juvenile Gang Killings                                             |        Non-Felony Type|          23,292|3.23\%          |
+|Felon Killed By Police                                             |   Justifiable Homicide|          16,394|2.27\%          |
+|Brawl Due To Influence of Alcohol                                  |        Non-Felony Type|          15,174|2.10\%          |
+|Argument Over Money Or Property                                    |        Non-Felony Type|          14,667|2.03\%          |
+|Other Felony Type - Not Specified                                  |            Felony Type|          13,902|1.93\%          |
+|All Suspected Felony Type                                          |            Felony Type|          12,743|1.77\%          |
+|Felon Killed By Private Citizen                                    |   Justifiable Homicide|          12,376|1.71\%          |
+|Lovers Triangle                                                    |        Non-Felony Type|          10,372|1.44\%          |
+|Burglary                                                           |            Felony Type|           6,052|0.84\%          |
+|Brawl Due To Influence of Narcotics                                |        Non-Felony Type|           4,704|0.65\%          |
+|Gangland Killings                                                  |        Non-Felony Type|           4,693|0.65\%          |
+|All Other Manslaughter By Negligence Except Traffic Deaths         | Negligent Manslaughter|           4,339|0.60\%          |
+|Rape                                                               |            Felony Type|           4,086|0.57\%          |
+|Other Negligent Handling of Gun Which Resulted In Death of Another | Negligent Manslaughter|           3,266|0.45\%          |
+|Arson                                                              |            Felony Type|           2,982|0.41\%          |
+|Other Sex Offenses                                                 |            Felony Type|           1,408|0.20\%          |
+|Child Killed By Babysitter                                         |        Non-Felony Type|           1,297|0.18\%          |
+|Children Playing With Gun                                          | Negligent Manslaughter|           1,272|0.18\%          |
+|Motor Vehicle Theft                                                |            Felony Type|           1,259|0.17\%          |
+|Institutional Killings                                             |        Non-Felony Type|           1,055|0.15\%          |
+|Gambling                                                           |            Felony Type|           1,031|0.14\%          |
+|Larceny                                                            |            Felony Type|             753|0.10\%          |
+|Prostitution And Commercialized Vice                               |            Felony Type|             601|0.08\%          |
+|Other - Not Specified                                              |            Felony Type|             554|0.08\%          |
+|Sniper Attack                                                      |        Non-Felony Type|             474|0.07\%          |
+|Victim Shot In Hunting Accident                                    | Negligent Manslaughter|             329|0.05\%          |
+|Gun Cleaning Death - Other Than Self-Inflicted                     | Negligent Manslaughter|             125|0.02\%          |
+|Abortion                                                           |            Felony Type|              10|0.00\%          |
+|Total                                                              |                       |         721,956|100\%           |
 
 #### Homicide subcircumstance
 
 The "subcircumstance" just tells you more information about justifiable homicides. This includes the circumstance leading up to the "felon" - which is how the person killed is described, though technically they don't need to have committed a felony - was killed. It includes if this person attacked an officer (the one who killed them), a different officer, a civilian, or was committing or fleeing a crime. 
 
-<div class="figure" style="text-align: center">
 
-```{=html}
-<div id="htmlwidget-478ca32edb6bfef38db1" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-478ca32edb6bfef38db1">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7"],["Felon Killed In Commission of A Crime","Felon Attacked Police Officer","Felon Attacked A Civilian","Not Enough Information To Determine","Felon Resisted Arrest","Felon Attacked Fellow Police Officer","Felon Attempted Flight From A Crime"],[10320,8553,4498,2423,1226,951,799],[0.358706986444213,0.297288842544317,0.15634341327772,0.0842196732707682,0.0426138338547098,0.0330552659019812,0.0277719847062913]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Subcircumstance<\/th>\n      <th># of Incidents<\/th>\n      <th>% of Incidents<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":100,"columnDefs":[{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 0, 3, \",\", \".\");\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatPercentage(data, 2, 3, \",\", \".\");\n  }"},{"className":"dt-right","targets":[2,3]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'left'});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.rowCallback"],"jsHooks":[]}</script>
-```
+Table: (\#tab:shrSubCircumstance)The circumstance for the first offender in a homicide incident in cases where the offender is killed. This includes incidents where the only person who dies in the offender.
 
-<p class="caption">(\#fig:shrSubCircumstance)The circumstance for the first offender in a homicide incident in cases where the offender is killed. This includes incidents where the only person who dies in the offender.</p>
-</div>
+|Subcircumstance                       | \# of Incidents| \% of Incidents|
+|:-------------------------------------|---------------:|---------------:|
+|Felon Killed In Commission of A Crime |          10,320|         35.87\%|
+|Felon Attacked Police Officer         |           8,553|         29.73\%|
+|Felon Attacked A Civilian             |           4,498|         15.63\%|
+|Not Enough Information To Determine   |           2,423|          8.42\%|
+|Felon Resisted Arrest                 |           1,226|          4.26\%|
+|Felon Attacked Fellow Police Officer  |             951|          3.31\%|
+|Felon Attempted Flight From A Crime   |             799|          2.78\%|
+|Total                                 |          28,770|           100\%|
 

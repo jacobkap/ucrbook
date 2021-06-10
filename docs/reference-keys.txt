@@ -51,10 +51,10 @@ fig:shrOffenderRace
 fig:shrVictimRace
 fig:shrOffenderEthnicity
 fig:shrVictimEthnicity
-fig:shrWeapon
-fig:shrRelationship
-fig:shrCircumstance
-fig:shrSubCircumstance
+tab:shrWeapon
+tab:shrRelationship
+tab:shrCircumstance
+tab:shrSubCircumstance
 fig:leokaAgencies
 fig:leokaCivilianOfficers
 fig:leokaOfficersGender
@@ -77,9 +77,9 @@ fig:hateCrimesMap
 fig:statePercentReporting
 fig:hateCrimesByDay
 fig:crimesPerHateCrime
-fig:hateBiasMotivation
-fig:hateOffense
-fig:hateLocations
+tab:hateBiasMotivation
+tab:hateOffense
+tab:hateLocations
 fig:hateCrimeOffenderNumber
 fig:hateCrimeOffenderRace
 preface

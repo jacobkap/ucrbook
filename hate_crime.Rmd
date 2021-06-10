@@ -202,21 +202,26 @@ This also means that many (likely most) hate crimes will not be recorded as hate
 
 Bias motivation is based on the offender's perceptions of the victim so even if they are incorrect in who their victim is, if they intended to target someone for their perceived group membership, that is still a hate crime. For example, if a person assaults a man because they think he is gay, that is a hate crime because the assault was motivated by hate towards gay people. Whether the victim is actually gay or not is not relevant - the offender perceived him to be gay so it is an anti-gay  hate crime. To make this even more complicated, the offender must have committed the crime because they are motivated, at least to some degree, by their bias against the victim. Being biased against the victim but targeting them for some other reason means that the crime is not a hate crime. 
 
-The biases that the FBI includes in this data has grown over time, with new bias motivations being added in 1997, 2012, 2013, and 2015. Table \@ref(fig:hateBiasMotivation) shows each bias motivation in this data, the year it was first reported, how many hate crimes there were for this bias motivation from 1991-2018 and what percent of hate crimes that bias motivation makes up. For ease of seeing how bias motivations changed over time, the table is sorted by year and by frequency of incident within that year. If you're viewing this on a computer or phone, you can sort the table yourself. The year is the first year with that bias motivation - as hate crimes for certain groups are very rare, the bias motivation could have technically been available in previous years. The last column in this table shows the percent of hate crimes from 1991-2018, though this is a very rough measure since some groups are so small that even accounting for a small percent of total hate crimes can mean that are massively disproportionately targeted. 
+The biases that the FBI includes in this data has grown over time, with new bias motivations being added in 1997, 2012, 2013, and 2015. Table \@ref(tab:hateBiasMotivation) shows each bias motivation in this data, the year it was first reported, how many hate crimes there were for this bias motivation from 1991-2018 and what percent of hate crimes that bias motivation makes up. For ease of seeing how bias motivations changed over time, the table is sorted by year and by frequency of incident within that year. If you're viewing this on a computer or phone, you can sort the table yourself. The year is the first year with that bias motivation - as hate crimes for certain groups are very rare, the bias motivation could have technically been available in previous years. The last column in this table shows the percent of hate crimes from 1991-2018, though this is a very rough measure since some groups are so small that even accounting for a small percent of total hate crimes can mean that are massively disproportionately targeted. 
 
-```{r hateBiasMotivation, fig.cap = "The bias motivation for hate crime incidents. In incidents with multiple bias motivation, this shows only the first bias motivation recorded."}
+```{r hateBiasMotivation}
 ucr_hate_crimes_1991_2018$bias_motivation_offense_1[ucr_hate_crimes_1991_2018$bias_motivation_offense_1 %in% "99"] <- NA
 temp <- make_frequency_table_year(ucr_hate_crimes_1991_2018,
                                   "bias_motivation_offense_1",
                              c("Bias Motivation",
                                "First Year Reported",
-                               "# of Incidents",
-                               "% of Incidents"))
+                               "\\# of Incidents",
+                               "\\% of Incidents"))
 temp$`Bias Motivation` <- gsub("lgbt", "LGBT", ignore.case = TRUE, temp$`Bias Motivation`)
-datatable(temp, options = list(pageLength = 100)) %>%
-  formatPercentage('% of Incidents', 2) %>%
-  formatRound('# of Incidents', digits = 0) %>%
-  formatStyle(1, `text-align` = 'left')
+knitr::kable(temp, 
+             format = "markdown",
+             digits = 2, 
+             align = c("l", "r", "r"),
+             booktabs = TRUE, 
+             longtable = TRUE,
+             escape = FALSE,
+             caption = "The bias motivation for hate crime incidents. In incidents with multiple bias motivation, this shows only the first bias motivation recorded.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 2015 is the most year of new bias motivations, as of data through 2018. This year added a number of religions such as Anti-Buddhist, Anti-Sikh, and Anti-Jehovah's Witness. In 2013, anti-Transgender was added and this is the most common of the bias motivations added since data began in 1991 with 513 hate crimes between 2013-2018 - 0.26% of all hate crimes from 1991-2018. That year also added anti-male and Anti-Native Hawaiian or Other Pacific Islander, which is the most recent racial group added.  In 2012, anti-gender non-conforming and anti-female were included, while in 1997 both anti-mental and anti-physical disability were added. In part due to having fewer years of data available, these newer bias motivations make up a small percent of total hate crimes, accounting for ~1.4%. 
@@ -225,36 +230,46 @@ The original hate crimes - that is, those in the data in 1991 when this dataset 
 
 ### The crime that occurred
 
-The "crime" part of hate crimes is which criminal offense occurred during the incident. A hateful act where the action is not one of the crimes that the FBI records would not be considered a hate crime. This is likely most common when considering something like a person calling someone by a hateful slur (e.g. "You're a [slur]", "go back to your own country") but where the action is not technically a crime. Another layer of difficulty in using this data is that not all crimes that the FBI includes were initially included when data become available in 1991. Every several years the FBI adds new crimes to be included in this data. Table \@ref(fig:hateOffense) shows each crime in the data, the first year that this crime was reported, the total number of these crimes reported between 1991 and 2018, and the percent of all incidents this crime makes up.^[This tables uses only the first offense in an incident so counts are slightly lower than if all crimes in every incident is used.] This table is sorted with the most recent years first, and within year by how common the crime was.
+The "crime" part of hate crimes is which criminal offense occurred during the incident. A hateful act where the action is not one of the crimes that the FBI records would not be considered a hate crime. This is likely most common when considering something like a person calling someone by a hateful slur (e.g. "You're a [slur]", "go back to your own country") but where the action is not technically a crime. Another layer of difficulty in using this data is that not all crimes that the FBI includes were initially included when data become available in 1991. Every several years the FBI adds new crimes to be included in this data. Table \@ref(tab:hateOffense) shows each crime in the data, the first year that this crime was reported, the total number of these crimes reported between 1991 and 2018, and the percent of all incidents this crime makes up.^[This tables uses only the first offense in an incident so counts are slightly lower than if all crimes in every incident is used.] This table is sorted with the most recent years first, and within year by how common the crime was.
 
 Nearly all hate crimes are vandalism/destruction of property (31%), intimidation (30%), and simple assault (20%) or aggravated assault (11%) with no remaining crime making up more than 2% of total hate crimes. 
 
-```{r hateOffense, fig.cap = "The offense type for hate crime incidents. In incidents with multiple offense types, this shows only the first offense type recorded."}
+```{r hateOffense}
 ucr_hate_crimes_1991_2018$ucr_offense_code_1[ucr_hate_crimes_1991_2018$ucr_offense_code_1 %in% "720"] <- NA
 temp <- make_frequency_table_year(ucr_hate_crimes_1991_2018, "ucr_offense_code_1",
-                             c("Offense", "First Year Reported", "# of Incidents", "% of Incidents"))
-datatable(temp, options = list(pageLength = 100)) %>%
-  formatPercentage('% of Incidents', 2) %>%
-  formatRound('# of Incidents', digits = 0) %>%
-  formatStyle(1, `text-align` = 'left')
+                             c("Offense", "First Year Reported", "\\# of Incidents", "\\% of Incidents"))
+knitr::kable(temp, 
+             format = "markdown",
+             digits = 2, 
+             align = c("l", "r", "r"),
+             booktabs = TRUE, 
+             longtable = TRUE,
+             escape = FALSE,
+             caption = "The offense type for hate crime incidents. In incidents with multiple offense types, this shows only the first offense type recorded.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 Agencies that report to the FBI's National Incident-Based Reporting System (NIBRS) can also report bias motivations for their crimes, and these reports are included in this dataset. One tricky thing is that the crimes included are different depending on if the agency reported through NIBRS or to the dataset directly, and are not NIBRS reporting agencies. The above table shows all crimes included, but agencies who report directly can only submit a subset of crimes. For these agencies the only possible crimes are the ones that are included Offenses Known and Clearances by Arrest dataset, that is detailed in Chapter \@ref(offensesKnown), as well as vandalism/destruction of property and human trafficking. 
 
 ### The location of the crime
 
-This data is interesting because it includes the location - in categories for types of places, not actual location in the city - of the incident. This is important since the type of location can be a factor in whether the incident is classified as a hate crime. For example, spray paint on a synagogue or a mosque is much more likely to be a hate crime than spray paint on a wall of an abandoned building. Table \@ref(fig:hateLocations) shows the locations of hate crimes sorted by the year that location was first included in the data and then by frequency of hate crimes. Each hate crime incident can have multiple locations since each offense can have its own incident, but in most cases (96.6%) a hate crime only has a single location. 
+This data is interesting because it includes the location - in categories for types of places, not actual location in the city - of the incident. This is important since the type of location can be a factor in whether the incident is classified as a hate crime. For example, spray paint on a synagogue or a mosque is much more likely to be a hate crime than spray paint on a wall of an abandoned building. Table \@ref(tab:hateLocations) shows the locations of hate crimes sorted by the year that location was first included in the data and then by frequency of hate crimes. Each hate crime incident can have multiple locations since each offense can have its own incident, but in most cases (96.6%) a hate crime only has a single location. 
 
 As with the crime and the bias motivation, the available locations have increased as time went on, though these newer locations are relatively uncommon. One important change in location is that starting in 2010 the location of school/college was split to have one location be for elementary and high schools and another location be for colleges and universities. The majority of hate crimes occur in the victim's home (30%), on a road or alley (19%), in an unknown location (13.6%), and in a parking lot or parking garage. All other locations occur in fewer than 5% of hate crimes. 
 
-```{r hateLocations, fig.cap = "The location of hate crime incidents. In incidents with multiple locations, this shows only the first location recorded."}
+```{r hateLocations}
 ucr_hate_crimes_1991_2018$location_code_offense_1[ucr_hate_crimes_1991_2018$location_code_offense_1 %in% "undocumented code v13"] <- NA
 temp <- make_frequency_table_year(ucr_hate_crimes_1991_2018, "location_code_offense_1",
-                             c("Location", "First Year Reported", "# of Incidents", "% of Incidents"))
-datatable(temp, options = list(pageLength = 100)) %>%
-  formatPercentage('% of Incidents', 2) %>%
-  formatRound('# of Incidents', digits = 0) %>%
-  formatStyle(1, `text-align` = 'left')
+                             c("Location", "First Year Reported", "\\# of Incidents", "\\% of Incidents"))
+knitr::kable(temp, 
+             format = "markdown",
+             digits = 2, 
+             align = c("l", "r", "r"),
+             booktabs = TRUE, 
+             longtable = TRUE,
+             escape = FALSE,
+             caption = "The location of hate crime incidents. In incidents with multiple locations, this shows only the first location recorded.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 ### Number and race of offenders

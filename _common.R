@@ -1,7 +1,8 @@
 library(crimeutils)
 library(dplyr)
 library(readr)
-library(DT)
+library(kableExtra)
+library(knitr)
 library(scales)
 library(tidyr)
 library(ggplot2)
@@ -43,9 +44,18 @@ make_frequency_table_year <- function(data, column, col_names) {
     arrange(desc(first_year),
             desc(number)) %>%
     mutate(col1 = crimeutils::capitalize_words(col1))
+  temp_df$percent <- temp_df$percent * 100
+  temp_df$percent <- round(temp_df$percent, 2)
+  temp_df$percent <- pad_decimals(temp_df$percent, 2)
+  temp_df$percent <- paste0(temp_df$percent, "\\%")
+  total <- data.frame(col1 = "Total", number = sum(temp_df$number), percent = "100\\%")
+  temp_df <- bind_rows(temp_df, total)
+  
+  temp_df$number <- formatC(temp_df$number, format = "d", big.mark = ",")
   names(temp_df) <- col_names
   return(temp_df)
 }
+
 
 
 
@@ -65,6 +75,16 @@ make_frequency_table <- function(data, column, col_names) {
     mutate(percent = number / sum(number)) %>%
     arrange(desc(number)) %>%
     mutate(col1 = crimeutils::capitalize_words(col1))
+  
+  temp_df$percent <- temp_df$percent * 100
+  temp_df$percent <- round(temp_df$percent, 2)
+  temp_df$percent <- pad_decimals(temp_df$percent, 2)
+  temp_df$percent <- paste0(temp_df$percent, "\\%")
+  total <- data.frame(col1 = "Total", number = sum(temp_df$number), percent = "100\\%")
+  temp_df <- bind_rows(temp_df, total)
+  
+  temp_df$number <- formatC(temp_df$number, format = "d", big.mark = ",")
+  
   names(temp_df) <- col_names
   return(temp_df)
 }

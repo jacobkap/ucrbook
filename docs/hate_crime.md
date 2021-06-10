@@ -76,17 +76,48 @@ This also means that many (likely most) hate crimes will not be recorded as hate
 
 Bias motivation is based on the offender's perceptions of the victim so even if they are incorrect in who their victim is, if they intended to target someone for their perceived group membership, that is still a hate crime. For example, if a person assaults a man because they think he is gay, that is a hate crime because the assault was motivated by hate towards gay people. Whether the victim is actually gay or not is not relevant - the offender perceived him to be gay so it is an anti-gay  hate crime. To make this even more complicated, the offender must have committed the crime because they are motivated, at least to some degree, by their bias against the victim. Being biased against the victim but targeting them for some other reason means that the crime is not a hate crime. 
 
-The biases that the FBI includes in this data has grown over time, with new bias motivations being added in 1997, 2012, 2013, and 2015. Table \@ref(fig:hateBiasMotivation) shows each bias motivation in this data, the year it was first reported, how many hate crimes there were for this bias motivation from 1991-2018 and what percent of hate crimes that bias motivation makes up. For ease of seeing how bias motivations changed over time, the table is sorted by year and by frequency of incident within that year. If you're viewing this on a computer or phone, you can sort the table yourself. The year is the first year with that bias motivation - as hate crimes for certain groups are very rare, the bias motivation could have technically been available in previous years. The last column in this table shows the percent of hate crimes from 1991-2018, though this is a very rough measure since some groups are so small that even accounting for a small percent of total hate crimes can mean that are massively disproportionately targeted. 
+The biases that the FBI includes in this data has grown over time, with new bias motivations being added in 1997, 2012, 2013, and 2015. Table \@ref(tab:hateBiasMotivation) shows each bias motivation in this data, the year it was first reported, how many hate crimes there were for this bias motivation from 1991-2018 and what percent of hate crimes that bias motivation makes up. For ease of seeing how bias motivations changed over time, the table is sorted by year and by frequency of incident within that year. If you're viewing this on a computer or phone, you can sort the table yourself. The year is the first year with that bias motivation - as hate crimes for certain groups are very rare, the bias motivation could have technically been available in previous years. The last column in this table shows the percent of hate crimes from 1991-2018, though this is a very rough measure since some groups are so small that even accounting for a small percent of total hate crimes can mean that are massively disproportionately targeted. 
 
-<div class="figure" style="text-align: center">
 
-```{=html}
-<div id="htmlwidget-1abf7356821ac0b87d8a" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1abf7356821ac0b87d8a">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34"],["Anti-Eastern Orthodox (Greek, Russian, Etc.)","Anti-Other Christian","Anti-Sikh","Anti-Hindu","Anti-Mormon","Anti-Jehovahs Witness","Anti-Buddhist","Anti-Transgender","Anti-Male","Anti-Native Hawaiian Or Other Pacific Islander","Anti-Gender Non-Conforming","Anti-Female","Anti-Mental Disability","Anti-Physical Disability","Anti-Black","Anti-Jewish","Anti-White","Anti-Male Homosexual (Gay)","Anti-Hispanic","Anti-Ethnicity Other Than Hispanic","Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (LGBT)","Anti-Asian","Anti-Multi-Racial Group","Anti-Female Homosexual (Lesbian)","Anti-Muslim","Anti-Other Religion","Anti-American Indian Or Native Alaskan","Anti-Catholic","Anti-Protestant","Anti-Multi-Religious Group","Anti-Arab","Anti-Heterosexual","Anti-Bisexual","Anti-Atheism/Agnosticism"],[2015,2015,2015,2015,2015,2015,2015,2013,2013,2013,2012,2012,1997,1997,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991],[131,130,80,40,38,20,19,513,77,49,152,142,944,503,68588,25943,23366,20188,12725,10016,5990,5891,4811,4221,3561,3269,2195,1458,1196,1118,1091,542,527,149],[0.000656039823119645,0.000651031885538579,0.000400635006485279,0.00020031750324264,0.000190301628080508,0.00010015875162132,9.51508140402538e-05,0.00256907197908685,0.000385611193742081,0.000245388941472233,0.00076120651232203,0.000711127136511371,0.00472749307652629,0.00251899260327619,0.343484422810154,0.129920924665595,0.117015469519188,0.10110024388656,0.0637260057190647,0.050159502811957,0.0299975461105853,0.0295017602900597,0.0240931877025085,0.0211385045296795,0.017833265726176,0.0163709479525047,0.0109924229904398,0.00730157299319421,0.00598949334695492,0.00559887421563178,0.00546365990094299,0.00271430216893777,0.00263918310522178,0.000746182699578832]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Bias Motivation<\/th>\n      <th>First Year Reported<\/th>\n      <th># of Incidents<\/th>\n      <th>% of Incidents<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":100,"columnDefs":[{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 0, 3, \",\", \".\");\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatPercentage(data, 2, 3, \",\", \".\");\n  }"},{"className":"dt-right","targets":[2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'left'});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.rowCallback"],"jsHooks":[]}</script>
-```
+Table: (\#tab:hateBiasMotivation)The bias motivation for hate crime incidents. In incidents with multiple bias motivation, this shows only the first bias motivation recorded.
 
-<p class="caption">(\#fig:hateBiasMotivation)The bias motivation for hate crime incidents. In incidents with multiple bias motivation, this shows only the first bias motivation recorded.</p>
-</div>
+|Bias Motivation                                                 | First Year Reported| \# of Incidents|\% of Incidents |
+|:---------------------------------------------------------------|-------------------:|---------------:|:---------------|
+|Anti-Eastern Orthodox (Greek, Russian, Etc.)                    |                2015|             131|0.07\%          |
+|Anti-Other Christian                                            |                2015|             130|0.07\%          |
+|Anti-Sikh                                                       |                2015|              80|0.04\%          |
+|Anti-Hindu                                                      |                2015|              40|0.02\%          |
+|Anti-Mormon                                                     |                2015|              38|0.02\%          |
+|Anti-Jehovahs Witness                                           |                2015|              20|0.01\%          |
+|Anti-Buddhist                                                   |                2015|              19|0.01\%          |
+|Anti-Transgender                                                |                2013|             513|0.26\%          |
+|Anti-Male                                                       |                2013|              77|0.04\%          |
+|Anti-Native Hawaiian Or Other Pacific Islander                  |                2013|              49|0.02\%          |
+|Anti-Gender Non-Conforming                                      |                2012|             152|0.08\%          |
+|Anti-Female                                                     |                2012|             142|0.07\%          |
+|Anti-Mental Disability                                          |                1997|             944|0.47\%          |
+|Anti-Physical Disability                                        |                1997|             503|0.25\%          |
+|Anti-Black                                                      |                1991|          68,588|34.35\%         |
+|Anti-Jewish                                                     |                1991|          25,943|12.99\%         |
+|Anti-White                                                      |                1991|          23,366|11.70\%         |
+|Anti-Male Homosexual (Gay)                                      |                1991|          20,188|10.11\%         |
+|Anti-Hispanic                                                   |                1991|          12,725|6.37\%          |
+|Anti-Ethnicity Other Than Hispanic                              |                1991|          10,016|5.02\%          |
+|Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (LGBT) |                1991|           5,990|3.00\%          |
+|Anti-Asian                                                      |                1991|           5,891|2.95\%          |
+|Anti-Multi-Racial Group                                         |                1991|           4,811|2.41\%          |
+|Anti-Female Homosexual (Lesbian)                                |                1991|           4,221|2.11\%          |
+|Anti-Muslim                                                     |                1991|           3,561|1.78\%          |
+|Anti-Other Religion                                             |                1991|           3,269|1.64\%          |
+|Anti-American Indian Or Native Alaskan                          |                1991|           2,195|1.10\%          |
+|Anti-Catholic                                                   |                1991|           1,458|0.73\%          |
+|Anti-Protestant                                                 |                1991|           1,196|0.60\%          |
+|Anti-Multi-Religious Group                                      |                1991|           1,118|0.56\%          |
+|Anti-Arab                                                       |                1991|           1,091|0.55\%          |
+|Anti-Heterosexual                                               |                1991|             542|0.27\%          |
+|Anti-Bisexual                                                   |                1991|             527|0.26\%          |
+|Anti-Atheism/Agnosticism                                        |                1991|             149|0.07\%          |
+|Total                                                           |                  NA|         199,683|100\%           |
 
 2015 is the most year of new bias motivations, as of data through 2018. This year added a number of religions such as Anti-Buddhist, Anti-Sikh, and Anti-Jehovah's Witness. In 2013, anti-Transgender was added and this is the most common of the bias motivations added since data began in 1991 with 513 hate crimes between 2013-2018 - 0.26% of all hate crimes from 1991-2018. That year also added anti-male and Anti-Native Hawaiian or Other Pacific Islander, which is the most recent racial group added.  In 2012, anti-gender non-conforming and anti-female were included, while in 1997 both anti-mental and anti-physical disability were added. In part due to having fewer years of data available, these newer bias motivations make up a small percent of total hate crimes, accounting for ~1.4%. 
 
@@ -94,37 +125,121 @@ The original hate crimes - that is, those in the data in 1991 when this dataset 
 
 ### The crime that occurred
 
-The "crime" part of hate crimes is which criminal offense occurred during the incident. A hateful act where the action is not one of the crimes that the FBI records would not be considered a hate crime. This is likely most common when considering something like a person calling someone by a hateful slur (e.g. "You're a [slur]", "go back to your own country") but where the action is not technically a crime. Another layer of difficulty in using this data is that not all crimes that the FBI includes were initially included when data become available in 1991. Every several years the FBI adds new crimes to be included in this data. Table \@ref(fig:hateOffense) shows each crime in the data, the first year that this crime was reported, the total number of these crimes reported between 1991 and 2018, and the percent of all incidents this crime makes up.^[This tables uses only the first offense in an incident so counts are slightly lower than if all crimes in every incident is used.] This table is sorted with the most recent years first, and within year by how common the crime was.
+The "crime" part of hate crimes is which criminal offense occurred during the incident. A hateful act where the action is not one of the crimes that the FBI records would not be considered a hate crime. This is likely most common when considering something like a person calling someone by a hateful slur (e.g. "You're a [slur]", "go back to your own country") but where the action is not technically a crime. Another layer of difficulty in using this data is that not all crimes that the FBI includes were initially included when data become available in 1991. Every several years the FBI adds new crimes to be included in this data. Table \@ref(tab:hateOffense) shows each crime in the data, the first year that this crime was reported, the total number of these crimes reported between 1991 and 2018, and the percent of all incidents this crime makes up.^[This tables uses only the first offense in an incident so counts are slightly lower than if all crimes in every incident is used.] This table is sorted with the most recent years first, and within year by how common the crime was.
 
 Nearly all hate crimes are vandalism/destruction of property (31%), intimidation (30%), and simple assault (20%) or aggravated assault (11%) with no remaining crime making up more than 2% of total hate crimes. 
 
-<div class="figure" style="text-align: center">
 
-```{=html}
-<div id="htmlwidget-60a7acf641535759990d" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-60a7acf641535759990d">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45"],["Human Trafficking - Commercial Sex Acts","Fraud-Other","Bribery","Assisting Or Promoting Prostitution","Purchasing Prostitution","Wire Fraud","Impersonation","Prostitution","Statutory Rape","Theft From Coin-Operated Machine Or Device","Negligent Manslaughter","False Pretenses/Swindle/Confidence Game","Extortion/Blackmail","Incest","Stolen Property Offenses - Receiving, Selling, Etc.","Sexual Assault With An Object","Pocket-Picking","Welfare Fraud","Drug Equipment Violations","Credit Card/Atm Fraud","Embezzlement","Forcible Sodomy","Pornography/Obscene Material","Purse-Snatching","Theft From Building","Kidnapping/Abduction","All Other Larceny","Drug/Narcotic Violations","Theft From Motor Vehicle","Shoplifting","Weapon Law Violations","Theft of Motor Vehicle Parts/Accessories","Counterfeiting/Forgery","Forcible Fondling - Indecent Liberties/Child Molest","Motor Vehicle Theft","Destruction of Property/Vandalism","Intimidation","Simple Assault","Aggravated Assault","Robbery","Burglary/Breaking And Entering","Arson","Theft-Other","Murder/Non-Negligent Manslaughter","Forcible Rape"],[2017,2016,2014,2013,2013,2006,2001,2001,1999,1999,1999,1997,1997,1997,1996,1996,1996,1996,1995,1995,1995,1995,1995,1995,1994,1994,1993,1993,1993,1993,1993,1993,1993,1993,1992,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991],[1,17,2,4,2,18,108,12,12,11,3,230,41,7,94,23,19,2,204,125,56,52,34,23,478,99,1670,862,642,521,289,174,165,142,401,62502,59750,39035,22213,3748,3363,1224,796,265,242],[5.00798774044601e-06,8.51357915875822e-05,1.0015975480892e-05,2.0031950961784e-05,1.0015975480892e-05,9.01437793280282e-05,0.000540862675968169,6.00958528853521e-05,6.00958528853521e-05,5.50878651449061e-05,1.5023963221338e-05,0.00115183718030258,0.000205327497358286,3.50559141831221e-05,0.000470750847601925,0.000115183718030258,9.51517670684742e-05,1.0015975480892e-05,0.00102162949905099,0.000625998467555751,0.000280447313464977,0.000260415362503193,0.000170271583175164,0.000115183718030258,0.00239381813993319,0.000495790786304155,0.00836333952654484,0.00431688543226446,0.00321512812936634,0.00260916161277237,0.0014473084569889,0.000871389866837606,0.000826317977173592,0.000711134259143334,0.00200820308391885,0.313009249753357,0.299227267491649,0.19548680144831,0.111242431678527,0.0187699380511917,0.0168418627711199,0.00612977699430592,0.00398635824139503,0.00132711675121819,0.00121193303318793]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Offense<\/th>\n      <th>First Year Reported<\/th>\n      <th># of Incidents<\/th>\n      <th>% of Incidents<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":100,"columnDefs":[{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 0, 3, \",\", \".\");\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatPercentage(data, 2, 3, \",\", \".\");\n  }"},{"className":"dt-right","targets":[2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'left'});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.rowCallback"],"jsHooks":[]}</script>
-```
+Table: (\#tab:hateOffense)The offense type for hate crime incidents. In incidents with multiple offense types, this shows only the first offense type recorded.
 
-<p class="caption">(\#fig:hateOffense)The offense type for hate crime incidents. In incidents with multiple offense types, this shows only the first offense type recorded.</p>
-</div>
+|Offense                                             | First Year Reported| \# of Incidents|\% of Incidents |
+|:---------------------------------------------------|-------------------:|---------------:|:---------------|
+|Human Trafficking - Commercial Sex Acts             |                2017|               1|0.00\%          |
+|Fraud-Other                                         |                2016|              17|0.01\%          |
+|Bribery                                             |                2014|               2|0.00\%          |
+|Assisting Or Promoting Prostitution                 |                2013|               4|0.00\%          |
+|Purchasing Prostitution                             |                2013|               2|0.00\%          |
+|Wire Fraud                                          |                2006|              18|0.01\%          |
+|Impersonation                                       |                2001|             108|0.05\%          |
+|Prostitution                                        |                2001|              12|0.01\%          |
+|Statutory Rape                                      |                1999|              12|0.01\%          |
+|Theft From Coin-Operated Machine Or Device          |                1999|              11|0.01\%          |
+|Negligent Manslaughter                              |                1999|               3|0.00\%          |
+|False Pretenses/Swindle/Confidence Game             |                1997|             230|0.12\%          |
+|Extortion/Blackmail                                 |                1997|              41|0.02\%          |
+|Incest                                              |                1997|               7|0.00\%          |
+|Stolen Property Offenses - Receiving, Selling, Etc. |                1996|              94|0.05\%          |
+|Sexual Assault With An Object                       |                1996|              23|0.01\%          |
+|Pocket-Picking                                      |                1996|              19|0.01\%          |
+|Welfare Fraud                                       |                1996|               2|0.00\%          |
+|Drug Equipment Violations                           |                1995|             204|0.10\%          |
+|Credit Card/Atm Fraud                               |                1995|             125|0.06\%          |
+|Embezzlement                                        |                1995|              56|0.03\%          |
+|Forcible Sodomy                                     |                1995|              52|0.03\%          |
+|Pornography/Obscene Material                        |                1995|              34|0.02\%          |
+|Purse-Snatching                                     |                1995|              23|0.01\%          |
+|Theft From Building                                 |                1994|             478|0.24\%          |
+|Kidnapping/Abduction                                |                1994|              99|0.05\%          |
+|All Other Larceny                                   |                1993|           1,670|0.84\%          |
+|Drug/Narcotic Violations                            |                1993|             862|0.43\%          |
+|Theft From Motor Vehicle                            |                1993|             642|0.32\%          |
+|Shoplifting                                         |                1993|             521|0.26\%          |
+|Weapon Law Violations                               |                1993|             289|0.14\%          |
+|Theft of Motor Vehicle Parts/Accessories            |                1993|             174|0.09\%          |
+|Counterfeiting/Forgery                              |                1993|             165|0.08\%          |
+|Forcible Fondling - Indecent Liberties/Child Molest |                1993|             142|0.07\%          |
+|Motor Vehicle Theft                                 |                1992|             401|0.20\%          |
+|Destruction of Property/Vandalism                   |                1991|          62,502|31.30\%         |
+|Intimidation                                        |                1991|          59,750|29.92\%         |
+|Simple Assault                                      |                1991|          39,035|19.55\%         |
+|Aggravated Assault                                  |                1991|          22,213|11.12\%         |
+|Robbery                                             |                1991|           3,748|1.88\%          |
+|Burglary/Breaking And Entering                      |                1991|           3,363|1.68\%          |
+|Arson                                               |                1991|           1,224|0.61\%          |
+|Theft-Other                                         |                1991|             796|0.40\%          |
+|Murder/Non-Negligent Manslaughter                   |                1991|             265|0.13\%          |
+|Forcible Rape                                       |                1991|             242|0.12\%          |
+|Total                                               |                  NA|         199,681|100\%           |
 
 Agencies that report to the FBI's National Incident-Based Reporting System (NIBRS) can also report bias motivations for their crimes, and these reports are included in this dataset. One tricky thing is that the crimes included are different depending on if the agency reported through NIBRS or to the dataset directly, and are not NIBRS reporting agencies. The above table shows all crimes included, but agencies who report directly can only submit a subset of crimes. For these agencies the only possible crimes are the ones that are included Offenses Known and Clearances by Arrest dataset, that is detailed in Chapter \@ref(offensesKnown), as well as vandalism/destruction of property and human trafficking. 
 
 ### The location of the crime
 
-This data is interesting because it includes the location - in categories for types of places, not actual location in the city - of the incident. This is important since the type of location can be a factor in whether the incident is classified as a hate crime. For example, spray paint on a synagogue or a mosque is much more likely to be a hate crime than spray paint on a wall of an abandoned building. Table \@ref(fig:hateLocations) shows the locations of hate crimes sorted by the year that location was first included in the data and then by frequency of hate crimes. Each hate crime incident can have multiple locations since each offense can have its own incident, but in most cases (96.6%) a hate crime only has a single location. 
+This data is interesting because it includes the location - in categories for types of places, not actual location in the city - of the incident. This is important since the type of location can be a factor in whether the incident is classified as a hate crime. For example, spray paint on a synagogue or a mosque is much more likely to be a hate crime than spray paint on a wall of an abandoned building. Table \@ref(tab:hateLocations) shows the locations of hate crimes sorted by the year that location was first included in the data and then by frequency of hate crimes. Each hate crime incident can have multiple locations since each offense can have its own incident, but in most cases (96.6%) a hate crime only has a single location. 
 
 As with the crime and the bias motivation, the available locations have increased as time went on, though these newer locations are relatively uncommon. One important change in location is that starting in 2010 the location of school/college was split to have one location be for elementary and high schools and another location be for colleges and universities. The majority of hate crimes occur in the victim's home (30%), on a road or alley (19%), in an unknown location (13.6%), and in a parking lot or parking garage. All other locations occur in fewer than 5% of hate crimes. 
 
-<div class="figure" style="text-align: center">
 
-```{=html}
-<div id="htmlwidget-52058dae2dbcfcd751a3" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-52058dae2dbcfcd751a3">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45"],["Military Installation","Community Center","Dock/Wharf/Freight/Modal Terminal","Shelter - Mission/Homeless","Rest Area","Arena/Stadium/Fairgrounds/Coliseum","Auto Dealership New/Used","Abandoned/Condemned Structure","Daycare Facility","Farm Facility","Amusement Park","Atm Separate From Bank","Tribal Lands","School - Elementary/Secondary","School - College/University","Park/Playground","Shopping Mall","Industrial Site","Camp/Campground","Gambling Facility/Casino/Race Track","Residence/Home","Highway/Road/Alley","Other/Unknown","School/College","Parking Lot/Garage","Church/Synagogue/Temple","Commercial/Office Building","Restaurant","Bar/Nightclub","Government/Public Building","Convenience Store","Specialty Store - Tv, Fur, Etc.","Air/Bus/Train Terminal","Field/Woods","Service/Gas Station","Grocery/Supermarket","Department/Discount Store","Drug Store/Doctors Office/Hospital","Jail/Prison","Hotel/Motel","Construction Site","Bank/Savings And Loan","Liquor Store","Lake/Waterway","Rental Storage Facility"],[2015,2013,2012,2011,2011,2011,2011,2011,2011,2011,2011,2011,2011,2010,2010,2010,2010,2010,2010,2010,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991],[3,75,14,68,44,35,34,31,23,16,14,9,6,1748,1248,646,142,65,23,21,59606,37988,27178,17249,11440,7530,4502,3978,3549,2894,2561,2375,1931,1917,1830,1628,1516,1448,1262,1214,507,418,346,326,188],[1.5026597076826e-05,0.00037566492692065,7.01241196918546e-05,0.000340602867074722,0.000220390090460114,0.000175310299229636,0.000170301433537361,0.000155274836460535,0.000115203910922333,8.01418510764052e-05,7.01241196918546e-05,4.50797912304779e-05,3.0053194153652e-05,0.00875549723009727,0.00625106438395961,0.00323572723720986,0.000711258928303096,0.000325576269997896,0.000115203910922333,0.000105186179537782,0.298558448453763,0.190276789918155,0.136130951784659,0.0863979243260571,0.0573014235196297,0.0377167586628332,0.0225499133466235,0.0199252677238713,0.0177764643418851,0.0144956573134448,0.0128277050379171,0.0118960560191539,0.00967211965178366,0.0096019955320918,0.00916622421686385,0.00815443334702423,0.0075934403894894,0.00725283752241467,0.00632118850365146,0.00608076295042225,0.00253949490598359,0.00209370585937109,0.00173306752952726,0.00163289021568176,0.000941666750147762]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Location<\/th>\n      <th>First Year Reported<\/th>\n      <th># of Incidents<\/th>\n      <th>% of Incidents<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":100,"columnDefs":[{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 0, 3, \",\", \".\");\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatPercentage(data, 2, 3, \",\", \".\");\n  }"},{"className":"dt-right","targets":[2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'left'});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.rowCallback"],"jsHooks":[]}</script>
-```
+Table: (\#tab:hateLocations)The location of hate crime incidents. In incidents with multiple locations, this shows only the first location recorded.
 
-<p class="caption">(\#fig:hateLocations)The location of hate crime incidents. In incidents with multiple locations, this shows only the first location recorded.</p>
-</div>
+|Location                            | First Year Reported| \# of Incidents|\% of Incidents |
+|:-----------------------------------|-------------------:|---------------:|:---------------|
+|Military Installation               |                2015|               3|0.00\%          |
+|Community Center                    |                2013|              75|0.04\%          |
+|Dock/Wharf/Freight/Modal Terminal   |                2012|              14|0.01\%          |
+|Shelter - Mission/Homeless          |                2011|              68|0.03\%          |
+|Rest Area                           |                2011|              44|0.02\%          |
+|Arena/Stadium/Fairgrounds/Coliseum  |                2011|              35|0.02\%          |
+|Auto Dealership New/Used            |                2011|              34|0.02\%          |
+|Abandoned/Condemned Structure       |                2011|              31|0.02\%          |
+|Daycare Facility                    |                2011|              23|0.01\%          |
+|Farm Facility                       |                2011|              16|0.01\%          |
+|Amusement Park                      |                2011|              14|0.01\%          |
+|Atm Separate From Bank              |                2011|               9|0.00\%          |
+|Tribal Lands                        |                2011|               6|0.00\%          |
+|School - Elementary/Secondary       |                2010|           1,748|0.88\%          |
+|School - College/University         |                2010|           1,248|0.63\%          |
+|Park/Playground                     |                2010|             646|0.32\%          |
+|Shopping Mall                       |                2010|             142|0.07\%          |
+|Industrial Site                     |                2010|              65|0.03\%          |
+|Camp/Campground                     |                2010|              23|0.01\%          |
+|Gambling Facility/Casino/Race Track |                2010|              21|0.01\%          |
+|Residence/Home                      |                1991|          59,606|29.86\%         |
+|Highway/Road/Alley                  |                1991|          37,988|19.03\%         |
+|Other/Unknown                       |                1991|          27,178|13.61\%         |
+|School/College                      |                1991|          17,249|8.64\%          |
+|Parking Lot/Garage                  |                1991|          11,440|5.73\%          |
+|Church/Synagogue/Temple             |                1991|           7,530|3.77\%          |
+|Commercial/Office Building          |                1991|           4,502|2.25\%          |
+|Restaurant                          |                1991|           3,978|1.99\%          |
+|Bar/Nightclub                       |                1991|           3,549|1.78\%          |
+|Government/Public Building          |                1991|           2,894|1.45\%          |
+|Convenience Store                   |                1991|           2,561|1.28\%          |
+|Specialty Store - Tv, Fur, Etc.     |                1991|           2,375|1.19\%          |
+|Air/Bus/Train Terminal              |                1991|           1,931|0.97\%          |
+|Field/Woods                         |                1991|           1,917|0.96\%          |
+|Service/Gas Station                 |                1991|           1,830|0.92\%          |
+|Grocery/Supermarket                 |                1991|           1,628|0.82\%          |
+|Department/Discount Store           |                1991|           1,516|0.76\%          |
+|Drug Store/Doctors Office/Hospital  |                1991|           1,448|0.73\%          |
+|Jail/Prison                         |                1991|           1,262|0.63\%          |
+|Hotel/Motel                         |                1991|           1,214|0.61\%          |
+|Construction Site                   |                1991|             507|0.25\%          |
+|Bank/Savings And Loan               |                1991|             418|0.21\%          |
+|Liquor Store                        |                1991|             346|0.17\%          |
+|Lake/Waterway                       |                1991|             326|0.16\%          |
+|Rental Storage Facility             |                1991|             188|0.09\%          |
+|Total                               |                  NA|         199,646|100\%           |
 
 ### Number and race of offenders
 

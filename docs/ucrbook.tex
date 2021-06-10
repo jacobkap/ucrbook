@@ -125,7 +125,7 @@
 
 \title{Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide}
 \author{Jacob Kaplan}
-\date{2021-06-01}
+\date{2021-06-09}
 
 \begin{document}
 \maketitle
@@ -135,6 +135,7 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
+\listoftables
 \listoffigures
 \setstretch{1.15}
 \hypertarget{preface}{%
@@ -2208,46 +2209,462 @@ Unlike the other demographic variables, there is still a huge amount of underrep
 \hypertarget{weapon-used}{%
 \subsubsection{Weapon used}\label{weapon-used}}
 
-The first variable we'll look at is the weapon used by each offender. Table \ref{fig:shrWeapon} shows the weapon used by the first offender in every incident from 1976 to 2018. Each offender can only be reported as having a single weapon, so this table essentially shows the number (and percent) of murders caused by this weapon. This isn't entirely true since in reality an offender could use multiple weapons and there can be multiple offenders. In these cases the police include what they believe is the ``primary'' weapon used by this offender.
+The first variable we'll look at is the weapon used by each offender. Table \ref{tab:shrWeapon} shows the weapon used by the first offender in every incident from 1976 to 2018. Each offender can only be reported as having a single weapon, so this table essentially shows the number (and percent) of murders caused by this weapon. This isn't entirely true since in reality an offender could use multiple weapons and there can be multiple offenders. In these cases the police include what they believe is the ``primary'' weapon used by this offender.
 
 The most commonly used weapon is a handgun, which is used in nearly half of murders. This is followed by a knife or other sharp weapon used to cut at 15\% of murders, and then by ``firearm, type not stated'' which is just a firearm where we don't know the exact type (it can include handguns) at 7.3\% of murders. The fourth most common weapon is ``personal weapons'' at nearly 6\% of murders. ``Personal weapons'' is a weird term to mean that there was no weapon - the ``weapon'' was the offender who beat the victim to death. Shotguns are involved in 5\% of murders and all other weapons are involved in fewer than 5\% of cases. In total there are 19 different weapons included though most are very uncommon.
 
-\textbackslash begin\{figure\}
-
-\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrWeapon-1}
+\begin{longtable}[]{@{}lrr@{}}
+\caption{\label{tab:shrWeapon}The weapon used in a homicide incident. In cases where there are multiple offenders, shows only the primary weapon for the first offender.}\tabularnewline
+\toprule
+Weapon & \# of Incidents & \% of Incidents\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Weapon & \# of Incidents & \% of Incidents\tabularnewline
+\midrule
+\endhead
+Handgun & 359,188 & 49.75\%\tabularnewline
+Knife Or Cutting Instrument & 109,670 & 15.19\%\tabularnewline
+Firearm, Type Not Stated & 52,638 & 7.29\%\tabularnewline
+Personal Weapons - Includes Beating & 42,763 & 5.92\%\tabularnewline
+Shotgun & 36,072 & 5.00\%\tabularnewline
+Other Or Unknown Weapon & 35,073 & 4.86\%\tabularnewline
+Blunt Object & 33,291 & 4.61\%\tabularnewline
+Rifle & 26,314 & 3.64\%\tabularnewline
+Strangulation - Includes Hanging & 9,619 & 1.33\%\tabularnewline
+Fire & 5,089 & 0.70\%\tabularnewline
+Asphyxiation - Includes Death By Gas & 4,420 & 0.61\%\tabularnewline
+Other Gun & 2,668 & 0.37\%\tabularnewline
+Narcotics/Drugs - Includes Sleeping Pills & 2,058 & 0.29\%\tabularnewline
+Drowning & 1,367 & 0.19\%\tabularnewline
+Other Or Type Unknown & 586 & 0.08\%\tabularnewline
+Poison - Does Not Include Gas & 467 & 0.06\%\tabularnewline
+Explosives & 374 & 0.05\%\tabularnewline
+Pushed Or Thrown Out of Window & 251 & 0.03\%\tabularnewline
+Narcotics Or Drugs & 48 & 0.01\%\tabularnewline
+Total & 721,956 & 100\%\tabularnewline
+\bottomrule
+\end{longtable}
 
 \hypertarget{relationship-between-first-victim-and-offenders}{%
 \subsubsection{Relationship between first victim and offenders}\label{relationship-between-first-victim-and-offenders}}
 
-An interesting and highly useful variable is the relationship between the first victim and each offender. To be clear, this is only for the first victim; we don't have the relationship between other victims and offenders. However, as seen earlier, this isn't \emph{too much} of an issue since nearly all incidents only have a single victim. There are 29 possible relationship types (including ``unknown'' relationship) which are broken into three categories: legal family members, people known to the victim but who aren't family, and people not known to the victim. Table \ref{fig:shrRelationship} shows these relationships and the number and percent of murders with these relationships. If you're looking at this on a computer you can sort or search through this table.
+An interesting and highly useful variable is the relationship between the first victim and each offender. To be clear, this is only for the first victim; we don't have the relationship between other victims and offenders. However, as seen earlier, this isn't \emph{too much} of an issue since nearly all incidents only have a single victim. There are 29 possible relationship types (including ``unknown'' relationship) which are broken into three categories: legal family members, people known to the victim but who aren't family, and people not known to the victim. Table \ref{tab:shrRelationship} shows these relationships and the number and percent of murders with these relationships. If you're looking at this on a computer you can sort or search through this table.
 
 The most common relationship, with a little over a third of murders, is that the police don't know the relationship. So there is a good deal of uncertainty in the relationship between victims and offenders. Next is that the victim is the offender's acquaintance at 20.5\% or is a stranger at 15.5\%. The next is ``other - known to victim'' which is similar to being an acquaintance at almost 5\% of murders. The 5th most common relationship, at 3.65\% is that the victim is the wife of the offender, so is murdered by her husband, and is the first familial relationship of this list. This is followed by the victim being the friend of the murderer at 3.62\%. The remaining relationships all make up fewer than 3\% of all murders.
 
-\textbackslash begin\{figure\}
-
-\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrRelationship-1}
+\begin{longtable}[]{@{}lrrl@{}}
+\caption{\label{tab:shrRelationship}The relationship between the first victim and the first offender in a homicide incident.}\tabularnewline
+\toprule
+Relationship & Category & \# of Incidents & \% of Incidents\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Relationship & Category & \# of Incidents & \% of Incidents\tabularnewline
+\midrule
+\endhead
+Unknown & & 263,237 & 36.46\%\tabularnewline
+Acquaintance & Not family (but known) & 147,741 & 20.46\%\tabularnewline
+Stranger & Not known & 111,955 & 15.51\%\tabularnewline
+Other - Known To Victim & Not family (but known) & 33,426 & 4.63\%\tabularnewline
+Wife & Family & 26,353 & 3.65\%\tabularnewline
+Friend & Not family (but known) & 26,143 & 3.62\%\tabularnewline
+Girlfriend & Not family (but known) & 19,194 & 2.66\%\tabularnewline
+Husband & Family & 11,700 & 1.62\%\tabularnewline
+Other Family & Family & 10,400 & 1.44\%\tabularnewline
+Son & Family & 10,342 & 1.43\%\tabularnewline
+Boyfriend & Not family (but known) & 9,041 & 1.25\%\tabularnewline
+Neighbor & Not family (but known) & 7,569 & 1.05\%\tabularnewline
+Daughter & Family & 7,436 & 1.03\%\tabularnewline
+Brother & Family & 6,403 & 0.89\%\tabularnewline
+Father & Family & 5,059 & 0.70\%\tabularnewline
+Mother & Family & 4,578 & 0.63\%\tabularnewline
+In-Law & Family & 4,392 & 0.61\%\tabularnewline
+Common-Law Wife & Family & 3,209 & 0.44\%\tabularnewline
+Common-Law Husband & Family & 2,690 & 0.37\%\tabularnewline
+Ex-Wife & Not family (but known) & 2,205 & 0.31\%\tabularnewline
+Stepfather & Family & 1,693 & 0.23\%\tabularnewline
+Homosexual Relationship & Not family (but known) & 1,663 & 0.23\%\tabularnewline
+Stepson & Family & 1,381 & 0.19\%\tabularnewline
+Sister & Family & 1,344 & 0.19\%\tabularnewline
+Ex-Husband & Not family (but known) & 876 & 0.12\%\tabularnewline
+Stepdaughter & Family & 747 & 0.10\%\tabularnewline
+Employer & Not family (but known) & 530 & 0.07\%\tabularnewline
+Employee & Not family (but known) & 422 & 0.06\%\tabularnewline
+Stepmother & Family & 227 & 0.03\%\tabularnewline
+Total & & 721,956 & 100\%\tabularnewline
+\bottomrule
+\end{longtable}
 
 \hypertarget{circumstance}{%
 \subsubsection{Homicide circumstance}\label{circumstance}}
 
-We also have information on the type of the murder, which this data calls the ``circumstance''. This comes as relatively broad categories that leave a lot to be desired in our understanding of what led to the murder. Table \ref{fig:shrCircumstance} shows the number and percent of each circumstance for the first victim of each murder from 1976 to 2018. This data has 33 possible circumstances which it groups into four main categories: murders that coincide with committing another crime (``felony type'' murders), murders that don't coincide with another crime (``non-felony type'' murders), justifiable homicides, and negligent manslaughter.
+We also have information on the type of the murder, which this data calls the ``circumstance''. This comes as relatively broad categories that leave a lot to be desired in our understanding of what led to the murder. Table \ref{tab:shrCircumstance} shows the number and percent of each circumstance for the first victim of each murder from 1976 to 2018. This data has 33 possible circumstances which it groups into four main categories: murders that coincide with committing another crime (``felony type'' murders), murders that don't coincide with another crime (``non-felony type'' murders), justifiable homicides, and negligent manslaughter.
 
 The felony type murders are simply ones where another crime occurred during the murder. While this is called ``felony type'' it does include other crimes such as theft and gambling (which isn't always a felony) so is a bit of a misnomer. The ``non-felony type'' are murders that happen without another crime. This includes gang killings (where, supposedly, only the murder occurred), children killed by babysitters, fights among intoxicated (both of alcohol and drugs) people, and ``lover's triangle'' killings. Justifiable homicides are when a person (civilian or police officer) kill a person who is committing a crime.\footnote{This dataset is one source of information on how many people police kill each year. But it is a large undercount compared to other sources such as the Washington Post collection, so is not a very useful source of information on this topic.} Negligent manslaughter includes accidental shootings such as when children find and shoot a gun, but excludes deaths from traffic accidents.
 
 The most common circumstances, accounting for 27.4\%, 26.4\%, and 12.5\%, respectively, are ``other arguments'', ``unknown'', and ``other non-felony type - not specified''. Since the data includes ``argument over money or property'' as one category, the ``other arguments'' mean that it's an argument for a reason other than over money or property. The ``other non-felony type'' one does not mean that the murder did not occur alongside another crime, but also doesn't fall into the non-felony categories included. Robbery is the only remaining circumstance with more than 5\% of murders, at 8\%.
 
-\textbackslash begin\{figure\}
-
-\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrCircumstance-1}
+\begin{longtable}[]{@{}lrrl@{}}
+\caption{\label{tab:shrCircumstance}The circumstance of the homicide for the first offender in a homicide incident.}\tabularnewline
+\toprule
+\begin{minipage}[b]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Circumstance\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Category\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+\# of Incidents\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+\% of Incidents\strut
+\end{minipage}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\begin{minipage}[b]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Circumstance\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Category\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+\# of Incidents\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+\% of Incidents\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Other Arguments\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Non-Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+197,905\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+27.41\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Unknown\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+190,837\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+26.43\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Other Non-Felony Type - Not Specified\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Non-Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+90,203\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+12.49\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Robbery\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+57,312\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+7.94\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Narcotic Drug Laws\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+26,489\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+3.67\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Juvenile Gang Killings\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Non-Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+23,292\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+3.23\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Felon Killed By Police\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Justifiable Homicide\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+16,394\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+2.27\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Brawl Due To Influence of Alcohol\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Non-Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+15,174\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+2.10\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Argument Over Money Or Property\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Non-Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+14,667\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+2.03\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Other Felony Type - Not Specified\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+13,902\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+1.93\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+All Suspected Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+12,743\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+1.77\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Felon Killed By Private Citizen\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Justifiable Homicide\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+12,376\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+1.71\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Lovers Triangle\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Non-Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+10,372\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+1.44\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Burglary\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+6,052\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+0.84\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Brawl Due To Influence of Narcotics\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Non-Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+4,704\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+0.65\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Gangland Killings\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Non-Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+4,693\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+0.65\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+All Other Manslaughter By Negligence Except Traffic Deaths\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Negligent Manslaughter\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+4,339\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+0.60\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Rape\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+4,086\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+0.57\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Other Negligent Handling of Gun Which Resulted In Death of Another\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Negligent Manslaughter\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+3,266\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+0.45\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Arson\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+2,982\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+0.41\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Other Sex Offenses\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+1,408\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+0.20\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Child Killed By Babysitter\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Non-Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+1,297\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+0.18\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Children Playing With Gun\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Negligent Manslaughter\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+1,272\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+0.18\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Motor Vehicle Theft\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+1,259\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+0.17\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Institutional Killings\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Non-Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+1,055\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+0.15\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Gambling\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+1,031\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+0.14\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Larceny\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+753\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+0.10\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Prostitution And Commercialized Vice\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+601\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+0.08\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Other - Not Specified\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+554\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+0.08\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Sniper Attack\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Non-Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+474\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+0.07\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Victim Shot In Hunting Accident\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Negligent Manslaughter\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+329\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+0.05\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Gun Cleaning Death - Other Than Self-Inflicted\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Negligent Manslaughter\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+125\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+0.02\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Abortion\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+Felony Type\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+10\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+0.00\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Total\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.19}}\raggedleft
+\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedleft
+721,956\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.13}}\raggedright
+100\%\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
 
 \hypertarget{homicide-subcircumstance}{%
 \subsubsection{Homicide subcircumstance}\label{homicide-subcircumstance}}
 
 The ``subcircumstance'' just tells you more information about justifiable homicides. This includes the circumstance leading up to the ``felon'' - which is how the person killed is described, though technically they don't need to have committed a felony - was killed. It includes if this person attacked an officer (the one who killed them), a different officer, a civilian, or was committing or fleeing a crime.
 
-\textbackslash begin\{figure\}
-
-\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrSubCircumstance-1}
+\begin{longtable}[]{@{}lrr@{}}
+\caption{\label{tab:shrSubCircumstance}The circumstance for the first offender in a homicide incident in cases where the offender is killed. This includes incidents where the only person who dies in the offender.}\tabularnewline
+\toprule
+Subcircumstance & \# of Incidents & \% of Incidents\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Subcircumstance & \# of Incidents & \% of Incidents\tabularnewline
+\midrule
+\endhead
+Felon Killed In Commission of A Crime & 10,320 & 35.87\%\tabularnewline
+Felon Attacked Police Officer & 8,553 & 29.73\%\tabularnewline
+Felon Attacked A Civilian & 4,498 & 15.63\%\tabularnewline
+Not Enough Information To Determine & 2,423 & 8.42\%\tabularnewline
+Felon Resisted Arrest & 1,226 & 4.26\%\tabularnewline
+Felon Attacked Fellow Police Officer & 951 & 3.31\%\tabularnewline
+Felon Attempted Flight From A Crime & 799 & 2.78\%\tabularnewline
+Total & 28,770 & 100\%\tabularnewline
+\bottomrule
+\end{longtable}
 
 \hypertarget{leoka}{%
 \chapter{Law Enforcement Officers Killed and Assaulted (LEOKA)}\label{leoka}}
@@ -2818,11 +3235,351 @@ This also means that many (likely most) hate crimes will not be recorded as hate
 
 Bias motivation is based on the offender's perceptions of the victim so even if they are incorrect in who their victim is, if they intended to target someone for their perceived group membership, that is still a hate crime. For example, if a person assaults a man because they think he is gay, that is a hate crime because the assault was motivated by hate towards gay people. Whether the victim is actually gay or not is not relevant - the offender perceived him to be gay so it is an anti-gay hate crime. To make this even more complicated, the offender must have committed the crime because they are motivated, at least to some degree, by their bias against the victim. Being biased against the victim but targeting them for some other reason means that the crime is not a hate crime.
 
-The biases that the FBI includes in this data has grown over time, with new bias motivations being added in 1997, 2012, 2013, and 2015. Table \ref{fig:hateBiasMotivation} shows each bias motivation in this data, the year it was first reported, how many hate crimes there were for this bias motivation from 1991-2018 and what percent of hate crimes that bias motivation makes up. For ease of seeing how bias motivations changed over time, the table is sorted by year and by frequency of incident within that year. If you're viewing this on a computer or phone, you can sort the table yourself. The year is the first year with that bias motivation - as hate crimes for certain groups are very rare, the bias motivation could have technically been available in previous years. The last column in this table shows the percent of hate crimes from 1991-2018, though this is a very rough measure since some groups are so small that even accounting for a small percent of total hate crimes can mean that are massively disproportionately targeted.
+The biases that the FBI includes in this data has grown over time, with new bias motivations being added in 1997, 2012, 2013, and 2015. Table \ref{tab:hateBiasMotivation} shows each bias motivation in this data, the year it was first reported, how many hate crimes there were for this bias motivation from 1991-2018 and what percent of hate crimes that bias motivation makes up. For ease of seeing how bias motivations changed over time, the table is sorted by year and by frequency of incident within that year. If you're viewing this on a computer or phone, you can sort the table yourself. The year is the first year with that bias motivation - as hate crimes for certain groups are very rare, the bias motivation could have technically been available in previous years. The last column in this table shows the percent of hate crimes from 1991-2018, though this is a very rough measure since some groups are so small that even accounting for a small percent of total hate crimes can mean that are massively disproportionately targeted.
 
-\textbackslash begin\{figure\}
-
-\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateBiasMotivation-1}
+\begin{longtable}[]{@{}lrrl@{}}
+\caption{\label{tab:hateBiasMotivation}The bias motivation for hate crime incidents. In incidents with multiple bias motivation, this shows only the first bias motivation recorded.}\tabularnewline
+\toprule
+\begin{minipage}[b]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Bias Motivation\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+First Year Reported\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+\# of Incidents\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+\% of Incidents\strut
+\end{minipage}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\begin{minipage}[b]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Bias Motivation\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+First Year Reported\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+\# of Incidents\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+\% of Incidents\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Eastern Orthodox (Greek, Russian, Etc.)\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+2015\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+131\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+0.07\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Other Christian\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+2015\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+130\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+0.07\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Sikh\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+2015\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+80\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+0.04\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Hindu\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+2015\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+40\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+0.02\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Mormon\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+2015\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+38\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+0.02\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Jehovahs Witness\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+2015\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+20\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+0.01\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Buddhist\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+2015\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+19\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+0.01\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Transgender\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+2013\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+513\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+0.26\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Male\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+2013\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+77\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+0.04\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Native Hawaiian Or Other Pacific Islander\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+2013\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+49\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+0.02\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Gender Non-Conforming\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+2012\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+152\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+0.08\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Female\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+2012\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+142\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+0.07\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Mental Disability\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+1997\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+944\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+0.47\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Physical Disability\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+1997\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+503\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+0.25\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Black\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+1991\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+68,588\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+34.35\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Jewish\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+1991\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+25,943\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+12.99\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-White\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+1991\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+23,366\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+11.70\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Male Homosexual (Gay)\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+1991\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+20,188\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+10.11\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Hispanic\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+1991\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+12,725\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+6.37\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Ethnicity Other Than Hispanic\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+1991\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+10,016\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+5.02\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (LGBT)\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+1991\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+5,990\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+3.00\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Asian\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+1991\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+5,891\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+2.95\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Multi-Racial Group\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+1991\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+4,811\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+2.41\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Female Homosexual (Lesbian)\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+1991\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+4,221\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+2.11\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Muslim\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+1991\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+3,561\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+1.78\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Other Religion\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+1991\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+3,269\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+1.64\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-American Indian Or Native Alaskan\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+1991\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+2,195\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+1.10\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Catholic\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+1991\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+1,458\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+0.73\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Protestant\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+1991\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+1,196\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+0.60\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Multi-Religious Group\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+1991\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+1,118\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+0.56\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Arab\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+1991\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+1,091\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+0.55\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Heterosexual\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+1991\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+542\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+0.27\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Bisexual\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+1991\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+527\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+0.26\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Anti-Atheism/Agnosticism\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+1991\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+149\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+0.07\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.55}}\raggedright
+Total\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.17}}\raggedleft
+NA\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedleft
+199,683\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 3\tabcolsep) * \real{0.14}}\raggedright
+100\%\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
 
 2015 is the most year of new bias motivations, as of data through 2018. This year added a number of religions such as Anti-Buddhist, Anti-Sikh, and Anti-Jehovah's Witness. In 2013, anti-Transgender was added and this is the most common of the bias motivations added since data began in 1991 with 513 hate crimes between 2013-2018 - 0.26\% of all hate crimes from 1991-2018. That year also added anti-male and Anti-Native Hawaiian or Other Pacific Islander, which is the most recent racial group added. In 2012, anti-gender non-conforming and anti-female were included, while in 1997 both anti-mental and anti-physical disability were added. In part due to having fewer years of data available, these newer bias motivations make up a small percent of total hate crimes, accounting for \textasciitilde1.4\%.
 
@@ -2831,26 +3588,136 @@ The original hate crimes - that is, those in the data in 1991 when this dataset 
 \hypertarget{the-crime-that-occurred}{%
 \subsection{The crime that occurred}\label{the-crime-that-occurred}}
 
-The ``crime'' part of hate crimes is which criminal offense occurred during the incident. A hateful act where the action is not one of the crimes that the FBI records would not be considered a hate crime. This is likely most common when considering something like a person calling someone by a hateful slur (e.g.~``You're a {[}slur{]}'', ``go back to your own country'') but where the action is not technically a crime. Another layer of difficulty in using this data is that not all crimes that the FBI includes were initially included when data become available in 1991. Every several years the FBI adds new crimes to be included in this data. Table \ref{fig:hateOffense} shows each crime in the data, the first year that this crime was reported, the total number of these crimes reported between 1991 and 2018, and the percent of all incidents this crime makes up.\footnote{This tables uses only the first offense in an incident so counts are slightly lower than if all crimes in every incident is used.} This table is sorted with the most recent years first, and within year by how common the crime was.
+The ``crime'' part of hate crimes is which criminal offense occurred during the incident. A hateful act where the action is not one of the crimes that the FBI records would not be considered a hate crime. This is likely most common when considering something like a person calling someone by a hateful slur (e.g.~``You're a {[}slur{]}'', ``go back to your own country'') but where the action is not technically a crime. Another layer of difficulty in using this data is that not all crimes that the FBI includes were initially included when data become available in 1991. Every several years the FBI adds new crimes to be included in this data. Table \ref{tab:hateOffense} shows each crime in the data, the first year that this crime was reported, the total number of these crimes reported between 1991 and 2018, and the percent of all incidents this crime makes up.\footnote{This tables uses only the first offense in an incident so counts are slightly lower than if all crimes in every incident is used.} This table is sorted with the most recent years first, and within year by how common the crime was.
 
 Nearly all hate crimes are vandalism/destruction of property (31\%), intimidation (30\%), and simple assault (20\%) or aggravated assault (11\%) with no remaining crime making up more than 2\% of total hate crimes.
 
-\textbackslash begin\{figure\}
-
-\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateOffense-1}
+\begin{longtable}[]{@{}lrrl@{}}
+\caption{\label{tab:hateOffense}The offense type for hate crime incidents. In incidents with multiple offense types, this shows only the first offense type recorded.}\tabularnewline
+\toprule
+Offense & First Year Reported & \# of Incidents & \% of Incidents\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Offense & First Year Reported & \# of Incidents & \% of Incidents\tabularnewline
+\midrule
+\endhead
+Human Trafficking - Commercial Sex Acts & 2017 & 1 & 0.00\%\tabularnewline
+Fraud-Other & 2016 & 17 & 0.01\%\tabularnewline
+Bribery & 2014 & 2 & 0.00\%\tabularnewline
+Assisting Or Promoting Prostitution & 2013 & 4 & 0.00\%\tabularnewline
+Purchasing Prostitution & 2013 & 2 & 0.00\%\tabularnewline
+Wire Fraud & 2006 & 18 & 0.01\%\tabularnewline
+Impersonation & 2001 & 108 & 0.05\%\tabularnewline
+Prostitution & 2001 & 12 & 0.01\%\tabularnewline
+Statutory Rape & 1999 & 12 & 0.01\%\tabularnewline
+Theft From Coin-Operated Machine Or Device & 1999 & 11 & 0.01\%\tabularnewline
+Negligent Manslaughter & 1999 & 3 & 0.00\%\tabularnewline
+False Pretenses/Swindle/Confidence Game & 1997 & 230 & 0.12\%\tabularnewline
+Extortion/Blackmail & 1997 & 41 & 0.02\%\tabularnewline
+Incest & 1997 & 7 & 0.00\%\tabularnewline
+Stolen Property Offenses - Receiving, Selling, Etc. & 1996 & 94 & 0.05\%\tabularnewline
+Sexual Assault With An Object & 1996 & 23 & 0.01\%\tabularnewline
+Pocket-Picking & 1996 & 19 & 0.01\%\tabularnewline
+Welfare Fraud & 1996 & 2 & 0.00\%\tabularnewline
+Drug Equipment Violations & 1995 & 204 & 0.10\%\tabularnewline
+Credit Card/Atm Fraud & 1995 & 125 & 0.06\%\tabularnewline
+Embezzlement & 1995 & 56 & 0.03\%\tabularnewline
+Forcible Sodomy & 1995 & 52 & 0.03\%\tabularnewline
+Pornography/Obscene Material & 1995 & 34 & 0.02\%\tabularnewline
+Purse-Snatching & 1995 & 23 & 0.01\%\tabularnewline
+Theft From Building & 1994 & 478 & 0.24\%\tabularnewline
+Kidnapping/Abduction & 1994 & 99 & 0.05\%\tabularnewline
+All Other Larceny & 1993 & 1,670 & 0.84\%\tabularnewline
+Drug/Narcotic Violations & 1993 & 862 & 0.43\%\tabularnewline
+Theft From Motor Vehicle & 1993 & 642 & 0.32\%\tabularnewline
+Shoplifting & 1993 & 521 & 0.26\%\tabularnewline
+Weapon Law Violations & 1993 & 289 & 0.14\%\tabularnewline
+Theft of Motor Vehicle Parts/Accessories & 1993 & 174 & 0.09\%\tabularnewline
+Counterfeiting/Forgery & 1993 & 165 & 0.08\%\tabularnewline
+Forcible Fondling - Indecent Liberties/Child Molest & 1993 & 142 & 0.07\%\tabularnewline
+Motor Vehicle Theft & 1992 & 401 & 0.20\%\tabularnewline
+Destruction of Property/Vandalism & 1991 & 62,502 & 31.30\%\tabularnewline
+Intimidation & 1991 & 59,750 & 29.92\%\tabularnewline
+Simple Assault & 1991 & 39,035 & 19.55\%\tabularnewline
+Aggravated Assault & 1991 & 22,213 & 11.12\%\tabularnewline
+Robbery & 1991 & 3,748 & 1.88\%\tabularnewline
+Burglary/Breaking And Entering & 1991 & 3,363 & 1.68\%\tabularnewline
+Arson & 1991 & 1,224 & 0.61\%\tabularnewline
+Theft-Other & 1991 & 796 & 0.40\%\tabularnewline
+Murder/Non-Negligent Manslaughter & 1991 & 265 & 0.13\%\tabularnewline
+Forcible Rape & 1991 & 242 & 0.12\%\tabularnewline
+Total & NA & 199,681 & 100\%\tabularnewline
+\bottomrule
+\end{longtable}
 
 Agencies that report to the FBI's National Incident-Based Reporting System (NIBRS) can also report bias motivations for their crimes, and these reports are included in this dataset. One tricky thing is that the crimes included are different depending on if the agency reported through NIBRS or to the dataset directly, and are not NIBRS reporting agencies. The above table shows all crimes included, but agencies who report directly can only submit a subset of crimes. For these agencies the only possible crimes are the ones that are included Offenses Known and Clearances by Arrest dataset, that is detailed in Chapter \ref{offensesKnown}, as well as vandalism/destruction of property and human trafficking.
 
 \hypertarget{the-location-of-the-crime}{%
 \subsection{The location of the crime}\label{the-location-of-the-crime}}
 
-This data is interesting because it includes the location - in categories for types of places, not actual location in the city - of the incident. This is important since the type of location can be a factor in whether the incident is classified as a hate crime. For example, spray paint on a synagogue or a mosque is much more likely to be a hate crime than spray paint on a wall of an abandoned building. Table \ref{fig:hateLocations} shows the locations of hate crimes sorted by the year that location was first included in the data and then by frequency of hate crimes. Each hate crime incident can have multiple locations since each offense can have its own incident, but in most cases (96.6\%) a hate crime only has a single location.
+This data is interesting because it includes the location - in categories for types of places, not actual location in the city - of the incident. This is important since the type of location can be a factor in whether the incident is classified as a hate crime. For example, spray paint on a synagogue or a mosque is much more likely to be a hate crime than spray paint on a wall of an abandoned building. Table \ref{tab:hateLocations} shows the locations of hate crimes sorted by the year that location was first included in the data and then by frequency of hate crimes. Each hate crime incident can have multiple locations since each offense can have its own incident, but in most cases (96.6\%) a hate crime only has a single location.
 
 As with the crime and the bias motivation, the available locations have increased as time went on, though these newer locations are relatively uncommon. One important change in location is that starting in 2010 the location of school/college was split to have one location be for elementary and high schools and another location be for colleges and universities. The majority of hate crimes occur in the victim's home (30\%), on a road or alley (19\%), in an unknown location (13.6\%), and in a parking lot or parking garage. All other locations occur in fewer than 5\% of hate crimes.
 
-\textbackslash begin\{figure\}
-
-\{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateLocations-1}
+\begin{longtable}[]{@{}lrrl@{}}
+\caption{\label{tab:hateLocations}The location of hate crime incidents. In incidents with multiple locations, this shows only the first location recorded.}\tabularnewline
+\toprule
+Location & First Year Reported & \# of Incidents & \% of Incidents\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Location & First Year Reported & \# of Incidents & \% of Incidents\tabularnewline
+\midrule
+\endhead
+Military Installation & 2015 & 3 & 0.00\%\tabularnewline
+Community Center & 2013 & 75 & 0.04\%\tabularnewline
+Dock/Wharf/Freight/Modal Terminal & 2012 & 14 & 0.01\%\tabularnewline
+Shelter - Mission/Homeless & 2011 & 68 & 0.03\%\tabularnewline
+Rest Area & 2011 & 44 & 0.02\%\tabularnewline
+Arena/Stadium/Fairgrounds/Coliseum & 2011 & 35 & 0.02\%\tabularnewline
+Auto Dealership New/Used & 2011 & 34 & 0.02\%\tabularnewline
+Abandoned/Condemned Structure & 2011 & 31 & 0.02\%\tabularnewline
+Daycare Facility & 2011 & 23 & 0.01\%\tabularnewline
+Farm Facility & 2011 & 16 & 0.01\%\tabularnewline
+Amusement Park & 2011 & 14 & 0.01\%\tabularnewline
+Atm Separate From Bank & 2011 & 9 & 0.00\%\tabularnewline
+Tribal Lands & 2011 & 6 & 0.00\%\tabularnewline
+School - Elementary/Secondary & 2010 & 1,748 & 0.88\%\tabularnewline
+School - College/University & 2010 & 1,248 & 0.63\%\tabularnewline
+Park/Playground & 2010 & 646 & 0.32\%\tabularnewline
+Shopping Mall & 2010 & 142 & 0.07\%\tabularnewline
+Industrial Site & 2010 & 65 & 0.03\%\tabularnewline
+Camp/Campground & 2010 & 23 & 0.01\%\tabularnewline
+Gambling Facility/Casino/Race Track & 2010 & 21 & 0.01\%\tabularnewline
+Residence/Home & 1991 & 59,606 & 29.86\%\tabularnewline
+Highway/Road/Alley & 1991 & 37,988 & 19.03\%\tabularnewline
+Other/Unknown & 1991 & 27,178 & 13.61\%\tabularnewline
+School/College & 1991 & 17,249 & 8.64\%\tabularnewline
+Parking Lot/Garage & 1991 & 11,440 & 5.73\%\tabularnewline
+Church/Synagogue/Temple & 1991 & 7,530 & 3.77\%\tabularnewline
+Commercial/Office Building & 1991 & 4,502 & 2.25\%\tabularnewline
+Restaurant & 1991 & 3,978 & 1.99\%\tabularnewline
+Bar/Nightclub & 1991 & 3,549 & 1.78\%\tabularnewline
+Government/Public Building & 1991 & 2,894 & 1.45\%\tabularnewline
+Convenience Store & 1991 & 2,561 & 1.28\%\tabularnewline
+Specialty Store - Tv, Fur, Etc. & 1991 & 2,375 & 1.19\%\tabularnewline
+Air/Bus/Train Terminal & 1991 & 1,931 & 0.97\%\tabularnewline
+Field/Woods & 1991 & 1,917 & 0.96\%\tabularnewline
+Service/Gas Station & 1991 & 1,830 & 0.92\%\tabularnewline
+Grocery/Supermarket & 1991 & 1,628 & 0.82\%\tabularnewline
+Department/Discount Store & 1991 & 1,516 & 0.76\%\tabularnewline
+Drug Store/Doctors Office/Hospital & 1991 & 1,448 & 0.73\%\tabularnewline
+Jail/Prison & 1991 & 1,262 & 0.63\%\tabularnewline
+Hotel/Motel & 1991 & 1,214 & 0.61\%\tabularnewline
+Construction Site & 1991 & 507 & 0.25\%\tabularnewline
+Bank/Savings And Loan & 1991 & 418 & 0.21\%\tabularnewline
+Liquor Store & 1991 & 346 & 0.17\%\tabularnewline
+Lake/Waterway & 1991 & 326 & 0.16\%\tabularnewline
+Rental Storage Facility & 1991 & 188 & 0.09\%\tabularnewline
+Total & NA & 199,646 & 100\%\tabularnewline
+\bottomrule
+\end{longtable}
 
 \hypertarget{number-and-race-of-offenders}{%
 \subsection{Number and race of offenders}\label{number-and-race-of-offenders}}

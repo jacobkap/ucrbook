@@ -78,11 +78,11 @@ shr_1976_2018$number_victims   <- shr_1976_2018$additional_victim_count + 1
 shr_1976_2018$number_offenders <- shr_1976_2018$additional_offender_count + 1
 
 
- shr_1976_2018 %>%
+shr_1976_2018 %>%
   filter(!number_victims %in% 12) %>%
   crimeutils::make_stat_count_plots("number_victims", count = "FALSE",
                                     xlab = "# of Victims") +
-   scale_x_continuous(breaks = 1:11)
+  scale_x_continuous(breaks = 1:11)
 ```
 
 Figure \@ref(fig:numberSHROffenders) shows the breakdown of the number of offenders per homicide incident.^[There is one incident where there are a reported 22 offenders and one with 12 offenders. For simplicity of the graph, these incidents are not included.] It's a little less concentrated than with victims but the vast majority of homicides are committed by one offender - or at least the police only report one offender. About 88% of homicides have only one offender, 8.2% have two, 2.4% have three, and fewer than 1% have four. Fewer than 0.5% of homicides have more than four offenders. However, this is all a bit misleading. In cases where there is no information about the offender, including how many offenders there is, the data simply says that there is a single offender. So the number of homicides with a single offender is an overcount while the number with more offenders is an undercount. 
@@ -218,28 +218,33 @@ shr_1976_2018 %>%
 
 #### Weapon used
 
-The first variable we'll look at is the weapon used by each offender. Table \@ref(fig:shrWeapon) shows the weapon used by the first offender in every incident from 1976 to 2018. Each offender can only be reported as having a single weapon, so this table essentially shows the number (and percent) of murders caused by this weapon. This isn't entirely true since in reality an offender could use multiple weapons and there can be multiple offenders. In these cases the police include what they believe is the "primary" weapon used by this offender.
+The first variable we'll look at is the weapon used by each offender. Table \@ref(tab:shrWeapon) shows the weapon used by the first offender in every incident from 1976 to 2018. Each offender can only be reported as having a single weapon, so this table essentially shows the number (and percent) of murders caused by this weapon. This isn't entirely true since in reality an offender could use multiple weapons and there can be multiple offenders. In these cases the police include what they believe is the "primary" weapon used by this offender.
 
 The most commonly used weapon is a handgun, which is used in nearly half of murders. This is followed by a knife or other sharp weapon used to cut at 15% of murders, and then by "firearm, type not stated" which is just a firearm where we don't know the exact type (it can include handguns) at 7.3% of murders. The fourth most common weapon is "personal weapons" at nearly 6% of murders. "Personal weapons" is a weird term to mean that there was no weapon - the "weapon" was the offender who beat the victim to death. Shotguns are involved in 5% of murders and all other weapons are involved in fewer than 5% of cases. In total there are 19 different weapons included though most are very uncommon. 
 
-```{r shrWeapon, fig.cap = "The weapon used in a homicide incident. In cases where there are multiple offenders, shows only the primary weapon for the first offender."}
+```{r shrWeapon}
 temp <- make_frequency_table(shr_1976_2018, "offender_1_weapon",
-                             c("Weapon", "# of Incidents", "% of Incidents"))
-datatable(temp, options = list(pageLength = 100)) %>%
-  formatPercentage('% of Incidents', 2) %>%
-  formatRound('# of Incidents', digits = 0) %>%
-  formatStyle(1, `text-align` = 'left')
+                             c("Weapon", "\\# of Incidents", "\\% of Incidents"))
+knitr::kable(temp, 
+             format = "markdown",
+             digits = 2, 
+             align = c("l", "r", "r"),
+             booktabs = TRUE, 
+             longtable = TRUE,
+             escape = FALSE,
+             caption = "The weapon used in a homicide incident. In cases where there are multiple offenders, shows only the primary weapon for the first offender.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 #### Relationship between first victim and offenders
 
-An interesting and highly useful variable is the relationship between the first victim and each offender. To be clear, this is only for the first victim; we don't have the relationship between other victims and offenders. However, as seen earlier, this isn't *too much* of an issue since nearly all incidents only have a single victim. There are 29 possible relationship types (including "unknown" relationship) which are broken into three categories: legal family members, people known to the victim but who aren't family, and people not known to the victim. Table \@ref(fig:shrRelationship) shows these relationships and the number and percent of murders with these relationships. If you're looking at this on a computer you can sort or search through this table. 
+An interesting and highly useful variable is the relationship between the first victim and each offender. To be clear, this is only for the first victim; we don't have the relationship between other victims and offenders. However, as seen earlier, this isn't *too much* of an issue since nearly all incidents only have a single victim. There are 29 possible relationship types (including "unknown" relationship) which are broken into three categories: legal family members, people known to the victim but who aren't family, and people not known to the victim. Table \@ref(tab:shrRelationship) shows these relationships and the number and percent of murders with these relationships. If you're looking at this on a computer you can sort or search through this table. 
 
 The most common relationship, with a little over a third of murders, is that the police don't know the relationship. So there is a good deal of uncertainty in the relationship between victims and offenders. Next is that the victim is the offender's acquaintance at 20.5% or is a stranger at 15.5%. The next is "other - known to victim" which is similar to being an acquaintance at almost 5% of murders. The 5th most common relationship, at 3.65% is that the victim is the wife of the offender, so is murdered by her husband, and is the first familial relationship of this list. This is followed by the victim being the friend of the murderer at 3.62%. The remaining relationships all make up fewer than 3% of all murders. 
 
-```{r shrRelationship, fig.cap = "The relationship between the first victim and the first offender in a homicide incident."}
+```{r shrRelationship}
 temp <- make_frequency_table(shr_1976_2018, "victim_1_relation_to_offender_1",
-                             c("Relationship", "# of Incidents", "% of Incidents"))
+                             c("Relationship", "\\# of Incidents", "\\% of Incidents"))
 
 temp$Category <- ""
 temp$Category[tolower(temp$Relationship) %in% c("brother",
@@ -277,15 +282,20 @@ temp <-
          Category,
          everything())
 
-datatable(temp, options = list(pageLength = 100)) %>%
-  formatPercentage('% of Incidents', 2) %>%
-  formatRound('# of Incidents', digits = 0) %>%
-  formatStyle(1, `text-align` = 'left')
+knitr::kable(temp, 
+             format = "markdown",
+             digits = 2, 
+             align = c("l", "r", "r"),
+             booktabs = TRUE, 
+             longtable = TRUE,
+             escape = FALSE,
+             caption = "The relationship between the first victim and the first offender in a homicide incident.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 #### Homicide circumstance {#circumstance}
 
-We also have information on the type of the murder, which this data calls the "circumstance". This comes as relatively broad categories that leave a lot to be desired in our understanding of what led to the murder. Table \@ref(fig:shrCircumstance) shows the number and percent of each circumstance for the first victim of each murder from 1976 to 2018. This data has 33 possible circumstances which it groups into four main categories: murders that coincide with committing another crime ("felony type" murders), murders that don't coincide with another crime ("non-felony type" murders), justifiable homicides, and negligent manslaughter. 
+We also have information on the type of the murder, which this data calls the "circumstance". This comes as relatively broad categories that leave a lot to be desired in our understanding of what led to the murder. Table \@ref(tab:shrCircumstance) shows the number and percent of each circumstance for the first victim of each murder from 1976 to 2018. This data has 33 possible circumstances which it groups into four main categories: murders that coincide with committing another crime ("felony type" murders), murders that don't coincide with another crime ("non-felony type" murders), justifiable homicides, and negligent manslaughter. 
 
 The felony type murders are simply ones where another crime occurred during the murder. While this is called "felony type" it does include other crimes such as theft and gambling (which isn't always a felony) so is a bit of a misnomer. The "non-felony type" are murders that happen without another crime. This includes gang killings (where, supposedly, only the murder occurred), children killed by babysitters, fights among intoxicated (both of alcohol and drugs) people, and "lover's triangle" killings.  Justifiable homicides are when a person (civilian or police officer) kill a person who is committing a crime.^[This dataset is one source of information on how many people police kill each year. But it is a large undercount compared to other sources such as the Washington Post collection, so is not a very useful source of information on this topic.] Negligent manslaughter includes accidental shootings such as when children find and shoot a gun, but excludes deaths from traffic accidents. 
 
@@ -295,7 +305,7 @@ The most common circumstances, accounting for 27.4%, 26.4%, and 12.5%, respectiv
 shr_1976_2018$offender_1_circumstance[shr_1976_2018$offender_1_circumstance %in% "30"] <- "unknown"
 shr_1976_2018$offender_1_circumstance[shr_1976_2018$offender_1_circumstance %in% "circumstances undetermined"] <- "unknown"
 temp <- make_frequency_table(shr_1976_2018, "offender_1_circumstance",
-                             c("Circumstance", "# of Incidents", "% of Incidents"))
+                             c("Circumstance", "\\# of Incidents", "\\% of Incidents"))
 
 temp$Category <- ""
 temp$Category[tolower(temp$Circumstance) %in% c("abortion",
@@ -336,22 +346,32 @@ temp <-
   select(Circumstance,
          Category,
          everything())
-datatable(temp, options = list(pageLength = 100)) %>%
-  formatPercentage('% of Incidents', 2) %>%
-  formatRound('# of Incidents', digits = 0) %>%
-  formatStyle(1, `text-align` = 'left')
+knitr::kable(temp, 
+             format = "markdown",
+             digits = 2, 
+             align = c("l", "r", "r"),
+             booktabs = TRUE, 
+             longtable = TRUE,
+             escape = FALSE,
+             caption = "The circumstance of the homicide for the first offender in a homicide incident.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 #### Homicide subcircumstance
 
 The "subcircumstance" just tells you more information about justifiable homicides. This includes the circumstance leading up to the "felon" - which is how the person killed is described, though technically they don't need to have committed a felony - was killed. It includes if this person attacked an officer (the one who killed them), a different officer, a civilian, or was committing or fleeing a crime. 
 
-```{r shrSubCircumstance, fig.cap = "The circumstance for the first offender in a homicide incident in cases where the offender is killed. This includes incidents where the only person who dies in the offender."}
+```{r shrSubCircumstance}
 temp <- make_frequency_table(shr_1976_2018, "offender_1_subcircumstance",
-                             c("Subcircumstance", "# of Incidents", "% of Incidents"))
-datatable(temp, options = list(pageLength = 100)) %>%
-  formatPercentage('% of Incidents', 2) %>%
-  formatRound('# of Incidents', digits = 0) %>%
-  formatStyle(1, `text-align` = 'left')
+                             c("Subcircumstance", "\\# of Incidents", "\\% of Incidents"))
+knitr::kable(temp, 
+             format = "markdown",
+             digits = 2, 
+             align = c("l", "r", "r"),
+             booktabs = TRUE, 
+             longtable = TRUE,
+             escape = FALSE,
+             caption =  "The circumstance for the first offender in a homicide incident in cases where the offender is killed. This includes incidents where the only person who dies in the offender.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
