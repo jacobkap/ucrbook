@@ -25,6 +25,19 @@ knitr::opts_chunk$set(
   error = TRUE
 )
 
+get_percent_change <- function(new_value,
+                               old_value) {
+  
+  final <- new_value - old_value
+  final <- final / old_value * 100
+  final <- round(final, 2)
+  final <- pad_decimals(final, 2)
+  final[-grep("-", final)] <- paste0("+", final[-grep("-", final)])
+  
+  return(final)
+}
+
+
 make_frequency_table_year <- function(data, column, col_names) {
   temp <- unique(data[, column])
   temp <- temp[!is.na(temp)]

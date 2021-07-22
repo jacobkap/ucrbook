@@ -1,7 +1,7 @@
 --- 
 title: "Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide"
 author: "Jacob Kaplan"
-date: "2021-07-06"
+date: "2021-07-22"
 site: bookdown::bookdown_site
 documentclass: book
 lof: yes
@@ -48,7 +48,7 @@ Since manuals are boring, I'll try to include graphs and images to try to allevi
 
 ## Structure of the book
 
-This book will be divided into nine chapters: this chapter, an intro chapter briefly summarizing each dataset and going over overall issues with UCR data, and seven chapters each covering one of the seven UCR datasets. Each chapter will follow the same format: we'll start with a brief summary of the data such as when it first because available and how it can be used. Next we'll look at how many agencies report their data to this dataset, often looking at how to measure this reporting rate a couple of different ways. Finally, we'll cover the important variables included in the data and how to use them properly (including not using them at all) - this will be the bulk of each chapter. 
+This book will be divided into ten chapters: this chapter, an intro chapter briefly summarizing each dataset and going over overall issues with UCR data, and seven chapters each covering one of the seven UCR datasets. The final chapter will cover county-level UCR data, a commonly used but highly flawed aggregation of UCR data that I recommend against using. Each chapter will follow the same format: we'll start with a brief summary of the data such as when it first because available and how it can be used. Next we'll look at how many agencies report their data to this dataset, often looking at how to measure this reporting rate a couple of different ways. Finally, we'll cover the important variables included in the data and how to use them properly (including not using them at all) - this will be the bulk of each chapter. 
 
 ## Citing this book
 

@@ -27,6 +27,7 @@ rmd_files: [
   "arson.Rmd",
   # Hate Crime
   "hate_crime.Rmd",
-  
+  # County-level data
+  "ucr_county.Rmd",
   "references.Rmd"
 ]
