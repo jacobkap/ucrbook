@@ -1,10 +1,31 @@
 # County-Level UCR Data
 
-```{r}
+
+```r
 load("data/offenses_known_yearly_1960_2018.rda")
 
 philly <- read_csv("data/jacobdkaplan.com_offenses_count_Philadelphia Police Department_Pennsylvania.csv")
+#> 
+#> -- Column specification --------------------------------------------------------
+#> cols(
+#>   .default = col_double(),
+#>   agency = col_character(),
+#>   year = col_date(format = ""),
+#>   state = col_character(),
+#>   ORI = col_character()
+#> )
+#> i Use `spec()` for the full column specifications.
 danville <- read_csv("data/jacobdkaplan.com_offenses_count_Danville Police Dept_California.csv")
+#> 
+#> -- Column specification --------------------------------------------------------
+#> cols(
+#>   .default = col_double(),
+#>   agency = col_character(),
+#>   year = col_date(format = ""),
+#>   state = col_character(),
+#>   ORI = col_character()
+#> )
+#> i Use `spec()` for the full column specifications.
 ```
 
 UCR data is only available at the agency-level.^[Even for county-level agencies such as Sheriff's Offices, the data is only for crimes in that agency's jurisdiction. So the county sheriff reports crimes that they responded to but not crimes within the county that other agencies, such as a city police force, responded to.] This has caused a lot of problems for researchers because many variables from other datasets (e.g. CDC data, economic data) is primarily available at the county-level. Their solution to this problem is to aggregate the data to the county-level but summing all the agencies in a particular county. 
@@ -38,7 +59,8 @@ Finally, some researchers may believe that the problems in this data are not ser
 
 ## Current imputation practices
 
-```{r}
+
+```r
 month_to_num <- data.frame(last_month_reported = c(tolower(month.name), "no months reported"),
                            last_month_reported_num = c(1:12, 0))
 
@@ -46,9 +68,25 @@ z <- offenses_known_yearly_1960_2018 %>%
   filter(year %in% 2017) %>%
   mutate(number_of_months_reported = 12 - number_of_months_missing) %>%
   left_join(month_to_num)
+#> Joining, by = "last_month_reported"
 table(z$number_of_months_reported)
+#> 
+#>     0     1     2     3     4     5     6     7     8     9    10    11    12 
+#>  6119   127    85   170    80    88    91    87    97   117   289   483 14951
 table(z$last_month_reported_num)
+#> 
+#>     0     1     2     3     4     5     6     7     8     9    10    11    12 
+#>  6055   128    40    45    52    49    63    60    61    62   185   220 15764
 table(z$last_month_reported)
+#> 
+#>              april             august           december           february 
+#>                 52                 61              15764                 40 
+#>            january               july               june              march 
+#>                128                 60                 63                 45 
+#>                may no months reported           november            october 
+#>                 49               6055                220                185 
+#>          september 
+#>                 62
 
 months_table <- data.frame(table(z$last_month_reported_num),
            table(z$number_of_months_reported))
@@ -75,239 +113,39 @@ knitr::kable(months_table,
              escape = FALSE,
              caption = "The number of months reported to the 2017 Offenses Known and Clearances by Arrest data using two definitions of months reported. The 'Last Month' definition is the preferred measure of months reported by both the FBI and researchers, though this overcounts months.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
-
+#> Warning in kable_styling(., bootstrap_options = "striped", full_width = FALSE, :
+#> Please specify format in kable. kableExtra can customize either HTML or LaTeX
+#> outputs. See https://haozhu233.github.io/kableExtra/ for details.
 ```
 
 
-```{r}
 
-data <- philly %>%
-  filter(lubridate::year(year) %in% 2018) %>%
-  mutate(month = month(year, label = TRUE, abbr = FALSE)) %>%
-  select(month,
-         actual_murder)
+Table: (\#tab:unnamed-chunk-2)The number of months reported to the 2017 Offenses Known and Clearances by Arrest data using two definitions of months reported. The 'Last Month' definition is the preferred measure of months reported by both the FBI and researchers, though this overcounts months.
 
-data <- data[match(data$month, month.name), ]
-data$imputed_if_missing <- NA
-
-for (i in 1:nrow(data)) {
-  rows <- 1:12
-  rows <- rows[!rows %in% i]
-  data$imputed_if_missing[i] <- sum(data$actual_murder[rows]) * (12/11)
-}
-new_value <- round(new_value, 2)
-data <- data.frame(data)
-data$imputed_if_missing <- round(data$imputed_if_missing, 2)
-data$annual_murders <- sum(data$actual_murder)
-data <- 
-  data %>%
-  select(month, actual_murder, annual_murders, imputed_if_missing)
-data$percent_change <- get_percent_change(data$imputed_if_missing, sum(data$actual_murder))
-names(data) <- c("Month", "Murders That Month", "Actual Annual Murder", "Imputed Annual Murder", "Percent Change")
-
-knitr::kable(data, 
-             format = "markdown",
-             digits = 2, 
-             align = c("l", "r", "r", "r", "r"),
-             booktabs = TRUE, 
-             longtable = TRUE,
-             escape = FALSE,
-             caption = "The imputed number of murders in Philadelphia in 2018 when missing a single month. This shows how different the imputed value is to the real value for each month missing.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
-
-```
-
-
-```{r}
-
-data <- philly %>%
-  filter(lubridate::year(year) %in% 2018) %>%
-  mutate(month = month(year, label = TRUE, abbr = FALSE)) %>%
-  select(month,
-         actual_theft_total)
-
-data <- data[match(data$month, month.name), ]
-data$imputed_if_missing <- NA
-
-for (i in 1:nrow(data)) {
-  rows <- 1:12
-  rows <- rows[!rows %in% i]
-  data$imputed_if_missing[i] <- sum(data$actual_theft_total[rows]) * (12/11)
-}
-new_value <- round(new_value, 2)
-data <- data.frame(data)
-data$imputed_if_missing <- round(data$imputed_if_missing, 2)
-data$annual_murders <- sum(data$actual_theft_total)
-data <- 
-  data %>%
-  select(month, actual_theft_total, annual_murders, imputed_if_missing)
-data$percent_change <- get_percent_change(data$imputed_if_missing, sum(data$actual_theft_total))
-names(data) <- c("Month", "Thefts That Month", "Actual Annual Thefts", "Imputed Annual Thefts", "Percent Change")
-
-knitr::kable(data, 
-             format = "markdown",
-             digits = 2, 
-             align = c("l", "r", "r", "r", "r"),
-             booktabs = TRUE, 
-             longtable = TRUE,
-             escape = FALSE,
-             caption = "The imputed number of thefts in Philadelphia in 2018 when missing a single month. This shows how different the imputed value is to the real value for each month missing.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
-
-```
-
-```{r}
-
-data <- danville %>%
-  filter(lubridate::year(year) %in% 2018) %>%
-  mutate(month = month(year, label = TRUE, abbr = FALSE)) %>%
-  select(month,
-         actual_burg_total)
-
-data <- data[match(data$month, month.name), ]
-data$imputed_if_missing <- NA
-
-for (i in 1:nrow(data)) {
-  rows <- 1:12
-  rows <- rows[!rows %in% i]
-  data$imputed_if_missing[i] <- sum(data$actual_burg_total[rows]) * (12/11)
-}
-new_value <- round(new_value, 2)
-data <- data.frame(data)
-data$imputed_if_missing <- round(data$imputed_if_missing, 2)
-data$annual_murders <- sum(data$actual_burg_total)
-data <- 
-  data %>%
-  select(month, actual_burg_total, annual_murders, imputed_if_missing)
-data$percent_change <- get_percent_change(data$imputed_if_missing, sum(data$actual_burg_total))
-names(data) <- c("Month", "Burglaries That Month", "Actual Annual Burglaries", "Imputed Annual Burglaries", "Percent Change")
-
-knitr::kable(data, 
-             format = "markdown",
-             digits = 2, 
-             align = c("l", "r", "r", "r", "r"),
-             booktabs = TRUE, 
-             longtable = TRUE,
-             escape = FALSE,
-             caption = "The imputed number of burglaries in Danville, California, in 2018 when missing a single month. This shows how different the imputed value is to the real value for each month missing.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
-
-```
-
-
-```{r}
-data <- philly %>%
-  filter(lubridate::year(year) %in% 2018) %>%
-  mutate(month = month(year, label = TRUE, abbr = FALSE)) %>%
-  select(month,
-         actual_murder)
-data <- data[match(data$month, month.name), ]
-
-final <- data.frame(months_missing = 1:9,
-                    actual_murder = sum(data$actual_murder),
-                    mean_imputed_murder = NA,
-                    median_imputed_murder = NA,
-                    mode_imputed_murder = NA,
-                    min_imputed_murder = NA,
-                    max_imputed_murder = NA)
+|Months Reported | Last Month Definition| Months Not Missing Definition| Percent Change|
+|:---------------|---------------------:|-----------------------------:|--------------:|
+|0               |                 6,055|                         6,119|          +1.06|
+|1               |                   128|                           127|          -0.78|
+|2               |                    40|                            85|        +112.50|
+|3               |                    45|                           170|        +277.78|
+|4               |                    52|                            80|         +53.85|
+|5               |                    49|                            88|         +79.59|
+|6               |                    63|                            91|         +44.44|
+|7               |                    60|                            87|         +45.00|
+|8               |                    61|                            97|         +59.02|
+|9               |                    62|                           117|         +88.71|
+|10              |                   185|                           289|         +56.22|
+|11              |                   220|                           483|        +119.55|
+|12              |                15,764|                        14,951|          -5.16|
 
 
 
-for (i in 1:9) {
-  storage_percent_change <- vector(mode = "numeric", length = 10000)
-  for (n in 1:length(storage_percent_change)) {
-    months_to_remove <- sample(1:12, i)
-    rows <- 1:12
-    rows <- rows[!rows %in% months_to_remove]
-    storage_percent_change[n] <- sum(data$actual_murder[rows]) * (12/(12-i))
-  }
-  
-  final$mean_imputed_murder[i] <- mean(storage_percent_change)
-  final$median_imputed_murder[i] <- median(storage_percent_change)
-  final$min_imputed_murder[i] <- min(storage_percent_change)
-  final$max_imputed_murder[i] <- max(storage_percent_change)
-  final$mode_imputed_murder[i] <- crimeutils:::get_mode(storage_percent_change, return_numeric = TRUE)
-}
-
-final <-
-  final %>%
-  mutate_if(is.numeric, round, 2)
-
-names(final) <- c("# of Months Missing", 
-                  "Actual Murder",
-                  "Mean Imputed Murder",
-                  "Median Imputed Murder",
-                  "Modal Imputed Murder",
-                  "Min Imputed Murder", 
-                  "Max Imputed Murder")
-
-knitr::kable(final, 
-             format = "markdown",
-             digits = 2, 
-             align = c("l", "r", "r", "r", "r", "r", "r"),
-             booktabs = TRUE, 
-             longtable = TRUE,
-             escape = FALSE,
-             caption = "A simulation showing how the imputed values of murders in Philadelphia in 2018 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run for removing and imputing those months of data.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
-```
-
-
-```{r}
-data <- danville %>%
-  filter(lubridate::year(year) %in% 2018) %>%
-  mutate(month = month(year, label = TRUE, abbr = FALSE)) %>%
-  select(month,
-         actual_burg_total)
-data <- data[match(data$month, month.name), ]
-
-final <- data.frame(months_missing = 1:9,
-                    actual_burg_total = sum(data$actual_burg_total),
-                    mean_imputed_burglary = NA,
-                    median_imputed_burglary = NA,
-                    mode_imputed_burglary = NA,
-                    min_imputed_burglary = NA,
-                    max_imputed_burglary = NA)
 
 
 
-for (i in 1:9) {
-  storage_percent_change <- vector(mode = "numeric", length = 10000)
-  for (n in 1:length(storage_percent_change)) {
-    months_to_remove <- sample(1:12, i)
-    rows <- 1:12
-    rows <- rows[!rows %in% months_to_remove]
-    storage_percent_change[n] <- sum(data$actual_burg_total[rows]) * (12/(12-i))
-  }
-  
-  final$mean_imputed_burglary[i] <- mean(storage_percent_change)
-  final$median_imputed_burglary[i] <- median(storage_percent_change)
-  final$min_imputed_burglary[i] <- min(storage_percent_change)
-  final$max_imputed_burglary[i] <- max(storage_percent_change)
-  final$mode_imputed_burglary[i] <- crimeutils:::get_mode(storage_percent_change, return_numeric = TRUE)
-}
 
-final <-
-  final %>%
-  mutate_if(is.numeric, round, 2)
 
-names(final) <- c("# of Months Missing",
-                  "Actual Burglary",
-                  "Mean Imputed Burglary",
-                  "Median Imputed Burglary",
-                  "Modal Imputed Burglary",
-                  "Min Imputed Burglary",
-                  "Max Imputed Burglary")
 
-knitr::kable(final, 
-             format = "markdown",
-             digits = 2, 
-             align = c("l", "r", "r", "r", "r", "r", "r"),
-             booktabs = TRUE, 
-             longtable = TRUE,
-             escape = FALSE,
-             caption = "A simulation showing how the imputed values of burglaries in Danville, Californoa, in 2018 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run for removing and imputing those months of data.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
-```
+
 
 
