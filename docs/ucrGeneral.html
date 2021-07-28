@@ -24,7 +24,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2021-07-22" />
+<meta name="date" content="2021-07-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -302,6 +302,17 @@ div.csl-indent {
 <li class="chapter" data-level="9.2.3" data-path="hate-crimes.html"><a href="hate-crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>9.2.3</b> The location of the crime</a></li>
 <li class="chapter" data-level="9.2.4" data-path="hate-crimes.html"><a href="hate-crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>9.2.4</b> Number and race of offenders</a></li>
 </ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="county-level-ucr-data.html"><a href="county-level-ucr-data.html"><i class="fa fa-check"></i><b>10</b> County-Level UCR Data</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="county-level-ucr-data.html"><a href="county-level-ucr-data.html#current-usage"><i class="fa fa-check"></i><b>10.1</b> Current usage</a></li>
+<li class="chapter" data-level="10.2" data-path="county-level-ucr-data.html"><a href="county-level-ucr-data.html#how-much-data-is-missing"><i class="fa fa-check"></i><b>10.2</b> How much data is missing</a></li>
+<li class="chapter" data-level="10.3" data-path="county-level-ucr-data.html"><a href="county-level-ucr-data.html#current-imputation-practices"><i class="fa fa-check"></i><b>10.3</b> Current imputation practices</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="county-level-ucr-data.html"><a href="county-level-ucr-data.html#months-missing"><i class="fa fa-check"></i><b>10.3.1</b> 1-9 months missing</a></li>
+<li class="chapter" data-level="10.3.2" data-path="county-level-ucr-data.html"><a href="county-level-ucr-data.html#months-missing-1"><i class="fa fa-check"></i><b>10.3.2</b> 10-12 months missing</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="county-level-ucr-data.html"><a href="county-level-ucr-data.html#final-thoughts"><i class="fa fa-check"></i><b>10.4</b> Final thoughts</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -640,9 +651,9 @@ Figure 2.11: Total reported hate crimes by state, 2018.
 <h2><span class="header-section-number">2.5</span> The data as you get it from the FBI</h2>
 <p>We’ll finish this overview of the UCR data by briefly talking about format of the data that is released by the FBI, before the processing done by myself or <a href="https://www.icpsr.umich.edu/web/pages/NACJD/index.html">NACJD</a> that converts the data to a type that software like R or Stata or Excel can understand. The FBI releases their data as fixed-width ASCII files which are basically just an Excel file but with all of the columns squished together. As an example, Figure <a href="ucrGeneral.html#fig:ascii">2.12</a> shows what the data looks like as you receive it from the FBI for the Offenses Known and Clearances by Arrest dataset for 1960, the first year with data available. In the figure, it seems like there are multiple rows but that’s just because the software that I opened the file in isn’t wide enough - in reality what is shown is a single row that is extremely wide because there are over 1,500 columns in this data. If you scroll down enough you’ll see the next row, but that isn’t shown in the current image. What is shown is a single row with a ton of columns all pushed up next to each other. Since all of the columns are squished together (the gaps are just blank spaces because the value there is a space, but that doesn’t mean there is a in the data. Spaces are possible values in the data and are meaningful), you need some way to figure out which parts of the data belong in which column.</p>
 <div class="figure" style="text-align: center"><span id="fig:ascii"></span>
-<img src="images/offenses_known_raw_ascii_1960.PNG" alt="Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset" width="90%" />
+<img src="images/offenses_known_raw_ascii_1960.PNG" alt="Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset." width="90%" />
 <p class="caption">
-Figure 2.12: Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset
+Figure 2.12: Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset.
 </p>
 </div>
 <p>The “fixed-width” part of the file type is how this works (the ASCII part basically means it’s a text file). Each row is the same width - literally the same number of characters, including blank spaces. So you must tell the software you are using to process this file - by literally writing code in something called a “setup file” but is basically just instructions for whatever software you use (R, SPSS, Stata, SAS can all do this) - which characters are certain columns. For example, in this data the first character says which type of UCR data it is (1 means the Offenses Known and Clearances by Arrest data) and the next two characters (in the setup file written as 2-3 since it is characters 2 through 3 [inclusive]) are the state number (01 is the state code for Alabama). So we can read this row as the first column indicating it is an Offenses Known data, the second column indicating that it is for the state of Alabama, and so on for each of the remaining columns. To read in this data you’ll need a setup file that covers every column in the data (some software, like R, can handle just reading in the specific columns you want and don’t need to include every column in the setup file).</p>

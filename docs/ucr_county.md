@@ -1,23 +1,8 @@
 # County-Level UCR Data
 
-```{r, echo=FALSE}
-knitr::opts_chunk$set(
-  echo    = FALSE,
-  warning = FALSE,
-  error   = FALSE,
-  message = FALSE
-)
-```
 
-```{r}
-load("data/offenses_known_yearly_1960_2018.rda")
-offenses_known_yearly_1960_2018 <-
-  offenses_known_yearly_1960_2018 %>%
-  filter(!agency_type %in% c("special jurisdiction", "federal"))
 
-philly <- read_csv("data/jacobdkaplan.com_offenses_count_Philadelphia Police Department_Pennsylvania.csv")
-danville <- read_csv("data/jacobdkaplan.com_offenses_count_Danville Police Dept_California.csv")
-```
+
 
 UCR data is only available at the agency-level.[^ucr_county-1] This has caused a lot of problems for researchers because many variables from other datasets (e.g. CDC data, economic data) is primarily available at the county-level. Their solution to this problem is to aggregate the data to the county-level by summing all the agencies in a particular county.^[Because the county-level data imputes missing months, this dataset is *only* available at the annual-level, not at the monthly level.]
 
@@ -67,126 +52,52 @@ The table shows what percent of agencies that reported data had data for each po
 
 Ultimately the measures are quite similar though systematically overcount reporting using the 1st method. Both show that about 23% of agencies reported zero months. The 1st method has nearly 73% of agencies reporting 12 months while the 2nd method has 69%, a difference of about 5% which is potentially a sizable difference depending on exactly which agencies are missing. The remaining nearly 4% of agencies all have far more people in the 2nd method than in the first, which is because in the 1st method those agencies are recorded as having 12 months since they reported in December but not actually all 12 months of the year. There are huge percent increases in moving from the 1st to 2nd method for 1-11 months reported though this is due to having very few agencies report this many months. Most months have only about 50 agencies in the 1st method and about 70 in the 2nd, so the actual difference is not that large. 
 
-```{r countyMonthsReportedDefinitions}
-month_to_num <- data.frame(last_month_reported = c(tolower(month.name), "no months reported"),
-                           last_month_reported_num = c(1:12, 0))
 
-z <- offenses_known_yearly_1960_2018 %>%
-  filter(year %in% 2017) %>%
-  mutate(number_of_months_reported = 12 - number_of_months_missing) %>%
-  left_join(month_to_num)
+Table: (\#tab:countyMonthsReportedDefinitions)The number of months reported to the 2017 Offenses Known and Clearances by Arrest data using two definitions of months reported. The 'Last Month' definition is the preferred measure of months reported by both the FBI and researchers, though this overcounts months.
 
-
-months_table <- data.frame(table(z$last_month_reported_num),
-                           table(z$number_of_months_reported))
-months_table$Var1.1 <- NULL
-months_table$percent_change <- months_table$Freq.1 - months_table$Freq
-months_table$percent_change <- months_table$percent_change / months_table$Freq * 100
-months_table$percent_change <- round(months_table$percent_change, 2)
-months_table$percent_change <- pad_decimals(months_table$percent_change, 2)
-months_table$percent_change[-grep("-", months_table$percent_change)] <- paste0("+", months_table$percent_change[-grep("-", months_table$percent_change)])
-
-months_table$Freq <- formatC(months_table$Freq, format = "d", big.mark = ",")
-percent_val <- paste0("(", round(parse_number(months_table$Freq) / sum(parse_number(months_table$Freq)) * 100, 2), "%)")
-months_table$Freq <- paste(months_table$Freq, percent_val)
-months_table$Freq.1 <- formatC(months_table$Freq.1, format = "d", big.mark = ",")
-percent_val <- paste0("(", round(parse_number(months_table$Freq.1) / sum(parse_number(months_table$Freq.1)) * 100, 2), "%)")
-months_table$Freq.1 <- paste(months_table$Freq.1, percent_val)
-names(months_table) <- c("Months Reported",
-                         "Last Month Definition",
-                         "Months Not Missing Definition", 
-                         "Percent Difference")
-
-
-knitr::kable(months_table, 
-             format = "markdown",
-             digits = 2, 
-             align = c("l", "r", "r", "r"),
-             booktabs = TRUE, 
-             longtable = TRUE,
-             escape = FALSE,
-             caption = "The number of months reported to the 2017 Offenses Known and Clearances by Arrest data using two definitions of months reported. The 'Last Month' definition is the preferred measure of months reported by both the FBI and researchers, though this overcounts months.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
-
-```
+|Months Reported | Last Month Definition| Months Not Missing Definition| Percent Difference|
+|:---------------|---------------------:|-----------------------------:|------------------:|
+|0               |        4,481 (23.01%)|                4,514 (23.18%)|              +0.74|
+|1               |            93 (0.48%)|                   112 (0.58%)|             +20.43|
+|2               |            36 (0.18%)|                    70 (0.36%)|             +94.44|
+|3               |            40 (0.21%)|                    156 (0.8%)|            +290.00|
+|4               |            44 (0.23%)|                    66 (0.34%)|             +50.00|
+|5               |            42 (0.22%)|                     78 (0.4%)|             +85.71|
+|6               |            48 (0.25%)|                     78 (0.4%)|             +62.50|
+|7               |            55 (0.28%)|                    81 (0.42%)|             +47.27|
+|8               |            56 (0.29%)|                    87 (0.45%)|             +55.36|
+|9               |            56 (0.29%)|                   102 (0.52%)|             +82.14|
+|10              |           158 (0.81%)|                   242 (1.24%)|             +53.16|
+|11              |           199 (1.02%)|                   419 (2.15%)|            +110.55|
+|12              |       14,162 (72.74%)|               13,465 (69.16%)|              -4.92|
 
 We can look at how these trends change over time in Figure \@ref(fig:countyAnyMonthReported) that shows the annual number of agencies that reported at least one month of data in that year. About 5,500 agencies reported at least on month throughout the 1960s and then grew rapidly over the next decade until about 12,500 agencies reported in the end of the 1970s. This declined over the next two decades before again increasing in the mid-late 1990s where it steadily increased to about 14,000 agencies in 2010 and has stagnated since then, with a small dip in 2018. Out of the approximately 18,000 police agencies in the United States, this is relatively low reporting even as far as recent decades. 
 
-```{r countyAnyMonthReported, fig.cap = "The annual number of agencies that reported at least one month of data in that year."}
-offenses_known_yearly_1960_2018 %>%
-  dplyr::filter(!last_month_reported %in% "no months reported") %>%
-  count(year) %>%
-  ggplot(aes(x = year, y = n)) +
-  geom_line(size = 1.05) +
-  xlab("Year") +
-  ylab("# of Agencies Reporting") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
-  expand_limits(y = c(0, 15000))
-```
+<div class="figure" style="text-align: center">
+<img src="ucr_county_files/figure-html/countyAnyMonthReported-1.png" alt="The annual number of agencies that reported at least one month of data in that year." width="90%" />
+<p class="caption">(\#fig:countyAnyMonthReported)The annual number of agencies that reported at least one month of data in that year.</p>
+</div>
 
 We saw in Table \@ref(tab:countyMonthsReportedDefinitions) that when agencies do report they tend to report all 12 months of the year. Figure \@ref(fig:countyDecemberReported) examines whether this is true by showing the number of agencies in each year that reported in December, which the way that county-level UCR data assumes that all 12 months are reported. The trends are nearly identical to Figure \@ref(fig:countyAnyMonthReported) but with several hundred fewer agencies reporting in December each year than reporting at least one month. This shows that the trend of when agencies do report they tend to report all 12 months (or at least report in December) is consistent over time.
 
-```{r countyDecemberReported, fig.cap = "The annual number of agencies that reported data in December of that year (which by the FBI's definition would mean they reported 12 months of the year."}
-offenses_known_yearly_1960_2018 %>%
-  dplyr::filter(last_month_reported %in% "december") %>%
-  count(year) %>%
-  ggplot(aes(x = year, y = n)) +
-  geom_line(size = 1.05) +
-  xlab("Year") +
-  ylab("# of Agencies Reporting") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
-  expand_limits(y = c(0, 15000))
-```
+<div class="figure" style="text-align: center">
+<img src="ucr_county_files/figure-html/countyDecemberReported-1.png" alt="The annual number of agencies that reported data in December of that year (which by the FBI's definition would mean they reported 12 months of the year." width="90%" />
+<p class="caption">(\#fig:countyDecemberReported)The annual number of agencies that reported data in December of that year (which by the FBI's definition would mean they reported 12 months of the year.</p>
+</div>
 
 Another way to look at this is to examine, as Figure \@ref(fig:countyDecemberPercent) does, the percent of agencies that report in December of agencies that report at least one month. On average about 92% of agencies that do report any month also report in December, and this number has steadily grown over time, though declined in 2018 to only 90%. 
 
-```{r countyDecemberPercent, fig.cap = "The annual percent of agencies that reported in December of that year of those that reported at least one month of data."}
-
-offenses_known_yearly_1960_2018$dummy <- 1
-offenses_known_yearly_1960_2018$december_reported <- 0
-offenses_known_yearly_1960_2018$december_reported[offenses_known_yearly_1960_2018$last_month_reported %in% "december"] <- 1
-offenses_known_yearly_1960_2018 %>%
-  filter(last_month_reported != "no months reported") %>%
-  group_by(year) %>%
-  summarize(agencies = sum(dummy),
-            december_reported = sum(december_reported)) %>%
-  mutate(prop_december = december_reported / agencies,
-         prop_december_all_agencies = december_reported / length(unique(offenses_known_yearly_1960_2018$ori))) %>% 
-  data.frame() %>%
-  ggplot(aes(x = year, y = prop_december)) +
-  geom_line(size = 1.05) +
-  xlab("Year") +
-  ylab("% of Reporting Agencies") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
-  expand_limits(y = c(0, 1))
-
-```
+<div class="figure" style="text-align: center">
+<img src="ucr_county_files/figure-html/countyDecemberPercent-1.png" alt="The annual percent of agencies that reported in December of that year of those that reported at least one month of data." width="90%" />
+<p class="caption">(\#fig:countyDecemberPercent)The annual percent of agencies that reported in December of that year of those that reported at least one month of data.</p>
+</div>
 
 Since the number of agencies reporting changes every year - generally increasing over time - we can look at the percent of agencies that reported in December out of all agencies that reported data (and this includes reporting zero months of data) to UCR. Figure \@ref(fig:countyDecemberPercentAnyAgency) shows this trend over time and about 75% of agencies that submit to UCR each year report in December. Reporting rates undulate over this time period - the low is 62% in 1997 and the high is 83% in 1979 - but tend to return to ~75% reporting before trending in the opposite direction again. 
 
-```{r countyDecemberPercentAnyAgency, fig.cap = "The annual percent of agencies that reported in December of that year including those that did not report any data that year."}
-
-offenses_full_reporters_by_year <- 
-  offenses_known_yearly_1960_2018 %>%
-  group_by(year) %>%
-  summarize(agencies = sum(dummy),
-            december_reported = sum(december_reported)) %>%
-  mutate(prop_december = december_reported / agencies,
-         prop_december_all_agencies = december_reported / length(unique(offenses_known_yearly_1960_2018$ori))) %>% 
-  data.frame() 
-
-ggplot(offenses_full_reporters_by_year,
-       aes(x = year, y = prop_december)) +
-  geom_line(size = 1.05) +
-  xlab("Year") +
-  ylab("% of Reporting Agencies") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
-  expand_limits(y = c(0, 1))
-```
+<div class="figure" style="text-align: center">
+<img src="ucr_county_files/figure-html/countyDecemberPercentAnyAgency-1.png" alt="The annual percent of agencies that reported in December of that year including those that did not report any data that year." width="90%" />
+<p class="caption">(\#fig:countyDecemberPercentAnyAgency)The annual percent of agencies that reported in December of that year including those that did not report any data that year.</p>
+</div>
 
 Not all agencies report data to UCR, even to say that they're not reporting any months of data. In 1960, for example, only 8,452 agencies reported data to UCR and 1,406 of these reported zero months of data. To get accurate data on county crime you'll want data from all agencies, not just ones that reported (or told the FBI they weren't reporting) data. Figure \@ref(fig:countyDecemberPercentAllAgencies) shows the annual percent of agencies that reported in December of each year out of the 19,036 agencies that ever reported to UCR. This 19,036 is higher than the ~18,000 agencies often discussed (including in this book) by academics as the approximate number of agencies. I believe that the number here is higher because it includes agencies that may have closed or been swallowed by a larger or nearby agency. 
 
@@ -194,16 +105,10 @@ The trends in Figure \@ref(fig:countyDecemberPercentAllAgencies) are very simila
 
 The zero reporting agencies are largely in smaller agencies - with the average sized agency in 2018 having a population of 1,682 and the largest having a population of 463,545 - and, in 2018, amounts to agencies covering about 13 million people, or about 4% of the United States population. 
 
-```{r countyDecemberPercentAllAgencies, fig.cap = "The annual percent of agencies that reported in December of that year out of all agencies that ever reported to the Offenses Known and Clearances by Arrest dataset (N=19,036)."}
-ggplot(offenses_full_reporters_by_year,
-       aes(x = year, y = prop_december_all_agencies)) +
-  geom_line(size = 1.05) +
-  xlab("Year") +
-  ylab("% of All Agencies") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
-  expand_limits(y = c(0, 1))
-```
+<div class="figure" style="text-align: center">
+<img src="ucr_county_files/figure-html/countyDecemberPercentAllAgencies-1.png" alt="The annual percent of agencies that reported in December of that year out of all agencies that ever reported to the Offenses Known and Clearances by Arrest dataset (N=19,036)." width="90%" />
+<p class="caption">(\#fig:countyDecemberPercentAllAgencies)The annual percent of agencies that reported in December of that year out of all agencies that ever reported to the Offenses Known and Clearances by Arrest dataset (N=19,036).</p>
+</div>
 
 ## Current imputation practices
 
@@ -215,9 +120,10 @@ When an agency reports 3-11 months, those months of data are multiplied by 12/nu
 
 Finally, for agencies that reported all 12 months there's nothing missing so it just uses the data as it is.
 
-```{r countyImputation, fig.cap="The imputation procedure for missing data based on the number of months missing."}
-knitr::include_graphics('images/segments_flowchart.PNG')
-```
+<div class="figure" style="text-align: center">
+<img src="images/segments_flowchart.PNG" alt="The imputation procedure for missing data based on the number of months missing." width="90%" />
+<p class="caption">(\#fig:countyImputation)The imputation procedure for missing data based on the number of months missing.</p>
+</div>
 
 ### 1-9 months missing
 
@@ -229,73 +135,63 @@ Starting with Table \@ref(tab:CountyPhillyMurders), we will see the change in th
 
 If each month had the same number of crimes we'd expect each month to account for 8.33% of the year's total. That's not what we're seeing in Philadelphia for murders as the percents range from 5.13% in both January and April to 12.25% in December. This means that replacing these months will not give us an accurate count of crimes as crime is not distributed evenly across months. Indeed, as seen in column 5, on average, the annual sum of murders when imputing a single month is 1.85% off from the real value. When imputing the worst (as far as its effect on results) months you can report murder as either 4.27% lower than it is or 3.5% higher than it is.
 
-```{r CountyPhillyMurders}
 
-data <- philly %>%
-  filter(lubridate::year(year) %in% 2018) %>%
-  mutate(month = month(year, label = TRUE, abbr = FALSE)) %>%
-  select(month,
-         actual_murder) %>%
-  get_replace_single_month("actual_murder", "Murders")
+Table: (\#tab:CountyPhillyMurders)The imputed number of murders in Philadelphia in 2018 when missing a single month. This shows how different the imputed value is to the real value for each month missing.
 
-knitr::kable(data, 
-             format = "markdown",
-             digits = 2, 
-             align = c("l", "r", "r", "r", "r"),
-             booktabs = TRUE, 
-             longtable = TRUE,
-             escape = FALSE,
-             caption = "The imputed number of murders in Philadelphia in 2018 when missing a single month. This shows how different the imputed value is to the real value for each month missing.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
-
-```
+|Month     | Murders That Month| Actual Annual Murders| Imputed Annual Murders| Percent Change|
+|:---------|------------------:|---------------------:|----------------------:|--------------:|
+|January   |         18 (5.13%)|                   351|                    363|          +3.50|
+|February  |         26 (7.41%)|                   351|                    354|          +1.01|
+|March     |         27 (7.69%)|                   351|                    353|          +0.70|
+|April     |         18 (5.13%)|                   351|                    363|          +3.50|
+|May       |         33 (9.40%)|                   351|                    346|          -1.17|
+|June      |         26 (7.41%)|                   351|                    354|          +1.01|
+|July      |         27 (7.69%)|                   351|                    353|          +0.70|
+|August    |        41 (11.68%)|                   351|                    338|          -3.65|
+|September |         32 (9.12%)|                   351|                    348|          -0.85|
+|October   |         27 (7.69%)|                   351|                    353|          +0.70|
+|November  |         33 (9.40%)|                   351|                    346|          -1.17|
+|December  |        43 (12.25%)|                   351|                    336|          -4.27|
 
 Part of the reason for the percent difference for murders when replacing a month found above is that there was high variation in the number of murders per month with some months having more than double the number as other months. We'll look at what happens when crimes are far more evenly distributed across months in Table \@ref(tab:countyPhillyThefts). This table replicates Table \@ref(tab:CountyPhillyMurders) but uses thefts in Philadelphia in 2018 instead of murders. Here the monthly share of thefts range only from 6.85% to 9.16% so month-to-month variation is not very large. Now the percent change never increases above an absolute value of 1.62 and changes by an average of 0.77%. In cases like this, the imputation method is less of a problem.
 
-```{r countyPhillyThefts}
 
-data <- philly %>%
-  filter(lubridate::year(year) %in% 2018) %>%
-  mutate(month = month(year, label = TRUE, abbr = FALSE)) %>%
-  select(month,
-         actual_theft_total) %>%
-  get_replace_single_month("actual_theft_total", "Thefts")
+Table: (\#tab:countyPhillyThefts)The imputed number of thefts in Philadelphia in 2018 when missing a single month. This shows how different the imputed value is to the real value for each month missing.
 
-knitr::kable(data, 
-             format = "markdown",
-             digits = 2, 
-             align = c("l", "r", "r", "r", "r"),
-             booktabs = TRUE, 
-             longtable = TRUE,
-             escape = FALSE,
-             caption = "The imputed number of thefts in Philadelphia in 2018 when missing a single month. This shows how different the imputed value is to the real value for each month missing.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
-
-```
+|Month     | Thefts That Month| Actual Annual Thefts| Imputed Annual Thefts| Percent Change|
+|:---------|-----------------:|--------------------:|---------------------:|--------------:|
+|January   |     2,720 (7.36%)|               36,968|                37,361|          +1.06|
+|February  |     2,532 (6.85%)|               36,968|                37,566|          +1.62|
+|March     |     2,598 (7.03%)|               36,968|                37,494|          +1.42|
+|April     |     3,200 (8.66%)|               36,968|                36,837|          -0.35|
+|May       |     3,215 (8.70%)|               36,968|                36,821|          -0.40|
+|June      |     3,226 (8.73%)|               36,968|                36,809|          -0.43|
+|July      |     3,312 (8.96%)|               36,968|                36,715|          -0.68|
+|August    |     3,454 (9.34%)|               36,968|                36,560|          -1.10|
+|September |     3,287 (8.89%)|               36,968|                36,742|          -0.61|
+|October   |     3,386 (9.16%)|               36,968|                36,634|          -0.90|
+|November  |     2,906 (7.86%)|               36,968|                37,158|          +0.52|
+|December  |     3,132 (8.47%)|               36,968|                36,912|          -0.15|
 
 Given that the imputation method is largely dependent on consistency across months, what happens when crime is very rare? Table \@ref(tab:countyDanvilleVehicle) shows what happens when replacing a single month for motor vehicle thefts in Danville, California, a small town which had 22 of these thefts in 2018. While possible to still have an even distribution of crimes over months, this is less likely when it comes to rare events. Here, having so few motor vehicle thefts means that small changes in monthly crimes can have an outsize effect. The average absolute value percent change now is 7.3% and this ranges from a -15.68% difference to a +9.1% difference from the real annual count. This means that having even a single month missing can vastly overcount or undercount the real values.
 
-```{r countyDanvilleVehicle}
 
-data <- danville %>%
-  filter(lubridate::year(year) %in% 2018) %>%
-  mutate(month = month(year, label = TRUE, abbr = FALSE)) %>%
-  select(month,
-         actual_mtr_veh_theft_total) %>%
-  get_replace_single_month("actual_mtr_veh_theft_total", "Vehicle Thefts")
+Table: (\#tab:countyDanvilleVehicle)The imputed number of motor vehicle thefts in Danville, California, in 2018 when missing a single month. This shows how different the imputed value is to the real value for each month missing.
 
-
-knitr::kable(data, 
-             format = "markdown",
-             digits = 2, 
-             align = c("l", "r", "r", "r", "r"),
-             booktabs = TRUE, 
-             longtable = TRUE,
-             escape = FALSE,
-             caption = "The imputed number of motor vehicle thefts in Danville, California, in 2018 when missing a single month. This shows how different the imputed value is to the real value for each month missing.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
-
-```
+|Month     | Vehicle Thefts That Month| Actual Annual Vehicle Thefts| Imputed Annual Vehicle Thefts| Percent Change|
+|:---------|-------------------------:|----------------------------:|-----------------------------:|--------------:|
+|January   |                3 (13.64%)|                           22|                            20|          -5.77|
+|February  |                 0 (0.00%)|                           22|                            24|          +9.09|
+|March     |                 1 (4.55%)|                           22|                            22|          +4.14|
+|April     |                 2 (9.09%)|                           22|                            21|          -0.82|
+|May       |                3 (13.64%)|                           22|                            20|          -5.77|
+|June      |                 1 (4.55%)|                           22|                            22|          +4.14|
+|July      |                 1 (4.55%)|                           22|                            22|          +4.14|
+|August    |                 0 (0.00%)|                           22|                            24|          +9.09|
+|September |                5 (22.73%)|                           22|                            18|         -15.68|
+|October   |                5 (22.73%)|                           22|                            18|         -15.68|
+|November  |                 1 (4.55%)|                           22|                            22|          +4.14|
+|December  |                 0 (0.00%)|                           22|                            24|          +9.09|
 
 In the above three tables we looked at what happens if a single month is missing. Below we'll look at the results of simulating when between 1 and 9 months are missing for an agency. Table \@ref(tab:countyPhillyMurderMonthsMissing) looks at murder in Philadelphia again but now randomizes removing between 1 and 9 months of the year and interpolating the annual murder count using the current method. For each number of months removed I run 10,000 simulations.[^ucr_county-8] Given that I am literally randomly choosing which months to say are missing, I am assuming that missing data is missing completely at random. This is a very bold assumption and one that is the best case scenario since it means that missing data is not related to crimes, police funding/staffing, or anything else relevant. So you should read the below tables as the most optimistic (and thus likely wrong) outcomes.
 
@@ -305,121 +201,37 @@ For each number of months reported the table shows the actual annual murder (whi
 
 As might be expected, as the number of months missing increases the quality of the imputation decreases. The minimum is further and further below the actual value while the maximum is further and further above the actual value.
 
-```{r countyPhillyMurderMonthsMissing}
-data <- philly %>%
-  filter(lubridate::year(year) %in% 2018) %>%
-  mutate(month = month(year, label = TRUE, abbr = FALSE)) %>%
-  select(month,
-         actual_murder)
-data <- data[match(data$month, month.name), ]
 
-final <- data.frame(months_missing        = 1:9,
-                    actual_murder         = sum(data$actual_murder),
-                    mean_imputed_murder   = NA,
-                    median_imputed_murder = NA,
-                    mode_imputed_murder   = NA,
-                    min_imputed_murder    = NA,
-                    max_imputed_murder    = NA)
+Table: (\#tab:countyPhillyMurderMonthsMissing)A simulation showing how the imputed values of murders in Philadelphia in 2018 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run for removing and imputing those months of data.
 
-
-
-for (i in 1:9) {
-  storage_percent_change <- vector(mode = "numeric", length = 10000)
-  for (n in 1:length(storage_percent_change)) {
-    months_to_remove <- sample(1:12, i)
-    rows <- 1:12
-    rows <- rows[!rows %in% months_to_remove]
-    storage_percent_change[n] <- sum(data$actual_murder[rows]) * (12/(12-i))
-  }
-  
-  final$mean_imputed_murder[i]   <- mean(storage_percent_change)
-  final$median_imputed_murder[i] <- median(storage_percent_change)
-  final$min_imputed_murder[i]    <- min(storage_percent_change)
-  final$max_imputed_murder[i]    <- max(storage_percent_change)
-  final$mode_imputed_murder[i]   <- crimeutils:::get_mode(storage_percent_change, return_numeric = TRUE)
-}
-
-final <-
-  final %>%
-  mutate_if(is.numeric, round, 2)
-
-names(final) <- c("# of Months Missing", 
-                  "Actual Murder",
-                  "Mean Imputed Murder",
-                  "Median Imputed Murder",
-                  "Modal Imputed Murder",
-                  "Min Imputed Murder", 
-                  "Max Imputed Murder")
-
-knitr::kable(final, 
-             format = "markdown",
-             digits = 2, 
-             align = c("l", "r", "r", "r", "r", "r", "r"),
-             booktabs = TRUE, 
-             longtable = TRUE,
-             escape = FALSE,
-             caption = "A simulation showing how the imputed values of murders in Philadelphia in 2018 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run for removing and imputing those months of data.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
-```
+|# of Months Missing | Actual Murder| Mean Imputed Murder| Median Imputed Murder| Modal Imputed Murder| Min Imputed Murder| Max Imputed Murder|
+|:-------------------|-------------:|-------------------:|---------------------:|--------------------:|------------------:|------------------:|
+|1                   |           351|              350.99|                353.45|               353.45|             336.00|             363.27|
+|2                   |           351|              351.04|                350.40|               350.40|             320.40|             378.00|
+|3                   |           351|              350.74|                352.00|               353.33|             312.00|             385.33|
+|4                   |           351|              351.10|                349.50|               370.50|             301.50|             394.50|
+|5                   |           351|              350.65|                351.43|               353.14|             289.71|             404.57|
+|6                   |           351|              351.19|                352.00|               376.00|             284.00|             418.00|
+|7                   |           351|              351.67|                350.40|               348.00|             276.00|             436.80|
+|8                   |           351|              351.37|                354.00|               312.00|             264.00|             450.00|
+|9                   |           351|              350.48|                344.00|               344.00|             248.00|             468.00|
 
 This problem is even more pronounced when looking at agencies with fewer crimes and less evenly distributed crimes. Table \@ref(tab:countyDanvilleBurglaryMonthsMissing) repeats the above table but now looks at motor vehicle thefts in Danville, California. By the time 5 months are missing, the minimum value is nearly half of the actual value while the maximum value is a little under 50% larger than the actual value. By 9 months missing, possible imputed values range from 0% of the actual value to over twice as large as the actual value.
 
-```{r countyDanvilleBurglaryMonthsMissing}
-data <- danville %>%
-  filter(lubridate::year(year) %in% 2018) %>%
-  mutate(month = month(year, label = TRUE, abbr = FALSE)) %>%
-  select(month,
-         actual_mtr_veh_theft_total)
-data <- data[match(data$month, month.name), ]
 
-final <- data.frame(months_missing          = 1:9,
-                    actual_mtr_veh_theft_total = sum(data$actual_mtr_veh_theft_total),
-                    mean_imputed_vehicle_theft   = NA,
-                    median_imputed_vehicle_theft = NA,
-                    mode_imputed_vehicle_theft   = NA,
-                    min_imputed_vehicle_theft    = NA,
-                    max_imputed_vehicle_theft    = NA)
+Table: (\#tab:countyDanvilleBurglaryMonthsMissing)A simulation showing how the imputed values of motor vehicle thefts in Danville, California, in 2018 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run for removing and imputing those months of data.
 
-
-
-for (i in 1:9) {
-  storage_percent_change <- vector(mode = "numeric", length = 10000)
-  for (n in 1:length(storage_percent_change)) {
-    months_to_remove <- sample(1:12, i)
-    rows <- 1:12
-    rows <- rows[!rows %in% months_to_remove]
-    storage_percent_change[n] <- sum(data$actual_mtr_veh_theft_total[rows]) * (12/(12-i))
-  }
-  
-  final$mean_imputed_vehicle_theft[i]   <- mean(storage_percent_change)
-  final$median_imputed_vehicle_theft[i] <- median(storage_percent_change)
-  final$min_imputed_vehicle_theft[i]    <- min(storage_percent_change)
-  final$max_imputed_vehicle_theft[i]    <- max(storage_percent_change)
-  final$mode_imputed_vehicle_theft[i]   <- crimeutils:::get_mode(storage_percent_change, return_numeric = TRUE)
-}
-
-final <-
-  final %>%
-  mutate_if(is.numeric, round, 2)
-
-names(final) <- c("# of Months Missing",
-                  "Actual Vehicle Theft",
-                  "Mean Imputed Vehicle Theft",
-                  "Median Imputed Vehicle Theft",
-                  "Modal Imputed Vehicle Theft",
-                  "Min Imputed Vehicle Theft",
-                  "Max Imputed Vehicle Theft")
-
-knitr::kable(final, 
-             format = "markdown",
-             digits = 2, 
-             align = c("l", "r", "r", "r", "r", "r", "r"),
-             booktabs = TRUE, 
-             longtable = TRUE,
-             escape = FALSE,
-             caption = "A simulation showing how the imputed values of motor vehicle thefts in Danville, California, in 2018 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run for removing and imputing those months of data.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
-```
+|# of Months Missing | Actual Vehicle Theft| Mean Imputed Vehicle Theft| Median Imputed Vehicle Theft| Modal Imputed Vehicle Theft| Min Imputed Vehicle Theft| Max Imputed Vehicle Theft|
+|:-------------------|--------------------:|--------------------------:|----------------------------:|---------------------------:|-------------------------:|-------------------------:|
+|1                   |                   22|                      21.97|                        22.91|                       22.91|                     18.55|                     24.00|
+|2                   |                   22|                      22.04|                        22.80|                       25.20|                     14.40|                     26.40|
+|3                   |                   22|                      22.01|                        22.67|                       21.33|                     12.00|                     29.33|
+|4                   |                   22|                      22.05|                        22.50|                       22.50|                      9.00|                     31.50|
+|5                   |                   22|                      22.01|                        22.29|                       20.57|                      6.86|                     34.29|
+|6                   |                   22|                      22.01|                        22.00|                       20.00|                      6.00|                     38.00|
+|7                   |                   22|                      22.00|                        21.60|                       21.60|                      4.80|                     43.20|
+|8                   |                   22|                      21.96|                        21.00|                       21.00|                      3.00|                     48.00|
+|9                   |                   22|                      21.72|                        20.00|                       24.00|                      0.00|                     52.00|
 
 ### 10-12 months missing
 
@@ -445,126 +257,61 @@ Table \@ref(tab:countyPopulationGroupStatsNational) shows these values for all a
 
 [^ucr_county-12]: The negative number for minimum crimes in the Non-MSA Counties and Non-MSA State Police is due to a reporting quirk of UCR, covered in Chapter 2, and is not a mistake in the data.
 
-```{r countyPopulationGroupStatsNational}
 
+Table: (\#tab:countyPopulationGroupStatsNational)The mean, median, minimum, and maximum agency size nationwide for all population groups in the 2018 Offenses Known and Clearances by Arrests data.
 
-offenses_known_yearly_1960_2018$population_group[offenses_known_yearly_1960_2018$population_group %in% 
-                        c( "non-msa county 10,000 thru 24,999",
-                           "non-msa county 100,000+",
-                           "non-msa county 25,000 thru 99,999",
-                           "non-msa county under 10,000",
-                           "non-msa state police")] <- "non-msa counties and non-msa state police"
-offenses_known_yearly_1960_2018$population_group[offenses_known_yearly_1960_2018$population_group %in% 
-                        c("msa-county 10,000 thru 24,999",
-                          "msa-county 100,000+",
-                          "msa-county 25,000 thru 99,999",
-                          "msa-county under 10,000",
-                          "msa state police")] <- "msa counties and msa state police"
-offenses_known_yearly_1960_2018$population_group[offenses_known_yearly_1960_2018$population_group %in% 
-                        c("city 1,000,000+",
-                          "city 500,000 thru 999,999",
-                          "city 250,000 thru 499,999")] <- "city 250,000+"
-data <- 
-  offenses_known_yearly_1960_2018 %>%
-  filter(year %in% 2018,
-         !population_group %in% c("7b", "possessions"),
-         last_month_reported %in% "december")
-final <- get_murder_gun_assaults_by_pop_group(data)
-
-knitr::kable(final, 
-             format = "markdown",
-             digits = 2, 
-             align = c("l", "r", "r", "r"),
-             booktabs = TRUE, 
-             longtable = TRUE,
-             escape = FALSE,
-             caption = "The mean, median, minimum, and maximum agency size nationwide for all population groups in the 2018 Offenses Known and Clearances by Arrests data.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
-```
+|Population Group                          | Mean Murder + Gun Assault| Median Murder + Gun Assault| Minimum Murder + Gun Assault|Max Murder + Gun Assault |
+|:-----------------------------------------|-------------------------:|---------------------------:|----------------------------:|:------------------------|
+|City Under 2,500                          |                         0|                           0|                            0|108                      |
+|City 2,500-9,999                          |                         1|                           0|                            0|55                       |
+|City 10,000-24,999                        |                         6|                           2|                            0|220                      |
+|City 25,000-49,999                        |                        13|                           4|                            0|381                      |
+|City 50,000-99,999                        |                        34|                          15|                            0|608                      |
+|City 100,000-249,999                      |                       131|                          64|                            1|1,235                    |
+|City 250,000+                             |                     1,093|                         638|                            4|6,209                    |
+|MSA Counties And MSA State Police         |                        19|                           3|                           -1|1,701                    |
+|Non-MSA Counties And Non-MSA State Police |                         3|                           1|                            0|295                      |
 
 To better see the distribution, Figure \@ref(fig:countyPopulationGroupsBoxplot) shows boxplots for the rate per 100,000 population of murder+gun-assaults in each population group in 2018. Since there can't be a rate without any population, this excludes all agencies with a population of zero. To make the graph simpler to see, it also excludes all agencies with a rate about 500, which is 57 agenices. Each population group has a relatively large range of values with the size of the boxplot growing as the size of the population group increases. This means that there are a wider variety of rates in larger population groups than in smaller population groups. Each population group also has a good number of agencies that are outliers with a much higher rate than is normal.
 
-```{r countyPopulationGroupsBoxplot, fig.cap = "Boxplots showing the distribution of annual murders+gun-assaults for each population group for all agencies that reported December data in 2018.", fig.height=12}
-data <- 
-  offenses_known_yearly_1960_2018 %>%
-  filter(year %in% 2018,
-         !population_group %in% c("7b", "possessions"),
-         last_month_reported %in% "december",
-         population != 0)
-
-
-data$murder_ass_gun_rate = (data$actual_murder + data$actual_assault_with_a_gun) / data$population * 100000
-
-
-data$population_group <- capitalize_words(data$population_group)
-data$population_group <- gsub(" thru ", "-", data$population_group, ignore.case = TRUE)
-data$population_group <- gsub("msa", "MSA", data$population_group, ignore.case = TRUE)
-data$population_group <- gsub(" and msa | and non-msa ", "/", data$population_group, ignore.case = TRUE)
-
-data$population_group <- factor(data$population_group, 
-                                levels = rev(c("City Under 2,500",
-                                               "City 2,500-9,999",
-                                               "City 10,000-24,999",
-                                               "City 25,000-49,999",
-                                               "City 50,000-99,999",
-                                               "City 100,000-249,999",
-                                               "City 250,000+",
-                                               "MSA Counties/State Police",
-                                               "Non-MSA Counties/State Police")))
-
-
-data %>%
-  filter(murder_ass_gun_rate <= 500) %>%
-  ggplot(aes(y = population_group, x=murder_ass_gun_rate)) + 
-  geom_boxplot() +
-  xlab("Rate per 100k Pop") +
-  ylab("Population Group") +
-  theme_crim()
-
-```
+<div class="figure" style="text-align: center">
+<img src="ucr_county_files/figure-html/countyPopulationGroupsBoxplot-1.png" alt="Boxplots showing the distribution of annual murders+gun-assaults for each population group for all agencies that reported December data in 2018." width="90%" />
+<p class="caption">(\#fig:countyPopulationGroupsBoxplot)Boxplots showing the distribution of annual murders+gun-assaults for each population group for all agencies that reported December data in 2018.</p>
+</div>
 
 Since the actual imputation process looks only at agencies in the same state, we'll look at two example states - Texas and Maine - and see how trends differ from nationally. These states are chosen as Texas is a very large (both in population and in number of jurisdictions) state with some areas of high crime while Maine is a small, more rural state with very low crime. Table \@ref(tab:countyPopulationGroupStatsTexas) shows results in Texas. Here, the findings are very similar to that of Table \@ref(tab:countyPopulationGroupStatsNational). While the numbers are different, and the maximum value is substantially smaller than using all agenices in the country, the basic findings of a wide range of values - especially at larger population groups - is the same.
 
-```{r countyPopulationGroupStatsTexas}
-data <- 
-  offenses_known_yearly_1960_2018 %>%
-  filter(year %in% 2018,
-         !population_group %in% c("7b", "possessions"),
-         state == "texas",
-         last_month_reported %in% "december")
-final <- get_murder_gun_assaults_by_pop_group(data)
-knitr::kable(final, 
-             format = "markdown",
-             digits = 2, 
-             align = c("l", "r", "r", "r"),
-             booktabs = TRUE, 
-             longtable = TRUE,
-             escape = FALSE,
-             caption = "The mean, median, minimum, and maximum agency size for agencies in Texas for all population groups in the 2018 Offenses Known and Clearances by Arrests data.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
-```
+
+Table: (\#tab:countyPopulationGroupStatsTexas)The mean, median, minimum, and maximum agency size for agencies in Texas for all population groups in the 2018 Offenses Known and Clearances by Arrests data.
+
+|Population Group                          | Mean Murder + Gun Assault| Median Murder + Gun Assault| Minimum Murder + Gun Assault|Max Murder + Gun Assault |
+|:-----------------------------------------|-------------------------:|---------------------------:|----------------------------:|:------------------------|
+|City Under 2,500                          |                         0|                           0|                            0|6                        |
+|City 2,500-9,999                          |                         2|                           1|                            0|17                       |
+|City 10,000-24,999                        |                         7|                           5|                            0|38                       |
+|City 25,000-49,999                        |                        17|                          13|                            0|61                       |
+|City 50,000-99,999                        |                        37|                          27|                            1|141                      |
+|City 100,000-249,999                      |                       105|                          77|                           12|467                      |
+|City 250,000+                             |                     1,343|                         669|                           76|4,919                    |
+|MSA Counties And MSA State Police         |                        43|                           6|                            0|1,701                    |
+|Non-MSA Counties And Non-MSA State Police |                         2|                           1|                            0|28                       |
 
 Now we'll look at data from Maine, as shown in Table \@ref(tab:countyPopulationGroupStatsMaine). Here, results are much better: there is a narrow range in values meaning that the imputation would be very similar to the real values. This is driven mainly by Maine being a tiny state, with only one city larger than 50,000 people (Portland) and Maine being an extremely safe state so most places have zero murders+gun-assaults. In cases like this, where both crime and population size are consistent across the state (which is generally caused by everywhere having low crime), this imputation process can work well.
 
-```{r countyPopulationGroupStatsMaine}
-data <- 
-  offenses_known_yearly_1960_2018 %>%
-  filter(year %in% 2018,
-         !population_group %in% c("7b", "possessions"),
-         state == "maine",
-         last_month_reported %in% "december")
-final <- get_murder_gun_assaults_by_pop_group(data)
 
-knitr::kable(final, 
-             format = "markdown",
-             digits = 2, 
-             align = c("l", "r", "r", "r"),
-             booktabs = TRUE, 
-             longtable = TRUE,
-             escape = FALSE,
-             caption = "The mean, median, minimum, and maximum agency size for agencies in Maine for all population groups in the 2018 Offenses Known and Clearances by Arrests data.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
-```
+Table: (\#tab:countyPopulationGroupStatsMaine)The mean, median, minimum, and maximum agency size for agencies in Maine for all population groups in the 2018 Offenses Known and Clearances by Arrests data.
+
+|Population Group                          | Mean Murder + Gun Assault| Median Murder + Gun Assault| Minimum Murder + Gun Assault|Max Murder + Gun Assault |
+|:-----------------------------------------|-------------------------:|---------------------------:|----------------------------:|:------------------------|
+|City Under 2,500                          |                         0|                           0|                            0|0                        |
+|City 2,500-9,999                          |                         0|                           0|                            0|2                        |
+|City 10,000-24,999                        |                         1|                           1|                            0|7                        |
+|City 25,000-49,999                        |                         6|                           4|                            0|14                       |
+|City 50,000-99,999                        |                        12|                          12|                           12|12                       |
+|City 100,000-249,999                      |                         -|                           -|                            -|-                        |
+|City 250,000+                             |                         -|                           -|                            -|-                        |
+|MSA Counties And MSA State Police         |                         0|                           0|                           -1|2                        |
+|Non-MSA Counties And Non-MSA State Police |                         2|                           0|                            0|19                       |
 
 ## Final thoughts
 
