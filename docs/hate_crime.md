@@ -15,58 +15,38 @@ My main takeaway for this data is that it is inappropriate to use for most hate 
 
 We'll start by looking at how many agencies report hate crime each year. This is a bit tricky since there can be multiple ways to examine how agencies report, and since agencies can truly have no hate crimes in a year so it's hard to differentiate the true zeroes from the non-reporters. Figure \@ref(fig:hateAgencies) shows the number of agencies that report at least one hate crime incident in that year. From the start in 1991 there were about 750 agencies reporting and that grew steadily to about 2,000 agencies in year 2000. From there it increased a bit over the next decade before declining to below 1,750 in the early 2010s and rising again to around 2,000 agencies at the end of our data.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateAgencies-1} 
-
-}
-
-\caption{The annual number of police agencies that report at least one hate crime incident in that year.}(\#fig:hateAgencies)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/hateAgencies-1.svg" alt="The annual number of police agencies that report at least one hate crime incident in that year." width="90%" />
+<p class="caption">(\#fig:hateAgencies)The annual number of police agencies that report at least one hate crime incident in that year.</p>
+</div>
 
 The 2,000 or so agencies that report each year are not the same every year. Figure \@ref(fig:hateCrimesEver) shows the cumulative number of agencies that have reported at least one hate crime between 1991 and 2018. There is a steady growth in the cumulative number of agencies, with about 350 new agencies each year. This means that each year some new agencies report hate crimes while some agencies that reported a hate crime in the previous year don't report any hate crimes in the current year.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimesEver-1} 
-
-}
-
-\caption{The cumulative number of agencies that have reported one or more hate crimes between 1991 to 2018.}(\#fig:hateCrimesEver)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/hateCrimesEver-1.svg" alt="The cumulative number of agencies that have reported one or more hate crimes between 1991 to 2018." width="90%" />
+<p class="caption">(\#fig:hateCrimesEver)The cumulative number of agencies that have reported one or more hate crimes between 1991 to 2018.</p>
+</div>
 
 Figure \@ref(fig:hateCrimesPreviousYear) puts this into hard numbers by showing the percent of agencies who reported a hate crime in a certain year who *also* reported a hate crime in the previous year. For most years between 50% and 60% of agencies which reported a hate crime in the year shown on the x-axis also reported a hate crime in the previous year, indicating somewhat high consistency in which agencies have hate crimes. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimesPreviousYear-1} 
-
-}
-
-\caption{The percent of agencies that report a hate crime in a given year that also reported a hate crime in the previous year, 1992-2018.}(\#fig:hateCrimesPreviousYear)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/hateCrimesPreviousYear-1.svg" alt="The percent of agencies that report a hate crime in a given year that also reported a hate crime in the previous year, 1992-2018." width="90%" />
+<p class="caption">(\#fig:hateCrimesPreviousYear)The percent of agencies that report a hate crime in a given year that also reported a hate crime in the previous year, 1992-2018.</p>
+</div>
 
 Another way to understand reporting is to look at the number of reported hate crimes by state and see which states report and which don't. Figure \@ref(fig:hateCrimesMap) does this for 2018 data by showing the number of reported hate crime incidents by state. While every state other than Wyoming reporting at least one hate crime in 2018, there are large differences between states because even in states that have reporting agencies, not all agencies in that state report. For example, Alabama reported only two hate crimes in 2018, the least of any state other than Wyoming. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimesMap-1} 
-
-}
-
-\caption{Total reported hate crimes by state, 2018.}(\#fig:hateCrimesMap)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/hateCrimesMap-1.svg" alt="Total reported hate crimes by state, 2018." width="90%" />
+<p class="caption">(\#fig:hateCrimesMap)Total reported hate crimes by state, 2018.</p>
+</div>
 
 Since the number of state-wide hate crimes is partially influenced by population, we'll also look at it as the percent of agencies in the state that report at least one hate crime. Again this is limited by population as agencies in each state cover different populations - and most agencies are small so a few large agencies can account for a large share of crimes, including hate crimes. Still, this is a useful exercise as we can easily see where very few agencies report. Figure \@ref(fig:statePercentReporting) shows the percent of agencies for each state that reported at least one hate crime in 2018. In Connecticut, the state with the highest percent of agencies reporting, 28% of agencies reported at least one hate crime. In 34 states, fewer than 10% of agencies reported a hate crime, and in 19 states fewer than 5% of agencies did so. One interesting finding from this graph is the more liberal states - Connecticut, New Jersey, Vermont, California, Washington - have the highest share of agencies reporting a hate crime, indicating that the culture of the state may influence either the propensity of hate crimes, whether victims report, or whether agencies report hate crimes.   
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/statePercentReporting-1} 
-
-}
-
-\caption{The percent of agencies in each state that reported at least one hate crime in 2018.}(\#fig:statePercentReporting)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/statePercentReporting-1.svg" alt="The percent of agencies in each state that reported at least one hate crime in 2018." width="90%" />
+<p class="caption">(\#fig:statePercentReporting)The percent of agencies in each state that reported at least one hate crime in 2018.</p>
+</div>
 
 ## Important variables
 
@@ -74,27 +54,19 @@ This data has the standard set of variables describing the agency that is report
 
 They also have a variable with the exact date that the hate crime occurred on - though not the date it was reported on. Figure \@ref(fig:hateCrimesByDay) shows the percent of hates crimes between 1991 and 2018 that occurred on each day of the week. Interestingly, the most common days for a hate crime to occur is on Friday and Saturday, which is also when non-hate crimes most frequently occur. This suggests that hate crimes do follow the same trends - at least partially - as other crimes.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimesByDay-1} 
-
-}
-
-\caption{The day of the week that hate crimes occurred on, 1991-2018.}(\#fig:hateCrimesByDay)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/hateCrimesByDay-1.svg" alt="The day of the week that hate crimes occurred on, 1991-2018." width="90%" />
+<p class="caption">(\#fig:hateCrimesByDay)The day of the week that hate crimes occurred on, 1991-2018.</p>
+</div>
 
 Each hate crime incident can cover up to 10 different crimes occurring - e.g. a person who burglarizes a synagogue and spray paints a swastika on the wall would have both vandalism and burglary reported in this data. With each crime, this data has the bias motivation for that crime, the location of the crime (in broad categories, not the actual location in the city like a street address would have), and the number of victims for that offense. In practice, in most hate crimes with multiple offenses recorded, the bias motivation, location, and victim count is the same for each offense.
 
 Figure \@ref(fig:crimesPerHateCrime) shows the number of crimes per incident for each hate crime reported between 1991 and 2018. In 96.6% of cases, there is only one offense in that incident.^[In 0.0005% of hate crimes there is no recorded offense. This is not shown in the graph.] This drops sharply to 3.2% of incidents having two offenses, 0.21% having three offenses, 0.016% having four offenses, and 0.002% having five offenses. Even though this data does allow up to 10 offenses per hate crime incident, there has never been a recorded case with more than five offenses. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/crimesPerHateCrime-1} 
-
-}
-
-\caption{The number of offenses per hate crime incident.}(\#fig:crimesPerHateCrime)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/crimesPerHateCrime-1.svg" alt="The number of offenses per hate crime incident." width="90%" />
+<p class="caption">(\#fig:crimesPerHateCrime)The number of offenses per hate crime incident.</p>
+</div>
 
 ### The bias motivation (who the hate is against)
 
@@ -275,23 +247,15 @@ There are two variables that have information about the people who commit the ha
 
 When the police do not have any information about the number of offenders (which is common in cases of property crimes such as vandalism but rare in violent crimes), this data considers that to have zero offenders. The zero is just a placeholder that means that the police have no idea how many offenders there are, not that they think there were actually no offenders. Figure \@ref(fig:hateCrimeOffenderNumber) shows the percent of hate crimes from 1991-2018 that have each number of offenders recorded. In the actual data it says the actual number of offenders, with the largest group in the current data going to 99 offenders - in this graph I group 10 or more offenders together for simplicity. I also relabel zero offenders as "Unknown" offenders since that's more accurate. The most common number of offenders per hate crime is one offender, at about 46% of hate crimes from 1991-2018 having only one offender. This drops sharply to 9% of hate crimes having 2 offenders and continues to drop as the number of offenders increase. However, about a third (36.8%) of hate crimes have an unknown number of offenders. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimeOffenderNumber-1} 
-
-}
-
-\caption{The race of offenders, as a group, for hate crime incidents, 1991-2018.}(\#fig:hateCrimeOffenderNumber)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/hateCrimeOffenderNumber-1.svg" alt="The race of offenders, as a group, for hate crime incidents, 1991-2018." width="90%" />
+<p class="caption">(\#fig:hateCrimeOffenderNumber)The race of offenders, as a group, for hate crime incidents, 1991-2018.</p>
+</div>
 
 
 The data also includes the race of the offenders as a group, though not the ethnicity (Hispanic or non-Hispanic) of the offenders. In cases where there are multiple races among offenders, that will be classified as a "multi-racial group". As shown in Figure \@ref(fig:hateCrimeOffenderNumber) The most common racial group is "unknown" since the police do not know the race of the offenders. Then are White offenders at nearly 40% of hate crimes followed by Black offenders at nearly 13% of hate crimes. The remaining racial groups are rare with about 2% of hate crimes being committed by a multi-racial group of offenders and 0.72% of hate crimes committed by Asian or Pacific Islander offenders and 0.54% committed by American Indian or Native Alaskan offenders. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/hateCrimeOffenderRace-1} 
-
-}
-
-\caption{The race of offenders, as a group, for hate crime incidents, 1991-2018.}(\#fig:hateCrimeOffenderRace)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/hateCrimeOffenderRace-1.svg" alt="The race of offenders, as a group, for hate crime incidents, 1991-2018." width="90%" />
+<p class="caption">(\#fig:hateCrimeOffenderRace)The race of offenders, as a group, for hate crime incidents, 1991-2018.</p>
+</div>

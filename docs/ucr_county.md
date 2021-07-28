@@ -73,47 +73,31 @@ Table: (\#tab:countyMonthsReportedDefinitions)The number of months reported to t
 
 We can look at how these trends change over time in Figure \@ref(fig:countyAnyMonthReported) that shows the annual number of agencies that reported at least one month of data in that year. About 5,500 agencies reported at least on month throughout the 1960s and then grew rapidly over the next decade until about 12,500 agencies reported in the end of the 1970s. This declined over the next two decades before again increasing in the mid-late 1990s where it steadily increased to about 14,000 agencies in 2010 and has stagnated since then, with a small dip in 2018. Out of the approximately 18,000 police agencies in the United States, this is relatively low reporting even as far as recent decades. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/countyAnyMonthReported-1} 
-
-}
-
-\caption{The annual number of agencies that reported at least one month of data in that year.}(\#fig:countyAnyMonthReported)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/countyAnyMonthReported-1.svg" alt="The annual number of agencies that reported at least one month of data in that year." width="90%" />
+<p class="caption">(\#fig:countyAnyMonthReported)The annual number of agencies that reported at least one month of data in that year.</p>
+</div>
 
 We saw in Table \@ref(tab:countyMonthsReportedDefinitions) that when agencies do report they tend to report all 12 months of the year. Figure \@ref(fig:countyDecemberReported) examines whether this is true by showing the number of agencies in each year that reported in December, which the way that county-level UCR data assumes that all 12 months are reported. The trends are nearly identical to Figure \@ref(fig:countyAnyMonthReported) but with several hundred fewer agencies reporting in December each year than reporting at least one month. This shows that the trend of when agencies do report they tend to report all 12 months (or at least report in December) is consistent over time.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/countyDecemberReported-1} 
-
-}
-
-\caption{The annual number of agencies that reported data in December of that year (which by the FBI's definition would mean they reported 12 months of the year.}(\#fig:countyDecemberReported)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/countyDecemberReported-1.svg" alt="The annual number of agencies that reported data in December of that year (which by the FBI's definition would mean they reported 12 months of the year." width="90%" />
+<p class="caption">(\#fig:countyDecemberReported)The annual number of agencies that reported data in December of that year (which by the FBI's definition would mean they reported 12 months of the year.</p>
+</div>
 
 Another way to look at this is to examine, as Figure \@ref(fig:countyDecemberPercent) does, the percent of agencies that report in December of agencies that report at least one month. On average about 92% of agencies that do report any month also report in December, and this number has steadily grown over time, though declined in 2018 to only 90%. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/countyDecemberPercent-1} 
-
-}
-
-\caption{The annual percent of agencies that reported in December of that year of those that reported at least one month of data.}(\#fig:countyDecemberPercent)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/countyDecemberPercent-1.svg" alt="The annual percent of agencies that reported in December of that year of those that reported at least one month of data." width="90%" />
+<p class="caption">(\#fig:countyDecemberPercent)The annual percent of agencies that reported in December of that year of those that reported at least one month of data.</p>
+</div>
 
 Since the number of agencies reporting changes every year - generally increasing over time - we can look at the percent of agencies that reported in December out of all agencies that reported data (and this includes reporting zero months of data) to UCR. Figure \@ref(fig:countyDecemberPercentAnyAgency) shows this trend over time and about 75% of agencies that submit to UCR each year report in December. Reporting rates undulate over this time period - the low is 62% in 1997 and the high is 83% in 1979 - but tend to return to ~75% reporting before trending in the opposite direction again. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/countyDecemberPercentAnyAgency-1} 
-
-}
-
-\caption{The annual percent of agencies that reported in December of that year including those that did not report any data that year.}(\#fig:countyDecemberPercentAnyAgency)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/countyDecemberPercentAnyAgency-1.svg" alt="The annual percent of agencies that reported in December of that year including those that did not report any data that year." width="90%" />
+<p class="caption">(\#fig:countyDecemberPercentAnyAgency)The annual percent of agencies that reported in December of that year including those that did not report any data that year.</p>
+</div>
 
 Not all agencies report data to UCR, even to say that they're not reporting any months of data. In 1960, for example, only 8,452 agencies reported data to UCR and 1,406 of these reported zero months of data. To get accurate data on county crime you'll want data from all agencies, not just ones that reported (or told the FBI they weren't reporting) data. Figure \@ref(fig:countyDecemberPercentAllAgencies) shows the annual percent of agencies that reported in December of each year out of the 19,036 agencies that ever reported to UCR. This 19,036 is higher than the ~18,000 agencies often discussed (including in this book) by academics as the approximate number of agencies. I believe that the number here is higher because it includes agencies that may have closed or been swallowed by a larger or nearby agency. 
 
@@ -121,14 +105,10 @@ The trends in Figure \@ref(fig:countyDecemberPercentAllAgencies) are very simila
 
 The zero reporting agencies are largely in smaller agencies - with the average sized agency in 2018 having a population of 1,682 and the largest having a population of 463,545 - and, in 2018, amounts to agencies covering about 13 million people, or about 4% of the United States population. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/countyDecemberPercentAllAgencies-1} 
-
-}
-
-\caption{The annual percent of agencies that reported in December of that year out of all agencies that ever reported to the Offenses Known and Clearances by Arrest dataset (N=19,036).}(\#fig:countyDecemberPercentAllAgencies)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/countyDecemberPercentAllAgencies-1.svg" alt="The annual percent of agencies that reported in December of that year out of all agencies that ever reported to the Offenses Known and Clearances by Arrest dataset (N=19,036)." width="90%" />
+<p class="caption">(\#fig:countyDecemberPercentAllAgencies)The annual percent of agencies that reported in December of that year out of all agencies that ever reported to the Offenses Known and Clearances by Arrest dataset (N=19,036).</p>
+</div>
 
 ## Current imputation practices
 
@@ -140,14 +120,10 @@ When an agency reports 3-11 months, those months of data are multiplied by 12/nu
 
 Finally, for agencies that reported all 12 months there's nothing missing so it just uses the data as it is.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{images/segments_flowchart} 
-
-}
-
-\caption{The imputation procedure for missing data based on the number of months missing.}(\#fig:countyImputation)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/segments_flowchart.PNG" alt="The imputation procedure for missing data based on the number of months missing." width="90%" />
+<p class="caption">(\#fig:countyImputation)The imputation procedure for missing data based on the number of months missing.</p>
+</div>
 
 ### 1-9 months missing
 
@@ -230,15 +206,15 @@ Table: (\#tab:countyPhillyMurderMonthsMissing)A simulation showing how the imput
 
 |# of Months Missing | Actual Murder| Mean Imputed Murder| Median Imputed Murder| Modal Imputed Murder| Min Imputed Murder| Max Imputed Murder|
 |:-------------------|-------------:|-------------------:|---------------------:|--------------------:|------------------:|------------------:|
-|1                   |           351|              351.08|                353.45|               353.45|             336.00|             363.27|
-|2                   |           351|              351.00|                350.40|               350.40|             320.40|             378.00|
-|3                   |           351|              350.94|                352.00|               353.33|             312.00|             385.33|
-|4                   |           351|              350.90|                349.50|               370.50|             301.50|             394.50|
-|5                   |           351|              351.42|                351.43|               353.14|             289.71|             404.57|
-|6                   |           351|              350.90|                350.00|               376.00|             284.00|             418.00|
-|7                   |           351|              351.31|                350.40|               348.00|             276.00|             436.80|
-|8                   |           351|              350.40|                354.00|               312.00|             264.00|             450.00|
-|9                   |           351|              351.09|                344.00|               344.00|             248.00|             468.00|
+|1                   |           351|              351.05|                353.45|               353.45|             336.00|             363.27|
+|2                   |           351|              351.17|                350.40|               350.40|             320.40|             378.00|
+|3                   |           351|              350.80|                352.00|               353.33|             312.00|             385.33|
+|4                   |           351|              350.98|                349.50|               370.50|             301.50|             394.50|
+|5                   |           351|              351.03|                351.43|               353.14|             289.71|             404.57|
+|6                   |           351|              350.60|                348.00|               326.00|             284.00|             418.00|
+|7                   |           351|              351.26|                350.40|               348.00|             276.00|             436.80|
+|8                   |           351|              351.45|                354.00|               312.00|             264.00|             450.00|
+|9                   |           351|              351.38|                348.00|               344.00|             248.00|             468.00|
 
 This problem is even more pronounced when looking at agencies with fewer crimes and less evenly distributed crimes. Table \@ref(tab:countyDanvilleBurglaryMonthsMissing) repeats the above table but now looks at motor vehicle thefts in Danville, California. By the time 5 months are missing, the minimum value is nearly half of the actual value while the maximum value is a little under 50% larger than the actual value. By 9 months missing, possible imputed values range from 0% of the actual value to over twice as large as the actual value.
 
@@ -247,15 +223,15 @@ Table: (\#tab:countyDanvilleBurglaryMonthsMissing)A simulation showing how the i
 
 |# of Months Missing | Actual Vehicle Theft| Mean Imputed Vehicle Theft| Median Imputed Vehicle Theft| Modal Imputed Vehicle Theft| Min Imputed Vehicle Theft| Max Imputed Vehicle Theft|
 |:-------------------|--------------------:|--------------------------:|----------------------------:|---------------------------:|-------------------------:|-------------------------:|
-|1                   |                   22|                      22.00|                        22.91|                       22.91|                     18.55|                     24.00|
-|2                   |                   22|                      21.97|                        22.80|                       25.20|                     14.40|                     26.40|
-|3                   |                   22|                      21.96|                        21.33|                       21.33|                     12.00|                     29.33|
-|4                   |                   22|                      21.94|                        22.50|                       22.50|                      9.00|                     31.50|
-|5                   |                   22|                      21.98|                        22.29|                       22.29|                      6.86|                     34.29|
-|6                   |                   22|                      22.02|                        22.00|                       24.00|                      6.00|                     38.00|
-|7                   |                   22|                      21.90|                        21.60|                       21.60|                      4.80|                     43.20|
-|8                   |                   22|                      22.01|                        21.00|                       21.00|                      3.00|                     48.00|
-|9                   |                   22|                      22.12|                        24.00|                       24.00|                      0.00|                     52.00|
+|1                   |                   22|                      21.99|                        22.91|                       22.91|                     18.55|                     24.00|
+|2                   |                   22|                      22.05|                        22.80|                       25.20|                     14.40|                     26.40|
+|3                   |                   22|                      21.98|                        21.33|                       21.33|                     12.00|                     29.33|
+|4                   |                   22|                      22.00|                        22.50|                       22.50|                      9.00|                     31.50|
+|5                   |                   22|                      21.97|                        22.29|                       22.29|                      6.86|                     34.29|
+|6                   |                   22|                      22.17|                        22.00|                       20.00|                      6.00|                     38.00|
+|7                   |                   22|                      22.00|                        21.60|                       21.60|                      4.80|                     43.20|
+|8                   |                   22|                      22.15|                        21.00|                       21.00|                      3.00|                     48.00|
+|9                   |                   22|                      21.96|                        24.00|                       24.00|                      0.00|                     52.00|
 
 ### 10-12 months missing
 
@@ -298,14 +274,10 @@ Table: (\#tab:countyPopulationGroupStatsNational)The mean, median, minimum, and 
 
 To better see the distribution, Figure \@ref(fig:countyPopulationGroupsBoxplot) shows boxplots for the rate per 100,000 population of murders+gun-assaults in each population group in 2018. Since there can't be a rate without any population, this excludes all agencies with a population of zero. To make the graph simpler to see, it also excludes all agencies with a rate about 500, which is 57 agencies. Each population group has a relatively large range of values with the size of the boxplot growing as the size of the population group increases. This means that there are a wider variety of rates in larger population groups than in smaller population groups. Each population group also has a good number of agencies that are outliers with a much higher rate than is normal.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/countyPopulationGroupsBoxplot-1} 
-
-}
-
-\caption{Boxplots showing the distribution of annual murders+gun-assaults for each population group for all agencies that reported December data in 2018.}(\#fig:countyPopulationGroupsBoxplot)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/countyPopulationGroupsBoxplot-1.svg" alt="Boxplots showing the distribution of annual murders+gun-assaults for each population group for all agencies that reported December data in 2018." width="90%" />
+<p class="caption">(\#fig:countyPopulationGroupsBoxplot)Boxplots showing the distribution of annual murders+gun-assaults for each population group for all agencies that reported December data in 2018.</p>
+</div>
 
 Since the actual imputation process looks only at agencies in the same state, we'll look at two example states - Texas and Maine - and see how trends differ from nationally. These states are chosen as Texas is a very large (both in population and in number of jurisdictions) state with some areas of high crime while Maine is a small, more rural state with very low crime. Table \@ref(tab:countyPopulationGroupStatsTexas) shows results in Texas. Here, the findings are very similar to that of Table \@ref(tab:countyPopulationGroupStatsNational). While the numbers are different, and the maximum value is substantially smaller than using all agencies in the country, the basic findings of a wide range of values - especially at larger population groups - is the same.
 

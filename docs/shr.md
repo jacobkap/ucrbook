@@ -14,14 +14,10 @@ This data only has a report when the agency has a murder that year and since mur
 
 Figure \@ref(fig:shrVsOffenses) shows the annual number of murder victims from each of these datasets starting in 1976 for the UCR data and in 1999 for the CDC data.^[1975 is actually the first year that the Supplementary Homicide Reports data is available but that dataset only has info for a single victim and offender - all later years has info for up to 11 victims and offenders - so 1976 is often used as the first year of data] For the UCR data, in every year the numbers are fairly similar and the trends are the same over time, but the number of murders is never equal. The numbers have actually gotten worse over time with the difference between the datasets increasing and the Offenses Known data having consistently more murders reported than the SHR data since the late 1990s. Compared to the CDC data, however, both UCR datasets - and in particular the SHR data - undercount the number of murders. While trends are the same, UCR data reports thousands fewer murders per year than the CDC data, indicating how much of an issue underreporting is in this data.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrVsOffenses-1} 
-
-}
-
-\caption{The annual number of murders from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset. Numbers differ because agencies voluntarily report and may not report to both datasets.}(\#fig:shrVsOffenses)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/shrVsOffenses-1.svg" alt="The annual number of murders from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset. Numbers differ because agencies voluntarily report and may not report to both datasets." width="90%" />
+<p class="caption">(\#fig:shrVsOffenses)The annual number of murders from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset. Numbers differ because agencies voluntarily report and may not report to both datasets.</p>
+</div>
 
 ## Important variables
 
@@ -29,25 +25,17 @@ The data has demographic information for up to 11 victims and 11 offenders, as w
 
 While there is information on up to 11 victims and offenders, in most cases, there is only a single victim and a single offender in each incident. To see how the breakdown for the number of victims in each incident looks, Figure \@ref(fig:numberSHRVictims) shows the percent of incidents with each possible number of victims.^[There is one incident where there are a reported 12 victims. For simplicity of the graph, this incident is not included.] In nearly all incidents - 96.1% - there was only a single victim. This drops to 3.2% of incidents for two victims, 0.5% for three victims, and only about 0.2% of incidents have four or more victims. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/numberSHRVictims-1} 
-
-}
-
-\caption{The percent of incidents from 1976-2018 that have 1-11 victims.}(\#fig:numberSHRVictims)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/numberSHRVictims-1.svg" alt="The percent of incidents from 1976-2018 that have 1-11 victims." width="90%" />
+<p class="caption">(\#fig:numberSHRVictims)The percent of incidents from 1976-2018 that have 1-11 victims.</p>
+</div>
 
 Figure \@ref(fig:numberSHROffenders) shows the breakdown of the number of offenders per homicide incident.^[There is one incident where there are a reported 22 offenders and one with 12 offenders. For simplicity of the graph, these incidents are not included.] It's a little less concentrated than with victims but the vast majority of homicides are committed by one offender - or at least the police only report one offender. About 88% of homicides have only one offender, 8.2% have two, 2.4% have three, and fewer than 1% have four. Fewer than 0.5% of homicides have more than four offenders. However, this is all a bit misleading. In cases where there is no information about the offender, including how many offenders there is, the data simply says that there is a single offender. So the number of homicides with a single offender is an overcount while the number with more offenders is an undercount. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/numberSHROffenders-1} 
-
-}
-
-\caption{The percent of incidents from 1976-2018 that have 1-11 offenders.}(\#fig:numberSHROffenders)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/numberSHROffenders-1.svg" alt="The percent of incidents from 1976-2018 that have 1-11 offenders." width="90%" />
+<p class="caption">(\#fig:numberSHROffenders)The percent of incidents from 1976-2018 that have 1-11 offenders.</p>
+</div>
 
 The variable "situation" says what type of victim-offender number combination the incident is - e.g. "multiple victims/single offender", "single victim/multiple offenders", etc. - and does indicate if the number of offenders is unknown (though curiously there are over 4,000 instances where the number of offenders is unknown but they still say there are two offenders) so you can use this variable to determine if the police don't know how many offenders there is. You're still limited, of course, in that the number of offenders is always what the police think there are, and they may be wrong. So use this variable - and anything that comes from it like the percent of offenders of a certain race - with caution. 
 
@@ -65,49 +53,33 @@ Figure \@ref(fig:shrOffenderAge) shows the percent of murders from 1976-2018 whe
 
 If you're familiar with the age-crime curve in criminology - which basically says crime peaks in late teen years then falls dramatically - this shows that exact curve, though is older and doesn't decline as the offender ages as quickly as we see with less serious crimes. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrOffenderAge-1} 
-
-}
-
-\caption{The age of homicide offenders, based on the first offender in any homicide incident. Offenders under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Offenders reported as '99 years or older' are considered 99 years old.}(\#fig:shrOffenderAge)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/shrOffenderAge-1.svg" alt="The age of homicide offenders, based on the first offender in any homicide incident. Offenders under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Offenders reported as '99 years or older' are considered 99 years old." width="90%" />
+<p class="caption">(\#fig:shrOffenderAge)The age of homicide offenders, based on the first offender in any homicide incident. Offenders under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Offenders reported as '99 years or older' are considered 99 years old.</p>
+</div>
 
 Figure \@ref(fig:shrVictimAge) repeats Figure \@ref(fig:shrOffenderAge) but with victim age rather than offender age. The mean victim age (shown in orange) is 32.9 and the median age is 30. Though the age victim age is a bit younger than the average offender age, trends are relatively similar for teenagers and older where deaths spikes in the late teen years and then declines steadily. The major difference is the U-shape for younger victims - for victims under age 15, homicides peak at age 0 (i.e. younger than their first birthday) with ~1.5% of all homicides being this this age. They then decline until plateauing at around age 6 before increasing again in the early teen years. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrVictimAge-1} 
-
-}
-
-\caption{The age of homicide victims, based on the first victims in any homicide incident. Victims under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Victims reported as '99 years or older' are considered 99 years old.}(\#fig:shrVictimAge)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/shrVictimAge-1.svg" alt="The age of homicide victims, based on the first victims in any homicide incident. Victims under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Victims reported as '99 years or older' are considered 99 years old." width="90%" />
+<p class="caption">(\#fig:shrVictimAge)The age of homicide victims, based on the first victims in any homicide incident. Victims under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Victims reported as '99 years or older' are considered 99 years old.</p>
+</div>
 
 #### Sex 
 
 We'll next look at victim and offender sex, a simple variable since only male and female are included. About 62% of offenders, as seen in Figure \@ref(fig:shrOffenderSex), are male and about 8% are female, indicating a large disparity in the sex of homicide offenders. The remaining 30% of offenders do not have sex data available because the police do not know the sex of this individual. For offenders who aren't arrested, this variable may be inaccurate since it is perceived sex of the offender. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrOffenderSex-1} 
-
-}
-
-\caption{The sex of offenders, 1976-2018.}(\#fig:shrOffenderSex)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/shrOffenderSex-1.svg" alt="The sex of offenders, 1976-2018." width="90%" />
+<p class="caption">(\#fig:shrOffenderSex)The sex of offenders, 1976-2018.</p>
+</div>
 
 There is far less uncertainty for victim sex, with under 0.15% of victims having an unknown sex. Here again there is a large disparity between male and female with about 78% of victims being male and 22% being female. While there are more male victims than male offenders, this is probably just due to there being so many unknown offenders. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrVictimSex-1} 
-
-}
-
-\caption{The sex of victims, 1976-2018.}(\#fig:shrVictimSex)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/shrVictimSex-1.svg" alt="The sex of victims, 1976-2018." width="90%" />
+<p class="caption">(\#fig:shrVictimSex)The sex of victims, 1976-2018.</p>
+</div>
 
 #### Race
 
@@ -115,25 +87,17 @@ This data also includes the race of the victims and offenders. This includes the
 
 Figure \@ref(fig:shrOffenderRace) shows the percent of homicides in the data by race. Black and White victims are included are similar percentages, at 34.2% and 33.8% of victims, respectively. The next most common group is Unknown at about 30.5% of offenders. Given that so many offenders have an unknown race, the reliability of the other race measures is limited. The remaining races are Asian at 0.9% of offenders, American Indian or Alaskan Native at 0.6%, and Native Hawaiian or Other Pacific Islander at 0.004%. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrOffenderRace-1} 
-
-}
-
-\caption{The race of offenders, 1976-2018.}(\#fig:shrOffenderRace)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/shrOffenderRace-1.svg" alt="The race of offenders, 1976-2018." width="90%" />
+<p class="caption">(\#fig:shrOffenderRace)The race of offenders, 1976-2018.</p>
+</div>
 
 For victim race, seen in Figure \@ref(fig:shrVictimRace), only about 1% of victim races are unknown. This means we can be a lot more confident in the race of the victims than in the race of the offender. Or, at least the challenge of categorizing people by race is the major problem, not missing data As with offenders, White and Black victims are the two most common races, with 49% and 47.7% of victims, respectively. There are almost double the percent of Asian victims than Asian offenders at 1.51% of victims (and 0.9% of offenders). American Indian or Alaskan Natives make up 0.8% of victims while Native Hawaiian or Pacific Islanders make up 0.005% of victims.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrVictimRace-1} 
-
-}
-
-\caption{The race of victims, 1976-2018}(\#fig:shrVictimRace)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/shrVictimRace-1.svg" alt="The race of victims, 1976-2018" width="90%" />
+<p class="caption">(\#fig:shrVictimRace)The race of victims, 1976-2018</p>
+</div>
 
 #### Ethnicity
 
@@ -141,25 +105,17 @@ The final demographic variable is ethnicity which is whether the victim or offen
 
 The vast majority - 71.6% - of offenders have an unknown ethnicity while 21.5% are not Hispanic and 6.9% are Hispanic. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrOffenderEthnicity-1} 
-
-}
-
-\caption{The ethnicity of offenders, 1976-2018.}(\#fig:shrOffenderEthnicity)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/shrOffenderEthnicity-1.svg" alt="The ethnicity of offenders, 1976-2018." width="90%" />
+<p class="caption">(\#fig:shrOffenderEthnicity)The ethnicity of offenders, 1976-2018.</p>
+</div>
 
 Unlike the other demographic variables, there is still a huge amount of underreporting when it comes to victim ethnicity, though still less than for offender ethnicity. 59% of victims have an unknown ethnicity. Nearly 30% of victims are reported as not Hispanic while 10.8% are reported as Hispanic.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{ucrbook_files/figure-latex/shrVictimEthnicity-1} 
-
-}
-
-\caption{The ethnicity of victims, 1976-2018.}(\#fig:shrVictimEthnicity)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="ucrbook_files/figure-epub3/shrVictimEthnicity-1.svg" alt="The ethnicity of victims, 1976-2018." width="90%" />
+<p class="caption">(\#fig:shrVictimEthnicity)The ethnicity of victims, 1976-2018.</p>
+</div>
 
 ### Case characteristics
 
