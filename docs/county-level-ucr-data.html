@@ -335,9 +335,9 @@ div.csl-indent {
 <div id="county-level-ucr-data" class="section level1" number="10">
 <h1><span class="header-section-number">Chapter 10</span> County-Level UCR Data</h1>
 <p>UCR data is only available at the agency-level.<a href="#fn50" class="footnote-ref" id="fnref50"><sup>50</sup></a> This has caused a lot of problems for researchers because many variables from other datasets (e.g. CDC data, economic data) is primarily available at the county-level. Their solution to this problem is to aggregate the data to the county-level by summing all the agencies in a particular county.<a href="#fn51" class="footnote-ref" id="fnref51"><sup>51</sup></a></p>
-<p>More specifically, nearly all researchers who use this county-level UCR data use the National Archive for Criminal Justice Data (NACJD)’s <a href="https://www.icpsr.umich.edu/web/pages/NACJD/guides/ucr.html#desc_cl">datasets</a> which have done the aggregation themselves (full disclosure, I used to have my own version of this data available on openICPSR and followed NACJD’s method. My reasoning was that people were using it anyways and I wanted to make sure that they knew the problem of the data so I included the issues with this data in the documentation when downloading it. However, I decided that the data was more flawed than I originally thought so I took down the data.).<a href="#fn52" class="footnote-ref" id="fnref52"><sup>52</sup></a> These are not official FBI datasets but “UCR staff were consulted in developing the new adjustment procedures.”<a href="#fn53" class="footnote-ref" id="fnref53"><sup>53</sup></a> The “new” procedures is because NACJD changed their missing data imputation procedure starting with 1994 UCR data, and for this chapter I’ll only focus on this “new” procedure.</p>
+<p>More specifically, nearly all researchers who use this county-level UCR data use the National Archive for Criminal Justice Data (NACJD)’s <a href="https://www.icpsr.umich.edu/web/pages/NACJD/guides/ucr.html#desc_cl">datasets</a> which have done the aggregation themselves (full disclosure, I used to have my own version of this data available on openICPSR and followed NACJD’s method. My reasoning was that people were using it anyways and I wanted to make sure that they knew the problem of the data, so I included the issues with this data in the documentation when downloading it. However, I decided that the data was more flawed than I originally thought so I took down the data.).<a href="#fn52" class="footnote-ref" id="fnref52"><sup>52</sup></a> These are not official FBI datasets but “UCR staff were consulted in developing the new adjustment procedures.”<a href="#fn53" class="footnote-ref" id="fnref53"><sup>53</sup></a> The “new” procedures is because NACJD changed their missing data imputation procedure starting with 1994 UCR data, and for this chapter I’ll only focus on this “new” procedure.</p>
 <p>There are two new problems with county-level UCR data: 1) agencies in multiple counties, 2) and agencies with missing data. I say main new problems as other problems with the data such as definition changes for crimes and underreporting of crimes are inherent in the agency-level data and thus transferred to the county-level data.</p>
-<p>The first issue is in distributing crimes across counties when an agency is in multiple counties. If, for example, New York City had 100 murders in a given year, how do you create county-level data from this? UCR data only tells you how many crimes happened in a particular agency, not where in the jurisdiction it happened. So we have no idea how many of these 100 murders happened in Kings County, how many happened in Bronx County, and so on. UCR data does, however tell you how many counties the agency is in and the population of each. They only do this for up to three counties so in cases like New York City you don’t actually have every county the agency is part of.<a href="#fn54" class="footnote-ref" id="fnref54"><sup>54</sup></a> NACJD’s method is to distribute crimes <em>according to the population of the agency in each county</em>. In the New York City example, Kings County is home to about 31% of the people in NYC while Bronx County is home to about 17%. So Kings County would get 31 murders while Bronx County gets 17 murders. The problem with this is the crime is not evenly distributed by population. Indeed, crime is generally extremely concentrated in a small number of areas in a city. Even if 100% of the murders in NYC actually happened in Bronx County, only 17% would get assigned there. So for agencies in multiple counties - which is very common among the largest agencies in the country, and seems more common in some regions than others - the crimes assigned may be massively incorrect.</p>
+<p>The first issue is in distributing crimes across counties when an agency is in multiple counties. If, for example, New York City had 100 murders in a given year, how do you create county-level data from this? UCR data only tells you how many crimes happened in a particular agency, not where in the jurisdiction it happened. So we have no idea how many of these 100 murders happened in Kings County, how many happened in Bronx County, and so on. UCR data does, however, tell you how many counties the agency is in and the population of each. They only do this for up to three counties so in cases like New York City you don’t actually have every county the agency is part of.<a href="#fn54" class="footnote-ref" id="fnref54"><sup>54</sup></a> NACJD’s method is to distribute crimes <em>according to the population of the agency in each county</em>. In the New York City example, Kings County is home to about 31% of the people in NYC while Bronx County is home to about 17%. So Kings County would get 31 murders while Bronx County gets 17 murders. The problem with this is the crime is not evenly distributed by population. Indeed, crime is generally extremely concentrated in a small number of areas in a city. Even if 100% of the murders in NYC actually happened in Bronx County, only 17% would get assigned there. So for agencies in multiple counties - which is very common among the largest agencies in the country, and seems more common in some regions than others - the crimes assigned may be massively incorrect.</p>
 <p>The second problem is that not all agencies report data, and even those that do may report only partially (e.g. report fewer than 12 months of the year). So by necessity the missing data has to be filled in somehow. While all methods FOR imputing missing data are wrong - as they will be different than the real data, though sometimes not by much - the ways done to impute the missing data in this dataset are particularly incorrect. We’ll go into more detail about why they’re incorrect in this chapter.</p>
 <p>In this chapter, I’ll then talk about the data as it is with a focus on why the data is flawed and shouldn’t be used. To be clear, all data has measurement errors and much of this book is dedicated to talking about the errors in the other UCR datasets.</p>
 <p>The problems in the county-level data, however, are egregious enough to merit special warning. This is by no means the first warning about this data. Most famously is <a href="https://link.springer.com/article/10.1023/A:1016060020848">Maltz and Targonski’s (2002)</a> paper in the Journal of Quantitative Criminology about the issues with this data. They concluded that “Until improved methods of imputing county-level crime data are developed, tested, and implemented, they should not be used, especially in policy studies” which is a conclusion I also hold. These warnings, as well as those from others have been largely (it appears) ignored.<a href="#fn55" class="footnote-ref" id="fnref55"><sup>55</sup></a></p>
@@ -349,7 +349,7 @@ div.csl-indent {
 <div id="how-much-data-is-missing" class="section level2" number="10.2">
 <h2><span class="header-section-number">10.2</span> How much data is missing</h2>
 <p>A major problem with county-level UCR data is that some data is missing, and is then imputed (poorly). So to understand how much of an issue missing data is in the county-level UCR data, we’ll now look at missingness in the Offenses Known and Clearances by Arrests dataset which is the “crime data” of the UCR. County-level data also aggregates arrests from the Arrests by Age, Sex, and Race dataset, which has lower reporting (and thus more missingness) than the Offenses Known and Clearances by Arrest data. But for simplicity we’ll only look at the crime dataset. We’ll do so in a number of different ways to try to really understand how much data is missing and how it changed over time.</p>
-<p>For each of the below graphs and tables we use the Offenses Known and Clearances by Arrest data for 1960-2018 and exclude any agency that are “special jurisdictions.” Special jurisdiction agenices are, as it seems, special agencies that tend to have an extremely specific jurisdiction and goals. These include agencies such as port authorities, alcohol beverage control, university police, and airport police. These agencies tend to cover a tiny geographic area and have both very low crime and very low reporting rates.<a href="#fn59" class="footnote-ref" id="fnref59"><sup>59</sup></a> So to prevent missingness being overcounted due to these weird agencies I’m excluding them from the below examples. I’m also excluding federal agencies (though UCR only has 7 reporting federal agencies) as these operate much the same as special jurisdiction agencies.</p>
+<p>For each of the below graphs and tables we use the Offenses Known and Clearances by Arrest data for 1960-2018 and exclude any agency that are “special jurisdictions.” Special jurisdiction agencies are, as it seems, special agencies that tend to have an extremely specific jurisdiction and goals. These include agencies such as port authorities, alcohol beverage control, university police, and airport police. These agencies tend to cover a tiny geographic area and have both very low crime and very low reporting rates.<a href="#fn59" class="footnote-ref" id="fnref59"><sup>59</sup></a> So to prevent missingness being overcounted due to these weird agencies I’m excluding them from the below examples. I’m also excluding federal agencies (though UCR only has 7 reporting federal agencies) as these operate much the same as special jurisdiction agencies.</p>
 <p>We’ll first look at how many months are reported in the example year of 2018, though we’ll see below that 2018 is pretty similar to other years. Table <a href="county-level-ucr-data.html#tab:countyMonthsReportedDefinitions">10.1</a> shows the number of months reported using two definitions. The first is how the FBI, and NACJD when imputing data, classifies number of months reported and this is actually just the last month reported. So if an agency reports only in July they are classified as reporting 7 months; if they report only in December they are classified as reporting 12 months. Whether they actually report previous months doesn’t matter based on this definition.</p>
 <p>The second definition is my own - and available in the data I’ve released on openICPSR - and is based on how many months the data says the agency reported. That is, for each month the UCR data actually says if they received a report or not. So this is a superior way of measuring though not full-proof as some months say they have a report but don’t and some say they don’t have a report but do have crime recorded. Also, in 2018 the FBI changed how they classify this variable so now every month is reported for every agency, making the measurement useless for 2018 and more recent data.</p>
 <p>The table shows what percent of agencies that reported data had data for each possible number of months: 0 through 12 months. Column 2 shows the percent for the 1st method while column 3 shows the percent for my method. And the final column shows the percent change from moving from the 1st to 2nd measure.</p>
@@ -492,7 +492,7 @@ Figure 10.5: The annual percent of agencies that reported in December of that ye
 <div id="current-imputation-practices" class="section level2" number="10.3">
 <h2><span class="header-section-number">10.3</span> Current imputation practices</h2>
 <p>There are three paths that the county-level UCR data takes when dealing with the agency-level data before aggregating it to the county-level. The path each agency is on is dependent on how many months of data they report. Figure <a href="county-level-ucr-data.html#fig:countyImputation">10.6</a> shows each of these three paths. We’ll look in detail at these paths in the below sections, but for now we’ll briefly summarize each path.</p>
-<p>First, if an agency reports only two or fewer months, the entire agency’s data (that is, any month that they do report) is deleted and their annual data is replaced with the average of agencys that are: 1) in the same state, 2) in the same population group (i.e. very roughly the same size), 3) and that reported all 12 months of the year (i.e. reported in December but potentially not any other month).</p>
+<p>First, if an agency reports only two or fewer months, the entire agency’s data (that is, any month that they do report) is deleted and their annual data is replaced with the average of agencies that are: 1) in the same state, 2) in the same population group (i.e. very roughly the same size), 3) and that reported all 12 months of the year (i.e. reported in December but potentially not any other month).</p>
 <p>When an agency reports 3-11 months, those months of data are multiplied by 12/numbers-of-months-reported so it just upweights the available data to account for the missing months, assuming that missing months are like the present months.</p>
 <p>Finally, for agencies that reported all 12 months there’s nothing missing so it just uses the data as it is.</p>
 <div class="figure" style="text-align: center"><span id="fig:countyImputation"></span>
@@ -506,7 +506,7 @@ Figure 10.6: The imputation procedure for missing data based on the number of mo
 <p>When there are 1-9 months reported the missing months are imputed by multiplying the reported months of data by 12/numbers-of-months-reported, essentially just scaling up the reported months. For example, if 6 months are reported then it multiplies each crime values by 12/6=2, doubling each reported crime value. This method makes the assumption that missing values are similar to present ones, at on average. Given that there are seasonal differences in crime - which tends to increase in the summer and decrease in the winter - how accurate this replacement is depends on how consistent crime is over the year and which months are missing. Miss the summer months and you’ll undercount crime. Miss the winter months and you’ll overcount crime. Miss random months and you’ll be wrong randomly (and maybe it’ll balance out but maybe it won’t).</p>
 <p>We’ll look at a number of examples and simulations about how accurate this method is. For each example we’ll use agencies that reported in 2018 so we have a real comparison when using their method of replacing “missing” months.</p>
 <p>Starting with Table <a href="county-level-ucr-data.html#tab:CountyPhillyMurders">10.2</a>, we will see the change in the actual annual count of murders in Philadelphia when replacing data from each month. Each row shows what happens when you assume that month - and only that month - is missing and interpolate using the current 12/numbers-of-months-reported method. Column 1 shows the month that we are “replacing” while column 2 shows the actual number of murders in that month and the percent of annual murders in parentheses. Column 3 shows the actual annual murders which is 351 in 2018; column 4 shows the annual murder count when imputing the “missing” month" and column 5 shows the percent change between columns 3 and 4.</p>
-<p>If each month had the same number of crimes we’d expect each month to account for 8.33% of the year’s total. That’s not what we’re seeing in Philadelphia for murders as the percents range from 5.13% in both January and April to 12.25% in December. This means that replacing these months will not give us an accurate count of crimes as crime is not distributed evenly across months. Indeed, as seen in column 5, on average, the annual sum of murders when imputing a single month is 1.85% off from the real value. When imputing the worst (as far as its effect on results) months you can report murder as either 4.27% lower than it is or 3.5% higher than it is.</p>
+<p>If each month had the same number of crimes we’d expect each month to account for 8.33% of the year’s total. That’s not what we’re seeing in Philadelphia for murders as the percentages range from 5.13% in both January and April to 12.25% in December. This means that replacing these months will not give us an accurate count of crimes as crime is not distributed evenly across months. Indeed, as seen in column 5, on average, the annual sum of murders when imputing a single month is 1.85% off from the real value. When imputing the worst (as far as its effect on results) months you can report murder as either 4.27% lower than it is or 3.5% higher than it is.</p>
 <table>
 <caption><span id="tab:CountyPhillyMurders">Table 10.2: </span>The imputed number of murders in Philadelphia in 2018 when missing a single month. This shows how different the imputed value is to the real value for each month missing.</caption>
 <colgroup>
@@ -612,7 +612,7 @@ Figure 10.6: The imputation procedure for missing data based on the number of mo
 </tr>
 </tbody>
 </table>
-<p>Part of the reason for the percent difference for murders when replacing a month found above is that there was high variation in the number of murders per month with some months having more than double the number as other months. We’ll look at what happens when crimes are far more evenly distributed across months in Table <a href="county-level-ucr-data.html#tab:countyPhillyThefts">10.3</a>. This table replicates Table <a href="county-level-ucr-data.html#tab:CountyPhillyMurders">10.2</a> but uses thefts in Philadelphia in 2018 instead of murders. Here the monthly share of thefts range only from 6.85% to 9.16% so month-to-month variation is not very large. Now the percent change never increases above an absolute value of 1.62 and changes by an average of 0.77%. In cases like this, the imputation method is less of a problem.</p>
+<p>Part of the reason for the percent difference for murders when replacing a month found above is that there was high variation in the number of murders per month with some months having more than double the number as other months. We’ll look at what happens when crimes are far more evenly distributed across months in Table <a href="county-level-ucr-data.html#tab:countyPhillyThefts">10.3</a>. This table replicates Table <a href="county-level-ucr-data.html#tab:CountyPhillyMurders">10.2</a> but uses thefts in Philadelphia in 2018 instead of murders. Here the monthly share of thefts ranged only from 6.85% to 9.16% so month-to-month variation is not very large. Now the percent change never increases above an absolute value of 1.62 and changes by an average of 0.77%. In cases like this, the imputation method is less of a problem.</p>
 <table>
 <caption><span id="tab:countyPhillyThefts">Table 10.3: </span>The imputed number of thefts in Philadelphia in 2018 when missing a single month. This shows how different the imputed value is to the real value for each month missing.</caption>
 <colgroup>
@@ -824,8 +824,8 @@ Figure 10.6: The imputation procedure for missing data based on the number of mo
 </tr>
 </tbody>
 </table>
-<p>In the above three tables we looked at what happens if a single month is missing. Below we’ll look at the results of simulating when between 1 and 9 months are missing for an agency. Table <a href="county-level-ucr-data.html#tab:countyPhillyMurderMonthsMissing">10.5</a> looks at murder in Philadelphia again but now randomizes removing between 1 and 9 months of the year and interpolating the annual murder count using the current method. For each number of months removed I run 10,000 simulations.<a href="#fn60" class="footnote-ref" id="fnref60"><sup>60</sup></a> Given that I am literally randomly choosing which months to say are missing, I am assuming that missing data is missing completely at random. This is a very bold assumption and one that is the best case scenario since it means that missing data is not related to crimes, police funding/staffing, or anything else relevant. So you should read the below tables as the most optimistic (and thus likely wrong) outcomes.</p>
-<p>For each number of months reported the table shows the actual annual murder (which never changes) and the imputed mean, median, modal, minimum, and maximum annual murder count. As a function of the randomization, the imputed mean is always nearly identical to the real value. The most important columns, I believe, are the minimum and maximum imputed value since these show the worst case scenario - that is, what happens when the month(s) least like the average month is replaced. Since as researchers we should try to minimize the harm caused from our work if it is wrong, I think it is safest to assume that if data is missing it is missing in the worst possible way. While this is a conservative approach, doing so otherwise leads to the greatest risk of using incorrect data, and incorrect results - and criminology is a field important enough to necessitate this caution.</p>
+<p>In the above three tables we looked at what happens if a single month is missing. Below we’ll look at the results of simulating when between 1 and 9 months are missing for an agency. Table <a href="county-level-ucr-data.html#tab:countyPhillyMurderMonthsMissing">10.5</a> looks at murder in Philadelphia again but now randomizes removing between 1 and 9 months of the year and interpolating the annual murder count using the current method. For each number of months removed I run 10,000 simulations.<a href="#fn60" class="footnote-ref" id="fnref60"><sup>60</sup></a> Given that I am literally randomly choosing which months to say are missing, I am assuming that missing data is missing completely at random. This is a very bold assumption and one that is the best-case scenario since it means that missing data is not related to crimes, police funding/staffing, or anything else relevant. So you should read the below tables as the most optimistic (and thus likely wrong) outcomes.</p>
+<p>For each number of months reported the table shows the actual annual murder (which never changes) and the imputed mean, median, modal, minimum, and maximum annual murder count. As a function of the randomization, the imputed mean is always nearly identical to the real value. The most important columns, I believe, are the minimum and maximum imputed value since these show the worst-case scenario - that is, what happens when the month(s) least like the average month is replaced. Since as researchers we should try to minimize the harm caused from our work if it is wrong, I think it is safest to assume that if data is missing it is missing in the worst possible way. While this is a conservative approach, doing so otherwise leads to the greatest risk of using incorrect data, and incorrect results - and criminology is a field important enough to necessitate this caution.</p>
 <p>As might be expected, as the number of months missing increases the quality of the imputation decreases. The minimum is further and further below the actual value while the maximum is further and further above the actual value.</p>
 <table style="width:100%;">
 <caption><span id="tab:countyPhillyMurderMonthsMissing">Table 10.5: </span>A simulation showing how the imputed values of murders in Philadelphia in 2018 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run for removing and imputing those months of data.</caption>
@@ -853,7 +853,7 @@ Figure 10.6: The imputation procedure for missing data based on the number of mo
 <tr class="odd">
 <td align="left">1</td>
 <td align="right">351</td>
-<td align="right">350.99</td>
+<td align="right">350.96</td>
 <td align="right">353.45</td>
 <td align="right">353.45</td>
 <td align="right">336.00</td>
@@ -862,7 +862,7 @@ Figure 10.6: The imputation procedure for missing data based on the number of mo
 <tr class="even">
 <td align="left">2</td>
 <td align="right">351</td>
-<td align="right">351.04</td>
+<td align="right">350.95</td>
 <td align="right">350.40</td>
 <td align="right">350.40</td>
 <td align="right">320.40</td>
@@ -871,8 +871,8 @@ Figure 10.6: The imputation procedure for missing data based on the number of mo
 <tr class="odd">
 <td align="left">3</td>
 <td align="right">351</td>
-<td align="right">350.74</td>
-<td align="right">352.00</td>
+<td align="right">351.20</td>
+<td align="right">353.33</td>
 <td align="right">353.33</td>
 <td align="right">312.00</td>
 <td align="right">385.33</td>
@@ -880,7 +880,7 @@ Figure 10.6: The imputation procedure for missing data based on the number of mo
 <tr class="even">
 <td align="left">4</td>
 <td align="right">351</td>
-<td align="right">351.10</td>
+<td align="right">351.12</td>
 <td align="right">349.50</td>
 <td align="right">370.50</td>
 <td align="right">301.50</td>
@@ -889,7 +889,7 @@ Figure 10.6: The imputation procedure for missing data based on the number of mo
 <tr class="odd">
 <td align="left">5</td>
 <td align="right">351</td>
-<td align="right">350.65</td>
+<td align="right">351.39</td>
 <td align="right">351.43</td>
 <td align="right">353.14</td>
 <td align="right">289.71</td>
@@ -898,16 +898,16 @@ Figure 10.6: The imputation procedure for missing data based on the number of mo
 <tr class="even">
 <td align="left">6</td>
 <td align="right">351</td>
-<td align="right">351.19</td>
-<td align="right">352.00</td>
-<td align="right">376.00</td>
+<td align="right">350.79</td>
+<td align="right">348.00</td>
+<td align="right">344.00</td>
 <td align="right">284.00</td>
 <td align="right">418.00</td>
 </tr>
 <tr class="odd">
 <td align="left">7</td>
 <td align="right">351</td>
-<td align="right">351.67</td>
+<td align="right">351.45</td>
 <td align="right">350.40</td>
 <td align="right">348.00</td>
 <td align="right">276.00</td>
@@ -916,7 +916,7 @@ Figure 10.6: The imputation procedure for missing data based on the number of mo
 <tr class="even">
 <td align="left">8</td>
 <td align="right">351</td>
-<td align="right">351.37</td>
+<td align="right">351.55</td>
 <td align="right">354.00</td>
 <td align="right">312.00</td>
 <td align="right">264.00</td>
@@ -925,8 +925,8 @@ Figure 10.6: The imputation procedure for missing data based on the number of mo
 <tr class="odd">
 <td align="left">9</td>
 <td align="right">351</td>
-<td align="right">350.48</td>
-<td align="right">344.00</td>
+<td align="right">350.70</td>
+<td align="right">348.00</td>
 <td align="right">344.00</td>
 <td align="right">248.00</td>
 <td align="right">468.00</td>
@@ -960,7 +960,7 @@ Figure 10.6: The imputation procedure for missing data based on the number of mo
 <tr class="odd">
 <td align="left">1</td>
 <td align="right">22</td>
-<td align="right">21.97</td>
+<td align="right">22.00</td>
 <td align="right">22.91</td>
 <td align="right">22.91</td>
 <td align="right">18.55</td>
@@ -969,7 +969,7 @@ Figure 10.6: The imputation procedure for missing data based on the number of mo
 <tr class="even">
 <td align="left">2</td>
 <td align="right">22</td>
-<td align="right">22.04</td>
+<td align="right">21.98</td>
 <td align="right">22.80</td>
 <td align="right">25.20</td>
 <td align="right">14.40</td>
@@ -978,8 +978,8 @@ Figure 10.6: The imputation procedure for missing data based on the number of mo
 <tr class="odd">
 <td align="left">3</td>
 <td align="right">22</td>
-<td align="right">22.01</td>
-<td align="right">22.67</td>
+<td align="right">22.00</td>
+<td align="right">21.33</td>
 <td align="right">21.33</td>
 <td align="right">12.00</td>
 <td align="right">29.33</td>
@@ -987,7 +987,7 @@ Figure 10.6: The imputation procedure for missing data based on the number of mo
 <tr class="even">
 <td align="left">4</td>
 <td align="right">22</td>
-<td align="right">22.05</td>
+<td align="right">21.99</td>
 <td align="right">22.50</td>
 <td align="right">22.50</td>
 <td align="right">9.00</td>
@@ -996,34 +996,34 @@ Figure 10.6: The imputation procedure for missing data based on the number of mo
 <tr class="odd">
 <td align="left">5</td>
 <td align="right">22</td>
-<td align="right">22.01</td>
+<td align="right">22.04</td>
 <td align="right">22.29</td>
-<td align="right">20.57</td>
+<td align="right">22.29</td>
 <td align="right">6.86</td>
 <td align="right">34.29</td>
 </tr>
 <tr class="even">
 <td align="left">6</td>
 <td align="right">22</td>
-<td align="right">22.01</td>
+<td align="right">22.03</td>
 <td align="right">22.00</td>
-<td align="right">20.00</td>
+<td align="right">24.00</td>
 <td align="right">6.00</td>
 <td align="right">38.00</td>
 </tr>
 <tr class="odd">
 <td align="left">7</td>
 <td align="right">22</td>
-<td align="right">22.00</td>
+<td align="right">22.03</td>
 <td align="right">21.60</td>
-<td align="right">21.60</td>
+<td align="right">24.00</td>
 <td align="right">4.80</td>
 <td align="right">43.20</td>
 </tr>
 <tr class="even">
 <td align="left">8</td>
 <td align="right">22</td>
-<td align="right">21.96</td>
+<td align="right">22.00</td>
 <td align="right">21.00</td>
 <td align="right">21.00</td>
 <td align="right">3.00</td>
@@ -1032,7 +1032,7 @@ Figure 10.6: The imputation procedure for missing data based on the number of mo
 <tr class="odd">
 <td align="left">9</td>
 <td align="right">22</td>
-<td align="right">21.72</td>
+<td align="right">21.83</td>
 <td align="right">20.00</td>
 <td align="right">24.00</td>
 <td align="right">0.00</td>
@@ -1049,7 +1049,7 @@ Figure 10.6: The imputation procedure for missing data based on the number of mo
 <p>For this method of replacing missing data to be accurate agencies in the same population group in each state would need to have very similar crime counts. Otherwise it is assuming that missing agencies are just average (literally) in terms of crime. This again assumes that missing data is missing at random, which is unlikely to be true.</p>
 <p>In each of the below examples we use data from 2018 Offenses Known and Clearances by Arrest and use only agencies whose final month reported was December. This makes it the actual agencies in each population group that would replace agencies that are missing 10 or more months of data in 2018. As agencies can - and do - report different numbers of months each year, these numbers would be a little different if using any year other than 2018.</p>
 <p>For each population group we’ll look at the mean, median, and maximum number of murders plus aggravated assaults with a gun.<a href="#fn61" class="footnote-ref" id="fnref61"><sup>61</sup></a> This is essentially a measure of the most serious violent crimes as the difference between gun assaults and murders is, to some degree, a matter of luck (e.g. where the person is shot can make the difference between an assault and a murder).<a href="#fn62" class="footnote-ref" id="fnref62"><sup>62</sup></a> This is actually not available in NACJD’s county-level UCR data as they don’t separate gun assaults from other aggravated assaults, though that data is available in the agency-level UCR data. If we see a wide range in the number of murders+gun-assaults in the below table, that’ll indicate that this method of imputing missing data is highly flawed.</p>
-<p>Table <a href="county-level-ucr-data.html#tab:countyPopulationGroupStatsNational">10.7</a> shows these values for all agencies in the United States who reported 12 months of data (based on the “December last month reported” definition) in 2018. The actual imputation process only looks at agencies in the same state but this is still information at seeing broad trends - and we’ll look at two specific states below. Column 1 shows each of the population groups in the data while the remaining columns show the mean, median, minimum, and maximum number of murders+gun-assaults in 2018, respectively.<a href="#fn63" class="footnote-ref" id="fnref63"><sup>63</sup></a> For each population group there is a large range of values, as seen from the minimum and maximum values. There are also large difference in the mean and median values for larger (25,000+ population) agencies, particularly when compared to the top and bottom of the range of values.<a href="#fn64" class="footnote-ref" id="fnref64"><sup>64</sup></a> Using this imputation method will, in most cases (but soon we’ll see an instance where there’s an exception) provide substantially different values than the real (but unknown) values.</p>
+<p>Table <a href="county-level-ucr-data.html#tab:countyPopulationGroupStatsNational">10.7</a> shows these values for all agencies in the United States who reported 12 months of data (based on the “December last month reported” definition) in 2018. The actual imputation process only looks at agencies in the same state, but this is still information at seeing broad trends - and we’ll look at two specific states below. Column 1 shows each of the population groups in the data while the remaining columns show the mean, median, minimum, and maximum number of murders+gun-assaults in 2018, respectively.<a href="#fn63" class="footnote-ref" id="fnref63"><sup>63</sup></a> For each population group there is a large range of values, as seen from the minimum and maximum values. There are also large differences in the mean and median values for larger (25,000+ population) agencies, particularly when compared to the top and bottom of the range of values.<a href="#fn64" class="footnote-ref" id="fnref64"><sup>64</sup></a> Using this imputation method will, in most cases (but soon we’ll see an instance where there’s an exception) provide substantially different values than the real (but unknown) values.</p>
 <table>
 <caption><span id="tab:countyPopulationGroupStatsNational">Table 10.7: </span>The mean, median, minimum, and maximum agency size nationwide for all population groups in the 2018 Offenses Known and Clearances by Arrests data.</caption>
 <colgroup>
@@ -1134,14 +1134,14 @@ Figure 10.6: The imputation procedure for missing data based on the number of mo
 </tr>
 </tbody>
 </table>
-<p>To better see the distribution, Figure <a href="county-level-ucr-data.html#fig:countyPopulationGroupsBoxplot">10.7</a> shows boxplots for the rate per 100,000 population of murder+gun-assaults in each population group in 2018. Since there can’t be a rate without any population, this excludes all agencies with a population of zero. To make the graph simpler to see, it also excludes all agencies with a rate about 500, which is 57 agenices. Each population group has a relatively large range of values with the size of the boxplot growing as the size of the population group increases. This means that there are a wider variety of rates in larger population groups than in smaller population groups. Each population group also has a good number of agencies that are outliers with a much higher rate than is normal.</p>
+<p>To better see the distribution, Figure <a href="county-level-ucr-data.html#fig:countyPopulationGroupsBoxplot">10.7</a> shows boxplots for the rate per 100,000 population of murders+gun-assaults in each population group in 2018. Since there can’t be a rate without any population, this excludes all agencies with a population of zero. To make the graph simpler to see, it also excludes all agencies with a rate about 500, which is 57 agencies. Each population group has a relatively large range of values with the size of the boxplot growing as the size of the population group increases. This means that there are a wider variety of rates in larger population groups than in smaller population groups. Each population group also has a good number of agencies that are outliers with a much higher rate than is normal.</p>
 <div class="figure" style="text-align: center"><span id="fig:countyPopulationGroupsBoxplot"></span>
 <img src="ucr_county_files/figure-html/countyPopulationGroupsBoxplot-1.png" alt="Boxplots showing the distribution of annual murders+gun-assaults for each population group for all agencies that reported December data in 2018." width="90%" />
 <p class="caption">
 Figure 10.7: Boxplots showing the distribution of annual murders+gun-assaults for each population group for all agencies that reported December data in 2018.
 </p>
 </div>
-<p>Since the actual imputation process looks only at agencies in the same state, we’ll look at two example states - Texas and Maine - and see how trends differ from nationally. These states are chosen as Texas is a very large (both in population and in number of jurisdictions) state with some areas of high crime while Maine is a small, more rural state with very low crime. Table <a href="county-level-ucr-data.html#tab:countyPopulationGroupStatsTexas">10.8</a> shows results in Texas. Here, the findings are very similar to that of Table <a href="county-level-ucr-data.html#tab:countyPopulationGroupStatsNational">10.7</a>. While the numbers are different, and the maximum value is substantially smaller than using all agenices in the country, the basic findings of a wide range of values - especially at larger population groups - is the same.</p>
+<p>Since the actual imputation process looks only at agencies in the same state, we’ll look at two example states - Texas and Maine - and see how trends differ from nationally. These states are chosen as Texas is a very large (both in population and in number of jurisdictions) state with some areas of high crime while Maine is a small, more rural state with very low crime. Table <a href="county-level-ucr-data.html#tab:countyPopulationGroupStatsTexas">10.8</a> shows results in Texas. Here, the findings are very similar to that of Table <a href="county-level-ucr-data.html#tab:countyPopulationGroupStatsNational">10.7</a>. While the numbers are different, and the maximum value is substantially smaller than using all agencies in the country, the basic findings of a wide range of values - especially at larger population groups - is the same.</p>
 <table>
 <caption><span id="tab:countyPopulationGroupStatsTexas">Table 10.8: </span>The mean, median, minimum, and maximum agency size for agencies in Texas for all population groups in the 2018 Offenses Known and Clearances by Arrests data.</caption>
 <colgroup>
@@ -1330,7 +1330,7 @@ Figure 10.7: Boxplots showing the distribution of annual murders+gun-assaults fo
 <li id="fn54"><p>For New York City specifically NACJD does distribute to all five counties, and does so by county population.<a href="county-level-ucr-data.html#fnref54" class="footnote-back">↩︎</a></p></li>
 <li id="fn55"><p>Hopefully the warnings deterred at least some people.<a href="county-level-ucr-data.html#fnref55" class="footnote-back">↩︎</a></p></li>
 <li id="fn56"><p>I used to have a Google Scholar alert for UCR papers but turned it off since so many papers either used my data but didn’t cite me, used the data improperly, or both.<a href="county-level-ucr-data.html#fnref56" class="footnote-back">↩︎</a></p></li>
-<li id="fn57"><p>Given economist’s policy of not citing other fields it’s likely that they haven’t read Maltz and Targonski’s paper. Normally I’d be concerned with criticizing entire fields but no economist will read this as I’m not an economist myself so it’s fine.<a href="county-level-ucr-data.html#fnref57" class="footnote-back">↩︎</a></p></li>
+<li id="fn57"><p>Given economist’s policy of not citing other fields it’s likely that they haven’t read Maltz and Targonski’s paper. Normally I’d be concerned with criticizing entire fields, but no economist will read this as I’m not an economist myself so it’s fine.<a href="county-level-ucr-data.html#fnref57" class="footnote-back">↩︎</a></p></li>
 <li id="fn58"><p>I note these differences not to join the ego-driven feud between the fields. As a criminologist who currently works in a political science department, these feuds are quite stupid. I note it, however, to show that this data usage is partially driven by subcultures within fields. For example, criminology has long known about which may explain why it is more commonly used in non-criminology fields. It is therefore important for researchers to talk to (or collaborate with {though to be clear I’m not volunteering or requesting to collaborate with you}) people who have content-expertise about the data that you’re using. And that open communication between the fields (including collaborations and submitting to journals from fields other than your own) will strengthen both fields.<a href="county-level-ucr-data.html#fnref58" class="footnote-back">↩︎</a></p></li>
 <li id="fn59"><p>Even though these are unusual agencies, in real analyses using UCR data at the county-level you’d like want to include them. Or justify why you’re not including them.<a href="county-level-ucr-data.html#fnref59" class="footnote-back">↩︎</a></p></li>
 <li id="fn60"><p>This is actually more than I need to run to get the same results but it’s easier to run many simulations than to math out how many I actually need to find all possible combinations of missing months.<a href="county-level-ucr-data.html#fnref60" class="footnote-back">↩︎</a></p></li>
