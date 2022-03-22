@@ -65,14 +65,14 @@ So using the Hierarchy Rule does undercount crime, but this is a small undercoun
 Figure \@ref(fig:offensesAgenciesReporting) shows the annual number of police agencies that reported at least one month that year. With data starting in 1960, there were a little under 7,500 agencies reporting a year until 1970 when the number of agencies began increasing. This continued until the late 1970s when about 14,000 agencies reported, and this remained steady for over a decade before declining in the 1990s until about 12,500 in the latter half of the decade. Then the number of agencies reporting increased steadily until about 16,500 agencies reported in 2010. The number of agencies has slowly increased since then, adding a few hundred agencies from 2010 to 2018. While this data is available through 2019, this graph only shows data through 2018. As this graph shows agencies that report at least one month, it overcounts reporting agencies as some report fewer than every month in the year. Agencies that do report, however, tend to report all 12 months of the year so this problem is not necessarily serious, though it depends on the agencies you're looking at. 
 
 <div class="figure" style="text-align: center">
-<img src="ucrbook_files/figure-epub3/offensesAgenciesReporting-1.svg" alt="The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year." width="90%" />
+<img src="offenses_known_files/figure-html/offensesAgenciesReporting-1.png" alt="The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year." width="90%" />
 <p class="caption">(\#fig:offensesAgenciesReporting)The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.</p>
 </div>
 
 Figure \@ref(fig:offensesbigAgenciesReporting) repeats the above figure but now including only agencies with 100,000 people or more in their jurisdiction. While these agencies have a far more linear trend than all agencies, the basic lesson is the same: recent data has most agencies reporting; old data excludes many agencies. 
 
 <div class="figure" style="text-align: center">
-<img src="ucrbook_files/figure-epub3/offensesbigAgenciesReporting-1.svg" alt="The annual number of agencies with a population of 100,000 or higher reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year." width="90%" />
+<img src="offenses_known_files/figure-html/offensesbigAgenciesReporting-1.png" alt="The annual number of agencies with a population of 100,000 or higher reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year." width="90%" />
 <p class="caption">(\#fig:offensesbigAgenciesReporting)The annual number of agencies with a population of 100,000 or higher reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.</p>
 </div>
 
@@ -97,7 +97,7 @@ Clearances are reported in the month that they occur, regardless of when the cri
 Still, there are occasionally months - and even years - where there are more reported crimes cleared than crimes that occur. Figure \@ref(fig:montgomeryClearances) shows the number of actual and cleared murders from the Montgomery County Police Department in Maryland. Several years have more murders cleared than were committed - a sign that the month of clearance does not correspond to the month of occurrence, rather than the police solving crime before it happened.^[The Minority Report is not yet a documentary.]
 
 <div class="figure" style="text-align: center">
-<img src="ucrbook_files/figure-epub3/montgomeryClearances-1.svg" alt="The annual number of actual and cleared murders from the Montgomery County Police Department, MD, 1960-2018." width="90%" />
+<img src="offenses_known_files/figure-html/montgomeryClearances-1.png" alt="The annual number of actual and cleared murders from the Montgomery County Police Department, MD, 1960-2018." width="90%" />
 <p class="caption">(\#fig:montgomeryClearances)The annual number of actual and cleared murders from the Montgomery County Police Department, MD, 1960-2018.</p>
 </div>
 
@@ -114,21 +114,21 @@ Other unfounded crimes would include when someone reports a crime but later says
 Figure \@ref(fig:phillyRapeUnfound) provides one example of this by showing the number of actual - that is, rapes that the police say actually occurred - and unfounded rapes annually from 1960-2018 in Philadelphia, PA. Interestingly, the spike in actual rapes in 2013 due to the new rape definition that year (discussed below) does not correspond to a spike in unfounded rapes - which suggests that this variable is not being reported properly. It is unlikely that the number of rapes would spike so much without any corresponding increase - and an actual decrease - in unfounded rapes. Since unfounded rapes are so common, especially compared to other crimes - and evidence that police also misreport clearances for rape - this variable is likely to be manipulated by the police to make it appear that there are fewer rapes than there actually is. As such, this variable - and relatedly the actual crimes variable" is not reliable, especially for rapes. How unreliable, of course depends on the specific offense and the agency reporting. 
 
 <div class="figure" style="text-align: center">
-<img src="ucrbook_files/figure-epub3/phillyRapeUnfound-1.svg" alt="The annual number of actual and unfounded rapes in Philadelphia, PA, 1960-2018." width="90%" />
+<img src="offenses_known_files/figure-html/phillyRapeUnfound-1.png" alt="The annual number of actual and unfounded rapes in Philadelphia, PA, 1960-2018." width="90%" />
 <p class="caption">(\#fig:phillyRapeUnfound)The annual number of actual and unfounded rapes in Philadelphia, PA, 1960-2018.</p>
 </div>
 
 Another way to look at this data is the percent of rapes that were unfounded. Since unfounded and actual rapes are distinct categories, we'll need to divide unfounded rapes by the sum of actual and unfounded rapes and then multiple the result by 100. Please note that unfounding occurs in the month the police discover the case to be unfounded, it is not tied to the month of the original report. So this graph isn't really showing the percent that year that were unfounded - but for our purposes of getting a general sense it is acceptable. Usually about 10% of reported rapes are unfounded in Philadelphia. The 44% in 1983, the first year with data, is probably high due to it accounting for unfounded cases in previous years that weren't reported in the data until 1983. 
 
 <div class="figure" style="text-align: center">
-<img src="ucrbook_files/figure-epub3/phillyRapeUnfoundPercent-1.svg" alt="The percent of reported rapes that the police recorded as unfounded in Philadelphia, PA, 1960-2018." width="90%" />
+<img src="offenses_known_files/figure-html/phillyRapeUnfoundPercent-1.png" alt="The percent of reported rapes that the police recorded as unfounded in Philadelphia, PA, 1960-2018." width="90%" />
 <p class="caption">(\#fig:phillyRapeUnfoundPercent)The percent of reported rapes that the police recorded as unfounded in Philadelphia, PA, 1960-2018.</p>
 </div>
 
 As a comparison, Figure \@ref(fig:phillyRobberyUnfoundPercent) shows the percent of robberies that are recorded as unfounded in Philadelphia over the same time period. While the percent has been increasing, for most of the data it is under 1% and never exceeds 3%. To me this suggests that the Philly Police, and they aren't unique, are overcounting rapes as unfounded to improve their rape statistic data. 
 
 <div class="figure" style="text-align: center">
-<img src="ucrbook_files/figure-epub3/phillyRobberyUnfoundPercent-1.svg" alt="The percent of reported robberies that the police recorded as unfounded in Philadelphia, PA, 1960-2018." width="90%" />
+<img src="offenses_known_files/figure-html/phillyRobberyUnfoundPercent-1.png" alt="The percent of reported robberies that the police recorded as unfounded in Philadelphia, PA, 1960-2018." width="90%" />
 <p class="caption">(\#fig:phillyRobberyUnfoundPercent)The percent of reported robberies that the police recorded as unfounded in Philadelphia, PA, 1960-2018.</p>
 </div>
 
@@ -147,14 +147,14 @@ As this revised definition is broader than the original one post-2013, rape data
 We'll start with the Philadelphia Police Department in Philadelphia, PA, shown in Figure \@ref(fig:rapePhilly) which shows the annual number of rapes from 2000-2018. It's declining slowly but steadily over the 2000-2012 time period until spiking sharply in 2013. Since the rape definition change in 2013 is far broader than previous year's definition, this makes sense. A broader definition should lead to a sudden increase in reported rapes if the agency is reporting correctly. 
 
 <div class="figure" style="text-align: center">
-<img src="ucrbook_files/figure-epub3/rapePhilly-1.svg" alt="The annual number of rapes reported in Philadelphia, Pennsylvania, 2000-2018." width="90%" />
+<img src="offenses_known_files/figure-html/rapePhilly-1.png" alt="The annual number of rapes reported in Philadelphia, Pennsylvania, 2000-2018." width="90%" />
 <p class="caption">(\#fig:rapePhilly)The annual number of rapes reported in Philadelphia, Pennsylvania, 2000-2018.</p>
 </div>
 
 In comparison, New York City has the sudden spike a year later, which indicates that they didn't start using the new definition until 2014. Figure \@ref(fig:rapeNYC) shows that rape is fairly steady, though increasing, in the years leading up to 2013 and has almost no change from 2012 to 2013, but a huge increase in 2014 and then steadily increases from there, spiking again in 2018. This seems like a fairly clear indicator that NYC simply didn't follow the new definition until 2014. 
 
 <div class="figure" style="text-align: center">
-<img src="ucrbook_files/figure-epub3/rapeNYC-1.svg" alt="The annual number of rapes reported in New York City, 2000-2018." width="90%" />
+<img src="offenses_known_files/figure-html/rapeNYC-1.png" alt="The annual number of rapes reported in New York City, 2000-2018." width="90%" />
 <p class="caption">(\#fig:rapeNYC)The annual number of rapes reported in New York City, 2000-2018.</p>
 </div>
 
@@ -162,14 +162,14 @@ Less clear is what's happening in San Francisco, California, shown in Figure \@r
 Here we do see an increase in 2013 which while it appears small on the graph is actually a 49% increase from 2012. Then there is a much larger spike in 2014 - a 120% increase - which may suggest that part of the agency started following the new definition in 2013 and the remainder followed in 2014. However, large increases or decreases are relatively common in San Francisco so it could also be that the agency only switched to the new definition in 2014 and the spike in 2013 is just a coincidence.
 
 <div class="figure" style="text-align: center">
-<img src="ucrbook_files/figure-epub3/rapeLA-1.svg" alt="The annual number of rapes reported in San Francisco, California, 2000-2018." width="90%" />
+<img src="offenses_known_files/figure-html/rapeLA-1.png" alt="The annual number of rapes reported in San Francisco, California, 2000-2018." width="90%" />
 <p class="caption">(\#fig:rapeLA)The annual number of rapes reported in San Francisco, California, 2000-2018.</p>
 </div>
 
 Finally, we'll look at Jackson Police Department in Mississippi where the definition change seems to have had no effect. As seen in Figure \@ref(fig:rapeJackson), reported rapes start to undulate in 2010 with 2013 data perfectly in line with the before and after trends - no sign that there is a change in reporting. This suggests that Jackson simply did not follow the definition change and continues to report using the old definition. 
 
 <div class="figure" style="text-align: center">
-<img src="ucrbook_files/figure-epub3/rapeJackson-1.svg" alt="The annual number of rapes reported in Jackson, Mississippi, 2000-2018." width="90%" />
+<img src="offenses_known_files/figure-html/rapeJackson-1.png" alt="The annual number of rapes reported in Jackson, Mississippi, 2000-2018." width="90%" />
 <p class="caption">(\#fig:rapeJackson)The annual number of rapes reported in Jackson, Mississippi, 2000-2018.</p>
 </div>
 
@@ -182,14 +182,14 @@ This data contains two different crime subcategories for homicide: murder and no
 Figure \@ref(fig:manslaughterVsMurder) shows the annual number of murders, manslaughter, and the sum of the two nationwide from 1960-2018. This just sums up the total reported counts from every agency each year so part of the increase is simply due to more agencies reporting as the year gets closer to the present day - so please pay attention to the diverging paths of each crime, not the trend for the individual crime over time. Murder is always more common than manslaughter but these values are not that far apart in the early decade of data and manslaughter doesn't become rare until the end of the 1970s. 
 
 <div class="figure" style="text-align: center">
-<img src="ucrbook_files/figure-epub3/manslaughterVsMurder-1.svg" alt="The annual number of murder and non-negligent manslaughter, manslaughter by negligence, and the sum of the two, nationwide from 1960-2018." width="90%" />
+<img src="offenses_known_files/figure-html/manslaughterVsMurder-1.png" alt="The annual number of murder and non-negligent manslaughter, manslaughter by negligence, and the sum of the two, nationwide from 1960-2018." width="90%" />
 <p class="caption">(\#fig:manslaughterVsMurder)The annual number of murder and non-negligent manslaughter, manslaughter by negligence, and the sum of the two, nationwide from 1960-2018.</p>
 </div>
 
 Figure \@ref(fig:manslaughterPercent) shows another way to look at this data: manslaughter as a percent of reported murder. In the early years of our data manslaughter was fairly common, with about 70-80% as many manslaughters reported as murders. This declined sharply in the mid-1960s until there were around 45% as many manslaughters as murders in the mid-1970s. Again this declined until it was about 4% in 1980, and it has remained around there ever since. As police behavior could reduce traffic fatalities - and arrests for DUIs and traffic tickets are designed to improve public safety - it is unfortunate the we no longer have data on traffic deaths.
 
 <div class="figure" style="text-align: center">
-<img src="ucrbook_files/figure-epub3/manslaughterPercent-1.svg" alt="Reported manslaughter by negligence as a percent of reported murder and non-negligent manslaughter, nationwide 1960-2018." width="90%" />
+<img src="offenses_known_files/figure-html/manslaughterPercent-1.png" alt="Reported manslaughter by negligence as a percent of reported murder and non-negligent manslaughter, nationwide 1960-2018." width="90%" />
 <p class="caption">(\#fig:manslaughterPercent)Reported manslaughter by negligence as a percent of reported murder and non-negligent manslaughter, nationwide 1960-2018.</p>
 </div>
 

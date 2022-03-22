@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Overview of the Data | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Overview of the Data | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2021-07-27" />
+<meta name="date" content="2022-03-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,9 @@
   
 <link rel="prev" href="about-the-author.html"/>
 <link rel="next" href="offensesKnown.html"/>
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,7 +43,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -68,6 +68,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -164,9 +165,6 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#goal-of-the-book"><i class="fa fa-check"></i><b>1.1</b> Goal of the book</a></li>
@@ -228,16 +226,16 @@ div.csl-indent {
 <li class="chapter" data-level="3.4.2" data-path="offensesKnown.html"><a href="offensesKnown.html#the-decline-of-manslaughter"><i class="fa fa-check"></i><b>3.4.2</b> The decline of manslaughter</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="stolen-property.html"><a href="stolen-property.html"><i class="fa fa-check"></i><b>4</b> Property Stolen and Recovered (Supplement to Return A)</a>
+<li class="chapter" data-level="4" data-path="stolen_property.html"><a href="stolen_property.html"><i class="fa fa-check"></i><b>4</b> Property Stolen and Recovered (Supplement to Return A)</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="stolen-property.html"><a href="stolen-property.html#agencies-reporting-1"><i class="fa fa-check"></i><b>4.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="4.2" data-path="stolen-property.html"><a href="stolen-property.html#important-variables-1"><i class="fa fa-check"></i><b>4.2</b> Important variables</a>
+<li class="chapter" data-level="4.1" data-path="stolen_property.html"><a href="stolen_property.html#agencies-reporting-1"><i class="fa fa-check"></i><b>4.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="4.2" data-path="stolen_property.html"><a href="stolen_property.html#important-variables-1"><i class="fa fa-check"></i><b>4.2</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="stolen-property.html"><a href="stolen-property.html#propertycount"><i class="fa fa-check"></i><b>4.2.1</b> A more detailed breakdown of property (and robbery) crimes</a></li>
-<li class="chapter" data-level="4.2.2" data-path="stolen-property.html"><a href="stolen-property.html#the-value-of-property-stolen-in-property-and-robbery-crimes"><i class="fa fa-check"></i><b>4.2.2</b> The value of property stolen in property (and robbery) crimes</a></li>
-<li class="chapter" data-level="4.2.3" data-path="stolen-property.html"><a href="stolen-property.html#value-of-recovered-property-by-type-of-item-stolen"><i class="fa fa-check"></i><b>4.2.3</b> Value of recovered property by type of item stolen</a></li>
+<li class="chapter" data-level="4.2.1" data-path="stolen_property.html"><a href="stolen_property.html#propertycount"><i class="fa fa-check"></i><b>4.2.1</b> A more detailed breakdown of property (and robbery) crimes</a></li>
+<li class="chapter" data-level="4.2.2" data-path="stolen_property.html"><a href="stolen_property.html#the-value-of-property-stolen-in-property-and-robbery-crimes"><i class="fa fa-check"></i><b>4.2.2</b> The value of property stolen in property (and robbery) crimes</a></li>
+<li class="chapter" data-level="4.2.3" data-path="stolen_property.html"><a href="stolen_property.html#value-of-recovered-property-by-type-of-item-stolen"><i class="fa fa-check"></i><b>4.2.3</b> Value of recovered property by type of item stolen</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="stolen-property.html"><a href="stolen-property.html#data-errors"><i class="fa fa-check"></i><b>4.3</b> Data errors</a></li>
+<li class="chapter" data-level="4.3" data-path="stolen_property.html"><a href="stolen_property.html#data-errors"><i class="fa fa-check"></i><b>4.3</b> Data errors</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="arrests.html"><a href="arrests.html"><i class="fa fa-check"></i><b>5</b> Arrests by Age, Sex, and Race</a>
 <ul>
@@ -292,15 +290,15 @@ div.csl-indent {
 <li class="chapter" data-level="8.3" data-path="arsonChapter.html"><a href="arsonChapter.html#arsonType"><i class="fa fa-check"></i><b>8.3</b> Types of arsons</a></li>
 <li class="chapter" data-level="8.4" data-path="arsonChapter.html"><a href="arsonChapter.html#data-errors-1"><i class="fa fa-check"></i><b>8.4</b> Data errors</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="hate-crimes.html"><a href="hate-crimes.html"><i class="fa fa-check"></i><b>9</b> Hate Crime Data</a>
+<li class="chapter" data-level="9" data-path="hate_crimes.html"><a href="hate_crimes.html"><i class="fa fa-check"></i><b>9</b> Hate Crime Data</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="hate-crimes.html"><a href="hate-crimes.html#agencies-reporting-6"><i class="fa fa-check"></i><b>9.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="9.2" data-path="hate-crimes.html"><a href="hate-crimes.html#important-variables-6"><i class="fa fa-check"></i><b>9.2</b> Important variables</a>
+<li class="chapter" data-level="9.1" data-path="hate_crimes.html"><a href="hate_crimes.html#agencies-reporting-6"><i class="fa fa-check"></i><b>9.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="9.2" data-path="hate_crimes.html"><a href="hate_crimes.html#important-variables-6"><i class="fa fa-check"></i><b>9.2</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="9.2.1" data-path="hate-crimes.html"><a href="hate-crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>9.2.1</b> The bias motivation (who the hate is against)</a></li>
-<li class="chapter" data-level="9.2.2" data-path="hate-crimes.html"><a href="hate-crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>9.2.2</b> The crime that occurred</a></li>
-<li class="chapter" data-level="9.2.3" data-path="hate-crimes.html"><a href="hate-crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>9.2.3</b> The location of the crime</a></li>
-<li class="chapter" data-level="9.2.4" data-path="hate-crimes.html"><a href="hate-crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>9.2.4</b> Number and race of offenders</a></li>
+<li class="chapter" data-level="9.2.1" data-path="hate_crimes.html"><a href="hate_crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>9.2.1</b> The bias motivation (who the hate is against)</a></li>
+<li class="chapter" data-level="9.2.2" data-path="hate_crimes.html"><a href="hate_crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>9.2.2</b> The crime that occurred</a></li>
+<li class="chapter" data-level="9.2.3" data-path="hate_crimes.html"><a href="hate_crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>9.2.3</b> The location of the crime</a></li>
+<li class="chapter" data-level="9.2.4" data-path="hate_crimes.html"><a href="hate_crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>9.2.4</b> Number and race of offenders</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="county-level-ucr-data.html"><a href="county-level-ucr-data.html"><i class="fa fa-check"></i><b>10</b> County-Level UCR Data</a>
@@ -494,14 +492,14 @@ div.csl-indent {
 <h3><span class="header-section-number">2.1.3</span> What is an index (or part 1) crime?</h3>
 <p>One of the first (and seemingly only) thing that people tend to learn about UCR crime data is that it covers something called an “index crime.”<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> Index crimes, sometimes written as Part 1 or Part I crimes, are the seven crimes originally chosen by the FBI to be included in their measure of crimes as these offenses were both considered serious and generally well-reported so would be a useful measure of crime. Index crimes are often broken down into property index crimes - burglary, theft, and motor vehicle theft (and arson now, though that’s often not included and is reported less often by agencies) - and violent index crimes (murder, rape, robbery, and aggravated assault). The “index” is simply that all of the crimes are summed up into a total count of crimes (violent, property, or total) for that police agency.</p>
 <p>The biggest problem with index crimes is that it is simply the sum of 8 (or 7 since arson data usually isn’t included) crimes. Index crimes have a huge range in their seriousness - it includes, for example, both murder and theft - so summing up the crimes gives each crime equal weight. This is clearly wrong as 100 murders is more serious than 100 thefts. This is especially a problem as less serious crimes (theft mostly) are far more common than more serious crimes. In 2017, for example, there were 1.25 million violent index crimes in the United States. That same year had 5.5 million thefts. So using index crimes as your measure of crimes fails to account for the seriousness of crimes. Looking at total index crimes is, in effect, mostly just looking at theft. Looking at violent index crimes alone mostly measures aggravated assault. This is especially a problem because it hides trends in violent crimes. As an example, San Francisco, shown in Figure <a href="ucrGeneral.html#fig:sfThefts">2.1</a>, has had a huge increase - about 50% - in index crimes in the last several years. When looking closer, that increase is driven almost entirely by the near doubling of theft since 2011. During the same years, index violent crimes have stayed fairly steady. So the city isn’t getting more dangerous - at least not in terms of violent index crimes increasing - but it appears like it is due to just looking at total index crimes.</p>
-<div class="figure" style="text-align: center"><span id="fig:sfThefts"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:sfThefts"></span>
 <img src="ucr_general_files/figure-html/sfThefts-1.png" alt="Thefts and total index crimes in San Francisco, 2000-2018." width="90%" />
 <p class="caption">
 Figure 2.1: Thefts and total index crimes in San Francisco, 2000-2018.
 </p>
 </div>
 <p>Many researchers divide index crimes into violent and nonviolent categories, which helps but even this isn’t entirely sufficient. Take Chicago as an example. It is a city infamous for its large number of murders. But as a fraction of index crimes, Chicago has a rounding error worth of murders. Their 653 murders in 2017 is only 0.5% of total index crimes. For violent index crimes, murder made up 2.2% of crimes that year. As seen in Figure <a href="ucrGeneral.html#fig:chicagoMurder">2.2</a>, in no year where data is available did murders account for more than 3.5% of violent index crimes; and, while murders are increasing as a percent of violent index crimes they still account for no more than 2.5% in most recent years. What this means is that changes in murder are very difficult to detect. If Chicago had no murders this year, but a less serious crime (such as theft) increased slightly, we couldn’t tell from looking at the number of index crimes, even from violent index crimes. As discussed in the below section, using this sample of crimes as the primary measure of crimes - and particularly of violent crimes - is also misleading as it excludes important - and highly common relative to index crimes - offenses, such as simple assault.</p>
-<div class="figure" style="text-align: center"><span id="fig:chicagoMurder"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:chicagoMurder"></span>
 <img src="ucr_general_files/figure-html/chicagoMurder-1.png" alt="Murders in Chicago as a percent of violent index crimes, 1960-2018." width="90%" />
 <p class="caption">
 Figure 2.2: Murders in Chicago as a percent of violent index crimes, 1960-2018.
@@ -514,7 +512,7 @@ Figure 2.2: Murders in Chicago as a percent of violent index crimes, 1960-2018.
 <p>The second reason - and one that I think makes sense for reporters and advocates who are less familiar with the data, but should be unacceptable to researchers - is that people don’t know that simple assault is included, or at least don’t have easy access to it. Neither the FBI’s annual report <a href="https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019/home">page</a> not their official <a href="https://crime-data-explorer.fr.cloud.gov/">crime data tool website</a> include simple assault since they only include index crimes. For people who rely only on these sources - and given that using the data itself requires at least some programming skills, I think this accounts for most users and certainly nearly all non-researchers - it is not possible to access simple assault crime data (arrest data does include simple assault on these sites) from these official sources.</p>
 <p>The final reason is that it benefits some people’s goals to classify violent crime as only including index crimes. This is because simple assault is extremely common compared to violent index crimes - in many cities simple assault is more common than all violent index crimes put together - so excluding simple assault makes it seem like fewer arrests are violent than they are when including simple assault. For example, a number of articles have noted that marijuana arrests are more common than violent crime arrests <span class="citation">(<a href="#ref-ingraham2016" role="doc-biblioref">Ingraham 2016</a>; <a href="#ref-kertscher2019" role="doc-biblioref">Kertscher 2019</a>; <a href="#ref-devito2020" role="doc-biblioref">Devito 2020</a>; <a href="#ref-earlenbaugh2020" role="doc-biblioref">Earlenbaugh 2020</a>; <a href="#ref-aclu2020" role="doc-biblioref">Edwards et al. 2020</a>)</span> or that violent crime arrests are only 5% of all arrests <span class="citation">(<a href="#ref-neusteter2019every" role="doc-biblioref">Neusteter and O’Toole 2019</a>; <a href="#ref-speri2019" role="doc-biblioref">Speri 2019</a>)</span>.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> While true when considering only violent index crimes, including simple assault as a violent crime makes these statements false. Some organizations call the violent index crimes “serious violent crimes” which is an improvement but even this is a misnomer since simple assault can lead to more serious harm than aggravated assault. An assault becomes aggravated if using a weapon or there is the <em>potential</em> for serious harm, even if no harm actually occurs.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a></p>
 <p>As an example of this last point, Figure <a href="ucrGeneral.html#fig:simpleIndex">2.3</a> shows the number of violent index crimes and simple assaults each year from 1960 to 2018 in Houston, Texas (simple assault is not reported in UCR until 1964, which is why 1960-1963 show zero simple assaults). In every year where simple assault is reported, there are more simple assaults than aggravated assaults. Beginning in the late 1980s, there are also more simple assaults than total violent index crimes. Excluding simple assault from the being a violent crime greatly underestimates violence in the country.</p>
-<div class="figure" style="text-align: center"><span id="fig:simpleIndex"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:simpleIndex"></span>
 <img src="ucr_general_files/figure-html/simpleIndex-1.png" alt="Reported crimes in Houston, Texas, from 1960 to 2018. Violent index crimes are aggravated assault, rape, robbery, and murder." width="90%" />
 <p class="caption">
 Figure 2.3: Reported crimes in Houston, Texas, from 1960 to 2018. Violent index crimes are aggravated assault, rape, robbery, and murder.
@@ -543,7 +541,7 @@ Figure 2.3: Reported crimes in Houston, Texas, from 1960 to 2018. Violent index 
 <h3><span class="header-section-number">2.2.3</span> Reporting is voluntary … so some agencies don’t (or report partially)</h3>
 <p>When an agency reports their data to the FBI, they do so voluntarily - there is no national requirement to report.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a> This means that there is inconsistency in which agencies report, how many months of the year they report for, and which variables they include in their data submissions.</p>
 <p>In general, more agencies report their data every year and once an agency begins reporting data they tend to keep reporting. The UCR datasets are a collection of separate, though related, datasets and an agency can report to as many of these datasets as they want - an agency that reports to one dataset does not mean that they report to other datasets. Figure <a href="ucrGeneral.html#fig:agenciesReporting">2.4</a> shows the number of agencies that submitted at least one month of data to the Offenses Known and Clearances by Arrest data in the given year. For the first decade of available data under 8,000 agencies reported data and this grew to over 13,500 by the late 1970s before plateauing for about a decade. The number of agencies that reported their data actually declined in the 1990s, driven primarily by many Florida agencies temporarily dropping out, before growing steadily to nearly 17,000 agencies in 2010; from here it kept increasing but slower than before.</p>
-<div class="figure" style="text-align: center"><span id="fig:agenciesReporting"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:agenciesReporting"></span>
 <img src="ucr_general_files/figure-html/agenciesReporting-1.png" alt="The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year." width="90%" />
 <p class="caption">
 Figure 2.4: The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.
@@ -551,14 +549,14 @@ Figure 2.4: The annual number of agencies reporting to the Offenses Known and Cl
 </div>
 <p>There are approximately 18,000 police agencies in the United States so recent data has reports from nearly all agencies, while older data has far fewer agencies reporting. When trying to estimate to larger geographies, such as state or national-level, later years will be more accurate as you’re missing less data. For earlier data, however, you’re dealing with a smaller share of agencies meaning that you have a large amount of missing data and a less representative sample.</p>
 <p>Figure <a href="ucrGeneral.html#fig:bigAgenciesReporting">2.5</a> repeats the above figure but now including only agencies with 100,000 people or more in their jurisdiction. While these agencies have a far more linear trend than all agencies, the basic lesson is the same: recent data has most agencies reporting; old data excludes many agencies.</p>
-<div class="figure" style="text-align: center"><span id="fig:bigAgenciesReporting"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bigAgenciesReporting"></span>
 <img src="ucr_general_files/figure-html/bigAgenciesReporting-1.png" alt="The annual number of agencies with a population of 100,000 or higher reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year." width="90%" />
 <p class="caption">
 Figure 2.5: The annual number of agencies with a population of 100,000 or higher reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.
 </p>
 </div>
 <p>This voluntariness extends beyond whether they report or not, but into which variables they report. While in practice most agencies report every crime when they report any, they do have the choice to report only a subset of offenses. This is especially true for subsets of larger categories - such as gun assaults, a subset of aggravated assaults, or marijuana possession arrests which is a subset of drug possession arrests. As an example, Figure <a href="ucrGeneral.html#fig:nycGunAssaults">2.6</a> shows the annual number of aggravated assaults with a gun in New York City. In 2003 the New York Police Department stopped reporting this category of offense, resuming only in 2013. They continued to report the broader aggravated assault category, but not any of the subsections of aggravated assaults which say which weapon was used during the assault.</p>
-<div class="figure" style="text-align: center"><span id="fig:nycGunAssaults"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nycGunAssaults"></span>
 <img src="ucr_general_files/figure-html/nycGunAssaults-1.png" alt="Monthly reports of gun assaults in New York City, 1960-2018." width="90%" />
 <p class="caption">
 Figure 2.6: Monthly reports of gun assaults in New York City, 1960-2018.
@@ -566,21 +564,21 @@ Figure 2.6: Monthly reports of gun assaults in New York City, 1960-2018.
 </div>
 <p>Given that agencies can join or drop out of the UCR program at will, and report only partial data, it is highly important to carefully examine your data to make sure that there are no issues caused by this.</p>
 <p>Even when an agency reports UCR data, and even when they report every crime category, they can report fewer than 12 months of data. In some cases they simply report all of their data in December, or report quarterly or semi-annually so some months have zero crimes reported while others count multiple months in that month’s data. One example of this is New York City, shown in Figure <a href="ucrGeneral.html#fig:nycMurderMonthly">2.7</a>, in the early-2000s to the mid-2010s where they began reporting data quarterly instead of monthly.</p>
-<div class="figure" style="text-align: center"><span id="fig:nycMurderMonthly"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nycMurderMonthly"></span>
 <img src="ucr_general_files/figure-html/nycMurderMonthly-1.png" alt="Monthly murders in New York City, 1990-2018. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting." width="90%" />
 <p class="caption">
 Figure 2.7: Monthly murders in New York City, 1990-2018. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting.
 </p>
 </div>
 <p>When you sum up each month into an annual count, as shown in Figure <a href="ucrGeneral.html#fig:nycMurderYearly">2.8</a>, the problem disappears since the zero months are accounted for in the months that have the quarterly data. If you’re using monthly data and only examine the data at the annual level, you’ll fall into the trap of having incorrect data that is hidden due to the level of aggregation examined. While cases like NYC are obvious when viewed monthly, for people that are including thousands of agencies in their data, it is unfeasible to look at each agency for each crime included. This can introduce errors as the best way to examine the data is manually viewing graphs and the automated method, looking for outliers through some kind of comparison to expected values, can be incorrect.</p>
-<div class="figure" style="text-align: center"><span id="fig:nycMurderYearly"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nycMurderYearly"></span>
 <img src="ucr_general_files/figure-html/nycMurderYearly-1.png" alt="Annual murders in New York City, 1990-2018." width="90%" />
 <p class="caption">
 Figure 2.8: Annual murders in New York City, 1990-2018.
 </p>
 </div>
 <p>In other cases when agencies report fewer than 12 months of the year, they simply report partial data and as a result undercount crimes. Figure <a href="ucrGeneral.html#fig:miamiDadeMurderAnnual">2.9</a> shows annual murders in Miami-Dade, Florida and has three years of this issue occurring. The first two years with this issue are the two where zero murders are reported - this is because the agency didn’t report any months of data. The final year is in 2018, the last year of data in this graph, where it looks like murder suddenly dropped significantly. That’s just because Miami-Dade only reported through June, so they’re missing half of 2018.</p>
-<div class="figure" style="text-align: center"><span id="fig:miamiDadeMurderAnnual"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:miamiDadeMurderAnnual"></span>
 <img src="ucr_general_files/figure-html/miamiDadeMurderAnnual-1.png" alt="Annual murders in Miami-Dade, Florida, 1960-2018." width="90%" />
 <p class="caption">
 Figure 2.9: Annual murders in Miami-Dade, Florida, 1960-2018.
@@ -592,7 +590,7 @@ Figure 2.9: Annual murders in Miami-Dade, Florida, 1960-2018.
 <p>When an agency does not report, we see it in the data as reporting zero crimes, not reporting NA or any indicator that they did not report. In cases where the agency says they didn’t report that month we can be fairly sure (not entirely since that variable isn’t always accurate) that the zero crimes reported are simply that the agency didn’t report. In cases where the agency says they report that month but report zero crimes, we can’t be sure if that’s a true no crimes reported to the agency or the agency not reporting to the UCR. As agencies can report some crimes but not others in a given month and still be considered reporting that month, just saying they reported doesn’t mean that the zero is a true zero.</p>
 <p>In some cases it is easy to see when a zero crimes reported is actually the agency not reporting. As Figure <a href="ucrGeneral.html#fig:nycGunAssaults">2.6</a> shows with New York City gun assaults, there is a massive and sustained dropoff to zero crimes and then a sudden return years later. Obviously, going from hundreds of crimes to zero crimes is not a matter of crimes not occurring anymore, it is a matter of the agency not reporting - and New York City did report other crimes these years so in the data it says that they reported every month. So in agencies which tend to report many crimes - and many here can be a few as 10 a year since going from 10 to 0 is a big drop - a sudden report of zero crimes is probably just non-reporting.</p>
 <p>Differentiating zero crimes and no reports becomes tricky in agencies that tend to report few crimes, which most small towns do. As an example, Figure <a href="ucrGeneral.html#fig:danvilleRape">2.10</a> shows the annual reports of rape in Danville, California, a city of approximately 45,000 people. The city reports on average 2.8 rapes per year and in five years reported zero rapes. In cases like this it’s not clear whether we should consider those zero years as true zeros (that no one was raped or reported their rape to the police) or whether the agency simply didn’t report rape data that year.</p>
-<div class="figure" style="text-align: center"><span id="fig:danvilleRape"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:danvilleRape"></span>
 <img src="ucr_general_files/figure-html/danvilleRape-1.png" alt="Annual rapes reported in Danville, CA, 1960-2018." width="90%" />
 <p class="caption">
 Figure 2.10: Annual rapes reported in Danville, CA, 1960-2018.
@@ -624,7 +622,7 @@ Figure 2.10: Annual rapes reported in Danville, CA, 1960-2018.
 <h3><span class="header-section-number">2.3.5</span> Hate Crime Data</h3>
 <p>This dataset covers crimes that are reported to the police and judged by the police `to be motivated by hate. More specifically, they are, first, crimes which were, second, motivated - at least in part - by bias towards a certain person or group of people because of characteristics about them such as race, sexual orientation, or religion. The first part is key, they must be crimes - and really must be the selection of crimes that the FBI collects for this dataset. Biased actions that don’t meet the standard of a crime, or are of a crime not included in this data, are not considered hate crimes. For example, if someone yells at a Black person and uses racial slurs against them, it is clearly a racist action. For it to be included in this data, however, it would have to extend to a threat since “intimidation” is a crime included in this data but lesser actions such as simply insulting someone is not included. For the second part, the bias motivation, it must be against a group that the FBI includes in this data. For example, when this data collection began crimes against transgender people were not counted so if a transgender person was assaulted or killed because they were transgender, this is not a hate crime recorded in the data (though it would have counted in the “Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (LGBT)” bias motivation which was always reported).<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a></p>
 <p>So this data is really a narrower measure of hate crimes than it might seem. In practice it is (some) crimes motivated by (some) kinds of hate that are reported to the police. It is also the most under-reported UCR dataset with most agencies not reporting any hate crimes to the FBI. This leads to huge gaps in the data with some states having extremely few agencies reporting crime - see, for example Figure <a href="ucrGeneral.html#fig:hateCrimes">2.11</a> for state-level hate crimes in 2018 - agencies reporting some bias motivations but not others, agencies reporting some years but not others. While these problems exist for all of the UCR datasets, it is most severe in this data. This problem is exacerbated by hate crimes being rare even in agencies that report them - with such rare events, even minor changes in which agencies report or which types of offenses they include can have large effects.</p>
-<div class="figure" style="text-align: center"><span id="fig:hateCrimes"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateCrimes"></span>
 <img src="ucr_general_files/figure-html/hateCrimes-1.png" alt="Total reported hate crimes by state, 2018." width="90%" />
 <p class="caption">
 Figure 2.11: Total reported hate crimes by state, 2018.
@@ -650,7 +648,7 @@ Figure 2.11: Total reported hate crimes by state, 2018.
 <div id="the-data-as-you-get-it-from-the-fbi" class="section level2" number="2.5">
 <h2><span class="header-section-number">2.5</span> The data as you get it from the FBI</h2>
 <p>We’ll finish this overview of the UCR data by briefly talking about format of the data that is released by the FBI, before the processing done by myself or <a href="https://www.icpsr.umich.edu/web/pages/NACJD/index.html">NACJD</a> that converts the data to a type that software like R or Stata or Excel can understand. The FBI releases their data as fixed-width ASCII files which are basically just an Excel file but with all of the columns squished together. As an example, Figure <a href="ucrGeneral.html#fig:ascii">2.12</a> shows what the data looks like as you receive it from the FBI for the Offenses Known and Clearances by Arrest dataset for 1960, the first year with data available. In the figure, it seems like there are multiple rows but that’s just because the software that I opened the file in isn’t wide enough - in reality what is shown is a single row that is extremely wide because there are over 1,500 columns in this data. If you scroll down enough you’ll see the next row, but that isn’t shown in the current image. What is shown is a single row with a ton of columns all pushed up next to each other. Since all of the columns are squished together (the gaps are just blank spaces because the value there is a space, but that doesn’t mean there is a in the data. Spaces are possible values in the data and are meaningful), you need some way to figure out which parts of the data belong in which column.</p>
-<div class="figure" style="text-align: center"><span id="fig:ascii"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ascii"></span>
 <img src="images/offenses_known_raw_ascii_1960.PNG" alt="Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset." width="90%" />
 <p class="caption">
 Figure 2.12: Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset.
@@ -729,7 +727,6 @@ Speri, Alice. 2019. <span>“Police Make More Than 10 Million Arrests a Year, bu
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -740,15 +737,25 @@ Speri, Alice. 2019. <span>“Police Make More Than 10 Million Arrests a Year, bu
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": true,
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
 "fontsettings": {
 "theme": "white",
 "family": "sans",
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jacobkap/ucrbook/edit/main/ucr_general.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "history": {
 "link": null,
@@ -758,9 +765,13 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": [["ucrbook.pdf", "PDF"], ["ucrbook.epub", "EPUB"]],
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
-"collapse": "section"
+"collapse": "subsection"
 }
 });
 });

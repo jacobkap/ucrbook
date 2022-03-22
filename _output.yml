@@ -2,12 +2,11 @@ bookdown::gitbook:
   css: style.css
   includes:
     in_header: [ga_script.html]
-  config:
+    config:
     toc:
       collapse: section
       before: |
         <li><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide</a></li>
-    download: [ ["ucrbook.pdf", "PDF"], ["ucrbook.epub", "EPUB"] ]
     edit:
       link: https://github.com/jacobkap/ucrbook/edit/main/%s
       text: "Edit"

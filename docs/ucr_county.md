@@ -74,28 +74,28 @@ Table: (\#tab:countyMonthsReportedDefinitions)The number of months reported to t
 We can look at how these trends change over time in Figure \@ref(fig:countyAnyMonthReported) that shows the annual number of agencies that reported at least one month of data in that year. About 5,500 agencies reported at least on month throughout the 1960s and then grew rapidly over the next decade until about 12,500 agencies reported in the end of the 1970s. This declined over the next two decades before again increasing in the mid-late 1990s where it steadily increased to about 14,000 agencies in 2010 and has stagnated since then, with a small dip in 2018. Out of the approximately 18,000 police agencies in the United States, this is relatively low reporting even as far as recent decades. 
 
 <div class="figure" style="text-align: center">
-<img src="ucrbook_files/figure-epub3/countyAnyMonthReported-1.svg" alt="The annual number of agencies that reported at least one month of data in that year." width="90%" />
+<img src="ucr_county_files/figure-html/countyAnyMonthReported-1.png" alt="The annual number of agencies that reported at least one month of data in that year." width="90%" />
 <p class="caption">(\#fig:countyAnyMonthReported)The annual number of agencies that reported at least one month of data in that year.</p>
 </div>
 
 We saw in Table \@ref(tab:countyMonthsReportedDefinitions) that when agencies do report they tend to report all 12 months of the year. Figure \@ref(fig:countyDecemberReported) examines whether this is true by showing the number of agencies in each year that reported in December, which the way that county-level UCR data assumes that all 12 months are reported. The trends are nearly identical to Figure \@ref(fig:countyAnyMonthReported) but with several hundred fewer agencies reporting in December each year than reporting at least one month. This shows that the trend of when agencies do report they tend to report all 12 months (or at least report in December) is consistent over time.
 
 <div class="figure" style="text-align: center">
-<img src="ucrbook_files/figure-epub3/countyDecemberReported-1.svg" alt="The annual number of agencies that reported data in December of that year (which by the FBI's definition would mean they reported 12 months of the year." width="90%" />
+<img src="ucr_county_files/figure-html/countyDecemberReported-1.png" alt="The annual number of agencies that reported data in December of that year (which by the FBI's definition would mean they reported 12 months of the year." width="90%" />
 <p class="caption">(\#fig:countyDecemberReported)The annual number of agencies that reported data in December of that year (which by the FBI's definition would mean they reported 12 months of the year.</p>
 </div>
 
 Another way to look at this is to examine, as Figure \@ref(fig:countyDecemberPercent) does, the percent of agencies that report in December of agencies that report at least one month. On average about 92% of agencies that do report any month also report in December, and this number has steadily grown over time, though declined in 2018 to only 90%. 
 
 <div class="figure" style="text-align: center">
-<img src="ucrbook_files/figure-epub3/countyDecemberPercent-1.svg" alt="The annual percent of agencies that reported in December of that year of those that reported at least one month of data." width="90%" />
+<img src="ucr_county_files/figure-html/countyDecemberPercent-1.png" alt="The annual percent of agencies that reported in December of that year of those that reported at least one month of data." width="90%" />
 <p class="caption">(\#fig:countyDecemberPercent)The annual percent of agencies that reported in December of that year of those that reported at least one month of data.</p>
 </div>
 
 Since the number of agencies reporting changes every year - generally increasing over time - we can look at the percent of agencies that reported in December out of all agencies that reported data (and this includes reporting zero months of data) to UCR. Figure \@ref(fig:countyDecemberPercentAnyAgency) shows this trend over time and about 75% of agencies that submit to UCR each year report in December. Reporting rates undulate over this time period - the low is 62% in 1997 and the high is 83% in 1979 - but tend to return to ~75% reporting before trending in the opposite direction again. 
 
 <div class="figure" style="text-align: center">
-<img src="ucrbook_files/figure-epub3/countyDecemberPercentAnyAgency-1.svg" alt="The annual percent of agencies that reported in December of that year including those that did not report any data that year." width="90%" />
+<img src="ucr_county_files/figure-html/countyDecemberPercentAnyAgency-1.png" alt="The annual percent of agencies that reported in December of that year including those that did not report any data that year." width="90%" />
 <p class="caption">(\#fig:countyDecemberPercentAnyAgency)The annual percent of agencies that reported in December of that year including those that did not report any data that year.</p>
 </div>
 
@@ -106,7 +106,7 @@ The trends in Figure \@ref(fig:countyDecemberPercentAllAgencies) are very simila
 The zero reporting agencies are largely in smaller agencies - with the average sized agency in 2018 having a population of 1,682 and the largest having a population of 463,545 - and, in 2018, amounts to agencies covering about 13 million people, or about 4% of the United States population. 
 
 <div class="figure" style="text-align: center">
-<img src="ucrbook_files/figure-epub3/countyDecemberPercentAllAgencies-1.svg" alt="The annual percent of agencies that reported in December of that year out of all agencies that ever reported to the Offenses Known and Clearances by Arrest dataset (N=19,036)." width="90%" />
+<img src="ucr_county_files/figure-html/countyDecemberPercentAllAgencies-1.png" alt="The annual percent of agencies that reported in December of that year out of all agencies that ever reported to the Offenses Known and Clearances by Arrest dataset (N=19,036)." width="90%" />
 <p class="caption">(\#fig:countyDecemberPercentAllAgencies)The annual percent of agencies that reported in December of that year out of all agencies that ever reported to the Offenses Known and Clearances by Arrest dataset (N=19,036).</p>
 </div>
 
@@ -140,17 +140,17 @@ Table: (\#tab:CountyPhillyMurders)The imputed number of murders in Philadelphia 
 
 |Month     | Murders That Month| Actual Annual Murders| Imputed Annual Murders| Percent Change|
 |:---------|------------------:|---------------------:|----------------------:|--------------:|
-|January   |         18 (5.13%)|                   351|                    363|          +3.50|
-|February  |         26 (7.41%)|                   351|                    354|          +1.01|
-|March     |         27 (7.69%)|                   351|                    353|          +0.70|
-|April     |         18 (5.13%)|                   351|                    363|          +3.50|
-|May       |         33 (9.40%)|                   351|                    346|          -1.17|
-|June      |         26 (7.41%)|                   351|                    354|          +1.01|
-|July      |         27 (7.69%)|                   351|                    353|          +0.70|
-|August    |        41 (11.68%)|                   351|                    338|          -3.65|
+|January   |         18 (5.13%)|                   351|                    363|          +3.42|
+|February  |         26 (7.41%)|                   351|                    355|          +1.14|
+|March     |         27 (7.69%)|                   351|                    353|          +0.57|
+|April     |         18 (5.13%)|                   351|                    363|          +3.42|
+|May       |         33 (9.40%)|                   351|                    347|          -1.14|
+|June      |         26 (7.41%)|                   351|                    355|          +1.14|
+|July      |         27 (7.69%)|                   351|                    353|          +0.57|
+|August    |        41 (11.68%)|                   351|                    338|          -3.70|
 |September |         32 (9.12%)|                   351|                    348|          -0.85|
-|October   |         27 (7.69%)|                   351|                    353|          +0.70|
-|November  |         33 (9.40%)|                   351|                    346|          -1.17|
+|October   |         27 (7.69%)|                   351|                    353|          +0.57|
+|November  |         33 (9.40%)|                   351|                    347|          -1.14|
 |December  |        43 (12.25%)|                   351|                    336|          -4.27|
 
 Part of the reason for the percent difference for murders when replacing a month found above is that there was high variation in the number of murders per month with some months having more than double the number as other months. We'll look at what happens when crimes are far more evenly distributed across months in Table \@ref(tab:countyPhillyThefts). This table replicates Table \@ref(tab:CountyPhillyMurders) but uses thefts in Philadelphia in 2018 instead of murders. Here the monthly share of thefts ranged only from 6.85% to 9.16% so month-to-month variation is not very large. Now the percent change never increases above an absolute value of 1.62 and changes by an average of 0.77%. In cases like this, the imputation method is less of a problem.
@@ -161,16 +161,16 @@ Table: (\#tab:countyPhillyThefts)The imputed number of thefts in Philadelphia in
 |Month     | Thefts That Month| Actual Annual Thefts| Imputed Annual Thefts| Percent Change|
 |:---------|-----------------:|--------------------:|---------------------:|--------------:|
 |January   |     2,720 (7.36%)|               36,968|                37,361|          +1.06|
-|February  |     2,532 (6.85%)|               36,968|                37,566|          +1.62|
-|March     |     2,598 (7.03%)|               36,968|                37,494|          +1.42|
-|April     |     3,200 (8.66%)|               36,968|                36,837|          -0.35|
+|February  |     2,532 (6.85%)|               36,968|                37,567|          +1.62|
+|March     |     2,598 (7.03%)|               36,968|                37,495|          +1.43|
+|April     |     3,200 (8.66%)|               36,968|                36,838|          -0.35|
 |May       |     3,215 (8.70%)|               36,968|                36,821|          -0.40|
 |June      |     3,226 (8.73%)|               36,968|                36,809|          -0.43|
-|July      |     3,312 (8.96%)|               36,968|                36,715|          -0.68|
-|August    |     3,454 (9.34%)|               36,968|                36,560|          -1.10|
-|September |     3,287 (8.89%)|               36,968|                36,742|          -0.61|
-|October   |     3,386 (9.16%)|               36,968|                36,634|          -0.90|
-|November  |     2,906 (7.86%)|               36,968|                37,158|          +0.52|
+|July      |     3,312 (8.96%)|               36,968|                36,716|          -0.68|
+|August    |     3,454 (9.34%)|               36,968|                36,561|          -1.10|
+|September |     3,287 (8.89%)|               36,968|                36,743|          -0.61|
+|October   |     3,386 (9.16%)|               36,968|                36,635|          -0.90|
+|November  |     2,906 (7.86%)|               36,968|                37,159|          +0.52|
 |December  |     3,132 (8.47%)|               36,968|                36,912|          -0.15|
 
 Given that the imputation method is largely dependent on consistency across months, what happens when crime is very rare? Table \@ref(tab:countyDanvilleVehicle) shows what happens when replacing a single month for motor vehicle thefts in Danville, California, a small town which had 22 of these thefts in 2018. While possible to still have an even distribution of crimes over months, this is less likely when it comes to rare events. Here, having so few motor vehicle thefts means that small changes in monthly crimes can have an outsize effect. The average absolute value percent change now is 7.3% and this ranges from a -15.68% difference to a +9.1% difference from the real annual count. This means that having even a single month missing can vastly overcount or undercount the real values.
@@ -180,17 +180,17 @@ Table: (\#tab:countyDanvilleVehicle)The imputed number of motor vehicle thefts i
 
 |Month     | Vehicle Thefts That Month| Actual Annual Vehicle Thefts| Imputed Annual Vehicle Thefts| Percent Change|
 |:---------|-------------------------:|----------------------------:|-----------------------------:|--------------:|
-|January   |                3 (13.64%)|                           22|                            20|          -5.77|
+|January   |                3 (13.64%)|                           22|                            21|          -4.55|
 |February  |                 0 (0.00%)|                           22|                            24|          +9.09|
-|March     |                 1 (4.55%)|                           22|                            22|          +4.14|
-|April     |                 2 (9.09%)|                           22|                            21|          -0.82|
-|May       |                3 (13.64%)|                           22|                            20|          -5.77|
-|June      |                 1 (4.55%)|                           22|                            22|          +4.14|
-|July      |                 1 (4.55%)|                           22|                            22|          +4.14|
+|March     |                 1 (4.55%)|                           22|                            23|          +4.55|
+|April     |                 2 (9.09%)|                           22|                            22|          +0.00|
+|May       |                3 (13.64%)|                           22|                            21|          -4.55|
+|June      |                 1 (4.55%)|                           22|                            23|          +4.55|
+|July      |                 1 (4.55%)|                           22|                            23|          +4.55|
 |August    |                 0 (0.00%)|                           22|                            24|          +9.09|
-|September |                5 (22.73%)|                           22|                            18|         -15.68|
-|October   |                5 (22.73%)|                           22|                            18|         -15.68|
-|November  |                 1 (4.55%)|                           22|                            22|          +4.14|
+|September |                5 (22.73%)|                           22|                            19|         -13.64|
+|October   |                5 (22.73%)|                           22|                            19|         -13.64|
+|November  |                 1 (4.55%)|                           22|                            23|          +4.55|
 |December  |                 0 (0.00%)|                           22|                            24|          +9.09|
 
 In the above three tables we looked at what happens if a single month is missing. Below we'll look at the results of simulating when between 1 and 9 months are missing for an agency. Table \@ref(tab:countyPhillyMurderMonthsMissing) looks at murder in Philadelphia again but now randomizes removing between 1 and 9 months of the year and interpolating the annual murder count using the current method. For each number of months removed I run 10,000 simulations.[^ucr_county-8] Given that I am literally randomly choosing which months to say are missing, I am assuming that missing data is missing completely at random. This is a very bold assumption and one that is the best-case scenario since it means that missing data is not related to crimes, police funding/staffing, or anything else relevant. So you should read the below tables as the most optimistic (and thus likely wrong) outcomes.
@@ -206,15 +206,15 @@ Table: (\#tab:countyPhillyMurderMonthsMissing)A simulation showing how the imput
 
 |# of Months Missing | Actual Murder| Mean Imputed Murder| Median Imputed Murder| Modal Imputed Murder| Min Imputed Murder| Max Imputed Murder|
 |:-------------------|-------------:|-------------------:|---------------------:|--------------------:|------------------:|------------------:|
-|1                   |           351|              351.05|                353.45|               353.45|             336.00|             363.27|
-|2                   |           351|              351.17|                350.40|               350.40|             320.40|             378.00|
-|3                   |           351|              350.80|                352.00|               353.33|             312.00|             385.33|
-|4                   |           351|              350.98|                349.50|               370.50|             301.50|             394.50|
-|5                   |           351|              351.03|                351.43|               353.14|             289.71|             404.57|
-|6                   |           351|              350.60|                348.00|               326.00|             284.00|             418.00|
-|7                   |           351|              351.26|                350.40|               348.00|             276.00|             436.80|
-|8                   |           351|              351.45|                354.00|               312.00|             264.00|             450.00|
-|9                   |           351|              351.38|                348.00|               344.00|             248.00|             468.00|
+|1                   |           351|              351.06|                353.45|               353.45|             336.00|             363.27|
+|2                   |           351|              350.98|                350.40|               350.40|             320.40|             378.00|
+|3                   |           351|              350.76|                352.00|               353.33|             312.00|             385.33|
+|4                   |           351|              350.91|                349.50|               370.50|             301.50|             394.50|
+|5                   |           351|              351.27|                351.43|               353.14|             289.71|             404.57|
+|6                   |           351|              351.33|                352.00|               326.00|             284.00|             418.00|
+|7                   |           351|              350.91|                350.40|               348.00|             276.00|             436.80|
+|8                   |           351|              351.26|                354.00|               312.00|             264.00|             450.00|
+|9                   |           351|              351.48|                348.00|               344.00|             248.00|             468.00|
 
 This problem is even more pronounced when looking at agencies with fewer crimes and less evenly distributed crimes. Table \@ref(tab:countyDanvilleBurglaryMonthsMissing) repeats the above table but now looks at motor vehicle thefts in Danville, California. By the time 5 months are missing, the minimum value is nearly half of the actual value while the maximum value is a little under 50% larger than the actual value. By 9 months missing, possible imputed values range from 0% of the actual value to over twice as large as the actual value.
 
@@ -223,15 +223,15 @@ Table: (\#tab:countyDanvilleBurglaryMonthsMissing)A simulation showing how the i
 
 |# of Months Missing | Actual Vehicle Theft| Mean Imputed Vehicle Theft| Median Imputed Vehicle Theft| Modal Imputed Vehicle Theft| Min Imputed Vehicle Theft| Max Imputed Vehicle Theft|
 |:-------------------|--------------------:|--------------------------:|----------------------------:|---------------------------:|-------------------------:|-------------------------:|
-|1                   |                   22|                      21.99|                        22.91|                       22.91|                     18.55|                     24.00|
-|2                   |                   22|                      22.05|                        22.80|                       25.20|                     14.40|                     26.40|
-|3                   |                   22|                      21.98|                        21.33|                       21.33|                     12.00|                     29.33|
-|4                   |                   22|                      22.00|                        22.50|                       22.50|                      9.00|                     31.50|
-|5                   |                   22|                      21.97|                        22.29|                       22.29|                      6.86|                     34.29|
-|6                   |                   22|                      22.17|                        22.00|                       20.00|                      6.00|                     38.00|
-|7                   |                   22|                      22.00|                        21.60|                       21.60|                      4.80|                     43.20|
-|8                   |                   22|                      22.15|                        21.00|                       21.00|                      3.00|                     48.00|
-|9                   |                   22|                      21.96|                        24.00|                       24.00|                      0.00|                     52.00|
+|1                   |                   22|                      22.01|                        22.91|                       22.91|                     18.55|                     24.00|
+|2                   |                   22|                      22.01|                        22.80|                       25.20|                     14.40|                     26.40|
+|3                   |                   22|                      21.95|                        21.33|                       21.33|                     12.00|                     29.33|
+|4                   |                   22|                      22.03|                        22.50|                       22.50|                      9.00|                     31.50|
+|5                   |                   22|                      21.92|                        22.29|                       22.29|                      6.86|                     34.29|
+|6                   |                   22|                      21.99|                        22.00|                       24.00|                      6.00|                     38.00|
+|7                   |                   22|                      22.04|                        21.60|                       21.60|                      4.80|                     43.20|
+|8                   |                   22|                      22.19|                        21.00|                       27.00|                      3.00|                     48.00|
+|9                   |                   22|                      21.98|                        20.00|                       24.00|                      0.00|                     52.00|
 
 ### 10-12 months missing
 
@@ -275,7 +275,7 @@ Table: (\#tab:countyPopulationGroupStatsNational)The mean, median, minimum, and 
 To better see the distribution, Figure \@ref(fig:countyPopulationGroupsBoxplot) shows boxplots for the rate per 100,000 population of murders+gun-assaults in each population group in 2018. Since there can't be a rate without any population, this excludes all agencies with a population of zero. To make the graph simpler to see, it also excludes all agencies with a rate about 500, which is 57 agencies. Each population group has a relatively large range of values with the size of the boxplot growing as the size of the population group increases. This means that there are a wider variety of rates in larger population groups than in smaller population groups. Each population group also has a good number of agencies that are outliers with a much higher rate than is normal.
 
 <div class="figure" style="text-align: center">
-<img src="ucrbook_files/figure-epub3/countyPopulationGroupsBoxplot-1.svg" alt="Boxplots showing the distribution of annual murders+gun-assaults for each population group for all agencies that reported December data in 2018." width="90%" />
+<img src="ucr_county_files/figure-html/countyPopulationGroupsBoxplot-1.png" alt="Boxplots showing the distribution of annual murders+gun-assaults for each population group for all agencies that reported December data in 2018." width="90%" />
 <p class="caption">(\#fig:countyPopulationGroupsBoxplot)Boxplots showing the distribution of annual murders+gun-assaults for each population group for all agencies that reported December data in 2018.</p>
 </div>
 

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Arrests by Age, Sex, and Race | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Arrests by Age, Sex, and Race | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide" />
   <meta property="og:type" content="book" />
@@ -24,17 +24,18 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2021-07-27" />
+<meta name="date" content="2022-03-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="stolen-property.html"/>
+<link rel="prev" href="stolen_property.html"/>
 <link rel="next" href="shr.html"/>
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,7 +43,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -68,6 +68,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -164,9 +165,6 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#goal-of-the-book"><i class="fa fa-check"></i><b>1.1</b> Goal of the book</a></li>
@@ -228,16 +226,16 @@ div.csl-indent {
 <li class="chapter" data-level="3.4.2" data-path="offensesKnown.html"><a href="offensesKnown.html#the-decline-of-manslaughter"><i class="fa fa-check"></i><b>3.4.2</b> The decline of manslaughter</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="stolen-property.html"><a href="stolen-property.html"><i class="fa fa-check"></i><b>4</b> Property Stolen and Recovered (Supplement to Return A)</a>
+<li class="chapter" data-level="4" data-path="stolen_property.html"><a href="stolen_property.html"><i class="fa fa-check"></i><b>4</b> Property Stolen and Recovered (Supplement to Return A)</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="stolen-property.html"><a href="stolen-property.html#agencies-reporting-1"><i class="fa fa-check"></i><b>4.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="4.2" data-path="stolen-property.html"><a href="stolen-property.html#important-variables-1"><i class="fa fa-check"></i><b>4.2</b> Important variables</a>
+<li class="chapter" data-level="4.1" data-path="stolen_property.html"><a href="stolen_property.html#agencies-reporting-1"><i class="fa fa-check"></i><b>4.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="4.2" data-path="stolen_property.html"><a href="stolen_property.html#important-variables-1"><i class="fa fa-check"></i><b>4.2</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="stolen-property.html"><a href="stolen-property.html#propertycount"><i class="fa fa-check"></i><b>4.2.1</b> A more detailed breakdown of property (and robbery) crimes</a></li>
-<li class="chapter" data-level="4.2.2" data-path="stolen-property.html"><a href="stolen-property.html#the-value-of-property-stolen-in-property-and-robbery-crimes"><i class="fa fa-check"></i><b>4.2.2</b> The value of property stolen in property (and robbery) crimes</a></li>
-<li class="chapter" data-level="4.2.3" data-path="stolen-property.html"><a href="stolen-property.html#value-of-recovered-property-by-type-of-item-stolen"><i class="fa fa-check"></i><b>4.2.3</b> Value of recovered property by type of item stolen</a></li>
+<li class="chapter" data-level="4.2.1" data-path="stolen_property.html"><a href="stolen_property.html#propertycount"><i class="fa fa-check"></i><b>4.2.1</b> A more detailed breakdown of property (and robbery) crimes</a></li>
+<li class="chapter" data-level="4.2.2" data-path="stolen_property.html"><a href="stolen_property.html#the-value-of-property-stolen-in-property-and-robbery-crimes"><i class="fa fa-check"></i><b>4.2.2</b> The value of property stolen in property (and robbery) crimes</a></li>
+<li class="chapter" data-level="4.2.3" data-path="stolen_property.html"><a href="stolen_property.html#value-of-recovered-property-by-type-of-item-stolen"><i class="fa fa-check"></i><b>4.2.3</b> Value of recovered property by type of item stolen</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="stolen-property.html"><a href="stolen-property.html#data-errors"><i class="fa fa-check"></i><b>4.3</b> Data errors</a></li>
+<li class="chapter" data-level="4.3" data-path="stolen_property.html"><a href="stolen_property.html#data-errors"><i class="fa fa-check"></i><b>4.3</b> Data errors</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="arrests.html"><a href="arrests.html"><i class="fa fa-check"></i><b>5</b> Arrests by Age, Sex, and Race</a>
 <ul>
@@ -292,15 +290,15 @@ div.csl-indent {
 <li class="chapter" data-level="8.3" data-path="arsonChapter.html"><a href="arsonChapter.html#arsonType"><i class="fa fa-check"></i><b>8.3</b> Types of arsons</a></li>
 <li class="chapter" data-level="8.4" data-path="arsonChapter.html"><a href="arsonChapter.html#data-errors-1"><i class="fa fa-check"></i><b>8.4</b> Data errors</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="hate-crimes.html"><a href="hate-crimes.html"><i class="fa fa-check"></i><b>9</b> Hate Crime Data</a>
+<li class="chapter" data-level="9" data-path="hate_crimes.html"><a href="hate_crimes.html"><i class="fa fa-check"></i><b>9</b> Hate Crime Data</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="hate-crimes.html"><a href="hate-crimes.html#agencies-reporting-6"><i class="fa fa-check"></i><b>9.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="9.2" data-path="hate-crimes.html"><a href="hate-crimes.html#important-variables-6"><i class="fa fa-check"></i><b>9.2</b> Important variables</a>
+<li class="chapter" data-level="9.1" data-path="hate_crimes.html"><a href="hate_crimes.html#agencies-reporting-6"><i class="fa fa-check"></i><b>9.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="9.2" data-path="hate_crimes.html"><a href="hate_crimes.html#important-variables-6"><i class="fa fa-check"></i><b>9.2</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="9.2.1" data-path="hate-crimes.html"><a href="hate-crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>9.2.1</b> The bias motivation (who the hate is against)</a></li>
-<li class="chapter" data-level="9.2.2" data-path="hate-crimes.html"><a href="hate-crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>9.2.2</b> The crime that occurred</a></li>
-<li class="chapter" data-level="9.2.3" data-path="hate-crimes.html"><a href="hate-crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>9.2.3</b> The location of the crime</a></li>
-<li class="chapter" data-level="9.2.4" data-path="hate-crimes.html"><a href="hate-crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>9.2.4</b> Number and race of offenders</a></li>
+<li class="chapter" data-level="9.2.1" data-path="hate_crimes.html"><a href="hate_crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>9.2.1</b> The bias motivation (who the hate is against)</a></li>
+<li class="chapter" data-level="9.2.2" data-path="hate_crimes.html"><a href="hate_crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>9.2.2</b> The crime that occurred</a></li>
+<li class="chapter" data-level="9.2.3" data-path="hate_crimes.html"><a href="hate_crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>9.2.3</b> The location of the crime</a></li>
+<li class="chapter" data-level="9.2.4" data-path="hate_crimes.html"><a href="hate_crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>9.2.4</b> Number and race of offenders</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="county-level-ucr-data.html"><a href="county-level-ucr-data.html"><i class="fa fa-check"></i><b>10</b> County-Level UCR Data</a>
@@ -334,18 +332,18 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="arrests" class="section level1" number="5">
 <h1><span class="header-section-number">Chapter 5</span> Arrests by Age, Sex, and Race</h1>
-<p>The Arrests by Age, Sex, and Race dataset - often called ASR, or the “arrests data,” or sometimes the “Arrests by Age, Sex, Race, and Ethnicity (ASRE) though this is really misleading since most years don’t even report ethnicity data - includes the monthly number of arrests for a variety of crimes and, unlike the crime data, breaks down this data by age and gender. This data includes a broader number of crime categories than the crime dataset (the Offenses Known and Clearances by Arrest data) though is less detailed on violent crimes since it does not breakdown aggravated assault or robberies by weapon type as the Offenses Known data does. For each crime it says the number of arrests for each gender-age group with younger ages (15-24) showing the arrestee’s age to the year (e.g. age 16) and other ages grouping years together (e.g. age 25-29, 30-34,”under 10"). It also breaks down arrests by race-age by including the number of arrestees of each race (American Indian, Asian, Black, and White are the only included races) and if the arrestee is a juvenile (&lt;18 years old) or an adult. The data does technically include a breakdown by ethnicity-age (e.g. juvenile-Hispanic, juvenile-non-Hispanic) but almost no agencies report this data (for most years zero agencies report ethnicity) so in practice the data does not include ethnicity. As the data includes counts of arrestees, people who are arrested multiple times are included in the data multiple times - it is not a measure of unique arrestees.</p>
+<p>The Arrests by Age, Sex, and Race dataset - often called ASR, or the “arrests data,” or sometimes the “Arrests by Age, Sex, Race, and Ethnicity (ASRE) though this is really misleading since most years don’t even report ethnicity data - includes the monthly number of arrests for a variety of crimes and, unlike the crime data, breaks down this data by age and gender. This data includes a broader number of crime categories than the crime dataset (the Offenses Known and Clearances by Arrest data) though is less detailed on violent crimes since it does not breakdown aggravated assault or robberies by weapon type as the Offenses Known data does. For each crime it says the number of arrests for each gender-age group with younger ages (15-24) showing the arrestee’s age to the year (e.g. age 16) and other ages grouping years together (e.g. age 25-29, 30-34,”under 10”). It also breaks down arrests by race-age by including the number of arrestees of each race (American Indian, Asian, Black, and White are the only included races) and if the arrestee is a juvenile (&lt;18 years old) or an adult. The data does technically include a breakdown by ethnicity-age (e.g. juvenile-Hispanic, juvenile-non-Hispanic) but almost no agencies report this data (for most years zero agencies report ethnicity) so in practice the data does not include ethnicity. As the data includes counts of arrestees, people who are arrested multiple times are included in the data multiple times - it is not a measure of unique arrestees.</p>
 <div id="agencies-reporting-2" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Agencies reporting</h2>
 <p>This data is available from 1974 through 2019 and Figure <a href="arrests.html#fig:arrestsAgenciesReporting">5.1</a> shows how many agencies reported at least one month of the year for each of these years. I’m not sure why there’s a dip in 1980. Since it immediately reverses itself in the next year I think it’s just a data issue, not a real decrease in the number of agencies that report. The first year of data has about 9,000 agencies reporting and that increases strongly to a little over 13,000 in 1979. Following the odd blip in 1980, the number of agencies remain steady for nearly a decade before declining to a local low of about 11,000 in 1998 before again increasing steadily until the end of our data where nearly 15,000 agencies report. This 15,000, however, still remains under the estimated 18,000 police agencies in the United States and below the reporting rates of UCR data such as the Offenses Known and Clearances by Arrest data. This data is also missing some important cities such as New York City which hasn’t reported even a single month since 2002 and Chicago which tends to only report a single month if at all.</p>
-<div class="figure" style="text-align: center"><span id="fig:arrestsAgenciesReporting"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:arrestsAgenciesReporting"></span>
 <img src="arrests_files/figure-html/arrestsAgenciesReporting-1.png" alt="The annual number of agencies reporting at least one month of data in that year." width="90%" />
 <p class="caption">
 Figure 5.1: The annual number of agencies reporting at least one month of data in that year.
 </p>
 </div>
 <p>If we look at agencies that report all 12 months of the year, as seen in Figure <a href="arrests.html#fig:arrestsAgenciesReporting12Months">5.2</a>, now far fewer agencies report. In almost every year about 45-55% of agencies that report at all report all 12 months. This means that we’re missing data for about half of agencies. When an agency reports at all, they tend to report more months than fewer. For example, there are about twice as many agency-years with 11 months reported than with only 1 month reported. So having only about half of agencies report all 12 months of the year doesn’t mean that we’re missing a ton of data from the remaining half of agencies - but does merit close attention to which agencies you use in your research and how much missingness there is for those agencies.</p>
-<div class="figure" style="text-align: center"><span id="fig:arrestsAgenciesReporting12Months"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:arrestsAgenciesReporting12Months"></span>
 <img src="arrests_files/figure-html/arrestsAgenciesReporting12Months-1.png" alt="The annual number of agencies reporting 12 months of data in that year." width="90%" />
 <p class="caption">
 Figure 5.2: The annual number of agencies reporting 12 months of data in that year.
@@ -490,7 +488,7 @@ Figure 5.2: The annual number of agencies reporting 12 months of data in that ye
 </ul></li>
 </ul>
 <p>One way to use this data is to look at the age-crime curve of offending. The age-crime curve is a criminological finding that crime trends to grow in the early teenage years to peaking around age 18 before declining sharply. So essentially people commit crime as teenagers and then tend to fizzle out as they get older. Figure <a href="arrests.html#fig:phillyRapeAge">5.3</a> shows this trend for male arrestees of rape in Philadelphia from 1974-2019, which is every year of data we have available. A major problem with this figure is that some of the ages are for single years and some are for age categories. In the graph there were 748 arrests for rape for people aged 24. The next age is the category of aged 25-29 and there were 3,442 arrests for this age group. One way to address this is to assume that each age in the category has the same number of arrests, so dividing 3,442 by 5 gives us about 688 arrests per age. Assuming equal arrests by age, however, is not consistent with either the literature on the age-crime curve or the findings in this figure for previous ages, as the number of arrests by age is, overall, going down since age 18. So instead of assuming equality, would we assume that older ages have fewer arrests than younger ages (maybe taking the percent change from the previous years where we do have individual ages available)? This is a tricky question to answer and it makes these kinds of analyses really hard to do - and very imprecise since all of your assumptions will be wrong, though hopefully not <em>too</em> wrong.</p>
-<div class="figure" style="text-align: center"><span id="fig:phillyRapeAge"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:phillyRapeAge"></span>
 <img src="arrests_files/figure-html/phillyRapeAge-1.png" alt="The total number of rapes by male arrestees reported by arrestee age in Philadelphia, 1974-2019." width="90%" />
 <p class="caption">
 Figure 5.3: The total number of rapes by male arrestees reported by arrestee age in Philadelphia, 1974-2019.
@@ -519,14 +517,14 @@ Figure 5.3: The total number of rapes by male arrestees reported by arrestee age
 </ul></li>
 </ul>
 <p>Figure <a href="arrests.html#fig:phillyMarijuanaRacePercent">5.4</a> shows one example of an analysis of this data by showing the percent of arrests of adults for marijuana possession by the arrestee’s race in Philadelphia, PA for all years of data we have available, 1976-2019. At the bottom are American Indian and Asian arrestees who make up nearly none of the arrests for this crime. Black arrestees, shown in purple, make up the bulk of arrests with only a few years making up under 60% of arrests and growing to around 80% of arrests since the mid-2000s. As White arrestees, shown in black, are the only other race category included, they make up a near perfect mirror image of Black arrestees, composing of around 40% of arrests until decreasing starting in the 1990s to end up with about 20% of arrests in recent years.</p>
-<div class="figure" style="text-align: center"><span id="fig:phillyMarijuanaRacePercent"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:phillyMarijuanaRacePercent"></span>
 <img src="arrests_files/figure-html/phillyMarijuanaRacePercent-1.png" alt="The annual percent of adult marijuana possession arrests in Philadelphia by arrestee race, 1976-2019." width="90%" />
 <p class="caption">
 Figure 5.4: The annual percent of adult marijuana possession arrests in Philadelphia by arrestee race, 1976-2019.
 </p>
 </div>
 <p>Interestingly, while the disparity between Black-White arrests has grown dramatically in recent decades, the total number of arrests have a very different trend as shown in Figure <a href="arrests.html#fig:phillyMarijuanaRaceCount">5.5</a>. Total marijuana possession arrests declined in the mid-1980s then increased in the mid-1990s from only a few hundred arrests in the early 1990s to nearly 6,000 arrests in the late-2000s before dropping precipitously to about 700 each year in the late-2010s. Yet throughout this latter period as a percent of arrests, Black people consistently grew for years before plateauing around 2007 with a small decline in the last few years. Philadelphia decriminalized marijuana possession in 2014 under Mayor Nutter which is right when the steepest decline in arrests happened, though in the last couple of years also saw a decline in arrests. This suggests that who is arrested, in terms of race, is relatively unrelated to the total number of arrests, at least for marijuana.</p>
-<div class="figure" style="text-align: center"><span id="fig:phillyMarijuanaRaceCount"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:phillyMarijuanaRaceCount"></span>
 <img src="arrests_files/figure-html/phillyMarijuanaRaceCount-1.png" alt="The annual number of adult marijuana possession arrests in Philadelphia by arrestee race, 1976-2019." width="90%" />
 <p class="caption">
 Figure 5.5: The annual number of adult marijuana possession arrests in Philadelphia by arrestee race, 1976-2019.
@@ -549,14 +547,14 @@ Figure 5.5: The annual number of adult marijuana possession arrests in Philadelp
 </ul></li>
 </ul>
 <p>Figure <a href="arrests.html#fig:theftHispanic">5.6</a> shows the annual number of Hispanic arrestees for theft for all agencies that reported any data that year.<a href="#fn36" class="footnote-ref" id="fnref36"><sup>36</sup></a> For several years no agencies reported until the number of Hispanic arrestees start climbing in 1980 and peaks in 1986 at about 136,000 arrestees. Then there are zero Hispanic arrestees for a few years, four Hispanic arrestees in 1990, and then again zero Hispanic arrestees, this time for decades. Only in 2017 do the number of Hispanic theft arrestees begin to creep up. From 2017 to 2019 (the last year available at the time of this writing) there are Hispanic arrestees reported every year, though now only about 30,000 per year.</p>
-<div class="figure" style="text-align: center"><span id="fig:theftHispanic"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:theftHispanic"></span>
 <img src="arrests_files/figure-html/theftHispanic-1.png" alt="The national annual number of Hispanic arrestees for theft. This includes all agencies that year that reporting any number of months. Hispanic arrestees include both juvenile and adult arrestees" width="90%" />
 <p class="caption">
 Figure 5.6: The national annual number of Hispanic arrestees for theft. This includes all agencies that year that reporting any number of months. Hispanic arrestees include both juvenile and adult arrestees
 </p>
 </div>
 <p>Perhaps a better way to look at this data is to see what percent of agencies report ethnicity data. Figure <a href="arrests.html#fig:theftHispanicPercentAgencies">5.7</a> show the percent of agencies each year that report at least one Hispanic or non-Hispanic (which are the only choices, but showing only Hispanic arrests would exclude agencies where no Hispanic people truly were arrested) arrest for theft, of all agencies that reported theft data. About 90-95% of agencies reported ethnicity data in the early 80s and then only a couple agencies report in 1990 and 1991. Other than those agencies, none report between 1987 and 2017. Starting in 2017, 36% of agencies report and this number has grown by about five percentage points a year to 46% in 2019. Since fewer than half of agencies currently report, I strongly recommend against using these variables, even for the recent years of data.</p>
-<div class="figure" style="text-align: center"><span id="fig:theftHispanicPercentAgencies"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:theftHispanicPercentAgencies"></span>
 <img src="arrests_files/figure-html/theftHispanicPercentAgencies-1.png" alt="The annual percent of agencies that report theft arrests that reported at least one Hispanic person or one non-Hispanic person arrested for theft. Arrestees include both juvenile and adult arrestees." width="90%" />
 <p class="caption">
 Figure 5.7: The annual percent of agencies that report theft arrests that reported at least one Hispanic person or one non-Hispanic person arrested for theft. Arrestees include both juvenile and adult arrestees.
@@ -583,7 +581,7 @@ Figure 5.7: The annual percent of agencies that report theft arrests that report
 </ul></li>
 </ul>
 <p>We can look at an example of this in Figure <a href="arrests.html#fig:phillyJuvenileReferrals">5.8</a> which shows the annual number of referral types in Philadelphia from 1974-2019. For all the first couple of years almost all of the referrals have either been that the agency handles the arrest internally and releases the juvenile without any formal charges, or that the juvenile is formally arrested and referred to juvenile court. This is a pretty consistent trend with those two categories being the predominant outcome for juveniles arrested in other agencies and over time. In most years handled internally is the most common outcome though juvenile court is occasionally more common, including in recent years.</p>
-<div class="figure" style="text-align: center"><span id="fig:phillyJuvenileReferrals"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:phillyJuvenileReferrals"></span>
 <img src="arrests_files/figure-html/phillyJuvenileReferrals-1.png" alt="The annual number of juvenile referrals in Philadelphia by referral type, 1974-2019." width="90%" />
 <p class="caption">
 Figure 5.8: The annual number of juvenile referrals in Philadelphia by referral type, 1974-2019.
@@ -605,12 +603,11 @@ Figure 5.8: The annual number of juvenile referrals in Philadelphia by referral 
           </div>
         </div>
       </div>
-<a href="stolen-property.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="stolen_property.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="shr.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -621,15 +618,25 @@ Figure 5.8: The annual number of juvenile referrals in Philadelphia by referral 
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": true,
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
 "fontsettings": {
 "theme": "white",
 "family": "sans",
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jacobkap/ucrbook/edit/main/arrests.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "history": {
 "link": null,
@@ -639,9 +646,13 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": [["ucrbook.pdf", "PDF"], ["ucrbook.epub", "EPUB"]],
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
-"collapse": "section"
+"collapse": "subsection"
 }
 });
 });

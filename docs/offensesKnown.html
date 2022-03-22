@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Offenses Known and Clearances by Arrest | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Offenses Known and Clearances by Arrest | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2021-07-27" />
+<meta name="date" content="2022-03-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,9 +32,10 @@
   
   
 <link rel="prev" href="ucrGeneral.html"/>
-<link rel="next" href="stolen-property.html"/>
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="next" href="stolen_property.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,7 +43,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -68,6 +68,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -164,9 +165,6 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#goal-of-the-book"><i class="fa fa-check"></i><b>1.1</b> Goal of the book</a></li>
@@ -228,16 +226,16 @@ div.csl-indent {
 <li class="chapter" data-level="3.4.2" data-path="offensesKnown.html"><a href="offensesKnown.html#the-decline-of-manslaughter"><i class="fa fa-check"></i><b>3.4.2</b> The decline of manslaughter</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="stolen-property.html"><a href="stolen-property.html"><i class="fa fa-check"></i><b>4</b> Property Stolen and Recovered (Supplement to Return A)</a>
+<li class="chapter" data-level="4" data-path="stolen_property.html"><a href="stolen_property.html"><i class="fa fa-check"></i><b>4</b> Property Stolen and Recovered (Supplement to Return A)</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="stolen-property.html"><a href="stolen-property.html#agencies-reporting-1"><i class="fa fa-check"></i><b>4.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="4.2" data-path="stolen-property.html"><a href="stolen-property.html#important-variables-1"><i class="fa fa-check"></i><b>4.2</b> Important variables</a>
+<li class="chapter" data-level="4.1" data-path="stolen_property.html"><a href="stolen_property.html#agencies-reporting-1"><i class="fa fa-check"></i><b>4.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="4.2" data-path="stolen_property.html"><a href="stolen_property.html#important-variables-1"><i class="fa fa-check"></i><b>4.2</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="stolen-property.html"><a href="stolen-property.html#propertycount"><i class="fa fa-check"></i><b>4.2.1</b> A more detailed breakdown of property (and robbery) crimes</a></li>
-<li class="chapter" data-level="4.2.2" data-path="stolen-property.html"><a href="stolen-property.html#the-value-of-property-stolen-in-property-and-robbery-crimes"><i class="fa fa-check"></i><b>4.2.2</b> The value of property stolen in property (and robbery) crimes</a></li>
-<li class="chapter" data-level="4.2.3" data-path="stolen-property.html"><a href="stolen-property.html#value-of-recovered-property-by-type-of-item-stolen"><i class="fa fa-check"></i><b>4.2.3</b> Value of recovered property by type of item stolen</a></li>
+<li class="chapter" data-level="4.2.1" data-path="stolen_property.html"><a href="stolen_property.html#propertycount"><i class="fa fa-check"></i><b>4.2.1</b> A more detailed breakdown of property (and robbery) crimes</a></li>
+<li class="chapter" data-level="4.2.2" data-path="stolen_property.html"><a href="stolen_property.html#the-value-of-property-stolen-in-property-and-robbery-crimes"><i class="fa fa-check"></i><b>4.2.2</b> The value of property stolen in property (and robbery) crimes</a></li>
+<li class="chapter" data-level="4.2.3" data-path="stolen_property.html"><a href="stolen_property.html#value-of-recovered-property-by-type-of-item-stolen"><i class="fa fa-check"></i><b>4.2.3</b> Value of recovered property by type of item stolen</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="stolen-property.html"><a href="stolen-property.html#data-errors"><i class="fa fa-check"></i><b>4.3</b> Data errors</a></li>
+<li class="chapter" data-level="4.3" data-path="stolen_property.html"><a href="stolen_property.html#data-errors"><i class="fa fa-check"></i><b>4.3</b> Data errors</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="arrests.html"><a href="arrests.html"><i class="fa fa-check"></i><b>5</b> Arrests by Age, Sex, and Race</a>
 <ul>
@@ -292,15 +290,15 @@ div.csl-indent {
 <li class="chapter" data-level="8.3" data-path="arsonChapter.html"><a href="arsonChapter.html#arsonType"><i class="fa fa-check"></i><b>8.3</b> Types of arsons</a></li>
 <li class="chapter" data-level="8.4" data-path="arsonChapter.html"><a href="arsonChapter.html#data-errors-1"><i class="fa fa-check"></i><b>8.4</b> Data errors</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="hate-crimes.html"><a href="hate-crimes.html"><i class="fa fa-check"></i><b>9</b> Hate Crime Data</a>
+<li class="chapter" data-level="9" data-path="hate_crimes.html"><a href="hate_crimes.html"><i class="fa fa-check"></i><b>9</b> Hate Crime Data</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="hate-crimes.html"><a href="hate-crimes.html#agencies-reporting-6"><i class="fa fa-check"></i><b>9.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="9.2" data-path="hate-crimes.html"><a href="hate-crimes.html#important-variables-6"><i class="fa fa-check"></i><b>9.2</b> Important variables</a>
+<li class="chapter" data-level="9.1" data-path="hate_crimes.html"><a href="hate_crimes.html#agencies-reporting-6"><i class="fa fa-check"></i><b>9.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="9.2" data-path="hate_crimes.html"><a href="hate_crimes.html#important-variables-6"><i class="fa fa-check"></i><b>9.2</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="9.2.1" data-path="hate-crimes.html"><a href="hate-crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>9.2.1</b> The bias motivation (who the hate is against)</a></li>
-<li class="chapter" data-level="9.2.2" data-path="hate-crimes.html"><a href="hate-crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>9.2.2</b> The crime that occurred</a></li>
-<li class="chapter" data-level="9.2.3" data-path="hate-crimes.html"><a href="hate-crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>9.2.3</b> The location of the crime</a></li>
-<li class="chapter" data-level="9.2.4" data-path="hate-crimes.html"><a href="hate-crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>9.2.4</b> Number and race of offenders</a></li>
+<li class="chapter" data-level="9.2.1" data-path="hate_crimes.html"><a href="hate_crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>9.2.1</b> The bias motivation (who the hate is against)</a></li>
+<li class="chapter" data-level="9.2.2" data-path="hate_crimes.html"><a href="hate_crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>9.2.2</b> The crime that occurred</a></li>
+<li class="chapter" data-level="9.2.3" data-path="hate_crimes.html"><a href="hate_crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>9.2.3</b> The location of the crime</a></li>
+<li class="chapter" data-level="9.2.4" data-path="hate_crimes.html"><a href="hate_crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>9.2.4</b> Number and race of offenders</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="county-level-ucr-data.html"><a href="county-level-ucr-data.html"><i class="fa fa-check"></i><b>10</b> County-Level UCR Data</a>
@@ -406,7 +404,7 @@ div.csl-indent {
 <p>This dataset uses what is called the Hierarchy Rule where only the most serious crime in an incident is reported (except for motor vehicle theft and arson, which are always included). For example if there is an incident where the victim is robbed and then murdered, only the murder is counted as it is considered more serious than the robbery. That the data uses the Hierarchy Rule is an oft-cited (by academics, reporters, random people on Twitter) criticism of the data that is, in my opinion, overblown.</p>
 <p>In practice, the Hierarchy Rule has only modest effects on the data, undercounting few crimes. Though the Hierarchy Rule does mean this data is an undercount, data from other sources indicate that it isn’t much of an under count. The FBI’s other data set, the National Incident-Based Reporting System (NIBRS) contains every crime that occurs in an incident (i.e. it doesn’t use the Hierarchy Rule). Using this we can measure how many crimes the Hierarchy Rule excludes (Most major cities do not report to NIBRS so what we find in NIBRS may not apply to them). In over 90% of incidents, only one crime is committed. Additionally, when people talk about “crime” they usually mean murder which, while incomplete to discuss crime, means the UCR data here is accurate on that measure.</p>
 <p>The FBI also released a report <a href="https://ucr.fbi.gov/nibrs/2014/resource-pages/effects_of_nibrs_on_crime_statistics_final.pdf">available here</a> in 2015 that directly examined this issue by taking NIBRS data from 2014 and examined how NIBRS data (which includes all crimes) compares to using the Hierarchy Rule and keeping only the most serious crime. Figure <a href="offensesKnown.html#fig:fbiHierarchy">3.1</a> is a screenshot from their report showing the percent increases in crimes when including all crimes in an incident relative to following the Hierarchy Rule. They find that 10.6% of incidents have multiple crimes occurring, which is similar to other years of data that I have examined myself. For violent crime, murder and rape have no change; for the remaining violent crimes - robbery and aggravated assault - crimes increased by 0.6%.<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a> Burglary increased by 1% and the largest increases came from theft and motor vehicle theft, increasing by 2.6% and 2.7%, respectively. Curiously motor vehicle theft increased even though the FBI’s documentation for this data says that it is exempt from the Hierarchy Rule and should always be reported. This suggests either non-compliance or that the manual is incorrect.</p>
-<div class="figure" style="text-align: center"><span id="fig:fbiHierarchy"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fbiHierarchy"></span>
 <img src="images/fbi_hierarchy.PNG" alt="The FBI's findings of how crime reporting changes when using the Hierarchy Rule using NIBRS 2014 data." width="90%" />
 <p class="caption">
 Figure 3.1: The FBI’s findings of how crime reporting changes when using the Hierarchy Rule using NIBRS 2014 data.
@@ -418,14 +416,14 @@ Figure 3.1: The FBI’s findings of how crime reporting changes when using the H
 <div id="agencies-reporting" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Agencies reporting</h2>
 <p>Figure <a href="offensesKnown.html#fig:offensesAgenciesReporting">3.2</a> shows the annual number of police agencies that reported at least one month that year. With data starting in 1960, there were a little under 7,500 agencies reporting a year until 1970 when the number of agencies began increasing. This continued until the late 1970s when about 14,000 agencies reported, and this remained steady for over a decade before declining in the 1990s until about 12,500 in the latter half of the decade. Then the number of agencies reporting increased steadily until about 16,500 agencies reported in 2010. The number of agencies has slowly increased since then, adding a few hundred agencies from 2010 to 2018. While this data is available through 2019, this graph only shows data through 2018. As this graph shows agencies that report at least one month, it overcounts reporting agencies as some report fewer than every month in the year. Agencies that do report, however, tend to report all 12 months of the year so this problem is not necessarily serious, though it depends on the agencies you’re looking at.</p>
-<div class="figure" style="text-align: center"><span id="fig:offensesAgenciesReporting"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:offensesAgenciesReporting"></span>
 <img src="offenses_known_files/figure-html/offensesAgenciesReporting-1.png" alt="The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year." width="90%" />
 <p class="caption">
 Figure 3.2: The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.
 </p>
 </div>
 <p>Figure <a href="offensesKnown.html#fig:offensesbigAgenciesReporting">3.3</a> repeats the above figure but now including only agencies with 100,000 people or more in their jurisdiction. While these agencies have a far more linear trend than all agencies, the basic lesson is the same: recent data has most agencies reporting; old data excludes many agencies.</p>
-<div class="figure" style="text-align: center"><span id="fig:offensesbigAgenciesReporting"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:offensesbigAgenciesReporting"></span>
 <img src="offenses_known_files/figure-html/offensesbigAgenciesReporting-1.png" alt="The annual number of agencies with a population of 100,000 or higher reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year." width="90%" />
 <p class="caption">
 Figure 3.3: The annual number of agencies with a population of 100,000 or higher reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.
@@ -446,7 +444,7 @@ Figure 3.3: The annual number of agencies with a population of 100,000 or higher
 <p>Unfortunately, this data does not differentiate between clearances by arrest or by exceptional means so there’s no way to determine how many clearances mean the offender is actually arrested - and even more problematic, how many clearances have all of the offenders arrested.<a href="#fn28" class="footnote-ref" id="fnref28"><sup>28</sup></a> There is also evidence that police agencies report classify large numbers of clearances as clearances through exception means (again, we have no way to tell which is which using this data) even though exceptional clearances should be rare given that times where the offender is known but cannot be arrested are likely far less common than when they are arrested. This is particularly a problem in the case of rapes where in some cases there are far more exceptional clearances than clearances by arrest <span class="citation">(<a href="#ref-yeung2018comes" role="doc-biblioref">Yeung et al. 2018</a>)</span>. For an excellent investigation into this issue, please read the <span class="citation"><a href="#ref-yeung2018comes" role="doc-biblioref">Yeung et al.</a> (<a href="#ref-yeung2018comes" role="doc-biblioref">2018</a>)</span> article available on ProPublica’s website <a href="https://www.propublica.org/article/when-it-comes-to-rape-just-because-a-case-is-cleared-does-not-mean-solved">here</a></p>
 <p>Clearances are reported in the month that they occur, regardless of when the crime they are clearing occurred. In practice, however, most crimes are cleared in the month that they occur. According to the 2019 NIBRS, it takes on average 7 days between the incident and the arrest (median = 0 days) date when averaging across all crimes - for individual crimes these values will be different. This means that most of the clearances will be for the same month as the initial crime - though less so as the month comes to a close. Of course, police agencies can solve older cases - and even target cold cases to be solved - so this is still a degree of uncertainty for which month these clearances are for.</p>
 <p>Still, there are occasionally months - and even years - where there are more reported crimes cleared than crimes that occur. Figure <a href="offensesKnown.html#fig:montgomeryClearances">3.4</a> shows the number of actual and cleared murders from the Montgomery County Police Department in Maryland. Several years have more murders cleared than were committed - a sign that the month of clearance does not correspond to the month of occurrence, rather than the police solving crime before it happened.<a href="#fn29" class="footnote-ref" id="fnref29"><sup>29</sup></a></p>
-<div class="figure" style="text-align: center"><span id="fig:montgomeryClearances"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:montgomeryClearances"></span>
 <img src="offenses_known_files/figure-html/montgomeryClearances-1.png" alt="The annual number of actual and cleared murders from the Montgomery County Police Department, MD, 1960-2018." width="90%" />
 <p class="caption">
 Figure 3.4: The annual number of actual and cleared murders from the Montgomery County Police Department, MD, 1960-2018.
@@ -461,22 +459,22 @@ Figure 3.4: The annual number of actual and cleared murders from the Montgomery 
 <h3><span class="header-section-number">3.3.4</span> Unfounded crimes</h3>
 <p>An unfounded crime is one in which a police investigation has determined that the reported crime did not actually happen. For example I observed during a ride-along a report of a burglary where the homeowners said that they came home, and the front door was open and they thought it might have been their son who forgot to close it but were worried that it could be a burglar, so they called the police just in case. This would be recorded as a burglary and if it turned out to be the son, the police would then record this as an unfounded burglary.</p>
 <p>Other unfounded crimes would include when someone reports a crime but later says that the report wasn’t true. For example, a person could report a burglary to the police to collect insurance money on the items they claim was stolen. If the police discover this they would unfound the case - and the lying to the police and fraud would not be counted as neither of those are crimes included in this dataset. Unfounding crimes are especially common for rapes. If a person reports that they were raped and then later say that this report isn’t true - and doing so is relatively common, especially for child sexual abuse victims, even when the rape did actually happen - then the police will unfound the case.</p>
-<p>Figure <a href="offensesKnown.html#fig:phillyRapeUnfound">3.5</a> provides one example of this by showing the number of actual - that is, rapes that the police say actually occurred - and unfounded rapes annually from 1960-2018 in Philadelphia, PA. Interestingly, the spike in actual rapes in 2013 due to the new rape definition that year (discussed below) does not correspond to a spike in unfounded rapes - which suggests that this variable is not being reported properly. It is unlikely that the number of rapes would spike so much without any corresponding increase - and an actual decrease - in unfounded rapes. Since unfounded rapes are so common, especially compared to other crimes - and evidence that police also misreport clearances for rape - this variable is likely to be manipulated by the police to make it appear that there are fewer rapes than there actually is. As such, this variable - and relatedly the actual crimes variable" is not reliable, especially for rapes. How unreliable, of course depends on the specific offense and the agency reporting.</p>
-<div class="figure" style="text-align: center"><span id="fig:phillyRapeUnfound"></span>
+<p>Figure <a href="offensesKnown.html#fig:phillyRapeUnfound">3.5</a> provides one example of this by showing the number of actual - that is, rapes that the police say actually occurred - and unfounded rapes annually from 1960-2018 in Philadelphia, PA. Interestingly, the spike in actual rapes in 2013 due to the new rape definition that year (discussed below) does not correspond to a spike in unfounded rapes - which suggests that this variable is not being reported properly. It is unlikely that the number of rapes would spike so much without any corresponding increase - and an actual decrease - in unfounded rapes. Since unfounded rapes are so common, especially compared to other crimes - and evidence that police also misreport clearances for rape - this variable is likely to be manipulated by the police to make it appear that there are fewer rapes than there actually is. As such, this variable - and relatedly the actual crimes variable” is not reliable, especially for rapes. How unreliable, of course depends on the specific offense and the agency reporting.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:phillyRapeUnfound"></span>
 <img src="offenses_known_files/figure-html/phillyRapeUnfound-1.png" alt="The annual number of actual and unfounded rapes in Philadelphia, PA, 1960-2018." width="90%" />
 <p class="caption">
 Figure 3.5: The annual number of actual and unfounded rapes in Philadelphia, PA, 1960-2018.
 </p>
 </div>
 <p>Another way to look at this data is the percent of rapes that were unfounded. Since unfounded and actual rapes are distinct categories, we’ll need to divide unfounded rapes by the sum of actual and unfounded rapes and then multiple the result by 100. Please note that unfounding occurs in the month the police discover the case to be unfounded, it is not tied to the month of the original report. So this graph isn’t really showing the percent that year that were unfounded - but for our purposes of getting a general sense it is acceptable. Usually about 10% of reported rapes are unfounded in Philadelphia. The 44% in 1983, the first year with data, is probably high due to it accounting for unfounded cases in previous years that weren’t reported in the data until 1983.</p>
-<div class="figure" style="text-align: center"><span id="fig:phillyRapeUnfoundPercent"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:phillyRapeUnfoundPercent"></span>
 <img src="offenses_known_files/figure-html/phillyRapeUnfoundPercent-1.png" alt="The percent of reported rapes that the police recorded as unfounded in Philadelphia, PA, 1960-2018." width="90%" />
 <p class="caption">
 Figure 3.6: The percent of reported rapes that the police recorded as unfounded in Philadelphia, PA, 1960-2018.
 </p>
 </div>
 <p>As a comparison, Figure <a href="offensesKnown.html#fig:phillyRobberyUnfoundPercent">3.7</a> shows the percent of robberies that are recorded as unfounded in Philadelphia over the same time period. While the percent has been increasing, for most of the data it is under 1% and never exceeds 3%. To me this suggests that the Philly Police, and they aren’t unique, are overcounting rapes as unfounded to improve their rape statistic data.</p>
-<div class="figure" style="text-align: center"><span id="fig:phillyRobberyUnfoundPercent"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:phillyRobberyUnfoundPercent"></span>
 <img src="offenses_known_files/figure-html/phillyRobberyUnfoundPercent-1.png" alt="The percent of reported robberies that the police recorded as unfounded in Philadelphia, PA, 1960-2018." width="90%" />
 <p class="caption">
 Figure 3.7: The percent of reported robberies that the police recorded as unfounded in Philadelphia, PA, 1960-2018.
@@ -493,14 +491,14 @@ Figure 3.7: The percent of reported robberies that the police recorded as unfoun
 <p>Both the current and legacy definitions exclude statutory rape and incest other than forcible incest. They both also include lack of consent as cases where the victim cannot give consent, such as if they are too young or are mentally or physically incapacitated - the FBI specifically give the example of being temporarily incapacitated through drugs or alcohol.</p>
 <p>As this revised definition is broader than the original one post-2013, rape data is not comparable to pre-2013 data. 2013, however, is simply the year that the FBI changed the definition which means that agencies should have changed their reporting to the new definition. As might not be too surprising, not all agencies followed this requirement. We’ll look at four examples to show when there is clear evidence that the agency did change their definition in 2013, when it’s clear they did so a year later, when it’s unclear exactly when they made the change, and when the agency seems to not follow the change at all.</p>
 <p>We’ll start with the Philadelphia Police Department in Philadelphia, PA, shown in Figure <a href="offensesKnown.html#fig:rapePhilly">3.8</a> which shows the annual number of rapes from 2000-2018. It’s declining slowly but steadily over the 2000-2012 time period until spiking sharply in 2013. Since the rape definition change in 2013 is far broader than previous year’s definition, this makes sense. A broader definition should lead to a sudden increase in reported rapes if the agency is reporting correctly.</p>
-<div class="figure" style="text-align: center"><span id="fig:rapePhilly"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:rapePhilly"></span>
 <img src="offenses_known_files/figure-html/rapePhilly-1.png" alt="The annual number of rapes reported in Philadelphia, Pennsylvania, 2000-2018." width="90%" />
 <p class="caption">
 Figure 3.8: The annual number of rapes reported in Philadelphia, Pennsylvania, 2000-2018.
 </p>
 </div>
 <p>In comparison, New York City has the sudden spike a year later, which indicates that they didn’t start using the new definition until 2014. Figure <a href="offensesKnown.html#fig:rapeNYC">3.9</a> shows that rape is fairly steady, though increasing, in the years leading up to 2013 and has almost no change from 2012 to 2013, but a huge increase in 2014 and then steadily increases from there, spiking again in 2018. This seems like a fairly clear indicator that NYC simply didn’t follow the new definition until 2014.</p>
-<div class="figure" style="text-align: center"><span id="fig:rapeNYC"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:rapeNYC"></span>
 <img src="offenses_known_files/figure-html/rapeNYC-1.png" alt="The annual number of rapes reported in New York City, 2000-2018." width="90%" />
 <p class="caption">
 Figure 3.9: The annual number of rapes reported in New York City, 2000-2018.
@@ -508,14 +506,14 @@ Figure 3.9: The annual number of rapes reported in New York City, 2000-2018.
 </div>
 <p>Less clear is what’s happening in San Francisco, California, shown in Figure <a href="offensesKnown.html#fig:rapeLA">3.10</a>.
 Here we do see an increase in 2013 which while it appears small on the graph is actually a 49% increase from 2012. Then there is a much larger spike in 2014 - a 120% increase - which may suggest that part of the agency started following the new definition in 2013 and the remainder followed in 2014. However, large increases or decreases are relatively common in San Francisco so it could also be that the agency only switched to the new definition in 2014 and the spike in 2013 is just a coincidence.</p>
-<div class="figure" style="text-align: center"><span id="fig:rapeLA"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:rapeLA"></span>
 <img src="offenses_known_files/figure-html/rapeLA-1.png" alt="The annual number of rapes reported in San Francisco, California, 2000-2018." width="90%" />
 <p class="caption">
 Figure 3.10: The annual number of rapes reported in San Francisco, California, 2000-2018.
 </p>
 </div>
 <p>Finally, we’ll look at Jackson Police Department in Mississippi where the definition change seems to have had no effect. As seen in Figure <a href="offensesKnown.html#fig:rapeJackson">3.11</a>, reported rapes start to undulate in 2010 with 2013 data perfectly in line with the before and after trends - no sign that there is a change in reporting. This suggests that Jackson simply did not follow the definition change and continues to report using the old definition.</p>
-<div class="figure" style="text-align: center"><span id="fig:rapeJackson"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:rapeJackson"></span>
 <img src="offenses_known_files/figure-html/rapeJackson-1.png" alt="The annual number of rapes reported in Jackson, Mississippi, 2000-2018." width="90%" />
 <p class="caption">
 Figure 3.11: The annual number of rapes reported in Jackson, Mississippi, 2000-2018.
@@ -527,14 +525,14 @@ Figure 3.11: The annual number of rapes reported in Jackson, Mississippi, 2000-2
 <h3><span class="header-section-number">3.4.2</span> The decline of manslaughter</h3>
 <p>This data contains two different crime subcategories for homicide: murder and non-negligent manslaughter, and manslaughter by negligence. The first is our measure of murder, and it includes everything we traditionally think of when it comes to murder - shootings, stabbings, strangulation, basically any intentional killing of another person.<a href="#fn30" class="footnote-ref" id="fnref30"><sup>30</sup></a> Suicides, killing a fetus, and accidental killings (e.g. car crashes) are not considered murders.<a href="#fn31" class="footnote-ref" id="fnref31"><sup>31</sup></a> The second, manslaughter by negligence - usually called just “manslaughter” - is when someone kills another person through “gross negligence” but does not kill them intentionally. This can include accidental killings when the death was caused by gross negligence. The FBI provide examples of this as kids playing with guns and shooting each other (and not knowing the gun was loaded) or a hunter accidentally shooting someone while hunting. After the late 1970s this excludes deaths from traffic accidents caused by negligence, such as hit and runs or DUIs. However, prior to this, these deaths were included, which is the cause of the very high number of manslaughters in the 1960s and 1970s.</p>
 <p>Figure <a href="offensesKnown.html#fig:manslaughterVsMurder">3.12</a> shows the annual number of murders, manslaughter, and the sum of the two nationwide from 1960-2018. This just sums up the total reported counts from every agency each year so part of the increase is simply due to more agencies reporting as the year gets closer to the present day - so please pay attention to the diverging paths of each crime, not the trend for the individual crime over time. Murder is always more common than manslaughter but these values are not that far apart in the early decade of data and manslaughter doesn’t become rare until the end of the 1970s.</p>
-<div class="figure" style="text-align: center"><span id="fig:manslaughterVsMurder"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:manslaughterVsMurder"></span>
 <img src="offenses_known_files/figure-html/manslaughterVsMurder-1.png" alt="The annual number of murder and non-negligent manslaughter, manslaughter by negligence, and the sum of the two, nationwide from 1960-2018." width="90%" />
 <p class="caption">
 Figure 3.12: The annual number of murder and non-negligent manslaughter, manslaughter by negligence, and the sum of the two, nationwide from 1960-2018.
 </p>
 </div>
 <p>Figure <a href="offensesKnown.html#fig:manslaughterPercent">3.13</a> shows another way to look at this data: manslaughter as a percent of reported murder. In the early years of our data manslaughter was fairly common, with about 70-80% as many manslaughters reported as murders. This declined sharply in the mid-1960s until there were around 45% as many manslaughters as murders in the mid-1970s. Again this declined until it was about 4% in 1980, and it has remained around there ever since. As police behavior could reduce traffic fatalities - and arrests for DUIs and traffic tickets are designed to improve public safety - it is unfortunate the we no longer have data on traffic deaths.</p>
-<div class="figure" style="text-align: center"><span id="fig:manslaughterPercent"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:manslaughterPercent"></span>
 <img src="offenses_known_files/figure-html/manslaughterPercent-1.png" alt="Reported manslaughter by negligence as a percent of reported murder and non-negligent manslaughter, nationwide 1960-2018." width="90%" />
 <p class="caption">
 Figure 3.13: Reported manslaughter by negligence as a percent of reported murder and non-negligent manslaughter, nationwide 1960-2018.
@@ -566,11 +564,10 @@ Yeung, B, M Greenblatt, M Fahey, and E Harris. 2018. <span>“When It Comes to R
         </div>
       </div>
 <a href="ucrGeneral.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="stolen-property.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="stolen_property.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -581,15 +578,25 @@ Yeung, B, M Greenblatt, M Fahey, and E Harris. 2018. <span>“When It Comes to R
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": true,
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
 "fontsettings": {
 "theme": "white",
 "family": "sans",
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jacobkap/ucrbook/edit/main/offenses_known.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "history": {
 "link": null,
@@ -599,9 +606,13 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": [["ucrbook.pdf", "PDF"], ["ucrbook.epub", "EPUB"]],
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
-"collapse": "section"
+"collapse": "subsection"
 }
 });
 });

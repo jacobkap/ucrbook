@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 Law Enforcement Officers Killed and Assaulted (LEOKA) | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 Law Enforcement Officers Killed and Assaulted (LEOKA) | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2021-07-27" />
+<meta name="date" content="2022-03-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,9 @@
   
 <link rel="prev" href="shr.html"/>
 <link rel="next" href="arsonChapter.html"/>
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,7 +43,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -68,6 +68,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -164,9 +165,6 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#goal-of-the-book"><i class="fa fa-check"></i><b>1.1</b> Goal of the book</a></li>
@@ -228,16 +226,16 @@ div.csl-indent {
 <li class="chapter" data-level="3.4.2" data-path="offensesKnown.html"><a href="offensesKnown.html#the-decline-of-manslaughter"><i class="fa fa-check"></i><b>3.4.2</b> The decline of manslaughter</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="stolen-property.html"><a href="stolen-property.html"><i class="fa fa-check"></i><b>4</b> Property Stolen and Recovered (Supplement to Return A)</a>
+<li class="chapter" data-level="4" data-path="stolen_property.html"><a href="stolen_property.html"><i class="fa fa-check"></i><b>4</b> Property Stolen and Recovered (Supplement to Return A)</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="stolen-property.html"><a href="stolen-property.html#agencies-reporting-1"><i class="fa fa-check"></i><b>4.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="4.2" data-path="stolen-property.html"><a href="stolen-property.html#important-variables-1"><i class="fa fa-check"></i><b>4.2</b> Important variables</a>
+<li class="chapter" data-level="4.1" data-path="stolen_property.html"><a href="stolen_property.html#agencies-reporting-1"><i class="fa fa-check"></i><b>4.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="4.2" data-path="stolen_property.html"><a href="stolen_property.html#important-variables-1"><i class="fa fa-check"></i><b>4.2</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="stolen-property.html"><a href="stolen-property.html#propertycount"><i class="fa fa-check"></i><b>4.2.1</b> A more detailed breakdown of property (and robbery) crimes</a></li>
-<li class="chapter" data-level="4.2.2" data-path="stolen-property.html"><a href="stolen-property.html#the-value-of-property-stolen-in-property-and-robbery-crimes"><i class="fa fa-check"></i><b>4.2.2</b> The value of property stolen in property (and robbery) crimes</a></li>
-<li class="chapter" data-level="4.2.3" data-path="stolen-property.html"><a href="stolen-property.html#value-of-recovered-property-by-type-of-item-stolen"><i class="fa fa-check"></i><b>4.2.3</b> Value of recovered property by type of item stolen</a></li>
+<li class="chapter" data-level="4.2.1" data-path="stolen_property.html"><a href="stolen_property.html#propertycount"><i class="fa fa-check"></i><b>4.2.1</b> A more detailed breakdown of property (and robbery) crimes</a></li>
+<li class="chapter" data-level="4.2.2" data-path="stolen_property.html"><a href="stolen_property.html#the-value-of-property-stolen-in-property-and-robbery-crimes"><i class="fa fa-check"></i><b>4.2.2</b> The value of property stolen in property (and robbery) crimes</a></li>
+<li class="chapter" data-level="4.2.3" data-path="stolen_property.html"><a href="stolen_property.html#value-of-recovered-property-by-type-of-item-stolen"><i class="fa fa-check"></i><b>4.2.3</b> Value of recovered property by type of item stolen</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="stolen-property.html"><a href="stolen-property.html#data-errors"><i class="fa fa-check"></i><b>4.3</b> Data errors</a></li>
+<li class="chapter" data-level="4.3" data-path="stolen_property.html"><a href="stolen_property.html#data-errors"><i class="fa fa-check"></i><b>4.3</b> Data errors</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="arrests.html"><a href="arrests.html"><i class="fa fa-check"></i><b>5</b> Arrests by Age, Sex, and Race</a>
 <ul>
@@ -292,15 +290,15 @@ div.csl-indent {
 <li class="chapter" data-level="8.3" data-path="arsonChapter.html"><a href="arsonChapter.html#arsonType"><i class="fa fa-check"></i><b>8.3</b> Types of arsons</a></li>
 <li class="chapter" data-level="8.4" data-path="arsonChapter.html"><a href="arsonChapter.html#data-errors-1"><i class="fa fa-check"></i><b>8.4</b> Data errors</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="hate-crimes.html"><a href="hate-crimes.html"><i class="fa fa-check"></i><b>9</b> Hate Crime Data</a>
+<li class="chapter" data-level="9" data-path="hate_crimes.html"><a href="hate_crimes.html"><i class="fa fa-check"></i><b>9</b> Hate Crime Data</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="hate-crimes.html"><a href="hate-crimes.html#agencies-reporting-6"><i class="fa fa-check"></i><b>9.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="9.2" data-path="hate-crimes.html"><a href="hate-crimes.html#important-variables-6"><i class="fa fa-check"></i><b>9.2</b> Important variables</a>
+<li class="chapter" data-level="9.1" data-path="hate_crimes.html"><a href="hate_crimes.html#agencies-reporting-6"><i class="fa fa-check"></i><b>9.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="9.2" data-path="hate_crimes.html"><a href="hate_crimes.html#important-variables-6"><i class="fa fa-check"></i><b>9.2</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="9.2.1" data-path="hate-crimes.html"><a href="hate-crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>9.2.1</b> The bias motivation (who the hate is against)</a></li>
-<li class="chapter" data-level="9.2.2" data-path="hate-crimes.html"><a href="hate-crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>9.2.2</b> The crime that occurred</a></li>
-<li class="chapter" data-level="9.2.3" data-path="hate-crimes.html"><a href="hate-crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>9.2.3</b> The location of the crime</a></li>
-<li class="chapter" data-level="9.2.4" data-path="hate-crimes.html"><a href="hate-crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>9.2.4</b> Number and race of offenders</a></li>
+<li class="chapter" data-level="9.2.1" data-path="hate_crimes.html"><a href="hate_crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>9.2.1</b> The bias motivation (who the hate is against)</a></li>
+<li class="chapter" data-level="9.2.2" data-path="hate_crimes.html"><a href="hate_crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>9.2.2</b> The crime that occurred</a></li>
+<li class="chapter" data-level="9.2.3" data-path="hate_crimes.html"><a href="hate_crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>9.2.3</b> The location of the crime</a></li>
+<li class="chapter" data-level="9.2.4" data-path="hate_crimes.html"><a href="hate_crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>9.2.4</b> Number and race of offenders</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="county-level-ucr-data.html"><a href="county-level-ucr-data.html"><i class="fa fa-check"></i><b>10</b> County-Level UCR Data</a>
@@ -338,7 +336,7 @@ div.csl-indent {
 <div id="agencies-reporting-4" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Agencies reporting</h2>
 <p>Figure <a href="leoka.html#fig:leokaAgencies">7.1</a> shows the annual number of police agencies that reported at least one month that year. The first year of data available, 1960, has about 8,400 agencies reporting though this quickly drops to a trough of around 4,800 agencies that last for several years. After some undulations in the 1970s, reporting agencies steadily increases to nearly 14,000 agencies in the 1980s and remains steady until declining to around 12,000 by the late 1990s. Then reporting again steadily increases for the rest of our data to about 16,000 agencies by the end.</p>
-<div class="figure" style="text-align: center"><span id="fig:leokaAgencies"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaAgencies"></span>
 <img src="leoka_files/figure-html/leokaAgencies-1.png" alt="The annual number of police agencies that report at least month of data that year, 1960-2018" width="90%" />
 <p class="caption">
 Figure 7.1: The annual number of police agencies that report at least month of data that year, 1960-2018
@@ -364,14 +362,14 @@ Figure 7.1: The annual number of police agencies that report at least month of d
 </ul></li>
 </ul>
 <p>We’ll look first at the number of employees that are civilian and that are sworn officers through examining Philadelphia in Figure <a href="leoka.html#fig:leokaCivilianOfficers">7.2</a>. The number of civilian employees has remained at a little under 1,000 employees from about 1970 through the end of our data, though declining very slightly since the middle 2000s. This is curious since the city’s population and crime trends have changed dramatically over this time and the ability of civilian employees to contribute has also changed, such as that they now have computers.<a href="#fn44" class="footnote-ref" id="fnref44"><sup>44</sup></a> In contrast, the number of police has changed far more than civilians, growing rapidly in the 1960s and 1970s to peaking at a little over 8,000 officers in the mid-1970s before declining substantially to the 6,000s. in the late-1980s. As with many agencies nationwide, the number of officers increased in the 1990s and then has decreased steadily in ensuing years. By recent years there are about as many officers as in the late-1980s, even though the city’s population has grown substantially since then.</p>
-<div class="figure" style="text-align: center"><span id="fig:leokaCivilianOfficers"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaCivilianOfficers"></span>
 <img src="leoka_files/figure-html/leokaCivilianOfficers-1.png" alt="The number of civilian employees and sworn officers in Philadelphia, 1960-2018" width="90%" />
 <p class="caption">
 Figure 7.2: The number of civilian employees and sworn officers in Philadelphia, 1960-2018
 </p>
 </div>
 <p>We can also look at the number of officers (or civilian employees) by gender. Figure <a href="leoka.html#fig:leokaOfficersGender">7.3</a> shows the percent of Philadelphia police officers by gender. For the first decade of data all female officers (or civilians) were recorded as male, so that variable should be interpreted as “total officers” until 1971 when it is split into gender. Starting at basically 0% of officers in 1971, female officers grew until they made up about a quarter of officers in 2000 and then has declined slowly since then.</p>
-<div class="figure" style="text-align: center"><span id="fig:leokaOfficersGender"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaOfficersGender"></span>
 <img src="leoka_files/figure-html/leokaOfficersGender-1.png" alt="The percent of female and male sworn officers in Philadelphia, 1960-2018" width="90%" />
 <p class="caption">
 Figure 7.3: The percent of female and male sworn officers in Philadelphia, 1960-2018
@@ -382,7 +380,7 @@ Figure 7.3: The percent of female and male sworn officers in Philadelphia, 1960-
 <h3><span class="header-section-number">7.2.2</span> Officers killed</h3>
 <p>There is almost no information about officers killed. The data only breaks this down into if they died “feloniously” which just means that someone killed them on purpose (e.g. shooting them, intentionally hitting them with a car) or if they died “accidentally” such as if they die during a car crash while on duty. The FBI actually collects more information on officer deaths than they release in this data. This includes the circumstances of each death such as the type of death (e.g. car crash, shooting, ambush, etc.), what weapon the offender had if feloniously killed, and even a detailed written summary of what occurred for each officer killed. They post this information in their annual LEOKA report which is part of their Crime in the United States report. The 2019 report, the latest year available, can be found on their site <a href="https://ucr.fbi.gov/leoka/2019/home">here</a>.</p>
 <p>We can look at what data is available through Figure <a href="leoka.html#fig:leokaOfficersKilled">7.4</a> which shows the number of Los Angeles Police Department officers killed over time. There are no accidental killings until 1975 though this is misleading because that accidental killings variable is not reported until 1971, which is a year in which many other variables in this data began reporting. So we actually have no idea how many officers were killed accidentally from 1960-1970 since this variable is always reported as 0. In general it seems like there is about one officer killed per year in recent decades while the period from 1980 to 2000 was the time of highest danger with as many as five officers killed in a single year. We can also see some trend changes with felonious killings more common than accidental killings in the 1990s and then accidental killings becoming far more common starting in 2000.</p>
-<div class="figure" style="text-align: center"><span id="fig:leokaOfficersKilled"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaOfficersKilled"></span>
 <img src="leoka_files/figure-html/leokaOfficersKilled-1.png" alt="The number of officers killed by felony and killed accidentally in Los Angeles, 1960-2018" width="90%" />
 <p class="caption">
 Figure 7.4: The number of officers killed by felony and killed accidentally in Los Angeles, 1960-2018
@@ -390,7 +388,7 @@ Figure 7.4: The number of officers killed by felony and killed accidentally in L
 </div>
 <p>We can also look at the national number of officers killed as in Figure <a href="leoka.html#fig:leokaOfficersKilledNational">7.5</a>. Please note that this is simply summing up the number of officers killed by all agencies that report that year so changes over time are certainly partially due to different agencies reporting each year. Therefore, we’ll focus on interpreting the different between felony and accidental killings rather than counts over time - though even this may be off if agencies that reported more felony or more accidental killings differ in their reporting over time. Again we see that there are no officers killed accidentally, due to that variable not being reported, until 1971. The difference between officers killed by felony and killed accidentally is widest are the start of our data and narrows considerable until there are only several more felonious killings than accidental killings by the late 1990s. Though this trend reverses in the early 2010s with accidental killings decreasing and felonious killings increasing again.</p>
 <p>What can we make of this? It’s hard to say. Interpreting this properly requires adding some other key variables such as the number of officers employed, the number of circumstances they respond to (e.g. are they patrolling more, apprehending violent offenders more, etc.), the number of guns on the street, the quality or availability or body armor, among others.</p>
-<div class="figure" style="text-align: center"><span id="fig:leokaOfficersKilledNational"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaOfficersKilledNational"></span>
 <img src="leoka_files/figure-html/leokaOfficersKilledNational-1.png" alt="The national number of officers killed by felony and killed accidentally, 1960-2018" width="90%" />
 <p class="caption">
 Figure 7.5: The national number of officers killed by felony and killed accidentally, 1960-2018
@@ -417,14 +415,14 @@ Figure 7.5: The national number of officers killed by felony and killed accident
 </ul></li>
 </ul>
 <p>We can start by looking at the breakdown of assaults by injury and weapon type for officers in the Los Angeles Police Department. Figure <a href="leoka.html#fig:leokaAssaultTypeInjury">7.6</a> shows the number of assaults from all years reported for these categories. Over the complete time period there were almost 40,000 officers assaulted with about example three-quarters of these assaults - 30,000 assaults - leading to no injuries. This data shows the number of officers assaulted, not unique officers, so an officer can potentially be included in the data multiple times if they are assaulted multiple times. A little under a quarter of assaults lead to officer injury with most of these from unarmed offenders. Interestingly, there are far more gun and knife assaults where the officer is not injured than where the officer is injured.</p>
-<div class="figure" style="text-align: center"><span id="fig:leokaAssaultTypeInjury"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaAssaultTypeInjury"></span>
 <img src="leoka_files/figure-html/leokaAssaultTypeInjury-1.png" alt="The total number of assaults on officers by injury sustained and offender weapon in Los Angeles, 1960-2018." width="90%" />
 <p class="caption">
 Figure 7.6: The total number of assaults on officers by injury sustained and offender weapon in Los Angeles, 1960-2018.
 </p>
 </div>
 <p>We can also look at assaults over time. Figure <a href="leoka.html#fig:leokaAssaultsInjuryYear">7.7</a> shows the number of assaults, assaults with injury, and assault without injury for the Los Angeles Police Department from 1960 to 2018. We can immediately see some data issues are there are years with no assaults recorded. And in the late-2000s there is a sudden drop from about 250 assaults with injuries per year in the previous few decades to nearly zero officer injuries reported a year. This strongly suggests some change in reporting rather than a true decrease in assaults with injuries. For the decades where the data is less obviously wrong, there is a consistent trend of most assaults leading to no injuries, though the distance between the number of injury and non-injury assaults fluctuates over time.</p>
-<div class="figure" style="text-align: center"><span id="fig:leokaAssaultsInjuryYear"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaAssaultsInjuryYear"></span>
 <img src="leoka_files/figure-html/leokaAssaultsInjuryYear-1.png" alt="The annual number of assaults on officers by injury sustained in Los Angeles, 1960-2018." width="90%" />
 <p class="caption">
 Figure 7.7: The annual number of assaults on officers by injury sustained in Los Angeles, 1960-2018.
@@ -449,7 +447,7 @@ Figure 7.7: The annual number of assaults on officers by injury sustained in Los
 <li>Total - sum of all call types</li>
 </ul>
 <p>Figure <a href="leoka.html#fig:leokaAssaultCallType">7.8</a> shows the number of assaults on Los Angeles Police Department officers by the type of call for 1960-2018. There were about 38,000 assaults against Los Angeles Police Department officers with a little over 31,000 of these assaults cleared. An important thing to note is that the number of assaults here is less than the nearly 40,000 assaults for the same agency over the same time period we saw in Figure <a href="leoka.html#fig:leokaAssaultCallType">7.8</a>. This is because some variables are not reported for all years and agencies are free to report which variables they want to report in any given year. This makes it massively tricky to use this data since even simple statistics for the same agency for supposedly the same variable (here it’s technically different variables but should still be the total number of officers assaulted) can be different. The most common type of call where officers are assaulted are disturbance calls which include domestic violence and reports of dangerous individuals such as people carrying guns in public. The least common call type is ambush calls, though in these calls the police are called to a scene by the offender who intends to assault or kill the officers, so is likely far more dangerous than other call types, even though it is rare.</p>
-<div class="figure" style="text-align: center"><span id="fig:leokaAssaultCallType"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaAssaultCallType"></span>
 <img src="leoka_files/figure-html/leokaAssaultCallType-1.png" alt="Assaults on Los Angeles Police Department officers by type of call where they were assaulted at, 1960-2018." width="90%" />
 <p class="caption">
 Figure 7.8: Assaults on Los Angeles Police Department officers by type of call where they were assaulted at, 1960-2018.
@@ -477,14 +475,14 @@ Figure 7.8: Assaults on Los Angeles Police Department officers by type of call w
 <li>Number of assaults on police cleared</li>
 </ul>
 <p>We’ll look specifically at disturbance calls since they are the most common call type, at least for the Los Angeles Police Department. Figure <a href="leoka.html#fig:leokaDisturbanceWeapon">7.9</a> shows the total number of disturbance assaults by offender weapon in Los Angeles. Most assaults have an unarmed offender with a sharp decline to the number of offenders with a weapon other than a gun or knife. Assaults by a gun and by a knife are the least common.</p>
-<div class="figure" style="text-align: center"><span id="fig:leokaDisturbanceWeapon"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaDisturbanceWeapon"></span>
 <img src="leoka_files/figure-html/leokaDisturbanceWeapon-1.png" alt="The number of assaults on Los Angeles Police Department officers in disturbance calls by the injury sustained by the officer, 1960-2018." width="90%" />
 <p class="caption">
 Figure 7.9: The number of assaults on Los Angeles Police Department officers in disturbance calls by the injury sustained by the officer, 1960-2018.
 </p>
 </div>
 <p>Again using disturbance calls for the Los Angeles Police Department, we can look at assaults by the officer assignment, as seen in Figure <a href="leoka.html#fig:leokaShiftAssignment">7.10</a>. In the vast majority of assaults it is of officers who are in a vehicle along with a partner. This drops very sharply to several hundred assaults on detectives who are assisting other officers and then increasingly declines to the other shift assignments to the least common assault being against detectives who are acting alone.</p>
-<div class="figure" style="text-align: center"><span id="fig:leokaShiftAssignment"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaShiftAssignment"></span>
 <img src="leoka_files/figure-html/leokaShiftAssignment-1.png" alt="The number of assaults on Los Angeles Police Department officers in disturbance calls by the injury sustained by the shift assignment of the officer, 1960-2018." width="90%" />
 <p class="caption">
 Figure 7.10: The number of assaults on Los Angeles Police Department officers in disturbance calls by the injury sustained by the shift assignment of the officer, 1960-2018.
@@ -509,7 +507,7 @@ Figure 7.10: The number of assaults on Los Angeles Police Department officers in
 <li>10:01pm - 12:00am</li>
 </ul>
 <p>We’ll look at these time chunks in Figure <a href="leoka.html#fig:phoenixAssaultTimes">7.11</a> which shows the total number of assaults by time of day from 1971 to 2018 in Phoenix, Arizona. The most common times for officers to be assaulted looks like a mirror image of when crime is highest: late night and early morning. The 12:01am to 2am chunk is the most common time followed by 10pm to midnight, with assaults increasing at the day grows later and at its lowest point from 6-8am. This strongly suggests that officers are assaulted at crime scenes, such as responding to crimes or making arrests.</p>
-<div class="figure" style="text-align: center"><span id="fig:phoenixAssaultTimes"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:phoenixAssaultTimes"></span>
 <img src="leoka_files/figure-html/phoenixAssaultTimes-1.png" alt="The number of assaults against Phoenix Police Department officers by hourly grouping for all years with data available, 1971-2018." width="90%" />
 <p class="caption">
 Figure 7.11: The number of assaults against Phoenix Police Department officers by hourly grouping for all years with data available, 1971-2018.
@@ -536,7 +534,6 @@ Figure 7.11: The number of assaults against Phoenix Police Department officers b
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -547,15 +544,25 @@ Figure 7.11: The number of assaults against Phoenix Police Department officers b
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": true,
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
 "fontsettings": {
 "theme": "white",
 "family": "sans",
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jacobkap/ucrbook/edit/main/leoka.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "history": {
 "link": null,
@@ -565,9 +572,13 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": [["ucrbook.pdf", "PDF"], ["ucrbook.epub", "EPUB"]],
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
-"collapse": "section"
+"collapse": "subsection"
 }
 });
 });

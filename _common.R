@@ -35,14 +35,14 @@ get_replace_single_month <- function(data, crime_col, crime) {
     rows <- rows[!rows %in% i]
     data$imputed_if_missing[i] <- sum(data[, crime_col][rows]) * (12/11)
   }
-  data$imputed_if_missing <- round(data$imputed_if_missing, 2)
+  data$imputed_if_missing <- round(data$imputed_if_missing, 0)
   data$actual_crimes <- data[, crime_col]
   data$annual_crimes <- sum(data$actual_crimes)
 
   data <- 
     data %>%
     select(month, actual_crimes, annual_crimes, imputed_if_missing)
-  data$percent_change <- get_percent_change(data$imputed_if_missing, sum(data$actual_crimes))
+  data$percent_change <- get_percent_change(sum(data$actual_crimes), data$imputed_if_missing)
   data <-
     data %>%
     mutate_if(is.numeric, formatC, format = "d", big.mark = ",")
@@ -70,11 +70,11 @@ get_replace_single_month <- function(data, crime_col, crime) {
 
 
 
-get_percent_change <- function(new_value,
-                               old_value) {
+get_percent_change <- function(number1,
+                               number2) {
   
-  final <- new_value - old_value
-  final <- final / old_value * 100
+  final <- number2 - number1
+  final <- final / abs(number1) * 100
   final <- round(final, 2)
   final <- pad_decimals(final, 2)
   final[-grep("-", final)] <- paste0("+", final[-grep("-", final)])
