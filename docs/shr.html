@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Supplementary Homicide Reports (SHR) | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Supplementary Homicide Reports (SHR) | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://ucrbook.com" />
   
   <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
   <meta name="github-repo" content="jacobkap/ucrbook" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2022-03-21" />
+<meta name="date" content="2022-08-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="arrests.html"/>
 <link rel="next" href="leoka.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-48BYKNQFJY"></script>
 <script>
@@ -330,11 +329,11 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="shr" class="section level1" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Supplementary Homicide Reports (SHR)</h1>
+<div id="shr" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Supplementary Homicide Reports (SHR)<a href="shr.html#shr" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>The Supplementary Homicide Reports dataset - often abbreviated to SHR - is the most detailed of the UCR datasets and provides information about the circumstances and participants (victim and offender demographics and relationship status) for homicides.<a href="#fn37" class="footnote-ref" id="fnref37"><sup>37</sup></a> For each homicide incident it tells you the age, gender, race, and ethnicity of each victim and offender as well as the relationship between the first victim and each of the offenders (but not the other victims in cases where there are multiple victims). It also tells you the weapon used by each offender and the circumstance of the killing, such as a “lovers triangle” or a gang-related murder. As with other UCR data, it also tells you the agency it occurred in and the month and year when the crime happened.</p>
-<div id="agencies-reporting-3" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Agencies reporting</h2>
+<div id="agencies-reporting-3" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Agencies reporting<a href="shr.html#agencies-reporting-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This data only has a report when the agency has a murder that year and since murder is rare it is difficult to measure underreporting. One way we can look at reporting is to compare murders in the SHR data with that of other datasets. We’ll look at two of them: the Offenses Known and Clearances by Arrest which is covered in detail in Chapter <a href="offensesKnown.html#offensesKnown">3</a>, and the Center for Disease Control and Prevention (CDC) data on national deaths from homicide.<a href="#fn38" class="footnote-ref" id="fnref38"><sup>38</sup></a> Both this dataset and the Offenses Known and Clearances by Arrest data are UCR datasets so you may think that the numbers of murders from each dataset should be the same. That is a perfectly reasonable assumption, but since this is UCR data we’re talking about, you’d be wrong. Police agencies are free to report to either, both, or neither dataset so while the number of murders are close for each dataset, they are never equal. CDC WONDER data aggregates mortality data (among other data) from state death certificates which reduces the issue of voluntary reporting that we have in UCR data.</p>
 <p>Figure <a href="shr.html#fig:shrVsOffenses">6.1</a> shows the annual number of murder victims from each of these datasets starting in 1976 for the UCR data and in 1999 for the CDC data.<a href="#fn39" class="footnote-ref" id="fnref39"><sup>39</sup></a> For the UCR data, in every year the numbers are fairly similar and the trends are the same over time, but the number of murders is never equal. The numbers have actually gotten worse over time with the difference between the datasets increasing and the Offenses Known data having consistently more murders reported than the SHR data since the late 1990s. Compared to the CDC data, however, both UCR datasets - and in particular the SHR data - undercount the number of murders. While trends are the same, UCR data reports thousands fewer murders per year than the CDC data, indicating how much of an issue underreporting is in this data.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrVsOffenses"></span>
@@ -344,8 +343,8 @@ Figure 6.1: The annual number of murders from the Supplementary Homicide Report 
 </p>
 </div>
 </div>
-<div id="important-variables-3" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Important variables</h2>
+<div id="important-variables-3" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Important variables<a href="shr.html#important-variables-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The data has demographic information for up to 11 victims and 11 offenders, as well as the information on the weapon used by each offender, the relationship between the first victim and each offender, and the circumstance of the murder. The data also has the traditional UCR set of variables about the agency: their ORI code, population, state, region and the month and year of this data. One key variable that is missing is the outcome of the homicide: there is no information on whether any of the offenders were arrested.</p>
 <p>While there is information on up to 11 victims and offenders, in most cases, there is only a single victim and a single offender in each incident. To see how the breakdown for the number of victims in each incident looks, Figure <a href="shr.html#fig:numberSHRVictims">6.2</a> shows the percent of incidents with each possible number of victims.<a href="#fn40" class="footnote-ref" id="fnref40"><sup>40</sup></a> In nearly all incidents - 96.1% - there was only a single victim. This drops to 3.2% of incidents for two victims, 0.5% for three victims, and only about 0.2% of incidents have four or more victims.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:numberSHRVictims"></span>
@@ -361,13 +360,13 @@ Figure 6.2: The percent of incidents from 1976-2018 that have 1-11 victims.
 Figure 6.3: The percent of incidents from 1976-2018 that have 1-11 offenders.
 </p>
 </div>
-<p>The variable “situation” says what type of victim-offender number combination the incident is - e.g. “multiple victims/single offender,” “single victim/multiple offenders,” etc. - and does indicate if the number of offenders is unknown (though curiously there are over 4,000 instances where the number of offenders is unknown but they still say there are two offenders) so you can use this variable to determine if the police don’t know how many offenders there is. You’re still limited, of course, in that the number of offenders is always what the police think there are, and they may be wrong. So use this variable - and anything that comes from it like the percent of offenders of a certain race - with caution.</p>
+<p>The variable “situation” says what type of victim-offender number combination the incident is - e.g. “multiple victims/single offender”, “single victim/multiple offenders”, etc. - and does indicate if the number of offenders is unknown (though curiously there are over 4,000 instances where the number of offenders is unknown but they still say there are two offenders) so you can use this variable to determine if the police don’t know how many offenders there is. You’re still limited, of course, in that the number of offenders is always what the police think there are, and they may be wrong. So use this variable - and anything that comes from it like the percent of offenders of a certain race - with caution.</p>
 <p>We’ll now look at a number of important variables individually. Since the data can potentially have 11 victims and 11 offenders - but in practice has only one each in the vast majority of cases - we’ll only look at the first victim/offender for each of these variables. Therefore, the results will not be entirely accurate, but will still give you a good overview of the data. The figures below will use data for all homicides from 1976 to 2018 so will cover all but the most recent year of data.</p>
-<div id="demographics" class="section level3" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> Demographics</h3>
+<div id="demographics" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Demographics<a href="shr.html#demographics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are two broad categories of variables that we’ll cover: demographics of the victim and offenders, and characteristics of the case. We start with demographics.</p>
-<div id="age-1" class="section level4" number="6.2.1.1">
-<h4><span class="header-section-number">6.2.1.1</span> Age</h4>
+<div id="age-1" class="section level4 hasAnchor" number="6.2.1.1">
+<h4><span class="header-section-number">6.2.1.1</span> Age<a href="shr.html#age-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>This data includes the age (in years) for each victim and each offender. For those under one years old, it also breaks this down into those from birth to six days old “including abandoned infant” and those seven days old to 364 days old. So there’s a bit more info on baby murders. It also maxes out the age at 99 so for victims or offenders older than that we don’t get their exact age, just text that says “99 years or older” (which I turn to the number 99 in the figures below).</p>
 <p>Figure <a href="shr.html#fig:shrOffenderAge">6.4</a> shows the percent of murders from 1976-2018 where the first offender in the case is of each age from 0-99. Offenders with unknown ages are excluded from this graph and make up about 27% of cases. The average (mean) age is 30.9 years old (shown in orange) which is due to a long right tail; the median age is 28 years old. If you look closely at the left side of the graph you can see that there are some very young offenders, with at least one offender for each year of age from 0 to 10 included in the data. It’s not clear from this alone that these ages are a data entry error. While a two-year-old certainly couldn’t murder someone, the data does include deaths caused by “children playing with gun” (homicide circumstances will be discussed in Section <a href="shr.html#circumstance">6.2.2.3</a>) so these ages could potentially be correct.</p>
 <p>If you’re familiar with the age-crime curve in criminology - which basically says crime peaks in late teen years then falls dramatically - this shows that exact curve, though is older and doesn’t decline as the offender ages as quickly as we see with less serious crimes.</p>
@@ -385,8 +384,8 @@ Figure 6.5: The age of homicide victims, based on the first victims in any homic
 </p>
 </div>
 </div>
-<div id="sex" class="section level4" number="6.2.1.2">
-<h4><span class="header-section-number">6.2.1.2</span> Sex</h4>
+<div id="sex" class="section level4 hasAnchor" number="6.2.1.2">
+<h4><span class="header-section-number">6.2.1.2</span> Sex<a href="shr.html#sex" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We’ll next look at victim and offender sex, a simple variable since only male and female are included. About 62% of offenders, as seen in Figure <a href="shr.html#fig:shrOffenderSex">6.6</a>, are male and about 8% are female, indicating a large disparity in the sex of homicide offenders. The remaining 30% of offenders do not have sex data available because the police do not know the sex of this individual. For offenders who aren’t arrested, this variable may be inaccurate since it is perceived sex of the offender.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrOffenderSex"></span>
 <img src="shr_files/figure-html/shrOffenderSex-1.png" alt="The sex of offenders, 1976-2018." width="90%" />
@@ -402,8 +401,8 @@ Figure 6.7: The sex of victims, 1976-2018.
 </p>
 </div>
 </div>
-<div id="race-1" class="section level4" number="6.2.1.3">
-<h4><span class="header-section-number">6.2.1.3</span> Race</h4>
+<div id="race-1" class="section level4 hasAnchor" number="6.2.1.3">
+<h4><span class="header-section-number">6.2.1.3</span> Race<a href="shr.html#race-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>This data also includes the race of the victims and offenders. This includes the following races: American Indian or Alaskan Native, Asian, Black, Native Hawaiian or Other Pacific Islander, and White. These are the only races included in the data; Hispanic is considered an ethnicity and is available as a separate, though flawed, variable. There is no category for bi- or multi-racial. As with other demographics info for offenders, in cases where no arrest is made (and we don’t know in this data if one is made), there’s no way to confirm the person’s race (and race itself is hard to put into discrete boxes like done here) so these results may not be entirely accurate.</p>
 <p>Figure <a href="shr.html#fig:shrOffenderRace">6.8</a> shows the percent of homicides in the data by race. Black and White victims are included are similar percentages, at 34.2% and 33.8% of victims, respectively. The next most common group is Unknown at about 30.5% of offenders. Given that so many offenders have an unknown race, the reliability of the other race measures is limited. The remaining races are Asian at 0.9% of offenders, American Indian or Alaskan Native at 0.6%, and Native Hawaiian or Other Pacific Islander at 0.004%.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrOffenderRace"></span>
@@ -420,8 +419,8 @@ Figure 6.9: The race of victims, 1976-2018
 </p>
 </div>
 </div>
-<div id="ethnicity-1" class="section level4" number="6.2.1.4">
-<h4><span class="header-section-number">6.2.1.4</span> Ethnicity</h4>
+<div id="ethnicity-1" class="section level4 hasAnchor" number="6.2.1.4">
+<h4><span class="header-section-number">6.2.1.4</span> Ethnicity<a href="shr.html#ethnicity-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The final demographic variable is ethnicity which is whether the victim or offender is Hispanic or not Hispanic. The UCR data has a weird relationship with this variable (which is also in the Arrests by Age, Sex, and Race dataset, discussed in Chapter <a href="arrests.html#arrests">5</a>) where ethnicity is technically a variable in the data but very rarely collected. As such, this is an unreliable variable that if you really want to use needs careful attention to make sure it is being reported consistently by the agencies that you are looking at.</p>
 <p>The vast majority - 71.6% - of offenders have an unknown ethnicity while 21.5% are not Hispanic and 6.9% are Hispanic.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrOffenderEthnicity"></span>
@@ -439,14 +438,19 @@ Figure 6.11: The ethnicity of victims, 1976-2018.
 </div>
 </div>
 </div>
-<div id="case-characteristics" class="section level3" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> Case characteristics</h3>
-<div id="weapon-used" class="section level4" number="6.2.2.1">
-<h4><span class="header-section-number">6.2.2.1</span> Weapon used</h4>
+<div id="case-characteristics" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Case characteristics<a href="shr.html#case-characteristics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="weapon-used" class="section level4 hasAnchor" number="6.2.2.1">
+<h4><span class="header-section-number">6.2.2.1</span> Weapon used<a href="shr.html#weapon-used" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The first variable we’ll look at is the weapon used by each offender. Table <a href="shr.html#tab:shrWeapon">6.1</a> shows the weapon used by the first offender in every incident from 1976 to 2018. Each offender can only be reported as having a single weapon, so this table essentially shows the number (and percent) of murders caused by this weapon. This isn’t entirely true since in reality an offender could use multiple weapons and there can be multiple offenders. In these cases the police include what they believe is the “primary” weapon used by this offender.</p>
 <p>The most commonly used weapon is a handgun, which is used in nearly half of murders. This is followed by a knife or other sharp weapon used to cut at 15% of murders, and then by “firearm, type not stated” which is just a firearm where we don’t know the exact type (it can include handguns) at 7.3% of murders. The fourth most common weapon is “personal weapons” at nearly 6% of murders. “Personal weapons” is a weird term to mean that there was no weapon - the “weapon” was the offender who beat the victim to death. Shotguns are involved in 5% of murders and all other weapons are involved in fewer than 5% of cases. In total there are 19 different weapons included though most are very uncommon.</p>
 <table>
 <caption><span id="tab:shrWeapon">Table 6.1: </span>The weapon used in a homicide incident. In cases where there are multiple offenders, shows only the primary weapon for the first offender.</caption>
+<colgroup>
+<col width="56%" />
+<col width="21%" />
+<col width="21%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Weapon</th>
@@ -558,12 +562,18 @@ Figure 6.11: The ethnicity of victims, 1976-2018.
 </tbody>
 </table>
 </div>
-<div id="relationship-between-first-victim-and-offenders" class="section level4" number="6.2.2.2">
-<h4><span class="header-section-number">6.2.2.2</span> Relationship between first victim and offenders</h4>
+<div id="relationship-between-first-victim-and-offenders" class="section level4 hasAnchor" number="6.2.2.2">
+<h4><span class="header-section-number">6.2.2.2</span> Relationship between first victim and offenders<a href="shr.html#relationship-between-first-victim-and-offenders" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>An interesting and highly useful variable is the relationship between the first victim and each offender. To be clear, this is only for the first victim; we don’t have the relationship between other victims and offenders. However, as seen earlier, this isn’t <em>too much</em> of an issue since nearly all incidents only have a single victim. There are 29 possible relationship types (including “unknown” relationship) which are broken into three categories: legal family members, people known to the victim but who aren’t family, and people not known to the victim. Table <a href="shr.html#tab:shrRelationship">6.2</a> shows these relationships and the number and percent of murders with these relationships. If you’re looking at this on a computer you can sort or search through this table.</p>
 <p>The most common relationship, with a little over a third of murders, is that the police don’t know the relationship. So there is a good deal of uncertainty in the relationship between victims and offenders. Next is that the victim is the offender’s acquaintance at 20.5% or is a stranger at 15.5%. The next is “other - known to victim” which is similar to being an acquaintance at almost 5% of murders. The 5th most common relationship, at 3.65% is that the victim is the wife of the offender, so is murdered by her husband, and is the first familial relationship of this list. This is followed by the victim being the friend of the murderer at 3.62%. The remaining relationships all make up fewer than 3% of all murders.</p>
 <table>
 <caption><span id="tab:shrRelationship">Table 6.2: </span>The relationship between the first victim and the first offender in a homicide incident.</caption>
+<colgroup>
+<col width="30%" />
+<col width="29%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Relationship</th>
@@ -756,11 +766,11 @@ Figure 6.11: The ethnicity of victims, 1976-2018.
 </tbody>
 </table>
 </div>
-<div id="circumstance" class="section level4" number="6.2.2.3">
-<h4><span class="header-section-number">6.2.2.3</span> Homicide circumstance</h4>
-<p>We also have information on the type of the murder, which this data calls the “circumstance.” This comes as relatively broad categories that leave a lot to be desired in our understanding of what led to the murder. Table <a href="shr.html#tab:shrCircumstance">6.3</a> shows the number and percent of each circumstance for the first victim of each murder from 1976 to 2018. This data has 33 possible circumstances which it groups into four main categories: murders that coincide with committing another crime (“felony type” murders), murders that don’t coincide with another crime (“non-felony type” murders), justifiable homicides, and negligent manslaughter.</p>
+<div id="circumstance" class="section level4 hasAnchor" number="6.2.2.3">
+<h4><span class="header-section-number">6.2.2.3</span> Homicide circumstance<a href="shr.html#circumstance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We also have information on the type of the murder, which this data calls the “circumstance”. This comes as relatively broad categories that leave a lot to be desired in our understanding of what led to the murder. Table <a href="shr.html#tab:shrCircumstance">6.3</a> shows the number and percent of each circumstance for the first victim of each murder from 1976 to 2018. This data has 33 possible circumstances which it groups into four main categories: murders that coincide with committing another crime (“felony type” murders), murders that don’t coincide with another crime (“non-felony type” murders), justifiable homicides, and negligent manslaughter.</p>
 <p>The felony type murders are simply ones where another crime occurred during the murder. While this is called “felony type” it does include other crimes such as theft and gambling (which isn’t always a felony) so is a bit of a misnomer. The “non-felony type” are murders that happen without another crime. This includes gang killings (where, supposedly, only the murder occurred), children killed by babysitters, fights among intoxicated (both of alcohol and drugs) people, and “lover’s triangle” killings. Justifiable homicides are when a person (civilian or police officer) kill a person who is committing a crime.<a href="#fn42" class="footnote-ref" id="fnref42"><sup>42</sup></a> Negligent manslaughter includes accidental shootings such as when children find and shoot a gun, but excludes deaths from traffic accidents.</p>
-<p>The most common circumstances, accounting for 27.4%, 26.4%, and 12.5%, respectively, are “other arguments,” “unknown,” and “other non-felony type - not specified.” Since the data includes “argument over money or property” as one category, the “other arguments” mean that it’s an argument for a reason other than over money or property. The “other non-felony type” one does not mean that the murder did not occur alongside another crime, but also doesn’t fall into the non-felony categories included. Robbery is the only remaining circumstance with more than 5% of murders, at 8%.</p>
+<p>The most common circumstances, accounting for 27.4%, 26.4%, and 12.5%, respectively, are “other arguments”, “unknown”, and “other non-felony type - not specified”. Since the data includes “argument over money or property” as one category, the “other arguments” mean that it’s an argument for a reason other than over money or property. The “other non-felony type” one does not mean that the murder did not occur alongside another crime, but also doesn’t fall into the non-felony categories included. Robbery is the only remaining circumstance with more than 5% of murders, at 8%.</p>
 <table>
 <caption><span id="tab:shrCircumstance">Table 6.3: </span>The circumstance of the homicide for the first offender in a homicide incident.</caption>
 <colgroup>
@@ -985,11 +995,16 @@ Figure 6.11: The ethnicity of victims, 1976-2018.
 </tbody>
 </table>
 </div>
-<div id="homicide-subcircumstance" class="section level4" number="6.2.2.4">
-<h4><span class="header-section-number">6.2.2.4</span> Homicide subcircumstance</h4>
+<div id="homicide-subcircumstance" class="section level4 hasAnchor" number="6.2.2.4">
+<h4><span class="header-section-number">6.2.2.4</span> Homicide subcircumstance<a href="shr.html#homicide-subcircumstance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The “subcircumstance” just tells you more information about justifiable homicides. This includes the circumstance leading up to the “felon” - which is how the person killed is described, though technically they don’t need to have committed a felony - was killed. It includes if this person attacked an officer (the one who killed them), a different officer, a civilian, or was committing or fleeing a crime.</p>
-<table>
+<table style="width:100%;">
 <caption><span id="tab:shrSubCircumstance">Table 6.4: </span>The circumstance for the first offender in a homicide incident in cases where the offender is killed. This includes incidents where the only person who dies in the offender.</caption>
+<colgroup>
+<col width="54%" />
+<col width="22%" />
+<col width="22%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Subcircumstance</th>

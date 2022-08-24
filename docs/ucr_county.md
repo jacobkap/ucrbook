@@ -207,14 +207,14 @@ Table: (\#tab:countyPhillyMurderMonthsMissing)A simulation showing how the imput
 |# of Months Missing | Actual Murder| Mean Imputed Murder| Median Imputed Murder| Modal Imputed Murder| Min Imputed Murder| Max Imputed Murder|
 |:-------------------|-------------:|-------------------:|---------------------:|--------------------:|------------------:|------------------:|
 |1                   |           351|              351.06|                353.45|               353.45|             336.00|             363.27|
-|2                   |           351|              350.98|                350.40|               350.40|             320.40|             378.00|
-|3                   |           351|              350.76|                352.00|               353.33|             312.00|             385.33|
-|4                   |           351|              350.91|                349.50|               370.50|             301.50|             394.50|
-|5                   |           351|              351.27|                351.43|               353.14|             289.71|             404.57|
-|6                   |           351|              351.33|                352.00|               326.00|             284.00|             418.00|
-|7                   |           351|              350.91|                350.40|               348.00|             276.00|             436.80|
-|8                   |           351|              351.26|                354.00|               312.00|             264.00|             450.00|
-|9                   |           351|              351.48|                348.00|               344.00|             248.00|             468.00|
+|2                   |           351|              351.09|                350.40|               350.40|             320.40|             378.00|
+|3                   |           351|              350.81|                352.00|               353.33|             312.00|             385.33|
+|4                   |           351|              351.02|                349.50|               370.50|             301.50|             394.50|
+|5                   |           351|              351.00|                351.43|               353.14|             289.71|             404.57|
+|6                   |           351|              350.90|                350.00|               326.00|             284.00|             418.00|
+|7                   |           351|              350.53|                350.40|               348.00|             276.00|             436.80|
+|8                   |           351|              351.20|                354.00|               312.00|             264.00|             450.00|
+|9                   |           351|              351.38|                348.00|               344.00|             248.00|             468.00|
 
 This problem is even more pronounced when looking at agencies with fewer crimes and less evenly distributed crimes. Table \@ref(tab:countyDanvilleBurglaryMonthsMissing) repeats the above table but now looks at motor vehicle thefts in Danville, California. By the time 5 months are missing, the minimum value is nearly half of the actual value while the maximum value is a little under 50% larger than the actual value. By 9 months missing, possible imputed values range from 0% of the actual value to over twice as large as the actual value.
 
@@ -223,15 +223,15 @@ Table: (\#tab:countyDanvilleBurglaryMonthsMissing)A simulation showing how the i
 
 |# of Months Missing | Actual Vehicle Theft| Mean Imputed Vehicle Theft| Median Imputed Vehicle Theft| Modal Imputed Vehicle Theft| Min Imputed Vehicle Theft| Max Imputed Vehicle Theft|
 |:-------------------|--------------------:|--------------------------:|----------------------------:|---------------------------:|-------------------------:|-------------------------:|
-|1                   |                   22|                      22.01|                        22.91|                       22.91|                     18.55|                     24.00|
-|2                   |                   22|                      22.01|                        22.80|                       25.20|                     14.40|                     26.40|
-|3                   |                   22|                      21.95|                        21.33|                       21.33|                     12.00|                     29.33|
-|4                   |                   22|                      22.03|                        22.50|                       22.50|                      9.00|                     31.50|
-|5                   |                   22|                      21.92|                        22.29|                       22.29|                      6.86|                     34.29|
-|6                   |                   22|                      21.99|                        22.00|                       24.00|                      6.00|                     38.00|
-|7                   |                   22|                      22.04|                        21.60|                       21.60|                      4.80|                     43.20|
-|8                   |                   22|                      22.19|                        21.00|                       27.00|                      3.00|                     48.00|
-|9                   |                   22|                      21.98|                        20.00|                       24.00|                      0.00|                     52.00|
+|1                   |                   22|                      21.99|                        22.91|                       22.91|                     18.55|                     24.00|
+|2                   |                   22|                      21.97|                        22.80|                       25.20|                     14.40|                     26.40|
+|3                   |                   22|                      22.06|                        22.67|                       21.33|                     12.00|                     29.33|
+|4                   |                   22|                      21.96|                        22.50|                       22.50|                      9.00|                     31.50|
+|5                   |                   22|                      22.01|                        22.29|                       20.57|                      6.86|                     34.29|
+|6                   |                   22|                      22.00|                        22.00|                       20.00|                      6.00|                     38.00|
+|7                   |                   22|                      22.05|                        21.60|                       21.60|                      4.80|                     43.20|
+|8                   |                   22|                      21.94|                        21.00|                       21.00|                      3.00|                     48.00|
+|9                   |                   22|                      22.13|                        24.00|                       24.00|                      0.00|                     52.00|
 
 ### 10-12 months missing
 

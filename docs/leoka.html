@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 Law Enforcement Officers Killed and Assaulted (LEOKA) | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 Law Enforcement Officers Killed and Assaulted (LEOKA) | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://ucrbook.com" />
   
   <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
   <meta name="github-repo" content="jacobkap/ucrbook" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2022-03-21" />
+<meta name="date" content="2022-08-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="shr.html"/>
 <link rel="next" href="arsonChapter.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-48BYKNQFJY"></script>
 <script>
@@ -330,11 +329,11 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="leoka" class="section level1" number="7">
-<h1><span class="header-section-number">Chapter 7</span> Law Enforcement Officers Killed and Assaulted (LEOKA)</h1>
+<div id="leoka" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Law Enforcement Officers Killed and Assaulted (LEOKA)<a href="leoka.html#leoka" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>The Law Enforcement Officers Killed and Assaulted data, often called just by its acronym LEOKA, has two main purposes.<a href="#fn43" class="footnote-ref" id="fnref43"><sup>43</sup></a> First, it provides counts of employees employed by each agency - broken down by if they are civilian employees or sworn officers, and also broken down by gender. And second, it measures how many officers were assaulted or killed (including officers who die accidentally such as in a car crash) in a given month. The assault data is also broken down into shift type (e.g. alone, with a partner, on foot, in a car, etc.), the offender’s weapon, and type of call they are responding to (e.g. robbery, disturbance, traffic stop). The killed data simply says how many officers are killed feloniously (i.e. murdered) or died accidentally (e.g. car crash) in a given month. The employee information is at the year-level so you know, for example, how many male police officers were employed in a given year at an agency, but don’t know any more than that such as if the number employed changed over the year. This dataset is commonly used as a measure of police employees and is a generally reliable measure of how many police are employed by a police agency. The second part of this data, measuring assaults and deaths, is more flawed with missing data issues and data error issues (e.g. more officers killed than employed in an agency).</p>
-<div id="agencies-reporting-4" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> Agencies reporting</h2>
+<div id="agencies-reporting-4" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Agencies reporting<a href="leoka.html#agencies-reporting-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Figure <a href="leoka.html#fig:leokaAgencies">7.1</a> shows the annual number of police agencies that reported at least one month that year. The first year of data available, 1960, has about 8,400 agencies reporting though this quickly drops to a trough of around 4,800 agencies that last for several years. After some undulations in the 1970s, reporting agencies steadily increases to nearly 14,000 agencies in the 1980s and remains steady until declining to around 12,000 by the late 1990s. Then reporting again steadily increases for the rest of our data to about 16,000 agencies by the end.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaAgencies"></span>
 <img src="leoka_files/figure-html/leokaAgencies-1.png" alt="The annual number of police agencies that report at least month of data that year, 1960-2018" width="90%" />
@@ -343,11 +342,11 @@ Figure 7.1: The annual number of police agencies that report at least month of d
 </p>
 </div>
 </div>
-<div id="important-variables-4" class="section level2" number="7.2">
-<h2><span class="header-section-number">7.2</span> Important variables</h2>
+<div id="important-variables-4" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Important variables<a href="leoka.html#important-variables-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The important variables can be divided into two sections: information on people employed by the department, and information about assaults against officers. The employee information is a snapshot in time during the year while the assault information tells you the number of assaults, broken down several different ways, for each month of the year. Like other UCR data, there are also variables that provide information about the agency - ORI codes, population under jurisdiction - the month and year that the data covers, and how many months reported data.</p>
-<div id="number-of-employees" class="section level3" number="7.2.1">
-<h3><span class="header-section-number">7.2.1</span> Number of employees</h3>
+<div id="number-of-employees" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Number of employees<a href="leoka.html#number-of-employees" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This data includes the number of people employed by the department with breakdowns by if they are civilian employees or sworn officers (i.e. carries a gun and badge and can make arrests) as well as by gender. The only genders available are female and male. This is the number of employees as of Halloween that year so it is a single point in time. Though this helps us as it is consistent every year, we don’t know exactly when certain officer classes start, which we’d likely see through a jump in employment that year, or if employment or hiring patterns change over the year.</p>
 <ul>
 <li>Female employees
@@ -376,8 +375,8 @@ Figure 7.3: The percent of female and male sworn officers in Philadelphia, 1960-
 </p>
 </div>
 </div>
-<div id="officers-killed" class="section level3" number="7.2.2">
-<h3><span class="header-section-number">7.2.2</span> Officers killed</h3>
+<div id="officers-killed" class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Officers killed<a href="leoka.html#officers-killed" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There is almost no information about officers killed. The data only breaks this down into if they died “feloniously” which just means that someone killed them on purpose (e.g. shooting them, intentionally hitting them with a car) or if they died “accidentally” such as if they die during a car crash while on duty. The FBI actually collects more information on officer deaths than they release in this data. This includes the circumstances of each death such as the type of death (e.g. car crash, shooting, ambush, etc.), what weapon the offender had if feloniously killed, and even a detailed written summary of what occurred for each officer killed. They post this information in their annual LEOKA report which is part of their Crime in the United States report. The 2019 report, the latest year available, can be found on their site <a href="https://ucr.fbi.gov/leoka/2019/home">here</a>.</p>
 <p>We can look at what data is available through Figure <a href="leoka.html#fig:leokaOfficersKilled">7.4</a> which shows the number of Los Angeles Police Department officers killed over time. There are no accidental killings until 1975 though this is misleading because that accidental killings variable is not reported until 1971, which is a year in which many other variables in this data began reporting. So we actually have no idea how many officers were killed accidentally from 1960-1970 since this variable is always reported as 0. In general it seems like there is about one officer killed per year in recent decades while the period from 1980 to 2000 was the time of highest danger with as many as five officers killed in a single year. We can also see some trend changes with felonious killings more common than accidental killings in the 1990s and then accidental killings becoming far more common starting in 2000.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaOfficersKilled"></span>
@@ -395,8 +394,8 @@ Figure 7.5: The national number of officers killed by felony and killed accident
 </p>
 </div>
 </div>
-<div id="assaults-by-injury-and-weapon" class="section level3" number="7.2.3">
-<h3><span class="header-section-number">7.2.3</span> Assaults by injury and weapon</h3>
+<div id="assaults-by-injury-and-weapon" class="section level3 hasAnchor" number="7.2.3">
+<h3><span class="header-section-number">7.2.3</span> Assaults by injury and weapon<a href="leoka.html#assaults-by-injury-and-weapon" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This data breaks down the monthly number of assaults on officers in a few different ways. Here, we’ll look at the number of assaults where the officer is injured or not injured and within these categories by which weapon the offender had. This is the number of officers assaulted so if an incident has three officers assaulted, that will count as three different assaults. If the offender used multiple weapons then only the most serious weapon would be counted. For example, if an offender used a knife and a gun during the assault, the assault would be counted as a gun assault. Unfortunately we only know if an officer was injured or not and not the severity of the injury. So we can’t tell if the officer is merely bruised or was shot or stabbed.</p>
 <ul>
 <li>Assaults with injury
@@ -429,8 +428,8 @@ Figure 7.7: The annual number of assaults on officers by injury sustained in Los
 </p>
 </div>
 </div>
-<div id="assaults-by-call-type" class="section level3" number="7.2.4">
-<h3><span class="header-section-number">7.2.4</span> Assaults by call type</h3>
+<div id="assaults-by-call-type" class="section level3 hasAnchor" number="7.2.4">
+<h3><span class="header-section-number">7.2.4</span> Assaults by call type<a href="leoka.html#assaults-by-call-type" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The next group of ways that assaults are broken down is by the type of call the officer is assigned when they are assaulted. For example, if an officer is responding to a burglary report, any assault they experience on that call will be classified as “burglary” related. In addition, we know how many assaults were cleared by arrest or cleared through exceptional means (for more on this, please see <a href="offensesKnown.html#clearedCrimes">3.3.2</a>) though it doesn’t differential between the two. Since assaults are based on the number of officers assaulted, not the number of incidents where officers are assaulted, arresting a single person can clear multiple assaults. The possible call types are below:</p>
 <ul>
 <li>Disturbance call (e.g. domestic violence, person carrying a gun in public)</li>
@@ -453,7 +452,7 @@ Figure 7.7: The annual number of assaults on officers by injury sustained in Los
 Figure 7.8: Assaults on Los Angeles Police Department officers by type of call where they were assaulted at, 1960-2018.
 </p>
 </div>
-<p>Within these call types is also a breakdown by offender weapon use, with the same weapons as above, and the type of officer assignment which is essentially if they are alone or not and if they’re on foot or not. Finally, it says how many assaults are cleared by arrest or cleared through exceptional means though it doesn’t differential between the two. The shift assignment is essentially how they go through their normal day, if this is in a vehicle, alone, as a detective, or under a different assignment (including being off-duty). For example, being in a vehicle with two officers means that their normal assignment is driving in a vehicle, not that they were actually assaulted in said vehicle. This also doesn’t necessarily mean that these are the only officers at the scene. It is simply the shift assignment of the officer who is assaulted. For example, if an officer who normally works alone in a vehicle shows up to a scene where other officers are present, and who are under different shift assignments, and gets assaulted - and no one else gets assaulted - that is an assault for officers “in a vehicle alone.”</p>
+<p>Within these call types is also a breakdown by offender weapon use, with the same weapons as above, and the type of officer assignment which is essentially if they are alone or not and if they’re on foot or not. Finally, it says how many assaults are cleared by arrest or cleared through exceptional means though it doesn’t differential between the two. The shift assignment is essentially how they go through their normal day, if this is in a vehicle, alone, as a detective, or under a different assignment (including being off-duty). For example, being in a vehicle with two officers means that their normal assignment is driving in a vehicle, not that they were actually assaulted in said vehicle. This also doesn’t necessarily mean that these are the only officers at the scene. It is simply the shift assignment of the officer who is assaulted. For example, if an officer who normally works alone in a vehicle shows up to a scene where other officers are present, and who are under different shift assignments, and gets assaulted - and no one else gets assaulted - that is an assault for officers “in a vehicle alone”.</p>
 <ul>
 <li>Offender weapons
 <ul>
@@ -489,8 +488,8 @@ Figure 7.10: The number of assaults on Los Angeles Police Department officers in
 </p>
 </div>
 </div>
-<div id="assaults-by-time" class="section level3" number="7.2.5">
-<h3><span class="header-section-number">7.2.5</span> Assaults by time</h3>
+<div id="assaults-by-time" class="section level3 hasAnchor" number="7.2.5">
+<h3><span class="header-section-number">7.2.5</span> Assaults by time<a href="leoka.html#assaults-by-time" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The final breakdown in assaults is by the time they occur, divided into 12 two-hour chunks starting at 12:01am. Like some other variables this data is only available starting in 1971. There is no more information than total assaults in this time so we don’t know if the assaults led to injuries, the type of call or shift assignment the officer was on, or the offender’s weapons.</p>
 <ul>
 <li>12:01am - 2:00am</li>

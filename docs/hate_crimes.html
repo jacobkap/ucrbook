@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 9 Hate Crime Data | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 9 Hate Crime Data | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://ucrbook.com" />
   
   <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
   <meta name="github-repo" content="jacobkap/ucrbook" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2022-03-21" />
+<meta name="date" content="2022-08-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="arsonChapter.html"/>
 <link rel="next" href="county-level-ucr-data.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-48BYKNQFJY"></script>
 <script>
@@ -330,13 +329,13 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="hate_crimes" class="section level1" number="9">
-<h1><span class="header-section-number">Chapter 9</span> Hate Crime Data</h1>
+<div id="hate_crimes" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Hate Crime Data<a href="hate_crimes.html#hate_crimes" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>This dataset covers crimes that are reported to the police and judged by the police to be motivated by hate. More specifically, they are, first, crimes which were, second, motivated - at least in part - by bias towards a certain person or group of people because of characteristics about them such as race, sexual orientation, or religion. The first part is key, they must be crimes - and really must be the selection of crimes that the FBI collects for this dataset. Biased actions that don’t meet the standard of a crime, or are of a crime not included in this data, are not considered hate crimes. For example, if someone yells at a Black person and uses racial slurs against them, it is clearly a racist action. For it to be included in this data, however, it would have to extend to a threat since “intimidation” is a crime included in this data but lesser actions such as simply insulting someone is not included. For the second part, the bias motivation, it must be against a group that the FBI includes in this data. For example, when this data collection began crimes against transgender people were not counted so if a transgender person was assaulted or killed because they were transgender, this is not a hate crime recorded in the data (though it would have counted in the “Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (LGBT)” bias motivation which was always reported).<a href="#fn46" class="footnote-ref" id="fnref46"><sup>46</sup></a></p>
 <p>So this data is really a narrower measure of hate crimes than it might seem. In practice it is (some) crimes motivated by (some) kinds of hate that are reported to the police. It is also the most under-reported UCR dataset with most agencies not reporting any hate crimes to the FBI. This leads to huge gaps in the data with some states having zero agencies report crime, agencies reporting some bias motivations but not others, agencies reporting some years but not others. While these problems exist for all of the UCR datasets, it is most severe in this data. This problem is exacerbated by hate crimes being rare even in agencies that report them - with such rare events, even minor changes in which agencies report or which types of offenses they include can have large effects.</p>
 <p>My main takeaway for this data is that it is inappropriate to use for most hate crime research. At most it can be used to look at within-city within-bias-motivation trends, while keeping in mind that even this narrow subset of data is limited by under-reporting by victims and potential changes in police practices of reporting such as how many months of data they report per year.</p>
-<div id="agencies-reporting-6" class="section level2" number="9.1">
-<h2><span class="header-section-number">9.1</span> Agencies reporting</h2>
+<div id="agencies-reporting-6" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Agencies reporting<a href="hate_crimes.html#agencies-reporting-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We’ll start by looking at how many agencies report hate crime each year. This is a bit tricky since there can be multiple ways to examine how agencies report, and since agencies can truly have no hate crimes in a year so it’s hard to differentiate the true zeroes from the non-reporters. Figure <a href="hate_crimes.html#fig:hateAgencies">9.1</a> shows the number of agencies that report at least one hate crime incident in that year. From the start in 1991 there were about 750 agencies reporting and that grew steadily to about 2,000 agencies in year 2000. From there it increased a bit over the next decade before declining to below 1,750 in the early 2010s and rising again to around 2,000 agencies at the end of our data.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateAgencies"></span>
 <img src="hate_crime_files/figure-html/hateAgencies-1.png" alt="The annual number of police agencies that report at least one hate crime incident in that year." width="90%" />
@@ -373,8 +372,8 @@ Figure 9.5: The percent of agencies in each state that reported at least one hat
 </p>
 </div>
 </div>
-<div id="important-variables-6" class="section level2" number="9.2">
-<h2><span class="header-section-number">9.2</span> Important variables</h2>
+<div id="important-variables-6" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Important variables<a href="hate_crimes.html#important-variables-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This data has the standard set of variables describing the agency that is reporting. This includes the agency ORI - which is the unique ID for that agency - the agency name, their state, and the population under their jurisdiction.</p>
 <p>They also have a variable with the exact date that the hate crime occurred on - though not the date it was reported on. Figure <a href="hate_crimes.html#fig:hateCrimesByDay">9.6</a> shows the percent of hates crimes between 1991 and 2020 that occurred on each day of the week. Interestingly, the most common days for a hate crime to occur is on Friday and Saturday, which is also when non-hate crimes most frequently occur. This suggests that hate crimes do follow the same trends - at least partially - as other crimes.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateCrimesByDay"></span>
@@ -391,8 +390,8 @@ Figure 9.6: The day of the week that hate crimes occurred on, 1991-2020
 Figure 9.7: The number of offenses per hate crime incident.
 </p>
 </div>
-<div id="the-bias-motivation-who-the-hate-is-against" class="section level3" number="9.2.1">
-<h3><span class="header-section-number">9.2.1</span> The bias motivation (who the hate is against)</h3>
+<div id="the-bias-motivation-who-the-hate-is-against" class="section level3 hasAnchor" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> The bias motivation (who the hate is against)<a href="hate_crimes.html#the-bias-motivation-who-the-hate-is-against" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The most important variable in this data is the “bias motivation” which is the FBI’s term for the cause of the hate. A hate crime targeted against Black people would be an “anti-Black” bias motivation. For the police to classify an incident as a hate crime, and to assign a particular bias motivation, the police must have <em>some</em> evidence that the crime was motivated by hate. The victim saying that the crime is a hate crime alone is not sufficient - though if large portions of the victim’s community believe that the crime is a hate crime, this is a factor in the police’s assessment. The evidence required is not major, it includes things as explicit as racial slurs said during an incident and less obvious factors like the victim is celebrating their community (e.g. attending a holiday event) or the crime occurring on an important holiday for that community (e.g. Martin Luther King Day, religious holidays). The FBI also encourages police to consider the totality of the evidence even if none alone strongly suggests that the crime was a hate crime in making their determination about whether the incident was a hate crime or not.</p>
 <p>This also means that many (likely most) hate crimes will not be recorded as hate crimes since there is no evidence that the crime is motivated by hate. For example, if a man committed a crime against Asian people for crimes because they are Asian, that would in reality be a hate crime. However, if the offender does not say anything anti-Asian to the victim, which is the mostly likely thing to indicate that this is a hate crime, the crime would not likely be recorded as a hate crime. For example, at the time of this writing (Spring, 2021), there are numerous media reports discussing an increase in anti-Asian hate crimes as a result of racism relating to the pandemic.<a href="#fn48" class="footnote-ref" id="fnref48"><sup>48</sup></a> This data would likely undercount both anti-Asian behavior and anti-Asian hate crimes. First, if someone walked to an Asian person and called them an anti-Asian slur, that is clearly a hateful act and would be classified as a hate crime under some organization’s collections methods. However, as hateful as this incident is, <em>this alone</em> would not be classified as a hate crime in this dataset as a slur is not a crime. If accompanied by other criminal behavior, or if it continues to the point where it can be considered intimidation, it would then be classified as a hate crime. Second, crimes against Asian victims that are in fact hate crimes, but have no evidence that they are hate crimes would not be classified as hate crimes in this data.</p>
 <p>Bias motivation is based on the offender’s perceptions of the victim so even if they are incorrect in who their victim is, if they intended to target someone for their perceived group membership, that is still a hate crime. For example, if a person assaults a man because they think he is gay, that is a hate crime because the assault was motivated by hate towards gay people. Whether the victim is actually gay or not is not relevant - the offender perceived him to be gay so it is an anti-gay hate crime. To make this even more complicated, the offender must have committed the crime because they are motivated, at least to some degree, by their bias against the victim. Being biased against the victim but targeting them for some other reason means that the crime is not a hate crime.</p>
@@ -629,12 +628,18 @@ Figure 9.7: The number of offenses per hate crime incident.
 <p>2015 is the most year of new bias motivations, as of data through 2020 This year added a number of religions such as Anti-Buddhist, Anti-Sikh, and Anti-Jehovah’s Witness. In 2013, anti-Transgender was added and this is the most common of the bias motivations added since data began in 1991 with 513 hate crimes between 2013-2020 - 0.26% of all hate crimes from 1991-2020 That year also added anti-male and Anti-Native Hawaiian or Other Pacific Islander, which is the most recent racial group added. In 2012, anti-gender non-conforming and anti-female were included, while in 1997 both anti-mental and anti-physical disability were added. In part due to having fewer years of data available, these newer bias motivations make up a small percent of total hate crimes, accounting for ~1.4%.</p>
 <p>The original hate crimes - that is, those in the data in 1991 when this dataset was released - are far more common. The most common bias motivation is anti-Black at 34% of hate crimes, anti-Jewish at 13%, anti-White at 12%, anti-male homosexual (gay) at 10%, anti-Hispanic at 6%, and anti-ethnicity other than Hispanic (this group means a crime against an ethnic group that isn’t Hispanic, though it is occasionally reported as anti-non-Hispanic which is incorrect.) at 5%. All other bias motivations are less than 5% of hate crimes and consist of a variety of ethnic, racial, religious, or sexual orientation. Some hate crimes can potentially fall in multiple categories. For example, there is a bias motivation of “anti-male homosexual (gay)” and of “anti-lesbian, gay, bisexual, or transgender, mixed group (LGBT)” so there is some overlap between them.</p>
 </div>
-<div id="the-crime-that-occurred" class="section level3" number="9.2.2">
-<h3><span class="header-section-number">9.2.2</span> The crime that occurred</h3>
-<p>The “crime” part of hate crimes is which criminal offense occurred during the incident. A hateful act where the action is not one of the crimes that the FBI records would not be considered a hate crime. This is likely most common when considering something like a person calling someone by a hateful slur (e.g. “You’re a [slur],” “go back to your own country”) but where the action is not technically a crime. Another layer of difficulty in using this data is that not all crimes that the FBI includes were initially included when data become available in 1991. Every several years the FBI adds new crimes to be included in this data. Table <a href="hate_crimes.html#tab:hateOffense">9.2</a> shows each crime in the data, the first year that this crime was reported, the total number of these crimes reported between 1991 and 2020, and the percent of all incidents this crime makes up.<a href="#fn49" class="footnote-ref" id="fnref49"><sup>49</sup></a> This table is sorted with the most recent years first, and within year by how common the crime was.</p>
+<div id="the-crime-that-occurred" class="section level3 hasAnchor" number="9.2.2">
+<h3><span class="header-section-number">9.2.2</span> The crime that occurred<a href="hate_crimes.html#the-crime-that-occurred" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The “crime” part of hate crimes is which criminal offense occurred during the incident. A hateful act where the action is not one of the crimes that the FBI records would not be considered a hate crime. This is likely most common when considering something like a person calling someone by a hateful slur (e.g. “You’re a [slur]”, “go back to your own country”) but where the action is not technically a crime. Another layer of difficulty in using this data is that not all crimes that the FBI includes were initially included when data become available in 1991. Every several years the FBI adds new crimes to be included in this data. Table <a href="hate_crimes.html#tab:hateOffense">9.2</a> shows each crime in the data, the first year that this crime was reported, the total number of these crimes reported between 1991 and 2020, and the percent of all incidents this crime makes up.<a href="#fn49" class="footnote-ref" id="fnref49"><sup>49</sup></a> This table is sorted with the most recent years first, and within year by how common the crime was.</p>
 <p>Nearly all hate crimes are vandalism/destruction of property (31%), intimidation (30%), and simple assault (20%) or aggravated assault (11%) with no remaining crime making up more than 2% of total hate crimes.</p>
 <table>
 <caption><span id="tab:hateOffense">Table 9.2: </span>The offense type for hate crime incidents. In incidents with multiple offense types, this shows only the first offense type recorded.</caption>
+<colgroup>
+<col width="50%" />
+<col width="19%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Offense</th>
@@ -924,12 +929,18 @@ Figure 9.7: The number of offenses per hate crime incident.
 </table>
 <p>Agencies that report to the FBI’s National Incident-Based Reporting System (NIBRS) can also report bias motivations for their crimes, and these reports are included in this dataset. One tricky thing is that the crimes included are different depending on if the agency reported through NIBRS or to the dataset directly, and are not NIBRS reporting agencies. The above table shows all crimes included, but agencies who report directly can only submit a subset of crimes. For these agencies the only possible crimes are the ones that are included Offenses Known and Clearances by Arrest dataset, that is detailed in Chapter <a href="offensesKnown.html#offensesKnown">3</a>, as well as vandalism/destruction of property and human trafficking.</p>
 </div>
-<div id="the-location-of-the-crime" class="section level3" number="9.2.3">
-<h3><span class="header-section-number">9.2.3</span> The location of the crime</h3>
+<div id="the-location-of-the-crime" class="section level3 hasAnchor" number="9.2.3">
+<h3><span class="header-section-number">9.2.3</span> The location of the crime<a href="hate_crimes.html#the-location-of-the-crime" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This data is interesting because it includes the location - in categories for types of places, not actual location in the city - of the incident. This is important since the type of location can be a factor in whether the incident is classified as a hate crime. For example, spray paint on a synagogue or a mosque is much more likely to be a hate crime than spray paint on a wall of an abandoned building. Table <a href="hate_crimes.html#tab:hateLocations">9.3</a> shows the locations of hate crimes sorted by the year that location was first included in the data and then by frequency of hate crimes. Each hate crime incident can have multiple locations since each offense can have its own incident, but in most cases (96.6%) a hate crime only has a single location.</p>
 <p>As with the crime and the bias motivation, the available locations have increased as time went on, though these newer locations are relatively uncommon. One important change in location is that starting in 2010 the location of school/college was split to have one location be for elementary and high schools and another location be for colleges and universities. The majority of hate crimes occur in the victim’s home (30%), on a road or alley (19%), in an unknown location (13.6%), and in a parking lot or parking garage. All other locations occur in fewer than 5% of hate crimes.</p>
 <table>
 <caption><span id="tab:hateLocations">Table 9.3: </span>The location of hate crime incidents. In incidents with multiple locations, this shows only the first location recorded.</caption>
+<colgroup>
+<col width="40%" />
+<col width="22%" />
+<col width="18%" />
+<col width="18%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Location</th>
@@ -1218,8 +1229,8 @@ Figure 9.7: The number of offenses per hate crime incident.
 </tbody>
 </table>
 </div>
-<div id="number-and-race-of-offenders" class="section level3" number="9.2.4">
-<h3><span class="header-section-number">9.2.4</span> Number and race of offenders</h3>
+<div id="number-and-race-of-offenders" class="section level3 hasAnchor" number="9.2.4">
+<h3><span class="header-section-number">9.2.4</span> Number and race of offenders<a href="hate_crimes.html#number-and-race-of-offenders" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are two variables that have information about the people who commit the hate crime: the number of offenders and the race of the offenders (as a single value with the race of the group if all are of the same race or it will say a “multi-racial” group). Unfortunately, important information like the age of the offenders, their criminal history, their relationship to the victim, their gender, or whether they are arrested are completely unavailable in this dataset.</p>
 <p>When the police do not have any information about the number of offenders (which is common in cases of property crimes such as vandalism but rare in violent crimes), this data considers that to have zero offenders. The zero is just a placeholder that means that the police have no idea how many offenders there are, not that they think there were actually no offenders. Figure <a href="hate_crimes.html#fig:hateCrimeOffenderNumber">9.8</a> shows the percent of hate crimes from 1991-2020 that have each number of offenders recorded. In the actual data it says the actual number of offenders, with the largest group in the current data going to 99 offenders - in this graph I group 10 or more offenders together for simplicity. I also relabel zero offenders as “Unknown” offenders since that’s more accurate. The most common number of offenders per hate crime is one offender, at about 46% of hate crimes from 1991-2020 having only one offender. This drops sharply to 9% of hate crimes having 2 offenders and continues to drop as the number of offenders increase. However, about a third (36.8%) of hate crimes have an unknown number of offenders.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateCrimeOffenderNumber"></span>
@@ -1228,7 +1239,7 @@ Figure 9.7: The number of offenses per hate crime incident.
 Figure 9.8: The race of offenders, as a group, for hate crime incidents, 1991-2020.
 </p>
 </div>
-<p>The data also includes the race of the offenders as a group, though not the ethnicity (Hispanic or non-Hispanic) of the offenders. In cases where there are multiple races among offenders, that will be classified as a “multi-racial group.” As shown in Figure <a href="hate_crimes.html#fig:hateCrimeOffenderNumber">9.8</a> The most common racial group is “unknown” since the police do not know the race of the offenders. Then are White offenders at nearly 40% of hate crimes followed by Black offenders at nearly 13% of hate crimes. The remaining racial groups are rare with about 2% of hate crimes being committed by a multi-racial group of offenders and 0.72% of hate crimes committed by Asian or Pacific Islander offenders and 0.54% committed by American Indian or Native Alaskan offenders.</p>
+<p>The data also includes the race of the offenders as a group, though not the ethnicity (Hispanic or non-Hispanic) of the offenders. In cases where there are multiple races among offenders, that will be classified as a “multi-racial group”. As shown in Figure <a href="hate_crimes.html#fig:hateCrimeOffenderNumber">9.8</a> The most common racial group is “unknown” since the police do not know the race of the offenders. Then are White offenders at nearly 40% of hate crimes followed by Black offenders at nearly 13% of hate crimes. The remaining racial groups are rare with about 2% of hate crimes being committed by a multi-racial group of offenders and 0.72% of hate crimes committed by Asian or Pacific Islander offenders and 0.54% committed by American Indian or Native Alaskan offenders.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateCrimeOffenderRace"></span>
 <img src="hate_crime_files/figure-html/hateCrimeOffenderRace-1.png" alt="The race of offenders, as a group, for hate crime incidents, 1991-2020." width="90%" />
 <p class="caption">

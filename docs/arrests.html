@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Arrests by Age, Sex, and Race | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Arrests by Age, Sex, and Race | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://ucrbook.com" />
   
   <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
   <meta name="github-repo" content="jacobkap/ucrbook" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2022-03-21" />
+<meta name="date" content="2022-08-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="stolen_property.html"/>
 <link rel="next" href="shr.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-48BYKNQFJY"></script>
 <script>
@@ -330,11 +329,11 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="arrests" class="section level1" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Arrests by Age, Sex, and Race</h1>
-<p>The Arrests by Age, Sex, and Race dataset - often called ASR, or the “arrests data,” or sometimes the “Arrests by Age, Sex, Race, and Ethnicity (ASRE) though this is really misleading since most years don’t even report ethnicity data - includes the monthly number of arrests for a variety of crimes and, unlike the crime data, breaks down this data by age and gender. This data includes a broader number of crime categories than the crime dataset (the Offenses Known and Clearances by Arrest data) though is less detailed on violent crimes since it does not breakdown aggravated assault or robberies by weapon type as the Offenses Known data does. For each crime it says the number of arrests for each gender-age group with younger ages (15-24) showing the arrestee’s age to the year (e.g. age 16) and other ages grouping years together (e.g. age 25-29, 30-34,”under 10”). It also breaks down arrests by race-age by including the number of arrestees of each race (American Indian, Asian, Black, and White are the only included races) and if the arrestee is a juvenile (&lt;18 years old) or an adult. The data does technically include a breakdown by ethnicity-age (e.g. juvenile-Hispanic, juvenile-non-Hispanic) but almost no agencies report this data (for most years zero agencies report ethnicity) so in practice the data does not include ethnicity. As the data includes counts of arrestees, people who are arrested multiple times are included in the data multiple times - it is not a measure of unique arrestees.</p>
-<div id="agencies-reporting-2" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Agencies reporting</h2>
+<div id="arrests" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Arrests by Age, Sex, and Race<a href="arrests.html#arrests" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The Arrests by Age, Sex, and Race dataset - often called ASR, or the “arrests data”, or sometimes the “Arrests by Age, Sex, Race, and Ethnicity (ASRE) though this is really misleading since most years don’t even report ethnicity data - includes the monthly number of arrests for a variety of crimes and, unlike the crime data, breaks down this data by age and gender. This data includes a broader number of crime categories than the crime dataset (the Offenses Known and Clearances by Arrest data) though is less detailed on violent crimes since it does not breakdown aggravated assault or robberies by weapon type as the Offenses Known data does. For each crime it says the number of arrests for each gender-age group with younger ages (15-24) showing the arrestee’s age to the year (e.g. age 16) and other ages grouping years together (e.g. age 25-29, 30-34,”under 10”). It also breaks down arrests by race-age by including the number of arrestees of each race (American Indian, Asian, Black, and White are the only included races) and if the arrestee is a juvenile (&lt;18 years old) or an adult. The data does technically include a breakdown by ethnicity-age (e.g. juvenile-Hispanic, juvenile-non-Hispanic) but almost no agencies report this data (for most years zero agencies report ethnicity) so in practice the data does not include ethnicity. As the data includes counts of arrestees, people who are arrested multiple times are included in the data multiple times - it is not a measure of unique arrestees.</p>
+<div id="agencies-reporting-2" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Agencies reporting<a href="arrests.html#agencies-reporting-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This data is available from 1974 through 2019 and Figure <a href="arrests.html#fig:arrestsAgenciesReporting">5.1</a> shows how many agencies reported at least one month of the year for each of these years. I’m not sure why there’s a dip in 1980. Since it immediately reverses itself in the next year I think it’s just a data issue, not a real decrease in the number of agencies that report. The first year of data has about 9,000 agencies reporting and that increases strongly to a little over 13,000 in 1979. Following the odd blip in 1980, the number of agencies remain steady for nearly a decade before declining to a local low of about 11,000 in 1998 before again increasing steadily until the end of our data where nearly 15,000 agencies report. This 15,000, however, still remains under the estimated 18,000 police agencies in the United States and below the reporting rates of UCR data such as the Offenses Known and Clearances by Arrest data. This data is also missing some important cities such as New York City which hasn’t reported even a single month since 2002 and Chicago which tends to only report a single month if at all.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arrestsAgenciesReporting"></span>
 <img src="arrests_files/figure-html/arrestsAgenciesReporting-1.png" alt="The annual number of agencies reporting at least one month of data in that year." width="90%" />
@@ -351,20 +350,20 @@ Figure 5.2: The annual number of agencies reporting 12 months of data in that ye
 </div>
 <p>Another issue is that agencies can report only some crimes. So, for example, they may report how many people were arrested for theft but not for murder, and it’s unclear when that means that truly zero people were arrested for murder and when the agency just didn’t report. This isn’t in the original data but in my version of this data (available <a href="https://www.openicpsr.org/openicpsr/project/102263/version/V12/view">here</a>), I added variables for the number of months reported (based on the agency reporting at least arrest for that crime in that year) for each crime category. Again, please note that when there are fewer than 12 months reported in that year for that variable, that could simply mean that there were no arrests for that crime that year (The FBI does tell agencies not to even submit a report in these cases) - but we don’t know that for sure.</p>
 </div>
-<div id="what-is-an-arrest-what-unit-is-this-data-in" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> What is an arrest? (what unit is this data in?)</h2>
+<div id="what-is-an-arrest-what-unit-is-this-data-in" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> What is an arrest? (what unit is this data in?)<a href="arrests.html#what-is-an-arrest-what-unit-is-this-data-in" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A key part of understanding this data is knowing what unit of analysis it’s in. This data is the monthly number of <em>total arrests for a given crime, with only the most serious crime per incident included</em>. Consider for example, a person who robs a bank, shooting and killing a guard and pointing their gun at other people in the bank. They are arrested and then released from jail (just imagine that this is true) and are rearrested the next day for shoplifting. And let’s further assume that both arrests were in the same month in the same agency. How many arrests are here? They committed multiple crimes in the first incident (murder, robbery, aggravated assault) but in this dataset they would only be classified as an arrest for the most serious crime, murder. And then separately they’d also be an arrested for shoplifting. So assuming that no other arrests occurred in that police agency that month, there would be two arrests reported: one for murder and one for shoplifting.</p>
 <p>There’s no way to tell how many unique people were arrested, or of those arrested multiple times which crimes they were arrested for. So if you have 100 arrests there may be 1 person arrested 100 times or 100 people arrested once - though, of course, the true number is likely somewhere in between. This means that studies that try to use this data as a measure of unique people or even the percent of arrestees by group (age, gender, or race) relative to some base rate of the population such as the number of people living in that city are going to be wrong - though how wrong is unclear.<a href="#fn35" class="footnote-ref" id="fnref35"><sup>35</sup></a></p>
 <p>Common uses of this data - more common in more news articles or advocacy group reports than in peer-reviewed research articles - compare the percent of arrestees of a certain group to the percent of a city’s population of that group. Any differences between the arrestee percent and the resident percent is, according to these reports, evidence of a disparity (this is most common for looking at differences by race). Since these analyses are generally looking at annual data, it assumes that people of each group (usually they look at race but gender and age data is also available) are rearrested at the same rate. That is, White people, for example, are rearrested in the same year for the same crime at the exact same rate as Black people. If not, then you’re be comparing different things since one group would have more overall people arrested while the other would have fewer people but who are arrested more frequently. Whether this distinction between arrests and unique people arrested affects your interpretation of the data depends on the study you are doing, but it’s important to consider in your research. One way to address this is to use other data on the rate of rearrest by group, though you’d have to be very careful to not extrapolate the results of the other study too far beyond what they could tell you of the specific time and place they studied.</p>
-<div id="the-hierarchy-rule" class="section level3" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> The Hierarchy Rule</h3>
+<div id="the-hierarchy-rule" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> The Hierarchy Rule<a href="arrests.html#the-hierarchy-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In incidents where the arrestee commits multiple crimes, this data uses something called the Hierarchy Rule which says that only the most serious crime is counted as the crime that the person was arrested for. For a comprehensive overview of the Hierarchy Rule, please see Section <a href="offensesKnown.html#hierarchy">3.1.1</a>. Basically, the FBI chose seven crimes in 1929 that they call Index Crimes - or sometimes called Part I crimes - and these were considered the most important crimes to be recorded. For more on Index Crimes, please see Section <a href="offensesKnown.html#indexCrimesOffensesKnown">3.1</a>. If a person is arrested for multiple crimes and an Index Crime is one of those crimes, then the Index Crime at the top of the Hierarchy is the one recorded in this data. Section <a href="arrests.html#arrestsCrimesIncluded">5.3</a> shows all crimes included and the crimes 1-7 as well as 9 (arson) are the Index Crimes. The top of the Hierarchy is the crime with the lowest number. So murder is always reported in incidents where there’s a murder; rape is always reported when there’s an incident with rape but no murder; etc.</p>
 <p>In incidents where the arrestee committed both an Index Crime and a Part II crime, then only the top Index Crime is recorded. This can lead to rather silly results since some Part II crimes are certainly more serious than some Index Crimes. Consider, for example, a person arrested for simple assault, carrying a firearm, pimping, and of theft. The first three crimes are, in my opinion, clearly more serious than theft. But since theft is an Index Crime, this person would be considered to have been arrested for theft.</p>
 <p>The remaining crimes are called Part II crimes and are not arranged in any particular way. So a lower value numbered crime is not higher on the Hierarchy than a higher value number - Part II crimes don’t follow the Hierarchy. If all of the crimes in an incident are Part II crimes then the agency must decide for themselves which crime is the most serious. This can lead to agencies deciding their own hierarchy differently than others which makes this data much less comparable across agencies than if there was a standard rule.</p>
 </div>
 </div>
-<div id="arrestsCrimesIncluded" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Crimes included</h2>
+<div id="arrestsCrimesIncluded" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Crimes included<a href="arrests.html#arrestsCrimesIncluded" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li>Homicide</li>
 </ol>
@@ -428,12 +427,12 @@ Figure 5.2: The annual number of agencies reporting 12 months of data in that ye
 <li>Runaways - for minors only.</li>
 </ol>
 </div>
-<div id="important-variables-2" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Important variables</h2>
+<div id="important-variables-2" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Important variables<a href="arrests.html#important-variables-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This data has the standard set of variables describing the agency that is reporting. This includes the agency ORI - which is the unique ID for that agency - the agency name, their state, the population under their jurisdiction, and the month and year of the data.</p>
 <p>For each crime this data provides the number of arrests in that month (or year for the annual data) broken down by age (within this, by gender), by race (within this, by if they are a juvenile or an adult), and by ethnicity though this is an enormously flawed variable. Finally, we also know the number of juvenile arrests that ended in a few possible outcomes, though we don’t know the crime that led to these arrests. We’ll get into each of these variables below.</p>
-<div id="age" class="section level3" number="5.4.1">
-<h3><span class="header-section-number">5.4.1</span> Age</h3>
+<div id="age" class="section level3 hasAnchor" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> Age<a href="arrests.html#age" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For each crime the data provides the number of people of each gender by age, with several years in the peak offending age given as the specific age and younger and older ages broken into groups. Only female and male genders are available, and there is no variable for “unknown” gender. So to get a total arrests for that crime for that age, just add the female and male variables together. Below are the ages or age categories included in the data, and these are the same for female and male arrestees.</p>
 <ul>
 <li>Female
@@ -495,8 +494,8 @@ Figure 5.3: The total number of rapes by male arrestees reported by arrestee age
 </p>
 </div>
 </div>
-<div id="race" class="section level3" number="5.4.2">
-<h3><span class="header-section-number">5.4.2</span> Race</h3>
+<div id="race" class="section level3 hasAnchor" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> Race<a href="arrests.html#race" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The data also breaks down the number of arrests for each crime by race, with the only included races being American Indian, Asian, Black, and White. This is further broken down into if the arrestee was an adult (18 years or older) or a juvenile (under 18). Whether the arrestee is Hispanic is in a separate (and nearly universally non-reported variable). Since the ethnicity variable is separate, and since the data is not at the arrestee-level unit, there’s no way to interact the race and ethnicity variables. So, for example, there is no way to determine how many White-Hispanic or White-Non-Hispanic arrestees. Just total White arrestees and total Hispanic arrestees.</p>
 <p>As with race variables in other UCR datasets - and, really, any dataset - you should be cautious about using this variables since it is the officer’s perception of the arrestee’s race - though of course some arrests do have other data about the arrestee’s race such as what they tell the officer.</p>
 <p>Even though there is information about the specific age of arrestee (or the age range, depending on the arrestee’s age) and their gender, there is no gender information combined with race and no age beyond the adult/juvenile binary. If you add up all arrests that are broken down by gender-age and compare it to the sum of all of the arrests broken down by adult/juvenile-race here, in some cases these numbers don’t add up. That’s because while most agencies do report the age variables, not all agencies report the race variables. So summing up the race variables will actually undercount the total number of arrests.</p>
@@ -531,8 +530,8 @@ Figure 5.5: The annual number of adult marijuana possession arrests in Philadelp
 </p>
 </div>
 </div>
-<div id="ethnicity" class="section level3" number="5.4.3">
-<h3><span class="header-section-number">5.4.3</span> Ethnicity</h3>
+<div id="ethnicity" class="section level3 hasAnchor" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> Ethnicity<a href="arrests.html#ethnicity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>While technically included, the ethnicity variable is largely useless since for most years no agencies reported it and for the years where agencies do report ethnicity, not all agencies do so. The ethnicities included are Hispanic and non-Hispanic are broken down by if the arrestee is an adult (18+ years old) or a juvenile (&lt;18 years old).</p>
 <ul>
 <li>Adult
@@ -561,8 +560,8 @@ Figure 5.7: The annual percent of agencies that report theft arrests that report
 </p>
 </div>
 </div>
-<div id="juvenile-referrals" class="section level3" number="5.4.4">
-<h3><span class="header-section-number">5.4.4</span> Juvenile referrals</h3>
+<div id="juvenile-referrals" class="section level3 hasAnchor" number="5.4.4">
+<h3><span class="header-section-number">5.4.4</span> Juvenile referrals<a href="arrests.html#juvenile-referrals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The final variable of interest are five mutually exclusive outcomes for juveniles who are arrested by the police for a crime that if they were adults would have been counted as a formal arrest. Unlike the rest of this dataset where juvenile is defined as being under the age of 18, these variables allow states to use their own definition of juvenile. So potentially the limit for who is a juvenile could be below the age of 18, and nothing in the data indicates when this is so - you’d have to check each state to see their definition and if it changed over time. There is no breakdown by crime so this gives you the outcomes for juveniles arrested for all crimes in that agency. Please note that the number of juveniles in other variables and the number here do not always line up, which is a mix of underreporting of this variable, arrests for other jurisdictions are not counted as an arrest in the above variables, and different age definitions for who is a juvenile. A juvenile may potentially get multiple referrals, such as being released and then later referred to court. But in this data only the <em>initial</em> referral is included. Below are the five potential outcomes and definitions of each:</p>
 <ul>
 <li>Handled within department and released
