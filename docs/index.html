@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2022-11-14" />
+<meta name="date" content="2023-02-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -101,7 +101,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -114,7 +114,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -164,6 +164,9 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#goal-of-the-book"><i class="fa fa-check"></i><b>1.1</b> Goal of the book</a></li>
@@ -332,7 +335,7 @@ div.csl-indent {
 <div id="header">
 <h1 class="title">Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</h1>
 <p class="author"><em>Jacob Kaplan</em></p>
-<p class="date"><em>2022-11-14</em></p>
+<p class="date"><em>2023-02-28</em></p>
 </div>
 <div id="preface" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Preface<a href="index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -371,7 +374,6 @@ div.csl-indent {
 <h2><span class="header-section-number">1.4</span> Sources of UCR data<a href="index.html#sources-of-ucr-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There are a few different sources of UCR data available today. First, and probably most commonly used, is the data put together by the <a href="https://www.icpsr.umich.edu/web/pages/NACJD/index.html">National Archive of Criminal Justice Data (NACJD)</a>). This a team out of the University of Michigan who manages a huge number of criminal justice datasets and makes them available to the public. If you have any questions about crime data - UCR or other crime data - I highly recommend you reach out to them for answers. They have a collection of data and excellent documentation available for UCR data available on their site <a href="https://www.icpsr.umich.edu/web/NACJD/series/57">here</a>. One limitation to their data, however, is that each year of data is available as an individual file meaning that you’ll need to concatenate each year together into a single file. Some years also have different column names (generally minor changes like spelling robbery “rob” one year and “robb” the next) which requires more work to standardize before you could concatenate. They also only have data through 2016 which means that the most recent years (UCR data is available through 2019) of data are (as of this writing) unavailable.</p>
 <p>Next, and most usable for the general public - but limited for researchers - is the FBI’s official website <a href="https://crime-data-explorer.fr.cloud.gov/">Crime Data Explorer</a>. On this site you can chose an agency and see annual crime data (remember, UCR data is monthly so this isn’t as detailed as it can be) for certain crimes (and not even all the crimes actually available in the data). This is okay for the general public but only provides a fraction of the data available in the actual data so is really not good for researchers.</p>
-<p>Finally, I have my own collection of UCR data <a href="https://www.openicpsr.org/openicpsr/search/studies?start=0&amp;ARCHIVE=openicpsr&amp;sort=score%20desc%2CDATEUPDATED%20desc&amp;rows=25&amp;q=jacob%20kaplan%27s%20concatenated%20files">available publicly on openICPSR</a>, a site which allows people to submit their data for public access. For each of these datasets I’ve taken the raw data from the FBI (for early years of homicide data this is actually from NACJD since the FBI’s raw data is wrong and can’t be parsed. For later years of homicide data this is from the FBI’s raw data.) and read it into R. Since the data is only available from the FBI as fixed-width ASCII files, I created a setup file (we’ll explain exactly how reading in this kind of data works in the next chapter) and read the data and then very lightly cleaned the data (i.e. only removing extreme outliers like an agency having millions of arsons in a month). For each of these datasets I detail what I’ve done to the data and briefly summarize the data (i.e. a very short version of this book) on the data’s page on openICPSR. The main advantage is that all my data has standard variable names and column names and, for data that is small enough, provide the data as a single file that has all years. For large datasets like the arrest data I break it down into parts of the data and not all years in a single file. The downside is that I don’t provide documentation other than what’s on the openICPSR page and only provide data in R and Stata format. I also have a similar site to the FBI’s Crime Data Explorer but with more variables available - that site is available <a href="jacobdkaplan.com/">here</a>.</p>
 <p>It’s worth mentioning a final source of UCR information. This is the annual Crimes in the United States report released by the FBI each year around the start of October.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> As an example, here is the <a href="https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019">website for the 2019 report</a>. In this report is summarized data which in most cases estimates missing data and provides information about national and subnational (though rarely city-level) crime data. As with the FBI’s site, it is only a fraction of the true data available so is not a very useful source of crime data for quality research. Still, this is a very common source of information used by researchers.</p>
 <div id="where-to-find-the-data-used-in-this-book" class="section level3 hasAnchor" number="1.4.1">
 <h3><span class="header-section-number">1.4.1</span> Where to find the data used in this book<a href="index.html#where-to-find-the-data-used-in-this-book" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -426,25 +428,15 @@ Figure 1.1: The edit button for how to make edits of this book.
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
+"sharing": true,
 "fontsettings": {
 "theme": "white",
 "family": "sans",
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/jacobkap/ucrbook/edit/main/index.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,
@@ -460,7 +452,7 @@ gitbook.start({
 "options": null
 },
 "toc": {
-"collapse": "subsection"
+"collapse": "section"
 }
 });
 });

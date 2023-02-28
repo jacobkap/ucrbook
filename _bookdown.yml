@@ -3,7 +3,7 @@ new_session: yes
 repo: https://github.com/jacobkap/ucrbook
 output_dir: "docs"
 before_chapter_script: "_common.R"
-always_allow_html: yes
+always_allow_html: true
 delete_merged_file: true
 language:
   ui:

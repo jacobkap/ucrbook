@@ -2,7 +2,7 @@ bookdown::gitbook:
   css: style.css
   includes:
     in_header: [ga_script.html]
-    config:
+  config:
     toc:
       collapse: section
       before: |
