@@ -1,7 +1,7 @@
 # About the Author {-}
 
 
-**Jacob Kaplan** is the a researcher at the Princeton School of Public and International Affairs. He holds a PhD from the University of Pennsylvania. 
+**Jacob Kaplan** is a researcher at the Princeton School of Public and International Affairs. He holds a PhD from the University of Pennsylvania. 
 
 He is the author of several R packages that make it easier to work with data, including  [fastDummies](https://jacobkap.github.io/fastDummies/) and [asciiSetupReader](https://jacobkap.github.io/asciiSetupReader/). 
 
