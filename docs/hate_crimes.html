@@ -4,26 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 Hate Crime Data | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</title>
+  <title>Chapter 9 Hate Crime Data | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide to FBI Data</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
-  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 Hate Crime Data | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide" />
+  <meta property="og:title" content="Chapter 9 Hate Crime Data | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide to FBI Data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
   <meta name="github-repo" content="jacobkap/ucrbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 Hate Crime Data | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide" />
+  <meta name="twitter:title" content="Chapter 9 Hate Crime Data | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide to FBI Data" />
   
   <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
   
 
-<meta name="author" content="Jacob Kaplan" />
+<meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2023-03-28" />
+<meta name="date" content="2024-08-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-48BYKNQFJY"></script>
 <script>
@@ -65,7 +67,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -129,10 +131,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -167,6 +174,7 @@ div.csl-indent {
 <li><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide</a></li>
 
 <li class="divider"></li>
+<li class="part"><span><b>I Welcome</b></span></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#goal-of-the-book"><i class="fa fa-check"></i><b>1.1</b> Goal of the book</a></li>
@@ -180,7 +188,8 @@ div.csl-indent {
 <li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#how-to-contribute-to-this-book"><i class="fa fa-check"></i><b>1.6</b> How to contribute to this book</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
-<li class="chapter" data-level="2" data-path="ucrGeneral.html"><a href="ucrGeneral.html"><i class="fa fa-check"></i><b>2</b> Overview of the Data</a>
+<li class="part"><span><b>II Summary Reporting System (SRS)</b></span></li>
+<li class="chapter" data-level="2" data-path="ucrGeneral.html"><a href="ucrGeneral.html"><i class="fa fa-check"></i><b>2</b> SRS Overview</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="ucrGeneral.html"><a href="ucrGeneral.html#crimes-included-in-the-ucr-datasets"><i class="fa fa-check"></i><b>2.1</b> Crimes included in the UCR datasets</a>
 <ul>
@@ -314,6 +323,106 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="10.4" data-path="county-level-ucr-data.html"><a href="county-level-ucr-data.html#final-thoughts"><i class="fa fa-check"></i><b>10.4</b> Final thoughts</a></li>
 </ul></li>
+<li class="part"><span><b>III National Incident-Based Reporting System (NIBRS)</b></span></li>
+<li class="chapter" data-level="11" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html"><i class="fa fa-check"></i><b>11</b> Overview of the Data</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#problems-with-nibrs"><i class="fa fa-check"></i><b>11.1</b> Problems with NIBRS</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#nibrs-allows-for-different-units-of-analysis"><i class="fa fa-check"></i><b>11.1.1</b> NIBRS allows for different units of analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#crimes-included-in-nibrs"><i class="fa fa-check"></i><b>11.2</b> Crimes included in NIBRS</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#group-a-crimes"><i class="fa fa-check"></i><b>11.2.1</b> Group A crimes</a></li>
+<li class="chapter" data-level="11.2.2" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#group-b-crimes"><i class="fa fa-check"></i><b>11.2.2</b> Group B crimes</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#differences-from-ucr-data"><i class="fa fa-check"></i><b>11.3</b> Differences from UCR data</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#nibrs-does-not-have-unfounded-crimes"><i class="fa fa-check"></i><b>11.3.1</b> NIBRS does not have unfounded crimes</a></li>
+<li class="chapter" data-level="11.3.2" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#less-information-on-assaults-against-officers"><i class="fa fa-check"></i><b>11.3.2</b> Less information on assaults against officers</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#a-summary-of-each-segment-file"><i class="fa fa-check"></i><b>11.4</b> A summary of each segment file</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#administrative-segment"><i class="fa fa-check"></i><b>11.4.1</b> Administrative Segment</a></li>
+<li class="chapter" data-level="11.4.2" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#offense-segment"><i class="fa fa-check"></i><b>11.4.2</b> Offense Segment</a></li>
+<li class="chapter" data-level="11.4.3" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#offender-segment"><i class="fa fa-check"></i><b>11.4.3</b> Offender Segment</a></li>
+<li class="chapter" data-level="11.4.4" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#victim-segment"><i class="fa fa-check"></i><b>11.4.4</b> Victim Segment</a></li>
+<li class="chapter" data-level="11.4.5" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#arrestee-and-group-b-arrestee-segment"><i class="fa fa-check"></i><b>11.4.5</b> Arrestee and Group B Arrestee Segment</a></li>
+<li class="chapter" data-level="11.4.6" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#property-segment"><i class="fa fa-check"></i><b>11.4.6</b> Property Segment</a></li>
+<li class="chapter" data-level="11.4.7" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#window"><i class="fa fa-check"></i><b>11.4.7</b> Window segments</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#which-agencies-report-data"><i class="fa fa-check"></i><b>11.5</b> Which agencies report data</a></li>
+<li class="chapter" data-level="11.6" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#ori"><i class="fa fa-check"></i><b>11.6</b> How to identify a particular agency (ORI codes)</a></li>
+<li class="chapter" data-level="11.7" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#the-data-as-you-get-it-from-the-fbi-1"><i class="fa fa-check"></i><b>11.7</b> The data as you get it from the FBI</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html"><i class="fa fa-check"></i><b>12</b> Administrative and Window Exceptional Clearance Segment</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#important-variables-7"><i class="fa fa-check"></i><b>12.1</b> Important variables</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#the-incident-and-report-date"><i class="fa fa-check"></i><b>12.1.1</b> The incident and report date</a></li>
+<li class="chapter" data-level="12.1.2" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#hour-of-incident"><i class="fa fa-check"></i><b>12.1.2</b> Hour of incident</a></li>
+<li class="chapter" data-level="12.1.3" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#exceptional-clearance"><i class="fa fa-check"></i><b>12.1.3</b> Exceptional clearance</a></li>
+<li class="chapter" data-level="12.1.4" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#number-of-other-segments"><i class="fa fa-check"></i><b>12.1.4</b> Number of other segments</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="offenseSegment.html"><a href="offenseSegment.html"><i class="fa fa-check"></i><b>13</b> Offense Segment</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="offenseSegment.html"><a href="offenseSegment.html#important-variables-8"><i class="fa fa-check"></i><b>13.1</b> Important variables</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="offenseSegment.html"><a href="offenseSegment.html#crime-category"><i class="fa fa-check"></i><b>13.1.1</b> Crime category</a></li>
+<li class="chapter" data-level="13.1.2" data-path="offenseSegment.html"><a href="offenseSegment.html#offense-subtype"><i class="fa fa-check"></i><b>13.1.2</b> Offense subtype</a></li>
+<li class="chapter" data-level="13.1.3" data-path="offenseSegment.html"><a href="offenseSegment.html#offense-completed"><i class="fa fa-check"></i><b>13.1.3</b> Offense completed</a></li>
+<li class="chapter" data-level="13.1.4" data-path="offenseSegment.html"><a href="offenseSegment.html#drug-alcohol-or-computer-use"><i class="fa fa-check"></i><b>13.1.4</b> Drug, alcohol, or computer use</a></li>
+<li class="chapter" data-level="13.1.5" data-path="offenseSegment.html"><a href="offenseSegment.html#crime-location"><i class="fa fa-check"></i><b>13.1.5</b> Crime location</a></li>
+<li class="chapter" data-level="13.1.6" data-path="offenseSegment.html"><a href="offenseSegment.html#offenseWeapons"><i class="fa fa-check"></i><b>13.1.6</b> Weapons</a></li>
+<li class="chapter" data-level="13.1.7" data-path="offenseSegment.html"><a href="offenseSegment.html#automatic-weapons"><i class="fa fa-check"></i><b>13.1.7</b> Automatic weapons</a></li>
+<li class="chapter" data-level="13.1.8" data-path="offenseSegment.html"><a href="offenseSegment.html#burglary-info"><i class="fa fa-check"></i><b>13.1.8</b> Burglary info</a></li>
+<li class="chapter" data-level="13.1.9" data-path="offenseSegment.html"><a href="offenseSegment.html#hate-crime-indicator-bias-motivation"><i class="fa fa-check"></i><b>13.1.9</b> Hate crime indicator (bias motivation)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="offender-segment-1.html"><a href="offender-segment-1.html"><i class="fa fa-check"></i><b>14</b> Offender Segment</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="offender-segment-1.html"><a href="offender-segment-1.html#important-variables-9"><i class="fa fa-check"></i><b>14.1</b> Important variables</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="offender-segment-1.html"><a href="offender-segment-1.html#demographics-1"><i class="fa fa-check"></i><b>14.1.1</b> Demographics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="victim-segment-1.html"><a href="victim-segment-1.html"><i class="fa fa-check"></i><b>15</b> Victim Segment</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="victim-segment-1.html"><a href="victim-segment-1.html#important-variables-10"><i class="fa fa-check"></i><b>15.1</b> Important variables</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="victim-segment-1.html"><a href="victim-segment-1.html#crime-category-1"><i class="fa fa-check"></i><b>15.1.1</b> Crime category</a></li>
+<li class="chapter" data-level="15.1.2" data-path="victim-segment-1.html"><a href="victim-segment-1.html#victim-type"><i class="fa fa-check"></i><b>15.1.2</b> Victim type</a></li>
+<li class="chapter" data-level="15.1.3" data-path="victim-segment-1.html"><a href="victim-segment-1.html#injury"><i class="fa fa-check"></i><b>15.1.3</b> Injury</a></li>
+<li class="chapter" data-level="15.1.4" data-path="victim-segment-1.html"><a href="victim-segment-1.html#relationship-to-offender"><i class="fa fa-check"></i><b>15.1.4</b> Relationship to offender</a></li>
+<li class="chapter" data-level="15.1.5" data-path="victim-segment-1.html"><a href="victim-segment-1.html#aggravated-assault-and-homicide-circumstances"><i class="fa fa-check"></i><b>15.1.5</b> Aggravated assault and homicide circumstances</a></li>
+<li class="chapter" data-level="15.1.6" data-path="victim-segment-1.html"><a href="victim-segment-1.html#justifiable-homicide-circumstance"><i class="fa fa-check"></i><b>15.1.6</b> Justifiable homicide circumstance</a></li>
+<li class="chapter" data-level="15.1.7" data-path="victim-segment-1.html"><a href="victim-segment-1.html#demographics-2"><i class="fa fa-check"></i><b>15.1.7</b> Demographics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="arrestee.html"><a href="arrestee.html"><i class="fa fa-check"></i><b>16</b> Arrestee, Group B Arrestee, and Window Arrestee Segment</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="arrestee.html"><a href="arrestee.html#important-variables-11"><i class="fa fa-check"></i><b>16.1</b> Important variables</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="arrestee.html"><a href="arrestee.html#crimes-arrested-for"><i class="fa fa-check"></i><b>16.1.1</b> Crimes arrested for</a></li>
+<li class="chapter" data-level="16.1.2" data-path="arrestee.html"><a href="arrestee.html#arrest-date"><i class="fa fa-check"></i><b>16.1.2</b> Arrest date</a></li>
+<li class="chapter" data-level="16.1.3" data-path="arrestee.html"><a href="arrestee.html#weapons"><i class="fa fa-check"></i><b>16.1.3</b> Weapons</a></li>
+<li class="chapter" data-level="16.1.4" data-path="arrestee.html"><a href="arrestee.html#automatic-weapons-1"><i class="fa fa-check"></i><b>16.1.4</b> Automatic weapons</a></li>
+<li class="chapter" data-level="16.1.5" data-path="arrestee.html"><a href="arrestee.html#type-of-arrest"><i class="fa fa-check"></i><b>16.1.5</b> Type of arrest</a></li>
+<li class="chapter" data-level="16.1.6" data-path="arrestee.html"><a href="arrestee.html#disposition-for-juvenile-arrestees"><i class="fa fa-check"></i><b>16.1.6</b> Disposition for juvenile arrestees</a></li>
+<li class="chapter" data-level="16.1.7" data-path="arrestee.html"><a href="arrestee.html#demographics-3"><i class="fa fa-check"></i><b>16.1.7</b> Demographics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="property.html"><a href="property.html"><i class="fa fa-check"></i><b>17</b> Property and Window Property Segment</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="property.html"><a href="property.html#important-variables-12"><i class="fa fa-check"></i><b>17.1</b> Important variables</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="property.html"><a href="property.html#propertyLoss"><i class="fa fa-check"></i><b>17.1.1</b> Type of property loss</a></li>
+<li class="chapter" data-level="17.1.2" data-path="property.html"><a href="property.html#description-of-property"><i class="fa fa-check"></i><b>17.1.2</b> Description of property</a></li>
+<li class="chapter" data-level="17.1.3" data-path="property.html"><a href="property.html#value-of-stolen-property"><i class="fa fa-check"></i><b>17.1.3</b> Value of stolen property</a></li>
+<li class="chapter" data-level="17.1.4" data-path="property.html"><a href="property.html#date-property-was-recovered"><i class="fa fa-check"></i><b>17.1.4</b> Date property was recovered</a></li>
+<li class="chapter" data-level="17.1.5" data-path="property.html"><a href="property.html#drugs"><i class="fa fa-check"></i><b>17.1.5</b> Drugs</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
@@ -324,7 +433,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide to FBI Data</a>
           </h1>
         </div>
 
@@ -341,35 +450,35 @@ div.csl-indent {
 <h2><span class="header-section-number">9.1</span> Agencies reporting<a href="hate_crimes.html#agencies-reporting-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We’ll start by looking at how many agencies report hate crime each year. This is a bit tricky since there can be multiple ways to examine how agencies report, and since agencies can truly have no hate crimes in a year so it’s hard to differentiate the true zeroes from the non-reporters. Figure <a href="hate_crimes.html#fig:hateAgencies">9.1</a> shows the number of agencies that report at least one hate crime incident in that year. From the start in 1991 there were about 750 agencies reporting and that grew steadily to about 2,000 agencies in year 2000. From there it increased a bit over the next decade before declining to below 1,750 in the early 2010s and rising again to around 2,000 agencies at the end of our data.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateAgencies"></span>
-<img src="hate_crime_files/figure-html/hateAgencies-1.png" alt="The annual number of police agencies that report at least one hate crime incident in that year." width="90%" />
+<img src="09_hate_crime_files/figure-html/hateAgencies-1.png" alt="The annual number of police agencies that report at least one hate crime incident in that year." width="90%" />
 <p class="caption">
 Figure 9.1: The annual number of police agencies that report at least one hate crime incident in that year.
 </p>
 </div>
 <p>The 2,000 or so agencies that report each year are not the same every year. Figure <a href="hate_crimes.html#fig:hateCrimesEver">9.2</a> shows the cumulative number of agencies that have reported at least one hate crime between 1991 and 2020 There is a steady growth in the cumulative number of agencies, with about 350 new agencies each year. This means that each year some new agencies report hate crimes while some agencies that reported a hate crime in the previous year don’t report any hate crimes in the current year.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateCrimesEver"></span>
-<img src="hate_crime_files/figure-html/hateCrimesEver-1.png" alt="The cumulative number of agencies that have reported one or more hate crimes between 1991 to 2020" width="90%" />
+<img src="09_hate_crime_files/figure-html/hateCrimesEver-1.png" alt="The cumulative number of agencies that have reported one or more hate crimes between 1991 to 2020" width="90%" />
 <p class="caption">
 Figure 9.2: The cumulative number of agencies that have reported one or more hate crimes between 1991 to 2020
 </p>
 </div>
 <p>Figure <a href="hate_crimes.html#fig:hateCrimesPreviousYear">9.3</a> puts this into hard numbers by showing the percent of agencies who reported a hate crime in a certain year who <em>also</em> reported a hate crime in the previous year. For most years between 50% and 60% of agencies which reported a hate crime in the year shown on the x-axis also reported a hate crime in the previous year, indicating somewhat high consistency in which agencies have hate crimes.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateCrimesPreviousYear"></span>
-<img src="hate_crime_files/figure-html/hateCrimesPreviousYear-1.png" alt="The percent of agencies that report a hate crime in a given year that also reported a hate crime in the previous year, 1992-2020" width="90%" />
+<img src="09_hate_crime_files/figure-html/hateCrimesPreviousYear-1.png" alt="The percent of agencies that report a hate crime in a given year that also reported a hate crime in the previous year, 1992-2020" width="90%" />
 <p class="caption">
 Figure 9.3: The percent of agencies that report a hate crime in a given year that also reported a hate crime in the previous year, 1992-2020
 </p>
 </div>
 <p>Another way to understand reporting is to look at the number of reported hate crimes by state and see which states report and which don’t. Figure <a href="hate_crimes.html#fig:hateCrimesMap">9.4</a> does this for 2020 data by showing the number of reported hate crime incidents by state. While every state other than Wyoming reporting at least one hate crime in 2020, there are large differences between states because even in states that have reporting agencies, not all agencies in that state report. For example, Alabama reported only two hate crimes in 2020, the least of any state other than Wyoming.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateCrimesMap"></span>
-<img src="hate_crime_files/figure-html/hateCrimesMap-1.png" alt="Total reported hate crimes by state, 2020" width="90%" />
+<img src="09_hate_crime_files/figure-html/hateCrimesMap-1.png" alt="Total reported hate crimes by state, 2020" width="90%" />
 <p class="caption">
 Figure 9.4: Total reported hate crimes by state, 2020
 </p>
 </div>
 <p>Since the number of state-wide hate crimes is partially influenced by population, we’ll also look at it as the percent of agencies in the state that report at least one hate crime. Again this is limited by population as agencies in each state cover different populations - and most agencies are small so a few large agencies can account for a large share of crimes, including hate crimes. Still, this is a useful exercise as we can easily see where very few agencies report. Figure <a href="hate_crimes.html#fig:statePercentReporting">9.5</a> shows the percent of agencies for each state that reported at least one hate crime in 2020 In Connecticut, the state with the highest percent of agencies reporting, 28% of agencies reported at least one hate crime. In 34 states, fewer than 10% of agencies reported a hate crime, and in 19 states fewer than 5% of agencies did so. One interesting finding from this graph is the more liberal states - Connecticut, New Jersey, Vermont, California, Washington - have the highest share of agencies reporting a hate crime, indicating that the culture of the state may influence either the propensity of hate crimes, whether victims report, or whether agencies report hate crimes.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:statePercentReporting"></span>
-<img src="hate_crime_files/figure-html/statePercentReporting-1.png" alt="The percent of agencies in each state that reported at least one hate crime in 2020" width="90%" />
+<img src="09_hate_crime_files/figure-html/statePercentReporting-1.png" alt="The percent of agencies in each state that reported at least one hate crime in 2020" width="90%" />
 <p class="caption">
 Figure 9.5: The percent of agencies in each state that reported at least one hate crime in 2020
 </p>
@@ -380,15 +489,15 @@ Figure 9.5: The percent of agencies in each state that reported at least one hat
 <p>This data has the standard set of variables describing the agency that is reporting. This includes the agency ORI - which is the unique ID for that agency - the agency name, their state, and the population under their jurisdiction.</p>
 <p>They also have a variable with the exact date that the hate crime occurred on - though not the date it was reported on. Figure <a href="hate_crimes.html#fig:hateCrimesByDay">9.6</a> shows the percent of hates crimes between 1991 and 2020 that occurred on each day of the week. Interestingly, the most common days for a hate crime to occur is on Friday and Saturday, which is also when non-hate crimes most frequently occur. This suggests that hate crimes do follow the same trends - at least partially - as other crimes.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateCrimesByDay"></span>
-<img src="hate_crime_files/figure-html/hateCrimesByDay-1.png" alt="The day of the week that hate crimes occurred on, 1991-2020" width="90%" />
+<img src="09_hate_crime_files/figure-html/hateCrimesByDay-1.png" alt="The day of the week that hate crimes occurred on, 1991-2022" width="90%" />
 <p class="caption">
-Figure 9.6: The day of the week that hate crimes occurred on, 1991-2020
+Figure 9.6: The day of the week that hate crimes occurred on, 1991-2022
 </p>
 </div>
 <p>Each hate crime incident can cover up to 10 different crimes occurring - e.g. a person who burglarizes a synagogue and spray paints a swastika on the wall would have both vandalism and burglary reported in this data. With each crime, this data has the bias motivation for that crime, the location of the crime (in broad categories, not the actual location in the city like a street address would have), and the number of victims for that offense. In practice, in most hate crimes with multiple offenses recorded, the bias motivation, location, and victim count is the same for each offense.</p>
 <p>Figure <a href="hate_crimes.html#fig:crimesPerHateCrime">9.7</a> shows the number of crimes per incident for each hate crime reported between 1991 and 2020 In 96.6% of cases, there is only one offense in that incident.<a href="#fn47" class="footnote-ref" id="fnref47"><sup>47</sup></a> This drops sharply to 3.2% of incidents having two offenses, 0.21% having three offenses, 0.016% having four offenses, and 0.002% having five offenses. Even though this data does allow up to 10 offenses per hate crime incident, there has never been a recorded case with more than five offenses.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:crimesPerHateCrime"></span>
-<img src="hate_crime_files/figure-html/crimesPerHateCrime-1.png" alt="The number of offenses per hate crime incident." width="90%" />
+<img src="09_hate_crime_files/figure-html/crimesPerHateCrime-1.png" alt="The number of offenses per hate crime incident." width="90%" />
 <p class="caption">
 Figure 9.7: The number of offenses per hate crime incident.
 </p>
@@ -398,535 +507,1219 @@ Figure 9.7: The number of offenses per hate crime incident.
 <p>The most important variable in this data is the “bias motivation” which is the FBI’s term for the cause of the hate. A hate crime targeted against Black people would be an “anti-Black” bias motivation. For the police to classify an incident as a hate crime, and to assign a particular bias motivation, the police must have <em>some</em> evidence that the crime was motivated by hate. The victim saying that the crime is a hate crime alone is not sufficient - though if large portions of the victim’s community believe that the crime is a hate crime, this is a factor in the police’s assessment. The evidence required is not major, it includes things as explicit as racial slurs said during an incident and less obvious factors like the victim is celebrating their community (e.g. attending a holiday event) or the crime occurring on an important holiday for that community (e.g. Martin Luther King Day, religious holidays). The FBI also encourages police to consider the totality of the evidence even if none alone strongly suggests that the crime was a hate crime in making their determination about whether the incident was a hate crime or not.</p>
 <p>This also means that many (likely most) hate crimes will not be recorded as hate crimes since there is no evidence that the crime is motivated by hate. For example, if a man committed a crime against Asian people for crimes because they are Asian, that would in reality be a hate crime. However, if the offender does not say anything anti-Asian to the victim, which is the mostly likely thing to indicate that this is a hate crime, the crime would not likely be recorded as a hate crime. For example, at the time of this writing (Spring, 2021), there are numerous media reports discussing an increase in anti-Asian hate crimes as a result of racism relating to the pandemic.<a href="#fn48" class="footnote-ref" id="fnref48"><sup>48</sup></a> This data would likely undercount both anti-Asian behavior and anti-Asian hate crimes. First, if someone walked to an Asian person and called them an anti-Asian slur, that is clearly a hateful act and would be classified as a hate crime under some organization’s collections methods. However, as hateful as this incident is, <em>this alone</em> would not be classified as a hate crime in this dataset as a slur is not a crime. If accompanied by other criminal behavior, or if it continues to the point where it can be considered intimidation, it would then be classified as a hate crime. Second, crimes against Asian victims that are in fact hate crimes, but have no evidence that they are hate crimes would not be classified as hate crimes in this data.</p>
 <p>Bias motivation is based on the offender’s perceptions of the victim so even if they are incorrect in who their victim is, if they intended to target someone for their perceived group membership, that is still a hate crime. For example, if a person assaults a man because they think he is gay, that is a hate crime because the assault was motivated by hate towards gay people. Whether the victim is actually gay or not is not relevant - the offender perceived him to be gay so it is an anti-gay hate crime. To make this even more complicated, the offender must have committed the crime because they are motivated, at least to some degree, by their bias against the victim. Being biased against the victim but targeting them for some other reason means that the crime is not a hate crime.</p>
-<p>The biases that the FBI includes in this data has grown over time, with new bias motivations being added in 1997, 2012, 2013, and 2015. Table <a href="hate_crimes.html#tab:hateBiasMotivation">9.1</a> shows each bias motivation in this data, the year it was first reported, how many hate crimes there were for this bias motivation from 1991-2020 and what percent of hate crimes that bias motivation makes up. For ease of seeing how bias motivations changed over time, the table is sorted by year and by frequency of incident within that year. If you’re viewing this on a computer or phone, you can sort the table yourself. The year is the first year with that bias motivation - as hate crimes for certain groups are very rare, the bias motivation could have technically been available in previous years. The last column in this table shows the percent of hate crimes from 1991-2020, though this is a very rough measure since some groups are so small that even accounting for a small percent of total hate crimes can mean that are massively disproportionately targeted.</p>
-<table>
-<caption><span id="tab:hateBiasMotivation">Table 9.1: </span>The bias motivation for hate crime incidents. In incidents with multiple bias motivation, this shows only the first bias motivation recorded.</caption>
-<colgroup>
-<col width="55%" />
-<col width="17%" />
-<col width="13%" />
-<col width="13%" />
-</colgroup>
+<p>The biases that the FBI includes in this data has grown over time, with new bias motivations being added in 1997, 2012, 2013, and 2015. Table <a href="hate_crimes.html#tab:hateBiasMotivation">9.1</a> shows each bias motivation in this data, the year it was first reported, how many hate crimes there were for this bias motivation from 1991-2022 and what percent of hate crimes that bias motivation makes up. For ease of seeing how bias motivations changed over time, the table is sorted by year and by frequency of incident within that year. If you’re viewing this on a computer or phone, you can sort the table yourself. The year is the first year with that bias motivation - as hate crimes for certain groups are very rare, the bias motivation could have technically been available in previous years. The last column in this table shows the percent of hate crimes from 1991-2022, though this is a very rough measure since some groups are so small that even accounting for a small percent of total hate crimes can mean that are massively disproportionately targeted.</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:hateBiasMotivation">Table 9.1: </span>The bias motivation for hate crime incidents. In incidents with multiple bias motivation, this shows only the first bias motivation recorded.
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Bias Motivation</th>
-<th align="right">First Year Reported</th>
-<th align="right"># of Incidents</th>
-<th align="left">% of Incidents</th>
+<tr>
+<th style="text-align:left;">
+Bias Motivation
+</th>
+<th style="text-align:right;">
+First Year Reported
+</th>
+<th style="text-align:right;">
+# of Incidents
+</th>
+<th style="text-align:left;">
+% of Incidents
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Anti-Sikh</td>
-<td align="right">2015</td>
-<td align="right">302</td>
-<td align="left">0.14%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Sikh
+</td>
+<td style="text-align:right;">
+2015
+</td>
+<td style="text-align:right;">
+673
+</td>
+<td style="text-align:left;">
+0.28%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Anti-Eastern Orthodox (Greek, Russian, Etc.)</td>
-<td align="right">2015</td>
-<td align="right">257</td>
-<td align="left">0.12%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Other Christian
+</td>
+<td style="text-align:right;">
+2015
+</td>
+<td style="text-align:right;">
+403
+</td>
+<td style="text-align:left;">
+0.17%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Anti-Other Christian</td>
-<td align="right">2015</td>
-<td align="right">252</td>
-<td align="left">0.12%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Eastern Orthodox (Greek, Russian, Etc.)
+</td>
+<td style="text-align:right;">
+2015
+</td>
+<td style="text-align:right;">
+388
+</td>
+<td style="text-align:left;">
+0.16%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Anti-Hindu</td>
-<td align="right">2015</td>
-<td align="right">66</td>
-<td align="left">0.03%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Mormon
+</td>
+<td style="text-align:right;">
+2015
+</td>
+<td style="text-align:right;">
+106
+</td>
+<td style="text-align:left;">
+0.04%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Anti-Mormon</td>
-<td align="right">2015</td>
-<td align="right">60</td>
-<td align="left">0.03%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Hindu
+</td>
+<td style="text-align:right;">
+2015
+</td>
+<td style="text-align:right;">
+103
+</td>
+<td style="text-align:left;">
+0.04%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Anti-Buddhist</td>
-<td align="right">2015</td>
-<td align="right">49</td>
-<td align="left">0.02%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Buddhist
+</td>
+<td style="text-align:right;">
+2015
+</td>
+<td style="text-align:right;">
+101
+</td>
+<td style="text-align:left;">
+0.04%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Anti-Jehovahs Witness</td>
-<td align="right">2015</td>
-<td align="right">33</td>
-<td align="left">0.02%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Jehovahs Witness
+</td>
+<td style="text-align:right;">
+2015
+</td>
+<td style="text-align:right;">
+51
+</td>
+<td style="text-align:left;">
+0.02%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Anti-Transgender</td>
-<td align="right">2013</td>
-<td align="right">909</td>
-<td align="left">0.42%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Transgender
+</td>
+<td style="text-align:right;">
+2013
+</td>
+<td style="text-align:right;">
+1,500
+</td>
+<td style="text-align:left;">
+0.62%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Anti-Male</td>
-<td align="right">2013</td>
-<td align="right">135</td>
-<td align="left">0.06%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Native Hawaiian Or Other Pacific Islander
+</td>
+<td style="text-align:right;">
+2013
+</td>
+<td style="text-align:right;">
+184
+</td>
+<td style="text-align:left;">
+0.08%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Anti-Native Hawaiian Or Other Pacific Islander</td>
-<td align="right">2013</td>
-<td align="right">106</td>
-<td align="left">0.05%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Male
+</td>
+<td style="text-align:right;">
+2013
+</td>
+<td style="text-align:right;">
+171
+</td>
+<td style="text-align:left;">
+0.07%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Anti-Female</td>
-<td align="right">2012</td>
-<td align="right">285</td>
-<td align="left">0.13%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Gender Non-Conforming
+</td>
+<td style="text-align:right;">
+2012
+</td>
+<td style="text-align:right;">
+514
+</td>
+<td style="text-align:left;">
+0.21%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Anti-Gender Non-Conforming</td>
-<td align="right">2012</td>
-<td align="right">282</td>
-<td align="left">0.13%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Female
+</td>
+<td style="text-align:right;">
+2012
+</td>
+<td style="text-align:right;">
+443
+</td>
+<td style="text-align:left;">
+0.18%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Anti-Mental Disability</td>
-<td align="right">1997</td>
-<td align="right">1,137</td>
-<td align="left">0.52%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Mental Disability
+</td>
+<td style="text-align:right;">
+1997
+</td>
+<td style="text-align:right;">
+1,333
+</td>
+<td style="text-align:left;">
+0.56%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Anti-Physical Disability</td>
-<td align="right">1997</td>
-<td align="right">620</td>
-<td align="left">0.29%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Physical Disability
+</td>
+<td style="text-align:right;">
+1997
+</td>
+<td style="text-align:right;">
+752
+</td>
+<td style="text-align:left;">
+0.31%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Anti-Black</td>
-<td align="right">1991</td>
-<td align="right">74,170</td>
-<td align="left">34.10%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Black
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+81,208
+</td>
+<td style="text-align:left;">
+33.82%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Anti-Jewish</td>
-<td align="right">1991</td>
-<td align="right">27,968</td>
-<td align="left">12.86%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Jewish
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+29,967
+</td>
+<td style="text-align:left;">
+12.48%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Anti-White</td>
-<td align="right">1991</td>
-<td align="right">25,184</td>
-<td align="left">11.58%</td>
+<tr>
+<td style="text-align:left;">
+Anti-White
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+27,360
+</td>
+<td style="text-align:left;">
+11.39%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Anti-Male Homosexual (Gay)</td>
-<td align="right">1991</td>
-<td align="right">21,792</td>
-<td align="left">10.02%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Male Homosexual (Gay)
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+23,862
+</td>
+<td style="text-align:left;">
+9.94%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Anti-Hispanic</td>
-<td align="right">1991</td>
-<td align="right">13,936</td>
-<td align="left">6.41%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Hispanic
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+15,397
+</td>
+<td style="text-align:left;">
+6.41%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Anti-Ethnicity Other Than Hispanic</td>
-<td align="right">1991</td>
-<td align="right">10,752</td>
-<td align="left">4.94%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Ethnicity Other Than Hispanic
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+11,498
+</td>
+<td style="text-align:left;">
+4.79%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (LGBT)</td>
-<td align="right">1991</td>
-<td align="right">6,638</td>
-<td align="left">3.05%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (LGBT)
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+7,815
+</td>
+<td style="text-align:left;">
+3.25%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Anti-Asian</td>
-<td align="right">1991</td>
-<td align="right">6,399</td>
-<td align="left">2.94%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Asian
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+7,671
+</td>
+<td style="text-align:left;">
+3.19%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Anti-Multi-Racial Group</td>
-<td align="right">1991</td>
-<td align="right">5,188</td>
-<td align="left">2.39%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Multi-Racial Group
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+5,652
+</td>
+<td style="text-align:left;">
+2.35%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Anti-Female Homosexual (Lesbian)</td>
-<td align="right">1991</td>
-<td align="right">4,487</td>
-<td align="left">2.06%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Female Homosexual (Lesbian)
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+4,876
+</td>
+<td style="text-align:left;">
+2.03%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Anti-Muslim</td>
-<td align="right">1991</td>
-<td align="right">3,879</td>
-<td align="left">1.78%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Muslim
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+4,206
+</td>
+<td style="text-align:left;">
+1.75%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Anti-Other Religion</td>
-<td align="right">1991</td>
-<td align="right">3,452</td>
-<td align="left">1.59%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Other Religion
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+3,621
+</td>
+<td style="text-align:left;">
+1.51%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Anti-American Indian Or Native Alaskan</td>
-<td align="right">1991</td>
-<td align="right">2,441</td>
-<td align="left">1.12%</td>
+<tr>
+<td style="text-align:left;">
+Anti-American Indian Or Native Alaskan
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+2,781
+</td>
+<td style="text-align:left;">
+1.16%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Anti-Catholic</td>
-<td align="right">1991</td>
-<td align="right">1,611</td>
-<td align="left">0.74%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Catholic
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+1,819
+</td>
+<td style="text-align:left;">
+0.76%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Anti-Arab</td>
-<td align="right">1991</td>
-<td align="right">1,307</td>
-<td align="left">0.60%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Arab
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+1,510
+</td>
+<td style="text-align:left;">
+0.63%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Anti-Protestant</td>
-<td align="right">1991</td>
-<td align="right">1,255</td>
-<td align="left">0.58%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Protestant
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+1,361
+</td>
+<td style="text-align:left;">
+0.57%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Anti-Multi-Religious Group</td>
-<td align="right">1991</td>
-<td align="right">1,230</td>
-<td align="left">0.57%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Multi-Religious Group
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+1,314
+</td>
+<td style="text-align:left;">
+0.55%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Anti-Bisexual</td>
-<td align="right">1991</td>
-<td align="right">579</td>
-<td align="left">0.27%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Bisexual
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+652
+</td>
+<td style="text-align:left;">
+0.27%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Anti-Heterosexual</td>
-<td align="right">1991</td>
-<td align="right">579</td>
-<td align="left">0.27%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Heterosexual
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+615
+</td>
+<td style="text-align:left;">
+0.26%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Anti-Atheism/Agnosticism</td>
-<td align="right">1991</td>
-<td align="right">166</td>
-<td align="left">0.08%</td>
+<tr>
+<td style="text-align:left;">
+Anti-Atheism/Agnosticism
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+201
+</td>
+<td style="text-align:left;">
+0.08%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Total</td>
-<td align="right">NA</td>
-<td align="right">217,506</td>
-<td align="left">100%</td>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+240,108
+</td>
+<td style="text-align:left;">
+100%
+</td>
 </tr>
 </tbody>
 </table>
-<p>2015 is the most year of new bias motivations, as of data through 2020 This year added a number of religions such as Anti-Buddhist, Anti-Sikh, and Anti-Jehovah’s Witness. In 2013, anti-Transgender was added and this is the most common of the bias motivations added since data began in 1991 with 513 hate crimes between 2013-2020 - 0.26% of all hate crimes from 1991-2020 That year also added anti-male and Anti-Native Hawaiian or Other Pacific Islander, which is the most recent racial group added. In 2012, anti-gender non-conforming and anti-female were included, while in 1997 both anti-mental and anti-physical disability were added. In part due to having fewer years of data available, these newer bias motivations make up a small percent of total hate crimes, accounting for ~1.4%.</p>
+<p>2015 is the most year of new bias motivations, as of data through 2020 This year added a number of religions such as Anti-Buddhist, Anti-Sikh, and Anti-Jehovah’s Witness. In 2013, anti-Transgender was added and this is the most common of the bias motivations added since data began in 1991 with 513 hate crimes between 2013-2020 - 0.26% of all hate crimes from 1991-2022 That year also added anti-male and Anti-Native Hawaiian or Other Pacific Islander, which is the most recent racial group added. In 2012, anti-gender non-conforming and anti-female were included, while in 1997 both anti-mental and anti-physical disability were added. In part due to having fewer years of data available, these newer bias motivations make up a small percent of total hate crimes, accounting for ~1.4%.</p>
 <p>The original hate crimes - that is, those in the data in 1991 when this dataset was released - are far more common. The most common bias motivation is anti-Black at 34% of hate crimes, anti-Jewish at 13%, anti-White at 12%, anti-male homosexual (gay) at 10%, anti-Hispanic at 6%, and anti-ethnicity other than Hispanic (this group means a crime against an ethnic group that isn’t Hispanic, though it is occasionally reported as anti-non-Hispanic which is incorrect.) at 5%. All other bias motivations are less than 5% of hate crimes and consist of a variety of ethnic, racial, religious, or sexual orientation. Some hate crimes can potentially fall in multiple categories. For example, there is a bias motivation of “anti-male homosexual (gay)” and of “anti-lesbian, gay, bisexual, or transgender, mixed group (LGBT)” so there is some overlap between them.</p>
 </div>
 <div id="the-crime-that-occurred" class="section level3 hasAnchor" number="9.2.2">
 <h3><span class="header-section-number">9.2.2</span> The crime that occurred<a href="hate_crimes.html#the-crime-that-occurred" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The “crime” part of hate crimes is which criminal offense occurred during the incident. A hateful act where the action is not one of the crimes that the FBI records would not be considered a hate crime. This is likely most common when considering something like a person calling someone by a hateful slur (e.g. “You’re a [slur]”, “go back to your own country”) but where the action is not technically a crime. Another layer of difficulty in using this data is that not all crimes that the FBI includes were initially included when data become available in 1991. Every several years the FBI adds new crimes to be included in this data. Table <a href="hate_crimes.html#tab:hateOffense">9.2</a> shows each crime in the data, the first year that this crime was reported, the total number of these crimes reported between 1991 and 2020, and the percent of all incidents this crime makes up.<a href="#fn49" class="footnote-ref" id="fnref49"><sup>49</sup></a> This table is sorted with the most recent years first, and within year by how common the crime was.</p>
 <p>Nearly all hate crimes are vandalism/destruction of property (31%), intimidation (30%), and simple assault (20%) or aggravated assault (11%) with no remaining crime making up more than 2% of total hate crimes.</p>
-<table>
-<caption><span id="tab:hateOffense">Table 9.2: </span>The offense type for hate crime incidents. In incidents with multiple offense types, this shows only the first offense type recorded.</caption>
-<colgroup>
-<col width="50%" />
-<col width="19%" />
-<col width="15%" />
-<col width="15%" />
-</colgroup>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:hateOffense">Table 9.2: </span>The offense type for hate crime incidents. In incidents with multiple offense types, this shows only the first offense type recorded.
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Offense</th>
-<th align="right">First Year Reported</th>
-<th align="right"># of Incidents</th>
-<th align="left">% of Incidents</th>
+<tr>
+<th style="text-align:left;">
+Offense
+</th>
+<th style="text-align:right;">
+First Year Reported
+</th>
+<th style="text-align:right;">
+# of Incidents
+</th>
+<th style="text-align:left;">
+% of Incidents
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Human Trafficking - Commercial Sex Acts</td>
-<td align="right">2017</td>
-<td align="right">2</td>
-<td align="left">0.00%</td>
+<tr>
+<td style="text-align:left;">
+Human Trafficking - Involuntary Servitude
+</td>
+<td style="text-align:right;">
+2021
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+0.00%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Fraud-Other</td>
-<td align="right">2016</td>
-<td align="right">45</td>
-<td align="left">0.02%</td>
+<tr>
+<td style="text-align:left;">
+Unknown
+</td>
+<td style="text-align:right;">
+2018
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+0.01%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Bribery</td>
-<td align="right">2014</td>
-<td align="right">2</td>
-<td align="left">0.00%</td>
+<tr>
+<td style="text-align:left;">
+Human Trafficking - Commercial Sex Acts
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+0.00%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Assisting Or Promoting Prostitution</td>
-<td align="right">2013</td>
-<td align="right">4</td>
-<td align="left">0.00%</td>
+<tr>
+<td style="text-align:left;">
+Fraud-Other
+</td>
+<td style="text-align:right;">
+2016
+</td>
+<td style="text-align:right;">
+103
+</td>
+<td style="text-align:left;">
+0.04%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Purchasing Prostitution</td>
-<td align="right">2013</td>
-<td align="right">2</td>
-<td align="left">0.00%</td>
+<tr>
+<td style="text-align:left;">
+Bribery
+</td>
+<td style="text-align:right;">
+2014
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+0.00%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Wire Fraud</td>
-<td align="right">2006</td>
-<td align="right">20</td>
-<td align="left">0.01%</td>
+<tr>
+<td style="text-align:left;">
+Assisting Or Promoting Prostitution
+</td>
+<td style="text-align:right;">
+2013
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+0.00%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Impersonation</td>
-<td align="right">2001</td>
-<td align="right">129</td>
-<td align="left">0.06%</td>
+<tr>
+<td style="text-align:left;">
+Purchasing Prostitution
+</td>
+<td style="text-align:right;">
+2013
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+0.00%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Prostitution</td>
-<td align="right">2001</td>
-<td align="right">13</td>
-<td align="left">0.01%</td>
+<tr>
+<td style="text-align:left;">
+Wire Fraud
+</td>
+<td style="text-align:right;">
+2006
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:left;">
+0.01%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Statutory Rape</td>
-<td align="right">1999</td>
-<td align="right">17</td>
-<td align="left">0.01%</td>
+<tr>
+<td style="text-align:left;">
+Impersonation
+</td>
+<td style="text-align:right;">
+2001
+</td>
+<td style="text-align:right;">
+152
+</td>
+<td style="text-align:left;">
+0.06%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Theft From Coin-Operated Machine Or Device</td>
-<td align="right">1999</td>
-<td align="right">12</td>
-<td align="left">0.01%</td>
+<tr>
+<td style="text-align:left;">
+Prostitution
+</td>
+<td style="text-align:right;">
+2001
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+0.01%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Negligent Manslaughter</td>
-<td align="right">1999</td>
-<td align="right">7</td>
-<td align="left">0.00%</td>
+<tr>
+<td style="text-align:left;">
+Statutory Rape
+</td>
+<td style="text-align:right;">
+1999
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:left;">
+0.01%
+</td>
 </tr>
-<tr class="even">
-<td align="left">False Pretenses/Swindle/Confidence Game</td>
-<td align="right">1997</td>
-<td align="right">282</td>
-<td align="left">0.13%</td>
+<tr>
+<td style="text-align:left;">
+Theft From Coin-Operated Machine Or Device
+</td>
+<td style="text-align:right;">
+1999
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:left;">
+0.01%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Extortion/Blackmail</td>
-<td align="right">1997</td>
-<td align="right">48</td>
-<td align="left">0.02%</td>
+<tr>
+<td style="text-align:left;">
+Negligent Manslaughter
+</td>
+<td style="text-align:right;">
+1999
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+0.00%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Incest</td>
-<td align="right">1997</td>
-<td align="right">7</td>
-<td align="left">0.00%</td>
+<tr>
+<td style="text-align:left;">
+False Pretenses/Swindle/Confidence Game
+</td>
+<td style="text-align:right;">
+1997
+</td>
+<td style="text-align:right;">
+353
+</td>
+<td style="text-align:left;">
+0.15%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Stolen Property Offenses - Receiving, Selling, Etc.</td>
-<td align="right">1996</td>
-<td align="right">112</td>
-<td align="left">0.05%</td>
+<tr>
+<td style="text-align:left;">
+Extortion/Blackmail
+</td>
+<td style="text-align:right;">
+1997
+</td>
+<td style="text-align:right;">
+62
+</td>
+<td style="text-align:left;">
+0.03%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Sexual Assault With An Object</td>
-<td align="right">1996</td>
-<td align="right">37</td>
-<td align="left">0.02%</td>
+<tr>
+<td style="text-align:left;">
+Incest
+</td>
+<td style="text-align:right;">
+1997
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+0.00%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Pocket-Picking</td>
-<td align="right">1996</td>
-<td align="right">23</td>
-<td align="left">0.01%</td>
+<tr>
+<td style="text-align:left;">
+Stolen Property Offenses - Receiving, Selling, Etc.
+</td>
+<td style="text-align:right;">
+1996
+</td>
+<td style="text-align:right;">
+140
+</td>
+<td style="text-align:left;">
+0.06%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Welfare Fraud</td>
-<td align="right">1996</td>
-<td align="right">7</td>
-<td align="left">0.00%</td>
+<tr>
+<td style="text-align:left;">
+Sexual Assault With An Object
+</td>
+<td style="text-align:right;">
+1996
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:left;">
+0.02%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Drug Equipment Violations</td>
-<td align="right">1995</td>
-<td align="right">305</td>
-<td align="left">0.14%</td>
+<tr>
+<td style="text-align:left;">
+Pocket-Picking
+</td>
+<td style="text-align:right;">
+1996
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:left;">
+0.01%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Credit Card/Atm Fraud</td>
-<td align="right">1995</td>
-<td align="right">149</td>
-<td align="left">0.07%</td>
+<tr>
+<td style="text-align:left;">
+Welfare Fraud
+</td>
+<td style="text-align:right;">
+1996
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+0.00%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Forcible Sodomy</td>
-<td align="right">1995</td>
-<td align="right">63</td>
-<td align="left">0.03%</td>
+<tr>
+<td style="text-align:left;">
+Drug Equipment Violations
+</td>
+<td style="text-align:right;">
+1995
+</td>
+<td style="text-align:right;">
+391
+</td>
+<td style="text-align:left;">
+0.16%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Embezzlement</td>
-<td align="right">1995</td>
-<td align="right">59</td>
-<td align="left">0.03%</td>
+<tr>
+<td style="text-align:left;">
+Credit Card/Atm Fraud
+</td>
+<td style="text-align:right;">
+1995
+</td>
+<td style="text-align:right;">
+182
+</td>
+<td style="text-align:left;">
+0.08%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Pornography/Obscene Material</td>
-<td align="right">1995</td>
-<td align="right">56</td>
-<td align="left">0.03%</td>
+<tr>
+<td style="text-align:left;">
+Forcible Sodomy
+</td>
+<td style="text-align:right;">
+1995
+</td>
+<td style="text-align:right;">
+82
+</td>
+<td style="text-align:left;">
+0.03%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Purse-Snatching</td>
-<td align="right">1995</td>
-<td align="right">26</td>
-<td align="left">0.01%</td>
+<tr>
+<td style="text-align:left;">
+Pornography/Obscene Material
+</td>
+<td style="text-align:right;">
+1995
+</td>
+<td style="text-align:right;">
+81
+</td>
+<td style="text-align:left;">
+0.03%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Theft From Building</td>
-<td align="right">1994</td>
-<td align="right">534</td>
-<td align="left">0.25%</td>
+<tr>
+<td style="text-align:left;">
+Embezzlement
+</td>
+<td style="text-align:right;">
+1995
+</td>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:left;">
+0.03%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Kidnapping/Abduction</td>
-<td align="right">1994</td>
-<td align="right">114</td>
-<td align="left">0.05%</td>
+<tr>
+<td style="text-align:left;">
+Purse-Snatching
+</td>
+<td style="text-align:right;">
+1995
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:left;">
+0.01%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">All Other Larceny</td>
-<td align="right">1993</td>
-<td align="right">2,053</td>
-<td align="left">0.94%</td>
+<tr>
+<td style="text-align:left;">
+Theft From Building
+</td>
+<td style="text-align:right;">
+1994
+</td>
+<td style="text-align:right;">
+617
+</td>
+<td style="text-align:left;">
+0.26%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Drug/Narcotic Violations</td>
-<td align="right">1993</td>
-<td align="right">1,130</td>
-<td align="left">0.52%</td>
+<tr>
+<td style="text-align:left;">
+Kidnapping/Abduction
+</td>
+<td style="text-align:right;">
+1994
+</td>
+<td style="text-align:right;">
+152
+</td>
+<td style="text-align:left;">
+0.06%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Theft From Motor Vehicle</td>
-<td align="right">1993</td>
-<td align="right">734</td>
-<td align="left">0.34%</td>
+<tr>
+<td style="text-align:left;">
+All Other Larceny
+</td>
+<td style="text-align:right;">
+1993
+</td>
+<td style="text-align:right;">
+2,584
+</td>
+<td style="text-align:left;">
+1.08%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Shoplifting</td>
-<td align="right">1993</td>
-<td align="right">641</td>
-<td align="left">0.29%</td>
+<tr>
+<td style="text-align:left;">
+Drug/Narcotic Violations
+</td>
+<td style="text-align:right;">
+1993
+</td>
+<td style="text-align:right;">
+1,380
+</td>
+<td style="text-align:left;">
+0.57%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Weapon Law Violations</td>
-<td align="right">1993</td>
-<td align="right">391</td>
-<td align="left">0.18%</td>
+<tr>
+<td style="text-align:left;">
+Theft From Motor Vehicle
+</td>
+<td style="text-align:right;">
+1993
+</td>
+<td style="text-align:right;">
+884
+</td>
+<td style="text-align:left;">
+0.37%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Counterfeiting/Forgery</td>
-<td align="right">1993</td>
-<td align="right">199</td>
-<td align="left">0.09%</td>
+<tr>
+<td style="text-align:left;">
+Shoplifting
+</td>
+<td style="text-align:right;">
+1993
+</td>
+<td style="text-align:right;">
+771
+</td>
+<td style="text-align:left;">
+0.32%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Theft of Motor Vehicle Parts/Accessories</td>
-<td align="right">1993</td>
-<td align="right">197</td>
-<td align="left">0.09%</td>
+<tr>
+<td style="text-align:left;">
+Weapon Law Violations
+</td>
+<td style="text-align:right;">
+1993
+</td>
+<td style="text-align:right;">
+469
+</td>
+<td style="text-align:left;">
+0.20%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Forcible Fondling - Indecent Liberties/Child Molest</td>
-<td align="right">1993</td>
-<td align="right">177</td>
-<td align="left">0.08%</td>
+<tr>
+<td style="text-align:left;">
+Theft of Motor Vehicle Parts/Accessories
+</td>
+<td style="text-align:right;">
+1993
+</td>
+<td style="text-align:right;">
+249
+</td>
+<td style="text-align:left;">
+0.10%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Motor Vehicle Theft</td>
-<td align="right">1992</td>
-<td align="right">469</td>
-<td align="left">0.22%</td>
+<tr>
+<td style="text-align:left;">
+Counterfeiting/Forgery
+</td>
+<td style="text-align:right;">
+1993
+</td>
+<td style="text-align:right;">
+245
+</td>
+<td style="text-align:left;">
+0.10%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Destruction of Property/Vandalism</td>
-<td align="right">1991</td>
-<td align="right">67,114</td>
-<td align="left">30.86%</td>
+<tr>
+<td style="text-align:left;">
+Forcible Fondling - Indecent Liberties/Child Molest
+</td>
+<td style="text-align:right;">
+1993
+</td>
+<td style="text-align:right;">
+225
+</td>
+<td style="text-align:left;">
+0.09%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Intimidation</td>
-<td align="right">1991</td>
-<td align="right">65,062</td>
-<td align="left">29.91%</td>
+<tr>
+<td style="text-align:left;">
+Motor Vehicle Theft
+</td>
+<td style="text-align:right;">
+1992
+</td>
+<td style="text-align:right;">
+577
+</td>
+<td style="text-align:left;">
+0.24%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Simple Assault</td>
-<td align="right">1991</td>
-<td align="right">42,701</td>
-<td align="left">19.63%</td>
+<tr>
+<td style="text-align:left;">
+Destruction of Property/Vandalism
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+72,489
+</td>
+<td style="text-align:left;">
+30.19%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Aggravated Assault</td>
-<td align="right">1991</td>
-<td align="right">24,164</td>
-<td align="left">11.11%</td>
+<tr>
+<td style="text-align:left;">
+Intimidation
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+71,583
+</td>
+<td style="text-align:left;">
+29.81%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Robbery</td>
-<td align="right">1991</td>
-<td align="right">4,002</td>
-<td align="left">1.84%</td>
+<tr>
+<td style="text-align:left;">
+Simple Assault
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+47,917
+</td>
+<td style="text-align:left;">
+19.96%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Burglary/Breaking And Entering</td>
-<td align="right">1991</td>
-<td align="right">3,612</td>
-<td align="left">1.66%</td>
+<tr>
+<td style="text-align:left;">
+Aggravated Assault
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+26,879
+</td>
+<td style="text-align:left;">
+11.19%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Arson</td>
-<td align="right">1991</td>
-<td align="right">1,350</td>
-<td align="left">0.62%</td>
+<tr>
+<td style="text-align:left;">
+Robbery
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+4,339
+</td>
+<td style="text-align:left;">
+1.81%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Theft-Other</td>
-<td align="right">1991</td>
-<td align="right">851</td>
-<td align="left">0.39%</td>
+<tr>
+<td style="text-align:left;">
+Burglary/Breaking And Entering
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+3,890
+</td>
+<td style="text-align:left;">
+1.62%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Murder/Non-Negligent Manslaughter</td>
-<td align="right">1991</td>
-<td align="right">303</td>
-<td align="left">0.14%</td>
+<tr>
+<td style="text-align:left;">
+Arson
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+1,456
+</td>
+<td style="text-align:left;">
+0.61%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Forcible Rape</td>
-<td align="right">1991</td>
-<td align="right">275</td>
-<td align="left">0.13%</td>
+<tr>
+<td style="text-align:left;">
+Theft-Other
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+917
+</td>
+<td style="text-align:left;">
+0.38%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Total</td>
-<td align="right">NA</td>
-<td align="right">217,500</td>
-<td align="left">100%</td>
+<tr>
+<td style="text-align:left;">
+Murder/Non-Negligent Manslaughter
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+330
+</td>
+<td style="text-align:left;">
+0.14%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Forcible Rape
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+314
+</td>
+<td style="text-align:left;">
+0.13%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+240,108
+</td>
+<td style="text-align:left;">
+100%
+</td>
 </tr>
 </tbody>
 </table>
@@ -936,298 +1729,670 @@ Figure 9.7: The number of offenses per hate crime incident.
 <h3><span class="header-section-number">9.2.3</span> The location of the crime<a href="hate_crimes.html#the-location-of-the-crime" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This data is interesting because it includes the location - in categories for types of places, not actual location in the city - of the incident. This is important since the type of location can be a factor in whether the incident is classified as a hate crime. For example, spray paint on a synagogue or a mosque is much more likely to be a hate crime than spray paint on a wall of an abandoned building. Table <a href="hate_crimes.html#tab:hateLocations">9.3</a> shows the locations of hate crimes sorted by the year that location was first included in the data and then by frequency of hate crimes. Each hate crime incident can have multiple locations since each offense can have its own incident, but in most cases (96.6%) a hate crime only has a single location.</p>
 <p>As with the crime and the bias motivation, the available locations have increased as time went on, though these newer locations are relatively uncommon. One important change in location is that starting in 2010 the location of school/college was split to have one location be for elementary and high schools and another location be for colleges and universities. The majority of hate crimes occur in the victim’s home (30%), on a road or alley (19%), in an unknown location (13.6%), and in a parking lot or parking garage. All other locations occur in fewer than 5% of hate crimes.</p>
-<table>
-<caption><span id="tab:hateLocations">Table 9.3: </span>The location of hate crime incidents. In incidents with multiple locations, this shows only the first location recorded.</caption>
-<colgroup>
-<col width="40%" />
-<col width="22%" />
-<col width="18%" />
-<col width="18%" />
-</colgroup>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:hateLocations">Table 9.3: </span>The location of hate crime incidents. In incidents with multiple locations, this shows only the first location recorded.
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Location</th>
-<th align="right">First Year Reported</th>
-<th align="right"># of Incidents</th>
-<th align="left">% of Incidents</th>
+<tr>
+<th style="text-align:left;">
+Location
+</th>
+<th style="text-align:right;">
+First Year Reported
+</th>
+<th style="text-align:right;">
+# of Incidents
+</th>
+<th style="text-align:left;">
+% of Incidents
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Military Installation</td>
-<td align="right">2015</td>
-<td align="right">4</td>
-<td align="left">0.00%</td>
+<tr>
+<td style="text-align:left;">
+Military Installation
+</td>
+<td style="text-align:right;">
+2015
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+0.00%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Community Center</td>
-<td align="right">2013</td>
-<td align="right">130</td>
-<td align="left">0.06%</td>
+<tr>
+<td style="text-align:left;">
+Community Center
+</td>
+<td style="text-align:right;">
+2013
+</td>
+<td style="text-align:right;">
+215
+</td>
+<td style="text-align:left;">
+0.09%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Dock/Wharf/Freight/Modal Terminal</td>
-<td align="right">2012</td>
-<td align="right">22</td>
-<td align="left">0.01%</td>
+<tr>
+<td style="text-align:left;">
+Dock/Wharf/Freight/Modal Terminal
+</td>
+<td style="text-align:right;">
+2012
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:left;">
+0.02%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Shelter - Mission/Homeless</td>
-<td align="right">2011</td>
-<td align="right">127</td>
-<td align="left">0.06%</td>
+<tr>
+<td style="text-align:left;">
+Shelter - Mission/Homeless
+</td>
+<td style="text-align:right;">
+2011
+</td>
+<td style="text-align:right;">
+169
+</td>
+<td style="text-align:left;">
+0.07%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Rest Area</td>
-<td align="right">2011</td>
-<td align="right">58</td>
-<td align="left">0.03%</td>
+<tr>
+<td style="text-align:left;">
+Arena/Stadium/Fairgrounds/Coliseum
+</td>
+<td style="text-align:right;">
+2011
+</td>
+<td style="text-align:right;">
+88
+</td>
+<td style="text-align:left;">
+0.04%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Auto Dealership New/Used</td>
-<td align="right">2011</td>
-<td align="right">57</td>
-<td align="left">0.03%</td>
+<tr>
+<td style="text-align:left;">
+Auto Dealership New/Used
+</td>
+<td style="text-align:right;">
+2011
+</td>
+<td style="text-align:right;">
+82
+</td>
+<td style="text-align:left;">
+0.03%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Arena/Stadium/Fairgrounds/Coliseum</td>
-<td align="right">2011</td>
-<td align="right">54</td>
-<td align="left">0.02%</td>
+<tr>
+<td style="text-align:left;">
+Abandoned/Condemned Structure
+</td>
+<td style="text-align:right;">
+2011
+</td>
+<td style="text-align:right;">
+75
+</td>
+<td style="text-align:left;">
+0.03%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Abandoned/Condemned Structure</td>
-<td align="right">2011</td>
-<td align="right">54</td>
-<td align="left">0.02%</td>
+<tr>
+<td style="text-align:left;">
+Rest Area
+</td>
+<td style="text-align:right;">
+2011
+</td>
+<td style="text-align:right;">
+65
+</td>
+<td style="text-align:left;">
+0.03%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Daycare Facility</td>
-<td align="right">2011</td>
-<td align="right">33</td>
-<td align="left">0.02%</td>
+<tr>
+<td style="text-align:left;">
+Daycare Facility
+</td>
+<td style="text-align:right;">
+2011
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:left;">
+0.02%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Farm Facility</td>
-<td align="right">2011</td>
-<td align="right">25</td>
-<td align="left">0.01%</td>
+<tr>
+<td style="text-align:left;">
+Amusement Park
+</td>
+<td style="text-align:right;">
+2011
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:left;">
+0.02%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Amusement Park</td>
-<td align="right">2011</td>
-<td align="right">24</td>
-<td align="left">0.01%</td>
+<tr>
+<td style="text-align:left;">
+Farm Facility
+</td>
+<td style="text-align:right;">
+2011
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:left;">
+0.01%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Tribal Lands</td>
-<td align="right">2011</td>
-<td align="right">12</td>
-<td align="left">0.01%</td>
+<tr>
+<td style="text-align:left;">
+Tribal Lands
+</td>
+<td style="text-align:right;">
+2011
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:left;">
+0.01%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Atm Separate From Bank</td>
-<td align="right">2011</td>
-<td align="right">12</td>
-<td align="left">0.01%</td>
+<tr>
+<td style="text-align:left;">
+Atm Separate From Bank
+</td>
+<td style="text-align:right;">
+2011
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:left;">
+0.01%
+</td>
 </tr>
-<tr class="even">
-<td align="left">School - Elementary/Secondary</td>
-<td align="right">2010</td>
-<td align="right">2,619</td>
-<td align="left">1.21%</td>
+<tr>
+<td style="text-align:left;">
+School - Elementary/Secondary
+</td>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:right;">
+3,919
+</td>
+<td style="text-align:left;">
+1.64%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">School - College/University</td>
-<td align="right">2010</td>
-<td align="right">1,612</td>
-<td align="left">0.74%</td>
+<tr>
+<td style="text-align:left;">
+School - College/University
+</td>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:right;">
+2,068
+</td>
+<td style="text-align:left;">
+0.86%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Park/Playground</td>
-<td align="right">2010</td>
-<td align="right">1,200</td>
-<td align="left">0.55%</td>
+<tr>
+<td style="text-align:left;">
+Park/Playground
+</td>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:right;">
+1,883
+</td>
+<td style="text-align:left;">
+0.79%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Shopping Mall</td>
-<td align="right">2010</td>
-<td align="right">190</td>
-<td align="left">0.09%</td>
+<tr>
+<td style="text-align:left;">
+Shopping Mall
+</td>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:right;">
+268
+</td>
+<td style="text-align:left;">
+0.11%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Industrial Site</td>
-<td align="right">2010</td>
-<td align="right">103</td>
-<td align="left">0.05%</td>
+<tr>
+<td style="text-align:left;">
+Industrial Site
+</td>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:right;">
+135
+</td>
+<td style="text-align:left;">
+0.06%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Camp/Campground</td>
-<td align="right">2010</td>
-<td align="right">45</td>
-<td align="left">0.02%</td>
+<tr>
+<td style="text-align:left;">
+Camp/Campground
+</td>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:right;">
+77
+</td>
+<td style="text-align:left;">
+0.03%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Gambling Facility/Casino/Race Track</td>
-<td align="right">2010</td>
-<td align="right">33</td>
-<td align="left">0.02%</td>
+<tr>
+<td style="text-align:left;">
+Gambling Facility/Casino/Race Track
+</td>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:right;">
+69
+</td>
+<td style="text-align:left;">
+0.03%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Residence/Home</td>
-<td align="right">1991</td>
-<td align="right">64,492</td>
-<td align="left">29.68%</td>
+<tr>
+<td style="text-align:left;">
+Residence/Home
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+70,736
+</td>
+<td style="text-align:left;">
+29.51%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Highway/Road/Alley</td>
-<td align="right">1991</td>
-<td align="right">41,272</td>
-<td align="left">18.99%</td>
+<tr>
+<td style="text-align:left;">
+Highway/Road/Alley
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+45,004
+</td>
+<td style="text-align:left;">
+18.78%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Other/Unknown</td>
-<td align="right">1991</td>
-<td align="right">29,005</td>
-<td align="left">13.35%</td>
+<tr>
+<td style="text-align:left;">
+Other/Unknown
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+31,218
+</td>
+<td style="text-align:left;">
+13.03%
+</td>
 </tr>
-<tr class="even">
-<td align="left">School/College</td>
-<td align="right">1991</td>
-<td align="right">17,335</td>
-<td align="left">7.98%</td>
+<tr>
+<td style="text-align:left;">
+School/College
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+17,550
+</td>
+<td style="text-align:left;">
+7.32%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Parking Lot/Garage</td>
-<td align="right">1991</td>
-<td align="right">12,414</td>
-<td align="left">5.71%</td>
+<tr>
+<td style="text-align:left;">
+Parking Lot/Garage
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+13,786
+</td>
+<td style="text-align:left;">
+5.75%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Church/Synagogue/Temple</td>
-<td align="right">1991</td>
-<td align="right">8,174</td>
-<td align="left">3.76%</td>
+<tr>
+<td style="text-align:left;">
+Church/Synagogue/Temple
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+8,926
+</td>
+<td style="text-align:left;">
+3.72%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Commercial/Office Building</td>
-<td align="right">1991</td>
-<td align="right">4,902</td>
-<td align="left">2.26%</td>
+<tr>
+<td style="text-align:left;">
+Commercial/Office Building
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+5,403
+</td>
+<td style="text-align:left;">
+2.25%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Restaurant</td>
-<td align="right">1991</td>
-<td align="right">4,448</td>
-<td align="left">2.05%</td>
+<tr>
+<td style="text-align:left;">
+Restaurant
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+5,099
+</td>
+<td style="text-align:left;">
+2.13%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Bar/Nightclub</td>
-<td align="right">1991</td>
-<td align="right">3,769</td>
-<td align="left">1.73%</td>
+<tr>
+<td style="text-align:left;">
+Bar/Nightclub
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+4,088
+</td>
+<td style="text-align:left;">
+1.71%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Government/Public Building</td>
-<td align="right">1991</td>
-<td align="right">3,191</td>
-<td align="left">1.47%</td>
+<tr>
+<td style="text-align:left;">
+Government/Public Building
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+3,545
+</td>
+<td style="text-align:left;">
+1.48%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Convenience Store</td>
-<td align="right">1991</td>
-<td align="right">2,938</td>
-<td align="left">1.35%</td>
+<tr>
+<td style="text-align:left;">
+Convenience Store
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+3,357
+</td>
+<td style="text-align:left;">
+1.40%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Specialty Store - Tv, Fur, Etc.</td>
-<td align="right">1991</td>
-<td align="right">2,533</td>
-<td align="left">1.17%</td>
+<tr>
+<td style="text-align:left;">
+Specialty Store - Tv, Fur, Etc.
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+2,795
+</td>
+<td style="text-align:left;">
+1.17%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Air/Bus/Train Terminal</td>
-<td align="right">1991</td>
-<td align="right">2,180</td>
-<td align="left">1.00%</td>
+<tr>
+<td style="text-align:left;">
+Air/Bus/Train Terminal
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+2,531
+</td>
+<td style="text-align:left;">
+1.06%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Field/Woods</td>
-<td align="right">1991</td>
-<td align="right">2,055</td>
-<td align="left">0.95%</td>
+<tr>
+<td style="text-align:left;">
+Service/Gas Station
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+2,287
+</td>
+<td style="text-align:left;">
+0.95%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Service/Gas Station</td>
-<td align="right">1991</td>
-<td align="right">2,020</td>
-<td align="left">0.93%</td>
+<tr>
+<td style="text-align:left;">
+Grocery/Supermarket
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+2,178
+</td>
+<td style="text-align:left;">
+0.91%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Grocery/Supermarket</td>
-<td align="right">1991</td>
-<td align="right">1,892</td>
-<td align="left">0.87%</td>
+<tr>
+<td style="text-align:left;">
+Field/Woods
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+2,169
+</td>
+<td style="text-align:left;">
+0.91%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Department/Discount Store</td>
-<td align="right">1991</td>
-<td align="right">1,754</td>
-<td align="left">0.81%</td>
+<tr>
+<td style="text-align:left;">
+Department/Discount Store
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+2,024
+</td>
+<td style="text-align:left;">
+0.84%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Drug Store/Doctors Office/Hospital</td>
-<td align="right">1991</td>
-<td align="right">1,662</td>
-<td align="left">0.76%</td>
+<tr>
+<td style="text-align:left;">
+Drug Store/Doctors Office/Hospital
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+1,967
+</td>
+<td style="text-align:left;">
+0.82%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Jail/Prison</td>
-<td align="right">1991</td>
-<td align="right">1,430</td>
-<td align="left">0.66%</td>
+<tr>
+<td style="text-align:left;">
+Jail/Prison
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+1,726
+</td>
+<td style="text-align:left;">
+0.72%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Hotel/Motel</td>
-<td align="right">1991</td>
-<td align="right">1,383</td>
-<td align="left">0.64%</td>
+<tr>
+<td style="text-align:left;">
+Hotel/Motel
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+1,618
+</td>
+<td style="text-align:left;">
+0.68%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Construction Site</td>
-<td align="right">1991</td>
-<td align="right">576</td>
-<td align="left">0.27%</td>
+<tr>
+<td style="text-align:left;">
+Construction Site
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+643
+</td>
+<td style="text-align:left;">
+0.27%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Bank/Savings And Loan</td>
-<td align="right">1991</td>
-<td align="right">479</td>
-<td align="left">0.22%</td>
+<tr>
+<td style="text-align:left;">
+Bank/Savings And Loan
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+556
+</td>
+<td style="text-align:left;">
+0.23%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Liquor Store</td>
-<td align="right">1991</td>
-<td align="right">408</td>
-<td align="left">0.19%</td>
+<tr>
+<td style="text-align:left;">
+Liquor Store
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+459
+</td>
+<td style="text-align:left;">
+0.19%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Lake/Waterway</td>
-<td align="right">1991</td>
-<td align="right">367</td>
-<td align="left">0.17%</td>
+<tr>
+<td style="text-align:left;">
+Lake/Waterway
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+416
+</td>
+<td style="text-align:left;">
+0.17%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Rental Storage Facility</td>
-<td align="right">1991</td>
-<td align="right">220</td>
-<td align="left">0.10%</td>
+<tr>
+<td style="text-align:left;">
+Rental Storage Facility
+</td>
+<td style="text-align:right;">
+1991
+</td>
+<td style="text-align:right;">
+257
+</td>
+<td style="text-align:left;">
+0.11%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Total</td>
-<td align="right">NA</td>
-<td align="right">217,313</td>
-<td align="left">100%</td>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+239,665
+</td>
+<td style="text-align:left;">
+100%
+</td>
 </tr>
 </tbody>
 </table>
@@ -1235,18 +2400,18 @@ Figure 9.7: The number of offenses per hate crime incident.
 <div id="number-and-race-of-offenders" class="section level3 hasAnchor" number="9.2.4">
 <h3><span class="header-section-number">9.2.4</span> Number and race of offenders<a href="hate_crimes.html#number-and-race-of-offenders" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are two variables that have information about the people who commit the hate crime: the number of offenders and the race of the offenders (as a single value with the race of the group if all are of the same race or it will say a “multi-racial” group). Unfortunately, important information like the age of the offenders, their criminal history, their relationship to the victim, their gender, or whether they are arrested are completely unavailable in this dataset.</p>
-<p>When the police do not have any information about the number of offenders (which is common in cases of property crimes such as vandalism but rare in violent crimes), this data considers that to have zero offenders. The zero is just a placeholder that means that the police have no idea how many offenders there are, not that they think there were actually no offenders. Figure <a href="hate_crimes.html#fig:hateCrimeOffenderNumber">9.8</a> shows the percent of hate crimes from 1991-2020 that have each number of offenders recorded. In the actual data it says the actual number of offenders, with the largest group in the current data going to 99 offenders - in this graph I group 10 or more offenders together for simplicity. I also relabel zero offenders as “Unknown” offenders since that’s more accurate. The most common number of offenders per hate crime is one offender, at about 46% of hate crimes from 1991-2020 having only one offender. This drops sharply to 9% of hate crimes having 2 offenders and continues to drop as the number of offenders increase. However, about a third (36.8%) of hate crimes have an unknown number of offenders.</p>
+<p>When the police do not have any information about the number of offenders (which is common in cases of property crimes such as vandalism but rare in violent crimes), this data considers that to have zero offenders. The zero is just a placeholder that means that the police have no idea how many offenders there are, not that they think there were actually no offenders. Figure <a href="hate_crimes.html#fig:hateCrimeOffenderNumber">9.8</a> shows the percent of hate crimes from 1991-2022 that have each number of offenders recorded. In the actual data it says the actual number of offenders, with the largest group in the current data going to 99 offenders - in this graph I group 10 or more offenders together for simplicity. I also relabel zero offenders as “Unknown” offenders since that’s more accurate. The most common number of offenders per hate crime is one offender, at about 46% of hate crimes from 1991-2022 having only one offender. This drops sharply to 9% of hate crimes having 2 offenders and continues to drop as the number of offenders increase. However, about a third (36.8%) of hate crimes have an unknown number of offenders.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateCrimeOffenderNumber"></span>
-<img src="hate_crime_files/figure-html/hateCrimeOffenderNumber-1.png" alt="The race of offenders, as a group, for hate crime incidents, 1991-2020." width="90%" />
+<img src="09_hate_crime_files/figure-html/hateCrimeOffenderNumber-1.png" alt="The race of offenders, as a group, for hate crime incidents, 1991-2022." width="90%" />
 <p class="caption">
-Figure 9.8: The race of offenders, as a group, for hate crime incidents, 1991-2020.
+Figure 9.8: The race of offenders, as a group, for hate crime incidents, 1991-2022.
 </p>
 </div>
 <p>The data also includes the race of the offenders as a group, though not the ethnicity (Hispanic or non-Hispanic) of the offenders. In cases where there are multiple races among offenders, that will be classified as a “multi-racial group”. As shown in Figure <a href="hate_crimes.html#fig:hateCrimeOffenderNumber">9.8</a> The most common racial group is “unknown” since the police do not know the race of the offenders. Then are White offenders at nearly 40% of hate crimes followed by Black offenders at nearly 13% of hate crimes. The remaining racial groups are rare with about 2% of hate crimes being committed by a multi-racial group of offenders and 0.72% of hate crimes committed by Asian or Pacific Islander offenders and 0.54% committed by American Indian or Native Alaskan offenders.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateCrimeOffenderRace"></span>
-<img src="hate_crime_files/figure-html/hateCrimeOffenderRace-1.png" alt="The race of offenders, as a group, for hate crime incidents, 1991-2020." width="90%" />
+<img src="09_hate_crime_files/figure-html/hateCrimeOffenderRace-1.png" alt="The race of offenders, as a group, for hate crime incidents, 1991-2022." width="90%" />
 <p class="caption">
-Figure 9.9: The race of offenders, as a group, for hate crime incidents, 1991-2020.
+Figure 9.9: The race of offenders, as a group, for hate crime incidents, 1991-2022.
 </p>
 </div>
 
@@ -1289,7 +2454,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jacobkap/ucrbook/edit/main/hate_crime.Rmd",
+"link": "https://github.com/jacobkap/ucrbook/edit/main/09_hate_crime.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -1300,7 +2465,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["ucrbook.pdf"],
 "search": {
 "engine": "fuse",
 "options": null

@@ -1,7 +1,7 @@
 --- 
-title: "Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide"
-author: "Jacob Kaplan"
-date: "2023-03-28"
+title: "Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide to FBI Data"
+author: "Jacob Kaplan, Ph.D."
+date: "2024-08-04"
 site: bookdown::bookdown_site
 documentclass: book
 lof: yes
@@ -23,6 +23,7 @@ geometry: margin=1in
 
 
 
+# (PART) Welcome {-}
 
 # Preface 
 
@@ -54,13 +55,13 @@ This book will be divided into ten chapters: this chapter, an intro chapter brie
 
 If this data was useful in your research, please cite it. To cite this book, please use the below citation: 
 
-Kaplan J (2021). *Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide*. https://ucrbook.com/. 
+Kaplan J (2021). *Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide to FBI Data*. https://ucrbook.com/. 
 
 BibTeX format:
 
 ```bibtex
 @Manual{ucrbook,
-  title = {Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide},
+  title = {Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide to FBI Data},
   author = {{Jacob Kaplan}},
   year = {2021},
   url = {https://ucrbook.com/},
@@ -94,4 +95,4 @@ For more minor issues like typos or grammar mistakes, you can edit the book dire
 <p class="caption">(\#fig:unnamed-chunk-1)The edit button for how to make edits of this book.</p>
 </div>
 
-Please only use the above two methods to contribute or make suggestions about the book. Don't email me. While it's a bit more work for you to do it this way, since you'll need to make a GitHub account if you don't already have one, it helps me. I wrote this book, in part, to help my career so having evidence that people read it and are contributing to it is important to me. It's a way to publicly measure the book's impact. 
+Please only use the above two methods to contribute or make suggestions about the book. While it's a bit more work for you to do it this way, since you'll need to make a GitHub account if you don't already have one, it helps me organize all the questions in one place and update the book if I decide to add answers to certain questions. 

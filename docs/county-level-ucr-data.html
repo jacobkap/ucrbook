@@ -4,26 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 10 County-Level UCR Data | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</title>
+  <title>Chapter 10 County-Level UCR Data | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide to FBI Data</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
-  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 10 County-Level UCR Data | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide" />
+  <meta property="og:title" content="Chapter 10 County-Level UCR Data | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide to FBI Data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
   <meta name="github-repo" content="jacobkap/ucrbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 10 County-Level UCR Data | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide" />
+  <meta name="twitter:title" content="Chapter 10 County-Level UCR Data | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide to FBI Data" />
   
   <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
   
 
-<meta name="author" content="Jacob Kaplan" />
+<meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2023-03-28" />
+<meta name="date" content="2024-08-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="hate_crimes.html"/>
-<link rel="next" href="references.html"/>
+<link rel="next" href="overview-of-the-data.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-48BYKNQFJY"></script>
 <script>
@@ -65,7 +67,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -129,10 +131,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -167,6 +174,7 @@ div.csl-indent {
 <li><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide</a></li>
 
 <li class="divider"></li>
+<li class="part"><span><b>I Welcome</b></span></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#goal-of-the-book"><i class="fa fa-check"></i><b>1.1</b> Goal of the book</a></li>
@@ -180,7 +188,8 @@ div.csl-indent {
 <li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#how-to-contribute-to-this-book"><i class="fa fa-check"></i><b>1.6</b> How to contribute to this book</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
-<li class="chapter" data-level="2" data-path="ucrGeneral.html"><a href="ucrGeneral.html"><i class="fa fa-check"></i><b>2</b> Overview of the Data</a>
+<li class="part"><span><b>II Summary Reporting System (SRS)</b></span></li>
+<li class="chapter" data-level="2" data-path="ucrGeneral.html"><a href="ucrGeneral.html"><i class="fa fa-check"></i><b>2</b> SRS Overview</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="ucrGeneral.html"><a href="ucrGeneral.html#crimes-included-in-the-ucr-datasets"><i class="fa fa-check"></i><b>2.1</b> Crimes included in the UCR datasets</a>
 <ul>
@@ -314,6 +323,106 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="10.4" data-path="county-level-ucr-data.html"><a href="county-level-ucr-data.html#final-thoughts"><i class="fa fa-check"></i><b>10.4</b> Final thoughts</a></li>
 </ul></li>
+<li class="part"><span><b>III National Incident-Based Reporting System (NIBRS)</b></span></li>
+<li class="chapter" data-level="11" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html"><i class="fa fa-check"></i><b>11</b> Overview of the Data</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#problems-with-nibrs"><i class="fa fa-check"></i><b>11.1</b> Problems with NIBRS</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#nibrs-allows-for-different-units-of-analysis"><i class="fa fa-check"></i><b>11.1.1</b> NIBRS allows for different units of analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#crimes-included-in-nibrs"><i class="fa fa-check"></i><b>11.2</b> Crimes included in NIBRS</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#group-a-crimes"><i class="fa fa-check"></i><b>11.2.1</b> Group A crimes</a></li>
+<li class="chapter" data-level="11.2.2" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#group-b-crimes"><i class="fa fa-check"></i><b>11.2.2</b> Group B crimes</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#differences-from-ucr-data"><i class="fa fa-check"></i><b>11.3</b> Differences from UCR data</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#nibrs-does-not-have-unfounded-crimes"><i class="fa fa-check"></i><b>11.3.1</b> NIBRS does not have unfounded crimes</a></li>
+<li class="chapter" data-level="11.3.2" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#less-information-on-assaults-against-officers"><i class="fa fa-check"></i><b>11.3.2</b> Less information on assaults against officers</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#a-summary-of-each-segment-file"><i class="fa fa-check"></i><b>11.4</b> A summary of each segment file</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#administrative-segment"><i class="fa fa-check"></i><b>11.4.1</b> Administrative Segment</a></li>
+<li class="chapter" data-level="11.4.2" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#offense-segment"><i class="fa fa-check"></i><b>11.4.2</b> Offense Segment</a></li>
+<li class="chapter" data-level="11.4.3" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#offender-segment"><i class="fa fa-check"></i><b>11.4.3</b> Offender Segment</a></li>
+<li class="chapter" data-level="11.4.4" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#victim-segment"><i class="fa fa-check"></i><b>11.4.4</b> Victim Segment</a></li>
+<li class="chapter" data-level="11.4.5" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#arrestee-and-group-b-arrestee-segment"><i class="fa fa-check"></i><b>11.4.5</b> Arrestee and Group B Arrestee Segment</a></li>
+<li class="chapter" data-level="11.4.6" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#property-segment"><i class="fa fa-check"></i><b>11.4.6</b> Property Segment</a></li>
+<li class="chapter" data-level="11.4.7" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#window"><i class="fa fa-check"></i><b>11.4.7</b> Window segments</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#which-agencies-report-data"><i class="fa fa-check"></i><b>11.5</b> Which agencies report data</a></li>
+<li class="chapter" data-level="11.6" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#ori"><i class="fa fa-check"></i><b>11.6</b> How to identify a particular agency (ORI codes)</a></li>
+<li class="chapter" data-level="11.7" data-path="overview-of-the-data.html"><a href="overview-of-the-data.html#the-data-as-you-get-it-from-the-fbi-1"><i class="fa fa-check"></i><b>11.7</b> The data as you get it from the FBI</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html"><i class="fa fa-check"></i><b>12</b> Administrative and Window Exceptional Clearance Segment</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#important-variables-7"><i class="fa fa-check"></i><b>12.1</b> Important variables</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#the-incident-and-report-date"><i class="fa fa-check"></i><b>12.1.1</b> The incident and report date</a></li>
+<li class="chapter" data-level="12.1.2" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#hour-of-incident"><i class="fa fa-check"></i><b>12.1.2</b> Hour of incident</a></li>
+<li class="chapter" data-level="12.1.3" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#exceptional-clearance"><i class="fa fa-check"></i><b>12.1.3</b> Exceptional clearance</a></li>
+<li class="chapter" data-level="12.1.4" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#number-of-other-segments"><i class="fa fa-check"></i><b>12.1.4</b> Number of other segments</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="offenseSegment.html"><a href="offenseSegment.html"><i class="fa fa-check"></i><b>13</b> Offense Segment</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="offenseSegment.html"><a href="offenseSegment.html#important-variables-8"><i class="fa fa-check"></i><b>13.1</b> Important variables</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="offenseSegment.html"><a href="offenseSegment.html#crime-category"><i class="fa fa-check"></i><b>13.1.1</b> Crime category</a></li>
+<li class="chapter" data-level="13.1.2" data-path="offenseSegment.html"><a href="offenseSegment.html#offense-subtype"><i class="fa fa-check"></i><b>13.1.2</b> Offense subtype</a></li>
+<li class="chapter" data-level="13.1.3" data-path="offenseSegment.html"><a href="offenseSegment.html#offense-completed"><i class="fa fa-check"></i><b>13.1.3</b> Offense completed</a></li>
+<li class="chapter" data-level="13.1.4" data-path="offenseSegment.html"><a href="offenseSegment.html#drug-alcohol-or-computer-use"><i class="fa fa-check"></i><b>13.1.4</b> Drug, alcohol, or computer use</a></li>
+<li class="chapter" data-level="13.1.5" data-path="offenseSegment.html"><a href="offenseSegment.html#crime-location"><i class="fa fa-check"></i><b>13.1.5</b> Crime location</a></li>
+<li class="chapter" data-level="13.1.6" data-path="offenseSegment.html"><a href="offenseSegment.html#offenseWeapons"><i class="fa fa-check"></i><b>13.1.6</b> Weapons</a></li>
+<li class="chapter" data-level="13.1.7" data-path="offenseSegment.html"><a href="offenseSegment.html#automatic-weapons"><i class="fa fa-check"></i><b>13.1.7</b> Automatic weapons</a></li>
+<li class="chapter" data-level="13.1.8" data-path="offenseSegment.html"><a href="offenseSegment.html#burglary-info"><i class="fa fa-check"></i><b>13.1.8</b> Burglary info</a></li>
+<li class="chapter" data-level="13.1.9" data-path="offenseSegment.html"><a href="offenseSegment.html#hate-crime-indicator-bias-motivation"><i class="fa fa-check"></i><b>13.1.9</b> Hate crime indicator (bias motivation)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="offender-segment-1.html"><a href="offender-segment-1.html"><i class="fa fa-check"></i><b>14</b> Offender Segment</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="offender-segment-1.html"><a href="offender-segment-1.html#important-variables-9"><i class="fa fa-check"></i><b>14.1</b> Important variables</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="offender-segment-1.html"><a href="offender-segment-1.html#demographics-1"><i class="fa fa-check"></i><b>14.1.1</b> Demographics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="victim-segment-1.html"><a href="victim-segment-1.html"><i class="fa fa-check"></i><b>15</b> Victim Segment</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="victim-segment-1.html"><a href="victim-segment-1.html#important-variables-10"><i class="fa fa-check"></i><b>15.1</b> Important variables</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="victim-segment-1.html"><a href="victim-segment-1.html#crime-category-1"><i class="fa fa-check"></i><b>15.1.1</b> Crime category</a></li>
+<li class="chapter" data-level="15.1.2" data-path="victim-segment-1.html"><a href="victim-segment-1.html#victim-type"><i class="fa fa-check"></i><b>15.1.2</b> Victim type</a></li>
+<li class="chapter" data-level="15.1.3" data-path="victim-segment-1.html"><a href="victim-segment-1.html#injury"><i class="fa fa-check"></i><b>15.1.3</b> Injury</a></li>
+<li class="chapter" data-level="15.1.4" data-path="victim-segment-1.html"><a href="victim-segment-1.html#relationship-to-offender"><i class="fa fa-check"></i><b>15.1.4</b> Relationship to offender</a></li>
+<li class="chapter" data-level="15.1.5" data-path="victim-segment-1.html"><a href="victim-segment-1.html#aggravated-assault-and-homicide-circumstances"><i class="fa fa-check"></i><b>15.1.5</b> Aggravated assault and homicide circumstances</a></li>
+<li class="chapter" data-level="15.1.6" data-path="victim-segment-1.html"><a href="victim-segment-1.html#justifiable-homicide-circumstance"><i class="fa fa-check"></i><b>15.1.6</b> Justifiable homicide circumstance</a></li>
+<li class="chapter" data-level="15.1.7" data-path="victim-segment-1.html"><a href="victim-segment-1.html#demographics-2"><i class="fa fa-check"></i><b>15.1.7</b> Demographics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="arrestee.html"><a href="arrestee.html"><i class="fa fa-check"></i><b>16</b> Arrestee, Group B Arrestee, and Window Arrestee Segment</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="arrestee.html"><a href="arrestee.html#important-variables-11"><i class="fa fa-check"></i><b>16.1</b> Important variables</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="arrestee.html"><a href="arrestee.html#crimes-arrested-for"><i class="fa fa-check"></i><b>16.1.1</b> Crimes arrested for</a></li>
+<li class="chapter" data-level="16.1.2" data-path="arrestee.html"><a href="arrestee.html#arrest-date"><i class="fa fa-check"></i><b>16.1.2</b> Arrest date</a></li>
+<li class="chapter" data-level="16.1.3" data-path="arrestee.html"><a href="arrestee.html#weapons"><i class="fa fa-check"></i><b>16.1.3</b> Weapons</a></li>
+<li class="chapter" data-level="16.1.4" data-path="arrestee.html"><a href="arrestee.html#automatic-weapons-1"><i class="fa fa-check"></i><b>16.1.4</b> Automatic weapons</a></li>
+<li class="chapter" data-level="16.1.5" data-path="arrestee.html"><a href="arrestee.html#type-of-arrest"><i class="fa fa-check"></i><b>16.1.5</b> Type of arrest</a></li>
+<li class="chapter" data-level="16.1.6" data-path="arrestee.html"><a href="arrestee.html#disposition-for-juvenile-arrestees"><i class="fa fa-check"></i><b>16.1.6</b> Disposition for juvenile arrestees</a></li>
+<li class="chapter" data-level="16.1.7" data-path="arrestee.html"><a href="arrestee.html#demographics-3"><i class="fa fa-check"></i><b>16.1.7</b> Demographics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="property.html"><a href="property.html"><i class="fa fa-check"></i><b>17</b> Property and Window Property Segment</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="property.html"><a href="property.html#important-variables-12"><i class="fa fa-check"></i><b>17.1</b> Important variables</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="property.html"><a href="property.html#propertyLoss"><i class="fa fa-check"></i><b>17.1.1</b> Type of property loss</a></li>
+<li class="chapter" data-level="17.1.2" data-path="property.html"><a href="property.html#description-of-property"><i class="fa fa-check"></i><b>17.1.2</b> Description of property</a></li>
+<li class="chapter" data-level="17.1.3" data-path="property.html"><a href="property.html#value-of-stolen-property"><i class="fa fa-check"></i><b>17.1.3</b> Value of stolen property</a></li>
+<li class="chapter" data-level="17.1.4" data-path="property.html"><a href="property.html#date-property-was-recovered"><i class="fa fa-check"></i><b>17.1.4</b> Date property was recovered</a></li>
+<li class="chapter" data-level="17.1.5" data-path="property.html"><a href="property.html#drugs"><i class="fa fa-check"></i><b>17.1.5</b> Drugs</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
@@ -324,7 +433,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide to FBI Data</a>
           </h1>
         </div>
 
@@ -349,132 +458,240 @@ div.csl-indent {
 <div id="how-much-data-is-missing" class="section level2 hasAnchor" number="10.2">
 <h2><span class="header-section-number">10.2</span> How much data is missing<a href="county-level-ucr-data.html#how-much-data-is-missing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A major problem with county-level UCR data is that some data is missing, and is then imputed (poorly). So to understand how much of an issue missing data is in the county-level UCR data, we’ll now look at missingness in the Offenses Known and Clearances by Arrests dataset which is the “crime data” of the UCR. County-level data also aggregates arrests from the Arrests by Age, Sex, and Race dataset, which has lower reporting (and thus more missingness) than the Offenses Known and Clearances by Arrest data. But for simplicity we’ll only look at the crime dataset. We’ll do so in a number of different ways to try to really understand how much data is missing and how it changed over time.</p>
-<p>For each of the below graphs and tables we use the Offenses Known and Clearances by Arrest data for 1960-2018 and exclude any agency that are “special jurisdictions”. Special jurisdiction agencies are, as it seems, special agencies that tend to have an extremely specific jurisdiction and goals. These include agencies such as port authorities, alcohol beverage control, university police, and airport police. These agencies tend to cover a tiny geographic area and have both very low crime and very low reporting rates.<a href="#fn59" class="footnote-ref" id="fnref59"><sup>59</sup></a> So to prevent missingness being overcounted due to these weird agencies I’m excluding them from the below examples. I’m also excluding federal agencies (though UCR only has 7 reporting federal agencies) as these operate much the same as special jurisdiction agencies.</p>
+<p>For each of the below graphs and tables we use the Offenses Known and Clearances by Arrest data for 1960-2022 and exclude any agency that are “special jurisdictions”. Special jurisdiction agencies are, as it seems, special agencies that tend to have an extremely specific jurisdiction and goals. These include agencies such as port authorities, alcohol beverage control, university police, and airport police. These agencies tend to cover a tiny geographic area and have both very low crime and very low reporting rates.<a href="#fn59" class="footnote-ref" id="fnref59"><sup>59</sup></a> So to prevent missingness being overcounted due to these weird agencies I’m excluding them from the below examples. I’m also excluding federal agencies (though UCR only has 7 reporting federal agencies) as these operate much the same as special jurisdiction agencies.</p>
 <p>We’ll first look at how many months are reported in the example year of 2018, though we’ll see below that 2018 is pretty similar to other years. Table <a href="county-level-ucr-data.html#tab:countyMonthsReportedDefinitions">10.1</a> shows the number of months reported using two definitions. The first is how the FBI, and NACJD when imputing data, classifies number of months reported and this is actually just the last month reported. So if an agency reports only in July they are classified as reporting 7 months; if they report only in December they are classified as reporting 12 months. Whether they actually report previous months doesn’t matter based on this definition.</p>
 <p>The second definition is my own - and available in the data I’ve released on openICPSR - and is based on how many months the data says the agency reported. That is, for each month the UCR data actually says if they received a report or not. So this is a superior way of measuring though not full-proof as some months say they have a report but don’t and some say they don’t have a report but do have crime recorded. Also, in 2018 the FBI changed how they classify this variable so now every month is reported for every agency, making the measurement useless for 2018 and more recent data.</p>
 <p>The table shows what percent of agencies that reported data had data for each possible number of months: 0 through 12 months. Column 2 shows the percent for the 1st method while column 3 shows the percent for my method. And the final column shows the percent change from moving from the 1st to 2nd measure.</p>
 <p>Ultimately the measures are quite similar though systematically overcount reporting using the 1st method. Both show that about 23% of agencies reported zero months. The 1st method has nearly 73% of agencies reporting 12 months while the 2nd method has 69%, a difference of about 5% which is potentially a sizable difference depending on exactly which agencies are missing. The remaining nearly 4% of agencies all have far more people in the 2nd method than in the first, which is because in the 1st method those agencies are recorded as having 12 months since they reported in December but not actually all 12 months of the year. There are huge percent increases in moving from the 1st to 2nd method for 1-11 months reported though this is due to having very few agencies report this many months. Most months have only about 50 agencies in the 1st method and about 70 in the 2nd, so the actual difference is not that large.</p>
-<table>
-<caption><span id="tab:countyMonthsReportedDefinitions">Table 10.1: </span>The number of months reported to the 2017 Offenses Known and Clearances by Arrest data using two definitions of months reported. The ‘Last Month’ definition is the preferred measure of months reported by both the FBI and researchers, though this overcounts months.</caption>
-<colgroup>
-<col width="18%" />
-<col width="25%" />
-<col width="34%" />
-<col width="21%" />
-</colgroup>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:countyMonthsReportedDefinitions">Table 10.1: </span>The number of months reported to the 2017 Offenses Known and Clearances by Arrest data using two definitions of months reported. The ‘Last Month’ definition is the preferred measure of months reported by both the FBI and researchers, though this overcounts months.
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Months Reported</th>
-<th align="right">Last Month Definition</th>
-<th align="right">Months Not Missing Definition</th>
-<th align="right">Percent Difference</th>
+<tr>
+<th style="text-align:left;">
+Months Reported
+</th>
+<th style="text-align:right;">
+Last Month Definition
+</th>
+<th style="text-align:right;">
+Months Not Missing Definition
+</th>
+<th style="text-align:right;">
+Percent Difference
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">0</td>
-<td align="right">4,481 (23.01%)</td>
-<td align="right">4,514 (23.18%)</td>
-<td align="right">+0.74</td>
+<tr>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:right;">
+4,481 (23.01%)
+</td>
+<td style="text-align:right;">
+4,514 (23.18%)
+</td>
+<td style="text-align:right;">
++0.74
+</td>
 </tr>
-<tr class="even">
-<td align="left">1</td>
-<td align="right">93 (0.48%)</td>
-<td align="right">112 (0.58%)</td>
-<td align="right">+20.43</td>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+93 (0.48%)
+</td>
+<td style="text-align:right;">
+112 (0.58%)
+</td>
+<td style="text-align:right;">
++20.43
+</td>
 </tr>
-<tr class="odd">
-<td align="left">2</td>
-<td align="right">36 (0.18%)</td>
-<td align="right">70 (0.36%)</td>
-<td align="right">+94.44</td>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:right;">
+36 (0.18%)
+</td>
+<td style="text-align:right;">
+70 (0.36%)
+</td>
+<td style="text-align:right;">
++94.44
+</td>
 </tr>
-<tr class="even">
-<td align="left">3</td>
-<td align="right">40 (0.21%)</td>
-<td align="right">156 (0.8%)</td>
-<td align="right">+290.00</td>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+40 (0.21%)
+</td>
+<td style="text-align:right;">
+156 (0.8%)
+</td>
+<td style="text-align:right;">
++290.00
+</td>
 </tr>
-<tr class="odd">
-<td align="left">4</td>
-<td align="right">44 (0.23%)</td>
-<td align="right">66 (0.34%)</td>
-<td align="right">+50.00</td>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:right;">
+44 (0.23%)
+</td>
+<td style="text-align:right;">
+66 (0.34%)
+</td>
+<td style="text-align:right;">
++50.00
+</td>
 </tr>
-<tr class="even">
-<td align="left">5</td>
-<td align="right">42 (0.22%)</td>
-<td align="right">78 (0.4%)</td>
-<td align="right">+85.71</td>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:right;">
+42 (0.22%)
+</td>
+<td style="text-align:right;">
+78 (0.4%)
+</td>
+<td style="text-align:right;">
++85.71
+</td>
 </tr>
-<tr class="odd">
-<td align="left">6</td>
-<td align="right">48 (0.25%)</td>
-<td align="right">78 (0.4%)</td>
-<td align="right">+62.50</td>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:right;">
+48 (0.25%)
+</td>
+<td style="text-align:right;">
+78 (0.4%)
+</td>
+<td style="text-align:right;">
++62.50
+</td>
 </tr>
-<tr class="even">
-<td align="left">7</td>
-<td align="right">55 (0.28%)</td>
-<td align="right">81 (0.42%)</td>
-<td align="right">+47.27</td>
+<tr>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:right;">
+55 (0.28%)
+</td>
+<td style="text-align:right;">
+81 (0.42%)
+</td>
+<td style="text-align:right;">
++47.27
+</td>
 </tr>
-<tr class="odd">
-<td align="left">8</td>
-<td align="right">56 (0.29%)</td>
-<td align="right">87 (0.45%)</td>
-<td align="right">+55.36</td>
+<tr>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:right;">
+56 (0.29%)
+</td>
+<td style="text-align:right;">
+87 (0.45%)
+</td>
+<td style="text-align:right;">
++55.36
+</td>
 </tr>
-<tr class="even">
-<td align="left">9</td>
-<td align="right">56 (0.29%)</td>
-<td align="right">102 (0.52%)</td>
-<td align="right">+82.14</td>
+<tr>
+<td style="text-align:left;">
+9
+</td>
+<td style="text-align:right;">
+56 (0.29%)
+</td>
+<td style="text-align:right;">
+102 (0.52%)
+</td>
+<td style="text-align:right;">
++82.14
+</td>
 </tr>
-<tr class="odd">
-<td align="left">10</td>
-<td align="right">158 (0.81%)</td>
-<td align="right">242 (1.24%)</td>
-<td align="right">+53.16</td>
+<tr>
+<td style="text-align:left;">
+10
+</td>
+<td style="text-align:right;">
+158 (0.81%)
+</td>
+<td style="text-align:right;">
+242 (1.24%)
+</td>
+<td style="text-align:right;">
++53.16
+</td>
 </tr>
-<tr class="even">
-<td align="left">11</td>
-<td align="right">199 (1.02%)</td>
-<td align="right">419 (2.15%)</td>
-<td align="right">+110.55</td>
+<tr>
+<td style="text-align:left;">
+11
+</td>
+<td style="text-align:right;">
+199 (1.02%)
+</td>
+<td style="text-align:right;">
+419 (2.15%)
+</td>
+<td style="text-align:right;">
++110.55
+</td>
 </tr>
-<tr class="odd">
-<td align="left">12</td>
-<td align="right">14,162 (72.74%)</td>
-<td align="right">13,465 (69.16%)</td>
-<td align="right">-4.92</td>
+<tr>
+<td style="text-align:left;">
+12
+</td>
+<td style="text-align:right;">
+14,162 (72.74%)
+</td>
+<td style="text-align:right;">
+13,465 (69.16%)
+</td>
+<td style="text-align:right;">
+-4.92
+</td>
 </tr>
 </tbody>
 </table>
 <p>We can look at how these trends change over time in Figure <a href="county-level-ucr-data.html#fig:countyAnyMonthReported">10.1</a> that shows the annual number of agencies that reported at least one month of data in that year. About 5,500 agencies reported at least on month throughout the 1960s and then grew rapidly over the next decade until about 12,500 agencies reported in the end of the 1970s. This declined over the next two decades before again increasing in the mid-late 1990s where it steadily increased to about 14,000 agencies in 2010 and has stagnated since then, with a small dip in 2018. Out of the approximately 18,000 police agencies in the United States, this is relatively low reporting even as far as recent decades.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:countyAnyMonthReported"></span>
-<img src="ucr_county_files/figure-html/countyAnyMonthReported-1.png" alt="The annual number of agencies that reported at least one month of data in that year." width="90%" />
+<img src="10_ucr_county_files/figure-html/countyAnyMonthReported-1.png" alt="The annual number of agencies that reported at least one month of data in that year." width="90%" />
 <p class="caption">
 Figure 10.1: The annual number of agencies that reported at least one month of data in that year.
 </p>
 </div>
 <p>We saw in Table <a href="county-level-ucr-data.html#tab:countyMonthsReportedDefinitions">10.1</a> that when agencies do report they tend to report all 12 months of the year. Figure <a href="county-level-ucr-data.html#fig:countyDecemberReported">10.2</a> examines whether this is true by showing the number of agencies in each year that reported in December, which the way that county-level UCR data assumes that all 12 months are reported. The trends are nearly identical to Figure <a href="county-level-ucr-data.html#fig:countyAnyMonthReported">10.1</a> but with several hundred fewer agencies reporting in December each year than reporting at least one month. This shows that the trend of when agencies do report they tend to report all 12 months (or at least report in December) is consistent over time.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:countyDecemberReported"></span>
-<img src="ucr_county_files/figure-html/countyDecemberReported-1.png" alt="The annual number of agencies that reported data in December of that year (which by the FBI's definition would mean they reported 12 months of the year." width="90%" />
+<img src="10_ucr_county_files/figure-html/countyDecemberReported-1.png" alt="The annual number of agencies that reported data in December of that year (which by the FBI's definition would mean they reported 12 months of the year." width="90%" />
 <p class="caption">
 Figure 10.2: The annual number of agencies that reported data in December of that year (which by the FBI’s definition would mean they reported 12 months of the year.
 </p>
 </div>
 <p>Another way to look at this is to examine, as Figure <a href="county-level-ucr-data.html#fig:countyDecemberPercent">10.3</a> does, the percent of agencies that report in December of agencies that report at least one month. On average about 92% of agencies that do report any month also report in December, and this number has steadily grown over time, though declined in 2018 to only 90%.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:countyDecemberPercent"></span>
-<img src="ucr_county_files/figure-html/countyDecemberPercent-1.png" alt="The annual percent of agencies that reported in December of that year of those that reported at least one month of data." width="90%" />
+<img src="10_ucr_county_files/figure-html/countyDecemberPercent-1.png" alt="The annual percent of agencies that reported in December of that year of those that reported at least one month of data." width="90%" />
 <p class="caption">
 Figure 10.3: The annual percent of agencies that reported in December of that year of those that reported at least one month of data.
 </p>
 </div>
 <p>Since the number of agencies reporting changes every year - generally increasing over time - we can look at the percent of agencies that reported in December out of all agencies that reported data (and this includes reporting zero months of data) to UCR. Figure <a href="county-level-ucr-data.html#fig:countyDecemberPercentAnyAgency">10.4</a> shows this trend over time and about 75% of agencies that submit to UCR each year report in December. Reporting rates undulate over this time period - the low is 62% in 1997 and the high is 83% in 1979 - but tend to return to ~75% reporting before trending in the opposite direction again.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:countyDecemberPercentAnyAgency"></span>
-<img src="ucr_county_files/figure-html/countyDecemberPercentAnyAgency-1.png" alt="The annual percent of agencies that reported in December of that year including those that did not report any data that year." width="90%" />
+<img src="10_ucr_county_files/figure-html/countyDecemberPercentAnyAgency-1.png" alt="The annual percent of agencies that reported in December of that year including those that did not report any data that year." width="90%" />
 <p class="caption">
 Figure 10.4: The annual percent of agencies that reported in December of that year including those that did not report any data that year.
 </p>
@@ -483,7 +700,7 @@ Figure 10.4: The annual percent of agencies that reported in December of that ye
 <p>The trends in Figure <a href="county-level-ucr-data.html#fig:countyDecemberPercentAllAgencies">10.5</a> are very similar to those in Figure <a href="county-level-ucr-data.html#fig:countyAnyMonthReported">10.1</a>. In the first decade of data only about 25% of agencies reported December data and this rose rapidly to over 60% of agencies in the late 1970s. From here it rather steadily declined until it bottomed out at nearly 50% in 1993 and began rising again. Reporting rates peaked at the mid-60% starting in 2010 and remained stagnant until declining to 62% in 2018.</p>
 <p>The zero reporting agencies are largely in smaller agencies - with the average sized agency in 2018 having a population of 1,682 and the largest having a population of 463,545 - and, in 2018, amounts to agencies covering about 13 million people, or about 4% of the United States population.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:countyDecemberPercentAllAgencies"></span>
-<img src="ucr_county_files/figure-html/countyDecemberPercentAllAgencies-1.png" alt="The annual percent of agencies that reported in December of that year out of all agencies that ever reported to the Offenses Known and Clearances by Arrest dataset (N=19,036)." width="90%" />
+<img src="10_ucr_county_files/figure-html/countyDecemberPercentAllAgencies-1.png" alt="The annual percent of agencies that reported in December of that year out of all agencies that ever reported to the Offenses Known and Clearances by Arrest dataset (N=19,036)." width="90%" />
 <p class="caption">
 Figure 10.5: The annual percent of agencies that reported in December of that year out of all agencies that ever reported to the Offenses Known and Clearances by Arrest dataset (N=19,036).
 </p>
@@ -507,536 +724,1177 @@ Figure 10.6: The imputation procedure for missing data based on the number of mo
 <p>We’ll look at a number of examples and simulations about how accurate this method is. For each example we’ll use agencies that reported in 2018 so we have a real comparison when using their method of replacing “missing” months.</p>
 <p>Starting with Table <a href="county-level-ucr-data.html#tab:CountyPhillyMurders">10.2</a>, we will see the change in the actual annual count of murders in Philadelphia when replacing data from each month. Each row shows what happens when you assume that month - and only that month - is missing and interpolate using the current 12/numbers-of-months-reported method. Column 1 shows the month that we are “replacing” while column 2 shows the actual number of murders in that month and the percent of annual murders in parentheses. Column 3 shows the actual annual murders which is 351 in 2018; column 4 shows the annual murder count when imputing the “missing” month” and column 5 shows the percent change between columns 3 and 4.</p>
 <p>If each month had the same number of crimes we’d expect each month to account for 8.33% of the year’s total. That’s not what we’re seeing in Philadelphia for murders as the percentages range from 5.13% in both January and April to 12.25% in December. This means that replacing these months will not give us an accurate count of crimes as crime is not distributed evenly across months. Indeed, as seen in column 5, on average, the annual sum of murders when imputing a single month is 1.85% off from the real value. When imputing the worst (as far as its effect on results) months you can report murder as either 4.27% lower than it is or 3.5% higher than it is.</p>
-<table>
-<caption><span id="tab:CountyPhillyMurders">Table 10.2: </span>The imputed number of murders in Philadelphia in 2018 when missing a single month. This shows how different the imputed value is to the real value for each month missing.</caption>
-<colgroup>
-<col width="11%" />
-<col width="21%" />
-<col width="24%" />
-<col width="25%" />
-<col width="16%" />
-</colgroup>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:CountyPhillyMurders">Table 10.2: </span>The imputed number of murders in Philadelphia in 2018 when missing a single month. This shows how different the imputed value is to the real value for each month missing.
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Month</th>
-<th align="right">Murders That Month</th>
-<th align="right">Actual Annual Murders</th>
-<th align="right">Imputed Annual Murders</th>
-<th align="right">Percent Change</th>
+<tr>
+<th style="text-align:left;">
+Month
+</th>
+<th style="text-align:right;">
+Murders That Month
+</th>
+<th style="text-align:right;">
+Actual Annual Murders
+</th>
+<th style="text-align:right;">
+Imputed Annual Murders
+</th>
+<th style="text-align:right;">
+Percent Change
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">January</td>
-<td align="right">18 (5.13%)</td>
-<td align="right">351</td>
-<td align="right">363</td>
-<td align="right">+3.42</td>
+<tr>
+<td style="text-align:left;">
+January
+</td>
+<td style="text-align:right;">
+18 (5.13%)
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+363
+</td>
+<td style="text-align:right;">
++3.42
+</td>
 </tr>
-<tr class="even">
-<td align="left">February</td>
-<td align="right">26 (7.41%)</td>
-<td align="right">351</td>
-<td align="right">355</td>
-<td align="right">+1.14</td>
+<tr>
+<td style="text-align:left;">
+February
+</td>
+<td style="text-align:right;">
+26 (7.41%)
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+355
+</td>
+<td style="text-align:right;">
++1.14
+</td>
 </tr>
-<tr class="odd">
-<td align="left">March</td>
-<td align="right">27 (7.69%)</td>
-<td align="right">351</td>
-<td align="right">353</td>
-<td align="right">+0.57</td>
+<tr>
+<td style="text-align:left;">
+March
+</td>
+<td style="text-align:right;">
+27 (7.69%)
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+353
+</td>
+<td style="text-align:right;">
++0.57
+</td>
 </tr>
-<tr class="even">
-<td align="left">April</td>
-<td align="right">18 (5.13%)</td>
-<td align="right">351</td>
-<td align="right">363</td>
-<td align="right">+3.42</td>
+<tr>
+<td style="text-align:left;">
+April
+</td>
+<td style="text-align:right;">
+18 (5.13%)
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+363
+</td>
+<td style="text-align:right;">
++3.42
+</td>
 </tr>
-<tr class="odd">
-<td align="left">May</td>
-<td align="right">33 (9.40%)</td>
-<td align="right">351</td>
-<td align="right">347</td>
-<td align="right">-1.14</td>
+<tr>
+<td style="text-align:left;">
+May
+</td>
+<td style="text-align:right;">
+33 (9.40%)
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+347
+</td>
+<td style="text-align:right;">
+-1.14
+</td>
 </tr>
-<tr class="even">
-<td align="left">June</td>
-<td align="right">26 (7.41%)</td>
-<td align="right">351</td>
-<td align="right">355</td>
-<td align="right">+1.14</td>
+<tr>
+<td style="text-align:left;">
+June
+</td>
+<td style="text-align:right;">
+26 (7.41%)
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+355
+</td>
+<td style="text-align:right;">
++1.14
+</td>
 </tr>
-<tr class="odd">
-<td align="left">July</td>
-<td align="right">27 (7.69%)</td>
-<td align="right">351</td>
-<td align="right">353</td>
-<td align="right">+0.57</td>
+<tr>
+<td style="text-align:left;">
+July
+</td>
+<td style="text-align:right;">
+27 (7.69%)
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+353
+</td>
+<td style="text-align:right;">
++0.57
+</td>
 </tr>
-<tr class="even">
-<td align="left">August</td>
-<td align="right">41 (11.68%)</td>
-<td align="right">351</td>
-<td align="right">338</td>
-<td align="right">-3.70</td>
+<tr>
+<td style="text-align:left;">
+August
+</td>
+<td style="text-align:right;">
+41 (11.68%)
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+338
+</td>
+<td style="text-align:right;">
+-3.70
+</td>
 </tr>
-<tr class="odd">
-<td align="left">September</td>
-<td align="right">32 (9.12%)</td>
-<td align="right">351</td>
-<td align="right">348</td>
-<td align="right">-0.85</td>
+<tr>
+<td style="text-align:left;">
+September
+</td>
+<td style="text-align:right;">
+32 (9.12%)
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+348
+</td>
+<td style="text-align:right;">
+-0.85
+</td>
 </tr>
-<tr class="even">
-<td align="left">October</td>
-<td align="right">27 (7.69%)</td>
-<td align="right">351</td>
-<td align="right">353</td>
-<td align="right">+0.57</td>
+<tr>
+<td style="text-align:left;">
+October
+</td>
+<td style="text-align:right;">
+27 (7.69%)
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+353
+</td>
+<td style="text-align:right;">
++0.57
+</td>
 </tr>
-<tr class="odd">
-<td align="left">November</td>
-<td align="right">33 (9.40%)</td>
-<td align="right">351</td>
-<td align="right">347</td>
-<td align="right">-1.14</td>
+<tr>
+<td style="text-align:left;">
+November
+</td>
+<td style="text-align:right;">
+33 (9.40%)
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+347
+</td>
+<td style="text-align:right;">
+-1.14
+</td>
 </tr>
-<tr class="even">
-<td align="left">December</td>
-<td align="right">43 (12.25%)</td>
-<td align="right">351</td>
-<td align="right">336</td>
-<td align="right">-4.27</td>
+<tr>
+<td style="text-align:left;">
+December
+</td>
+<td style="text-align:right;">
+43 (12.25%)
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+336
+</td>
+<td style="text-align:right;">
+-4.27
+</td>
 </tr>
 </tbody>
 </table>
 <p>Part of the reason for the percent difference for murders when replacing a month found above is that there was high variation in the number of murders per month with some months having more than double the number as other months. We’ll look at what happens when crimes are far more evenly distributed across months in Table <a href="county-level-ucr-data.html#tab:countyPhillyThefts">10.3</a>. This table replicates Table <a href="county-level-ucr-data.html#tab:CountyPhillyMurders">10.2</a> but uses thefts in Philadelphia in 2018 instead of murders. Here the monthly share of thefts ranged only from 6.85% to 9.16% so month-to-month variation is not very large. Now the percent change never increases above an absolute value of 1.62 and changes by an average of 0.77%. In cases like this, the imputation method is less of a problem.</p>
-<table>
-<caption><span id="tab:countyPhillyThefts">Table 10.3: </span>The imputed number of thefts in Philadelphia in 2018 when missing a single month. This shows how different the imputed value is to the real value for each month missing.</caption>
-<colgroup>
-<col width="11%" />
-<col width="20%" />
-<col width="24%" />
-<col width="25%" />
-<col width="17%" />
-</colgroup>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:countyPhillyThefts">Table 10.3: </span>The imputed number of thefts in Philadelphia in 2018 when missing a single month. This shows how different the imputed value is to the real value for each month missing.
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Month</th>
-<th align="right">Thefts That Month</th>
-<th align="right">Actual Annual Thefts</th>
-<th align="right">Imputed Annual Thefts</th>
-<th align="right">Percent Change</th>
+<tr>
+<th style="text-align:left;">
+Month
+</th>
+<th style="text-align:right;">
+Thefts That Month
+</th>
+<th style="text-align:right;">
+Actual Annual Thefts
+</th>
+<th style="text-align:right;">
+Imputed Annual Thefts
+</th>
+<th style="text-align:right;">
+Percent Change
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">January</td>
-<td align="right">2,720 (7.36%)</td>
-<td align="right">36,968</td>
-<td align="right">37,361</td>
-<td align="right">+1.06</td>
+<tr>
+<td style="text-align:left;">
+January
+</td>
+<td style="text-align:right;">
+2,720 (7.36%)
+</td>
+<td style="text-align:right;">
+36,968
+</td>
+<td style="text-align:right;">
+37,361
+</td>
+<td style="text-align:right;">
++1.06
+</td>
 </tr>
-<tr class="even">
-<td align="left">February</td>
-<td align="right">2,532 (6.85%)</td>
-<td align="right">36,968</td>
-<td align="right">37,567</td>
-<td align="right">+1.62</td>
+<tr>
+<td style="text-align:left;">
+February
+</td>
+<td style="text-align:right;">
+2,532 (6.85%)
+</td>
+<td style="text-align:right;">
+36,968
+</td>
+<td style="text-align:right;">
+37,567
+</td>
+<td style="text-align:right;">
++1.62
+</td>
 </tr>
-<tr class="odd">
-<td align="left">March</td>
-<td align="right">2,598 (7.03%)</td>
-<td align="right">36,968</td>
-<td align="right">37,495</td>
-<td align="right">+1.43</td>
+<tr>
+<td style="text-align:left;">
+March
+</td>
+<td style="text-align:right;">
+2,598 (7.03%)
+</td>
+<td style="text-align:right;">
+36,968
+</td>
+<td style="text-align:right;">
+37,495
+</td>
+<td style="text-align:right;">
++1.43
+</td>
 </tr>
-<tr class="even">
-<td align="left">April</td>
-<td align="right">3,200 (8.66%)</td>
-<td align="right">36,968</td>
-<td align="right">36,838</td>
-<td align="right">-0.35</td>
+<tr>
+<td style="text-align:left;">
+April
+</td>
+<td style="text-align:right;">
+3,200 (8.66%)
+</td>
+<td style="text-align:right;">
+36,968
+</td>
+<td style="text-align:right;">
+36,838
+</td>
+<td style="text-align:right;">
+-0.35
+</td>
 </tr>
-<tr class="odd">
-<td align="left">May</td>
-<td align="right">3,215 (8.70%)</td>
-<td align="right">36,968</td>
-<td align="right">36,821</td>
-<td align="right">-0.40</td>
+<tr>
+<td style="text-align:left;">
+May
+</td>
+<td style="text-align:right;">
+3,215 (8.70%)
+</td>
+<td style="text-align:right;">
+36,968
+</td>
+<td style="text-align:right;">
+36,821
+</td>
+<td style="text-align:right;">
+-0.40
+</td>
 </tr>
-<tr class="even">
-<td align="left">June</td>
-<td align="right">3,226 (8.73%)</td>
-<td align="right">36,968</td>
-<td align="right">36,809</td>
-<td align="right">-0.43</td>
+<tr>
+<td style="text-align:left;">
+June
+</td>
+<td style="text-align:right;">
+3,226 (8.73%)
+</td>
+<td style="text-align:right;">
+36,968
+</td>
+<td style="text-align:right;">
+36,809
+</td>
+<td style="text-align:right;">
+-0.43
+</td>
 </tr>
-<tr class="odd">
-<td align="left">July</td>
-<td align="right">3,312 (8.96%)</td>
-<td align="right">36,968</td>
-<td align="right">36,716</td>
-<td align="right">-0.68</td>
+<tr>
+<td style="text-align:left;">
+July
+</td>
+<td style="text-align:right;">
+3,312 (8.96%)
+</td>
+<td style="text-align:right;">
+36,968
+</td>
+<td style="text-align:right;">
+36,716
+</td>
+<td style="text-align:right;">
+-0.68
+</td>
 </tr>
-<tr class="even">
-<td align="left">August</td>
-<td align="right">3,454 (9.34%)</td>
-<td align="right">36,968</td>
-<td align="right">36,561</td>
-<td align="right">-1.10</td>
+<tr>
+<td style="text-align:left;">
+August
+</td>
+<td style="text-align:right;">
+3,454 (9.34%)
+</td>
+<td style="text-align:right;">
+36,968
+</td>
+<td style="text-align:right;">
+36,561
+</td>
+<td style="text-align:right;">
+-1.10
+</td>
 </tr>
-<tr class="odd">
-<td align="left">September</td>
-<td align="right">3,287 (8.89%)</td>
-<td align="right">36,968</td>
-<td align="right">36,743</td>
-<td align="right">-0.61</td>
+<tr>
+<td style="text-align:left;">
+September
+</td>
+<td style="text-align:right;">
+3,287 (8.89%)
+</td>
+<td style="text-align:right;">
+36,968
+</td>
+<td style="text-align:right;">
+36,743
+</td>
+<td style="text-align:right;">
+-0.61
+</td>
 </tr>
-<tr class="even">
-<td align="left">October</td>
-<td align="right">3,386 (9.16%)</td>
-<td align="right">36,968</td>
-<td align="right">36,635</td>
-<td align="right">-0.90</td>
+<tr>
+<td style="text-align:left;">
+October
+</td>
+<td style="text-align:right;">
+3,386 (9.16%)
+</td>
+<td style="text-align:right;">
+36,968
+</td>
+<td style="text-align:right;">
+36,635
+</td>
+<td style="text-align:right;">
+-0.90
+</td>
 </tr>
-<tr class="odd">
-<td align="left">November</td>
-<td align="right">2,906 (7.86%)</td>
-<td align="right">36,968</td>
-<td align="right">37,159</td>
-<td align="right">+0.52</td>
+<tr>
+<td style="text-align:left;">
+November
+</td>
+<td style="text-align:right;">
+2,906 (7.86%)
+</td>
+<td style="text-align:right;">
+36,968
+</td>
+<td style="text-align:right;">
+37,159
+</td>
+<td style="text-align:right;">
++0.52
+</td>
 </tr>
-<tr class="even">
-<td align="left">December</td>
-<td align="right">3,132 (8.47%)</td>
-<td align="right">36,968</td>
-<td align="right">36,912</td>
-<td align="right">-0.15</td>
+<tr>
+<td style="text-align:left;">
+December
+</td>
+<td style="text-align:right;">
+3,132 (8.47%)
+</td>
+<td style="text-align:right;">
+36,968
+</td>
+<td style="text-align:right;">
+36,912
+</td>
+<td style="text-align:right;">
+-0.15
+</td>
 </tr>
 </tbody>
 </table>
 <p>Given that the imputation method is largely dependent on consistency across months, what happens when crime is very rare? Table <a href="county-level-ucr-data.html#tab:countyDanvilleVehicle">10.4</a> shows what happens when replacing a single month for motor vehicle thefts in Danville, California, a small town which had 22 of these thefts in 2018. While possible to still have an even distribution of crimes over months, this is less likely when it comes to rare events. Here, having so few motor vehicle thefts means that small changes in monthly crimes can have an outsize effect. The average absolute value percent change now is 7.3% and this ranges from a -15.68% difference to a +9.1% difference from the real annual count. This means that having even a single month missing can vastly overcount or undercount the real values.</p>
-<table style="width:100%;">
-<caption><span id="tab:countyDanvilleVehicle">Table 10.4: </span>The imputed number of motor vehicle thefts in Danville, California, in 2018 when missing a single month. This shows how different the imputed value is to the real value for each month missing.</caption>
-<colgroup>
-<col width="9%" />
-<col width="23%" />
-<col width="26%" />
-<col width="27%" />
-<col width="13%" />
-</colgroup>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:countyDanvilleVehicle">Table 10.4: </span>The imputed number of motor vehicle thefts in Danville, California, in 2018 when missing a single month. This shows how different the imputed value is to the real value for each month missing.
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Month</th>
-<th align="right">Vehicle Thefts That Month</th>
-<th align="right">Actual Annual Vehicle Thefts</th>
-<th align="right">Imputed Annual Vehicle Thefts</th>
-<th align="right">Percent Change</th>
+<tr>
+<th style="text-align:left;">
+Month
+</th>
+<th style="text-align:right;">
+Vehicle Thefts That Month
+</th>
+<th style="text-align:right;">
+Actual Annual Vehicle Thefts
+</th>
+<th style="text-align:right;">
+Imputed Annual Vehicle Thefts
+</th>
+<th style="text-align:right;">
+Percent Change
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">January</td>
-<td align="right">3 (13.64%)</td>
-<td align="right">22</td>
-<td align="right">21</td>
-<td align="right">-4.55</td>
+<tr>
+<td style="text-align:left;">
+January
+</td>
+<td style="text-align:right;">
+3 (13.64%)
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+-4.55
+</td>
 </tr>
-<tr class="even">
-<td align="left">February</td>
-<td align="right">0 (0.00%)</td>
-<td align="right">22</td>
-<td align="right">24</td>
-<td align="right">+9.09</td>
+<tr>
+<td style="text-align:left;">
+February
+</td>
+<td style="text-align:right;">
+0 (0.00%)
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
++9.09
+</td>
 </tr>
-<tr class="odd">
-<td align="left">March</td>
-<td align="right">1 (4.55%)</td>
-<td align="right">22</td>
-<td align="right">23</td>
-<td align="right">+4.55</td>
+<tr>
+<td style="text-align:left;">
+March
+</td>
+<td style="text-align:right;">
+1 (4.55%)
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
++4.55
+</td>
 </tr>
-<tr class="even">
-<td align="left">April</td>
-<td align="right">2 (9.09%)</td>
-<td align="right">22</td>
-<td align="right">22</td>
-<td align="right">+0.00</td>
+<tr>
+<td style="text-align:left;">
+April
+</td>
+<td style="text-align:right;">
+2 (9.09%)
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
++0.00
+</td>
 </tr>
-<tr class="odd">
-<td align="left">May</td>
-<td align="right">3 (13.64%)</td>
-<td align="right">22</td>
-<td align="right">21</td>
-<td align="right">-4.55</td>
+<tr>
+<td style="text-align:left;">
+May
+</td>
+<td style="text-align:right;">
+3 (13.64%)
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+-4.55
+</td>
 </tr>
-<tr class="even">
-<td align="left">June</td>
-<td align="right">1 (4.55%)</td>
-<td align="right">22</td>
-<td align="right">23</td>
-<td align="right">+4.55</td>
+<tr>
+<td style="text-align:left;">
+June
+</td>
+<td style="text-align:right;">
+1 (4.55%)
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
++4.55
+</td>
 </tr>
-<tr class="odd">
-<td align="left">July</td>
-<td align="right">1 (4.55%)</td>
-<td align="right">22</td>
-<td align="right">23</td>
-<td align="right">+4.55</td>
+<tr>
+<td style="text-align:left;">
+July
+</td>
+<td style="text-align:right;">
+1 (4.55%)
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
++4.55
+</td>
 </tr>
-<tr class="even">
-<td align="left">August</td>
-<td align="right">0 (0.00%)</td>
-<td align="right">22</td>
-<td align="right">24</td>
-<td align="right">+9.09</td>
+<tr>
+<td style="text-align:left;">
+August
+</td>
+<td style="text-align:right;">
+0 (0.00%)
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
++9.09
+</td>
 </tr>
-<tr class="odd">
-<td align="left">September</td>
-<td align="right">5 (22.73%)</td>
-<td align="right">22</td>
-<td align="right">19</td>
-<td align="right">-13.64</td>
+<tr>
+<td style="text-align:left;">
+September
+</td>
+<td style="text-align:right;">
+5 (22.73%)
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+-13.64
+</td>
 </tr>
-<tr class="even">
-<td align="left">October</td>
-<td align="right">5 (22.73%)</td>
-<td align="right">22</td>
-<td align="right">19</td>
-<td align="right">-13.64</td>
+<tr>
+<td style="text-align:left;">
+October
+</td>
+<td style="text-align:right;">
+5 (22.73%)
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+-13.64
+</td>
 </tr>
-<tr class="odd">
-<td align="left">November</td>
-<td align="right">1 (4.55%)</td>
-<td align="right">22</td>
-<td align="right">23</td>
-<td align="right">+4.55</td>
+<tr>
+<td style="text-align:left;">
+November
+</td>
+<td style="text-align:right;">
+1 (4.55%)
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
++4.55
+</td>
 </tr>
-<tr class="even">
-<td align="left">December</td>
-<td align="right">0 (0.00%)</td>
-<td align="right">22</td>
-<td align="right">24</td>
-<td align="right">+9.09</td>
+<tr>
+<td style="text-align:left;">
+December
+</td>
+<td style="text-align:right;">
+0 (0.00%)
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
++9.09
+</td>
 </tr>
 </tbody>
 </table>
 <p>In the above three tables we looked at what happens if a single month is missing. Below we’ll look at the results of simulating when between 1 and 9 months are missing for an agency. Table <a href="county-level-ucr-data.html#tab:countyPhillyMurderMonthsMissing">10.5</a> looks at murder in Philadelphia again but now randomizes removing between 1 and 9 months of the year and interpolating the annual murder count using the current method. For each number of months removed I run 10,000 simulations.<a href="#fn60" class="footnote-ref" id="fnref60"><sup>60</sup></a> Given that I am literally randomly choosing which months to say are missing, I am assuming that missing data is missing completely at random. This is a very bold assumption and one that is the best-case scenario since it means that missing data is not related to crimes, police funding/staffing, or anything else relevant. So you should read the below tables as the most optimistic (and thus likely wrong) outcomes.</p>
 <p>For each number of months reported the table shows the actual annual murder (which never changes) and the imputed mean, median, modal, minimum, and maximum annual murder count. As a function of the randomization, the imputed mean is always nearly identical to the real value. The most important columns, I believe, are the minimum and maximum imputed value since these show the worst-case scenario - that is, what happens when the month(s) least like the average month is replaced. Since as researchers we should try to minimize the harm caused from our work if it is wrong, I think it is safest to assume that if data is missing it is missing in the worst possible way. While this is a conservative approach, doing so otherwise leads to the greatest risk of using incorrect data, and incorrect results - and criminology is a field important enough to necessitate this caution.</p>
 <p>As might be expected, as the number of months missing increases the quality of the imputation decreases. The minimum is further and further below the actual value while the maximum is further and further above the actual value.</p>
-<table style="width:100%;">
-<caption><span id="tab:countyPhillyMurderMonthsMissing">Table 10.5: </span>A simulation showing how the imputed values of murders in Philadelphia in 2018 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run for removing and imputing those months of data.</caption>
-<colgroup>
-<col width="14%" />
-<col width="10%" />
-<col width="14%" />
-<col width="16%" />
-<col width="15%" />
-<col width="14%" />
-<col width="14%" />
-</colgroup>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:countyPhillyMurderMonthsMissing">Table 10.5: </span>A simulation showing how the imputed values of murders in Philadelphia in 2018 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run for removing and imputing those months of data.
+</caption>
 <thead>
-<tr class="header">
-<th align="left"># of Months Missing</th>
-<th align="right">Actual Murder</th>
-<th align="right">Mean Imputed Murder</th>
-<th align="right">Median Imputed Murder</th>
-<th align="right">Modal Imputed Murder</th>
-<th align="right">Min Imputed Murder</th>
-<th align="right">Max Imputed Murder</th>
+<tr>
+<th style="text-align:left;">
+# of Months Missing
+</th>
+<th style="text-align:right;">
+Actual Murder
+</th>
+<th style="text-align:right;">
+Mean Imputed Murder
+</th>
+<th style="text-align:right;">
+Median Imputed Murder
+</th>
+<th style="text-align:right;">
+Modal Imputed Murder
+</th>
+<th style="text-align:right;">
+Min Imputed Murder
+</th>
+<th style="text-align:right;">
+Max Imputed Murder
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">1</td>
-<td align="right">351</td>
-<td align="right">351.10</td>
-<td align="right">353.45</td>
-<td align="right">353.45</td>
-<td align="right">336.00</td>
-<td align="right">363.27</td>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+351.07
+</td>
+<td style="text-align:right;">
+353.45
+</td>
+<td style="text-align:right;">
+353.45
+</td>
+<td style="text-align:right;">
+336.00
+</td>
+<td style="text-align:right;">
+363.27
+</td>
 </tr>
-<tr class="even">
-<td align="left">2</td>
-<td align="right">351</td>
-<td align="right">350.99</td>
-<td align="right">350.40</td>
-<td align="right">350.40</td>
-<td align="right">320.40</td>
-<td align="right">378.00</td>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+350.93
+</td>
+<td style="text-align:right;">
+350.40
+</td>
+<td style="text-align:right;">
+350.40
+</td>
+<td style="text-align:right;">
+320.40
+</td>
+<td style="text-align:right;">
+378.00
+</td>
 </tr>
-<tr class="odd">
-<td align="left">3</td>
-<td align="right">351</td>
-<td align="right">350.96</td>
-<td align="right">352.00</td>
-<td align="right">353.33</td>
-<td align="right">312.00</td>
-<td align="right">385.33</td>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+351.07
+</td>
+<td style="text-align:right;">
+353.33
+</td>
+<td style="text-align:right;">
+353.33
+</td>
+<td style="text-align:right;">
+312.00
+</td>
+<td style="text-align:right;">
+385.33
+</td>
 </tr>
-<tr class="even">
-<td align="left">4</td>
-<td align="right">351</td>
-<td align="right">351.28</td>
-<td align="right">349.50</td>
-<td align="right">370.50</td>
-<td align="right">301.50</td>
-<td align="right">394.50</td>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+351.00
+</td>
+<td style="text-align:right;">
+349.50
+</td>
+<td style="text-align:right;">
+370.50
+</td>
+<td style="text-align:right;">
+301.50
+</td>
+<td style="text-align:right;">
+394.50
+</td>
 </tr>
-<tr class="odd">
-<td align="left">5</td>
-<td align="right">351</td>
-<td align="right">350.84</td>
-<td align="right">351.43</td>
-<td align="right">353.14</td>
-<td align="right">289.71</td>
-<td align="right">404.57</td>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+351.22
+</td>
+<td style="text-align:right;">
+351.43
+</td>
+<td style="text-align:right;">
+353.14
+</td>
+<td style="text-align:right;">
+289.71
+</td>
+<td style="text-align:right;">
+404.57
+</td>
 </tr>
-<tr class="even">
-<td align="left">6</td>
-<td align="right">351</td>
-<td align="right">350.79</td>
-<td align="right">352.00</td>
-<td align="right">376.00</td>
-<td align="right">284.00</td>
-<td align="right">418.00</td>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+350.96
+</td>
+<td style="text-align:right;">
+352.00
+</td>
+<td style="text-align:right;">
+376.00
+</td>
+<td style="text-align:right;">
+284.00
+</td>
+<td style="text-align:right;">
+418.00
+</td>
 </tr>
-<tr class="odd">
-<td align="left">7</td>
-<td align="right">351</td>
-<td align="right">351.27</td>
-<td align="right">350.40</td>
-<td align="right">348.00</td>
-<td align="right">276.00</td>
-<td align="right">436.80</td>
+<tr>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+351.19
+</td>
+<td style="text-align:right;">
+350.40
+</td>
+<td style="text-align:right;">
+348.00
+</td>
+<td style="text-align:right;">
+276.00
+</td>
+<td style="text-align:right;">
+436.80
+</td>
 </tr>
-<tr class="even">
-<td align="left">8</td>
-<td align="right">351</td>
-<td align="right">350.63</td>
-<td align="right">354.00</td>
-<td align="right">312.00</td>
-<td align="right">264.00</td>
-<td align="right">450.00</td>
+<tr>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+351.03
+</td>
+<td style="text-align:right;">
+354.00
+</td>
+<td style="text-align:right;">
+312.00
+</td>
+<td style="text-align:right;">
+264.00
+</td>
+<td style="text-align:right;">
+450.00
+</td>
 </tr>
-<tr class="odd">
-<td align="left">9</td>
-<td align="right">351</td>
-<td align="right">351.19</td>
-<td align="right">344.00</td>
-<td align="right">344.00</td>
-<td align="right">248.00</td>
-<td align="right">468.00</td>
+<tr>
+<td style="text-align:left;">
+9
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+351.29
+</td>
+<td style="text-align:right;">
+348.00
+</td>
+<td style="text-align:right;">
+344.00
+</td>
+<td style="text-align:right;">
+248.00
+</td>
+<td style="text-align:right;">
+468.00
+</td>
 </tr>
 </tbody>
 </table>
 <p>This problem is even more pronounced when looking at agencies with fewer crimes and less evenly distributed crimes. Table <a href="county-level-ucr-data.html#tab:countyDanvilleBurglaryMonthsMissing">10.6</a> repeats the above table but now looks at motor vehicle thefts in Danville, California. By the time 5 months are missing, the minimum value is nearly half of the actual value while the maximum value is a little under 50% larger than the actual value. By 9 months missing, possible imputed values range from 0% of the actual value to over twice as large as the actual value.</p>
-<table style="width:100%;">
-<caption><span id="tab:countyDanvilleBurglaryMonthsMissing">Table 10.6: </span>A simulation showing how the imputed values of motor vehicle thefts in Danville, California, in 2018 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run for removing and imputing those months of data.</caption>
-<colgroup>
-<col width="11%" />
-<col width="11%" />
-<col width="15%" />
-<col width="16%" />
-<col width="15%" />
-<col width="14%" />
-<col width="14%" />
-</colgroup>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:countyDanvilleBurglaryMonthsMissing">Table 10.6: </span>A simulation showing how the imputed values of motor vehicle thefts in Danville, California, in 2018 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run for removing and imputing those months of data.
+</caption>
 <thead>
-<tr class="header">
-<th align="left"># of Months Missing</th>
-<th align="right">Actual Vehicle Theft</th>
-<th align="right">Mean Imputed Vehicle Theft</th>
-<th align="right">Median Imputed Vehicle Theft</th>
-<th align="right">Modal Imputed Vehicle Theft</th>
-<th align="right">Min Imputed Vehicle Theft</th>
-<th align="right">Max Imputed Vehicle Theft</th>
+<tr>
+<th style="text-align:left;">
+# of Months Missing
+</th>
+<th style="text-align:right;">
+Actual Vehicle Theft
+</th>
+<th style="text-align:right;">
+Mean Imputed Vehicle Theft
+</th>
+<th style="text-align:right;">
+Median Imputed Vehicle Theft
+</th>
+<th style="text-align:right;">
+Modal Imputed Vehicle Theft
+</th>
+<th style="text-align:right;">
+Min Imputed Vehicle Theft
+</th>
+<th style="text-align:right;">
+Max Imputed Vehicle Theft
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">1</td>
-<td align="right">22</td>
-<td align="right">21.97</td>
-<td align="right">22.91</td>
-<td align="right">22.91</td>
-<td align="right">18.55</td>
-<td align="right">24.00</td>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+21.99
+</td>
+<td style="text-align:right;">
+22.91
+</td>
+<td style="text-align:right;">
+22.91
+</td>
+<td style="text-align:right;">
+18.55
+</td>
+<td style="text-align:right;">
+24.00
+</td>
 </tr>
-<tr class="even">
-<td align="left">2</td>
-<td align="right">22</td>
-<td align="right">21.98</td>
-<td align="right">22.80</td>
-<td align="right">25.20</td>
-<td align="right">14.40</td>
-<td align="right">26.40</td>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+22.04
+</td>
+<td style="text-align:right;">
+22.80
+</td>
+<td style="text-align:right;">
+25.20
+</td>
+<td style="text-align:right;">
+14.40
+</td>
+<td style="text-align:right;">
+26.40
+</td>
 </tr>
-<tr class="odd">
-<td align="left">3</td>
-<td align="right">22</td>
-<td align="right">21.99</td>
-<td align="right">22.67</td>
-<td align="right">21.33</td>
-<td align="right">12.00</td>
-<td align="right">29.33</td>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+22.01
+</td>
+<td style="text-align:right;">
+21.33
+</td>
+<td style="text-align:right;">
+21.33
+</td>
+<td style="text-align:right;">
+12.00
+</td>
+<td style="text-align:right;">
+29.33
+</td>
 </tr>
-<tr class="even">
-<td align="left">4</td>
-<td align="right">22</td>
-<td align="right">22.07</td>
-<td align="right">22.50</td>
-<td align="right">19.50</td>
-<td align="right">9.00</td>
-<td align="right">31.50</td>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+22.07
+</td>
+<td style="text-align:right;">
+22.50
+</td>
+<td style="text-align:right;">
+22.50
+</td>
+<td style="text-align:right;">
+9.00
+</td>
+<td style="text-align:right;">
+31.50
+</td>
 </tr>
-<tr class="odd">
-<td align="left">5</td>
-<td align="right">22</td>
-<td align="right">22.08</td>
-<td align="right">22.29</td>
-<td align="right">22.29</td>
-<td align="right">6.86</td>
-<td align="right">34.29</td>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+22.04
+</td>
+<td style="text-align:right;">
+22.29
+</td>
+<td style="text-align:right;">
+22.29
+</td>
+<td style="text-align:right;">
+6.86
+</td>
+<td style="text-align:right;">
+34.29
+</td>
 </tr>
-<tr class="even">
-<td align="left">6</td>
-<td align="right">22</td>
-<td align="right">22.02</td>
-<td align="right">22.00</td>
-<td align="right">20.00</td>
-<td align="right">6.00</td>
-<td align="right">38.00</td>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+21.99
+</td>
+<td style="text-align:right;">
+22.00
+</td>
+<td style="text-align:right;">
+20.00
+</td>
+<td style="text-align:right;">
+6.00
+</td>
+<td style="text-align:right;">
+38.00
+</td>
 </tr>
-<tr class="odd">
-<td align="left">7</td>
-<td align="right">22</td>
-<td align="right">21.90</td>
-<td align="right">21.60</td>
-<td align="right">21.60</td>
-<td align="right">4.80</td>
-<td align="right">43.20</td>
+<tr>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+21.97
+</td>
+<td style="text-align:right;">
+21.60
+</td>
+<td style="text-align:right;">
+21.60
+</td>
+<td style="text-align:right;">
+4.80
+</td>
+<td style="text-align:right;">
+43.20
+</td>
 </tr>
-<tr class="even">
-<td align="left">8</td>
-<td align="right">22</td>
-<td align="right">21.92</td>
-<td align="right">21.00</td>
-<td align="right">21.00</td>
-<td align="right">3.00</td>
-<td align="right">48.00</td>
+<tr>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+22.01
+</td>
+<td style="text-align:right;">
+21.00
+</td>
+<td style="text-align:right;">
+21.00
+</td>
+<td style="text-align:right;">
+3.00
+</td>
+<td style="text-align:right;">
+48.00
+</td>
 </tr>
-<tr class="odd">
-<td align="left">9</td>
-<td align="right">22</td>
-<td align="right">22.02</td>
-<td align="right">20.00</td>
-<td align="right">24.00</td>
-<td align="right">0.00</td>
-<td align="right">52.00</td>
+<tr>
+<td style="text-align:left;">
+9
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+22.08
+</td>
+<td style="text-align:right;">
+24.00
+</td>
+<td style="text-align:right;">
+24.00
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+52.00
+</td>
 </tr>
 </tbody>
 </table>
@@ -1050,267 +1908,560 @@ Figure 10.6: The imputation procedure for missing data based on the number of mo
 <p>In each of the below examples we use data from 2018 Offenses Known and Clearances by Arrest and use only agencies whose final month reported was December. This makes it the actual agencies in each population group that would replace agencies that are missing 10 or more months of data in 2018. As agencies can - and do - report different numbers of months each year, these numbers would be a little different if using any year other than 2018.</p>
 <p>For each population group we’ll look at the mean, median, and maximum number of murders plus aggravated assaults with a gun.<a href="#fn61" class="footnote-ref" id="fnref61"><sup>61</sup></a> This is essentially a measure of the most serious violent crimes as the difference between gun assaults and murders is, to some degree, a matter of luck (e.g. where the person is shot can make the difference between an assault and a murder).<a href="#fn62" class="footnote-ref" id="fnref62"><sup>62</sup></a> This is actually not available in NACJD’s county-level UCR data as they don’t separate gun assaults from other aggravated assaults, though that data is available in the agency-level UCR data. If we see a wide range in the number of murders+gun-assaults in the below table, that’ll indicate that this method of imputing missing data is highly flawed.</p>
 <p>Table <a href="county-level-ucr-data.html#tab:countyPopulationGroupStatsNational">10.7</a> shows these values for all agencies in the United States who reported 12 months of data (based on the “December last month reported” definition) in 2018. The actual imputation process only looks at agencies in the same state, but this is still information at seeing broad trends - and we’ll look at two specific states below. Column 1 shows each of the population groups in the data while the remaining columns show the mean, median, minimum, and maximum number of murders+gun-assaults in 2018, respectively.<a href="#fn63" class="footnote-ref" id="fnref63"><sup>63</sup></a> For each population group there is a large range of values, as seen from the minimum and maximum values. There are also large differences in the mean and median values for larger (25,000+ population) agencies, particularly when compared to the top and bottom of the range of values.<a href="#fn64" class="footnote-ref" id="fnref64"><sup>64</sup></a> Using this imputation method will, in most cases (but soon we’ll see an instance where there’s an exception) provide substantially different values than the real (but unknown) values.</p>
-<table>
-<caption><span id="tab:countyPopulationGroupStatsNational">Table 10.7: </span>The mean, median, minimum, and maximum agency size nationwide for all population groups in the 2018 Offenses Known and Clearances by Arrests data.</caption>
-<colgroup>
-<col width="28%" />
-<col width="17%" />
-<col width="18%" />
-<col width="19%" />
-<col width="16%" />
-</colgroup>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:countyPopulationGroupStatsNational">Table 10.7: </span>The mean, median, minimum, and maximum agency size nationwide for all population groups in the 2018 Offenses Known and Clearances by Arrests data.
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Population Group</th>
-<th align="right">Mean Murder + Gun Assault</th>
-<th align="right">Median Murder + Gun Assault</th>
-<th align="right">Minimum Murder + Gun Assault</th>
-<th align="left">Max Murder + Gun Assault</th>
+<tr>
+<th style="text-align:left;">
+Population Group
+</th>
+<th style="text-align:right;">
+Mean Murder + Gun Assault
+</th>
+<th style="text-align:right;">
+Median Murder + Gun Assault
+</th>
+<th style="text-align:right;">
+Minimum Murder + Gun Assault
+</th>
+<th style="text-align:left;">
+Max Murder + Gun Assault
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">City Under 2,500</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="left">108</td>
+<tr>
+<td style="text-align:left;">
+City Under 2,500
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+108
+</td>
 </tr>
-<tr class="even">
-<td align="left">City 2,500-9,999</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="left">55</td>
+<tr>
+<td style="text-align:left;">
+City 2,500-9,999
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+55
+</td>
 </tr>
-<tr class="odd">
-<td align="left">City 10,000-24,999</td>
-<td align="right">6</td>
-<td align="right">2</td>
-<td align="right">0</td>
-<td align="left">220</td>
+<tr>
+<td style="text-align:left;">
+City 10,000-24,999
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+220
+</td>
 </tr>
-<tr class="even">
-<td align="left">City 25,000-49,999</td>
-<td align="right">13</td>
-<td align="right">4</td>
-<td align="right">0</td>
-<td align="left">381</td>
+<tr>
+<td style="text-align:left;">
+City 25,000-49,999
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+381
+</td>
 </tr>
-<tr class="odd">
-<td align="left">City 50,000-99,999</td>
-<td align="right">34</td>
-<td align="right">15</td>
-<td align="right">0</td>
-<td align="left">608</td>
+<tr>
+<td style="text-align:left;">
+City 50,000-99,999
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+608
+</td>
 </tr>
-<tr class="even">
-<td align="left">City 100,000-249,999</td>
-<td align="right">131</td>
-<td align="right">64</td>
-<td align="right">1</td>
-<td align="left">1,235</td>
+<tr>
+<td style="text-align:left;">
+City 100,000-249,999
+</td>
+<td style="text-align:right;">
+131
+</td>
+<td style="text-align:right;">
+64
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+1,235
+</td>
 </tr>
-<tr class="odd">
-<td align="left">City 250,000+</td>
-<td align="right">1,093</td>
-<td align="right">638</td>
-<td align="right">4</td>
-<td align="left">6,209</td>
+<tr>
+<td style="text-align:left;">
+City 250,000+
+</td>
+<td style="text-align:right;">
+1,093
+</td>
+<td style="text-align:right;">
+638
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+6,209
+</td>
 </tr>
-<tr class="even">
-<td align="left">MSA Counties And MSA State Police</td>
-<td align="right">19</td>
-<td align="right">3</td>
-<td align="right">-1</td>
-<td align="left">1,701</td>
+<tr>
+<td style="text-align:left;">
+MSA Counties And MSA State Police
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+-1
+</td>
+<td style="text-align:left;">
+1,701
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Non-MSA Counties And Non-MSA State Police</td>
-<td align="right">3</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="left">295</td>
+<tr>
+<td style="text-align:left;">
+Non-MSA Counties And Non-MSA State Police
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+295
+</td>
 </tr>
 </tbody>
 </table>
 <p>To better see the distribution, Figure <a href="county-level-ucr-data.html#fig:countyPopulationGroupsBoxplot">10.7</a> shows boxplots for the rate per 100,000 population of murders+gun-assaults in each population group in 2018. Since there can’t be a rate without any population, this excludes all agencies with a population of zero. To make the graph simpler to see, it also excludes all agencies with a rate about 500, which is 57 agencies. Each population group has a relatively large range of values with the size of the boxplot growing as the size of the population group increases. This means that there are a wider variety of rates in larger population groups than in smaller population groups. Each population group also has a good number of agencies that are outliers with a much higher rate than is normal.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:countyPopulationGroupsBoxplot"></span>
-<img src="ucr_county_files/figure-html/countyPopulationGroupsBoxplot-1.png" alt="Boxplots showing the distribution of annual murders+gun-assaults for each population group for all agencies that reported December data in 2018." width="90%" />
+<img src="10_ucr_county_files/figure-html/countyPopulationGroupsBoxplot-1.png" alt="Boxplots showing the distribution of annual murders+gun-assaults for each population group for all agencies that reported December data in 2018." width="90%" />
 <p class="caption">
 Figure 10.7: Boxplots showing the distribution of annual murders+gun-assaults for each population group for all agencies that reported December data in 2018.
 </p>
 </div>
 <p>Since the actual imputation process looks only at agencies in the same state, we’ll look at two example states - Texas and Maine - and see how trends differ from nationally. These states are chosen as Texas is a very large (both in population and in number of jurisdictions) state with some areas of high crime while Maine is a small, more rural state with very low crime. Table <a href="county-level-ucr-data.html#tab:countyPopulationGroupStatsTexas">10.8</a> shows results in Texas. Here, the findings are very similar to that of Table <a href="county-level-ucr-data.html#tab:countyPopulationGroupStatsNational">10.7</a>. While the numbers are different, and the maximum value is substantially smaller than using all agencies in the country, the basic findings of a wide range of values - especially at larger population groups - is the same.</p>
-<table>
-<caption><span id="tab:countyPopulationGroupStatsTexas">Table 10.8: </span>The mean, median, minimum, and maximum agency size for agencies in Texas for all population groups in the 2018 Offenses Known and Clearances by Arrests data.</caption>
-<colgroup>
-<col width="28%" />
-<col width="17%" />
-<col width="18%" />
-<col width="19%" />
-<col width="16%" />
-</colgroup>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:countyPopulationGroupStatsTexas">Table 10.8: </span>The mean, median, minimum, and maximum agency size for agencies in Texas for all population groups in the 2018 Offenses Known and Clearances by Arrests data.
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Population Group</th>
-<th align="right">Mean Murder + Gun Assault</th>
-<th align="right">Median Murder + Gun Assault</th>
-<th align="right">Minimum Murder + Gun Assault</th>
-<th align="left">Max Murder + Gun Assault</th>
+<tr>
+<th style="text-align:left;">
+Population Group
+</th>
+<th style="text-align:right;">
+Mean Murder + Gun Assault
+</th>
+<th style="text-align:right;">
+Median Murder + Gun Assault
+</th>
+<th style="text-align:right;">
+Minimum Murder + Gun Assault
+</th>
+<th style="text-align:left;">
+Max Murder + Gun Assault
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">City Under 2,500</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="left">6</td>
+<tr>
+<td style="text-align:left;">
+City Under 2,500
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+6
+</td>
 </tr>
-<tr class="even">
-<td align="left">City 2,500-9,999</td>
-<td align="right">2</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="left">17</td>
+<tr>
+<td style="text-align:left;">
+City 2,500-9,999
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+17
+</td>
 </tr>
-<tr class="odd">
-<td align="left">City 10,000-24,999</td>
-<td align="right">7</td>
-<td align="right">5</td>
-<td align="right">0</td>
-<td align="left">38</td>
+<tr>
+<td style="text-align:left;">
+City 10,000-24,999
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+38
+</td>
 </tr>
-<tr class="even">
-<td align="left">City 25,000-49,999</td>
-<td align="right">17</td>
-<td align="right">13</td>
-<td align="right">0</td>
-<td align="left">61</td>
+<tr>
+<td style="text-align:left;">
+City 25,000-49,999
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+61
+</td>
 </tr>
-<tr class="odd">
-<td align="left">City 50,000-99,999</td>
-<td align="right">37</td>
-<td align="right">27</td>
-<td align="right">1</td>
-<td align="left">141</td>
+<tr>
+<td style="text-align:left;">
+City 50,000-99,999
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+141
+</td>
 </tr>
-<tr class="even">
-<td align="left">City 100,000-249,999</td>
-<td align="right">105</td>
-<td align="right">77</td>
-<td align="right">12</td>
-<td align="left">467</td>
+<tr>
+<td style="text-align:left;">
+City 100,000-249,999
+</td>
+<td style="text-align:right;">
+105
+</td>
+<td style="text-align:right;">
+77
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:left;">
+467
+</td>
 </tr>
-<tr class="odd">
-<td align="left">City 250,000+</td>
-<td align="right">1,343</td>
-<td align="right">669</td>
-<td align="right">76</td>
-<td align="left">4,919</td>
+<tr>
+<td style="text-align:left;">
+City 250,000+
+</td>
+<td style="text-align:right;">
+1,343
+</td>
+<td style="text-align:right;">
+669
+</td>
+<td style="text-align:right;">
+76
+</td>
+<td style="text-align:left;">
+4,919
+</td>
 </tr>
-<tr class="even">
-<td align="left">MSA Counties And MSA State Police</td>
-<td align="right">43</td>
-<td align="right">6</td>
-<td align="right">0</td>
-<td align="left">1,701</td>
+<tr>
+<td style="text-align:left;">
+MSA Counties And MSA State Police
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+1,701
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Non-MSA Counties And Non-MSA State Police</td>
-<td align="right">2</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="left">28</td>
+<tr>
+<td style="text-align:left;">
+Non-MSA Counties And Non-MSA State Police
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+28
+</td>
 </tr>
 </tbody>
 </table>
 <p>Now we’ll look at data from Maine, as shown in Table <a href="county-level-ucr-data.html#tab:countyPopulationGroupStatsMaine">10.9</a>. Here, results are much better: there is a narrow range in values meaning that the imputation would be very similar to the real values. This is driven mainly by Maine being a tiny state, with only one city larger than 50,000 people (Portland) and Maine being an extremely safe state so most places have zero murders+gun-assaults. In cases like this, where both crime and population size are consistent across the state (which is generally caused by everywhere having low crime), this imputation process can work well.</p>
-<table>
-<caption><span id="tab:countyPopulationGroupStatsMaine">Table 10.9: </span>The mean, median, minimum, and maximum agency size for agencies in Maine for all population groups in the 2018 Offenses Known and Clearances by Arrests data.</caption>
-<colgroup>
-<col width="28%" />
-<col width="17%" />
-<col width="18%" />
-<col width="19%" />
-<col width="16%" />
-</colgroup>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:countyPopulationGroupStatsMaine">Table 10.9: </span>The mean, median, minimum, and maximum agency size for agencies in Maine for all population groups in the 2018 Offenses Known and Clearances by Arrests data.
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Population Group</th>
-<th align="right">Mean Murder + Gun Assault</th>
-<th align="right">Median Murder + Gun Assault</th>
-<th align="right">Minimum Murder + Gun Assault</th>
-<th align="left">Max Murder + Gun Assault</th>
+<tr>
+<th style="text-align:left;">
+Population Group
+</th>
+<th style="text-align:right;">
+Mean Murder + Gun Assault
+</th>
+<th style="text-align:right;">
+Median Murder + Gun Assault
+</th>
+<th style="text-align:right;">
+Minimum Murder + Gun Assault
+</th>
+<th style="text-align:left;">
+Max Murder + Gun Assault
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">City Under 2,500</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="left">0</td>
+<tr>
+<td style="text-align:left;">
+City Under 2,500
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
 </tr>
-<tr class="even">
-<td align="left">City 2,500-9,999</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="left">2</td>
+<tr>
+<td style="text-align:left;">
+City 2,500-9,999
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+2
+</td>
 </tr>
-<tr class="odd">
-<td align="left">City 10,000-24,999</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="left">7</td>
+<tr>
+<td style="text-align:left;">
+City 10,000-24,999
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+7
+</td>
 </tr>
-<tr class="even">
-<td align="left">City 25,000-49,999</td>
-<td align="right">6</td>
-<td align="right">4</td>
-<td align="right">0</td>
-<td align="left">14</td>
+<tr>
+<td style="text-align:left;">
+City 25,000-49,999
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+14
+</td>
 </tr>
-<tr class="odd">
-<td align="left">City 50,000-99,999</td>
-<td align="right">12</td>
-<td align="right">12</td>
-<td align="right">12</td>
-<td align="left">12</td>
+<tr>
+<td style="text-align:left;">
+City 50,000-99,999
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:left;">
+12
+</td>
 </tr>
-<tr class="even">
-<td align="left">City 100,000-249,999</td>
-<td align="right">-</td>
-<td align="right">-</td>
-<td align="right">-</td>
-<td align="left">-</td>
+<tr>
+<td style="text-align:left;">
+City 100,000-249,999
+</td>
+<td style="text-align:right;">
+<ul>
+<li></td>
+<td style="text-align:right;">
+<ul>
+<li></td>
+<td style="text-align:right;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
 </tr>
-<tr class="odd">
-<td align="left">City 250,000+</td>
-<td align="right">-</td>
-<td align="right">-</td>
-<td align="right">-</td>
-<td align="left">-</td>
+<tr>
+<td style="text-align:left;">
+City 250,000+
+</td>
+<td style="text-align:right;">
+<ul>
+<li></td>
+<td style="text-align:right;">
+<ul>
+<li></td>
+<td style="text-align:right;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
 </tr>
-<tr class="even">
-<td align="left">MSA Counties And MSA State Police</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">-1</td>
-<td align="left">2</td>
+<tr>
+<td style="text-align:left;">
+MSA Counties And MSA State Police
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+-1
+</td>
+<td style="text-align:left;">
+2
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Non-MSA Counties And Non-MSA State Police</td>
-<td align="right">2</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="left">19</td>
+<tr>
+<td style="text-align:left;">
+Non-MSA Counties And Non-MSA State Police
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+19
+</td>
 </tr>
 </tbody>
-</table>
+</table></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
 </div>
 </div>
 <div id="final-thoughts" class="section level2 hasAnchor" number="10.4">
@@ -1320,6 +2471,9 @@ Figure 10.7: Boxplots showing the distribution of annual murders+gun-assaults fo
 
 </div>
 </div>
+
+
+
 <div class="footnotes">
 <hr />
 <ol start="50">
@@ -1348,7 +2502,7 @@ Figure 10.7: Boxplots showing the distribution of annual murders+gun-assaults fo
         </div>
       </div>
 <a href="hate_crimes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="overview-of-the-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -1369,7 +2523,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jacobkap/ucrbook/edit/main/ucr_county.Rmd",
+"link": "https://github.com/jacobkap/ucrbook/edit/main/10_ucr_county.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -1380,7 +2534,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["ucrbook.pdf"],
 "search": {
 "engine": "fuse",
 "options": null
