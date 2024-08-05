@@ -1,6 +1,6 @@
 # (PART) National Incident-Based Reporting System (NIBRS) {-}
 
-# Overview of the Data
+# NIBRS Overview
 
 ```{r, echo=FALSE}
 knitr::opts_chunk$set(
