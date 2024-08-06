@@ -17,6 +17,7 @@ library(gridExtra)
 library(blscrapeR)
 library(janitor)
 library(quantmod)
+library(ggh4x)
 
 knitr::opts_chunk$set(
   comment = "#>",

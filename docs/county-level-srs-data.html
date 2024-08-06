@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 17 Property and Window Property Segment | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide to FBI Data</title>
+  <title>Chapter 10 County-Level SRS Data | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide to FBI Data</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 17 Property and Window Property Segment | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide to FBI Data" />
+  <meta property="og:title" content="Chapter 10 County-Level SRS Data | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide to FBI Data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
   <meta name="github-repo" content="jacobkap/ucrbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 17 Property and Window Property Segment | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide to FBI Data" />
+  <meta name="twitter:title" content="Chapter 10 County-Level SRS Data | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide to FBI Data" />
   
   <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="arrestee.html"/>
-<link rel="next" href="references.html"/>
+<link rel="prev" href="hate_crimes.html"/>
+<link rel="next" href="nibrs-overview.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -441,1885 +441,2059 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="property" class="section level1 hasAnchor" number="17">
-<h1><span class="header-section-number">Chapter 17</span> Property and Window Property Segment<a href="property.html#property" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The Property Segment provides a bit more info than would be expected from the name. For each item involved in the crime it tells you what category that items falls into, with 68 total categories (including “other”) ranging from explosives and pets to money and alcohol. It also tells you the estimated value of that item. This data covers more than just items stolen during a crime. For each item it tells you what happened to that item such as if it was stolen, damaged, seized by police (such as illegal items like drugs), recovered (from being stolen) by police, or burned during an arson.</p>
-<p>For drug offenses it includes the drugs seized by police. For these offenses, the data tells us the type of drug, with 16 different drug categories ranging from specific ones like marijuana or heroin to broader categories such as “other narcotics”. There can be up to three different drugs included in this data - if the person has more than three types of drugs seized then the third drug category will simply indicate that there are more than three drugs, so we learn what the first two drugs are but not the third or greater drugs are in these cases. For each drug we also know exactly how much was seized with one variable saying the amount the police found and another saying the units we should we reading that amount as (e.g. pills, grams, plants).</p>
-<div id="important-variables-12" class="section level2 hasAnchor" number="17.1">
-<h2><span class="header-section-number">17.1</span> Important variables<a href="property.html#important-variables-12" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In addition to the variables detailed below, this segment has the traditional agency and incident identifiers: the ORI code, the agency state, the year of this data, the incident number, and the incident date.</p>
-<p>The Window Property Segment has the same variables as the normal Property Segment but also has 10 variables on each of the offenses committed (up to 10 offenses) during the incident. This is really to try to provide a bit of information that you’d otherwise get from the other segments but don’t since this is a window segment. For the rest of this chapter I’ll be using examples from the Property Segment and not the Window Property.</p>
-<div id="propertyLoss" class="section level3 hasAnchor" number="17.1.1">
-<h3><span class="header-section-number">17.1.1</span> Type of property loss<a href="property.html#propertyLoss" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>This segment contains information on all property involved in the incident, other than the weapon used by the offender. Property can be involved in multiple ways - such as being stolen, destroyed, or that the stolen property is recovered by the police - so NIBRS breaks this info into seven different categories (eight when including “unknown” type). Figure <a href="property.html#fig:propertyTypeLoss">17.1</a> shows each of these categories as how often they occur. The most common category, at 60.7% of the rows in this segment, is when the item is taken from the victim by the offender. This includes when the offender stole the item, took it by force in a robbery, tricked the victim (e.g. offender committed fraud), and any other way to illegal get the item (e.g. extortion, ransom, bribery). Though it includes all these types of ways to illegally take the item, it is often just called “stolen” property and I’ll refer to it as such in this chapter just for simplicity of writing.</p>
-<p>The next most common group, at 13.3%, is when the item was seized by the police. This excludes items that were stolen and that the police recovered. It includes all types of property that the offender illegally had but is primary for drug crimes where the drug or drug equipment was seized. This segment also includes property damaged, destroyed, or vandalized by the offender and this type makes up 11.2% of the data. Following this, about 9% of rows are for recovered property which is when one of the previously stolen items is recovered by the police.</p>
-<p>Next is “none” which only means that no property was stolen or damaged but that it could have been. For example, if someone tries to grab a person’s purse but fails, that would be considered “none” since the purse wasn’t actually taken. The remaining types are when the item was a counterfeit/forgery, at 1.2%, was burned (such as during an arson) at 0.2%, or when the type of loss is unknown at 0.2%</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:propertyTypeLoss"></span>
-<img src="17_nibrs_property_files/figure-html/propertyTypeLoss-1.png" alt="The type of loss or if the item is recovered." width="90%" />
-<p class="caption">
-Figure 17.1: The type of loss or if the item is recovered.
-</p>
+<div id="county-level-srs-data" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapter 10</span> County-Level SRS Data<a href="county-level-srs-data.html#county-level-srs-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>UCR data is only available at the agency-level.<a href="#fn67" class="footnote-ref" id="fnref67"><sup>67</sup></a> This has caused a lot of problems for researchers because many variables from other datasets (e.g. CDC data, economic data) is primarily available at the county-level. Their solution to this problem is to aggregate the data to the county-level by summing all the agencies in a particular county.<a href="#fn68" class="footnote-ref" id="fnref68"><sup>68</sup></a></p>
+<p>More specifically, nearly all researchers who use this county-level UCR data use the National Archive for Criminal Justice Data (NACJD)’s <a href="https://www.icpsr.umich.edu/web/pages/NACJD/guides/ucr.html#desc_cl">datasets</a> which have done the aggregation themselves (full disclosure, I used to have my own version of this data available on openICPSR and followed NACJD’s method. My reasoning was that people were using it anyways and I wanted to make sure that they knew the problem of the data, so I included the issues with this data in the documentation when downloading it. However, I decided that the data was more flawed than I originally thought so I took down the data.).<a href="#fn69" class="footnote-ref" id="fnref69"><sup>69</sup></a> These are not official FBI datasets but “UCR staff were consulted in developing the new adjustment procedures”.<a href="#fn70" class="footnote-ref" id="fnref70"><sup>70</sup></a> The “new” procedures is because NACJD changed their missing data imputation procedure starting with 1994 UCR data, and for this chapter I’ll only focus on this “new” procedure.</p>
+<p>There are two new problems with county-level UCR data: 1) agencies in multiple counties, 2) and agencies with missing data. I say main new problems as other problems with the data such as definition changes for crimes and underreporting of crimes are inherent in the agency-level data and thus transferred to the county-level data.</p>
+<p>The first issue is in distributing crimes across counties when an agency is in multiple counties. If, for example, New York City had 100 murders in a given year, how do you create county-level data from this? UCR data only tells you how many crimes happened in a particular agency, not where in the jurisdiction it happened. So we have no idea how many of these 100 murders happened in Kings County, how many happened in Bronx County, and so on. UCR data does, however, tell you how many counties the agency is in and the population of each. They only do this for up to three counties so in cases like New York City you don’t actually have every county the agency is part of.<a href="#fn71" class="footnote-ref" id="fnref71"><sup>71</sup></a> NACJD’s method is to distribute crimes <em>according to the population of the agency in each county</em>. In the New York City example, Kings County is home to about 31% of the people in NYC while Bronx County is home to about 17%. So Kings County would get 31 murders while Bronx County gets 17 murders. The problem with this is the crime is not evenly distributed by population. Indeed, crime is generally extremely concentrated in a small number of areas in a city. Even if 100% of the murders in NYC actually happened in Bronx County, only 17% would get assigned there. So for agencies in multiple counties - which is very common among the largest agencies in the country, and seems more common in some regions than others - the crimes assigned may be massively incorrect.</p>
+<p>The second problem is that not all agencies report data, and even those that do may report only partially (e.g. report fewer than 12 months of the year). So by necessity the missing data has to be filled in somehow. While all methods FOR imputing missing data are wrong - as they will be different than the real data, though sometimes not by much - the ways done to impute the missing data in this dataset are particularly incorrect. We’ll go into more detail about why they’re incorrect in this chapter.</p>
+<p>In this chapter, I’ll then talk about the data as it is with a focus on why the data is flawed and shouldn’t be used. To be clear, all data has measurement errors and much of this book is dedicated to talking about the errors in the other UCR datasets.</p>
+<p>The problems in the county-level data, however, are egregious enough to merit special warning. This is by no means the first warning about this data. Most famously is <a href="https://link.springer.com/article/10.1023/A:1016060020848">Maltz and Targonski’s (2002)</a> paper in the Journal of Quantitative Criminology about the issues with this data. They concluded that “Until improved methods of imputing county-level crime data are developed, tested, and implemented, they should not be used, especially in policy studies” which is a conclusion I also hold. These warnings, as well as those from others have been largely (it appears) ignored.<a href="#fn72" class="footnote-ref" id="fnref72"><sup>72</sup></a></p>
+<div id="current-usage" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Current usage<a href="county-level-srs-data.html#current-usage" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Even with the well-known flaws of this data, it remains a popular dataset. A search on Google Scholar for <a href="https://scholar.google.com/scholar?q=county-level+ucr&amp;hl=en&amp;as_sdt=0,20">“county-level UCR”</a> returns 3,780 results as of this writing in summer 2021. About half of these results are from 2015 or later. In addition to use by researchers, the county-level UCR data is used by organizations such as the FBI in their annual <a href="https://ucr.fbi.gov/crime-in-the-u.s">Crimes in the United States</a> report (which is essentially the report that informs the media and the public about crime, even though it’s actually only a subset of actual UCR data) and <a href="https://www.socialexplorer.com/explore-maps">Social Explorer</a>, a website that makes it extremely convenient to examine US Census data. Based on my reading of UCR papers there are also some differences in data usage by field.<a href="#fn73" class="footnote-ref" id="fnref73"><sup>73</sup></a></p>
+<p>This data is most widely used (as a share of papers in the field) by economics researchers and fields other than criminology such as the relatively rare psychologist or political scientist studying crime.<a href="#fn74" class="footnote-ref" id="fnref74"><sup>74</sup></a> Criminologists, however, tend to focus more on agency-level data rather than county-level data, though many criminologists still do use county-level UCR data.<a href="#fn75" class="footnote-ref" id="fnref75"><sup>75</sup></a></p>
 </div>
-</div>
-<div id="description-of-property" class="section level3 hasAnchor" number="17.1.2">
-<h3><span class="header-section-number">17.1.2</span> Description of property<a href="property.html#description-of-property" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>There are 68 different categories of properties (including the catch-all “other” category for anything not explicitly in a different category) that NIBRS covers. This also includes “identity - intangible” which means that someone stole the victim’s identity. Identity isn’t property since it’s not a physical thing but is nonetheless included here (items related to one’s identity such as social security cards are included in a different category called “identity documents”). Each of these categories can appear in any of the seven different types of property loss discussed above. For simplicity of writing, and because Table <a href="property.html#tab:propertyStolenDescription">17.1</a> covers items stolen, I’ll be talking below about items lost by being stolen, though everything does apply to other types of loss too.</p>
-<p>The property included in NIBRS can move from very broad categories like “merchandise” to more specific items such as livestock, aircraft, and pets. The property categories are mutually exclusive so a single item cannon be counted in different categories. If, for example, laptop is stolen that could potentially go in “computer hardware/software” or “office-type equipment” but it wouldn’t be in both, it would only be recorded in one of the two. In cases where multiple items of the same type are stolen - such as someone stealing multiple laptops in a single crime - we don’t actually know how many items were stolen. Just that at least one item of that category was stolen in the incident. We then know the total estimated value of the items stolen in that incident which we can use to estimate the number of items stolen (as long as the know the average value per item in that category) though this would be a very imprecise measure. The exception to this is for stolen vehicles where we know exactly how many were stolen and how many were recovered.</p>
-<p>Table <a href="property.html#tab:propertyStolenDescription">17.1</a> shows each of the 68 different types of property in NIBRS and shows the number of incidents where they were stolen for all incidents in the 2022 NIBRS data. Multiple different categories of property can be stolen in a single incident. The most common type of property stolen, at 14.3% of all property is “other” which isn’t really that helpful to us. We know it’s not one of the other 67 categories but not exactly what was stolen. Next, are money at 11.8% and then purses/handbags/wallets at 5.6%. This makes a lot of sense. People steal things for financial gain and the easiest way to get that gain is stealing money directly (or wallets and purses which often have money inside). Stealing property that you then have to sell or trade to get what you want (money or other property) is a lot harder, which is likely why it’s less common.</p>
-<p>There are about 4.8 million rows in the Property Segment where the item was stolen (the other 3.1 million rows are about property that was seized by police, recovered, damaged, or one of the other types of property loss detailed in Section <a href="property.html#propertyLoss">17.1.1</a>). As such, even items stolen very rarely can occur thousands or tens of thousands of times. For example, pets were the property stolen about 0.14% of the time and that tiny percent still accounts of 6,821 incidents with a pet stolen. Given the huge number of rows in this data - and as more agencies report to NIBRS this will grow quickly - it can be possible to study specific types of property, such as pets stolen, that wouldn’t be possible with a more narrow dataset (both in terms of how specific the items they include are, and the size of the data).</p>
+<div id="how-much-data-is-missing" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> How much data is missing<a href="county-level-srs-data.html#how-much-data-is-missing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A major problem with county-level UCR data is that some data is missing, and is then imputed (poorly). So to understand how much of an issue missing data is in the county-level UCR data, we’ll now look at missingness in the Offenses Known and Clearances by Arrests dataset which is the “crime data” of the UCR. County-level data also aggregates arrests from the Arrests by Age, Sex, and Race dataset, which has lower reporting (and thus more missingness) than the Offenses Known and Clearances by Arrest data. But for simplicity we’ll only look at the crime dataset. We’ll do so in a number of different ways to try to really understand how much data is missing and how it changed over time.</p>
+<p>For each of the below graphs and tables we use the Offenses Known and Clearances by Arrest data for 1960-2022 and exclude any agency that are “special jurisdictions”. Special jurisdiction agencies are, as it seems, special agencies that tend to have an extremely specific jurisdiction and goals. These include agencies such as port authorities, alcohol beverage control, university police, and airport police. These agencies tend to cover a tiny geographic area and have both very low crime and very low reporting rates.<a href="#fn76" class="footnote-ref" id="fnref76"><sup>76</sup></a> So to prevent missingness being overcounted due to these weird agencies I’m excluding them from the below examples. I’m also excluding federal agencies (though UCR only has 7 reporting federal agencies) as these operate much the same as special jurisdiction agencies.</p>
+<p>We’ll first look at how many months are reported in the example year of 2018, though we’ll see below that 2018 is pretty similar to other years. Table <a href="county-level-srs-data.html#tab:countyMonthsReportedDefinitions">10.1</a> shows the number of months reported using two definitions. The first is how the FBI, and NACJD when imputing data, classifies number of months reported and this is actually just the last month reported. So if an agency reports only in July they are classified as reporting 7 months; if they report only in December they are classified as reporting 12 months. Whether they actually report previous months doesn’t matter based on this definition.</p>
+<p>The second definition is my own - and available in the data I’ve released on openICPSR - and is based on how many months the data says the agency reported. That is, for each month the UCR data actually says if they received a report or not. So this is a superior way of measuring though not full-proof as some months say they have a report but don’t and some say they don’t have a report but do have crime recorded. Also, in 2018 the FBI changed how they classify this variable so now every month is reported for every agency, making the measurement useless for 2018 and more recent data.</p>
+<p>The table shows what percent of agencies that reported data had data for each possible number of months: 0 through 12 months. Column 2 shows the percent for the 1st method while column 3 shows the percent for my method. And the final column shows the percent change from moving from the 1st to 2nd measure.</p>
+<p>Ultimately the measures are quite similar though systematically overcount reporting using the 1st method. Both show that about 23% of agencies reported zero months. The 1st method has nearly 73% of agencies reporting 12 months while the 2nd method has 69%, a difference of about 5% which is potentially a sizable difference depending on exactly which agencies are missing. The remaining nearly 4% of agencies all have far more people in the 2nd method than in the first, which is because in the 1st method those agencies are recorded as having 12 months since they reported in December but not actually all 12 months of the year. There are huge percent increases in moving from the 1st to 2nd method for 1-11 months reported though this is due to having very few agencies report this many months. Most months have only about 50 agencies in the 1st method and about 70 in the 2nd, so the actual difference is not that large.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:propertyStolenDescription">Table 17.1: </span>The number and percent of property stolen (including forcibly taken such as during a robbery) in a crime, for all offenses in 2022. Each incident can have multiple items stolen.
+<span id="tab:countyMonthsReportedDefinitions">Table 10.1: </span>The number of months reported to the 2017 Offenses Known and Clearances by Arrest data using two definitions of months reported. The ‘Last Month’ definition is the preferred measure of months reported by both the FBI and researchers, though this overcounts months.
 </caption>
 <thead>
 <tr>
 <th style="text-align:left;">
-Property
+Months Reported
 </th>
 <th style="text-align:right;">
-# of Property Stolen
+Last Month Definition
 </th>
 <th style="text-align:right;">
-% of Property Stolen
+Months Not Missing Definition
+</th>
+<th style="text-align:right;">
+Percent Difference
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left;">
-Other
+0
 </td>
 <td style="text-align:right;">
-1,149,292
+4,481 (23.01%)
 </td>
 <td style="text-align:right;">
-15.09%
+4,514 (23.18%)
 </td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Money
-</td>
-<td style="text-align:right;">
-824,234
-</td>
-<td style="text-align:right;">
-10.82%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Automobiles
-</td>
-<td style="text-align:right;">
-570,623
-</td>
-<td style="text-align:right;">
-7.49%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Vehicle Parts/Accessories
-</td>
-<td style="text-align:right;">
-535,780
-</td>
-<td style="text-align:right;">
-7.03%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Purses/Handbags/Wallets
-</td>
-<td style="text-align:right;">
-377,761
-</td>
-<td style="text-align:right;">
-4.96%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Clothes/Furs
-</td>
-<td style="text-align:right;">
-348,984
-</td>
-<td style="text-align:right;">
-4.58%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Credit/Debit Cards
-</td>
-<td style="text-align:right;">
-313,888
-</td>
-<td style="text-align:right;">
-4.12%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Tools - Power/Hand
-</td>
-<td style="text-align:right;">
-309,668
-</td>
-<td style="text-align:right;">
-4.07%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Merchandise
-</td>
-<td style="text-align:right;">
-289,078
-</td>
-<td style="text-align:right;">
-3.79%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Consumable Goods
-</td>
-<td style="text-align:right;">
-253,272
-</td>
-<td style="text-align:right;">
-3.32%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Identity Documents
-</td>
-<td style="text-align:right;">
-252,837
-</td>
-<td style="text-align:right;">
-3.32%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Portible Electronic Communications
-</td>
-<td style="text-align:right;">
-244,450
-</td>
-<td style="text-align:right;">
-3.21%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Computer Hardware/Software
-</td>
-<td style="text-align:right;">
-201,441
-</td>
-<td style="text-align:right;">
-2.64%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Household Goods
-</td>
-<td style="text-align:right;">
-200,120
-</td>
-<td style="text-align:right;">
-2.63%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Firearms
-</td>
-<td style="text-align:right;">
-170,635
-</td>
-<td style="text-align:right;">
-2.24%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Identity - Intangible
-</td>
-<td style="text-align:right;">
-162,824
-</td>
-<td style="text-align:right;">
-2.14%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Radios/Tvs/Vcrs
-</td>
-<td style="text-align:right;">
-144,002
-</td>
-<td style="text-align:right;">
-1.89%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Jewelry/Precious Metals
-</td>
-<td style="text-align:right;">
-141,635
-</td>
-<td style="text-align:right;">
-1.86%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Bicycles
-</td>
-<td style="text-align:right;">
-123,395
-</td>
-<td style="text-align:right;">
-1.62%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Documents - Personal Or Business
-</td>
-<td style="text-align:right;">
-94,572
-</td>
-<td style="text-align:right;">
-1.24%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Trucks
-</td>
-<td style="text-align:right;">
-93,364
-</td>
-<td style="text-align:right;">
-1.23%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Alcohol
-</td>
-<td style="text-align:right;">
-75,575
-</td>
-<td style="text-align:right;">
-0.99%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Other Motor Vehicles
-</td>
-<td style="text-align:right;">
-59,593
-</td>
-<td style="text-align:right;">
-0.78%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Negotiable Instruments
-</td>
-<td style="text-align:right;">
-54,250
-</td>
-<td style="text-align:right;">
-0.71%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Office-Type Equipment
-</td>
-<td style="text-align:right;">
-53,825
-</td>
-<td style="text-align:right;">
-0.71%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Lawn/Yard/Garden Equipment
-</td>
-<td style="text-align:right;">
-47,867
-</td>
-<td style="text-align:right;">
-0.63%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Trailers
-</td>
-<td style="text-align:right;">
-45,526
-</td>
-<td style="text-align:right;">
-0.60%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Building Materials
-</td>
-<td style="text-align:right;">
-43,258
-</td>
-<td style="text-align:right;">
-0.57%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Drugs/Narcotics
-</td>
-<td style="text-align:right;">
-42,540
-</td>
-<td style="text-align:right;">
-0.56%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Recreational/Sports Equipment
-</td>
-<td style="text-align:right;">
-40,414
-</td>
-<td style="text-align:right;">
-0.53%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Nonnegotiable Instruments
-</td>
-<td style="text-align:right;">
-31,060
-</td>
-<td style="text-align:right;">
-0.41%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Fuel
-</td>
-<td style="text-align:right;">
-30,233
-</td>
-<td style="text-align:right;">
-0.40%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Camping/Hunting/Fishing Equipment/Supplies
-</td>
-<td style="text-align:right;">
-28,371
-</td>
-<td style="text-align:right;">
-0.37%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Photographic/Optical Equipment
-</td>
-<td style="text-align:right;">
-27,502
-</td>
-<td style="text-align:right;">
-0.36%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Heavy Construction/Industrial Equipment
-</td>
-<td style="text-align:right;">
-24,878
-</td>
-<td style="text-align:right;">
-0.33%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Metals, Non-Precious
-</td>
-<td style="text-align:right;">
-18,589
-</td>
-<td style="text-align:right;">
-0.24%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Collections/Collectibles
-</td>
-<td style="text-align:right;">
-18,126
-</td>
-<td style="text-align:right;">
-0.24%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Firearm Accessories
-</td>
-<td style="text-align:right;">
-18,115
-</td>
-<td style="text-align:right;">
-0.24%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Weapons - Other
-</td>
-<td style="text-align:right;">
-17,843
-</td>
-<td style="text-align:right;">
-0.23%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Pending Inventory (Of Property)
-</td>
-<td style="text-align:right;">
-17,818
-</td>
-<td style="text-align:right;">
-0.23%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Recordings - Audio/Visual
-</td>
 <td style="text-align:right;">
-17,146
++0.74
 </td>
-<td style="text-align:right;">
-0.23%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Medical/Medical Lab Equipment
-</td>
-<td style="text-align:right;">
-13,153
-</td>
-<td style="text-align:right;">
-0.17%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Musical Instruments
-</td>
-<td style="text-align:right;">
-12,275
-</td>
-<td style="text-align:right;">
-0.16%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Recreational Vehicles
-</td>
-<td style="text-align:right;">
-11,395
-</td>
-<td style="text-align:right;">
-0.15%
-</td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Pets
+1
 </td>
 <td style="text-align:right;">
-11,368
+93 (0.48%)
 </td>
 <td style="text-align:right;">
-0.15%
+112 (0.58%)
 </td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Farm Equipment
-</td>
-<td style="text-align:right;">
-8,892
-</td>
-<td style="text-align:right;">
-0.12%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Artistic Supplies/Accessories
-</td>
-<td style="text-align:right;">
-6,265
-</td>
 <td style="text-align:right;">
-0.08%
++20.43
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Chemicals
-</td>
-<td style="text-align:right;">
-5,326
+2
 </td>
 <td style="text-align:right;">
-0.07%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Explosives
+36 (0.18%)
 </td>
 <td style="text-align:right;">
-4,542
+70 (0.36%)
 </td>
 <td style="text-align:right;">
-0.06%
++94.44
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Gambling Equipment
+3
 </td>
 <td style="text-align:right;">
-4,482
+40 (0.21%)
 </td>
 <td style="text-align:right;">
-0.06%
+156 (0.8%)
 </td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Watercraft
-</td>
-<td style="text-align:right;">
-4,064
-</td>
 <td style="text-align:right;">
-0.05%
++290.00
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Drug/Narcotic Equipment
-</td>
-<td style="text-align:right;">
-4,000
+4
 </td>
 <td style="text-align:right;">
-0.05%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Watercraft Equipment/Parts/Accessories
+44 (0.23%)
 </td>
 <td style="text-align:right;">
-3,186
+66 (0.34%)
 </td>
 <td style="text-align:right;">
-0.04%
++50.00
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Law Enforcement Equipment
-</td>
-<td style="text-align:right;">
-2,773
+5
 </td>
 <td style="text-align:right;">
-0.04%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Livestock
+42 (0.22%)
 </td>
 <td style="text-align:right;">
-2,242
+78 (0.4%)
 </td>
 <td style="text-align:right;">
-0.03%
++85.71
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Logging Equipment
-</td>
-<td style="text-align:right;">
-1,470
+6
 </td>
 <td style="text-align:right;">
-0.02%
+48 (0.25%)
 </td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Structures - Other
-</td>
 <td style="text-align:right;">
-1,311
+78 (0.4%)
 </td>
 <td style="text-align:right;">
-0.02%
++62.50
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Crops
-</td>
-<td style="text-align:right;">
-1,199
+7
 </td>
 <td style="text-align:right;">
-0.02%
+55 (0.28%)
 </td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Buses
-</td>
 <td style="text-align:right;">
-1,121
+81 (0.42%)
 </td>
 <td style="text-align:right;">
-0.01%
++47.27
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Aircraft Parts/Accessories
-</td>
-<td style="text-align:right;">
-1,053
+8
 </td>
 <td style="text-align:right;">
-0.01%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Structures - Single Occupancy Dwellings
+56 (0.29%)
 </td>
 <td style="text-align:right;">
-624
+87 (0.45%)
 </td>
 <td style="text-align:right;">
-0.01%
++55.36
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Structures - Storage
+9
 </td>
 <td style="text-align:right;">
-546
-</td>
-<td style="text-align:right;">
-0.01%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Aircraft
+56 (0.29%)
 </td>
 <td style="text-align:right;">
-491
+102 (0.52%)
 </td>
 <td style="text-align:right;">
-0.01%
++82.14
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Structures - Commercial/Business
+10
 </td>
 <td style="text-align:right;">
-438
-</td>
-<td style="text-align:right;">
-0.01%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Structures - Other Dwellings
+158 (0.81%)
 </td>
 <td style="text-align:right;">
-348
+242 (1.24%)
 </td>
 <td style="text-align:right;">
-0.00%
++53.16
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Special Category
-</td>
-<td style="text-align:right;">
-281
+11
 </td>
 <td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Structures - Industrial Manufacturing
+199 (1.02%)
 </td>
 <td style="text-align:right;">
-224
+419 (2.15%)
 </td>
 <td style="text-align:right;">
-0.00%
++110.55
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Structures - Public/Community
-</td>
-<td style="text-align:right;">
-207
+12
 </td>
 <td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Total
+14,162 (72.74%)
 </td>
 <td style="text-align:right;">
-7,617,660
+13,465 (69.16%)
 </td>
 <td style="text-align:right;">
-100%
+-4.92
 </td>
 </tr>
 </tbody>
 </table>
-<p>As seen in Table <a href="property.html#tab:propertySeizedDescription">17.2</a>, all of the 68 different types of properties available in NIBRS can and, in 2022, were seized by police during an incident at least once. This includes atypical property like building material, musical instruments, and pets (and leads me to think that at least some of this is incorrectly labeled as property seized by the police). The vast majority of property seized by police, however, is drugs. 63.2% of the property seized were drugs themselves while 27.3% were equipment related to the drugs. The remaining items were mostly “other” (i.e. anything not explicitly categorized here) at 2.6%, money at 2%, firearms at 0.9%, and then a bunch of very rarely seized items.</p>
+<p>We can look at how these trends change over time in Figure <a href="county-level-srs-data.html#fig:countyAnyMonthReported">10.1</a> that shows the annual number of agencies that reported at least one month of data in that year. About 5,500 agencies reported at least on month throughout the 1960s and then grew rapidly over the next decade until about 12,500 agencies reported in the end of the 1970s. This declined over the next two decades before again increasing in the mid-late 1990s where it steadily increased to about 14,000 agencies in 2010 and has stagnated since then, with a small dip in 2018. Out of the approximately 18,000 police agencies in the United States, this is relatively low reporting even as far as recent decades.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:countyAnyMonthReported"></span>
+<img src="10_ucr_county_files/figure-html/countyAnyMonthReported-1.png" alt="The annual number of agencies that reported at least one month of data in that year." width="90%" />
+<p class="caption">
+Figure 10.1: The annual number of agencies that reported at least one month of data in that year.
+</p>
+</div>
+<p>We saw in Table <a href="county-level-srs-data.html#tab:countyMonthsReportedDefinitions">10.1</a> that when agencies do report they tend to report all 12 months of the year. Figure <a href="county-level-srs-data.html#fig:countyDecemberReported">10.2</a> examines whether this is true by showing the number of agencies in each year that reported in December, which the way that county-level UCR data assumes that all 12 months are reported. The trends are nearly identical to Figure <a href="county-level-srs-data.html#fig:countyAnyMonthReported">10.1</a> but with several hundred fewer agencies reporting in December each year than reporting at least one month. This shows that the trend of when agencies do report they tend to report all 12 months (or at least report in December) is consistent over time.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:countyDecemberReported"></span>
+<img src="10_ucr_county_files/figure-html/countyDecemberReported-1.png" alt="The annual number of agencies that reported data in December of that year (which by the FBI's definition would mean they reported 12 months of the year." width="90%" />
+<p class="caption">
+Figure 10.2: The annual number of agencies that reported data in December of that year (which by the FBI’s definition would mean they reported 12 months of the year.
+</p>
+</div>
+<p>Another way to look at this is to examine, as Figure <a href="county-level-srs-data.html#fig:countyDecemberPercent">10.3</a> does, the percent of agencies that report in December of agencies that report at least one month. On average about 92% of agencies that do report any month also report in December, and this number has steadily grown over time, though declined in 2018 to only 90%.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:countyDecemberPercent"></span>
+<img src="10_ucr_county_files/figure-html/countyDecemberPercent-1.png" alt="The annual percent of agencies that reported in December of that year of those that reported at least one month of data." width="90%" />
+<p class="caption">
+Figure 10.3: The annual percent of agencies that reported in December of that year of those that reported at least one month of data.
+</p>
+</div>
+<p>Since the number of agencies reporting changes every year - generally increasing over time - we can look at the percent of agencies that reported in December out of all agencies that reported data (and this includes reporting zero months of data) to UCR. Figure <a href="county-level-srs-data.html#fig:countyDecemberPercentAnyAgency">10.4</a> shows this trend over time and about 75% of agencies that submit to UCR each year report in December. Reporting rates undulate over this time period - the low is 62% in 1997 and the high is 83% in 1979 - but tend to return to ~75% reporting before trending in the opposite direction again.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:countyDecemberPercentAnyAgency"></span>
+<img src="10_ucr_county_files/figure-html/countyDecemberPercentAnyAgency-1.png" alt="The annual percent of agencies that reported in December of that year including those that did not report any data that year." width="90%" />
+<p class="caption">
+Figure 10.4: The annual percent of agencies that reported in December of that year including those that did not report any data that year.
+</p>
+</div>
+<p>Not all agencies report data to UCR, even to say that they’re not reporting any months of data. In 1960, for example, only 8,452 agencies reported data to UCR and 1,406 of these reported zero months of data. To get accurate data on county crime you’ll want data from all agencies, not just ones that reported (or told the FBI they weren’t reporting) data. Figure <a href="county-level-srs-data.html#fig:countyDecemberPercentAllAgencies">10.5</a> shows the annual percent of agencies that reported in December of each year out of the 19,036 agencies that ever reported to UCR. This 19,036 is higher than the ~18,000 agencies often discussed (including in this book) by academics as the approximate number of agencies. I believe that the number here is higher because it includes agencies that may have closed or been swallowed by a larger or nearby agency.</p>
+<p>The trends in Figure <a href="county-level-srs-data.html#fig:countyDecemberPercentAllAgencies">10.5</a> are very similar to those in Figure <a href="county-level-srs-data.html#fig:countyAnyMonthReported">10.1</a>. In the first decade of data only about 25% of agencies reported December data and this rose rapidly to over 60% of agencies in the late 1970s. From here it rather steadily declined until it bottomed out at nearly 50% in 1993 and began rising again. Reporting rates peaked at the mid-60% starting in 2010 and remained stagnant until declining to 62% in 2018.</p>
+<p>The zero reporting agencies are largely in smaller agencies - with the average sized agency in 2018 having a population of 1,682 and the largest having a population of 463,545 - and, in 2018, amounts to agencies covering about 13 million people, or about 4% of the United States population.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:countyDecemberPercentAllAgencies"></span>
+<img src="10_ucr_county_files/figure-html/countyDecemberPercentAllAgencies-1.png" alt="The annual percent of agencies that reported in December of that year out of all agencies that ever reported to the Offenses Known and Clearances by Arrest dataset (N=19,036)." width="90%" />
+<p class="caption">
+Figure 10.5: The annual percent of agencies that reported in December of that year out of all agencies that ever reported to the Offenses Known and Clearances by Arrest dataset (N=19,036).
+</p>
+</div>
+</div>
+<div id="current-imputation-practices" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> Current imputation practices<a href="county-level-srs-data.html#current-imputation-practices" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are three paths that the county-level UCR data takes when dealing with the agency-level data before aggregating it to the county-level. The path each agency is on is dependent on how many months of data they report. Figure <a href="county-level-srs-data.html#fig:countyImputation">10.6</a> shows each of these three paths. We’ll look in detail at these paths in the below sections, but for now we’ll briefly summarize each path.</p>
+<p>First, if an agency reports only two or fewer months, the entire agency’s data (that is, any month that they do report) is deleted and their annual data is replaced with the average of agencies that are: 1) in the same state, 2) in the same population group (i.e. very roughly the same size), 3) and that reported all 12 months of the year (i.e. reported in December but potentially not any other month).</p>
+<p>When an agency reports 3-11 months, those months of data are multiplied by 12/numbers-of-months-reported so it just upweights the available data to account for the missing months, assuming that missing months are like the present months.</p>
+<p>Finally, for agencies that reported all 12 months there’s nothing missing so it just uses the data as it is.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:countyImputation"></span>
+<img src="images/segments_flowchart.PNG" alt="The imputation procedure for missing data based on the number of months missing." width="90%" />
+<p class="caption">
+Figure 10.6: The imputation procedure for missing data based on the number of months missing.
+</p>
+</div>
+<div id="months-missing" class="section level3 hasAnchor" number="10.3.1">
+<h3><span class="header-section-number">10.3.1</span> 1-9 months missing<a href="county-level-srs-data.html#months-missing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When there are 1-9 months reported the missing months are imputed by multiplying the reported months of data by 12/numbers-of-months-reported, essentially just scaling up the reported months. For example, if 6 months are reported then it multiplies each crime values by 12/6=2, doubling each reported crime value. This method makes the assumption that missing values are similar to present ones, at on average. Given that there are seasonal differences in crime - which tends to increase in the summer and decrease in the winter - how accurate this replacement is depends on how consistent crime is over the year and which months are missing. Miss the summer months and you’ll undercount crime. Miss the winter months and you’ll overcount crime. Miss random months and you’ll be wrong randomly (and maybe it’ll balance out but maybe it won’t).</p>
+<p>We’ll look at a number of examples and simulations about how accurate this method is. For each example we’ll use agencies that reported in 2018 so we have a real comparison when using their method of replacing “missing” months.</p>
+<p>Starting with Table <a href="county-level-srs-data.html#tab:CountyPhillyMurders">10.2</a>, we will see the change in the actual annual count of murders in Philadelphia when replacing data from each month. Each row shows what happens when you assume that month - and only that month - is missing and interpolate using the current 12/numbers-of-months-reported method. Column 1 shows the month that we are “replacing” while column 2 shows the actual number of murders in that month and the percent of annual murders in parentheses. Column 3 shows the actual annual murders which is 351 in 2018; column 4 shows the annual murder count when imputing the “missing” month” and column 5 shows the percent change between columns 3 and 4.</p>
+<p>If each month had the same number of crimes we’d expect each month to account for 8.33% of the year’s total. That’s not what we’re seeing in Philadelphia for murders as the percentages range from 5.13% in both January and April to 12.25% in December. This means that replacing these months will not give us an accurate count of crimes as crime is not distributed evenly across months. Indeed, as seen in column 5, on average, the annual sum of murders when imputing a single month is 1.85% off from the real value. When imputing the worst (as far as its effect on results) months you can report murder as either 4.27% lower than it is or 3.5% higher than it is.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:propertySeizedDescription">Table 17.2: </span>The number and percent of property seized by police (excludes recovering property that was stolen, for all offenses in 2022. Each incident can have multiple items seized.
+<span id="tab:CountyPhillyMurders">Table 10.2: </span>The imputed number of murders in Philadelphia in 2018 when missing a single month. This shows how different the imputed value is to the real value for each month missing.
 </caption>
 <thead>
 <tr>
 <th style="text-align:left;">
-Property
+Month
 </th>
 <th style="text-align:right;">
-# of Property Seized
+Murders That Month
 </th>
 <th style="text-align:right;">
-% of Property Seized
+Actual Annual Murders
+</th>
+<th style="text-align:right;">
+Imputed Annual Murders
+</th>
+<th style="text-align:right;">
+Percent Change
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left;">
-Drugs/Narcotics
+January
 </td>
 <td style="text-align:right;">
-916,616
+18 (5.13%)
 </td>
 <td style="text-align:right;">
-63.68%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Drug/Narcotic Equipment
-</td>
-<td style="text-align:right;">
-391,785
-</td>
-<td style="text-align:right;">
-27.22%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Other
-</td>
-<td style="text-align:right;">
-37,857
-</td>
-<td style="text-align:right;">
-2.63%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Money
-</td>
-<td style="text-align:right;">
-21,762
-</td>
-<td style="text-align:right;">
-1.51%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Firearms
-</td>
-<td style="text-align:right;">
-17,471
-</td>
-<td style="text-align:right;">
-1.21%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Portible Electronic Communications
-</td>
-<td style="text-align:right;">
-7,798
-</td>
-<td style="text-align:right;">
-0.54%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Firearm Accessories
-</td>
-<td style="text-align:right;">
-4,740
-</td>
-<td style="text-align:right;">
-0.33%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Automobiles
-</td>
-<td style="text-align:right;">
-4,037
-</td>
-<td style="text-align:right;">
-0.28%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Documents - Personal Or Business
-</td>
-<td style="text-align:right;">
-3,580
-</td>
-<td style="text-align:right;">
-0.25%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Identity Documents
-</td>
-<td style="text-align:right;">
-3,477
-</td>
-<td style="text-align:right;">
-0.24%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Purses/Handbags/Wallets
-</td>
-<td style="text-align:right;">
-2,852
-</td>
-<td style="text-align:right;">
-0.20%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Weapons - Other
-</td>
-<td style="text-align:right;">
-2,699
-</td>
-<td style="text-align:right;">
-0.19%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Credit/Debit Cards
-</td>
-<td style="text-align:right;">
-1,981
-</td>
-<td style="text-align:right;">
-0.14%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Consumable Goods
-</td>
-<td style="text-align:right;">
-1,954
-</td>
-<td style="text-align:right;">
-0.14%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Office-Type Equipment
-</td>
-<td style="text-align:right;">
-1,899
-</td>
-<td style="text-align:right;">
-0.13%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Vehicle Parts/Accessories
-</td>
-<td style="text-align:right;">
-1,712
-</td>
-<td style="text-align:right;">
-0.12%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Negotiable Instruments
-</td>
-<td style="text-align:right;">
-1,521
-</td>
-<td style="text-align:right;">
-0.11%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Recordings - Audio/Visual
-</td>
-<td style="text-align:right;">
-1,505
-</td>
-<td style="text-align:right;">
-0.10%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Computer Hardware/Software
-</td>
-<td style="text-align:right;">
-1,494
-</td>
-<td style="text-align:right;">
-0.10%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Alcohol
-</td>
-<td style="text-align:right;">
-1,433
-</td>
-<td style="text-align:right;">
-0.10%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Clothes/Furs
-</td>
-<td style="text-align:right;">
-1,350
-</td>
-<td style="text-align:right;">
-0.09%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Household Goods
-</td>
-<td style="text-align:right;">
-1,300
-</td>
-<td style="text-align:right;">
-0.09%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Explosives
-</td>
-<td style="text-align:right;">
-1,267
-</td>
-<td style="text-align:right;">
-0.09%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Tools - Power/Hand
-</td>
-<td style="text-align:right;">
-1,131
-</td>
-<td style="text-align:right;">
-0.08%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Nonnegotiable Instruments
-</td>
-<td style="text-align:right;">
-1,106
-</td>
-<td style="text-align:right;">
-0.08%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Merchandise
-</td>
-<td style="text-align:right;">
-525
-</td>
-<td style="text-align:right;">
-0.04%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Gambling Equipment
-</td>
-<td style="text-align:right;">
-503
-</td>
-<td style="text-align:right;">
-0.03%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Radios/Tvs/Vcrs
-</td>
-<td style="text-align:right;">
-467
-</td>
-<td style="text-align:right;">
-0.03%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Heavy Construction/Industrial Equipment
-</td>
-<td style="text-align:right;">
-407
-</td>
-<td style="text-align:right;">
-0.03%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Other Motor Vehicles
+351
 </td>
 <td style="text-align:right;">
 363
 </td>
 <td style="text-align:right;">
-0.03%
++3.42
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Jewelry/Precious Metals
+February
 </td>
 <td style="text-align:right;">
-358
+26 (7.41%)
 </td>
 <td style="text-align:right;">
-0.02%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Medical/Medical Lab Equipment
+351
 </td>
 <td style="text-align:right;">
-329
+355
 </td>
 <td style="text-align:right;">
-0.02%
++1.14
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Trucks
+March
 </td>
 <td style="text-align:right;">
-274
+27 (7.69%)
 </td>
 <td style="text-align:right;">
-0.02%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Photographic/Optical Equipment
+351
 </td>
 <td style="text-align:right;">
-231
+353
 </td>
 <td style="text-align:right;">
-0.02%
++0.57
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Identity - Intangible
+April
 </td>
 <td style="text-align:right;">
-217
+18 (5.13%)
 </td>
 <td style="text-align:right;">
-0.02%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Chemicals
+351
 </td>
 <td style="text-align:right;">
-181
+363
 </td>
 <td style="text-align:right;">
-0.01%
++3.42
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Bicycles
+May
 </td>
 <td style="text-align:right;">
-160
+33 (9.40%)
 </td>
 <td style="text-align:right;">
-0.01%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Pending Inventory (Of Property)
+351
 </td>
 <td style="text-align:right;">
-142
+347
 </td>
 <td style="text-align:right;">
-0.01%
+-1.14
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Camping/Hunting/Fishing Equipment/Supplies
+June
 </td>
 <td style="text-align:right;">
-96
+26 (7.41%)
 </td>
 <td style="text-align:right;">
-0.01%
+351
+</td>
+<td style="text-align:right;">
+355
+</td>
+<td style="text-align:right;">
++1.14
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Collections/Collectibles
+July
 </td>
 <td style="text-align:right;">
-94
+27 (7.69%)
 </td>
 <td style="text-align:right;">
-0.01%
+351
+</td>
+<td style="text-align:right;">
+353
+</td>
+<td style="text-align:right;">
++0.57
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Recreational/Sports Equipment
+August
 </td>
 <td style="text-align:right;">
-81
+41 (11.68%)
 </td>
 <td style="text-align:right;">
-0.01%
+351
+</td>
+<td style="text-align:right;">
+338
+</td>
+<td style="text-align:right;">
+-3.70
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Law Enforcement Equipment
+September
 </td>
 <td style="text-align:right;">
-68
+32 (9.12%)
 </td>
 <td style="text-align:right;">
-0.00%
+351
+</td>
+<td style="text-align:right;">
+348
+</td>
+<td style="text-align:right;">
+-0.85
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Metals, Non-Precious
+October
 </td>
 <td style="text-align:right;">
-54
+27 (7.69%)
 </td>
 <td style="text-align:right;">
-0.00%
+351
+</td>
+<td style="text-align:right;">
+353
+</td>
+<td style="text-align:right;">
++0.57
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Farm Equipment
+November
 </td>
 <td style="text-align:right;">
-54
+33 (9.40%)
 </td>
 <td style="text-align:right;">
-0.00%
+351
+</td>
+<td style="text-align:right;">
+347
+</td>
+<td style="text-align:right;">
+-1.14
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Artistic Supplies/Accessories
+December
 </td>
 <td style="text-align:right;">
-53
+43 (12.25%)
 </td>
 <td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Building Materials
+351
 </td>
 <td style="text-align:right;">
-49
+336
 </td>
 <td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Trailers
-</td>
-<td style="text-align:right;">
-45
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Structures - Other
-</td>
-<td style="text-align:right;">
-40
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Recreational Vehicles
-</td>
-<td style="text-align:right;">
-34
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Crops
-</td>
-<td style="text-align:right;">
-29
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Lawn/Yard/Garden Equipment
-</td>
-<td style="text-align:right;">
-29
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Fuel
-</td>
-<td style="text-align:right;">
-23
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Structures - Storage
-</td>
-<td style="text-align:right;">
-20
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Aircraft
-</td>
-<td style="text-align:right;">
-17
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Musical Instruments
-</td>
-<td style="text-align:right;">
-16
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Pets
-</td>
-<td style="text-align:right;">
-11
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Aircraft Parts/Accessories
-</td>
-<td style="text-align:right;">
-10
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Livestock
-</td>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Structures - Public/Community
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Structures - Commercial/Business
-</td>
-<td style="text-align:right;">
-7
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Buses
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Watercraft Equipment/Parts/Accessories
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Structures - Industrial Manufacturing
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Structures - Single Occupancy Dwellings
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Logging Equipment
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Watercraft
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Structures - Other Dwellings
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Special Category
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Total
-</td>
-<td style="text-align:right;">
-1,439,363
-</td>
-<td style="text-align:right;">
-100%
+-4.27
 </td>
 </tr>
 </tbody>
 </table>
-</div>
-<div id="value-of-stolen-property" class="section level3 hasAnchor" number="17.1.3">
-<h3><span class="header-section-number">17.1.3</span> Value of stolen property<a href="property.html#value-of-stolen-property" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>For all types of property loss other than the property being seized by the police (and when the type is “unknown”) there is data on the estimated value of that property. This is estimates by the police but is supposed to be the current value of the item (e.g. a stolen car is what it currently sells for, not what the buyer bought it for) and is the cost it’ll take for the victim to replace the item. To be a bit more specific, this variable is the sum of items stolen in this category. For example, if someone burglarizes a house and steals three rings from the victim, this would not count as three thefts of a ring. It would be recorded as loss of jewelry and the value would be the total value of all three rings.</p>
-<p>The police can take the victim’s estimation into consideration but aren’t supposed to immediately accept it as victims may exaggerate values (especially for insurance purposes). When items are recovered, the police put in the value at the time of recovery which may be substantially different than at the time of the loss if the item is damaged or destroyed.</p>
-<p>We can use this variable to look at the value of items lost by the victim. Figure <a href="property.html#fig:propertyValuePropertyLevel">17.2</a> looks at the value per item stolen in a crime (if incidents have multiple items stolen, this counts them all separately). This includes items lost by theft, robbery, and burglary so is part of the “Stolen/Robbed/Etc.” category of types of property loss. It excludes items damaged or destroyed or burned (there is info about the value of property in these incidents but these are not shown in the figure). To make this graph a bit simpler I’ve rounded all values to the nearest $100 so items valued at $0 mean that they are worth between $1 and $50. I’ve also capped the largest value to $1,000,000 and set the x-axis on the log scale since the data skews very much to the right. The average item lost was worth $3,217 and the median was worth $150. Most items lost were relative cheap with 34.9% worth under $50 and 13.5% worth between $51 and $149. There is a sharp decline in the frequency of property stolen as the value increases. So while some extremely valuable items are lost during crimes, they are much less common than relatively low-value items.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:propertyValuePropertyLevel"></span>
-<img src="17_nibrs_property_files/figure-html/propertyValuePropertyLevel-1.png" alt="The distribution of the value of property stolen. Values are capped at 1,000,000 and each value is rounded to the nearest 100. The x-axis is set on the log scale as this distribution is hugely right skewed." width="90%" />
-<p class="caption">
-Figure 17.2: The distribution of the value of property stolen. Values are capped at 1,000,000 and each value is rounded to the nearest 100. The x-axis is set on the log scale as this distribution is hugely right skewed.
-</p>
-</div>
-<p>Since multiple items can be stolen in a single incident, to better understand the cost of crime for the victim we probably want to add up all of the property to the incident-level. Figure <a href="property.html#fig:propertyValuePropertyLevel">17.2</a> does this and shows the cost of property stolen per incident. The trend is nearly identical to Figure <a href="property.html#tab:propertySeizedDescription">17.2</a> but the value is a bit higher than before. Now fewer than a quarter of incidents result in a loss of &lt;$50 and the average cost per incident is $4,731 (median = $300).</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:propertyValueIncidentLevel"></span>
-<img src="17_nibrs_property_files/figure-html/propertyValueIncidentLevel-1.png" alt="The incident-level distribution of the value of property stolen. As values are aggregated to the incident-level, these are higher than the above graph which shows each item individually. Values are capped at 1,000,000 and each value is rounded to the nearest 100. The x-axis is set on the log scale as this distribution is hugely right skewed." width="90%" />
-<p class="caption">
-Figure 17.3: The incident-level distribution of the value of property stolen. As values are aggregated to the incident-level, these are higher than the above graph which shows each item individually. Values are capped at 1,000,000 and each value is rounded to the nearest 100. The x-axis is set on the log scale as this distribution is hugely right skewed.
-</p>
-</div>
-</div>
-<div id="date-property-was-recovered" class="section level3 hasAnchor" number="17.1.4">
-<h3><span class="header-section-number">17.1.4</span> Date property was recovered<a href="property.html#date-property-was-recovered" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>This segment tells us both when the incident happened and, for stolen property, when the item was recovered. We can use this to look at how long it generally takes for property to be recovered (though most property stolen is never recovered). Figure <a href="property.html#fig:propertyDaysUntilRecovered">17.4</a> shows the number of days it takes for property to be recovered. Though this data gives us the exact date, allowing for the precise number of days from property loss to recovery, this graph groups days greater than nine days to simplify the graph. The maximum number of days in the 2022 NIBRS data is 450 days so showing all days would be a rather unhelpful graph.</p>
-<p>The majority - 60.8% - of property lost is recovered on the same day, which is shown as zero days. We saw in Figure <a href="arrestee.html#fig:arrestsDaysUntilArrest">16.1</a> that the vast majority of arrests happen on the same day as the incident so it makes sense the most property would too.<a href="#fn126" class="footnote-ref" id="fnref126"><sup>126</sup></a> A smaller and smaller share of property is recovered as the number of days from the incident increase, a trend also found in the time to arrest graph. The lesson here seems to be that if you’re a victim of a crime and had something taken, unless it’s recovered very quickly it’s unlikely to be recovered at all.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:propertyDaysUntilRecovered"></span>
-<img src="17_nibrs_property_files/figure-html/propertyDaysUntilRecovered-1.png" alt="The distribution of the number of days from the incident to the property recovered date. In 2022 the maximum days from incident to arrest was 456 days. Zero days means that the arrest occurred on the same day as the incident. " width="90%" />
-<p class="caption">
-Figure 17.4: The distribution of the number of days from the incident to the property recovered date. In 2022 the maximum days from incident to arrest was 456 days. Zero days means that the arrest occurred on the same day as the incident.
-</p>
-</div>
-</div>
-<div id="drugs" class="section level3 hasAnchor" number="17.1.5">
-<h3><span class="header-section-number">17.1.5</span> Drugs<a href="property.html#drugs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>This segment also provides information about drugs seized by the police. This also includes cases where the police would have seized the drugs if the offender didn’t destroy it somehow, such as flushing it down the toilet. For each drug seized there is information on what type of drug it was and how much of the drug was seized. There can be up to three drugs seized in an incident and data is available for each type of drug. The exception, however, is when there are more than three drugs seized in an incident. In that case, info on the third drug just says that there were more than three drugs involved. So you’d have info on the first two drugs but none on the third through however many (and it doesn’t say how many) drugs. For the below table and figure I only look at the first drug seized, so the numbers shown are undercounts.</p>
-<p>The ordering of drugs when there are multiple drugs is based on how much drugs were recovered and the seriousness of the drugs. For example, heroin is probably considered more serious than marijuana, but overall ranking of drugs is a subjective assessment depending on the department. Is heroin more serious than meth? That decision likely varies by the agency and their situation in regard to what drugs they often seize.</p>
-<div id="suspected-drug-type" class="section level4 hasAnchor" number="17.1.5.1">
-<h4><span class="header-section-number">17.1.5.1</span> Suspected drug type<a href="property.html#suspected-drug-type" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>The drugs in NIBRS are the “suspected drug types” which means that they are what the police believe the drugs to be, even if there is not definitive proof (such as a crime lab testing for what type of drug it is) that the drug is what they say it is. There are 15 possible drug types in NIBRS (16 when including “unknown drug type”) and each is shown in Table <a href="property.html#tab:propertyDrugs">17.3</a> along with how often they occur in the data. Some of these drug types are specific enough to only include a single drug while others are groups of drug types, such as hallucinogens or stimulants (and they include all of these types other than specifically stated drugs).</p>
-<p>Not too surprising, marijuana is the most common drug seized at 47% - or 455k incidents with it seized - of the data. This is followed by amphetamines/methamphetamines (including what we’d normally just call meth) at 20.7% and then heroin at 8.5%. Interestingly, cocaine and crack cocaine (which are always separate categories) both occur in 5.09% of drugs seized. Given the large disparity in sentences for these types of drugs, and that “crack wars” were a major purported cause of violent crime in the 1980s and 1990s, I expected crack cocaine to be much more common than normal cocaine. The remaining drug types are all less than 5% of drugs seized each and has some groupings of drug types (e.g. stimulants) rather than specific drug types (though some of these categories, such as LSD, are specific drugs).</p>
+<p>Part of the reason for the percent difference for murders when replacing a month found above is that there was high variation in the number of murders per month with some months having more than double the number as other months. We’ll look at what happens when crimes are far more evenly distributed across months in Table <a href="county-level-srs-data.html#tab:countyPhillyThefts">10.3</a>. This table replicates Table <a href="county-level-srs-data.html#tab:CountyPhillyMurders">10.2</a> but uses thefts in Philadelphia in 2018 instead of murders. Here the monthly share of thefts ranged only from 6.85% to 9.16% so month-to-month variation is not very large. Now the percent change never increases above an absolute value of 1.62 and changes by an average of 0.77%. In cases like this, the imputation method is less of a problem.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:propertyDrugs">Table 17.3: </span>The number and percent of drugs seized by police by type of drug, for all drugs seized in 2022.
+<span id="tab:countyPhillyThefts">Table 10.3: </span>The imputed number of thefts in Philadelphia in 2018 when missing a single month. This shows how different the imputed value is to the real value for each month missing.
 </caption>
 <thead>
 <tr>
 <th style="text-align:left;">
-Drug Type
+Month
 </th>
 <th style="text-align:right;">
-# of Drugs
+Thefts That Month
 </th>
 <th style="text-align:right;">
-% of Drugs
+Actual Annual Thefts
+</th>
+<th style="text-align:right;">
+Imputed Annual Thefts
+</th>
+<th style="text-align:right;">
+Percent Change
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left;">
-Marijuana
+January
 </td>
 <td style="text-align:right;">
-557,044
+2,720 (7.36%)
 </td>
 <td style="text-align:right;">
-44.09%
+36,968
+</td>
+<td style="text-align:right;">
+37,361
+</td>
+<td style="text-align:right;">
++1.06
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Amphetamines/Methamphetamines
+February
 </td>
 <td style="text-align:right;">
-301,759
+2,532 (6.85%)
 </td>
 <td style="text-align:right;">
-23.88%
+36,968
+</td>
+<td style="text-align:right;">
+37,567
+</td>
+<td style="text-align:right;">
++1.62
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Other Narcotics: Codeine, Demerol, Dihydromorphinone Or Dilaudid, Hydrocodone Or Percodan, Methadone, Etc.
+March
 </td>
 <td style="text-align:right;">
-78,941
+2,598 (7.03%)
 </td>
 <td style="text-align:right;">
-6.25%
+36,968
+</td>
+<td style="text-align:right;">
+37,495
+</td>
+<td style="text-align:right;">
++1.43
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Cocaine (All Forms Except Crack)
+April
 </td>
 <td style="text-align:right;">
-73,157
+3,200 (8.66%)
 </td>
 <td style="text-align:right;">
-5.79%
+36,968
+</td>
+<td style="text-align:right;">
+36,838
+</td>
+<td style="text-align:right;">
+-0.35
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Heroin
+May
 </td>
 <td style="text-align:right;">
-68,859
+3,215 (8.70%)
 </td>
 <td style="text-align:right;">
-5.45%
+36,968
+</td>
+<td style="text-align:right;">
+36,821
+</td>
+<td style="text-align:right;">
+-0.40
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Crack Cocaine
+June
 </td>
 <td style="text-align:right;">
-64,853
+3,226 (8.73%)
 </td>
 <td style="text-align:right;">
-5.13%
+36,968
+</td>
+<td style="text-align:right;">
+36,809
+</td>
+<td style="text-align:right;">
+-0.43
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Other Drugs: Antidepressants (Elavil, Triavil, Tofranil, Etc.), Aromatic Hydrocarbons, Propoxyphene Or Darvon, Tranquilizers (Chlordiazepoxide Or Librium, Diazepam Or Valium, Etc.), Etc.
+July
 </td>
 <td style="text-align:right;">
-47,748
+3,312 (8.96%)
 </td>
 <td style="text-align:right;">
-3.78%
+36,968
+</td>
+<td style="text-align:right;">
+36,716
+</td>
+<td style="text-align:right;">
+-0.68
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Unknown Type Drug
+August
 </td>
 <td style="text-align:right;">
-26,787
+3,454 (9.34%)
 </td>
 <td style="text-align:right;">
-2.12%
+36,968
+</td>
+<td style="text-align:right;">
+36,561
+</td>
+<td style="text-align:right;">
+-1.10
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Opium
+September
 </td>
 <td style="text-align:right;">
-11,881
+3,287 (8.89%)
 </td>
 <td style="text-align:right;">
-0.94%
+36,968
+</td>
+<td style="text-align:right;">
+36,743
+</td>
+<td style="text-align:right;">
+-0.61
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Other Hallucinogrens: BMDA (White Acid), DMT, MDA, MDMA, Mescaline Or Peyote, Psilocybin, STP, Etc.
+October
 </td>
 <td style="text-align:right;">
-8,799
+3,386 (9.16%)
 </td>
 <td style="text-align:right;">
-0.70%
+36,968
+</td>
+<td style="text-align:right;">
+36,635
+</td>
+<td style="text-align:right;">
+-0.90
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Hashish
+November
 </td>
 <td style="text-align:right;">
-6,963
+2,906 (7.86%)
 </td>
 <td style="text-align:right;">
-0.55%
+36,968
+</td>
+<td style="text-align:right;">
+37,159
+</td>
+<td style="text-align:right;">
++0.52
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Other Depressants: Glutethimide Or Doriden, Methaqualone Or Quaalude, Pentazocine Or Talwin, Etc.
+December
 </td>
 <td style="text-align:right;">
-6,825
+3,132 (8.47%)
 </td>
 <td style="text-align:right;">
-0.54%
+36,968
+</td>
+<td style="text-align:right;">
+36,912
+</td>
+<td style="text-align:right;">
+-0.15
+</td>
+</tr>
+</tbody>
+</table>
+<p>Given that the imputation method is largely dependent on consistency across months, what happens when crime is very rare? Table <a href="county-level-srs-data.html#tab:countyDanvilleVehicle">10.4</a> shows what happens when replacing a single month for motor vehicle thefts in Danville, California, a small town which had 22 of these thefts in 2018. While possible to still have an even distribution of crimes over months, this is less likely when it comes to rare events. Here, having so few motor vehicle thefts means that small changes in monthly crimes can have an outsize effect. The average absolute value percent change now is 7.3% and this ranges from a -15.68% difference to a +9.1% difference from the real annual count. This means that having even a single month missing can vastly overcount or undercount the real values.</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:countyDanvilleVehicle">Table 10.4: </span>The imputed number of motor vehicle thefts in Danville, California, in 2018 when missing a single month. This shows how different the imputed value is to the real value for each month missing.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Month
+</th>
+<th style="text-align:right;">
+Vehicle Thefts That Month
+</th>
+<th style="text-align:right;">
+Actual Annual Vehicle Thefts
+</th>
+<th style="text-align:right;">
+Imputed Annual Vehicle Thefts
+</th>
+<th style="text-align:right;">
+Percent Change
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+January
+</td>
+<td style="text-align:right;">
+3 (13.64%)
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+-4.55
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Other Stimulants: Adipex, Fastine And Ionamin (Derivatives of Phentermine), Benzedrine, Didrex, Methylphenidate Or Ritalin, Phenmetrazine Or Preludin, Tenuate, Etc.
+February
 </td>
 <td style="text-align:right;">
-3,996
+0 (0.00%)
 </td>
 <td style="text-align:right;">
-0.32%
+22
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
++9.09
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Barbiturates
+March
 </td>
 <td style="text-align:right;">
-1,582
+1 (4.55%)
 </td>
 <td style="text-align:right;">
-0.13%
+22
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
++4.55
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-PCP
+April
 </td>
 <td style="text-align:right;">
-1,510
+2 (9.09%)
 </td>
 <td style="text-align:right;">
-0.12%
+22
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
++0.00
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-LSD
+May
 </td>
 <td style="text-align:right;">
-1,461
+3 (13.64%)
 </td>
 <td style="text-align:right;">
-0.12%
+22
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+-4.55
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Morphine
+June
 </td>
 <td style="text-align:right;">
-1,271
+1 (4.55%)
 </td>
 <td style="text-align:right;">
-0.10%
+22
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
++4.55
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Total
+July
 </td>
 <td style="text-align:right;">
-1,263,436
+1 (4.55%)
 </td>
 <td style="text-align:right;">
-100%
+22
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
++4.55
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+August
+</td>
+<td style="text-align:right;">
+0 (0.00%)
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
++9.09
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+September
+</td>
+<td style="text-align:right;">
+5 (22.73%)
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+-13.64
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+October
+</td>
+<td style="text-align:right;">
+5 (22.73%)
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+-13.64
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+November
+</td>
+<td style="text-align:right;">
+1 (4.55%)
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
++4.55
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+December
+</td>
+<td style="text-align:right;">
+0 (0.00%)
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
++9.09
+</td>
+</tr>
+</tbody>
+</table>
+<p>In the above three tables we looked at what happens if a single month is missing. Below we’ll look at the results of simulating when between 1 and 9 months are missing for an agency. Table <a href="county-level-srs-data.html#tab:countyPhillyMurderMonthsMissing">10.5</a> looks at murder in Philadelphia again but now randomizes removing between 1 and 9 months of the year and interpolating the annual murder count using the current method. For each number of months removed I run 10,000 simulations.<a href="#fn77" class="footnote-ref" id="fnref77"><sup>77</sup></a> Given that I am literally randomly choosing which months to say are missing, I am assuming that missing data is missing completely at random. This is a very bold assumption and one that is the best-case scenario since it means that missing data is not related to crimes, police funding/staffing, or anything else relevant. So you should read the below tables as the most optimistic (and thus likely wrong) outcomes.</p>
+<p>For each number of months reported the table shows the actual annual murder (which never changes) and the imputed mean, median, modal, minimum, and maximum annual murder count. As a function of the randomization, the imputed mean is always nearly identical to the real value. The most important columns, I believe, are the minimum and maximum imputed value since these show the worst-case scenario - that is, what happens when the month(s) least like the average month is replaced. Since as researchers we should try to minimize the harm caused from our work if it is wrong, I think it is safest to assume that if data is missing it is missing in the worst possible way. While this is a conservative approach, doing so otherwise leads to the greatest risk of using incorrect data, and incorrect results - and criminology is a field important enough to necessitate this caution.</p>
+<p>As might be expected, as the number of months missing increases the quality of the imputation decreases. The minimum is further and further below the actual value while the maximum is further and further above the actual value.</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:countyPhillyMurderMonthsMissing">Table 10.5: </span>A simulation showing how the imputed values of murders in Philadelphia in 2018 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run for removing and imputing those months of data.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+# of Months Missing
+</th>
+<th style="text-align:right;">
+Actual Murder
+</th>
+<th style="text-align:right;">
+Mean Imputed Murder
+</th>
+<th style="text-align:right;">
+Median Imputed Murder
+</th>
+<th style="text-align:right;">
+Modal Imputed Murder
+</th>
+<th style="text-align:right;">
+Min Imputed Murder
+</th>
+<th style="text-align:right;">
+Max Imputed Murder
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+351.05
+</td>
+<td style="text-align:right;">
+353.45
+</td>
+<td style="text-align:right;">
+353.45
+</td>
+<td style="text-align:right;">
+336.00
+</td>
+<td style="text-align:right;">
+363.27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+351.24
+</td>
+<td style="text-align:right;">
+350.40
+</td>
+<td style="text-align:right;">
+350.40
+</td>
+<td style="text-align:right;">
+320.40
+</td>
+<td style="text-align:right;">
+378.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+351.04
+</td>
+<td style="text-align:right;">
+352.00
+</td>
+<td style="text-align:right;">
+353.33
+</td>
+<td style="text-align:right;">
+312.00
+</td>
+<td style="text-align:right;">
+385.33
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+350.70
+</td>
+<td style="text-align:right;">
+349.50
+</td>
+<td style="text-align:right;">
+370.50
+</td>
+<td style="text-align:right;">
+301.50
+</td>
+<td style="text-align:right;">
+394.50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+350.97
+</td>
+<td style="text-align:right;">
+351.43
+</td>
+<td style="text-align:right;">
+353.14
+</td>
+<td style="text-align:right;">
+289.71
+</td>
+<td style="text-align:right;">
+404.57
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+351.07
+</td>
+<td style="text-align:right;">
+350.00
+</td>
+<td style="text-align:right;">
+376.00
+</td>
+<td style="text-align:right;">
+284.00
+</td>
+<td style="text-align:right;">
+418.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+351.02
+</td>
+<td style="text-align:right;">
+350.40
+</td>
+<td style="text-align:right;">
+348.00
+</td>
+<td style="text-align:right;">
+276.00
+</td>
+<td style="text-align:right;">
+436.80
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+351.45
+</td>
+<td style="text-align:right;">
+354.00
+</td>
+<td style="text-align:right;">
+312.00
+</td>
+<td style="text-align:right;">
+264.00
+</td>
+<td style="text-align:right;">
+450.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+9
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+350.96
+</td>
+<td style="text-align:right;">
+348.00
+</td>
+<td style="text-align:right;">
+344.00
+</td>
+<td style="text-align:right;">
+248.00
+</td>
+<td style="text-align:right;">
+468.00
+</td>
+</tr>
+</tbody>
+</table>
+<p>This problem is even more pronounced when looking at agencies with fewer crimes and less evenly distributed crimes. Table <a href="county-level-srs-data.html#tab:countyDanvilleBurglaryMonthsMissing">10.6</a> repeats the above table but now looks at motor vehicle thefts in Danville, California. By the time 5 months are missing, the minimum value is nearly half of the actual value while the maximum value is a little under 50% larger than the actual value. By 9 months missing, possible imputed values range from 0% of the actual value to over twice as large as the actual value.</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:countyDanvilleBurglaryMonthsMissing">Table 10.6: </span>A simulation showing how the imputed values of motor vehicle thefts in Danville, California, in 2018 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run for removing and imputing those months of data.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+# of Months Missing
+</th>
+<th style="text-align:right;">
+Actual Vehicle Theft
+</th>
+<th style="text-align:right;">
+Mean Imputed Vehicle Theft
+</th>
+<th style="text-align:right;">
+Median Imputed Vehicle Theft
+</th>
+<th style="text-align:right;">
+Modal Imputed Vehicle Theft
+</th>
+<th style="text-align:right;">
+Min Imputed Vehicle Theft
+</th>
+<th style="text-align:right;">
+Max Imputed Vehicle Theft
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+21.99
+</td>
+<td style="text-align:right;">
+22.91
+</td>
+<td style="text-align:right;">
+22.91
+</td>
+<td style="text-align:right;">
+18.55
+</td>
+<td style="text-align:right;">
+24.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+22.02
+</td>
+<td style="text-align:right;">
+22.80
+</td>
+<td style="text-align:right;">
+25.20
+</td>
+<td style="text-align:right;">
+14.40
+</td>
+<td style="text-align:right;">
+26.40
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+22.03
+</td>
+<td style="text-align:right;">
+22.67
+</td>
+<td style="text-align:right;">
+21.33
+</td>
+<td style="text-align:right;">
+12.00
+</td>
+<td style="text-align:right;">
+29.33
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+22.01
+</td>
+<td style="text-align:right;">
+22.50
+</td>
+<td style="text-align:right;">
+22.50
+</td>
+<td style="text-align:right;">
+9.00
+</td>
+<td style="text-align:right;">
+31.50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+22.01
+</td>
+<td style="text-align:right;">
+22.29
+</td>
+<td style="text-align:right;">
+22.29
+</td>
+<td style="text-align:right;">
+6.86
+</td>
+<td style="text-align:right;">
+34.29
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+21.97
+</td>
+<td style="text-align:right;">
+22.00
+</td>
+<td style="text-align:right;">
+20.00
+</td>
+<td style="text-align:right;">
+6.00
+</td>
+<td style="text-align:right;">
+38.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+21.92
+</td>
+<td style="text-align:right;">
+21.60
+</td>
+<td style="text-align:right;">
+21.60
+</td>
+<td style="text-align:right;">
+4.80
+</td>
+<td style="text-align:right;">
+43.20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+22.00
+</td>
+<td style="text-align:right;">
+21.00
+</td>
+<td style="text-align:right;">
+21.00
+</td>
+<td style="text-align:right;">
+3.00
+</td>
+<td style="text-align:right;">
+48.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+9
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+21.97
+</td>
+<td style="text-align:right;">
+24.00
+</td>
+<td style="text-align:right;">
+24.00
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+52.00
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="amount-of-drugs" class="section level4 hasAnchor" number="17.1.5.2">
-<h4><span class="header-section-number">17.1.5.2</span> Amount of drugs<a href="property.html#amount-of-drugs" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>For each drug type we know exactly how much was seized (at least we do other than for the 6.7% where the amount is “not reported”). Since different drug types are measured in different ways, this data also tells us what units the amount seized is in. So you’ll need to look at both the amount and the units to understand how much drugs were actually seized. The possible units are listed below:</p>
-<ul>
-<li>Dosage Unit/Items (Pills, Etc.)</li>
-<li>Fluid Ounce</li>
-<li>Gallon<br />
-</li>
-<li>Gram</li>
-<li>Kilogram<br />
-</li>
-<li>Liter<br />
-</li>
-<li>Milliliter</li>
-<li>Number of Plants<br />
-</li>
-<li>Ounce</li>
-<li>Pound</li>
-</ul>
-<p>Once you know the units you can look at the amount of drugs seized. The amount is specific up to the thousandths place though the integer and the numbers after the decimal point are actually in different columns in the data. For example, if police seized 1.257 grams of heroin, the 1 gram and the 0.257 grams would be in separate columns. As an example, we’ll look at Figure <a href="property.html#fig:propertyMarijuanaGramMeasures">17.5</a> which shows the number of grams seized for marijuana. This is only looking at the column with the amount in integers, so parts of a gram are excluded (but are available in the data). This also excludes any case where the marijuana seized was measured in a unit other than gram, such as number of plants, ounces, or pounds. Even though the data shows the number of grams as actual integers, not grouped at all, I do group the larger values together to make the graph simpler.</p>
-<p>So with those caveats, we can see what amounts of marijuana, measured in grams, are most frequently seized. Generally, the amount of marijuana seized is in small amounts with 22.5% being 1-2 grams (since we don’t include the parts of a gram we can only say that it is 1 to 1.999 grams) and 18.6% being less than one gram. As the amount of drugs increase, the percent of seizures that involve this number of drugs decreases. It’s a bit curious that they include grams for values over 28 since 28.3495 grams is one ounce so it’d make sense to just start reporting in units of ounces instead of just increasingly large number of grams.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:propertyMarijuanaGramMeasures"></span>
-<img src="17_nibrs_property_files/figure-html/propertyMarijuanaGramMeasures-1.png" alt="For drugs seized that are measured in grams, this figure shows the distribution in the number of grams seized. Values over 10 grams are grouped together for easier interpretation of lower values of drugs seized." width="90%" />
+<div id="months-missing-1" class="section level3 hasAnchor" number="10.3.2">
+<h3><span class="header-section-number">10.3.2</span> 10-12 months missing<a href="county-level-srs-data.html#months-missing-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In cases where there are more than 9 months of data missing, the current imputation method replaces the entire year of data for that agency with the average of the crime for agencies who reported 12 months of data, are in the same state and in the same population group as the given agency. Considering that when an agency reports data it tends to report every month of the year - and about a quarter of agencies still do not report any months of data - this is a far bigger issue than when agencies are missing 1-9 months of data. The imputation process is also far worse here.</p>
+<p>Whereas with 1-9 months missing the results were at least based on the own agency’s data, and were actually not terribly wrong (depending on the specific agency and crime patterns) when only a small number of months were missing, the imputation for 10+ months missing is nonsensical. It assumes that these agencies are much like similarly sized agencies in the same state.</p>
+<p>There are two major problems here. First, similarly sized agencies are based on the population group which is quite literally just a category indicating how big the agency is when grouped into rather arbitrary categories. These categories can range quite far - with agencies having millions more people than other agencies in the same category in some cases - so in most cases “similarly sized” agencies are not that similarly sized. The second issue is simply the assumption that population is all that important to crime rates. Population is certainly important to crime counts; New York City is going to have many more crimes than small towns purely due to its huge population, even though NYC has a low crime rate. But there is still huge variation in crimes among cities of the same or similar size as crime tends to concentrate in certain areas. So replacing an agency’s annual crime counts with that or other agencies (even the average of other agencies) will give you a very wrong count.</p>
+<p>For this method of replacing missing data to be accurate agencies in the same population group in each state would need to have very similar crime counts. Otherwise it is assuming that missing agencies are just average (literally) in terms of crime. This again assumes that missing data is missing at random, which is unlikely to be true.</p>
+<p>In each of the below examples we use data from 2018 Offenses Known and Clearances by Arrest and use only agencies whose final month reported was December. This makes it the actual agencies in each population group that would replace agencies that are missing 10 or more months of data in 2018. As agencies can - and do - report different numbers of months each year, these numbers would be a little different if using any year other than 2018.</p>
+<p>For each population group we’ll look at the mean, median, and maximum number of murders plus aggravated assaults with a gun.<a href="#fn78" class="footnote-ref" id="fnref78"><sup>78</sup></a> This is essentially a measure of the most serious violent crimes as the difference between gun assaults and murders is, to some degree, a matter of luck (e.g. where the person is shot can make the difference between an assault and a murder).<a href="#fn79" class="footnote-ref" id="fnref79"><sup>79</sup></a> This is actually not available in NACJD’s county-level UCR data as they don’t separate gun assaults from other aggravated assaults, though that data is available in the agency-level UCR data. If we see a wide range in the number of murders+gun-assaults in the below table, that’ll indicate that this method of imputing missing data is highly flawed.</p>
+<p>Table <a href="county-level-srs-data.html#tab:countyPopulationGroupStatsNational">10.7</a> shows these values for all agencies in the United States who reported 12 months of data (based on the “December last month reported” definition) in 2018. The actual imputation process only looks at agencies in the same state, but this is still information at seeing broad trends - and we’ll look at two specific states below. Column 1 shows each of the population groups in the data while the remaining columns show the mean, median, minimum, and maximum number of murders+gun-assaults in 2018, respectively.<a href="#fn80" class="footnote-ref" id="fnref80"><sup>80</sup></a> For each population group there is a large range of values, as seen from the minimum and maximum values. There are also large differences in the mean and median values for larger (25,000+ population) agencies, particularly when compared to the top and bottom of the range of values.<a href="#fn81" class="footnote-ref" id="fnref81"><sup>81</sup></a> Using this imputation method will, in most cases (but soon we’ll see an instance where there’s an exception) provide substantially different values than the real (but unknown) values.</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:countyPopulationGroupStatsNational">Table 10.7: </span>The mean, median, minimum, and maximum agency size nationwide for all population groups in the 2018 Offenses Known and Clearances by Arrests data.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Population Group
+</th>
+<th style="text-align:right;">
+Mean Murder + Gun Assault
+</th>
+<th style="text-align:right;">
+Median Murder + Gun Assault
+</th>
+<th style="text-align:right;">
+Minimum Murder + Gun Assault
+</th>
+<th style="text-align:left;">
+Max Murder + Gun Assault
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+City Under 2,500
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+108
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+City 2,500-9,999
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+55
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+City 10,000-24,999
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+220
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+City 25,000-49,999
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+381
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+City 50,000-99,999
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+608
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+City 100,000-249,999
+</td>
+<td style="text-align:right;">
+131
+</td>
+<td style="text-align:right;">
+64
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+1,235
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+City 250,000+
+</td>
+<td style="text-align:right;">
+1,093
+</td>
+<td style="text-align:right;">
+638
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+6,209
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MSA Counties And MSA State Police
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+-1
+</td>
+<td style="text-align:left;">
+1,701
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Non-MSA Counties And Non-MSA State Police
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+295
+</td>
+</tr>
+</tbody>
+</table>
+<p>To better see the distribution, Figure <a href="county-level-srs-data.html#fig:countyPopulationGroupsBoxplot">10.7</a> shows boxplots for the rate per 100,000 population of murders+gun-assaults in each population group in 2018. Since there can’t be a rate without any population, this excludes all agencies with a population of zero. To make the graph simpler to see, it also excludes all agencies with a rate about 500, which is 57 agencies. Each population group has a relatively large range of values with the size of the boxplot growing as the size of the population group increases. This means that there are a wider variety of rates in larger population groups than in smaller population groups. Each population group also has a good number of agencies that are outliers with a much higher rate than is normal.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:countyPopulationGroupsBoxplot"></span>
+<img src="10_ucr_county_files/figure-html/countyPopulationGroupsBoxplot-1.png" alt="Boxplots showing the distribution of annual murders+gun-assaults for each population group for all agencies that reported December data in 2018." width="90%" />
 <p class="caption">
-Figure 17.5: For drugs seized that are measured in grams, this figure shows the distribution in the number of grams seized. Values over 10 grams are grouped together for easier interpretation of lower values of drugs seized.
+Figure 10.7: Boxplots showing the distribution of annual murders+gun-assaults for each population group for all agencies that reported December data in 2018.
 </p>
 </div>
+<p>Since the actual imputation process looks only at agencies in the same state, we’ll look at two example states - Texas and Maine - and see how trends differ from nationally. These states are chosen as Texas is a very large (both in population and in number of jurisdictions) state with some areas of high crime while Maine is a small, more rural state with very low crime. Table <a href="county-level-srs-data.html#tab:countyPopulationGroupStatsTexas">10.8</a> shows results in Texas. Here, the findings are very similar to that of Table <a href="county-level-srs-data.html#tab:countyPopulationGroupStatsNational">10.7</a>. While the numbers are different, and the maximum value is substantially smaller than using all agencies in the country, the basic findings of a wide range of values - especially at larger population groups - is the same.</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:countyPopulationGroupStatsTexas">Table 10.8: </span>The mean, median, minimum, and maximum agency size for agencies in Texas for all population groups in the 2018 Offenses Known and Clearances by Arrests data.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Population Group
+</th>
+<th style="text-align:right;">
+Mean Murder + Gun Assault
+</th>
+<th style="text-align:right;">
+Median Murder + Gun Assault
+</th>
+<th style="text-align:right;">
+Minimum Murder + Gun Assault
+</th>
+<th style="text-align:left;">
+Max Murder + Gun Assault
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+City Under 2,500
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+City 2,500-9,999
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+City 10,000-24,999
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+38
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+City 25,000-49,999
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+61
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+City 50,000-99,999
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+141
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+City 100,000-249,999
+</td>
+<td style="text-align:right;">
+105
+</td>
+<td style="text-align:right;">
+77
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:left;">
+467
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+City 250,000+
+</td>
+<td style="text-align:right;">
+1,343
+</td>
+<td style="text-align:right;">
+669
+</td>
+<td style="text-align:right;">
+76
+</td>
+<td style="text-align:left;">
+4,919
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MSA Counties And MSA State Police
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+1,701
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Non-MSA Counties And Non-MSA State Police
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+28
+</td>
+</tr>
+</tbody>
+</table>
+<p>Now we’ll look at data from Maine, as shown in Table <a href="county-level-srs-data.html#tab:countyPopulationGroupStatsMaine">10.9</a>. Here, results are much better: there is a narrow range in values meaning that the imputation would be very similar to the real values. This is driven mainly by Maine being a tiny state, with only one city larger than 50,000 people (Portland) and Maine being an extremely safe state so most places have zero murders+gun-assaults. In cases like this, where both crime and population size are consistent across the state (which is generally caused by everywhere having low crime), this imputation process can work well.</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:countyPopulationGroupStatsMaine">Table 10.9: </span>The mean, median, minimum, and maximum agency size for agencies in Maine for all population groups in the 2018 Offenses Known and Clearances by Arrests data.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Population Group
+</th>
+<th style="text-align:right;">
+Mean Murder + Gun Assault
+</th>
+<th style="text-align:right;">
+Median Murder + Gun Assault
+</th>
+<th style="text-align:right;">
+Minimum Murder + Gun Assault
+</th>
+<th style="text-align:left;">
+Max Murder + Gun Assault
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+City Under 2,500
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+City 2,500-9,999
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+City 10,000-24,999
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+City 25,000-49,999
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+City 50,000-99,999
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:left;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+City 100,000-249,999
+</td>
+<td style="text-align:right;">
+<ul>
+<li></td>
+<td style="text-align:right;">
+<ul>
+<li></td>
+<td style="text-align:right;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+City 250,000+
+</td>
+<td style="text-align:right;">
+<ul>
+<li></td>
+<td style="text-align:right;">
+<ul>
+<li></td>
+<td style="text-align:right;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MSA Counties And MSA State Police
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+-1
+</td>
+<td style="text-align:left;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Non-MSA Counties And Non-MSA State Police
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+19
+</td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="final-thoughts" class="section level2 hasAnchor" number="10.4">
+<h2><span class="header-section-number">10.4</span> Final thoughts<a href="county-level-srs-data.html#final-thoughts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>County-level UCR data should not be used for research because it handles missing data poorly and distributes crimes for agencies in multiple counties very poorly, so will give inaccurate results. This is the conclusion that Maltz and Targonski had in 2002 in their paper examining the data and is, in my opinion, the conclusion that still holds today as the problems have not improved (or even changed since 2002). There are two main problems: distributing crimes for agencies in multiple counties and missing data. The first, given UCR data constraints, seems unfixable though is not a problem for agencies in only one county. For the second, if an imputation method was used that properly (i.e. got as close to the right answer as possible) handled missing data that would solve this issue.</p>
+<p>Given the decades of data and agencies that release their own crime data on their websites that can be used as a check on how close imputed data is to the real data (as some agencies, such as Philadelphia in 2019, don’t report all months of data to the UCR but still release incident-level data publicly on their city’s ‘open data’ websites) this is a solvable problem.<a href="#fn82" class="footnote-ref" id="fnref82"><sup>82</sup></a> Missing data is not a problem only in criminology, and is actually addressed in some criminology papers, so the fact that so much research relies on this data that does such a poor job of handling missing data and literally assumes that crime is not at all concentrated is a sorry testament to this field.<a href="#fn83" class="footnote-ref" id="fnref83"><sup>83</sup></a> We can do better.</p>
 
 </div>
 </div>
-</div>
-</div>
+
+
+
 <div class="footnotes">
 <hr />
-<ol start="126">
-<li id="fn126"><p>I’d expect most property to be recovered on the arrestee’s body.<a href="property.html#fnref126" class="footnote-back">↩︎</a></p></li>
+<ol start="67">
+<li id="fn67"><p>Even for county-level agencies such as Sheriff’s Offices, the data is only for crimes in that agency’s jurisdiction. So the county sheriff reports crimes that they responded to but not crimes within the county that other agencies, such as a city police force, responded to.<a href="county-level-srs-data.html#fnref67" class="footnote-back">↩︎</a></p></li>
+<li id="fn68"><p>Because the county-level data imputes missing months, this dataset is <em>only</em> available at the annual-level, not at the monthly level.<a href="county-level-srs-data.html#fnref68" class="footnote-back">↩︎</a></p></li>
+<li id="fn69"><p>These files are known on NACJD’s website as “Uniform Crime Reporting Program Data: County-Level Detailed Arrest and Offense Data.”<a href="county-level-srs-data.html#fnref69" class="footnote-back">↩︎</a></p></li>
+<li id="fn70"><p>To be very clear, this chapter isn’t a critique of NACJD, which is a great organization with a very talented team, but merely of a single dataset that they released using imputation methods from decades ago.<a href="county-level-srs-data.html#fnref70" class="footnote-back">↩︎</a></p></li>
+<li id="fn71"><p>For New York City specifically NACJD does distribute to all five counties, and does so by county population.<a href="county-level-srs-data.html#fnref71" class="footnote-back">↩︎</a></p></li>
+<li id="fn72"><p>Hopefully the warnings deterred at least some people.<a href="county-level-srs-data.html#fnref72" class="footnote-back">↩︎</a></p></li>
+<li id="fn73"><p>I used to have a Google Scholar alert for UCR papers but turned it off since so many papers either used my data but didn’t cite me, used the data improperly, or both.<a href="county-level-srs-data.html#fnref73" class="footnote-back">↩︎</a></p></li>
+<li id="fn74"><p>Given economist’s policy of not citing other fields it’s likely that they haven’t read Maltz and Targonski’s paper. Normally I’d be concerned with criticizing entire fields, but no economist will read this as I’m not an economist myself so it’s fine.<a href="county-level-srs-data.html#fnref74" class="footnote-back">↩︎</a></p></li>
+<li id="fn75"><p>I note these differences not to join the ego-driven feud between the fields. As a criminologist who currently works in a political science department, these feuds are quite stupid. I note it, however, to show that this data usage is partially driven by subcultures within fields. For example, criminology has long known about which may explain why it is more commonly used in non-criminology fields. It is therefore important for researchers to talk to (or collaborate with {though to be clear I’m not volunteering or requesting to collaborate with you}) people who have content-expertise about the data that you’re using. And that open communication between the fields (including collaborations and submitting to journals from fields other than your own) will strengthen both fields.<a href="county-level-srs-data.html#fnref75" class="footnote-back">↩︎</a></p></li>
+<li id="fn76"><p>Even though these are unusual agencies, in real analyses using UCR data at the county-level you’d like want to include them. Or justify why you’re not including them.<a href="county-level-srs-data.html#fnref76" class="footnote-back">↩︎</a></p></li>
+<li id="fn77"><p>This is actually more than I need to run to get the same results but it’s easier to run many simulations than to math out how many I actually need to find all possible combinations of missing months.<a href="county-level-srs-data.html#fnref77" class="footnote-back">↩︎</a></p></li>
+<li id="fn78"><p>Aggravated assaults with a gun include but are not limited to shootings. The gun does not need to be fired to be considered an aggregated assault.<a href="county-level-srs-data.html#fnref78" class="footnote-back">↩︎</a></p></li>
+<li id="fn79"><p>Attempted murders are considered aggravated assaults in the UCR.<a href="county-level-srs-data.html#fnref79" class="footnote-back">↩︎</a></p></li>
+<li id="fn80"><p>The agency-level UCR data actually has more population groups than this list, but NACJD has grouped some together. Given that some states may have few (or no) agencies in a population group, combining more groups together does alleviate the problem of having no comparison cities but at the tradeoff of making the comparison less similar to the given agency.<a href="county-level-srs-data.html#fnref80" class="footnote-back">↩︎</a></p></li>
+<li id="fn81"><p>The negative number for minimum crimes in the Non-MSA Counties and Non-MSA State Police is due to a reporting quirk of UCR, covered in Chapter 2, and is not a mistake in the data.<a href="county-level-srs-data.html#fnref81" class="footnote-back">↩︎</a></p></li>
+<li id="fn82"><p>But not by me, so please don’t ask.<a href="county-level-srs-data.html#fnref82" class="footnote-back">↩︎</a></p></li>
+<li id="fn83"><p>There are also a good number of criminology papers that try to interpolate missing data from survey papers, which in general I think is a mistake since they often assume that the data is missing at random.<a href="county-level-srs-data.html#fnref83" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -2327,8 +2501,8 @@ Figure 17.5: For drugs seized that are measured in grams, this figure shows the 
           </div>
         </div>
       </div>
-<a href="arrestee.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="hate_crimes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="nibrs-overview.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -2349,7 +2523,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jacobkap/ucrbook/edit/main/17_nibrs_property.Rmd",
+"link": "https://github.com/jacobkap/ucrbook/edit/main/10_ucr_county.Rmd",
 "text": "Edit"
 },
 "history": {
