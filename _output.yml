@@ -4,7 +4,7 @@ bookdown::gitbook:
     in_header: [ga_script.html]
   config:
     toc:
-      collapse: section
+      collapse: subsection
       before: |
         <li><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide</a></li>
     edit:
