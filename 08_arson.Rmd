@@ -22,9 +22,9 @@ In cases where the arson led to a death, that death would be recorded as a murde
 
 ## Agencies reporting
 
-Figure \@ref(fig:arsonAgencies) shows the annual number of police agencies that reported at least one month that year. With data starting in 1979, there were a little over 12,000 agencies reporting a year until the early 2000s where it recovered from a sharp drop in agencies to steadily increase to about 16,000 a year. While arson data is available through 2019, this graph only shows data through 2018. 
+Figure \@ref(fig:arsonAgencies) shows the annual number of police agencies that reported at least one month that year. With data starting in 1979, there were a little over 12,000 agencies reporting a year until the early 2000s where it recovered from a sharp drop in agencies to steadily increase to about 16,000 a year. 
 
-```{r arsonAgencies, fig.cap = "The annual number of police agencies that report at least month of data that year."}
+```{r arsonAgencies, fig.cap = "The annual number of police agencies that report at least month of data that year, 1979-2022."}
 arson %>%
   dplyr::filter(number_of_months_missing < 12) %>%
   dplyr::distinct(ori, year, .keep_all = TRUE) %>%
@@ -64,7 +64,7 @@ Please note that this data is at the incident-level which means that having mult
 
 Figure \@ref(fig:arsonClearance) shows the number of actual arsons (reports that are founded) and clearances for single-family home arsons in League City, Texas, a city of about 100,000 outside of Houston. In most years there were fewer clearances than arsons, but in four years (1982, 1981, 1992, and 2007) there were more clearances than arsons. This is simply because clearances are reported in the month they occur, regardless of when the arson they are clearing occurred. 
 
-```{r arsonClearance, fig.cap = "The annual number of single-family home arsons and clearances in League City, Texas."}
+```{r arsonClearance, fig.cap = "The annual number of single-family home arsons and clearances in League City, Texas, 1979-2022."}
 arson %>%
   filter(ori %in% "TX08408") %>%
   ggplot(aes(x = year)) +
@@ -114,7 +114,7 @@ Some arsons can burn down multiple types or structures or cars - fire, after all
 
 Like the other UCR data, there are some cases where there are obvious data entry errors leading to impossible numbers of reported arsons or the price of an arson. As an example, Figure \@ref(fig:residenceArson) shows the annual number of single-family home arsons in Byron City, Illinois, which has a population of slightly over 3,600 people. Every year with data available there are zero arsons reported until 2003 when 469 arsons are reported. Since it is exceedingly unlikely that suddenly an eighth of the city suddenly burned down, and the city never again had a residence arson, this is almost certainly a data entry error. As arsons are relatively rare, having errors - and especially ones like this - can drastically change the results of your analysis so it is important to check your data carefully for more errors. 
 
-```{r residenceArson, fig.cap = "Annual single-family home arsons in Byron  City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this dataset. "}
+```{r residenceArson, fig.cap = "Annual single-family home arsons in Byron  City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this dataset, 1979-2022. "}
 arson %>%
   filter(ori %in% "IL07106") %>%
   ggplot(aes(x = year, y = actual_single_occupancy)) +
@@ -126,7 +126,6 @@ arson %>%
 
 There are also cases where it is less clear when a value is a data error or is simply due to an outlier - but real - value. For example, Figure \@ref(fig:arsonCost) shows the annual average cost of a single-family home fire in Los Angeles, California. In most years the damage is low - since an arson can damage only part of the house, these low values likely mean that on average only part of the house was damaged, not the entire house. In 2009, however, the average damage is about $540,000 per arson. Is this a data entry error that simply inputs a damage value that is too high? It certainly appears to be a data error since it's a sudden huge jump in damage value. However, it could also be that some extraordinarily expensive homes were destroyed that year. In 2009 Los Angeles only reported 63 single-family home arsons so having one, or a few, super mansions - which LA has plenty of - destroyed could mean that this huge value is real. 
 
-```{r arsonCost, fig.cap = "The annual average cost per single-family home arson in Los Angeles, California."}
 arson %>%
   filter(ori %in% "CA01942") %>%
   mutate(residence_cost_per_arson = est_damage_single_occupancy / actual_single_occupancy) %>%

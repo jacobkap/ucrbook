@@ -45,7 +45,6 @@ fig:theftHispanic
 fig:theftHispanicPercentAgencies
 fig:phillyJuvenileReferrals
 fig:shrVsOffenses
-fig:shrVsOffensesylim0
 fig:chicagoSHRvsOffensesKnown
 fig:shrAnnualAgencies
 fig:shrTopAgenciesCount
@@ -60,10 +59,10 @@ fig:shrOffenderRace
 fig:shrVictimRace
 fig:shrOffenderEthnicity
 fig:shrVictimEthnicity
-tab:shrWeapon
-tab:shrRelationship
+fig:ABQ
+fig:shrRifle
+fig:shrRiflePercent
 tab:shrCircumstance
-tab:shrSubCircumstance
 fig:leokaAgencies
 fig:leokaAgenciesEmployees
 fig:leokaAgenciesAssaults
@@ -82,7 +81,6 @@ fig:phoenixAssaultTimes
 fig:arsonAgencies
 fig:arsonClearance
 fig:residenceArson
-fig:arsonCost
 fig:hateAgencies
 fig:hateCrimesEver
 fig:hateCrimesPreviousYear
@@ -171,7 +169,6 @@ ethnicity
 juvenile-referrals
 shr
 agencies-reporting-3
-homicide-vs.-murder
 important-variables-3
 demographics
 age-1
