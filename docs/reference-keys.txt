@@ -116,7 +116,16 @@ goal-of-the-book
 structure-of-the-book
 citing-this-book
 sources-of-ucr-data
-where-to-find-the-data-used-in-this-book
+my-own-collection
+openicpsr
+crimedatatool.comhttpscrimedatatool.com
+nacjd
+fbi-raw-data
+raw-data
+crime-data-explorer
+crimes-in-the-united-states-report
+fbi-crime-data-explorer
+fbi-crimes-in-the-united-states-report
 recommended-reading
 how-to-contribute-to-this-book
 SRSGeneral

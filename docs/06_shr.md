@@ -24,56 +24,6 @@ For the SHR data, in every year the numbers are fairly similar and the trends ar
 
 Let's look at Chicago for another example of the differences in reporting from the SHR and the Offenses Known data. Figure \@ref(fig:chicagoSHRvsOffensesKnown) shows the annual number of homicide victims from both datasets. In most years they are pretty similar, excluding a few really odd years in the 1980s and in 1990. But what's also strange is that most years have more SHR victims than Offenses Known victims. So nationally SHR has fewer homicides than Offenses Known but that pattern is reversed in Chicago? This is one of the many quirks of SHR data. And is a warning against treating national trends as local trends; what is true nationally isn't always true in your community. So when you use this data, check everything closely. And once you've done that, check it again. 
 
-
-```
-#>    year shr_homicides offenses_known_homicides
-#> 1  1976           898                     1091
-#> 2  1977           903                     1070
-#> 3  1978           882                      802
-#> 4  1979           978                      866
-#> 5  1980           959                      876
-#> 6  1981           974                      890
-#> 7  1982           746                      680
-#> 8  1983           777                      738
-#> 9  1986           588                      754
-#> 10 1987            58                      689
-#> 11 1988           677                      660
-#> 12 1989           753                      742
-#> 13 1990           419                      851
-#> 14 1991           984                      925
-#> 15 1992           930                      960
-#> 16 1993           880                      862
-#> 17 1994           951                      938
-#> 18 1995           821                      824
-#> 19 1996           800                      789
-#> 20 1997           763                      757
-#> 21 1998           738                      703
-#> 22 1999           665                      642
-#> 23 2000           647                      631
-#> 24 2001           687                      666
-#> 25 2002           668                      648
-#> 26 2003           624                      598
-#> 27 2004           472                      448
-#> 28 2005           468                      448
-#> 29 2006           488                      468
-#> 30 2007           464                      443
-#> 31 2008           535                      510
-#> 32 2009           478                      458
-#> 33 2010           449                      432
-#> 34 2011           464                      431
-#> 35 2012           515                      500
-#> 36 2013           434                      416
-#> 37 2014           438                      415
-#> 38 2015           499                      481
-#> 39 2016           769                      765
-#> 40 2017           522                      653
-#> 41 2018           568                      567
-#> 42 2019           498                      492
-#> 43 2020           726                      771
-#> 44 2021           370                      370
-#> 45 2022           605                      604
-```
-
 <div class="figure" style="text-align: center">
 <img src="06_shr_files/figure-html/chicagoSHRvsOffensesKnown-1.png" alt="The annual number of homicide victims in Chicago, SHR and Offeksnes Known, 1976-2022." width="90%" />
 <p class="caption">(\#fig:chicagoSHRvsOffensesKnown)The annual number of homicide victims in Chicago, SHR and Offeksnes Known, 1976-2022.</p>
