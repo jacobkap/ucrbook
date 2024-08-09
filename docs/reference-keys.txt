@@ -86,6 +86,8 @@ fig:hateCrimesEver
 fig:hateCrimesPreviousYear
 fig:hateCrimesMap
 fig:statePercentReporting
+fig:nycHate
+fig:nationalAsianHate
 fig:hateCrimesByDay
 fig:crimesPerHateCrime
 tab:hateBiasMotivation
@@ -202,6 +204,7 @@ arsonType
 data-errors-1
 hate_crimes
 agencies-reporting-6
+hate-crimes-against-asian-people
 important-variables-6
 the-bias-motivation-who-the-hate-is-against
 the-crime-that-occurred

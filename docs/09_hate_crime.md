@@ -48,6 +48,30 @@ Since the number of state-wide hate crimes is partially influenced by population
 <p class="caption">(\#fig:statePercentReporting)The percent of agencies in each state that reported at least one hate crime in 2020</p>
 </div>
 
+## Hate crimes against Asian people
+
+Before we get into specific variables lets try to answer the question of whether hate crimes increased against Asian people^[I've seen some news organizations reported about hate crimes against Asian-Americans using this data. That isn't correct. The data does not consider citizenship. So a hate crime against a non-citizen such as a tourist would be treated as anti-Asian if the tourist is Asian.] after Covid started. This has been a common topic of discussion since shortly after Covid started, with (media reports)[https://www.nbcnews.com/news/asian-america/anti-asian-hate-crimes-increased-339-percent-nationwide-last-year-repo-rcna14282], (public polling)[https://www.pewresearch.org/2023/11/30/asian-americans-and-discrimination-during-the-covid-19-pandemic/], and (academic)[https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7364747/]^[This paper, now cited by nearly 1,000 other papers, bizarrely doesn't actually assess if hate crimes increased, as they say that the data does not exist yet at the time they choose to write the paper: "At that point, researchers will be able to assess both the extent to which law enforcement data show a spike in anti-Asian hate crimes known to police and whether there were changes in the numbers of Asian victims of hate crimes reported or not reported to police."] (papers)[https://www.nber.org/papers/w32121]^[Full disclosure, I was initially part of this paper but left because I didn't have enough time to dedicate to it. I haven't read the latest version so I am no support or opposition to its findings.] Most reports say that anti-Asian hate crimes skyrocketed since Covid started, caused by racist people who blamed Asian people for Covid. 
+
+Let's see how that holds up in FBI data. Or, perhaps a better question is, can FBI data answer this question at all? There are only two numbers needed to properly measure an increase in crime: the number of crimes in the past and the number of crimes now. Without either number you can't calculate a change at all. But having incorrect values for either or both numbers is even worse as you can calculate a change, but it will be wrong. And it's almost always worse to give a wrong answer than no answer at all. 
+
+Let's look first at New York City, home to nearly 1.4 million Asian people (according to the Census)[https://data.census.gov/profile/New_York_city,_New_York?g=160XX00US3651000]. Figure \@ref(fig:nycHate) shows the annual number of incidents in NYC which were classified as anti-Asian by police. Though NYC has reported hate crimes since 1991, the first year they reported an anti-Asian hate crime was in 2002. Consistent with reports of an increase in anti-Asian hate crimes during Covid there is a spike in 2020, which increases in 2021 and then declines in 2022, though the 2022 number is still far ahead of pre-Covid years. In percent terms, 2020 had a 1,300% increase from 2019 and 2021 had a 375% increase from 2020^[2021 ad a 6,550% increase from 2019.]. The issue here is that this is all from a base rate of 2 anti-Asian hate crimes in 2019. In fact no previous year of data had more than 10 anti-Asian hate crimes. I find that unbelievable. Even if New York City was a perfect utopia of racial harmony, I simply do not believe that only two incidents of anti-Asian hate crimes occurred in New York City in 2019. It is just too few to be believable. 
+
+<div class="figure" style="text-align: center">
+<img src="09_hate_crime_files/figure-html/nycHate-1.png" alt="The number of anti-Asian hate crime incidents in New York City, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nycHate)The number of anti-Asian hate crime incidents in New York City, 1991-2022.</p>
+</div>
+
+So NYC isn't a good example since it has an unusually low number of pre-Covid hate crimes against Asian people. Figure \@ref(fig:nationalAsianHate) aggregates all anti-Asian hate crimes nationally. Here we see a similar trend to NYC, with an increase starting in 2020 that continues in 2021 and modestly declines in 2022. The increase is far more modest, moving from 188 in 2019 to 322 in 2020 (a 71.3% increase). Should we trust this more than the NYC data? A more modest 71.3% increase is maybe more believable than a 1,300% increase. Again, though, we should think about how believable these results are. 2019 had 188 anti-Asian hate crimes. When considering that the Asian population in this country is about 21 million people, that's still exceedingly rare, a rate of about 0.88 anti-Asian hate crimes per 100,000 Asian people^[In comparison, NYC has a rate of 0.14 per 100,000.] 
+
+<div class="figure" style="text-align: center">
+<img src="09_hate_crime_files/figure-html/nationalAsianHate-1.png" alt="The number of anti-Asian hate crime incidents in the United States, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nationalAsianHate)The number of anti-Asian hate crime incidents in the United States, 1991-2022.</p>
+</div>
+
+
+
+So here's the problem. We need a pre- and a post-value to determine if an increase is actually happening. We don't have a reliable pre-value and therefore cannot say if something is increasing.
+
 ## Important variables
 
 This data has the standard set of variables describing the agency that is reporting. This includes the agency ORI - which is the unique ID for that agency - the agency name, their state, and the population under their jurisdiction.
