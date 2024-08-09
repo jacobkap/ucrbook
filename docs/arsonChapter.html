@@ -438,17 +438,13 @@ Figure 8.2: The annual number of single-family home arsons and clearances in Lea
 Figure 8.3: Annual single-family home arsons in Byron City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this dataset, 1979-2022.
 </p>
 </div>
-<p>There are also cases where it is less clear when a value is a data error or is simply due to an outlier - but real - value. For example, Figure <a href="#fig:arsonCost"><strong>??</strong></a> shows the annual average cost of a single-family home fire in Los Angeles, California. In most years the damage is low - since an arson can damage only part of the house, these low values likely mean that on average only part of the house was damaged, not the entire house. In 2009, however, the average damage is about $540,000 per arson. Is this a data entry error that simply inputs a damage value that is too high? It certainly appears to be a data error since it’s a sudden huge jump in damage value. However, it could also be that some extraordinarily expensive homes were destroyed that year. In 2009 Los Angeles only reported 63 single-family home arsons so having one, or a few, super mansions - which LA has plenty of - destroyed could mean that this huge value is real.</p>
-<p>arson %&gt;%
-filter(ori %in% “CA01942”) %&gt;%
-mutate(residence_cost_per_arson = est_damage_single_occupancy / actual_single_occupancy) %&gt;%
-ggplot(aes(x = year, y = residence_cost_per_arson)) +
-geom_line(size = 1.02) +
-xlab(“Year”) +
-ylab(“Cost per arson”) +
-crimeutils::theme_crim() +
-scale_y_continuous(labels = scales::dollar)
-```</p>
+<p>There are also cases where it is less clear when a value is a data error or is simply due to an outlier - but real - value. For example, Figure <a href="arsonChapter.html#fig:arsonCost">8.4</a> shows the annual average cost of a single-family home fire in Los Angeles, California. In most years the damage is low - since an arson can damage only part of the house, these low values likely mean that on average only part of the house was damaged, not the entire house. In 2009, however, the average damage is about $540,000 per arson. Is this a data entry error that simply inputs a damage value that is too high? It certainly appears to be a data error since it’s a sudden huge jump in damage value. However, it could also be that some extraordinarily expensive homes were destroyed that year. In 2009 Los Angeles only reported 63 single-family home arsons so having one, or a few, super mansions - which LA has plenty of - destroyed could mean that this huge value is real.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:arsonCost"></span>
+<img src="08_arson_files/figure-html/arsonCost-1.png" alt="The annual cost per arson for single family homes in Los Angeles, California, 1979-2022." width="90%" />
+<p class="caption">
+Figure 8.4: The annual cost per arson for single family homes in Los Angeles, California, 1979-2022.
+</p>
+</div>
 
 </div>
 </div>

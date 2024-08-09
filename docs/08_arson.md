@@ -95,13 +95,7 @@ Like the other UCR data, there are some cases where there are obvious data entry
 
 There are also cases where it is less clear when a value is a data error or is simply due to an outlier - but real - value. For example, Figure \@ref(fig:arsonCost) shows the annual average cost of a single-family home fire in Los Angeles, California. In most years the damage is low - since an arson can damage only part of the house, these low values likely mean that on average only part of the house was damaged, not the entire house. In 2009, however, the average damage is about $540,000 per arson. Is this a data entry error that simply inputs a damage value that is too high? It certainly appears to be a data error since it's a sudden huge jump in damage value. However, it could also be that some extraordinarily expensive homes were destroyed that year. In 2009 Los Angeles only reported 63 single-family home arsons so having one, or a few, super mansions - which LA has plenty of - destroyed could mean that this huge value is real. 
 
-arson %>%
-  filter(ori %in% "CA01942") %>%
-  mutate(residence_cost_per_arson = est_damage_single_occupancy / actual_single_occupancy) %>%
-  ggplot(aes(x = year, y = residence_cost_per_arson)) +
-  geom_line(size = 1.02) + 
-  xlab("Year") +
-  ylab("Cost per arson") +
-  crimeutils::theme_crim() +
-  scale_y_continuous(labels = scales::dollar)
-```
+<div class="figure" style="text-align: center">
+<img src="08_arson_files/figure-html/arsonCost-1.png" alt="The annual cost per arson for single family homes in Los Angeles, California, 1979-2022." width="90%" />
+<p class="caption">(\#fig:arsonCost)The annual cost per arson for single family homes in Los Angeles, California, 1979-2022.</p>
+</div>

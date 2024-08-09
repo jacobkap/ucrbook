@@ -398,6 +398,7 @@ knitr::kable(temp,
              align = c("l", "r", "r"),
              booktabs = TRUE, 
              longtable = TRUE,
+             label = "shrWeapon",
              escape = FALSE) %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
@@ -499,6 +500,7 @@ knitr::kable(temp,
              align = c("l", "r", "r"),
              booktabs = TRUE, 
              longtable = TRUE,
+             label = "shrRelationship",
              escape = FALSE) %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
@@ -564,6 +566,7 @@ knitr::kable(temp,
              booktabs = TRUE, 
              longtable = TRUE,
              escape = FALSE,
+             label = "shrCircumstance",
              caption = "The circumstance of the homicide for the first offender in a homicide incident.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
@@ -583,6 +586,7 @@ knitr::kable(temp,
              align = c("l", "r", "r"),
              booktabs = TRUE, 
              longtable = TRUE,
+             label = "shrSubCircumstance",
              escape = FALSE) %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```

@@ -81,6 +81,7 @@ fig:phoenixAssaultTimes
 fig:arsonAgencies
 fig:arsonClearance
 fig:residenceArson
+fig:arsonCost
 fig:hateAgencies
 fig:hateCrimesEver
 fig:hateCrimesPreviousYear
