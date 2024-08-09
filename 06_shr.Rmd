@@ -90,8 +90,6 @@ chicago_offenses_known_homicides <- offenses_known_yearly %>%
 chicago_offenses_known_homicides <-
   chicago_homicides %>%
   left_join(chicago_offenses_known_homicides) 
-chicago_offenses_known_homicides %>%
-  data.frame()
 
 
 ggplot(chicago_offenses_known_homicides, aes(x = year)) +
