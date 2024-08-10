@@ -1,7 +1,7 @@
 --- 
-title: "Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide to FBI Data"
+title: "Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data"
 author: "Jacob Kaplan, Ph.D."
-date: "2024-08-09"
+date: "2024-08-10"
 site: bookdown::bookdown_site
 documentclass: book
 lof: yes

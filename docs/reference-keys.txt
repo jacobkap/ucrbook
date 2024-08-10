@@ -14,10 +14,13 @@ fig:SRSascii
 fig:fbiHierarchy
 fig:offensesAgenciesReporting
 fig:offensesbigAgenciesReporting
-fig:montgomeryClearances
+fig:newarkMurders
+fig:lapdClearance
 fig:phillyRapeUnfound
 fig:phillyRapeUnfoundPercent
 fig:phillyRobberyUnfoundPercent
+fig:memphisUnfounded
+fig:denverUnfounded
 fig:rapePhilly
 fig:rapeNYC
 fig:rapeLA
@@ -161,7 +164,7 @@ important-variables
 actual
 clearedCrimes
 crimes-cleared-where-all-offenders-are-under-18-years-old
-unfounded-crimes
+unfounded
 important-issues
 rape-definition-change
 the-decline-of-manslaughter

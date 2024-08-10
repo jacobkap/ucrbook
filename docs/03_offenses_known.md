@@ -75,6 +75,9 @@ Figure \@ref(fig:offensesAgenciesReporting) shows the annual number of police ag
 <p class="caption">(\#fig:offensesAgenciesReporting)The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.</p>
 </div>
 
+<img src="03_offenses_known_files/figure-html/unnamed-chunk-3-1.png" width="90%" style="display: block; margin: auto;" />
+
+
 Figure \@ref(fig:offensesbigAgenciesReporting) repeats the above figure but now including only agencies with 100,000 people or more in their jurisdiction. While these agencies have a far more linear trend than all agencies, the basic lesson is the same: recent data has most agencies reporting; old data excludes many agencies. 
 
 <div class="figure" style="text-align: center">
@@ -90,9 +93,21 @@ For each crime we have four different categories indicating the number of crimes
 
 This is the number of offenses that *actually* occurred - where *actually* means that a police investigation found that the crime report was accurate. Crimes that are reported that the police find did not occur (e.g. report of an arson but turns that the fire began accidentally) are called "unfounded" crimes. So this variable is the one people use to measure *crime*. For example if 10 people are murdered in a city the number of "actual murders" would be 10. A crime is a crime incident, regardless of how many offenders there were. If there are multiple victims in a case, such as a double murder, then it would count as multiple crimes.
 
+Figure \@ref(fig:newarkMurders), for example, shows the number of murders in Newark, NJ, for 1960-2022. One things stands out. Or doesn't stand out, in a bad way. Newark Police didn't report a full year of data in 2015; they reported only 11 months. It is imperceptible in the figure but if you look at the number of months reported in that year - using either the last month reported or the number of months missing variable - you can see that December is missing. While visualizing the data is often a good way to look for outliers or missingness, it's not enough alone. You need to look at the raw data as well to be safe. 
+
+<div class="figure" style="text-align: center">
+<img src="03_offenses_known_files/figure-html/newarkMurders-1.png" alt="The annual number of murders in Newark, NJ, 1960-2022." width="90%" />
+<p class="caption">(\#fig:newarkMurders)The annual number of murders in Newark, NJ, 1960-2022.</p>
+</div>
+
+
+Since this is the number of crimes reported and found to occurred, it undercounts the total number of reported crimes. To get that number you'll need to add actual crimes to unfounded crimes, which we discuss in Section \@ref({unfounded}). However, unfounded crimes are increasingly not being reported as agencies move to NIBRS reporting which does not capture unfounded crimes. 
+
+
+
 ### Total cleared crimes {#clearedCrimes}
 
-A crime is cleared when an offender is arrested or when the case is considered cleared by exceptional means. To be more specific, this data counts crime as a crime incident, regardless of the number of offenders. For example, if 3 people robbed a person, that is one crime of robbery, not 3 separate crimes. This crime is cleared when one of the three robbers is arrested - no matter the outcome for the other two robbers. Arresting all 3 still counts as a single robbery cleared.
+A crime is cleared when an offender is arrested or when the case is considered cleared by exceptional means. To be more specific, this data counts crime as a crime incident, regardless of the number of offenders. For example, if 3 people robbed a person, that is one crime of robbery, not 3 separate crimes. This crime is cleared when one of the three robbers is arrested - no matter the outcome for the other two robbers. Arresting all 3 still counts as a single robbery cleared. The first year with clearance data is in 1963, though that is extremely rare; the vast majority of agencies started reporting this data in 1964.
 
 Even though this dataset is formally named "Offenses Known and Clearances by Arrest" it does include clearances where no one is arrested, which are called "exceptional clearances" or "clearances by exceptional means." For exceptional clearances, police must have identified the offender, have sufficient evidence to arrest that offender, know where they are (so they can actually be apprehended) and only then be unable to make the arrest. Exceptional clearances include cases where the offender dies before an arrest (by any means, including suicide, accidental, illness, killed by someone including a police officer) or when the police are unable to arrest the person since they are already in custody by another jurisdiction (including out of the country or in custody of another agency) and extradition is denied. Two other potential causes of exceptional clearance are when prosecution of the case cannot go forward because the district attorney refuses to prosecute the case, for reasons other than lack of evidence, or when a victim refuses to assist the prosecution in the case. 
 
@@ -100,24 +115,26 @@ Unfortunately, this data does not differentiate between clearances by arrest or 
 
 Clearances are reported in the month that they occur, regardless of when the crime they are clearing occurred. In practice, however, most crimes are cleared in the month that they occur. According to the 2019 NIBRS, it takes on average 7 days between the incident and the arrest (median = 0 days) date when averaging across all crimes - for individual crimes these values will be different. This means that most of the clearances will be for the same month as the initial crime - though less so as the month comes to a close. Of course, police agencies can solve older cases - and even target cold cases to be solved - so this is still a degree of uncertainty for which month these clearances are for. 
 
-Still, there are occasionally months - and even years - where there are more reported crimes cleared than crimes that occur. Figure \@ref(fig:montgomeryClearances) shows the number of actual and cleared murders from the Montgomery County Police Department in Maryland. Several years have more murders cleared than were committed - a sign that the month of clearance does not correspond to the month of occurrence, rather than the police solving crime before it happened.^[The Minority Report is not yet a documentary.]
+Still, there are occasionally months - and even years - where there are more reported crimes cleared than crimes that occur.^[In about 1% of agency-years since 1964, the year most agencies started reporting this data, there were more cleared murders than actual murders.] Figure \@ref(fig:lapdClearance), for example, shows the number of actual and cleared murders from the Los Angeles Police Department. In 2013 there were more murders cleared (271) than actual murders (251)^[A sign that the month of clearance does not correspond to the month of occurrence, rather than the police solving crime before it happened. The Minority Report is not yet a documentary.] In 2020 both values are zero as the LAPD did not report data that year. This is actually a good check to see when people who use this data don't actually understand how it works. I've seen published academic papers that say that having more clearances than actual crimes is a data error; clearly they declined to read the official manual (or this book) before they, their editor, and their anonymous reviewers published the paper. 
 
 <div class="figure" style="text-align: center">
-<img src="03_offenses_known_files/figure-html/montgomeryClearances-1.png" alt="The annual number of actual and cleared murders from the Montgomery County Police Department, MD, 1960-2022." width="90%" />
-<p class="caption">(\#fig:montgomeryClearances)The annual number of actual and cleared murders from the Montgomery County Police Department, MD, 1960-2022.</p>
+<img src="03_offenses_known_files/figure-html/lapdClearance-1.png" alt="The annual number of actual and cleared murders from the Los Angeles Police Department, 1960-2022." width="90%" />
+<p class="caption">(\#fig:lapdClearance)The annual number of actual and cleared murders from the Los Angeles Police Department, 1960-2022.</p>
 </div>
 
 ### Crimes cleared where all offenders are under 18 years old
 
 This variable is a subset of the Total Cleared variable and only includes clearances for offenses in which **every** offender is younger than age 18. Since this requires that the police know, or at least believe, the age of every offender, it is probably highly inaccurate. This category includes cases where the juvenile is given a citation to show up in court for their trial and is not formally arrested and taken into custody. 
 
-### Unfounded crimes
+### Unfounded crimes {#unfounded}
 
-An unfounded crime is one in which a police investigation has determined that the reported crime did not actually happen. For example I observed during a ride-along a report of a burglary where the homeowners said that they came home, and the front door was open and they thought it might have been their son who forgot to close it but were worried that it could be a burglar, so they called the police just in case. This would be recorded as a burglary and if it turned out to be the son, the police would then record this as an unfounded burglary. 
+An unfounded crime is one in which a police investigation has determined that the reported crime did not actually happen. The first year of data that included unfounded crimes was 1979, though most agencies began reporting in 1983. 
+
+For example I observed during a ride-along a report of a burglary where the homeowners said that they came home, and the front door was open and they thought it might have been their son who forgot to close it but were worried that it could be a burglar, so they called the police just in case. This would be recorded as a burglary and if it turned out to be the son, the police would then record this as an unfounded burglary. 
 
 Other unfounded crimes would include when someone reports a crime but later says that the report wasn't true. For example, a person could report a burglary to the police to collect insurance money on the items they claim was stolen. If the police discover this they would unfound the case - and the lying to the police and fraud would not be counted as neither of those are crimes included in this dataset. Unfounding crimes are especially common for rapes. If a person reports that they were raped and then later say that this report isn't true - and doing so is relatively common, especially for child sexual abuse victims, even when the rape did actually happen - then the police will unfound the case. 
 
-Figure \@ref(fig:phillyRapeUnfound) provides one example of this by showing the number of actual - that is, rapes that the police say actually occurred - and unfounded rapes annually from 1960-2022 in Philadelphia, PA. Interestingly, the spike in actual rapes in 2013 due to the new rape definition that year (discussed below) does not correspond to a spike in unfounded rapes - which suggests that this variable is not being reported properly. It is unlikely that the number of rapes would spike so much without any corresponding increase - and an actual decrease - in unfounded rapes. Since unfounded rapes are so common, especially compared to other crimes - and evidence that police also misreport clearances for rape - this variable is likely to be manipulated by the police to make it appear that there are fewer rapes than there actually is. As such, this variable - and relatedly the actual crimes variable" is not reliable, especially for rapes. How unreliable, of course depends on the specific offense and the agency reporting. 
+Figure \@ref(fig:phillyRapeUnfound) provides one example of this by showing the number of actual - that is, rapes that the police say actually occurred - and unfounded rapes annually from 1960-2022 in Philadelphia, PA. Since unfounded crimes really started in 1983 we could also start the figure then, but I kept 1960-1982 in so it is clearer that the huge spike in 1983 is from previous years unfounded crimes being added up rather than the police truly reporting that >50% of rapes in 1983 were unfounded. Interestingly, the spike in actual rapes in 2013 due to the new rape definition that year (discussed below) does not correspond to a spike in unfounded rapes - which suggests that this variable is not being reported properly. It is unlikely that the number of rapes would spike so much without any corresponding increase in unfounded rapes. Since unfounded rapes are so common, especially compared to other crimes - and evidence that police also misreport clearances for rape - this variable is likely to be manipulated by the police to make it appear that there are fewer rapes than there actually is. As such, this variable - and relatedly the actual crimes variable" is not reliable, especially for rapes. How unreliable, of course depends on the specific offense and the agency reporting. 
 
 <div class="figure" style="text-align: center">
 <img src="03_offenses_known_files/figure-html/phillyRapeUnfound-1.png" alt="The annual number of actual and unfounded rapes in Philadelphia, PA, 1960-2022." width="90%" />
@@ -127,16 +144,29 @@ Figure \@ref(fig:phillyRapeUnfound) provides one example of this by showing the 
 Another way to look at this data is the percent of rapes that were unfounded. Since unfounded and actual rapes are distinct categories, we'll need to divide unfounded rapes by the sum of actual and unfounded rapes and then multiple the result by 100. Please note that unfounding occurs in the month the police discover the case to be unfounded, it is not tied to the month of the original report. So this graph isn't really showing the percent that year that were unfounded - but for our purposes of getting a general sense it is acceptable. Usually about 10% of reported rapes are unfounded in Philadelphia. The 44% in 1983, the first year with data, is probably high due to it accounting for unfounded cases in previous years that weren't reported in the data until 1983. 
 
 <div class="figure" style="text-align: center">
-<img src="03_offenses_known_files/figure-html/phillyRapeUnfoundPercent-1.png" alt="The percent of reported rapes that the police recorded as unfounded in Philadelphia, PA, 1960-2022." width="90%" />
-<p class="caption">(\#fig:phillyRapeUnfoundPercent)The percent of reported rapes that the police recorded as unfounded in Philadelphia, PA, 1960-2022.</p>
+<img src="03_offenses_known_files/figure-html/phillyRapeUnfoundPercent-1.png" alt="The percent of reported rapes that the police recorded as unfounded in Philadelphia, PA, and the United States, 1984-2022." width="90%" />
+<p class="caption">(\#fig:phillyRapeUnfoundPercent)The percent of reported rapes that the police recorded as unfounded in Philadelphia, PA, and the United States, 1984-2022.</p>
 </div>
 
 As a comparison, Figure \@ref(fig:phillyRobberyUnfoundPercent) shows the percent of robberies that are recorded as unfounded in Philadelphia over the same time period. While the percent has been increasing, for most of the data it is under 1% and never exceeds 3%. To me this suggests that the Philly Police, and they aren't unique, are overcounting rapes as unfounded to improve their rape statistic data. 
 
 <div class="figure" style="text-align: center">
-<img src="03_offenses_known_files/figure-html/phillyRobberyUnfoundPercent-1.png" alt="The percent of reported robberies that the police recorded as unfounded in Philadelphia, PA, 1960-2022." width="90%" />
-<p class="caption">(\#fig:phillyRobberyUnfoundPercent)The percent of reported robberies that the police recorded as unfounded in Philadelphia, PA, 1960-2022.</p>
+<img src="03_offenses_known_files/figure-html/phillyRobberyUnfoundPercent-1.png" alt="The percent of reported robberies that the police recorded as unfounded in Philadelphia, PA, and the United States, 1984-2022." width="90%" />
+<p class="caption">(\#fig:phillyRobberyUnfoundPercent)The percent of reported robberies that the police recorded as unfounded in Philadelphia, PA, and the United States, 1984-2022.</p>
 </div>
+
+
+<div class="figure" style="text-align: center">
+<img src="03_offenses_known_files/figure-html/memphisUnfounded-1.png" alt="The annual number of unfounded crimes in Memphis, TN, 1983-2022." width="90%" />
+<p class="caption">(\#fig:memphisUnfounded)The annual number of unfounded crimes in Memphis, TN, 1983-2022.</p>
+</div>
+
+
+<div class="figure" style="text-align: center">
+<img src="03_offenses_known_files/figure-html/denverUnfounded-1.png" alt="The annual number of unfounded crimes in Denver, CO, 1983-2022." width="90%" />
+<p class="caption">(\#fig:denverUnfounded)The annual number of unfounded crimes in Denver, CO, 1983-2022.</p>
+</div>
+
 
 ## Important issues
 
