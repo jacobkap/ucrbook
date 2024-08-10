@@ -60,9 +60,12 @@ fig:shrVictimRace
 fig:shrOffenderEthnicity
 fig:shrVictimEthnicity
 fig:ABQ
+tab:shrWeapon
 fig:shrRifle
 fig:shrRiflePercent
+tab:shrRelationship
 tab:shrCircumstance
+tab:shrSubCircumstance
 fig:leokaAgencies
 fig:leokaAgenciesEmployees
 fig:leokaAgenciesAssaults
