@@ -1,23 +1,29 @@
-library(crimeutils)
-library(dplyr)
-library(readr)
-library(kableExtra)
-library(knitr)
-library(scales)
-library(tidyr)
-library(ggplot2)
-library(readr)
-library(mapproj)
-library(lubridate)
-library(gridExtra)
+library(groundhog)
+
 # devtools::install_github("wmurphyrd/fiftystater")
 library(fiftystater)
-library(priceR)
-library(gridExtra)
-library(blscrapeR)
-library(janitor)
-library(quantmod)
-library(ggh4x)
+
+
+packages <- c(
+  "crimeutils",
+  "dplyr",
+  "readr",
+  "kableExtra",
+  "knitr",
+  "scales",
+  "tidyr",
+  "ggplot2",
+  "mapproj",
+  "lubridate",
+  "gridExtra",
+  "priceR",
+  "blscrapeR",
+  "janitor",
+  "quantmod",
+  "ggh4x"
+)
+
+groundhog.library(packages, "2024-08-01")
 
 knitr::opts_chunk$set(
   comment = "#>",

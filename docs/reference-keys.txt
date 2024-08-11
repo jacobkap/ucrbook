@@ -12,13 +12,12 @@ fig:danvilleRape
 fig:hateCrimes
 fig:SRSascii
 fig:fbiHierarchy
+tab:shrWeapon
 fig:offensesAgenciesReporting
-fig:offensesbigAgenciesReporting
+fig:offensesAgenciesReportingFull
 fig:newarkMurders
 fig:lapdClearance
-fig:phillyRapeUnfound
-fig:phillyRapeUnfoundPercent
-fig:phillyRobberyUnfoundPercent
+fig:frankenmuthRape
 fig:memphisUnfounded
 fig:denverUnfounded
 fig:rapePhilly
@@ -63,7 +62,6 @@ fig:shrVictimRace
 fig:shrOffenderEthnicity
 fig:shrVictimEthnicity
 fig:ABQ
-tab:shrWeapon
 fig:shrRifle
 fig:shrRiflePercent
 tab:shrRelationship
@@ -165,7 +163,7 @@ actual
 clearedCrimes
 crimes-cleared-where-all-offenders-are-under-18-years-old
 unfounded
-important-issues
+important-changes
 rape-definition-change
 the-decline-of-manslaughter
 stolen_property
