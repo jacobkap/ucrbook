@@ -142,7 +142,7 @@ knitr::kable(hierarchy_table,
              align = c("l", "r", "r"),
              booktabs = TRUE, 
              longtable = TRUE,
-             label = "shrWeapon",
+             label = "nibrsHierarchy",
              caption = "The percent increase in reported crimes for each index crime if the Hierarchy Rule was not used, NIBRS 2022.",
              escape = FALSE) %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))

@@ -8,7 +8,7 @@ UCR data is only available at the agency-level.[^ucr_county-1] This has caused a
 
 [^ucr_county-1]: Even for county-level agencies such as Sheriff's Offices, the data is only for crimes in that agency's jurisdiction. So the county sheriff reports crimes that they responded to but not crimes within the county that other agencies, such as a city police force, responded to.
 
-More specifically, nearly all researchers who use this county-level UCR data use the National Archive for Criminal Justice Data (NACJD)'s [datasets](https://www.icpsr.umich.edu/web/pages/NACJD/guides/ucr.html#desc_cl) which have done the aggregation themselves (full disclosure, I used to have my own version of this data available on openICPSR and followed NACJD's method. My reasoning was that people were using it anyways and I wanted to make sure that they knew the problem of the data, so I included the issues with this data in the documentation when downloading it. However, I decided that the data was more flawed than I originally thought so I took down the data.).[^ucr_county-2] These are not official FBI datasets but "UCR staff were consulted in developing the new adjustment procedures".^[To be very clear, this chapter isn't a critique of NACJD, which is a great organization with a very talented team, but merely of a single dataset that they released using imputation methods from decades ago.] The "new" procedures is because NACJD changed their missing data imputation procedure starting with 1994 UCR data, and for this chapter I'll only focus on this "new" procedure.
+More specifically, nearly all researchers who use this county-level UCR data use the National Archive for Criminal Justice Data (NACJD)'s [datasets](https://www.icpsr.umich.edu/web/pages/NACJD/guides/ucr.html#desc_cl) which have done the aggregation themselves^[Full disclosure, I used to have my own version of this data available on openICPSR and followed NACJD's method. My reasoning was that people were using it anyways and I wanted to make sure that they knew the problem of the data, so I included the issues with this data in the documentation when downloading it. However, I decided that the data was more flawed than I originally thought so I took down the data.].[^ucr_county-2] These are not official FBI datasets but "UCR staff were consulted in developing the new adjustment procedures".^[To be very clear, this chapter isn't a critique of NACJD, which is a great organization with a very talented team, but merely of a single dataset that they released using imputation methods from decades ago.] The "new" procedures is because NACJD changed their missing data imputation procedure starting with 1994 UCR data, and for this chapter I'll only focus on this "new" procedure.
 
 [^ucr_county-2]: These files are known on NACJD's website as "Uniform Crime Reporting Program Data: County-Level Detailed Arrest and Offense Data."
 
@@ -542,7 +542,7 @@ As might be expected, as the number of months missing increases the quality of t
   <tr>
    <td style="text-align:left;"> 1 </td>
    <td style="text-align:right;"> 351 </td>
-   <td style="text-align:right;"> 350.95 </td>
+   <td style="text-align:right;"> 351.02 </td>
    <td style="text-align:right;"> 353.45 </td>
    <td style="text-align:right;"> 353.45 </td>
    <td style="text-align:right;"> 336.00 </td>
@@ -551,7 +551,7 @@ As might be expected, as the number of months missing increases the quality of t
   <tr>
    <td style="text-align:left;"> 2 </td>
    <td style="text-align:right;"> 351 </td>
-   <td style="text-align:right;"> 351.16 </td>
+   <td style="text-align:right;"> 350.95 </td>
    <td style="text-align:right;"> 350.40 </td>
    <td style="text-align:right;"> 350.40 </td>
    <td style="text-align:right;"> 320.40 </td>
@@ -560,8 +560,8 @@ As might be expected, as the number of months missing increases the quality of t
   <tr>
    <td style="text-align:left;"> 3 </td>
    <td style="text-align:right;"> 351 </td>
-   <td style="text-align:right;"> 350.78 </td>
-   <td style="text-align:right;"> 352.00 </td>
+   <td style="text-align:right;"> 351.09 </td>
+   <td style="text-align:right;"> 353.33 </td>
    <td style="text-align:right;"> 353.33 </td>
    <td style="text-align:right;"> 312.00 </td>
    <td style="text-align:right;"> 385.33 </td>
@@ -569,7 +569,7 @@ As might be expected, as the number of months missing increases the quality of t
   <tr>
    <td style="text-align:left;"> 4 </td>
    <td style="text-align:right;"> 351 </td>
-   <td style="text-align:right;"> 351.09 </td>
+   <td style="text-align:right;"> 350.79 </td>
    <td style="text-align:right;"> 349.50 </td>
    <td style="text-align:right;"> 370.50 </td>
    <td style="text-align:right;"> 301.50 </td>
@@ -578,7 +578,7 @@ As might be expected, as the number of months missing increases the quality of t
   <tr>
    <td style="text-align:left;"> 5 </td>
    <td style="text-align:right;"> 351 </td>
-   <td style="text-align:right;"> 350.76 </td>
+   <td style="text-align:right;"> 350.95 </td>
    <td style="text-align:right;"> 351.43 </td>
    <td style="text-align:right;"> 353.14 </td>
    <td style="text-align:right;"> 289.71 </td>
@@ -587,16 +587,16 @@ As might be expected, as the number of months missing increases the quality of t
   <tr>
    <td style="text-align:left;"> 6 </td>
    <td style="text-align:right;"> 351 </td>
-   <td style="text-align:right;"> 350.92 </td>
+   <td style="text-align:right;"> 351.14 </td>
    <td style="text-align:right;"> 352.00 </td>
-   <td style="text-align:right;"> 376.00 </td>
+   <td style="text-align:right;"> 326.00 </td>
    <td style="text-align:right;"> 284.00 </td>
    <td style="text-align:right;"> 418.00 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 7 </td>
    <td style="text-align:right;"> 351 </td>
-   <td style="text-align:right;"> 350.82 </td>
+   <td style="text-align:right;"> 350.92 </td>
    <td style="text-align:right;"> 350.40 </td>
    <td style="text-align:right;"> 348.00 </td>
    <td style="text-align:right;"> 276.00 </td>
@@ -605,7 +605,7 @@ As might be expected, as the number of months missing increases the quality of t
   <tr>
    <td style="text-align:left;"> 8 </td>
    <td style="text-align:right;"> 351 </td>
-   <td style="text-align:right;"> 351.21 </td>
+   <td style="text-align:right;"> 351.58 </td>
    <td style="text-align:right;"> 354.00 </td>
    <td style="text-align:right;"> 312.00 </td>
    <td style="text-align:right;"> 264.00 </td>
@@ -614,7 +614,7 @@ As might be expected, as the number of months missing increases the quality of t
   <tr>
    <td style="text-align:left;"> 9 </td>
    <td style="text-align:right;"> 351 </td>
-   <td style="text-align:right;"> 351.21 </td>
+   <td style="text-align:right;"> 351.48 </td>
    <td style="text-align:right;"> 348.00 </td>
    <td style="text-align:right;"> 344.00 </td>
    <td style="text-align:right;"> 248.00 </td>
@@ -644,7 +644,7 @@ This problem is even more pronounced when looking at agencies with fewer crimes 
   <tr>
    <td style="text-align:left;"> 1 </td>
    <td style="text-align:right;"> 22 </td>
-   <td style="text-align:right;"> 22.02 </td>
+   <td style="text-align:right;"> 21.97 </td>
    <td style="text-align:right;"> 22.91 </td>
    <td style="text-align:right;"> 22.91 </td>
    <td style="text-align:right;"> 18.55 </td>
@@ -653,7 +653,7 @@ This problem is even more pronounced when looking at agencies with fewer crimes 
   <tr>
    <td style="text-align:left;"> 2 </td>
    <td style="text-align:right;"> 22 </td>
-   <td style="text-align:right;"> 22.04 </td>
+   <td style="text-align:right;"> 22.01 </td>
    <td style="text-align:right;"> 22.80 </td>
    <td style="text-align:right;"> 25.20 </td>
    <td style="text-align:right;"> 14.40 </td>
@@ -662,8 +662,8 @@ This problem is even more pronounced when looking at agencies with fewer crimes 
   <tr>
    <td style="text-align:left;"> 3 </td>
    <td style="text-align:right;"> 22 </td>
-   <td style="text-align:right;"> 22.01 </td>
-   <td style="text-align:right;"> 22.67 </td>
+   <td style="text-align:right;"> 21.98 </td>
+   <td style="text-align:right;"> 21.33 </td>
    <td style="text-align:right;"> 21.33 </td>
    <td style="text-align:right;"> 12.00 </td>
    <td style="text-align:right;"> 29.33 </td>
@@ -671,7 +671,7 @@ This problem is even more pronounced when looking at agencies with fewer crimes 
   <tr>
    <td style="text-align:left;"> 4 </td>
    <td style="text-align:right;"> 22 </td>
-   <td style="text-align:right;"> 22.03 </td>
+   <td style="text-align:right;"> 21.93 </td>
    <td style="text-align:right;"> 22.50 </td>
    <td style="text-align:right;"> 22.50 </td>
    <td style="text-align:right;"> 9.00 </td>
@@ -680,7 +680,7 @@ This problem is even more pronounced when looking at agencies with fewer crimes 
   <tr>
    <td style="text-align:left;"> 5 </td>
    <td style="text-align:right;"> 22 </td>
-   <td style="text-align:right;"> 21.99 </td>
+   <td style="text-align:right;"> 22.06 </td>
    <td style="text-align:right;"> 22.29 </td>
    <td style="text-align:right;"> 22.29 </td>
    <td style="text-align:right;"> 6.86 </td>
@@ -689,7 +689,7 @@ This problem is even more pronounced when looking at agencies with fewer crimes 
   <tr>
    <td style="text-align:left;"> 6 </td>
    <td style="text-align:right;"> 22 </td>
-   <td style="text-align:right;"> 22.05 </td>
+   <td style="text-align:right;"> 21.94 </td>
    <td style="text-align:right;"> 22.00 </td>
    <td style="text-align:right;"> 20.00 </td>
    <td style="text-align:right;"> 6.00 </td>
@@ -698,7 +698,7 @@ This problem is even more pronounced when looking at agencies with fewer crimes 
   <tr>
    <td style="text-align:left;"> 7 </td>
    <td style="text-align:right;"> 22 </td>
-   <td style="text-align:right;"> 21.89 </td>
+   <td style="text-align:right;"> 21.92 </td>
    <td style="text-align:right;"> 21.60 </td>
    <td style="text-align:right;"> 21.60 </td>
    <td style="text-align:right;"> 4.80 </td>
@@ -707,7 +707,7 @@ This problem is even more pronounced when looking at agencies with fewer crimes 
   <tr>
    <td style="text-align:left;"> 8 </td>
    <td style="text-align:right;"> 22 </td>
-   <td style="text-align:right;"> 21.95 </td>
+   <td style="text-align:right;"> 21.83 </td>
    <td style="text-align:right;"> 21.00 </td>
    <td style="text-align:right;"> 21.00 </td>
    <td style="text-align:right;"> 3.00 </td>
@@ -716,8 +716,8 @@ This problem is even more pronounced when looking at agencies with fewer crimes 
   <tr>
    <td style="text-align:left;"> 9 </td>
    <td style="text-align:right;"> 22 </td>
-   <td style="text-align:right;"> 22.05 </td>
-   <td style="text-align:right;"> 24.00 </td>
+   <td style="text-align:right;"> 21.91 </td>
+   <td style="text-align:right;"> 20.00 </td>
    <td style="text-align:right;"> 24.00 </td>
    <td style="text-align:right;"> 0.00 </td>
    <td style="text-align:right;"> 52.00 </td>

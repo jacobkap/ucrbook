@@ -312,14 +312,13 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="9.1" data-path="hate_crimes.html"><a href="hate_crimes.html#agencies-reporting-6"><i class="fa fa-check"></i><b>9.1</b> Agencies reporting</a></li>
 <li class="chapter" data-level="9.2" data-path="hate_crimes.html"><a href="hate_crimes.html#treeOfLife"><i class="fa fa-check"></i><b>9.2</b> Tree of Life synagogue shooting</a></li>
-<li class="chapter" data-level="9.3" data-path="hate_crimes.html"><a href="hate_crimes.html#hateAsian"><i class="fa fa-check"></i><b>9.3</b> Hate crimes against Asian people</a></li>
-<li class="chapter" data-level="9.4" data-path="hate_crimes.html"><a href="hate_crimes.html#important-variables-6"><i class="fa fa-check"></i><b>9.4</b> Important variables</a>
+<li class="chapter" data-level="9.3" data-path="hate_crimes.html"><a href="hate_crimes.html#important-variables-6"><i class="fa fa-check"></i><b>9.3</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="9.4.1" data-path="hate_crimes.html"><a href="hate_crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>9.4.1</b> The bias motivation (who the hate is against)</a></li>
-<li class="chapter" data-level="9.4.2" data-path="hate_crimes.html"><a href="hate_crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>9.4.2</b> The crime that occurred</a></li>
-<li class="chapter" data-level="9.4.3" data-path="hate_crimes.html"><a href="hate_crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>9.4.3</b> The location of the crime</a></li>
-<li class="chapter" data-level="9.4.4" data-path="hate_crimes.html"><a href="hate_crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>9.4.4</b> Number and race of offenders</a></li>
-<li class="chapter" data-level="9.4.5" data-path="hate_crimes.html"><a href="hate_crimes.html#number-of-victims"><i class="fa fa-check"></i><b>9.4.5</b> Number of victims</a></li>
+<li class="chapter" data-level="9.3.1" data-path="hate_crimes.html"><a href="hate_crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>9.3.1</b> The bias motivation (who the hate is against)</a></li>
+<li class="chapter" data-level="9.3.2" data-path="hate_crimes.html"><a href="hate_crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>9.3.2</b> The crime that occurred</a></li>
+<li class="chapter" data-level="9.3.3" data-path="hate_crimes.html"><a href="hate_crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>9.3.3</b> The location of the crime</a></li>
+<li class="chapter" data-level="9.3.4" data-path="hate_crimes.html"><a href="hate_crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>9.3.4</b> Number and race of offenders</a></li>
+<li class="chapter" data-level="9.3.5" data-path="hate_crimes.html"><a href="hate_crimes.html#number-of-victims"><i class="fa fa-check"></i><b>9.3.5</b> Number of victims</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="county-level-srs-data.html"><a href="county-level-srs-data.html"><i class="fa fa-check"></i><b>10</b> County-Level SRS Data</a>
@@ -395,7 +394,7 @@ Figure 9.5: The percent of agencies in each state that reported at least one hat
 </p>
 </div>
 <p>To examine how population affects our results, Figure <a href="hate_crimes.html#fig:statePercentReportingPop">9.6</a> shows the percent of each state’s population that is covered by an agency that reported at least one hate crime. Results are similar to Figure <a href="hate_crimes.html#fig:statePercentReporting">9.5</a> but now show that there is more reporting than it appeared in that figure. That is because while not all agencies report a hate crime, the ones that don’t report are generally smaller than the ones that do. So measuring by population we see that about half of the people in the country lives in the jurisdiction of an agency which reported at least one hate crime. The average state also covers about half of the population in a hate-crime-reporting agency.</p>
-<p>Is this good? We don’t necessarily want 100% of agencies to report a hate crime since not all agencies will experience a hate crime in their jurisdiction. The idea dataset would have all hate crimes reported but without knowing how many hates crimes there actually are we can’t tell how well this data captures hate crimes. As we’ll see in Sections <a href="hate_crimes.html#treeOfLife">9.2</a> and <a href="hate_crimes.html#hateAsian">9.3</a> there is some evidence that not all hate crimes are captured, or when they are they are in way we don’t expect.</p>
+<p>Is this good? We don’t necessarily want 100% of agencies to report a hate crime since not all agencies will experience a hate crime in their jurisdiction. The idea dataset would have all hate crimes reported but without knowing how many hates crimes there actually are we can’t tell how well this data captures hate crimes.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:statePercentReportingPop"></span>
 <img src="09_hate_crime_files/figure-html/statePercentReportingPop-1.png" alt="The percent of population in each state in agencies that reported at least one hate crime in 2022." width="90%" />
 <p class="caption">
@@ -409,53 +408,33 @@ Figure 9.6: The percent of population in each state in agencies that reported at
 <p>This is good and bad. Of course it is good that when a crime happens it is reported in the data. The bad part is that it is counted as hate crimes that occurred in the FBI’s Pittsburgh agency, and not the Pittsburgh Police Department. Most research occurs at the local level - usually studying an agency or county. So if a study is examining agency-level characteristics that are related to hate crimes it’d almost certainly exclude these murders as they are reported by a federal agency and not the local Pittsburgh agency.</p>
 <p>This also gets complicated as FBI rules say that a crime should be reported by the most local jurisdiction. This is true even when there is overlapping jurisdiction. 11 people were murdered in Pittsburgh, and several Pittsburgh Police officers were injured. That should mean that the crime is reported by Pittsburgh Police, not by the FBI. Pittsburgh does report these murders in their Offenses Known data, making it even more odd that they’re Pittsburgh crimes in one dataset and not another.<a href="#fn79" class="footnote-ref" id="fnref79"><sup>79</sup></a></p>
 </div>
-<div id="hateAsian" class="section level2 hasAnchor" number="9.3">
-<h2><span class="header-section-number">9.3</span> Hate crimes against Asian people<a href="hate_crimes.html#hateAsian" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Before we get into specific variables let’s try to answer the question of whether hate crimes increased against Asian people<a href="#fn80" class="footnote-ref" id="fnref80"><sup>80</sup></a> after Covid started. This has been a common topic of discussion since shortly after Covid started, with (media reports)[<a href="https://www.nbcnews.com/news/asian-america/anti-asian-hate-crimes-increased-339-percent-nationwide-last-year-repo-rcna14282" class="uri">https://www.nbcnews.com/news/asian-america/anti-asian-hate-crimes-increased-339-percent-nationwide-last-year-repo-rcna14282</a>], (public polling)[<a href="https://www.pewresearch.org/2023/11/30/asian-americans-and-discrimination-during-the-covid-19-pandemic/" class="uri">https://www.pewresearch.org/2023/11/30/asian-americans-and-discrimination-during-the-covid-19-pandemic/</a>], and (academic)[<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7364747/" class="uri">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7364747/</a>]<a href="#fn81" class="footnote-ref" id="fnref81"><sup>81</sup></a> (papers)[<a href="https://www.nber.org/papers/w32121" class="uri">https://www.nber.org/papers/w32121</a>]<a href="#fn82" class="footnote-ref" id="fnref82"><sup>82</sup></a> Most reports say that anti-Asian hate crimes skyrocketed since Covid started, caused by racist people who blamed Asian people for Covid.</p>
-<p>Let’s see how that holds up in FBI data. Or, perhaps a better question is, can FBI data answer this question at all? There are only two numbers needed to properly measure an increase in crime: the number of crimes in the past and the number of crimes now. Without either number you can’t calculate a change at all. But having incorrect values for either or both numbers is even worse as you can calculate a change, but it will be wrong. And it’s almost always worse to give a wrong answer than no answer at all.</p>
-<p>Let’s look first at New York City, home to nearly 1.4 million Asian people (according to the Census)[<a href="https://data.census.gov/profile/New_York_city,_New_York?g=160XX00US3651000" class="uri">https://data.census.gov/profile/New_York_city,_New_York?g=160XX00US3651000</a>]. Figure <a href="hate_crimes.html#fig:nycHate">9.7</a> shows the annual number of incidents in NYC which were classified as anti-Asian by police. Though NYC has reported hate crimes since 1991, the first year they reported an anti-Asian hate crime was in 2002. Consistent with reports of an increase in anti-Asian hate crimes during Covid there is a spike in 2020, which increases in 2021 and then declines in 2022, though the 2022 number is still far ahead of pre-Covid years. In percent terms, 2020 had a 1,300% increase from 2019 and 2021 had a 375% increase from 2020<a href="#fn83" class="footnote-ref" id="fnref83"><sup>83</sup></a>. The issue here is that this is all from a base rate of 2 anti-Asian hate crimes in 2019. In fact no previous year of data had more than 10 anti-Asian hate crimes. I find that unbelievable. Even if New York City was a perfect utopia of racial harmony, I simply do not believe that only two incidents of anti-Asian hate crimes occurred in New York City in 2019. It is just too few to be believable.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nycHate"></span>
-<img src="09_hate_crime_files/figure-html/nycHate-1.png" alt="The number of anti-Asian hate crime incidents in New York City, 1991-2022." width="90%" />
-<p class="caption">
-Figure 9.7: The number of anti-Asian hate crime incidents in New York City, 1991-2022.
-</p>
-</div>
-<p>So NYC isn’t a good example since it has an unusually low number of pre-Covid hate crimes against Asian people. Figure <a href="hate_crimes.html#fig:nationalAsianHate">9.8</a> aggregates all anti-Asian hate crimes nationally. Here we see a similar trend to NYC, with an increase starting in 2020 that continues in 2021 and modestly declines in 2022. The increase is far more modest, moving from 188 in 2019 to 322 in 2020 (a 71.3% increase). Should we trust this more than the NYC data? A more modest 71.3% increase is maybe more believable than a 1,300% increase. Again, though, we should think about how believable these results are. 2019 had 188 anti-Asian hate crimes. When considering that the Asian population in this country is about 21 million people, that’s still exceedingly rare, a rate of about 0.88 anti-Asian hate crimes per 100,000 Asian people<a href="#fn84" class="footnote-ref" id="fnref84"><sup>84</sup></a></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nationalAsianHate"></span>
-<img src="09_hate_crime_files/figure-html/nationalAsianHate-1.png" alt="The number of anti-Asian hate crime incidents in the United States, 1991-2022." width="90%" />
-<p class="caption">
-Figure 9.8: The number of anti-Asian hate crime incidents in the United States, 1991-2022.
-</p>
-</div>
-<p>So here’s the problem. We need a pre- and a post-value to determine if an increase is actually happening. We don’t have a reliable pre-value and therefore cannot say if something is increasing.</p>
-</div>
-<div id="important-variables-6" class="section level2 hasAnchor" number="9.4">
-<h2><span class="header-section-number">9.4</span> Important variables<a href="hate_crimes.html#important-variables-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="important-variables-6" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Important variables<a href="hate_crimes.html#important-variables-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This data has the standard set of variables describing the agency that is reporting. This includes the agency ORI - which is the unique ID for that agency - the agency name, their state, and the population under their jurisdiction.</p>
-<p>They also have a variable with the exact date that the hate crime occurred on - though not the date it was reported on. Figure <a href="hate_crimes.html#fig:hateCrimesByDay">9.9</a> shows the percent of hates crimes between 1991 and 2022 that occurred on each day of the week. Interestingly, the most common days for a hate crime to occur is on Friday, which is also when non-hate crimes most frequently occur. This suggests that hate crimes do follow the same trends - at least partially - as other crimes.</p>
+<p>They also have a variable with the exact date that the hate crime occurred on - though not the date it was reported on. Figure <a href="hate_crimes.html#fig:hateCrimesByDay">9.7</a> shows the percent of hates crimes between 1991 and 2022 that occurred on each day of the week. Interestingly, the most common days for a hate crime to occur is on Friday, which is also when non-hate crimes most frequently occur. This suggests that hate crimes do follow the same trends - at least partially - as other crimes.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateCrimesByDay"></span>
 <img src="09_hate_crime_files/figure-html/hateCrimesByDay-1.png" alt="The day of the week that hate crimes occurred on, 1991-2022" width="90%" />
 <p class="caption">
-Figure 9.9: The day of the week that hate crimes occurred on, 1991-2022
+Figure 9.7: The day of the week that hate crimes occurred on, 1991-2022
 </p>
 </div>
-<p>We can also look at which day of the most is most common, as shown in Figure <a href="#hateCrimesByMonthDay"><strong>??</strong></a>. There’s no attern that I can see other than the the 1st of the most has the most hate crimes and the end of the month has the fewest. Not all months have more than 28 days so it makes sense that the 29th, 30th, and 31st are the least common day. Is the 1st of the month really the most dangerous? I think this is likely just a quirk of the data, and is something we also see in NIBRS data. When an agency doesn’t report an actual date they may use the 1st of the month as a placeholder which then looks to us like the 1st is an especially prolific day for hate crimes.</p>
+<p>We can also look at which day of the month is most common, as shown in Figure <a href="hate_crimes.html#fig:hateCrimesByMonthDay">9.8</a>. There’s no pattern that I can see other than the the 1st of the most has the most hate crimes and the end of the month has the fewest. Not all months have more than 28 days so it makes sense that the 29th, 30th, and 31st are the least common day. Is the 1st of the month really the most dangerous? I think this is likely just a quirk of the data, and is something we also see in NIBRS data. When an agency doesn’t report an actual date they may use the 1st of the month as a placeholder which then looks to us like the 1st is an especially prolific day for hate crimes.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateCrimesByMonthDay"></span>
 <img src="09_hate_crime_files/figure-html/hateCrimesByMonthDay-1.png" alt="The day of the month that hate crimes occurred on, 1991-2022" width="90%" />
 <p class="caption">
-Figure 9.10: The day of the month that hate crimes occurred on, 1991-2022
+Figure 9.8: The day of the month that hate crimes occurred on, 1991-2022
 </p>
 </div>
 <p>Each hate crime incident can cover up to 10 different crimes occurring - e.g. a person who burglarizes a synagogue and spray paints a swastika on the wall would have both burglary and vandalism reported in this data. With each crime, this data has the bias motivation for that crime, the location of the crime (in broad categories, not the actual location in the city like a street address would have), and the number of victims for that offense. In practice, in most hate crimes with multiple offenses recorded, the bias motivation, location, and victim count is the same for each offense.</p>
-<p>Figure <a href="hate_crimes.html#fig:crimesPerHateCrime">9.11</a> shows the number of crimes per incident for each hate crime reported between 1991 and 2022. In 96.6% of cases, there is only one offense in that incident.<a href="#fn85" class="footnote-ref" id="fnref85"><sup>85</sup></a> This drops sharply to 3.2% of incidents having two offenses, 0.21% having three offenses, 0.019% having four offenses, and 0.002% having five offenses. Even though this data does allow up to 10 offenses per hate crime incident, there has never been a recorded case with more than five offenses. Results are nearly identical when examining the number of bias motivations and locations reported in an incident.</p>
+<p>Figure <a href="hate_crimes.html#fig:crimesPerHateCrime">9.9</a> shows the number of crimes per incident for each hate crime reported between 1991 and 2022. In 96.6% of cases, there is only one offense in that incident.<a href="#fn80" class="footnote-ref" id="fnref80"><sup>80</sup></a> This drops sharply to 3.2% of incidents having two offenses, 0.21% having three offenses, 0.019% having four offenses, and 0.002% having five offenses. Even though this data does allow up to 10 offenses per hate crime incident, there has never been a recorded case with more than five offenses. Results are nearly identical when examining the number of bias motivations and locations reported in an incident.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:crimesPerHateCrime"></span>
 <img src="09_hate_crime_files/figure-html/crimesPerHateCrime-1.png" alt="The number of offenses per hate crime incident." width="90%" />
 <p class="caption">
-Figure 9.11: The number of offenses per hate crime incident.
+Figure 9.9: The number of offenses per hate crime incident.
 </p>
 </div>
-<div id="the-bias-motivation-who-the-hate-is-against" class="section level3 hasAnchor" number="9.4.1">
-<h3><span class="header-section-number">9.4.1</span> The bias motivation (who the hate is against)<a href="hate_crimes.html#the-bias-motivation-who-the-hate-is-against" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="the-bias-motivation-who-the-hate-is-against" class="section level3 hasAnchor" number="9.3.1">
+<h3><span class="header-section-number">9.3.1</span> The bias motivation (who the hate is against)<a href="hate_crimes.html#the-bias-motivation-who-the-hate-is-against" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The most important variable in this data is the “bias motivation” which is the FBI’s term for the cause of the hate. A hate crime targeted against Black people would be an “anti-Black” bias motivation. For the police to classify an incident as a hate crime, and to assign a particular bias motivation, the police must have <em>some</em> evidence that the crime was motivated by hate. The victim saying that the crime is a hate crime alone is not sufficient - though if large portions of the victim’s community believe that the crime is a hate crime, this is a factor in the police’s assessment. The evidence required is not major. It includes things as explicit as racial slurs said during an incident and less obvious factors like the crime occurring on an important holiday for that community (e.g. Martin Luther King Day, religious holidays). The FBI also encourages police to consider the totality of the evidence even if none alone strongly suggests that the crime was a hate crime in making their determination about whether the incident was a hate crime or not. This also means that many (perhaps most) hate crimes will not be recorded as hate crimes since there is no evidence that the crime is motivated by hate.</p>
 <p>Consider, for example, a person who is biased against Asian people and decides to rob them because they are Asian. This is clearly a hate crime. And say this persons robs 10 Asian people in 10 different incidents, causing 10 hate crimes. All of the victims report it to the police but only two of them tell the police that they think it was a hate crime; the other eight do not think it is a hate crime. Without additional information the police would likely not report any of these robberies as hate crimes. And if all ten of the victims happened to be surveyed about crime victimization, such as through the Bureau of Justice Statistics’ National Crime Victimization Survey, only two of the 10 victims would report being the victim of a hate crime. Using FBI data the anti-Asian hate crimes would be zero; using victimization surveys would undercount anti-Asian hate crimes enormously. This is the main problem with using hate crime data, even with perfect reporting or surveys of everyone possibly victimized we may still be getting data that is completely incorrect.</p>
 <p>In the FBI data Bias motivation is based on the offender’s perceptions of the victim so even if they are incorrect in who their victim is, if they intended to target someone for their perceived group membership, that is still a hate crime. For example, if a person assaults a man because they think he is gay, that is a hate crime because the assault was motivated by hate towards gay people. Whether the victim is actually gay or not is not relevant - the offender perceived him to be gay so it is an anti-gay hate crime. To make this even more complicated, the offender must have committed the crime because they are motivated, at least to some degree, by their bias against the victim. Being biased against the victim but targeting them for some other reason means that the crime is not a hate crime.</p>
@@ -975,9 +954,9 @@ Anti-Jehovahs Witness
 <p>2015 is the year with the most bias additions, as of data through 2022. This year added a number of religions such as Anti-Buddhist, Anti-Sikh, and Anti-Jehovah’s Witness. In 2013, anti-Transgender was added and this is the most common of the bias motivations added since data began in 1991 with 1500 hate crimes between 2013-2022 - 0.63% of all hate crime incidents from 1991-2022. That year also added anti-male and Anti-Native Hawaiian or Other Pacific Islander, which is the most recent racial group added. In 2012, anti-gender non-conforming and anti-female were included, while in 1997 both anti-mental and anti-physical disability were added. In part due to having fewer years of data available, these newer bias motivations make up a small percent of total hate crimes.</p>
 <p>The original hate crimes - that is, those in the data in 1991 when this dataset was released - are far more common. The most common bias motivation is anti-Black at 34% of hate crimes, anti-Jewish at 12%, anti-White at 11%, anti-male homosexual (gay) at 10%, anti-Hispanic at 6%, and anti-ethnicity other than Hispanic (this group means a crime against an ethnic group that isn’t Hispanic, though it is occasionally reported as anti-non-Hispanic which is incorrect.) at 5%. All other bias motivations are less than 5% of hate crimes and consist of a variety of ethnic, racial, religious, or sexual orientation. Some hate crimes can potentially fall in multiple categories. For example, there is a bias motivation of “anti-male homosexual (gay)” and of “anti-lesbian, gay, bisexual, or transgender, mixed group (LGBT)” so there is some overlap between them.</p>
 </div>
-<div id="the-crime-that-occurred" class="section level3 hasAnchor" number="9.4.2">
-<h3><span class="header-section-number">9.4.2</span> The crime that occurred<a href="hate_crimes.html#the-crime-that-occurred" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The “crime” part of hate crimes is which criminal offense occurred during the incident. A hateful act where the action is not one of the crimes that the FBI records would not be considered a hate crime. This is likely most common when considering something like a person calling someone by a hateful slur (e.g. “You’re a [slur],” “go back to your own country”, etc.) but where the action is not technically a crime. Another layer of difficulty in using this data is that not all crimes that the FBI includes were initially included when data become available in 1991. Every several years the FBI adds new crimes to be included in this data. Table <a href="hate_crimes.html#tab:hateOffense">9.2</a> shows each crime in the data, the first year that this crime was reported, the total number of these crimes reported between 1991 and 2022, and the percent of all incidents this crime makes up.<a href="#fn86" class="footnote-ref" id="fnref86"><sup>86</sup></a></p>
+<div id="the-crime-that-occurred" class="section level3 hasAnchor" number="9.3.2">
+<h3><span class="header-section-number">9.3.2</span> The crime that occurred<a href="hate_crimes.html#the-crime-that-occurred" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The “crime” part of hate crimes is which criminal offense occurred during the incident. A hateful act where the action is not one of the crimes that the FBI records would not be considered a hate crime. This is likely most common when considering something like a person calling someone by a hateful slur (e.g. “You’re a [slur],” “go back to your own country”, etc.) but where the action is not technically a crime. Another layer of difficulty in using this data is that not all crimes that the FBI includes were initially included when data become available in 1991. Every several years the FBI adds new crimes to be included in this data. Table <a href="hate_crimes.html#tab:hateOffense">9.2</a> shows each crime in the data, the first year that this crime was reported, the total number of these crimes reported between 1991 and 2022, and the percent of all incidents this crime makes up.<a href="#fn81" class="footnote-ref" id="fnref81"><sup>81</sup></a></p>
 <p>Nearly all hate crimes are vandalism/destruction of property (30%), intimidation (30%), and simple assault (20%) or aggravated assault (11%) with no remaining crime making up more than 2% of total hate crimes.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
@@ -1675,8 +1654,8 @@ Human Trafficking - Involuntary Servitude
 </table>
 <p>Agencies that report to the FBI’s National Incident-Based Reporting System (NIBRS) can also report bias motivations for their crimes, and these reports are included in this dataset. One tricky thing is that the crimes included are different depending on if the agency reported through NIBRS or to the dataset directly, and are not NIBRS reporting agencies. NIBRS agencies report all of the crimes as the agencies directly submitting SRS data, but have a wider variety of crimes they can report. In practice, however, both NIBRS and SRS reporting agencies can report the most common offenses so there is relatively little difference.</p>
 </div>
-<div id="the-location-of-the-crime" class="section level3 hasAnchor" number="9.4.3">
-<h3><span class="header-section-number">9.4.3</span> The location of the crime<a href="hate_crimes.html#the-location-of-the-crime" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="the-location-of-the-crime" class="section level3 hasAnchor" number="9.3.3">
+<h3><span class="header-section-number">9.3.3</span> The location of the crime<a href="hate_crimes.html#the-location-of-the-crime" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This data is interesting because it includes the location - in categories for types of places, not actual location in the city - of the incident. This is important since the type of location can be a factor in whether the incident is classified as a hate crime. For example, spray paint on a synagogue or a mosque is much more likely to be a hate crime than spray paint on a wall of an abandoned building. Table <a href="hate_crimes.html#tab:hateLocations">9.3</a> shows the locations of hate crimes = including the first year that location was report. Each hate crime incident can have multiple locations since each offense can have its own incident, but in most cases (96.6%) a hate crime only has a single location.</p>
 <p>As with the crime and the bias motivation, the available locations have increased as time went on, though these newer locations are relatively uncommon. One important change in location is that starting in 2010 the location of school/college was split to have one location be for elementary and high schools and another location be for colleges and universities. The majority of hate crimes occur in the victim’s home (30%), on a road or alley (19%), in an other or unknown location (13%), and in a parking lot or parking garage (6%). All other locations occur in fewer than 5% of hate crimes.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -2346,528 +2325,41 @@ Military Installation
 </tbody>
 </table>
 </div>
-<div id="number-and-race-of-offenders" class="section level3 hasAnchor" number="9.4.4">
-<h3><span class="header-section-number">9.4.4</span> Number and race of offenders<a href="hate_crimes.html#number-and-race-of-offenders" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="number-and-race-of-offenders" class="section level3 hasAnchor" number="9.3.4">
+<h3><span class="header-section-number">9.3.4</span> Number and race of offenders<a href="hate_crimes.html#number-and-race-of-offenders" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are two variables that have information about the people who commit the hate crime: the number of offenders and the race of the offenders. The offender race is recorded as a single value with the race of the group if all are of the same race or it will say a “multi-racial” group. Unfortunately, important information like the age of the offenders, their criminal history, their relationship to the victim, their gender, or whether they are arrested are completely unavailable in this dataset. These variables, however, are available in NIBRS data.</p>
-<p>When the police do not have any information about the number of offenders (which is common in cases of property crimes such as vandalism but rare in violent crimes), this data considers that to have zero offenders. The zero is just a placeholder that means that the police don’t know how many offenders there are, not that they think there were actually no offenders. Figure <a href="hate_crimes.html#fig:hateCrimeOffenderNumber">9.12</a> shows the percent of hate crimes from 1991-2022 that have each number of offenders recorded. In the actual data it says the actual number of offenders, with the largest group in the current data going to 99 offenders - in this graph I group 10 or more offenders together for simplicity. I also relabel zero offenders as “Unknown” offenders since that’s more accurate. The most common number of offenders per hate crime is one offender, at about 49% of hate crimes from 1991-2022 having only one offender. This drops sharply to 9% of hate crimes having two offenders and continues to drop as the number of offenders increase. However, about a third (36%) of hate crimes have an unknown number of offenders.</p>
+<p>When the police do not have any information about the number of offenders (which is common in cases of property crimes such as vandalism but rare in violent crimes), this data considers that to have zero offenders. The zero is just a placeholder that means that the police don’t know how many offenders there are, not that they think there were actually no offenders. Figure <a href="hate_crimes.html#fig:hateCrimeOffenderNumber">9.10</a> shows the percent of hate crimes from 1991-2022 that have each number of offenders recorded. In the actual data it says the actual number of offenders, with the largest group in the current data going to 99 offenders - in this graph I group 10 or more offenders together for simplicity. I also relabel zero offenders as “Unknown” offenders since that’s more accurate. The most common number of offenders per hate crime is one offender, at about 49% of hate crimes from 1991-2022 having only one offender. This drops sharply to 9% of hate crimes having two offenders and continues to drop as the number of offenders increase. However, about a third (36%) of hate crimes have an unknown number of offenders.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateCrimeOffenderNumber"></span>
 <img src="09_hate_crime_files/figure-html/hateCrimeOffenderNumber-1.png" alt="The race of offenders, as a group, for hate crime incidents, 1991-2022." width="90%" />
 <p class="caption">
-Figure 9.12: The race of offenders, as a group, for hate crime incidents, 1991-2022.
+Figure 9.10: The race of offenders, as a group, for hate crime incidents, 1991-2022.
 </p>
 </div>
-<p>The data also includes the race of the offenders as a group, though not the ethnicity (Hispanic or non-Hispanic) of the offenders. In cases where there are multiple races among offenders, that will be classified as a “multi-racial group”. As shown in Figure <a href="hate_crimes.html#fig:hateCrimeOffenderNumber">9.12</a> The most common racial group is “unknown” since the police do not know the race of the offenders. Then are White offenders at nearly 40% of hate crimes followed by Black offenders at nearly 13% of hate crimes. The remaining racial groups are rare with about 2% of hate crimes being committed by a multi-racial group of offenders and 0.8 % of hate crimes committed by Asian or Pacific Islander offenders and 0.6 % committed by American Indian or Native Alaskan offenders. Only 0.05% of offenders are Native Hawaiian or Other Pacific Islander.</p>
+<p>The data also includes the race of the offenders as a group, though not the ethnicity (Hispanic or non-Hispanic) of the offenders. In cases where there are multiple races among offenders, that will be classified as a “multi-racial group”. As shown in Figure <a href="hate_crimes.html#fig:hateCrimeOffenderNumber">9.10</a> The most common racial group is “unknown” since the police do not know the race of the offenders. Then are White offenders at nearly 40% of hate crimes followed by Black offenders at nearly 13% of hate crimes. The remaining racial groups are rare with about 2% of hate crimes being committed by a multi-racial group of offenders and 0.8 % of hate crimes committed by Asian or Pacific Islander offenders and 0.6 % committed by American Indian or Native Alaskan offenders. Only 0.05% of offenders are Native Hawaiian or Other Pacific Islander.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateCrimeOffenderRace"></span>
 <img src="09_hate_crime_files/figure-html/hateCrimeOffenderRace-1.png" alt="The race of offenders, as a group, for hate crime incidents, 1991-2022." width="90%" />
 <p class="caption">
-Figure 9.13: The race of offenders, as a group, for hate crime incidents, 1991-2022.
+Figure 9.11: The race of offenders, as a group, for hate crime incidents, 1991-2022.
 </p>
 </div>
 </div>
-<div id="number-of-victims" class="section level3 hasAnchor" number="9.4.5">
-<h3><span class="header-section-number">9.4.5</span> Number of victims<a href="hate_crimes.html#number-of-victims" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>When considering the data itself, hate crime data is very similar to most other datasets, though with the additional step of having evidence of bias. But the difference in use is that while in other crimes the victim is usually, well, the victim, in hate crimes the victim may be a much wider group. Let’s say a person’s home is burglarized. The homeowner<a href="#fn87" class="footnote-ref" id="fnref87"><sup>87</sup></a> is clearly the victim as it was their house targeted. Their neighbors may also feel some effect if they are now concerned about their own home. And the victim’s family will likely be concern. But the victim group is very limited and is directly related to the crime. Hate crimes tend to affect everyone in the targeted group, or at least a much wider span of people than something like burglary. If a swastika, for example, is spray painted on the front door of a synagogue who is the victim? Directly it’d be whomever owns the synagogue building. But it also affects all members of that congregation. And what about members of other synagogues in the city? What about Jewish people in the city who don’t go to synagogue? Even though only a single crime occurred - a vandalism - it is very difficult to count how many victims there were. Is a swastika on a synagogue worse if the synagogue has a small congregation versus a large one? What if it is in a city with only one synagogue compared to a city with many? Is it worse to have a large swastika than a small one? If we’re trying to use this data to measure hate against a particular group these are questions we need to answer, but are of course impossible to answer with this data. Remember, all of the FBI data is essentially just abstract contextless numbers in a spreadsheet. This is true for all UCR data but especially so for hate crimes where no two hate crimes are equal.</p>
-<p>In fact, I’d argue that this issue - alongside the massive under- and misreporting by agencies - is bad enough that we should be extraordinarily cautious when using this data. My main takeaway for this data is that it is inappropriate to use for most hate crime research. At most it can be used to look at within-city within-bias-motivation trends, while keeping in mind that even this narrow subset of data is limited by under-reporting by victims and potential changes in police practices of reporting such as how many months of data they report per year. Nonetheless, this is data that people - researchers, reporters, politicians, etc. - do use to measure hate crime data, so I’ll do my best in this chapter to explain how to use it.</p>
-<pre><code>#&gt;       ori      ori9              hate_crime_incident_present          state
-#&gt; 1 MS00301 MS0030100          no hate crime incidents present           &lt;NA&gt;
-#&gt; 2 SC02300 SC0230000 one or more hate crime incidents present south carolina
-#&gt; 3 CA04912 CA0491200          no hate crime incidents present           &lt;NA&gt;
-#&gt; 4 NY535RC NY535RC00          no hate crime incidents present           &lt;NA&gt;
-#&gt; 5 PA03306 PA0330600          no hate crime incidents present           &lt;NA&gt;
-#&gt; 6 CA01948 CA0194800 one or more hate crime incidents present     california
-#&gt;   state_abb incident_date     month month_num day_of_week year population
-#&gt; 1      &lt;NA&gt;          &lt;NA&gt;      &lt;NA&gt;        NA        &lt;NA&gt; 2000       1332
-#&gt; 2        SC    2008-12-20  december        12    Saturday 2008     313863
-#&gt; 3      &lt;NA&gt;          &lt;NA&gt;      &lt;NA&gt;        NA        &lt;NA&gt; 1993          0
-#&gt; 4      &lt;NA&gt;          &lt;NA&gt;      &lt;NA&gt;        NA        &lt;NA&gt; 2018          0
-#&gt; 5      &lt;NA&gt;          &lt;NA&gt;      &lt;NA&gt;        NA        &lt;NA&gt; 1994       1075
-#&gt; 6        CA    2019-09-29 september         9      Sunday 2019      60424
-#&gt;                agency_name         city_name            population_group
-#&gt; 1                  gloster           gloster            city under 2,500
-#&gt; 2               greenville        greenville         msa-county 100,000+
-#&gt; 3 dpt pk rec russian river duncans mills, ca     msa-county under 10,000
-#&gt; 4           orange co: csx           buffalo non-msa county under 10,000
-#&gt; 5              falls creek   falls creek, pa            city under 2,500
-#&gt; 6            monterey park     monterey park     city 50,000 thru 99,999
-#&gt;     country_division country_region core_city covered_by_ori fbi_field_office
-#&gt; 1 east south central          south        no           &lt;NA&gt;             3320
-#&gt; 2     south atlantic          south        no           &lt;NA&gt;             3180
-#&gt; 3            pacific           west        no           &lt;NA&gt;             3790
-#&gt; 4    middle atlantic     north east        no      ny535rb00             3540
-#&gt; 5    middle atlantic     north east        no           &lt;NA&gt;             3650
-#&gt; 6            pacific           west        no           &lt;NA&gt;             3410
-#&gt;   judicial_district agency_nibrs_flag agency_inactive_date date_ori_was_added
-#&gt; 1              220s              &lt;NA&gt;                 &lt;NA&gt;         1991-04-30
-#&gt; 2              355a            active                 &lt;NA&gt;         1991-04-30
-#&gt; 3              050n              &lt;NA&gt;                 &lt;NA&gt;         1991-04-30
-#&gt; 4              275s              &lt;NA&gt;                 &lt;NA&gt;         2018-07-06
-#&gt; 5              345w              &lt;NA&gt;                 &lt;NA&gt;         1991-04-30
-#&gt; 6              040c              &lt;NA&gt;                 &lt;NA&gt;         2020-04-30
-#&gt;   date_ori_went_nibrs state_first_quarter_activity
-#&gt; 1                &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 2          1991-01-01    zero-report was submitted
-#&gt; 3                &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 4                &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 5                &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 6                &lt;NA&gt;    zero-report was submitted
-#&gt;   state_second_quarter_activity  state_third_quarter_activity
-#&gt; 1                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 2 incident report was submitted incident report was submitted
-#&gt; 3                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 4                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 5                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 6     zero-report was submitted incident report was submitted
-#&gt;   state_fourth_quarter_activity federal_first_quarter_activity
-#&gt; 1                          &lt;NA&gt;                             NA
-#&gt; 2 incident report was submitted                             NA
-#&gt; 3                          &lt;NA&gt;                             NA
-#&gt; 4                          &lt;NA&gt;                             NA
-#&gt; 5                          &lt;NA&gt;                             NA
-#&gt; 6     zero-report was submitted                             NA
-#&gt;   federal_second_quarter_activity federal_third_quarter_activity
-#&gt; 1                              NA                             NA
-#&gt; 2                              NA                             NA
-#&gt; 3                              NA                             NA
-#&gt; 4                              NA                             NA
-#&gt; 5                              NA                             NA
-#&gt; 6                              NA                             NA
-#&gt;   federal_fourth_quarter_activity     data_source      quarter_of_the_year
-#&gt; 1                              NA            &lt;NA&gt;                     &lt;NA&gt;
-#&gt; 2                              NA  nibrs incident october through december
-#&gt; 3                              NA            &lt;NA&gt;                     &lt;NA&gt;
-#&gt; 4                              NA            &lt;NA&gt;                     &lt;NA&gt;
-#&gt; 5                              NA            &lt;NA&gt;                     &lt;NA&gt;
-#&gt; 6                              NA floppy diskette   july through september
-#&gt;   agency_indicator fips_state_code fips_county_code fips_state_county_code
-#&gt; 1             city              28              005                  28005
-#&gt; 2           county              45              045                  45045
-#&gt; 3           county              06              097                  06097
-#&gt; 4             &lt;NA&gt;              36              071                  36071
-#&gt; 5             city              42              065                  42065
-#&gt; 6             &lt;NA&gt;              06              037                  06037
-#&gt;   fips_place_code             agency_type
-#&gt; 1           27820 local police department
-#&gt; 2           99045         sheriffs office
-#&gt; 3           99097    special jurisdiction
-#&gt; 4           99071    special jurisdiction
-#&gt; 5           25136 local police department
-#&gt; 6           48914 local police department
-#&gt;                       crosswalk_agency_name         census_name   longitude
-#&gt; 1                 gloster police department        gloster town  -90.795542
-#&gt; 2        greenville county sheriff&#39;s office   greenville county  -82.372077
-#&gt; 3 ca dept of parks recreation russian river state of california -122.937605
-#&gt; 4                            orange co: csx   state of new york  -74.306252
-#&gt; 5                            falls creek pd falls creek borough  -78.999044
-#&gt; 6           monterey park police department  monterey park city -118.261862
-#&gt;    latitude                       address_name address_street_line_1
-#&gt; 1 31.203933          gloster police department  post office box 1019
-#&gt; 2 34.892645 greenville county sheriff&#39;s office            4 mcgee st
-#&gt; 3 38.525026     dept parks &amp; rec:russian river                  &lt;NA&gt;
-#&gt; 4  41.40241                orange  county: csx                  &lt;NA&gt;
-#&gt; 5 41.130287      falls creek police department                  &lt;NA&gt;
-#&gt; 6 34.196398    monterey park police department 320 w. newmark avenue
-#&gt;   address_street_line_2  address_city address_state address_zip_code msa_code_1
-#&gt; 1                  &lt;NA&gt;       gloster            ms            39638       &lt;NA&gt;
-#&gt; 2                  &lt;NA&gt;    greenville            sc            29601        335
-#&gt; 3                  &lt;NA&gt; duncans mills            ca            95430        797
-#&gt; 4                  &lt;NA&gt;       buffalo            ny            14212       &lt;NA&gt;
-#&gt; 5                  &lt;NA&gt;   falls creek            pa            15840       &lt;NA&gt;
-#&gt; 6                  &lt;NA&gt; monterey park            ca            91754        480
-#&gt;   msa_code_2 msa_code_3 incident_number                   unique_id
-#&gt; 1       &lt;NA&gt;       &lt;NA&gt;            &lt;NA&gt;           2000_MS0030100_NA
-#&gt; 2       &lt;NA&gt;       &lt;NA&gt;    9d2w59pu8v8y 2008_SC0230000_9d2w59pu8v8y
-#&gt; 3       &lt;NA&gt;       &lt;NA&gt;            &lt;NA&gt;           1993_CA0491200_NA
-#&gt; 4       &lt;NA&gt;       &lt;NA&gt;            &lt;NA&gt;           2018_NY535RC00_NA
-#&gt; 5       &lt;NA&gt;       &lt;NA&gt;            &lt;NA&gt;           1994_PA0330600_NA
-#&gt; 6       &lt;NA&gt;       &lt;NA&gt;    5f1fq4w upvs 2019_CA0194800_5f1fq4w upvs
-#&gt;   total_num_of_individual_victims total_offenders offenders_race_as_a_group
-#&gt; 1                              NA              NA                      &lt;NA&gt;
-#&gt; 2                               1               1                     white
-#&gt; 3                              NA              NA                      &lt;NA&gt;
-#&gt; 4                              NA              NA                      &lt;NA&gt;
-#&gt; 5                              NA              NA                      &lt;NA&gt;
-#&gt; 6                               1               1        multi-racial group
-#&gt;   number_of_victims_offense_1 number_of_victims_offense_2
-#&gt; 1                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 2                         001                        &lt;NA&gt;
-#&gt; 3                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 4                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 5                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 6                         001                        &lt;NA&gt;
-#&gt;   number_of_victims_offense_3 number_of_victims_offense_4
-#&gt; 1                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 2                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 3                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 4                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 5                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 6                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt;   number_of_victims_offense_5 number_of_victims_offense_6
-#&gt; 1                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 2                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 3                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 4                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 5                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 6                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt;   number_of_victims_offense_7 number_of_victims_offense_8
-#&gt; 1                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 2                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 3                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 4                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 5                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 6                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt;   number_of_victims_offense_9 number_of_victims_offense_10 ucr_offense_code_1
-#&gt; 1                        &lt;NA&gt;                         &lt;NA&gt;               &lt;NA&gt;
-#&gt; 2                        &lt;NA&gt;                         &lt;NA&gt;       intimidation
-#&gt; 3                        &lt;NA&gt;                         &lt;NA&gt;               &lt;NA&gt;
-#&gt; 4                        &lt;NA&gt;                         &lt;NA&gt;               &lt;NA&gt;
-#&gt; 5                        &lt;NA&gt;                         &lt;NA&gt;               &lt;NA&gt;
-#&gt; 6                        &lt;NA&gt;                         &lt;NA&gt;       intimidation
-#&gt;   ucr_offense_code_2 ucr_offense_code_3 ucr_offense_code_4 ucr_offense_code_5
-#&gt; 1               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;
-#&gt; 2               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;
-#&gt; 3               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;
-#&gt; 4               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;
-#&gt; 5               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;
-#&gt; 6               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;
-#&gt;   ucr_offense_code_6 ucr_offense_code_7 ucr_offense_code_8 ucr_offense_code_9
-#&gt; 1               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;
-#&gt; 2               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;
-#&gt; 3               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;
-#&gt; 4               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;
-#&gt; 5               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;
-#&gt; 6               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;
-#&gt;   ucr_offense_code_10 bias_motivation_offense_1 bias_motivation_offense_2
-#&gt; 1                &lt;NA&gt;                      &lt;NA&gt;                      &lt;NA&gt;
-#&gt; 2                &lt;NA&gt;                anti-black                      &lt;NA&gt;
-#&gt; 3                &lt;NA&gt;                      &lt;NA&gt;                      &lt;NA&gt;
-#&gt; 4                &lt;NA&gt;                      &lt;NA&gt;                      &lt;NA&gt;
-#&gt; 5                &lt;NA&gt;                      &lt;NA&gt;                      &lt;NA&gt;
-#&gt; 6                &lt;NA&gt;                anti-black                      &lt;NA&gt;
-#&gt;   bias_motivation_offense_3 bias_motivation_offense_4 bias_motivation_offense_5
-#&gt; 1                      &lt;NA&gt;                      &lt;NA&gt;                      &lt;NA&gt;
-#&gt; 2                      &lt;NA&gt;                      &lt;NA&gt;                      &lt;NA&gt;
-#&gt; 3                      &lt;NA&gt;                      &lt;NA&gt;                      &lt;NA&gt;
-#&gt; 4                      &lt;NA&gt;                      &lt;NA&gt;                      &lt;NA&gt;
-#&gt; 5                      &lt;NA&gt;                      &lt;NA&gt;                      &lt;NA&gt;
-#&gt; 6                      &lt;NA&gt;                      &lt;NA&gt;                      &lt;NA&gt;
-#&gt;   bias_motivation_offense_6 bias_motivation_offense_7 bias_motivation_offense_8
-#&gt; 1                      &lt;NA&gt;                      &lt;NA&gt;                      &lt;NA&gt;
-#&gt; 2                      &lt;NA&gt;                      &lt;NA&gt;                      &lt;NA&gt;
-#&gt; 3                      &lt;NA&gt;                      &lt;NA&gt;                      &lt;NA&gt;
-#&gt; 4                      &lt;NA&gt;                      &lt;NA&gt;                      &lt;NA&gt;
-#&gt; 5                      &lt;NA&gt;                      &lt;NA&gt;                      &lt;NA&gt;
-#&gt; 6                      &lt;NA&gt;                      &lt;NA&gt;                      &lt;NA&gt;
-#&gt;   bias_motivation_offense_9 bias_motivation_offense_10 location_code_offense_1
-#&gt; 1                      &lt;NA&gt;                       &lt;NA&gt;                    &lt;NA&gt;
-#&gt; 2                      &lt;NA&gt;                       &lt;NA&gt;          residence/home
-#&gt; 3                      &lt;NA&gt;                       &lt;NA&gt;                    &lt;NA&gt;
-#&gt; 4                      &lt;NA&gt;                       &lt;NA&gt;                    &lt;NA&gt;
-#&gt; 5                      &lt;NA&gt;                       &lt;NA&gt;                    &lt;NA&gt;
-#&gt; 6                      &lt;NA&gt;                       &lt;NA&gt;      parking lot/garage
-#&gt;   location_code_offense_2 location_code_offense_3 location_code_offense_4
-#&gt; 1                    &lt;NA&gt;                    &lt;NA&gt;                    &lt;NA&gt;
-#&gt; 2                    &lt;NA&gt;                    &lt;NA&gt;                    &lt;NA&gt;
-#&gt; 3                    &lt;NA&gt;                    &lt;NA&gt;                    &lt;NA&gt;
-#&gt; 4                    &lt;NA&gt;                    &lt;NA&gt;                    &lt;NA&gt;
-#&gt; 5                    &lt;NA&gt;                    &lt;NA&gt;                    &lt;NA&gt;
-#&gt; 6                    &lt;NA&gt;                    &lt;NA&gt;                    &lt;NA&gt;
-#&gt;   location_code_offense_5 location_code_offense_6 location_code_offense_7
-#&gt; 1                    &lt;NA&gt;                    &lt;NA&gt;                    &lt;NA&gt;
-#&gt; 2                    &lt;NA&gt;                    &lt;NA&gt;                    &lt;NA&gt;
-#&gt; 3                    &lt;NA&gt;                    &lt;NA&gt;                    &lt;NA&gt;
-#&gt; 4                    &lt;NA&gt;                    &lt;NA&gt;                    &lt;NA&gt;
-#&gt; 5                    &lt;NA&gt;                    &lt;NA&gt;                    &lt;NA&gt;
-#&gt; 6                    &lt;NA&gt;                    &lt;NA&gt;                    &lt;NA&gt;
-#&gt;   location_code_offense_8 location_code_offense_9 location_code_offense_10
-#&gt; 1                    &lt;NA&gt;                    &lt;NA&gt;                     &lt;NA&gt;
-#&gt; 2                    &lt;NA&gt;                    &lt;NA&gt;                     &lt;NA&gt;
-#&gt; 3                    &lt;NA&gt;                    &lt;NA&gt;                     &lt;NA&gt;
-#&gt; 4                    &lt;NA&gt;                    &lt;NA&gt;                     &lt;NA&gt;
-#&gt; 5                    &lt;NA&gt;                    &lt;NA&gt;                     &lt;NA&gt;
-#&gt; 6                    &lt;NA&gt;                    &lt;NA&gt;                     &lt;NA&gt;
-#&gt;   vic_type_individual_offense_1 vic_type_individual_offense_2
-#&gt; 1                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 2                             1                             0
-#&gt; 3                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 4                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 5                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 6                             1                             0
-#&gt;   vic_type_individual_offense_3 vic_type_individual_offense_4
-#&gt; 1                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 2                             0                             0
-#&gt; 3                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 4                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 5                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 6                             0                             0
-#&gt;   vic_type_individual_offense_5 vic_type_individual_offense_6
-#&gt; 1                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 2                             0                             0
-#&gt; 3                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 4                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 5                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 6                             0                             0
-#&gt;   vic_type_individual_offense_7 vic_type_individual_offense_8
-#&gt; 1                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 2                             0                             0
-#&gt; 3                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 4                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 5                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 6                             0                             0
-#&gt;   vic_type_individual_offense_9 vic_type_individual_offense_10
-#&gt; 1                          &lt;NA&gt;                           &lt;NA&gt;
-#&gt; 2                             0                              0
-#&gt; 3                          &lt;NA&gt;                           &lt;NA&gt;
-#&gt; 4                          &lt;NA&gt;                           &lt;NA&gt;
-#&gt; 5                          &lt;NA&gt;                           &lt;NA&gt;
-#&gt; 6                             0                              0
-#&gt;   vic_type_business_offense_1 vic_type_business_offense_2
-#&gt; 1                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 2                           0                           0
-#&gt; 3                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 4                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 5                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 6                           0                           0
-#&gt;   vic_type_business_offense_3 vic_type_business_offense_4
-#&gt; 1                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 2                           0                           0
-#&gt; 3                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 4                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 5                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 6                           0                           0
-#&gt;   vic_type_business_offense_5 vic_type_business_offense_6
-#&gt; 1                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 2                           0                           0
-#&gt; 3                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 4                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 5                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 6                           0                           0
-#&gt;   vic_type_business_offense_7 vic_type_business_offense_8
-#&gt; 1                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 2                           0                           0
-#&gt; 3                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 4                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 5                        &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 6                           0                           0
-#&gt;   vic_type_business_offense_9 vic_type_business_offense_10
-#&gt; 1                        &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 2                           0                            0
-#&gt; 3                        &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 4                        &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 5                        &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 6                           0                            0
-#&gt;   vic_type_government_offense_1 vic_type_government_offense_2
-#&gt; 1                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 2                             0                             0
-#&gt; 3                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 4                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 5                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 6                             0                             0
-#&gt;   vic_type_government_offense_3 vic_type_government_offense_4
-#&gt; 1                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 2                             0                             0
-#&gt; 3                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 4                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 5                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 6                             0                             0
-#&gt;   vic_type_government_offense_5 vic_type_government_offense_6
-#&gt; 1                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 2                             0                             0
-#&gt; 3                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 4                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 5                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 6                             0                             0
-#&gt;   vic_type_government_offense_7 vic_type_government_offense_8
-#&gt; 1                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 2                             0                             0
-#&gt; 3                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 4                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 5                          &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 6                             0                             0
-#&gt;   vic_type_government_offense_9 vic_type_government_offense_10
-#&gt; 1                          &lt;NA&gt;                           &lt;NA&gt;
-#&gt; 2                             0                              0
-#&gt; 3                          &lt;NA&gt;                           &lt;NA&gt;
-#&gt; 4                          &lt;NA&gt;                           &lt;NA&gt;
-#&gt; 5                          &lt;NA&gt;                           &lt;NA&gt;
-#&gt; 6                             0                              0
-#&gt;   vic_type_society_offense_1 vic_type_society_offense_2
-#&gt; 1                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 2                          0                          0
-#&gt; 3                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 4                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 5                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 6                          0                          0
-#&gt;   vic_type_society_offense_3 vic_type_society_offense_4
-#&gt; 1                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 2                          0                          0
-#&gt; 3                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 4                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 5                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 6                          0                          0
-#&gt;   vic_type_society_offense_5 vic_type_society_offense_6
-#&gt; 1                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 2                          0                          0
-#&gt; 3                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 4                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 5                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 6                          0                          0
-#&gt;   vic_type_society_offense_7 vic_type_society_offense_8
-#&gt; 1                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 2                          0                          0
-#&gt; 3                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 4                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 5                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 6                          0                          0
-#&gt;   vic_type_society_offense_9 vic_type_society_offense_10
-#&gt; 1                       &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 2                          0                           0
-#&gt; 3                       &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 4                       &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 5                       &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 6                          0                           0
-#&gt;   vic_type_unknown_offense_1 vic_type_unknown_offense_2
-#&gt; 1                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 2                          0                          0
-#&gt; 3                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 4                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 5                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 6                          0                          0
-#&gt;   vic_type_unknown_offense_3 vic_type_unknown_offense_4
-#&gt; 1                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 2                          0                          0
-#&gt; 3                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 4                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 5                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 6                          0                          0
-#&gt;   vic_type_unknown_offense_5 vic_type_unknown_offense_6
-#&gt; 1                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 2                          0                          0
-#&gt; 3                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 4                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 5                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 6                          0                          0
-#&gt;   vic_type_unknown_offense_7 vic_type_unknown_offense_8
-#&gt; 1                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 2                          0                          0
-#&gt; 3                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 4                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 5                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 6                          0                          0
-#&gt;   vic_type_unknown_offense_9 vic_type_unknown_offense_10
-#&gt; 1                       &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 2                          0                           0
-#&gt; 3                       &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 4                       &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 5                       &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 6                          0                           0
-#&gt;   vic_type_financial_offense_1 vic_type_financial_offense_2
-#&gt; 1                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 2                            0                            0
-#&gt; 3                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 4                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 5                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 6                            0                            0
-#&gt;   vic_type_financial_offense_3 vic_type_financial_offense_4
-#&gt; 1                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 2                            0                            0
-#&gt; 3                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 4                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 5                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 6                            0                            0
-#&gt;   vic_type_financial_offense_5 vic_type_financial_offense_6
-#&gt; 1                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 2                            0                            0
-#&gt; 3                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 4                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 5                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 6                            0                            0
-#&gt;   vic_type_financial_offense_7 vic_type_financial_offense_8
-#&gt; 1                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 2                            0                            0
-#&gt; 3                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 4                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 5                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 6                            0                            0
-#&gt;   vic_type_financial_offense_9 vic_type_financial_offense_10
-#&gt; 1                         &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 2                            0                             0
-#&gt; 3                         &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 4                         &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 5                         &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 6                            0                             0
-#&gt;   vic_type_religious_offense_1 vic_type_religious_offense_2
-#&gt; 1                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 2                            0                            0
-#&gt; 3                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 4                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 5                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 6                            0                            0
-#&gt;   vic_type_religious_offense_3 vic_type_religious_offense_4
-#&gt; 1                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 2                            0                            0
-#&gt; 3                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 4                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 5                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 6                            0                            0
-#&gt;   vic_type_religious_offense_5 vic_type_religious_offense_6
-#&gt; 1                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 2                            0                            0
-#&gt; 3                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 4                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 5                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 6                            0                            0
-#&gt;   vic_type_religious_offense_7 vic_type_religious_offense_8
-#&gt; 1                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 2                            0                            0
-#&gt; 3                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 4                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 5                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 6                            0                            0
-#&gt;   vic_type_religious_offense_9 vic_type_religious_offense_10
-#&gt; 1                         &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 2                            0                             0
-#&gt; 3                         &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 4                         &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 5                         &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 6                            0                             0
-#&gt;   vic_type_other_offense_1 vic_type_other_offense_2 vic_type_other_offense_3
-#&gt; 1                     &lt;NA&gt;                     &lt;NA&gt;                     &lt;NA&gt;
-#&gt; 2                        0                        0                        0
-#&gt; 3                     &lt;NA&gt;                     &lt;NA&gt;                     &lt;NA&gt;
-#&gt; 4                     &lt;NA&gt;                     &lt;NA&gt;                     &lt;NA&gt;
-#&gt; 5                     &lt;NA&gt;                     &lt;NA&gt;                     &lt;NA&gt;
-#&gt; 6                        0                        0                        0
-#&gt;   vic_type_other_offense_4 vic_type_other_offense_5 vic_type_other_offense_6
-#&gt; 1                     &lt;NA&gt;                     &lt;NA&gt;                     &lt;NA&gt;
-#&gt; 2                        0                        0                        0
-#&gt; 3                     &lt;NA&gt;                     &lt;NA&gt;                     &lt;NA&gt;
-#&gt; 4                     &lt;NA&gt;                     &lt;NA&gt;                     &lt;NA&gt;
-#&gt; 5                     &lt;NA&gt;                     &lt;NA&gt;                     &lt;NA&gt;
-#&gt; 6                        0                        0                        0
-#&gt;   vic_type_other_offense_7 vic_type_other_offense_8 vic_type_other_offense_9
-#&gt; 1                     &lt;NA&gt;                     &lt;NA&gt;                     &lt;NA&gt;
-#&gt; 2                        0                        0                        0
-#&gt; 3                     &lt;NA&gt;                     &lt;NA&gt;                     &lt;NA&gt;
-#&gt; 4                     &lt;NA&gt;                     &lt;NA&gt;                     &lt;NA&gt;
-#&gt; 5                     &lt;NA&gt;                     &lt;NA&gt;                     &lt;NA&gt;
-#&gt; 6                        0                        0                        0
-#&gt;   vic_type_other_offense_10 hate_crime_binary state_abb_ori mday total_offenses
-#&gt; 1                      &lt;NA&gt;                 0            MS &lt;NA&gt;              0
-#&gt; 2                         0                 1            SC   20              1
-#&gt; 3                      &lt;NA&gt;                 0            CA &lt;NA&gt;              0
-#&gt; 4                      &lt;NA&gt;                 0            NY &lt;NA&gt;              0
-#&gt; 5                      &lt;NA&gt;                 0            PA &lt;NA&gt;              0
-#&gt; 6                         0                 1            CA   29              1</code></pre>
+<div id="number-of-victims" class="section level3 hasAnchor" number="9.3.5">
+<h3><span class="header-section-number">9.3.5</span> Number of victims<a href="hate_crimes.html#number-of-victims" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When considering the data itself, hate crime data is very similar to most other datasets. It’s just the number of crimes that were reported to the police, though with the additional step of having evidence of bias. But the difference in use is that while in other crimes the victim is usually, well, the victim, in hate crimes the victim may be a much wider group. Let’s say a person’s home is burglarized. The homeowner<a href="#fn82" class="footnote-ref" id="fnref82"><sup>82</sup></a> is clearly the victim as it was their house targeted. Their neighbors may also feel some effect if they are now concerned about their own home. And the victim’s family will likely be concern. But the victim group is very limited and is directly related to the crime. Hate crimes tend to affect everyone in the targeted group, or at least a much wider span of people than something like burglary. If a swastika, for example, is spray painted on the front door of a synagogue who is the victim? Directly it’d be whomever owns the synagogue building. But it also affects all members of that congregation. And what about members of other synagogues in the city? What about Jewish people in the city who don’t go to synagogue? Even though only a single crime occurred - a vandalism - it is very difficult to count how many victims there were. Is a swastika on a synagogue worse if the synagogue has a small congregation versus a large one? What if it is in a city with only one synagogue compared to a city with many? Is it worse to have a large swastika than a small one?</p>
+<p>If we’re trying to use this data to measure hate against a particular group these are questions we need to answer, but are of course impossible to answer with this data. Remember, all of the FBI data is essentially just abstract contextless numbers in a spreadsheet. This is true for all UCR data but especially so for hate crimes where no two hate crimes are equal. One burglary in City A is about equivalent to one burglary in City B. For hate crimes a single incident may affect far more people in City A than in City B.</p>
+<p>In fact, I’d argue that this issue is bad enough that we should be extraordinarily cautious when using this data. Just aggregating up the number of incidents is insufficient to measuring either hate or fear. Sure, you can measure the number of hate crimes reported to the police and where the police found adequate evidence to label the crime as bias motivated. But is that really what you want be measuring when using hate crime data?</p>
+<p>Nonetheless, this is a book about the data. So let’s look at one final variable in this data, the number of victims for each incident. This is not going to be true number of people affected by the crime. It’s more the number of direct victims for the incident. Whether that is actually better than just counting incidents is dependent on the context of your question and the hate crimes in question. In Figure <a href="hate_crimes.html#fig:jewishIncidentVictim">9.12</a> I show the annual number of anti-Jewish hate crimes reported by all agencies in the country. As may be expected there are always more victims than incidents though the trends are extremely similar over the entire period of data. This trend is also present for other bias motivations, such as anti-Black hate crimes shown in Figure <a href="hate_crimes.html#fig:blackIncidentVictim">9.13</a>.</p>
+<p>While this variable is available in the data, I actually think it’s best not to use it. I think there is always a danger in being overly precise and, therefore, overly confident about what the data shows. When you use the number of incidents you implicitly allow for each incident to affect multiple people<a href="#fn83" class="footnote-ref" id="fnref83"><sup>83</sup></a> and readers understand that. But if you use this variable and say that “this is the number of victims of this crime” you are implicitly closing that door and therefore being too confident about how many victims of a crime there is. This is especially true for readers who aren’t paying close attention - such as academics reviewing papers - since they may think you are measuring the number of victims in a better way than you actually are.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:jewishIncidentVictim"></span>
 <img src="09_hate_crime_files/figure-html/jewishIncidentVictim-1.png" alt="The annual number of anti-Jewish hate crime incidents and victims in the United States, 1991-2022." width="90%" />
 <p class="caption">
-Figure 9.14: The annual number of anti-Jewish hate crime incidents and victims in the United States, 1991-2022.
+Figure 9.12: The annual number of anti-Jewish hate crime incidents and victims in the United States, 1991-2022.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:blackIncidentVictim"></span>
 <img src="09_hate_crime_files/figure-html/blackIncidentVictim-1.png" alt="The annual number of anti-Black hate crime incidents and victims in the United States, 1991-2022." width="90%" />
 <p class="caption">
-Figure 9.15: The annual number of anti-Black hate crime incidents and victims in the United States, 1991-2022.
+Figure 9.13: The annual number of anti-Black hate crime incidents and victims in the United States, 1991-2022.
 </p>
 </div>
 
@@ -2879,14 +2371,10 @@ Figure 9.15: The annual number of anti-Black hate crime incidents and victims in
 <ol start="78">
 <li id="fn78"><p>The first year where transgender as a group was a considered a bias motivation was in 2013.<a href="hate_crimes.html#fnref78" class="footnote-back">↩︎</a></p></li>
 <li id="fn79"><p>The murders of nine Black parishioners in the Emanuel African Methodist Episcopal Church in Charleston, South Carolina, in 2015 was reported by the Charleston Police Department, making it even more inconsistent for when the FBI reports hate crime murders.<a href="hate_crimes.html#fnref79" class="footnote-back">↩︎</a></p></li>
-<li id="fn80"><p>I’ve seen some news organizations reported about hate crimes against Asian-Americans using this data. That isn’t correct. The data does not consider citizenship. So a hate crime against a non-citizen such as a tourist would be treated as anti-Asian if the tourist is Asian.<a href="hate_crimes.html#fnref80" class="footnote-back">↩︎</a></p></li>
-<li id="fn81"><p>This paper, now cited by nearly 1,000 other papers, bizarrely doesn’t actually assess if hate crimes increased, as they say that the data does not exist yet at the time they choose to write the paper: “At that point, researchers will be able to assess both the extent to which law enforcement data show a spike in anti-Asian hate crimes known to police and whether there were changes in the numbers of Asian victims of hate crimes reported or not reported to police.”<a href="hate_crimes.html#fnref81" class="footnote-back">↩︎</a></p></li>
-<li id="fn82"><p>Full disclosure, I was initially part of this paper but left because I didn’t have enough time to dedicate to it, among other reasons. I haven’t read the latest version so I am no support or opposition to its findings.<a href="hate_crimes.html#fnref82" class="footnote-back">↩︎</a></p></li>
-<li id="fn83"><p>2021 ad a 6,550% increase from 2019.<a href="hate_crimes.html#fnref83" class="footnote-back">↩︎</a></p></li>
-<li id="fn84"><p>In comparison, NYC has a rate of 0.14 per 100,000.<a href="hate_crimes.html#fnref84" class="footnote-back">↩︎</a></p></li>
-<li id="fn85"><p>In 0.0004% of hate crimes there is no recorded offense. This is not shown in the graph.<a href="hate_crimes.html#fnref85" class="footnote-back">↩︎</a></p></li>
-<li id="fn86"><p>This tables uses only the first offense in an incident so counts are slightly lower than if all crimes in every incident is used.<a href="hate_crimes.html#fnref86" class="footnote-back">↩︎</a></p></li>
-<li id="fn87"><p>Or renter.<a href="hate_crimes.html#fnref87" class="footnote-back">↩︎</a></p></li>
+<li id="fn80"><p>In 0.0004% of hate crimes there is no recorded offense. This is not shown in the graph.<a href="hate_crimes.html#fnref80" class="footnote-back">↩︎</a></p></li>
+<li id="fn81"><p>This tables uses only the first offense in an incident so counts are slightly lower than if all crimes in every incident is used.<a href="hate_crimes.html#fnref81" class="footnote-back">↩︎</a></p></li>
+<li id="fn82"><p>Or renter.<a href="hate_crimes.html#fnref82" class="footnote-back">↩︎</a></p></li>
+<li id="fn83"><p>One of the points of hate crimes is to cause fear in more than just the direct victim of the crime.<a href="hate_crimes.html#fnref83" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

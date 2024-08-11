@@ -12,7 +12,7 @@ fig:danvilleRape
 fig:hateCrimes
 fig:SRSascii
 fig:fbiHierarchy
-tab:shrWeapon
+tab:nibrsHierarchy
 fig:offensesAgenciesReporting
 fig:offensesAgenciesReportingFull
 fig:newarkMurders
@@ -62,6 +62,7 @@ fig:shrVictimRace
 fig:shrOffenderEthnicity
 fig:shrVictimEthnicity
 fig:ABQ
+tab:shrWeapon
 fig:shrRifle
 fig:shrRiflePercent
 tab:shrRelationship
@@ -92,8 +93,6 @@ fig:hateCrimesPreviousYear
 fig:hateCrimesMap
 fig:statePercentReporting
 fig:statePercentReportingPop
-fig:nycHate
-fig:nationalAsianHate
 fig:hateCrimesByDay
 fig:hateCrimesByMonthDay
 fig:crimesPerHateCrime
@@ -223,7 +222,6 @@ data-errors-1
 hate_crimes
 agencies-reporting-6
 treeOfLife
-hateAsian
 important-variables-6
 the-bias-motivation-who-the-hate-is-against
 the-crime-that-occurred
