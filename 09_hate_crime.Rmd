@@ -19,13 +19,11 @@ In this example the offender shouted a racial slur, making it clear that their a
 
 So this data is really a narrower measure of hate crimes than it might seem. In practice it is (some) crimes motivated by (some) kinds of hate that are reported to the police. It is also the dataset with the fewest agencies reporting, with most agencies not reporting any hate crimes to the FBI in a given year. This leads to huge gaps in the data with some states having zero agencies report crime, agencies reporting some bias motivations but not others, agencies reporting some years but not others. While these problems exist for all of the SRS datasets, it is most severe in this data. This problem is exacerbated by hate crimes being rare even in agencies that report them - with such rare events, even minor changes in which agencies report or which types of offenses they include can have large effects. 
 
-When considering the data itself, hate crime data is very similar to most other datasets, though with the additional step of having evidence of bias. But the difference in use is that while in other crimes the victim is usually, well, the victim, in hate crimes the victim may be a much wider group. Let's say a person's home is burglarized. The homeowner^[Or renter.] is clearly the victim as it was their house targeted. Their neighbors may also feel some effect if they are now concerned about their own home. And the victim's family will likely be concern. But the victim group is very limited and is directly related to the crime. Hate crimes tend to affect everyone in the targeted group, or at least a much wider span of people than something like burglary. If a swastica, for example, is spray painted on the front door of a synagogue who is the victim? Directly it'd be whomever owns the synagogue building. But it also affects all members of that congregation. And what about members of other synagogues in the city? What about Jewish people in the city who don't go to synagogue? Even though only a single crime occurred - a vandalism - it is very difficult to count how many victims there were. Is a swastika on a synagogue worse if the synagogue has a small congregation versus a large one? What if it is in a city with only one synagogue compared to a city with many? Is it worse to have a large swastika than a small one? If we're trying to use this data to measure hate against a particular group these are questions we need to answer, but are of course impossible to answer with this data. Remember, all of the FBI data is essentially just abstract contextless numbers in a spreadsheet. This is true for all UCR data but especially so for hate crimes where no two hate crimes are equal. 
 
-In fact, I'd argue that this issue - alongside the massive under- and misreporting by agencies - is bad enough that we should be extraordinarily cautious when using this data. My main takeaway for this data is that it is inappropriate to use for most hate crime research. At most it can be used to look at within-city within-bias-motivation trends, while keeping in mind that even this narrow subset of data is limited by under-reporting by victims and potential changes in police practices of reporting such as how many months of data they report per year. Nonetheless, this is data that people - researchers, reporters, politicians, etc. - do use to measure hate crime data, so I'll do my best in this chapter to explain how to use it. 
 
 ## Agencies reporting
 
-We'll start by looking at how many agencies report hate crime each year. This is a bit tricky since there can be multiple ways to examine how agencies report, and since agencies can truly have no hate crimes in a year so it's hard to differentiate the true zeroes from the non-reporters. Figure \@ref(fig:hateAgencies) shows the number of agencies that report at least one hate crime incident in that year. From the start in 1991 there were about 750 agencies reporting and that grew steadily to about 2,000 agencies in year 2000. From there it increased a bit over the next decade before declining to below 1,750 in the early 2010s and rising again to around 2,000 agencies at the end of our data.
+We'll start by looking at how many agencies report hate crime each year. This is a bit tricky since there can be multiple ways to examine how agencies report, and since agencies can truly have no hate crimes in a year so it's hard to differentiate the true zeroes from the non-reporters. Figure \@ref(fig:hateAgencies) shows the number of agencies that report at least one hate crime incident in that year. From the start in 1991 there were about 750 agencies reporting and that grew steadily to about 2,000 agencies in year 2000. From there it increased a bit over the next decade before declining to below 1,750 in the early 2010s and rising again to around 3,000 agencies at the end of our data.
 
 ```{r hateAgencies, fig.cap = "The annual number of police agencies that report at least one hate crime incident in that year."}
 hate_crimes %>%
@@ -41,9 +39,9 @@ hate_crimes %>%
   expand_limits(y = 0)
 ```
 
-The 2,000-3,000 or so agencies that report each year are not the same every year. Figure \@ref(fig:hateCrimesEver) shows the cumulative number of agencies that have reported at least one hate crime between 1991 and 2020 There is a steady growth in the cumulative number of agencies, with about 350 new agencies each year. This means that each year some new agencies report hate crimes while some agencies that reported a hate crime in the previous year don't report any hate crimes in the current year.
+The 3,000 or so agencies that report each year are not the same every year. Figure \@ref(fig:hateCrimesEver) shows the cumulative number of agencies that have reported at least one hate crime between 1991 and 2022. There is a steady growth in the cumulative number of agencies, with about 350 new agencies each year. This means that each year some new agencies report hate crimes while some agencies that reported a hate crime in the previous year don't report any hate crimes in the current year.
 
-```{r hateCrimesEver, fig.cap = "The cumulative number of agencies that have reported one or more hate crimes between 1991 to 2022"}
+```{r hateCrimesEver, fig.cap = "The cumulative number of agencies that have reported one or more hate crimes between 1991 and 2022"}
 final <- data.frame(year = sort(unique(hate_crimes$year)),
                     total_agencies           = NA,
                     percent_in_previous_year = NA)
@@ -102,9 +100,9 @@ ggplot(aes(x = year, y = percent_in_previous_year)) +
 
 Another way to understand reporting is to look at the number of reported hate crimes by state and see which states report and which don't. Figure \@ref(fig:hateCrimesMap) does this for 2020 data by showing the number of reported hate crime incidents by state. While every state other than Wyoming reporting at least one hate crime in 2020, there are large differences between states because even in states that have reporting agencies, not all agencies in that state report. For example, Alabama reported only two hate crimes in 2020, the least of any state other than Wyoming. 
 
-```{r, hateCrimesMap, fig.cap="Total reported hate crimes by state, 2020"}
+```{r, hateCrimesMap, fig.cap="Total reported hate crimes by state, 2022"}
 hate_crimes %>%
-  dplyr::filter(year %in% 2020,
+  dplyr::filter(year %in% 2022,
                 !is.na(incident_number),
                 !is.na(state)) %>%
   dplyr::count(state) %>%
@@ -117,18 +115,19 @@ hate_crimes %>%
   labs(x = "", y = "", fill = "Hate Crimes") +
   theme(panel.background = element_blank()) +
   fifty_states_inset_boxes() +
-  scale_fill_gradient(low = "white", high = "red", breaks = c(10, 250, 500, 750, 1000, 1250, 1400)) 
+  scale_fill_gradient(low = "white", high = "red", breaks = c(10, 250, 500, 750, 1000, 1250, 1500, 1750, 2000)) 
+
 ```
 
 Since the number of state-wide hate crimes is partially influenced by population, we'll also look at it as the percent of agencies in the state that report at least one hate crime. Again this is limited by population as agencies in each state cover different populations - and most agencies are small so a few large agencies can account for a large share of crimes, including hate crimes. Still, this is a useful exercise as we can easily see where very few agencies report. Figure \@ref(fig:statePercentReporting) shows the percent of agencies for each state that reported at least one hate crime in 2020 In Connecticut, the state with the highest percent of agencies reporting, 28% of agencies reported at least one hate crime. In 34 states, fewer than 10% of agencies reported a hate crime, and in 19 states fewer than 5% of agencies did so. One interesting finding from this graph is the more liberal states - Connecticut, New Jersey, Vermont, California, Washington - have the highest share of agencies reporting a hate crime, indicating that the culture of the state may influence either the propensity of hate crimes, whether victims report, or whether agencies report hate crimes.   
 
-```{r statePercentReporting, fig.cap = "The percent of agencies in each state that reported at least one hate crime in 2020"}
+```{r statePercentReporting, fig.cap = "The percent of agencies in each state that reported at least one hate crime in 2022"}
 hate_crimes$hate_crime_binary <- 0
 hate_crimes$hate_crime_binary[hate_crimes$hate_crime_incident_present %in% "one or more hate crime incidents present"] <- 1
 hate_crimes$ori9 <- gsub("NB", "NE", hate_crimes$ori9)
 hate_crimes$state_abb_ori <- substr(hate_crimes$ori9, 1, 2)
 temp <- hate_crimes %>%
-  dplyr::filter(year %in% 2020,
+  dplyr::filter(year %in% 2022,
                 !is.na(state_abb_ori)) %>%
   dplyr::distinct(ori9, .keep_all = TRUE) %>%
   dplyr::group_by(state_abb_ori) %>%
@@ -148,9 +147,15 @@ ggplot2::ggplot(temp, aes(map_id = state)) +
   labs(x = "", y = "", fill = "% of Agencies With a Hate Crime") +
   theme(panel.background = element_blank()) +
   fifty_states_inset_boxes() +
-  scale_fill_gradient(low = "white", high = "red", breaks = c(5, 15, 25, 35, 45)) 
+  scale_fill_gradient(low = "white", high = "red", breaks = c(0, 5, 10, 15, 20, 25, 30, 35)) 
 
 ```
+
+## Tree of Life synagogue shooting
+
+In October of 2018 the deadliest attack on Jewish people in US history occurred at the Tree of Life synagogue in Pittsburgh, PA. There, 11 congregants were murdered, and several other people, including police officers, were injured by the shooter. According to this data, however, those murders never occurred. Not in Pittsburgh at least. No murders with an anti-Jewish bias were reported in Pittsburgh, or any other agency in Pennsylvania, were reported in 2018. That shootings were reported by the FBI's Pittsburgh field office, which, like many federal agencies that have offices across the country, is included in the data as its own agency. 
+
+This is good and bad. Of course it is good that when a crime happens it is reported in the data. The bad part is that it is counted as hate crimes that occurred in the FBI's Pittsburgh agency, and not the Pittsburgh Police Department. Most research occurs at the local level - usually the agency- or county-level. So if a study is examining city-level characteristics that are related to hate crimes it'd almost certainly exclude these murders as they are reported by a federal agency and not the local Pittsburgh agency. This also gets complicated as FBI rules say that a crime should be reported by the most local jurisdiction. 11 people were murdered in Pittsburgh, and several officers were injured, that should mean that the crime is reported by Pittsburgh Police, not by the FBI. Pittsburgh even does report these murders in their Offenses Known data, making it even more odd that they're Pittsburgh crimes in one dataset and not another.^[The murders of nine Black parishioners in the Emanuel African Methodist Episcopal Church in Charles, South Carolina, in 2015 was reported by the Charleston Police Department, making it even more inconsistent for when the FBI reports hate crime murders.] 
 
 ## Hate crimes against Asian people
 
@@ -216,8 +221,6 @@ hate_crimes %>%
 
 ```
 
-
-
 So here's the problem. We need a pre- and a post-value to determine if an increase is actually happening. We don't have a reliable pre-value and therefore cannot say if something is increasing.
 
 ## Important variables
@@ -282,9 +285,11 @@ temp <- make_frequency_table_year(hate_crimes,
                                   "bias_motivation_offense_1",
                              c("Bias Motivation",
                                "First Year Reported",
-                               "\\# of Incidents",
-                               "\\% of Incidents"))
+                               "# of Incidents",
+                               "% of Incidents"))
 temp$`Bias Motivation` <- gsub("lgbt", "LGBT", ignore.case = TRUE, temp$`Bias Motivation`)
+temp$`First Year Reported`[temp$`Bias Motivation` %in% "Total"] <- "-"
+temp <- temp %>% arrange(desc(parse_number(`# of Incidents`)))
 knitr::kable(temp, 
              format = "html",
              digits = 2, 
@@ -293,7 +298,9 @@ knitr::kable(temp,
              longtable = TRUE,
              escape = FALSE,
              caption = "The bias motivation for hate crime incidents. In incidents with multiple bias motivation, this shows only the first bias motivation recorded.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+  kable_styling(bootstrap_options = "striped",
+                full_width = FALSE,
+                latex_options = c("hold_position", "repeat_header"))
 ```
 
 2015 is the most year of new bias motivations, as of data through 2020 This year added a number of religions such as Anti-Buddhist, Anti-Sikh, and Anti-Jehovah's Witness. In 2013, anti-Transgender was added and this is the most common of the bias motivations added since data began in 1991 with 513 hate crimes between 2013-2020 - 0.26% of all hate crimes from 1991-2022 That year also added anti-male and Anti-Native Hawaiian or Other Pacific Islander, which is the most recent racial group added.  In 2012, anti-gender non-conforming and anti-female were included, while in 1997 both anti-mental and anti-physical disability were added. In part due to having fewer years of data available, these newer bias motivations make up a small percent of total hate crimes, accounting for ~1.4%. 
@@ -309,7 +316,12 @@ Nearly all hate crimes are vandalism/destruction of property (31%), intimidation
 ```{r hateOffense}
 hate_crimes$ucr_offense_code_1[hate_crimes$ucr_offense_code_1 %in% "720"] <- NA
 temp <- make_frequency_table_year(hate_crimes, "ucr_offense_code_1",
-                             c("Offense", "First Year Reported", "\\# of Incidents", "\\% of Incidents"))
+                             c("Offense",
+                               "First Year Reported", 
+                               "# of Incidents", 
+                               "% of Incidents"))
+temp$`First Year Reported`[temp$Offense %in% "Total"] <- "-"
+temp <- temp %>% arrange(desc(parse_number(`# of Incidents`)))
 knitr::kable(temp, 
              format = "html",
              digits = 2, 
@@ -318,7 +330,9 @@ knitr::kable(temp,
              longtable = TRUE,
              escape = FALSE,
              caption = "The offense type for hate crime incidents. In incidents with multiple offense types, this shows only the first offense type recorded.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+  kable_styling(bootstrap_options = "striped", 
+                full_width = FALSE, 
+                latex_options = c("hold_position", "repeat_header"))
 ```
 
 Agencies that report to the FBI's National Incident-Based Reporting System (NIBRS) can also report bias motivations for their crimes, and these reports are included in this dataset. One tricky thing is that the crimes included are different depending on if the agency reported through NIBRS or to the dataset directly, and are not NIBRS reporting agencies. The above table shows all crimes included, but agencies who report directly can only submit a subset of crimes. For these agencies the only possible crimes are the ones that are included Offenses Known and Clearances by Arrest dataset, that is detailed in Chapter \@ref(offensesKnown), as well as vandalism/destruction of property and human trafficking. 
@@ -332,7 +346,12 @@ As with the crime and the bias motivation, the available locations have increase
 ```{r hateLocations}
 hate_crimes$location_code_offense_1[hate_crimes$location_code_offense_1 %in% "undocumented code v13"] <- NA
 temp <- make_frequency_table_year(hate_crimes, "location_code_offense_1",
-                             c("Location", "First Year Reported", "\\# of Incidents", "\\% of Incidents"))
+                             c("Location",
+                               "First Year Reported",
+                               "# of Incidents",
+                               "% of Incidents"))
+temp$`First Year Reported`[temp$Location %in% "Total"] <- "-"
+temp <- temp %>% arrange(desc(parse_number(`# of Incidents`)))
 knitr::kable(temp, 
              format = "html",
              digits = 2, 
@@ -341,7 +360,9 @@ knitr::kable(temp,
              longtable = TRUE,
              escape = FALSE,
              caption = "The location of hate crime incidents. In incidents with multiple locations, this shows only the first location recorded.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+  kable_styling(bootstrap_options = "striped", 
+                full_width = FALSE, 
+                latex_options = c("hold_position", "repeat_header"))
 ```
 
 ### Number and race of offenders
@@ -380,3 +401,105 @@ crimeutils::make_barplots(column = "offenders_race_as_a_group", count = FALSE) +
                 expand = c(0, 0)) +
   ylab("% of Hate Crimes")
 ```
+
+
+### Number of victims 
+
+When considering the data itself, hate crime data is very similar to most other datasets, though with the additional step of having evidence of bias. But the difference in use is that while in other crimes the victim is usually, well, the victim, in hate crimes the victim may be a much wider group. Let's say a person's home is burglarized. The homeowner^[Or renter.] is clearly the victim as it was their house targeted. Their neighbors may also feel some effect if they are now concerned about their own home. And the victim's family will likely be concern. But the victim group is very limited and is directly related to the crime. Hate crimes tend to affect everyone in the targeted group, or at least a much wider span of people than something like burglary. If a swastica, for example, is spray painted on the front door of a synagogue who is the victim? Directly it'd be whomever owns the synagogue building. But it also affects all members of that congregation. And what about members of other synagogues in the city? What about Jewish people in the city who don't go to synagogue? Even though only a single crime occurred - a vandalism - it is very difficult to count how many victims there were. Is a swastika on a synagogue worse if the synagogue has a small congregation versus a large one? What if it is in a city with only one synagogue compared to a city with many? Is it worse to have a large swastika than a small one? If we're trying to use this data to measure hate against a particular group these are questions we need to answer, but are of course impossible to answer with this data. Remember, all of the FBI data is essentially just abstract contextless numbers in a spreadsheet. This is true for all UCR data but especially so for hate crimes where no two hate crimes are equal. 
+
+In fact, I'd argue that this issue - alongside the massive under- and misreporting by agencies - is bad enough that we should be extraordinarily cautious when using this data. My main takeaway for this data is that it is inappropriate to use for most hate crime research. At most it can be used to look at within-city within-bias-motivation trends, while keeping in mind that even this narrow subset of data is limited by under-reporting by victims and potential changes in police practices of reporting such as how many months of data they report per year. Nonetheless, this is data that people - researchers, reporters, politicians, etc. - do use to measure hate crime data, so I'll do my best in this chapter to explain how to use it. 
+
+```{r jewishIncidentVictim, fig.cap = "The annual number of anti-Jewish hate crime incidents and victims in the United States, 1991-2022."}
+
+hate_crimes %>% sample_n(6)
+
+
+jewish_incidents <-
+  hate_crimes %>%
+  filter(bias_motivation_offense_1 %in% "anti-jewish" |
+           bias_motivation_offense_2 %in% "anti-jewish" |
+           bias_motivation_offense_3 %in% "anti-jewish" |
+           bias_motivation_offense_4 %in% "anti-jewish" |
+           bias_motivation_offense_5 %in% "anti-jewish" |
+           bias_motivation_offense_6 %in% "anti-jewish" |
+           bias_motivation_offense_7 %in% "anti-jewish" |
+           bias_motivation_offense_8 %in% "anti-jewish" |
+           bias_motivation_offense_9 %in% "anti-jewish" |
+           bias_motivation_offense_10 %in% "anti-jewish") %>%
+  count(year) %>%
+  rename(number_of_incidents = n)
+
+
+hate_crimes %>%
+  mutate(number_of_victims_offense_1 = parse_number(number_of_victims_offense_1)) %>%
+  filter(bias_motivation_offense_1 %in% "anti-jewish" |
+           bias_motivation_offense_2 %in% "anti-jewish" |
+           bias_motivation_offense_3 %in% "anti-jewish" |
+           bias_motivation_offense_4 %in% "anti-jewish" |
+           bias_motivation_offense_5 %in% "anti-jewish" |
+           bias_motivation_offense_6 %in% "anti-jewish" |
+           bias_motivation_offense_7 %in% "anti-jewish" |
+           bias_motivation_offense_8 %in% "anti-jewish" |
+           bias_motivation_offense_9 %in% "anti-jewish" |
+           bias_motivation_offense_10 %in% "anti-jewish") %>%
+  group_by(year) %>%
+  summarize(number_of_victims_offense_1 = sum(number_of_victims_offense_1)) %>%
+  left_join(jewish_incidents) %>%
+  ggplot(aes(x = year, y = number_of_victims_offense_1)) +
+  geom_line(aes(color = "# of Victims"), size = 1.05) +
+  geom_line(aes(y = number_of_incidents, color = "# of Incidents"), size = 1.05) +
+  xlab("Year") +
+  ylab("Anti-Jewish Hate Crimes") +
+  theme_crim() +
+  scale_color_manual(values = c("# of Incidents" = "#1b9e77",
+                                "# of Victims" = "#d95f02")) +
+  scale_y_continuous(labels = scales::comma) +
+  labs(color = "")
+
+```
+
+```{r blackIncidentVictim, fig.cap = "The annual number of anti-Black hate crime incidents and victims in the United States, 1991-2022."}
+
+black_incidents <-
+  hate_crimes %>%
+  filter(bias_motivation_offense_1 %in% "anti-black" |
+           bias_motivation_offense_2 %in% "anti-black" |
+           bias_motivation_offense_3 %in% "anti-black" |
+           bias_motivation_offense_4 %in% "anti-black" |
+           bias_motivation_offense_5 %in% "anti-black" |
+           bias_motivation_offense_6 %in% "anti-black" |
+           bias_motivation_offense_7 %in% "anti-black" |
+           bias_motivation_offense_8 %in% "anti-black" |
+           bias_motivation_offense_9 %in% "anti-black" |
+           bias_motivation_offense_10 %in% "anti-black") %>%
+  count(year) %>%
+  rename(number_of_incidents = n)
+
+
+hate_crimes %>%
+  mutate(number_of_victims_offense_1 = parse_number(number_of_victims_offense_1)) %>%
+  filter(bias_motivation_offense_1 %in% "anti-black" |
+           bias_motivation_offense_2 %in% "anti-black" |
+           bias_motivation_offense_3 %in% "anti-black" |
+           bias_motivation_offense_4 %in% "anti-black" |
+           bias_motivation_offense_5 %in% "anti-black" |
+           bias_motivation_offense_6 %in% "anti-black" |
+           bias_motivation_offense_7 %in% "anti-black" |
+           bias_motivation_offense_8 %in% "anti-black" |
+           bias_motivation_offense_9 %in% "anti-black" |
+           bias_motivation_offense_10 %in% "anti-black") %>%
+  group_by(year) %>%
+  summarize(number_of_victims_offense_1 = sum(number_of_victims_offense_1)) %>%
+  left_join(black_incidents) %>%
+  ggplot(aes(x = year, y = number_of_victims_offense_1)) +
+  geom_line(aes(color = "# of Victims"), size = 1.05) +
+  geom_line(aes(y = number_of_incidents, color = "# of Incidents"), size = 1.05) +
+  xlab("Year") +
+  ylab("Anti-Black Hate Crimes") +
+  theme_crim() +
+  scale_color_manual(values = c("# of Incidents" = "#1b9e77",
+                                "# of Victims" = "#d95f02")) +
+  scale_y_continuous(labels = scales::comma) +
+  labs(color = "")
+```
+

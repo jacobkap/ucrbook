@@ -23,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2024-08-10" />
+<meta name="date" content="2024-08-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -311,13 +311,15 @@ div.csl-indent {
 <li class="chapter" data-level="9" data-path="hate_crimes.html"><a href="hate_crimes.html"><i class="fa fa-check"></i><b>9</b> Hate Crime Data</a>
 <ul>
 <li class="chapter" data-level="9.1" data-path="hate_crimes.html"><a href="hate_crimes.html#agencies-reporting-6"><i class="fa fa-check"></i><b>9.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="9.2" data-path="hate_crimes.html"><a href="hate_crimes.html#hate-crimes-against-asian-people"><i class="fa fa-check"></i><b>9.2</b> Hate crimes against Asian people</a></li>
-<li class="chapter" data-level="9.3" data-path="hate_crimes.html"><a href="hate_crimes.html#important-variables-6"><i class="fa fa-check"></i><b>9.3</b> Important variables</a>
+<li class="chapter" data-level="9.2" data-path="hate_crimes.html"><a href="hate_crimes.html#tree-of-life-synagogue-shooting"><i class="fa fa-check"></i><b>9.2</b> Tree of Life synagogue shooting</a></li>
+<li class="chapter" data-level="9.3" data-path="hate_crimes.html"><a href="hate_crimes.html#hate-crimes-against-asian-people"><i class="fa fa-check"></i><b>9.3</b> Hate crimes against Asian people</a></li>
+<li class="chapter" data-level="9.4" data-path="hate_crimes.html"><a href="hate_crimes.html#important-variables-6"><i class="fa fa-check"></i><b>9.4</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="9.3.1" data-path="hate_crimes.html"><a href="hate_crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>9.3.1</b> The bias motivation (who the hate is against)</a></li>
-<li class="chapter" data-level="9.3.2" data-path="hate_crimes.html"><a href="hate_crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>9.3.2</b> The crime that occurred</a></li>
-<li class="chapter" data-level="9.3.3" data-path="hate_crimes.html"><a href="hate_crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>9.3.3</b> The location of the crime</a></li>
-<li class="chapter" data-level="9.3.4" data-path="hate_crimes.html"><a href="hate_crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>9.3.4</b> Number and race of offenders</a></li>
+<li class="chapter" data-level="9.4.1" data-path="hate_crimes.html"><a href="hate_crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>9.4.1</b> The bias motivation (who the hate is against)</a></li>
+<li class="chapter" data-level="9.4.2" data-path="hate_crimes.html"><a href="hate_crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>9.4.2</b> The crime that occurred</a></li>
+<li class="chapter" data-level="9.4.3" data-path="hate_crimes.html"><a href="hate_crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>9.4.3</b> The location of the crime</a></li>
+<li class="chapter" data-level="9.4.4" data-path="hate_crimes.html"><a href="hate_crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>9.4.4</b> Number and race of offenders</a></li>
+<li class="chapter" data-level="9.4.5" data-path="hate_crimes.html"><a href="hate_crimes.html#number-of-victims"><i class="fa fa-check"></i><b>9.4.5</b> Number of victims</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="county-level-srs-data.html"><a href="county-level-srs-data.html"><i class="fa fa-check"></i><b>10</b> County-Level SRS Data</a>
@@ -351,22 +353,22 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="county-level-srs-data" class="section level1 hasAnchor" number="10">
 <h1><span class="header-section-number">Chapter 10</span> County-Level SRS Data<a href="county-level-srs-data.html#county-level-srs-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>UCR data is only available at the agency-level.<a href="#fn88" class="footnote-ref" id="fnref88"><sup>88</sup></a> This has caused a lot of problems for researchers because many variables from other datasets (e.g. CDC data, economic data) is primarily available at the county-level. Their solution to this problem is to aggregate the data to the county-level by summing all the agencies in a particular county.<a href="#fn89" class="footnote-ref" id="fnref89"><sup>89</sup></a></p>
-<p>More specifically, nearly all researchers who use this county-level UCR data use the National Archive for Criminal Justice Data (NACJD)’s <a href="https://www.icpsr.umich.edu/web/pages/NACJD/guides/ucr.html#desc_cl">datasets</a> which have done the aggregation themselves (full disclosure, I used to have my own version of this data available on openICPSR and followed NACJD’s method. My reasoning was that people were using it anyways and I wanted to make sure that they knew the problem of the data, so I included the issues with this data in the documentation when downloading it. However, I decided that the data was more flawed than I originally thought so I took down the data.).<a href="#fn90" class="footnote-ref" id="fnref90"><sup>90</sup></a> These are not official FBI datasets but “UCR staff were consulted in developing the new adjustment procedures”.<a href="#fn91" class="footnote-ref" id="fnref91"><sup>91</sup></a> The “new” procedures is because NACJD changed their missing data imputation procedure starting with 1994 UCR data, and for this chapter I’ll only focus on this “new” procedure.</p>
+<p>UCR data is only available at the agency-level.<a href="#fn89" class="footnote-ref" id="fnref89"><sup>89</sup></a> This has caused a lot of problems for researchers because many variables from other datasets (e.g. CDC data, economic data) is primarily available at the county-level. Their solution to this problem is to aggregate the data to the county-level by summing all the agencies in a particular county.<a href="#fn90" class="footnote-ref" id="fnref90"><sup>90</sup></a></p>
+<p>More specifically, nearly all researchers who use this county-level UCR data use the National Archive for Criminal Justice Data (NACJD)’s <a href="https://www.icpsr.umich.edu/web/pages/NACJD/guides/ucr.html#desc_cl">datasets</a> which have done the aggregation themselves (full disclosure, I used to have my own version of this data available on openICPSR and followed NACJD’s method. My reasoning was that people were using it anyways and I wanted to make sure that they knew the problem of the data, so I included the issues with this data in the documentation when downloading it. However, I decided that the data was more flawed than I originally thought so I took down the data.).<a href="#fn91" class="footnote-ref" id="fnref91"><sup>91</sup></a> These are not official FBI datasets but “UCR staff were consulted in developing the new adjustment procedures”.<a href="#fn92" class="footnote-ref" id="fnref92"><sup>92</sup></a> The “new” procedures is because NACJD changed their missing data imputation procedure starting with 1994 UCR data, and for this chapter I’ll only focus on this “new” procedure.</p>
 <p>There are two new problems with county-level UCR data: 1) agencies in multiple counties, 2) and agencies with missing data. I say main new problems as other problems with the data such as definition changes for crimes and underreporting of crimes are inherent in the agency-level data and thus transferred to the county-level data.</p>
-<p>The first issue is in distributing crimes across counties when an agency is in multiple counties. If, for example, New York City had 100 murders in a given year, how do you create county-level data from this? UCR data only tells you how many crimes happened in a particular agency, not where in the jurisdiction it happened. So we have no idea how many of these 100 murders happened in Kings County, how many happened in Bronx County, and so on. UCR data does, however, tell you how many counties the agency is in and the population of each. They only do this for up to three counties so in cases like New York City you don’t actually have every county the agency is part of.<a href="#fn92" class="footnote-ref" id="fnref92"><sup>92</sup></a> NACJD’s method is to distribute crimes <em>according to the population of the agency in each county</em>. In the New York City example, Kings County is home to about 31% of the people in NYC while Bronx County is home to about 17%. So Kings County would get 31 murders while Bronx County gets 17 murders. The problem with this is the crime is not evenly distributed by population. Indeed, crime is generally extremely concentrated in a small number of areas in a city. Even if 100% of the murders in NYC actually happened in Bronx County, only 17% would get assigned there. So for agencies in multiple counties - which is very common among the largest agencies in the country, and seems more common in some regions than others - the crimes assigned may be massively incorrect.</p>
+<p>The first issue is in distributing crimes across counties when an agency is in multiple counties. If, for example, New York City had 100 murders in a given year, how do you create county-level data from this? UCR data only tells you how many crimes happened in a particular agency, not where in the jurisdiction it happened. So we have no idea how many of these 100 murders happened in Kings County, how many happened in Bronx County, and so on. UCR data does, however, tell you how many counties the agency is in and the population of each. They only do this for up to three counties so in cases like New York City you don’t actually have every county the agency is part of.<a href="#fn93" class="footnote-ref" id="fnref93"><sup>93</sup></a> NACJD’s method is to distribute crimes <em>according to the population of the agency in each county</em>. In the New York City example, Kings County is home to about 31% of the people in NYC while Bronx County is home to about 17%. So Kings County would get 31 murders while Bronx County gets 17 murders. The problem with this is the crime is not evenly distributed by population. Indeed, crime is generally extremely concentrated in a small number of areas in a city. Even if 100% of the murders in NYC actually happened in Bronx County, only 17% would get assigned there. So for agencies in multiple counties - which is very common among the largest agencies in the country, and seems more common in some regions than others - the crimes assigned may be massively incorrect.</p>
 <p>The second problem is that not all agencies report data, and even those that do may report only partially (e.g. report fewer than 12 months of the year). So by necessity the missing data has to be filled in somehow. While all methods FOR imputing missing data are wrong - as they will be different than the real data, though sometimes not by much - the ways done to impute the missing data in this dataset are particularly incorrect. We’ll go into more detail about why they’re incorrect in this chapter.</p>
 <p>In this chapter, I’ll then talk about the data as it is with a focus on why the data is flawed and shouldn’t be used. To be clear, all data has measurement errors and much of this book is dedicated to talking about the errors in the other UCR datasets.</p>
-<p>The problems in the county-level data, however, are egregious enough to merit special warning. This is by no means the first warning about this data. Most famously is <a href="https://link.springer.com/article/10.1023/A:1016060020848">Maltz and Targonski’s (2002)</a> paper in the Journal of Quantitative Criminology about the issues with this data. They concluded that “Until improved methods of imputing county-level crime data are developed, tested, and implemented, they should not be used, especially in policy studies” which is a conclusion I also hold. These warnings, as well as those from others have been largely (it appears) ignored.<a href="#fn93" class="footnote-ref" id="fnref93"><sup>93</sup></a></p>
+<p>The problems in the county-level data, however, are egregious enough to merit special warning. This is by no means the first warning about this data. Most famously is <a href="https://link.springer.com/article/10.1023/A:1016060020848">Maltz and Targonski’s (2002)</a> paper in the Journal of Quantitative Criminology about the issues with this data. They concluded that “Until improved methods of imputing county-level crime data are developed, tested, and implemented, they should not be used, especially in policy studies” which is a conclusion I also hold. These warnings, as well as those from others have been largely (it appears) ignored.<a href="#fn94" class="footnote-ref" id="fnref94"><sup>94</sup></a></p>
 <div id="current-usage" class="section level2 hasAnchor" number="10.1">
 <h2><span class="header-section-number">10.1</span> Current usage<a href="county-level-srs-data.html#current-usage" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Even with the well-known flaws of this data, it remains a popular dataset. A search on Google Scholar for <a href="https://scholar.google.com/scholar?q=county-level+ucr&amp;hl=en&amp;as_sdt=0,20">“county-level UCR”</a> returns 3,780 results as of this writing in summer 2021. About half of these results are from 2015 or later. In addition to use by researchers, the county-level UCR data is used by organizations such as the FBI in their annual <a href="https://ucr.fbi.gov/crime-in-the-u.s">Crimes in the United States</a> report (which is essentially the report that informs the media and the public about crime, even though it’s actually only a subset of actual UCR data) and <a href="https://www.socialexplorer.com/explore-maps">Social Explorer</a>, a website that makes it extremely convenient to examine US Census data. Based on my reading of UCR papers there are also some differences in data usage by field.<a href="#fn94" class="footnote-ref" id="fnref94"><sup>94</sup></a></p>
-<p>This data is most widely used (as a share of papers in the field) by economics researchers and fields other than criminology such as the relatively rare psychologist or political scientist studying crime.<a href="#fn95" class="footnote-ref" id="fnref95"><sup>95</sup></a> Criminologists, however, tend to focus more on agency-level data rather than county-level data, though many criminologists still do use county-level UCR data.<a href="#fn96" class="footnote-ref" id="fnref96"><sup>96</sup></a></p>
+<p>Even with the well-known flaws of this data, it remains a popular dataset. A search on Google Scholar for <a href="https://scholar.google.com/scholar?q=county-level+ucr&amp;hl=en&amp;as_sdt=0,20">“county-level UCR”</a> returns 3,780 results as of this writing in summer 2021. About half of these results are from 2015 or later. In addition to use by researchers, the county-level UCR data is used by organizations such as the FBI in their annual <a href="https://ucr.fbi.gov/crime-in-the-u.s">Crimes in the United States</a> report (which is essentially the report that informs the media and the public about crime, even though it’s actually only a subset of actual UCR data) and <a href="https://www.socialexplorer.com/explore-maps">Social Explorer</a>, a website that makes it extremely convenient to examine US Census data. Based on my reading of UCR papers there are also some differences in data usage by field.<a href="#fn95" class="footnote-ref" id="fnref95"><sup>95</sup></a></p>
+<p>This data is most widely used (as a share of papers in the field) by economics researchers and fields other than criminology such as the relatively rare psychologist or political scientist studying crime.<a href="#fn96" class="footnote-ref" id="fnref96"><sup>96</sup></a> Criminologists, however, tend to focus more on agency-level data rather than county-level data, though many criminologists still do use county-level UCR data.<a href="#fn97" class="footnote-ref" id="fnref97"><sup>97</sup></a></p>
 </div>
 <div id="how-much-data-is-missing" class="section level2 hasAnchor" number="10.2">
 <h2><span class="header-section-number">10.2</span> How much data is missing<a href="county-level-srs-data.html#how-much-data-is-missing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A major problem with county-level UCR data is that some data is missing, and is then imputed (poorly). So to understand how much of an issue missing data is in the county-level UCR data, we’ll now look at missingness in the Offenses Known and Clearances by Arrests dataset which is the “crime data” of the UCR. County-level data also aggregates arrests from the Arrests by Age, Sex, and Race dataset, which has lower reporting (and thus more missingness) than the Offenses Known and Clearances by Arrest data. But for simplicity we’ll only look at the crime dataset. We’ll do so in a number of different ways to try to really understand how much data is missing and how it changed over time.</p>
-<p>For each of the below graphs and tables we use the Offenses Known and Clearances by Arrest data for 1960-2022 and exclude any agency that are “special jurisdictions”. Special jurisdiction agencies are, as it seems, special agencies that tend to have an extremely specific jurisdiction and goals. These include agencies such as port authorities, alcohol beverage control, university police, and airport police. These agencies tend to cover a tiny geographic area and have both very low crime and very low reporting rates.<a href="#fn97" class="footnote-ref" id="fnref97"><sup>97</sup></a> So to prevent missingness being overcounted due to these weird agencies I’m excluding them from the below examples. I’m also excluding federal agencies (though UCR only has 7 reporting federal agencies) as these operate much the same as special jurisdiction agencies.</p>
+<p>For each of the below graphs and tables we use the Offenses Known and Clearances by Arrest data for 1960-2022 and exclude any agency that are “special jurisdictions”. Special jurisdiction agencies are, as it seems, special agencies that tend to have an extremely specific jurisdiction and goals. These include agencies such as port authorities, alcohol beverage control, university police, and airport police. These agencies tend to cover a tiny geographic area and have both very low crime and very low reporting rates.<a href="#fn98" class="footnote-ref" id="fnref98"><sup>98</sup></a> So to prevent missingness being overcounted due to these weird agencies I’m excluding them from the below examples. I’m also excluding federal agencies (though UCR only has 7 reporting federal agencies) as these operate much the same as special jurisdiction agencies.</p>
 <p>We’ll first look at how many months are reported in the example year of 2018, though we’ll see below that 2018 is pretty similar to other years. Table <a href="county-level-srs-data.html#tab:countyMonthsReportedDefinitions">10.1</a> shows the number of months reported using two definitions. The first is how the FBI, and NACJD when imputing data, classifies number of months reported and this is actually just the last month reported. So if an agency reports only in July they are classified as reporting 7 months; if they report only in December they are classified as reporting 12 months. Whether they actually report previous months doesn’t matter based on this definition.</p>
 <p>The second definition is my own - and available in the data I’ve released on openICPSR - and is based on how many months the data says the agency reported. That is, for each month the UCR data actually says if they received a report or not. So this is a superior way of measuring though not full-proof as some months say they have a report but don’t and some say they don’t have a report but do have crime recorded. Also, in 2018 the FBI changed how they classify this variable so now every month is reported for every agency, making the measurement useless for 2018 and more recent data.</p>
 <p>The table shows what percent of agencies that reported data had data for each possible number of months: 0 through 12 months. Column 2 shows the percent for the 1st method while column 3 shows the percent for my method. And the final column shows the percent change from moving from the 1st to 2nd measure.</p>
@@ -1324,7 +1326,7 @@ December
 </tr>
 </tbody>
 </table>
-<p>In the above three tables we looked at what happens if a single month is missing. Below we’ll look at the results of simulating when between 1 and 9 months are missing for an agency. Table <a href="county-level-srs-data.html#tab:countyPhillyMurderMonthsMissing">10.5</a> looks at murder in Philadelphia again but now randomizes removing between 1 and 9 months of the year and interpolating the annual murder count using the current method. For each number of months removed I run 10,000 simulations.<a href="#fn98" class="footnote-ref" id="fnref98"><sup>98</sup></a> Given that I am literally randomly choosing which months to say are missing, I am assuming that missing data is missing completely at random. This is a very bold assumption and one that is the best-case scenario since it means that missing data is not related to crimes, police funding/staffing, or anything else relevant. So you should read the below tables as the most optimistic (and thus likely wrong) outcomes.</p>
+<p>In the above three tables we looked at what happens if a single month is missing. Below we’ll look at the results of simulating when between 1 and 9 months are missing for an agency. Table <a href="county-level-srs-data.html#tab:countyPhillyMurderMonthsMissing">10.5</a> looks at murder in Philadelphia again but now randomizes removing between 1 and 9 months of the year and interpolating the annual murder count using the current method. For each number of months removed I run 10,000 simulations.<a href="#fn99" class="footnote-ref" id="fnref99"><sup>99</sup></a> Given that I am literally randomly choosing which months to say are missing, I am assuming that missing data is missing completely at random. This is a very bold assumption and one that is the best-case scenario since it means that missing data is not related to crimes, police funding/staffing, or anything else relevant. So you should read the below tables as the most optimistic (and thus likely wrong) outcomes.</p>
 <p>For each number of months reported the table shows the actual annual murder (which never changes) and the imputed mean, median, modal, minimum, and maximum annual murder count. As a function of the randomization, the imputed mean is always nearly identical to the real value. The most important columns, I believe, are the minimum and maximum imputed value since these show the worst-case scenario - that is, what happens when the month(s) least like the average month is replaced. Since as researchers we should try to minimize the harm caused from our work if it is wrong, I think it is safest to assume that if data is missing it is missing in the worst possible way. While this is a conservative approach, doing so otherwise leads to the greatest risk of using incorrect data, and incorrect results - and criminology is a field important enough to necessitate this caution.</p>
 <p>As might be expected, as the number of months missing increases the quality of the imputation decreases. The minimum is further and further below the actual value while the maximum is further and further above the actual value.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -1365,7 +1367,7 @@ Max Imputed Murder
 351
 </td>
 <td style="text-align:right;">
-350.97
+351.11
 </td>
 <td style="text-align:right;">
 353.45
@@ -1388,7 +1390,7 @@ Max Imputed Murder
 351
 </td>
 <td style="text-align:right;">
-351.07
+350.92
 </td>
 <td style="text-align:right;">
 350.40
@@ -1411,10 +1413,10 @@ Max Imputed Murder
 351
 </td>
 <td style="text-align:right;">
-351.03
+351.05
 </td>
 <td style="text-align:right;">
-353.33
+352.00
 </td>
 <td style="text-align:right;">
 353.33
@@ -1434,7 +1436,7 @@ Max Imputed Murder
 351
 </td>
 <td style="text-align:right;">
-350.85
+350.74
 </td>
 <td style="text-align:right;">
 349.50
@@ -1457,7 +1459,7 @@ Max Imputed Murder
 351
 </td>
 <td style="text-align:right;">
-350.82
+350.79
 </td>
 <td style="text-align:right;">
 351.43
@@ -1480,10 +1482,10 @@ Max Imputed Murder
 351
 </td>
 <td style="text-align:right;">
-350.99
+350.93
 </td>
 <td style="text-align:right;">
-352.00
+350.00
 </td>
 <td style="text-align:right;">
 376.00
@@ -1503,7 +1505,7 @@ Max Imputed Murder
 351
 </td>
 <td style="text-align:right;">
-350.99
+350.48
 </td>
 <td style="text-align:right;">
 350.40
@@ -1526,7 +1528,7 @@ Max Imputed Murder
 351
 </td>
 <td style="text-align:right;">
-350.68
+351.41
 </td>
 <td style="text-align:right;">
 354.00
@@ -1549,10 +1551,10 @@ Max Imputed Murder
 351
 </td>
 <td style="text-align:right;">
-351.90
+351.06
 </td>
 <td style="text-align:right;">
-348.00
+344.00
 </td>
 <td style="text-align:right;">
 344.00
@@ -1605,7 +1607,7 @@ Max Imputed Vehicle Theft
 22
 </td>
 <td style="text-align:right;">
-22.00
+22.01
 </td>
 <td style="text-align:right;">
 22.91
@@ -1628,7 +1630,7 @@ Max Imputed Vehicle Theft
 22
 </td>
 <td style="text-align:right;">
-22.01
+21.99
 </td>
 <td style="text-align:right;">
 22.80
@@ -1651,7 +1653,7 @@ Max Imputed Vehicle Theft
 22
 </td>
 <td style="text-align:right;">
-22.03
+21.98
 </td>
 <td style="text-align:right;">
 22.67
@@ -1674,13 +1676,13 @@ Max Imputed Vehicle Theft
 22
 </td>
 <td style="text-align:right;">
-21.96
+22.06
 </td>
 <td style="text-align:right;">
 22.50
 </td>
 <td style="text-align:right;">
-19.50
+22.50
 </td>
 <td style="text-align:right;">
 9.00
@@ -1720,7 +1722,7 @@ Max Imputed Vehicle Theft
 22
 </td>
 <td style="text-align:right;">
-21.94
+22.00
 </td>
 <td style="text-align:right;">
 22.00
@@ -1743,13 +1745,13 @@ Max Imputed Vehicle Theft
 22
 </td>
 <td style="text-align:right;">
-21.98
+21.85
 </td>
 <td style="text-align:right;">
 21.60
 </td>
 <td style="text-align:right;">
-24.00
+21.60
 </td>
 <td style="text-align:right;">
 4.80
@@ -1766,13 +1768,13 @@ Max Imputed Vehicle Theft
 22
 </td>
 <td style="text-align:right;">
-21.96
+22.09
 </td>
 <td style="text-align:right;">
 21.00
 </td>
 <td style="text-align:right;">
-21.00
+27.00
 </td>
 <td style="text-align:right;">
 3.00
@@ -1789,10 +1791,10 @@ Max Imputed Vehicle Theft
 22
 </td>
 <td style="text-align:right;">
-21.94
+22.07
 </td>
 <td style="text-align:right;">
-20.00
+22.00
 </td>
 <td style="text-align:right;">
 24.00
@@ -1814,8 +1816,8 @@ Max Imputed Vehicle Theft
 <p>There are two major problems here. First, similarly sized agencies are based on the population group which is quite literally just a category indicating how big the agency is when grouped into rather arbitrary categories. These categories can range quite far - with agencies having millions more people than other agencies in the same category in some cases - so in most cases “similarly sized” agencies are not that similarly sized. The second issue is simply the assumption that population is all that important to crime rates. Population is certainly important to crime counts; New York City is going to have many more crimes than small towns purely due to its huge population, even though NYC has a low crime rate. But there is still huge variation in crimes among cities of the same or similar size as crime tends to concentrate in certain areas. So replacing an agency’s annual crime counts with that or other agencies (even the average of other agencies) will give you a very wrong count.</p>
 <p>For this method of replacing missing data to be accurate agencies in the same population group in each state would need to have very similar crime counts. Otherwise it is assuming that missing agencies are just average (literally) in terms of crime. This again assumes that missing data is missing at random, which is unlikely to be true.</p>
 <p>In each of the below examples we use data from 2018 Offenses Known and Clearances by Arrest and use only agencies whose final month reported was December. This makes it the actual agencies in each population group that would replace agencies that are missing 10 or more months of data in 2018. As agencies can - and do - report different numbers of months each year, these numbers would be a little different if using any year other than 2018.</p>
-<p>For each population group we’ll look at the mean, median, and maximum number of murders plus aggravated assaults with a gun.<a href="#fn99" class="footnote-ref" id="fnref99"><sup>99</sup></a> This is essentially a measure of the most serious violent crimes as the difference between gun assaults and murders is, to some degree, a matter of luck (e.g. where the person is shot can make the difference between an assault and a murder).<a href="#fn100" class="footnote-ref" id="fnref100"><sup>100</sup></a> This is actually not available in NACJD’s county-level UCR data as they don’t separate gun assaults from other aggravated assaults, though that data is available in the agency-level UCR data. If we see a wide range in the number of murders+gun-assaults in the below table, that’ll indicate that this method of imputing missing data is highly flawed.</p>
-<p>Table <a href="county-level-srs-data.html#tab:countyPopulationGroupStatsNational">10.7</a> shows these values for all agencies in the United States who reported 12 months of data (based on the “December last month reported” definition) in 2018. The actual imputation process only looks at agencies in the same state, but this is still information at seeing broad trends - and we’ll look at two specific states below. Column 1 shows each of the population groups in the data while the remaining columns show the mean, median, minimum, and maximum number of murders+gun-assaults in 2018, respectively.<a href="#fn101" class="footnote-ref" id="fnref101"><sup>101</sup></a> For each population group there is a large range of values, as seen from the minimum and maximum values. There are also large differences in the mean and median values for larger (25,000+ population) agencies, particularly when compared to the top and bottom of the range of values.<a href="#fn102" class="footnote-ref" id="fnref102"><sup>102</sup></a> Using this imputation method will, in most cases (but soon we’ll see an instance where there’s an exception) provide substantially different values than the real (but unknown) values.</p>
+<p>For each population group we’ll look at the mean, median, and maximum number of murders plus aggravated assaults with a gun.<a href="#fn100" class="footnote-ref" id="fnref100"><sup>100</sup></a> This is essentially a measure of the most serious violent crimes as the difference between gun assaults and murders is, to some degree, a matter of luck (e.g. where the person is shot can make the difference between an assault and a murder).<a href="#fn101" class="footnote-ref" id="fnref101"><sup>101</sup></a> This is actually not available in NACJD’s county-level UCR data as they don’t separate gun assaults from other aggravated assaults, though that data is available in the agency-level UCR data. If we see a wide range in the number of murders+gun-assaults in the below table, that’ll indicate that this method of imputing missing data is highly flawed.</p>
+<p>Table <a href="county-level-srs-data.html#tab:countyPopulationGroupStatsNational">10.7</a> shows these values for all agencies in the United States who reported 12 months of data (based on the “December last month reported” definition) in 2018. The actual imputation process only looks at agencies in the same state, but this is still information at seeing broad trends - and we’ll look at two specific states below. Column 1 shows each of the population groups in the data while the remaining columns show the mean, median, minimum, and maximum number of murders+gun-assaults in 2018, respectively.<a href="#fn102" class="footnote-ref" id="fnref102"><sup>102</sup></a> For each population group there is a large range of values, as seen from the minimum and maximum values. There are also large differences in the mean and median values for larger (25,000+ population) agencies, particularly when compared to the top and bottom of the range of values.<a href="#fn103" class="footnote-ref" id="fnref103"><sup>103</sup></a> Using this imputation method will, in most cases (but soon we’ll see an instance where there’s an exception) provide substantially different values than the real (but unknown) values.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:countyPopulationGroupStatsNational">Table 10.7: </span>The mean, median, minimum, and maximum agency size nationwide for all population groups in the 2018 Offenses Known and Clearances by Arrests data.
@@ -2375,30 +2377,30 @@ Non-MSA Counties And Non-MSA State Police
 <div id="final-thoughts" class="section level2 hasAnchor" number="10.4">
 <h2><span class="header-section-number">10.4</span> Final thoughts<a href="county-level-srs-data.html#final-thoughts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>County-level UCR data should not be used for research because it handles missing data poorly and distributes crimes for agencies in multiple counties very poorly, so will give inaccurate results. This is the conclusion that Maltz and Targonski had in 2002 in their paper examining the data and is, in my opinion, the conclusion that still holds today as the problems have not improved (or even changed since 2002). There are two main problems: distributing crimes for agencies in multiple counties and missing data. The first, given UCR data constraints, seems unfixable though is not a problem for agencies in only one county. For the second, if an imputation method was used that properly (i.e. got as close to the right answer as possible) handled missing data that would solve this issue.</p>
-<p>Given the decades of data and agencies that release their own crime data on their websites that can be used as a check on how close imputed data is to the real data (as some agencies, such as Philadelphia in 2019, don’t report all months of data to the UCR but still release incident-level data publicly on their city’s ‘open data’ websites) this is a solvable problem.<a href="#fn103" class="footnote-ref" id="fnref103"><sup>103</sup></a> Missing data is not a problem only in criminology, and is actually addressed in some criminology papers, so the fact that so much research relies on this data that does such a poor job of handling missing data and literally assumes that crime is not at all concentrated is a sorry testament to this field.<a href="#fn104" class="footnote-ref" id="fnref104"><sup>104</sup></a> We can do better.</p>
+<p>Given the decades of data and agencies that release their own crime data on their websites that can be used as a check on how close imputed data is to the real data (as some agencies, such as Philadelphia in 2019, don’t report all months of data to the UCR but still release incident-level data publicly on their city’s ‘open data’ websites) this is a solvable problem.<a href="#fn104" class="footnote-ref" id="fnref104"><sup>104</sup></a> Missing data is not a problem only in criminology, and is actually addressed in some criminology papers, so the fact that so much research relies on this data that does such a poor job of handling missing data and literally assumes that crime is not at all concentrated is a sorry testament to this field.<a href="#fn105" class="footnote-ref" id="fnref105"><sup>105</sup></a> We can do better.</p>
 
 </div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="88">
-<li id="fn88"><p>Even for county-level agencies such as Sheriff’s Offices, the data is only for crimes in that agency’s jurisdiction. So the county sheriff reports crimes that they responded to but not crimes within the county that other agencies, such as a city police force, responded to.<a href="county-level-srs-data.html#fnref88" class="footnote-back">↩︎</a></p></li>
-<li id="fn89"><p>Because the county-level data imputes missing months, this dataset is <em>only</em> available at the annual-level, not at the monthly level.<a href="county-level-srs-data.html#fnref89" class="footnote-back">↩︎</a></p></li>
-<li id="fn90"><p>These files are known on NACJD’s website as “Uniform Crime Reporting Program Data: County-Level Detailed Arrest and Offense Data.”<a href="county-level-srs-data.html#fnref90" class="footnote-back">↩︎</a></p></li>
-<li id="fn91"><p>To be very clear, this chapter isn’t a critique of NACJD, which is a great organization with a very talented team, but merely of a single dataset that they released using imputation methods from decades ago.<a href="county-level-srs-data.html#fnref91" class="footnote-back">↩︎</a></p></li>
-<li id="fn92"><p>For New York City specifically NACJD does distribute to all five counties, and does so by county population.<a href="county-level-srs-data.html#fnref92" class="footnote-back">↩︎</a></p></li>
-<li id="fn93"><p>Hopefully the warnings deterred at least some people.<a href="county-level-srs-data.html#fnref93" class="footnote-back">↩︎</a></p></li>
-<li id="fn94"><p>I used to have a Google Scholar alert for UCR papers but turned it off since so many papers either used my data but didn’t cite me, used the data improperly, or both.<a href="county-level-srs-data.html#fnref94" class="footnote-back">↩︎</a></p></li>
-<li id="fn95"><p>Given economist’s policy of not citing other fields it’s likely that they haven’t read Maltz and Targonski’s paper. Normally I’d be concerned with criticizing entire fields, but no economist will read this as I’m not an economist myself so it’s fine.<a href="county-level-srs-data.html#fnref95" class="footnote-back">↩︎</a></p></li>
-<li id="fn96"><p>I note these differences not to join the ego-driven feud between the fields. As a criminologist who currently works in a political science department, these feuds are quite stupid. I note it, however, to show that this data usage is partially driven by subcultures within fields. For example, criminology has long known about which may explain why it is more commonly used in non-criminology fields. It is therefore important for researchers to talk to (or collaborate with {though to be clear I’m not volunteering or requesting to collaborate with you}) people who have content-expertise about the data that you’re using. And that open communication between the fields (including collaborations and submitting to journals from fields other than your own) will strengthen both fields.<a href="county-level-srs-data.html#fnref96" class="footnote-back">↩︎</a></p></li>
-<li id="fn97"><p>Even though these are unusual agencies, in real analyses using UCR data at the county-level you’d like want to include them. Or justify why you’re not including them.<a href="county-level-srs-data.html#fnref97" class="footnote-back">↩︎</a></p></li>
-<li id="fn98"><p>This is actually more than I need to run to get the same results but it’s easier to run many simulations than to math out how many I actually need to find all possible combinations of missing months.<a href="county-level-srs-data.html#fnref98" class="footnote-back">↩︎</a></p></li>
-<li id="fn99"><p>Aggravated assaults with a gun include but are not limited to shootings. The gun does not need to be fired to be considered an aggregated assault.<a href="county-level-srs-data.html#fnref99" class="footnote-back">↩︎</a></p></li>
-<li id="fn100"><p>Attempted murders are considered aggravated assaults in the UCR.<a href="county-level-srs-data.html#fnref100" class="footnote-back">↩︎</a></p></li>
-<li id="fn101"><p>The agency-level UCR data actually has more population groups than this list, but NACJD has grouped some together. Given that some states may have few (or no) agencies in a population group, combining more groups together does alleviate the problem of having no comparison cities but at the tradeoff of making the comparison less similar to the given agency.<a href="county-level-srs-data.html#fnref101" class="footnote-back">↩︎</a></p></li>
-<li id="fn102"><p>The negative number for minimum crimes in the Non-MSA Counties and Non-MSA State Police is due to a reporting quirk of UCR, covered in Chapter 2, and is not a mistake in the data.<a href="county-level-srs-data.html#fnref102" class="footnote-back">↩︎</a></p></li>
-<li id="fn103"><p>But not by me, so please don’t ask.<a href="county-level-srs-data.html#fnref103" class="footnote-back">↩︎</a></p></li>
-<li id="fn104"><p>There are also a good number of criminology papers that try to interpolate missing data from survey papers, which in general I think is a mistake since they often assume that the data is missing at random.<a href="county-level-srs-data.html#fnref104" class="footnote-back">↩︎</a></p></li>
+<ol start="89">
+<li id="fn89"><p>Even for county-level agencies such as Sheriff’s Offices, the data is only for crimes in that agency’s jurisdiction. So the county sheriff reports crimes that they responded to but not crimes within the county that other agencies, such as a city police force, responded to.<a href="county-level-srs-data.html#fnref89" class="footnote-back">↩︎</a></p></li>
+<li id="fn90"><p>Because the county-level data imputes missing months, this dataset is <em>only</em> available at the annual-level, not at the monthly level.<a href="county-level-srs-data.html#fnref90" class="footnote-back">↩︎</a></p></li>
+<li id="fn91"><p>These files are known on NACJD’s website as “Uniform Crime Reporting Program Data: County-Level Detailed Arrest and Offense Data.”<a href="county-level-srs-data.html#fnref91" class="footnote-back">↩︎</a></p></li>
+<li id="fn92"><p>To be very clear, this chapter isn’t a critique of NACJD, which is a great organization with a very talented team, but merely of a single dataset that they released using imputation methods from decades ago.<a href="county-level-srs-data.html#fnref92" class="footnote-back">↩︎</a></p></li>
+<li id="fn93"><p>For New York City specifically NACJD does distribute to all five counties, and does so by county population.<a href="county-level-srs-data.html#fnref93" class="footnote-back">↩︎</a></p></li>
+<li id="fn94"><p>Hopefully the warnings deterred at least some people.<a href="county-level-srs-data.html#fnref94" class="footnote-back">↩︎</a></p></li>
+<li id="fn95"><p>I used to have a Google Scholar alert for UCR papers but turned it off since so many papers either used my data but didn’t cite me, used the data improperly, or both.<a href="county-level-srs-data.html#fnref95" class="footnote-back">↩︎</a></p></li>
+<li id="fn96"><p>Given economist’s policy of not citing other fields it’s likely that they haven’t read Maltz and Targonski’s paper. Normally I’d be concerned with criticizing entire fields, but no economist will read this as I’m not an economist myself so it’s fine.<a href="county-level-srs-data.html#fnref96" class="footnote-back">↩︎</a></p></li>
+<li id="fn97"><p>I note these differences not to join the ego-driven feud between the fields. As a criminologist who currently works in a political science department, these feuds are quite stupid. I note it, however, to show that this data usage is partially driven by subcultures within fields. For example, criminology has long known about which may explain why it is more commonly used in non-criminology fields. It is therefore important for researchers to talk to (or collaborate with {though to be clear I’m not volunteering or requesting to collaborate with you}) people who have content-expertise about the data that you’re using. And that open communication between the fields (including collaborations and submitting to journals from fields other than your own) will strengthen both fields.<a href="county-level-srs-data.html#fnref97" class="footnote-back">↩︎</a></p></li>
+<li id="fn98"><p>Even though these are unusual agencies, in real analyses using UCR data at the county-level you’d like want to include them. Or justify why you’re not including them.<a href="county-level-srs-data.html#fnref98" class="footnote-back">↩︎</a></p></li>
+<li id="fn99"><p>This is actually more than I need to run to get the same results but it’s easier to run many simulations than to math out how many I actually need to find all possible combinations of missing months.<a href="county-level-srs-data.html#fnref99" class="footnote-back">↩︎</a></p></li>
+<li id="fn100"><p>Aggravated assaults with a gun include but are not limited to shootings. The gun does not need to be fired to be considered an aggregated assault.<a href="county-level-srs-data.html#fnref100" class="footnote-back">↩︎</a></p></li>
+<li id="fn101"><p>Attempted murders are considered aggravated assaults in the UCR.<a href="county-level-srs-data.html#fnref101" class="footnote-back">↩︎</a></p></li>
+<li id="fn102"><p>The agency-level UCR data actually has more population groups than this list, but NACJD has grouped some together. Given that some states may have few (or no) agencies in a population group, combining more groups together does alleviate the problem of having no comparison cities but at the tradeoff of making the comparison less similar to the given agency.<a href="county-level-srs-data.html#fnref102" class="footnote-back">↩︎</a></p></li>
+<li id="fn103"><p>The negative number for minimum crimes in the Non-MSA Counties and Non-MSA State Police is due to a reporting quirk of UCR, covered in Chapter 2, and is not a mistake in the data.<a href="county-level-srs-data.html#fnref103" class="footnote-back">↩︎</a></p></li>
+<li id="fn104"><p>But not by me, so please don’t ask.<a href="county-level-srs-data.html#fnref104" class="footnote-back">↩︎</a></p></li>
+<li id="fn105"><p>There are also a good number of criminology papers that try to interpolate missing data from survey papers, which in general I think is a mistake since they often assume that the data is missing at random.<a href="county-level-srs-data.html#fnref105" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

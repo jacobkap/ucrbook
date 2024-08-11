@@ -100,6 +100,8 @@ tab:hateOffense
 tab:hateLocations
 fig:hateCrimeOffenderNumber
 fig:hateCrimeOffenderRace
+fig:jewishIncidentVictim
+fig:blackIncidentVictim
 tab:countyMonthsReportedDefinitions
 fig:countyAnyMonthReported
 fig:countyDecemberReported
@@ -218,12 +220,14 @@ arsonType
 data-errors-1
 hate_crimes
 agencies-reporting-6
+tree-of-life-synagogue-shooting
 hate-crimes-against-asian-people
 important-variables-6
 the-bias-motivation-who-the-hate-is-against
 the-crime-that-occurred
 the-location-of-the-crime
 number-and-race-of-offenders
+number-of-victims
 county-level-srs-data
 current-usage
 how-much-data-is-missing

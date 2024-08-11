@@ -10,24 +10,22 @@ In this example the offender shouted a racial slur, making it clear that their a
 
 So this data is really a narrower measure of hate crimes than it might seem. In practice it is (some) crimes motivated by (some) kinds of hate that are reported to the police. It is also the dataset with the fewest agencies reporting, with most agencies not reporting any hate crimes to the FBI in a given year. This leads to huge gaps in the data with some states having zero agencies report crime, agencies reporting some bias motivations but not others, agencies reporting some years but not others. While these problems exist for all of the SRS datasets, it is most severe in this data. This problem is exacerbated by hate crimes being rare even in agencies that report them - with such rare events, even minor changes in which agencies report or which types of offenses they include can have large effects. 
 
-When considering the data itself, hate crime data is very similar to most other datasets, though with the additional step of having evidence of bias. But the difference in use is that while in other crimes the victim is usually, well, the victim, in hate crimes the victim may be a much wider group. Let's say a person's home is burglarized. The homeowner^[Or renter.] is clearly the victim as it was their house targeted. Their neighbors may also feel some effect if they are now concerned about their own home. And the victim's family will likely be concern. But the victim group is very limited and is directly related to the crime. Hate crimes tend to affect everyone in the targeted group, or at least a much wider span of people than something like burglary. If a swastica, for example, is spray painted on the front door of a synagogue who is the victim? Directly it'd be whomever owns the synagogue building. But it also affects all members of that congregation. And what about members of other synagogues in the city? What about Jewish people in the city who don't go to synagogue? Even though only a single crime occurred - a vandalism - it is very difficult to count how many victims there were. Is a swastika on a synagogue worse if the synagogue has a small congregation versus a large one? What if it is in a city with only one synagogue compared to a city with many? Is it worse to have a large swastika than a small one? If we're trying to use this data to measure hate against a particular group these are questions we need to answer, but are of course impossible to answer with this data. Remember, all of the FBI data is essentially just abstract contextless numbers in a spreadsheet. This is true for all UCR data but especially so for hate crimes where no two hate crimes are equal. 
 
-In fact, I'd argue that this issue - alongside the massive under- and misreporting by agencies - is bad enough that we should be extraordinarily cautious when using this data. My main takeaway for this data is that it is inappropriate to use for most hate crime research. At most it can be used to look at within-city within-bias-motivation trends, while keeping in mind that even this narrow subset of data is limited by under-reporting by victims and potential changes in police practices of reporting such as how many months of data they report per year. Nonetheless, this is data that people - researchers, reporters, politicians, etc. - do use to measure hate crime data, so I'll do my best in this chapter to explain how to use it. 
 
 ## Agencies reporting
 
-We'll start by looking at how many agencies report hate crime each year. This is a bit tricky since there can be multiple ways to examine how agencies report, and since agencies can truly have no hate crimes in a year so it's hard to differentiate the true zeroes from the non-reporters. Figure \@ref(fig:hateAgencies) shows the number of agencies that report at least one hate crime incident in that year. From the start in 1991 there were about 750 agencies reporting and that grew steadily to about 2,000 agencies in year 2000. From there it increased a bit over the next decade before declining to below 1,750 in the early 2010s and rising again to around 2,000 agencies at the end of our data.
+We'll start by looking at how many agencies report hate crime each year. This is a bit tricky since there can be multiple ways to examine how agencies report, and since agencies can truly have no hate crimes in a year so it's hard to differentiate the true zeroes from the non-reporters. Figure \@ref(fig:hateAgencies) shows the number of agencies that report at least one hate crime incident in that year. From the start in 1991 there were about 750 agencies reporting and that grew steadily to about 2,000 agencies in year 2000. From there it increased a bit over the next decade before declining to below 1,750 in the early 2010s and rising again to around 3,000 agencies at the end of our data.
 
 <div class="figure" style="text-align: center">
 <img src="09_hate_crime_files/figure-html/hateAgencies-1.png" alt="The annual number of police agencies that report at least one hate crime incident in that year." width="90%" />
 <p class="caption">(\#fig:hateAgencies)The annual number of police agencies that report at least one hate crime incident in that year.</p>
 </div>
 
-The 2,000-3,000 or so agencies that report each year are not the same every year. Figure \@ref(fig:hateCrimesEver) shows the cumulative number of agencies that have reported at least one hate crime between 1991 and 2020 There is a steady growth in the cumulative number of agencies, with about 350 new agencies each year. This means that each year some new agencies report hate crimes while some agencies that reported a hate crime in the previous year don't report any hate crimes in the current year.
+The 3,000 or so agencies that report each year are not the same every year. Figure \@ref(fig:hateCrimesEver) shows the cumulative number of agencies that have reported at least one hate crime between 1991 and 2022. There is a steady growth in the cumulative number of agencies, with about 350 new agencies each year. This means that each year some new agencies report hate crimes while some agencies that reported a hate crime in the previous year don't report any hate crimes in the current year.
 
 <div class="figure" style="text-align: center">
-<img src="09_hate_crime_files/figure-html/hateCrimesEver-1.png" alt="The cumulative number of agencies that have reported one or more hate crimes between 1991 to 2022" width="90%" />
-<p class="caption">(\#fig:hateCrimesEver)The cumulative number of agencies that have reported one or more hate crimes between 1991 to 2022</p>
+<img src="09_hate_crime_files/figure-html/hateCrimesEver-1.png" alt="The cumulative number of agencies that have reported one or more hate crimes between 1991 and 2022" width="90%" />
+<p class="caption">(\#fig:hateCrimesEver)The cumulative number of agencies that have reported one or more hate crimes between 1991 and 2022</p>
 </div>
 
 Figure \@ref(fig:hateCrimesPreviousYear) puts this into hard numbers by showing the percent of agencies who reported a hate crime in a certain year who *also* reported a hate crime in the previous year. For most years between 50% and 60% of agencies which reported a hate crime in the year shown on the x-axis also reported a hate crime in the previous year, indicating somewhat high consistency in which agencies have hate crimes. 
@@ -40,16 +38,22 @@ Figure \@ref(fig:hateCrimesPreviousYear) puts this into hard numbers by showing 
 Another way to understand reporting is to look at the number of reported hate crimes by state and see which states report and which don't. Figure \@ref(fig:hateCrimesMap) does this for 2020 data by showing the number of reported hate crime incidents by state. While every state other than Wyoming reporting at least one hate crime in 2020, there are large differences between states because even in states that have reporting agencies, not all agencies in that state report. For example, Alabama reported only two hate crimes in 2020, the least of any state other than Wyoming. 
 
 <div class="figure" style="text-align: center">
-<img src="09_hate_crime_files/figure-html/hateCrimesMap-1.png" alt="Total reported hate crimes by state, 2020" width="90%" />
-<p class="caption">(\#fig:hateCrimesMap)Total reported hate crimes by state, 2020</p>
+<img src="09_hate_crime_files/figure-html/hateCrimesMap-1.png" alt="Total reported hate crimes by state, 2022" width="90%" />
+<p class="caption">(\#fig:hateCrimesMap)Total reported hate crimes by state, 2022</p>
 </div>
 
 Since the number of state-wide hate crimes is partially influenced by population, we'll also look at it as the percent of agencies in the state that report at least one hate crime. Again this is limited by population as agencies in each state cover different populations - and most agencies are small so a few large agencies can account for a large share of crimes, including hate crimes. Still, this is a useful exercise as we can easily see where very few agencies report. Figure \@ref(fig:statePercentReporting) shows the percent of agencies for each state that reported at least one hate crime in 2020 In Connecticut, the state with the highest percent of agencies reporting, 28% of agencies reported at least one hate crime. In 34 states, fewer than 10% of agencies reported a hate crime, and in 19 states fewer than 5% of agencies did so. One interesting finding from this graph is the more liberal states - Connecticut, New Jersey, Vermont, California, Washington - have the highest share of agencies reporting a hate crime, indicating that the culture of the state may influence either the propensity of hate crimes, whether victims report, or whether agencies report hate crimes.   
 
 <div class="figure" style="text-align: center">
-<img src="09_hate_crime_files/figure-html/statePercentReporting-1.png" alt="The percent of agencies in each state that reported at least one hate crime in 2020" width="90%" />
-<p class="caption">(\#fig:statePercentReporting)The percent of agencies in each state that reported at least one hate crime in 2020</p>
+<img src="09_hate_crime_files/figure-html/statePercentReporting-1.png" alt="The percent of agencies in each state that reported at least one hate crime in 2022" width="90%" />
+<p class="caption">(\#fig:statePercentReporting)The percent of agencies in each state that reported at least one hate crime in 2022</p>
 </div>
+
+## Tree of Life synagogue shooting
+
+In October of 2018 the deadliest attack on Jewish people in US history occurred at the Tree of Life synagogue in Pittsburgh, PA. There, 11 congregants were murdered, and several other people, including police officers, were injured by the shooter. According to this data, however, those murders never occurred. Not in Pittsburgh at least. No murders with an anti-Jewish bias were reported in Pittsburgh, or any other agency in Pennsylvania, were reported in 2018. That shootings were reported by the FBI's Pittsburgh field office, which, like many federal agencies that have offices across the country, is included in the data as its own agency. 
+
+This is good and bad. Of course it is good that when a crime happens it is reported in the data. The bad part is that it is counted as hate crimes that occurred in the FBI's Pittsburgh agency, and not the Pittsburgh Police Department. Most research occurs at the local level - usually the agency- or county-level. So if a study is examining city-level characteristics that are related to hate crimes it'd almost certainly exclude these murders as they are reported by a federal agency and not the local Pittsburgh agency. This also gets complicated as FBI rules say that a crime should be reported by the most local jurisdiction. 11 people were murdered in Pittsburgh, and several officers were injured, that should mean that the crime is reported by Pittsburgh Police, not by the FBI. Pittsburgh even does report these murders in their Offenses Known data, making it even more odd that they're Pittsburgh crimes in one dataset and not another.^[The murders of nine Black parishioners in the Emanuel African Methodist Episcopal Church in Charles, South Carolina, in 2015 was reported by the Charleston Police Department, making it even more inconsistent for when the FBI reports hate crime murders.] 
 
 ## Hate crimes against Asian people
 
@@ -70,8 +74,6 @@ So NYC isn't a good example since it has an unusually low number of pre-Covid ha
 <img src="09_hate_crime_files/figure-html/nationalAsianHate-1.png" alt="The number of anti-Asian hate crime incidents in the United States, 1991-2022." width="90%" />
 <p class="caption">(\#fig:nationalAsianHate)The number of anti-Asian hate crime incidents in the United States, 1991-2022.</p>
 </div>
-
-
 
 So here's the problem. We need a pre- and a post-value to determine if an increase is actually happening. We don't have a reliable pre-value and therefore cannot say if something is increasing.
 
@@ -111,94 +113,16 @@ The biases that the FBI includes in this data has grown over time, with new bias
   <tr>
    <th style="text-align:left;"> Bias Motivation </th>
    <th style="text-align:right;"> First Year Reported </th>
-   <th style="text-align:right;"> \# of Incidents </th>
-   <th style="text-align:left;"> \% of Incidents </th>
+   <th style="text-align:right;"> # of Incidents </th>
+   <th style="text-align:left;"> % of Incidents </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> Anti-Sikh </td>
-   <td style="text-align:right;"> 2015 </td>
-   <td style="text-align:right;"> 673 </td>
-   <td style="text-align:left;"> 0.28\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Anti-Other Christian </td>
-   <td style="text-align:right;"> 2015 </td>
-   <td style="text-align:right;"> 403 </td>
-   <td style="text-align:left;"> 0.17\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Anti-Eastern Orthodox (Greek, Russian, Etc.) </td>
-   <td style="text-align:right;"> 2015 </td>
-   <td style="text-align:right;"> 388 </td>
-   <td style="text-align:left;"> 0.16\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Anti-Mormon </td>
-   <td style="text-align:right;"> 2015 </td>
-   <td style="text-align:right;"> 106 </td>
-   <td style="text-align:left;"> 0.04\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Anti-Hindu </td>
-   <td style="text-align:right;"> 2015 </td>
-   <td style="text-align:right;"> 103 </td>
-   <td style="text-align:left;"> 0.04\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Anti-Buddhist </td>
-   <td style="text-align:right;"> 2015 </td>
-   <td style="text-align:right;"> 101 </td>
-   <td style="text-align:left;"> 0.04\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Anti-Jehovahs Witness </td>
-   <td style="text-align:right;"> 2015 </td>
-   <td style="text-align:right;"> 51 </td>
-   <td style="text-align:left;"> 0.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Anti-Transgender </td>
-   <td style="text-align:right;"> 2013 </td>
-   <td style="text-align:right;"> 1,500 </td>
-   <td style="text-align:left;"> 0.62\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Anti-Native Hawaiian Or Other Pacific Islander </td>
-   <td style="text-align:right;"> 2013 </td>
-   <td style="text-align:right;"> 184 </td>
-   <td style="text-align:left;"> 0.08\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Anti-Male </td>
-   <td style="text-align:right;"> 2013 </td>
-   <td style="text-align:right;"> 171 </td>
-   <td style="text-align:left;"> 0.07\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Anti-Gender Non-Conforming </td>
-   <td style="text-align:right;"> 2012 </td>
-   <td style="text-align:right;"> 514 </td>
-   <td style="text-align:left;"> 0.21\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Anti-Female </td>
-   <td style="text-align:right;"> 2012 </td>
-   <td style="text-align:right;"> 443 </td>
-   <td style="text-align:left;"> 0.18\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Anti-Mental Disability </td>
-   <td style="text-align:right;"> 1997 </td>
-   <td style="text-align:right;"> 1,333 </td>
-   <td style="text-align:left;"> 0.56\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Anti-Physical Disability </td>
-   <td style="text-align:right;"> 1997 </td>
-   <td style="text-align:right;"> 752 </td>
-   <td style="text-align:left;"> 0.31\% </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> - </td>
+   <td style="text-align:right;"> 240,108 </td>
+   <td style="text-align:left;"> 100\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Anti-Black </td>
@@ -291,16 +215,40 @@ The biases that the FBI includes in this data has grown over time, with new bias
    <td style="text-align:left;"> 0.63\% </td>
   </tr>
   <tr>
+   <td style="text-align:left;"> Anti-Transgender </td>
+   <td style="text-align:right;"> 2013 </td>
+   <td style="text-align:right;"> 1,500 </td>
+   <td style="text-align:left;"> 0.62\% </td>
+  </tr>
+  <tr>
    <td style="text-align:left;"> Anti-Protestant </td>
    <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 1,361 </td>
    <td style="text-align:left;"> 0.57\% </td>
   </tr>
   <tr>
+   <td style="text-align:left;"> Anti-Mental Disability </td>
+   <td style="text-align:right;"> 1997 </td>
+   <td style="text-align:right;"> 1,333 </td>
+   <td style="text-align:left;"> 0.56\% </td>
+  </tr>
+  <tr>
    <td style="text-align:left;"> Anti-Multi-Religious Group </td>
    <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 1,314 </td>
    <td style="text-align:left;"> 0.55\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Physical Disability </td>
+   <td style="text-align:right;"> 1997 </td>
+   <td style="text-align:right;"> 752 </td>
+   <td style="text-align:left;"> 0.31\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Sikh </td>
+   <td style="text-align:right;"> 2015 </td>
+   <td style="text-align:right;"> 673 </td>
+   <td style="text-align:left;"> 0.28\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Anti-Bisexual </td>
@@ -315,16 +263,70 @@ The biases that the FBI includes in this data has grown over time, with new bias
    <td style="text-align:left;"> 0.26\% </td>
   </tr>
   <tr>
+   <td style="text-align:left;"> Anti-Gender Non-Conforming </td>
+   <td style="text-align:right;"> 2012 </td>
+   <td style="text-align:right;"> 514 </td>
+   <td style="text-align:left;"> 0.21\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Female </td>
+   <td style="text-align:right;"> 2012 </td>
+   <td style="text-align:right;"> 443 </td>
+   <td style="text-align:left;"> 0.18\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Other Christian </td>
+   <td style="text-align:right;"> 2015 </td>
+   <td style="text-align:right;"> 403 </td>
+   <td style="text-align:left;"> 0.17\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Eastern Orthodox (Greek, Russian, Etc.) </td>
+   <td style="text-align:right;"> 2015 </td>
+   <td style="text-align:right;"> 388 </td>
+   <td style="text-align:left;"> 0.16\% </td>
+  </tr>
+  <tr>
    <td style="text-align:left;"> Anti-Atheism/Agnosticism </td>
    <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 201 </td>
    <td style="text-align:left;"> 0.08\% </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> 240,108 </td>
-   <td style="text-align:left;"> 100\% </td>
+   <td style="text-align:left;"> Anti-Native Hawaiian Or Other Pacific Islander </td>
+   <td style="text-align:right;"> 2013 </td>
+   <td style="text-align:right;"> 184 </td>
+   <td style="text-align:left;"> 0.08\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Male </td>
+   <td style="text-align:right;"> 2013 </td>
+   <td style="text-align:right;"> 171 </td>
+   <td style="text-align:left;"> 0.07\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Mormon </td>
+   <td style="text-align:right;"> 2015 </td>
+   <td style="text-align:right;"> 106 </td>
+   <td style="text-align:left;"> 0.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Hindu </td>
+   <td style="text-align:right;"> 2015 </td>
+   <td style="text-align:right;"> 103 </td>
+   <td style="text-align:left;"> 0.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Buddhist </td>
+   <td style="text-align:right;"> 2015 </td>
+   <td style="text-align:right;"> 101 </td>
+   <td style="text-align:left;"> 0.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Jehovahs Witness </td>
+   <td style="text-align:right;"> 2015 </td>
+   <td style="text-align:right;"> 51 </td>
+   <td style="text-align:left;"> 0.02\% </td>
   </tr>
 </tbody>
 </table>
@@ -347,232 +349,16 @@ Nearly all hate crimes are vandalism/destruction of property (31%), intimidation
   <tr>
    <th style="text-align:left;"> Offense </th>
    <th style="text-align:right;"> First Year Reported </th>
-   <th style="text-align:right;"> \# of Incidents </th>
-   <th style="text-align:left;"> \% of Incidents </th>
+   <th style="text-align:right;"> # of Incidents </th>
+   <th style="text-align:left;"> % of Incidents </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> Human Trafficking - Involuntary Servitude </td>
-   <td style="text-align:right;"> 2021 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Unknown </td>
-   <td style="text-align:right;"> 2018 </td>
-   <td style="text-align:right;"> 15 </td>
-   <td style="text-align:left;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Human Trafficking - Commercial Sex Acts </td>
-   <td style="text-align:right;"> 2017 </td>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:left;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fraud-Other </td>
-   <td style="text-align:right;"> 2016 </td>
-   <td style="text-align:right;"> 103 </td>
-   <td style="text-align:left;"> 0.04\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Bribery </td>
-   <td style="text-align:right;"> 2014 </td>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:left;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Assisting Or Promoting Prostitution </td>
-   <td style="text-align:right;"> 2013 </td>
-   <td style="text-align:right;"> 5 </td>
-   <td style="text-align:left;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Purchasing Prostitution </td>
-   <td style="text-align:right;"> 2013 </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:left;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Wire Fraud </td>
-   <td style="text-align:right;"> 2006 </td>
-   <td style="text-align:right;"> 26 </td>
-   <td style="text-align:left;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Impersonation </td>
-   <td style="text-align:right;"> 2001 </td>
-   <td style="text-align:right;"> 152 </td>
-   <td style="text-align:left;"> 0.06\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Prostitution </td>
-   <td style="text-align:right;"> 2001 </td>
-   <td style="text-align:right;"> 14 </td>
-   <td style="text-align:left;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Statutory Rape </td>
-   <td style="text-align:right;"> 1999 </td>
-   <td style="text-align:right;"> 21 </td>
-   <td style="text-align:left;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Theft From Coin-Operated Machine Or Device </td>
-   <td style="text-align:right;"> 1999 </td>
-   <td style="text-align:right;"> 16 </td>
-   <td style="text-align:left;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Negligent Manslaughter </td>
-   <td style="text-align:right;"> 1999 </td>
-   <td style="text-align:right;"> 8 </td>
-   <td style="text-align:left;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> False Pretenses/Swindle/Confidence Game </td>
-   <td style="text-align:right;"> 1997 </td>
-   <td style="text-align:right;"> 353 </td>
-   <td style="text-align:left;"> 0.15\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Extortion/Blackmail </td>
-   <td style="text-align:right;"> 1997 </td>
-   <td style="text-align:right;"> 62 </td>
-   <td style="text-align:left;"> 0.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Incest </td>
-   <td style="text-align:right;"> 1997 </td>
-   <td style="text-align:right;"> 7 </td>
-   <td style="text-align:left;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Stolen Property Offenses - Receiving, Selling, Etc. </td>
-   <td style="text-align:right;"> 1996 </td>
-   <td style="text-align:right;"> 140 </td>
-   <td style="text-align:left;"> 0.06\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sexual Assault With An Object </td>
-   <td style="text-align:right;"> 1996 </td>
-   <td style="text-align:right;"> 41 </td>
-   <td style="text-align:left;"> 0.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Pocket-Picking </td>
-   <td style="text-align:right;"> 1996 </td>
-   <td style="text-align:right;"> 28 </td>
-   <td style="text-align:left;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Welfare Fraud </td>
-   <td style="text-align:right;"> 1996 </td>
-   <td style="text-align:right;"> 8 </td>
-   <td style="text-align:left;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Drug Equipment Violations </td>
-   <td style="text-align:right;"> 1995 </td>
-   <td style="text-align:right;"> 391 </td>
-   <td style="text-align:left;"> 0.16\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Credit Card/Atm Fraud </td>
-   <td style="text-align:right;"> 1995 </td>
-   <td style="text-align:right;"> 182 </td>
-   <td style="text-align:left;"> 0.08\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Forcible Sodomy </td>
-   <td style="text-align:right;"> 1995 </td>
-   <td style="text-align:right;"> 82 </td>
-   <td style="text-align:left;"> 0.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Pornography/Obscene Material </td>
-   <td style="text-align:right;"> 1995 </td>
-   <td style="text-align:right;"> 81 </td>
-   <td style="text-align:left;"> 0.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Embezzlement </td>
-   <td style="text-align:right;"> 1995 </td>
-   <td style="text-align:right;"> 66 </td>
-   <td style="text-align:left;"> 0.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Purse-Snatching </td>
-   <td style="text-align:right;"> 1995 </td>
-   <td style="text-align:right;"> 29 </td>
-   <td style="text-align:left;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Theft From Building </td>
-   <td style="text-align:right;"> 1994 </td>
-   <td style="text-align:right;"> 617 </td>
-   <td style="text-align:left;"> 0.26\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Kidnapping/Abduction </td>
-   <td style="text-align:right;"> 1994 </td>
-   <td style="text-align:right;"> 152 </td>
-   <td style="text-align:left;"> 0.06\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> All Other Larceny </td>
-   <td style="text-align:right;"> 1993 </td>
-   <td style="text-align:right;"> 2,584 </td>
-   <td style="text-align:left;"> 1.08\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Drug/Narcotic Violations </td>
-   <td style="text-align:right;"> 1993 </td>
-   <td style="text-align:right;"> 1,380 </td>
-   <td style="text-align:left;"> 0.57\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Theft From Motor Vehicle </td>
-   <td style="text-align:right;"> 1993 </td>
-   <td style="text-align:right;"> 884 </td>
-   <td style="text-align:left;"> 0.37\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Shoplifting </td>
-   <td style="text-align:right;"> 1993 </td>
-   <td style="text-align:right;"> 771 </td>
-   <td style="text-align:left;"> 0.32\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Weapon Law Violations </td>
-   <td style="text-align:right;"> 1993 </td>
-   <td style="text-align:right;"> 469 </td>
-   <td style="text-align:left;"> 0.20\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Theft of Motor Vehicle Parts/Accessories </td>
-   <td style="text-align:right;"> 1993 </td>
-   <td style="text-align:right;"> 249 </td>
-   <td style="text-align:left;"> 0.10\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Counterfeiting/Forgery </td>
-   <td style="text-align:right;"> 1993 </td>
-   <td style="text-align:right;"> 245 </td>
-   <td style="text-align:left;"> 0.10\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Forcible Fondling - Indecent Liberties/Child Molest </td>
-   <td style="text-align:right;"> 1993 </td>
-   <td style="text-align:right;"> 225 </td>
-   <td style="text-align:left;"> 0.09\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Motor Vehicle Theft </td>
-   <td style="text-align:right;"> 1992 </td>
-   <td style="text-align:right;"> 577 </td>
-   <td style="text-align:left;"> 0.24\% </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> - </td>
+   <td style="text-align:right;"> 240,108 </td>
+   <td style="text-align:left;"> 100\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Destruction of Property/Vandalism </td>
@@ -611,16 +397,70 @@ Nearly all hate crimes are vandalism/destruction of property (31%), intimidation
    <td style="text-align:left;"> 1.62\% </td>
   </tr>
   <tr>
+   <td style="text-align:left;"> All Other Larceny </td>
+   <td style="text-align:right;"> 1993 </td>
+   <td style="text-align:right;"> 2,584 </td>
+   <td style="text-align:left;"> 1.08\% </td>
+  </tr>
+  <tr>
    <td style="text-align:left;"> Arson </td>
    <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 1,456 </td>
    <td style="text-align:left;"> 0.61\% </td>
   </tr>
   <tr>
+   <td style="text-align:left;"> Drug/Narcotic Violations </td>
+   <td style="text-align:right;"> 1993 </td>
+   <td style="text-align:right;"> 1,380 </td>
+   <td style="text-align:left;"> 0.57\% </td>
+  </tr>
+  <tr>
    <td style="text-align:left;"> Theft-Other </td>
    <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 917 </td>
    <td style="text-align:left;"> 0.38\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Theft From Motor Vehicle </td>
+   <td style="text-align:right;"> 1993 </td>
+   <td style="text-align:right;"> 884 </td>
+   <td style="text-align:left;"> 0.37\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Shoplifting </td>
+   <td style="text-align:right;"> 1993 </td>
+   <td style="text-align:right;"> 771 </td>
+   <td style="text-align:left;"> 0.32\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Theft From Building </td>
+   <td style="text-align:right;"> 1994 </td>
+   <td style="text-align:right;"> 617 </td>
+   <td style="text-align:left;"> 0.26\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Motor Vehicle Theft </td>
+   <td style="text-align:right;"> 1992 </td>
+   <td style="text-align:right;"> 577 </td>
+   <td style="text-align:left;"> 0.24\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Weapon Law Violations </td>
+   <td style="text-align:right;"> 1993 </td>
+   <td style="text-align:right;"> 469 </td>
+   <td style="text-align:left;"> 0.20\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Drug Equipment Violations </td>
+   <td style="text-align:right;"> 1995 </td>
+   <td style="text-align:right;"> 391 </td>
+   <td style="text-align:left;"> 0.16\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> False Pretenses/Swindle/Confidence Game </td>
+   <td style="text-align:right;"> 1997 </td>
+   <td style="text-align:right;"> 353 </td>
+   <td style="text-align:left;"> 0.15\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Murder/Non-Negligent Manslaughter </td>
@@ -635,10 +475,172 @@ Nearly all hate crimes are vandalism/destruction of property (31%), intimidation
    <td style="text-align:left;"> 0.13\% </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> 240,108 </td>
-   <td style="text-align:left;"> 100\% </td>
+   <td style="text-align:left;"> Theft of Motor Vehicle Parts/Accessories </td>
+   <td style="text-align:right;"> 1993 </td>
+   <td style="text-align:right;"> 249 </td>
+   <td style="text-align:left;"> 0.10\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Counterfeiting/Forgery </td>
+   <td style="text-align:right;"> 1993 </td>
+   <td style="text-align:right;"> 245 </td>
+   <td style="text-align:left;"> 0.10\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Forcible Fondling - Indecent Liberties/Child Molest </td>
+   <td style="text-align:right;"> 1993 </td>
+   <td style="text-align:right;"> 225 </td>
+   <td style="text-align:left;"> 0.09\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Credit Card/Atm Fraud </td>
+   <td style="text-align:right;"> 1995 </td>
+   <td style="text-align:right;"> 182 </td>
+   <td style="text-align:left;"> 0.08\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Impersonation </td>
+   <td style="text-align:right;"> 2001 </td>
+   <td style="text-align:right;"> 152 </td>
+   <td style="text-align:left;"> 0.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Kidnapping/Abduction </td>
+   <td style="text-align:right;"> 1994 </td>
+   <td style="text-align:right;"> 152 </td>
+   <td style="text-align:left;"> 0.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Stolen Property Offenses - Receiving, Selling, Etc. </td>
+   <td style="text-align:right;"> 1996 </td>
+   <td style="text-align:right;"> 140 </td>
+   <td style="text-align:left;"> 0.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud-Other </td>
+   <td style="text-align:right;"> 2016 </td>
+   <td style="text-align:right;"> 103 </td>
+   <td style="text-align:left;"> 0.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Forcible Sodomy </td>
+   <td style="text-align:right;"> 1995 </td>
+   <td style="text-align:right;"> 82 </td>
+   <td style="text-align:left;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pornography/Obscene Material </td>
+   <td style="text-align:right;"> 1995 </td>
+   <td style="text-align:right;"> 81 </td>
+   <td style="text-align:left;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Embezzlement </td>
+   <td style="text-align:right;"> 1995 </td>
+   <td style="text-align:right;"> 66 </td>
+   <td style="text-align:left;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Extortion/Blackmail </td>
+   <td style="text-align:right;"> 1997 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:left;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sexual Assault With An Object </td>
+   <td style="text-align:right;"> 1996 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:left;"> 0.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Purse-Snatching </td>
+   <td style="text-align:right;"> 1995 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pocket-Picking </td>
+   <td style="text-align:right;"> 1996 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Wire Fraud </td>
+   <td style="text-align:right;"> 2006 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Statutory Rape </td>
+   <td style="text-align:right;"> 1999 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Theft From Coin-Operated Machine Or Device </td>
+   <td style="text-align:right;"> 1999 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Unknown </td>
+   <td style="text-align:right;"> 2018 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Prostitution </td>
+   <td style="text-align:right;"> 2001 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Negligent Manslaughter </td>
+   <td style="text-align:right;"> 1999 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Welfare Fraud </td>
+   <td style="text-align:right;"> 1996 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Incest </td>
+   <td style="text-align:right;"> 1997 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Assisting Or Promoting Prostitution </td>
+   <td style="text-align:right;"> 2013 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Human Trafficking - Commercial Sex Acts </td>
+   <td style="text-align:right;"> 2017 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bribery </td>
+   <td style="text-align:right;"> 2014 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Purchasing Prostitution </td>
+   <td style="text-align:right;"> 2013 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Human Trafficking - Involuntary Servitude </td>
+   <td style="text-align:right;"> 2021 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 0.00\% </td>
   </tr>
 </tbody>
 </table>
@@ -659,130 +661,16 @@ As with the crime and the bias motivation, the available locations have increase
   <tr>
    <th style="text-align:left;"> Location </th>
    <th style="text-align:right;"> First Year Reported </th>
-   <th style="text-align:right;"> \# of Incidents </th>
-   <th style="text-align:left;"> \% of Incidents </th>
+   <th style="text-align:right;"> # of Incidents </th>
+   <th style="text-align:left;"> % of Incidents </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> Military Installation </td>
-   <td style="text-align:right;"> 2015 </td>
-   <td style="text-align:right;"> 5 </td>
-   <td style="text-align:left;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Community Center </td>
-   <td style="text-align:right;"> 2013 </td>
-   <td style="text-align:right;"> 215 </td>
-   <td style="text-align:left;"> 0.09\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Dock/Wharf/Freight/Modal Terminal </td>
-   <td style="text-align:right;"> 2012 </td>
-   <td style="text-align:right;"> 47 </td>
-   <td style="text-align:left;"> 0.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Shelter - Mission/Homeless </td>
-   <td style="text-align:right;"> 2011 </td>
-   <td style="text-align:right;"> 169 </td>
-   <td style="text-align:left;"> 0.07\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Arena/Stadium/Fairgrounds/Coliseum </td>
-   <td style="text-align:right;"> 2011 </td>
-   <td style="text-align:right;"> 88 </td>
-   <td style="text-align:left;"> 0.04\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Auto Dealership New/Used </td>
-   <td style="text-align:right;"> 2011 </td>
-   <td style="text-align:right;"> 82 </td>
-   <td style="text-align:left;"> 0.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Abandoned/Condemned Structure </td>
-   <td style="text-align:right;"> 2011 </td>
-   <td style="text-align:right;"> 75 </td>
-   <td style="text-align:left;"> 0.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Rest Area </td>
-   <td style="text-align:right;"> 2011 </td>
-   <td style="text-align:right;"> 65 </td>
-   <td style="text-align:left;"> 0.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Daycare Facility </td>
-   <td style="text-align:right;"> 2011 </td>
-   <td style="text-align:right;"> 47 </td>
-   <td style="text-align:left;"> 0.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Amusement Park </td>
-   <td style="text-align:right;"> 2011 </td>
-   <td style="text-align:right;"> 41 </td>
-   <td style="text-align:left;"> 0.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Farm Facility </td>
-   <td style="text-align:right;"> 2011 </td>
-   <td style="text-align:right;"> 34 </td>
-   <td style="text-align:left;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Tribal Lands </td>
-   <td style="text-align:right;"> 2011 </td>
-   <td style="text-align:right;"> 23 </td>
-   <td style="text-align:left;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Atm Separate From Bank </td>
-   <td style="text-align:right;"> 2011 </td>
-   <td style="text-align:right;"> 17 </td>
-   <td style="text-align:left;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> School - Elementary/Secondary </td>
-   <td style="text-align:right;"> 2010 </td>
-   <td style="text-align:right;"> 3,919 </td>
-   <td style="text-align:left;"> 1.64\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> School - College/University </td>
-   <td style="text-align:right;"> 2010 </td>
-   <td style="text-align:right;"> 2,068 </td>
-   <td style="text-align:left;"> 0.86\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Park/Playground </td>
-   <td style="text-align:right;"> 2010 </td>
-   <td style="text-align:right;"> 1,883 </td>
-   <td style="text-align:left;"> 0.79\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Shopping Mall </td>
-   <td style="text-align:right;"> 2010 </td>
-   <td style="text-align:right;"> 268 </td>
-   <td style="text-align:left;"> 0.11\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Industrial Site </td>
-   <td style="text-align:right;"> 2010 </td>
-   <td style="text-align:right;"> 135 </td>
-   <td style="text-align:left;"> 0.06\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Camp/Campground </td>
-   <td style="text-align:right;"> 2010 </td>
-   <td style="text-align:right;"> 77 </td>
-   <td style="text-align:left;"> 0.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Gambling Facility/Casino/Race Track </td>
-   <td style="text-align:right;"> 2010 </td>
-   <td style="text-align:right;"> 69 </td>
-   <td style="text-align:left;"> 0.03\% </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> - </td>
+   <td style="text-align:right;"> 239,665 </td>
+   <td style="text-align:left;"> 100\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Residence/Home </td>
@@ -839,6 +727,12 @@ As with the crime and the bias motivation, the available locations have increase
    <td style="text-align:left;"> 1.71\% </td>
   </tr>
   <tr>
+   <td style="text-align:left;"> School - Elementary/Secondary </td>
+   <td style="text-align:right;"> 2010 </td>
+   <td style="text-align:right;"> 3,919 </td>
+   <td style="text-align:left;"> 1.64\% </td>
+  </tr>
+  <tr>
    <td style="text-align:left;"> Government/Public Building </td>
    <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 3,545 </td>
@@ -881,6 +775,12 @@ As with the crime and the bias motivation, the available locations have increase
    <td style="text-align:left;"> 0.91\% </td>
   </tr>
   <tr>
+   <td style="text-align:left;"> School - College/University </td>
+   <td style="text-align:right;"> 2010 </td>
+   <td style="text-align:right;"> 2,068 </td>
+   <td style="text-align:left;"> 0.86\% </td>
+  </tr>
+  <tr>
    <td style="text-align:left;"> Department/Discount Store </td>
    <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 2,024 </td>
@@ -891,6 +791,12 @@ As with the crime and the bias motivation, the available locations have increase
    <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 1,967 </td>
    <td style="text-align:left;"> 0.82\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Park/Playground </td>
+   <td style="text-align:right;"> 2010 </td>
+   <td style="text-align:right;"> 1,883 </td>
+   <td style="text-align:left;"> 0.79\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Jail/Prison </td>
@@ -929,16 +835,112 @@ As with the crime and the bias motivation, the available locations have increase
    <td style="text-align:left;"> 0.17\% </td>
   </tr>
   <tr>
+   <td style="text-align:left;"> Shopping Mall </td>
+   <td style="text-align:right;"> 2010 </td>
+   <td style="text-align:right;"> 268 </td>
+   <td style="text-align:left;"> 0.11\% </td>
+  </tr>
+  <tr>
    <td style="text-align:left;"> Rental Storage Facility </td>
    <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 257 </td>
    <td style="text-align:left;"> 0.11\% </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> 239,665 </td>
-   <td style="text-align:left;"> 100\% </td>
+   <td style="text-align:left;"> Community Center </td>
+   <td style="text-align:right;"> 2013 </td>
+   <td style="text-align:right;"> 215 </td>
+   <td style="text-align:left;"> 0.09\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Shelter - Mission/Homeless </td>
+   <td style="text-align:right;"> 2011 </td>
+   <td style="text-align:right;"> 169 </td>
+   <td style="text-align:left;"> 0.07\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Industrial Site </td>
+   <td style="text-align:right;"> 2010 </td>
+   <td style="text-align:right;"> 135 </td>
+   <td style="text-align:left;"> 0.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arena/Stadium/Fairgrounds/Coliseum </td>
+   <td style="text-align:right;"> 2011 </td>
+   <td style="text-align:right;"> 88 </td>
+   <td style="text-align:left;"> 0.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Auto Dealership New/Used </td>
+   <td style="text-align:right;"> 2011 </td>
+   <td style="text-align:right;"> 82 </td>
+   <td style="text-align:left;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Camp/Campground </td>
+   <td style="text-align:right;"> 2010 </td>
+   <td style="text-align:right;"> 77 </td>
+   <td style="text-align:left;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Abandoned/Condemned Structure </td>
+   <td style="text-align:right;"> 2011 </td>
+   <td style="text-align:right;"> 75 </td>
+   <td style="text-align:left;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gambling Facility/Casino/Race Track </td>
+   <td style="text-align:right;"> 2010 </td>
+   <td style="text-align:right;"> 69 </td>
+   <td style="text-align:left;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Rest Area </td>
+   <td style="text-align:right;"> 2011 </td>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:left;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Dock/Wharf/Freight/Modal Terminal </td>
+   <td style="text-align:right;"> 2012 </td>
+   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:left;"> 0.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Daycare Facility </td>
+   <td style="text-align:right;"> 2011 </td>
+   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:left;"> 0.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amusement Park </td>
+   <td style="text-align:right;"> 2011 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:left;"> 0.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Farm Facility </td>
+   <td style="text-align:right;"> 2011 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tribal Lands </td>
+   <td style="text-align:right;"> 2011 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Atm Separate From Bank </td>
+   <td style="text-align:right;"> 2011 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Military Installation </td>
+   <td style="text-align:right;"> 2015 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> 0.00\% </td>
   </tr>
 </tbody>
 </table>
@@ -963,3 +965,529 @@ The data also includes the race of the offenders as a group, though not the ethn
 <img src="09_hate_crime_files/figure-html/hateCrimeOffenderRace-1.png" alt="The race of offenders, as a group, for hate crime incidents, 1991-2022." width="90%" />
 <p class="caption">(\#fig:hateCrimeOffenderRace)The race of offenders, as a group, for hate crime incidents, 1991-2022.</p>
 </div>
+
+
+### Number of victims 
+
+When considering the data itself, hate crime data is very similar to most other datasets, though with the additional step of having evidence of bias. But the difference in use is that while in other crimes the victim is usually, well, the victim, in hate crimes the victim may be a much wider group. Let's say a person's home is burglarized. The homeowner^[Or renter.] is clearly the victim as it was their house targeted. Their neighbors may also feel some effect if they are now concerned about their own home. And the victim's family will likely be concern. But the victim group is very limited and is directly related to the crime. Hate crimes tend to affect everyone in the targeted group, or at least a much wider span of people than something like burglary. If a swastica, for example, is spray painted on the front door of a synagogue who is the victim? Directly it'd be whomever owns the synagogue building. But it also affects all members of that congregation. And what about members of other synagogues in the city? What about Jewish people in the city who don't go to synagogue? Even though only a single crime occurred - a vandalism - it is very difficult to count how many victims there were. Is a swastika on a synagogue worse if the synagogue has a small congregation versus a large one? What if it is in a city with only one synagogue compared to a city with many? Is it worse to have a large swastika than a small one? If we're trying to use this data to measure hate against a particular group these are questions we need to answer, but are of course impossible to answer with this data. Remember, all of the FBI data is essentially just abstract contextless numbers in a spreadsheet. This is true for all UCR data but especially so for hate crimes where no two hate crimes are equal. 
+
+In fact, I'd argue that this issue - alongside the massive under- and misreporting by agencies - is bad enough that we should be extraordinarily cautious when using this data. My main takeaway for this data is that it is inappropriate to use for most hate crime research. At most it can be used to look at within-city within-bias-motivation trends, while keeping in mind that even this narrow subset of data is limited by under-reporting by victims and potential changes in police practices of reporting such as how many months of data they report per year. Nonetheless, this is data that people - researchers, reporters, politicians, etc. - do use to measure hate crime data, so I'll do my best in this chapter to explain how to use it. 
+
+
+```
+#>       ori      ori9              hate_crime_incident_present       state
+#> 1 CT00156 CT0015600 one or more hate crime incidents present connecticut
+#> 2 TN03901 TN0390100 one or more hate crime incidents present   tennessee
+#> 3 KY05204 KY0520400          no hate crime incidents present        <NA>
+#> 4 MI33581 MI3358100 one or more hate crime incidents present    michigan
+#> 5 PA01506 PA0150600          no hate crime incidents present        <NA>
+#> 6 PA003BF PA003BF00          no hate crime incidents present        <NA>
+#>   state_abb incident_date     month month_num day_of_week year population
+#> 1        CT    2009-05-30       may         5    Saturday 2009      53746
+#> 2        TN    2010-10-05   october        10     Tuesday 2010       7876
+#> 3      <NA>          <NA>      <NA>        NA        <NA> 2017        796
+#> 4        MI    2022-09-17 september         9    Saturday 2022          0
+#> 5      <NA>          <NA>      <NA>        NA        <NA> 2003       3092
+#> 6      <NA>          <NA>      <NA>        NA        <NA> 2006          0
+#>                agency_name     city_name        population_group
+#> 1               west haven    west haven city 50,000 thru 99,999
+#> 2                lexington     lexington   city 2,500 thru 9,999
+#> 3            campbellsburg campbellsburg        city under 2,500
+#> 4 michigan state universit  east lansing        city under 2,500
+#> 5                  malvern       malvern   city 2,500 thru 9,999
+#> 6     bf: armstrong county    harrisburg msa-county under 10,000
+#>     country_division country_region core_city covered_by_ori fbi_field_office
+#> 1        new england     north east        no           <NA>             3520
+#> 2 east south central          south        no           <NA>             3440
+#> 3 east south central          south        no           <NA>             3420
+#> 4 east north central  north central        no           <NA>             3220
+#> 5    middle atlantic     north east        no           <NA>             3620
+#> 6    middle atlantic     north east        no           <NA>             3650
+#>   judicial_district agency_nibrs_flag agency_inactive_date date_ori_was_added
+#> 1              065a              <NA>                 <NA>         1991-04-30
+#> 2              375w            active                 <NA>         1991-04-30
+#> 3              160e              <NA>                 <NA>         1991-04-30
+#> 4              205w            active                 <NA>               <NA>
+#> 5              335e              <NA>                 <NA>         1991-04-30
+#> 6              345w              <NA>                 <NA>         1995-01-26
+#>   date_ori_went_nibrs  state_first_quarter_activity
+#> 1                <NA> incident report was submitted
+#> 2          1997-11-01 incident report was submitted
+#> 3                <NA>                          <NA>
+#> 4          2000-01-01 incident report was submitted
+#> 5                <NA>     zero-report was submitted
+#> 6                <NA>                          <NA>
+#>   state_second_quarter_activity  state_third_quarter_activity
+#> 1 incident report was submitted incident report was submitted
+#> 2 incident report was submitted     zero-report was submitted
+#> 3                          <NA>                          <NA>
+#> 4 incident report was submitted incident report was submitted
+#> 5     zero-report was submitted     zero-report was submitted
+#> 6                          <NA>                          <NA>
+#>   state_fourth_quarter_activity federal_first_quarter_activity
+#> 1 incident report was submitted                             NA
+#> 2 incident report was submitted                             NA
+#> 3                          <NA>                             NA
+#> 4 incident report was submitted                             NA
+#> 5     zero-report was submitted                             NA
+#> 6                          <NA>                             NA
+#>   federal_second_quarter_activity federal_third_quarter_activity
+#> 1                              NA                             NA
+#> 2                              NA                             NA
+#> 3                              NA                             NA
+#> 4                              NA                             NA
+#> 5                              NA                             NA
+#> 6                              NA                             NA
+#>   federal_fourth_quarter_activity     data_source      quarter_of_the_year
+#> 1                              NA data entry form       april through june
+#> 2                              NA  nibrs incident october through december
+#> 3                              NA            <NA>                     <NA>
+#> 4                              NA  nibrs incident   july through september
+#> 5                              NA            <NA>                     <NA>
+#> 6                              NA            <NA>                     <NA>
+#>        agency_indicator fips_state_code fips_county_code fips_state_county_code
+#> 1                  city              09              009                  09009
+#> 2                  city              47              077                  47077
+#> 3                  city              21              103                  21103
+#> 4 university or college              26              065                  26065
+#> 5                  city              42              029                  42029
+#> 6                     5              42              005                  42005
+#>   fips_place_code             agency_type
+#> 1           82800 local police department
+#> 2           41980 local police department
+#> 3           12142 local police department
+#> 4           24120    special jurisdiction
+#> 5           46792 local police department
+#> 6           99005    special jurisdiction
+#>                         crosswalk_agency_name           census_name  longitude
+#> 1                west haven police department       west haven city -72.900204
+#> 2                 lexington police department        lexington city -88.387674
+#> 3             campbellsburg police department    campbellsburg city -85.120079
+#> 4 michigan state university police department     state of michigan -84.373811
+#> 5           malvern borough police department       malvern borough -75.749732
+#> 6                        bf: armstrong county state of pennsylvania -79.464129
+#>    latitude                                address_name
+#> 1 41.349717                west haven police department
+#> 2 35.653994                 lexington police department
+#> 3 38.451561             campbellsburg police department
+#> 4 42.603534 michigan state university police department
+#> 5 39.973965           malvern borough police department
+#> 6  40.81238                            armstrong county
+#>           address_street_line_1 address_street_line_2  address_city
+#> 1             200 saw mill road                  <NA>    west haven
+#> 2               88 first street                  <NA>     lexington
+#> 3                   p.o. box 67      8142 main street campbellsburg
+#> 4               87 red cedar rd                  <NA>  east lansing
+#> 5 1 east first avenue,  suite 1                  <NA>       malvern
+#> 6                          <NA>                  <NA>    harrisburg
+#>   address_state address_zip_code msa_code_1 msa_code_2 msa_code_3
+#> 1            ct             6516        588       <NA>       <NA>
+#> 2            tn            38351       <NA>       <NA>       <NA>
+#> 3            ky            40011        483       <NA>       <NA>
+#> 4            mi            48824        427       <NA>       <NA>
+#> 5            pa            19355        660       <NA>       <NA>
+#> 6            pa            17101        667       <NA>       <NA>
+#>   incident_number                   unique_id total_num_of_individual_victims
+#> 1    ci0iro5v-0 n 2009_CT0015600_ci0iro5v-0 n                               1
+#> 2    1w-hqbx0td1a 2010_TN0390100_1w-hqbx0td1a                               1
+#> 3            <NA>           2017_KY0520400_NA                              NA
+#> 4    l62 zbpl7- b 2022_MI3358100_l62 zbpl7- b                               1
+#> 5            <NA>           2003_PA0150600_NA                              NA
+#> 6            <NA>           2006_PA003BF00_NA                              NA
+#>   total_offenders offenders_race_as_a_group number_of_victims_offense_1
+#> 1               1                     white                         001
+#> 2               0                   unknown                         001
+#> 3              NA                      <NA>                        <NA>
+#> 4               1                   unknown                         001
+#> 5              NA                      <NA>                        <NA>
+#> 6              NA                      <NA>                        <NA>
+#>   number_of_victims_offense_2 number_of_victims_offense_3
+#> 1                        <NA>                        <NA>
+#> 2                        <NA>                        <NA>
+#> 3                        <NA>                        <NA>
+#> 4                        <NA>                        <NA>
+#> 5                        <NA>                        <NA>
+#> 6                        <NA>                        <NA>
+#>   number_of_victims_offense_4 number_of_victims_offense_5
+#> 1                        <NA>                        <NA>
+#> 2                        <NA>                        <NA>
+#> 3                        <NA>                        <NA>
+#> 4                        <NA>                        <NA>
+#> 5                        <NA>                        <NA>
+#> 6                        <NA>                        <NA>
+#>   number_of_victims_offense_6 number_of_victims_offense_7
+#> 1                        <NA>                        <NA>
+#> 2                        <NA>                        <NA>
+#> 3                        <NA>                        <NA>
+#> 4                        <NA>                        <NA>
+#> 5                        <NA>                        <NA>
+#> 6                        <NA>                        <NA>
+#>   number_of_victims_offense_8 number_of_victims_offense_9
+#> 1                        <NA>                        <NA>
+#> 2                        <NA>                        <NA>
+#> 3                        <NA>                        <NA>
+#> 4                        <NA>                        <NA>
+#> 5                        <NA>                        <NA>
+#> 6                        <NA>                        <NA>
+#>   number_of_victims_offense_10 ucr_offense_code_1 ucr_offense_code_2
+#> 1                         <NA>       intimidation               <NA>
+#> 2                         <NA>       intimidation               <NA>
+#> 3                         <NA>               <NA>               <NA>
+#> 4                         <NA>       intimidation               <NA>
+#> 5                         <NA>               <NA>               <NA>
+#> 6                         <NA>               <NA>               <NA>
+#>   ucr_offense_code_3 ucr_offense_code_4 ucr_offense_code_5 ucr_offense_code_6
+#> 1               <NA>               <NA>               <NA>               <NA>
+#> 2               <NA>               <NA>               <NA>               <NA>
+#> 3               <NA>               <NA>               <NA>               <NA>
+#> 4               <NA>               <NA>               <NA>               <NA>
+#> 5               <NA>               <NA>               <NA>               <NA>
+#> 6               <NA>               <NA>               <NA>               <NA>
+#>   ucr_offense_code_7 ucr_offense_code_8 ucr_offense_code_9 ucr_offense_code_10
+#> 1               <NA>               <NA>               <NA>                <NA>
+#> 2               <NA>               <NA>               <NA>                <NA>
+#> 3               <NA>               <NA>               <NA>                <NA>
+#> 4               <NA>               <NA>               <NA>                <NA>
+#> 5               <NA>               <NA>               <NA>                <NA>
+#> 6               <NA>               <NA>               <NA>                <NA>
+#>    bias_motivation_offense_1 bias_motivation_offense_2
+#> 1                 anti-white                      <NA>
+#> 2                 anti-black                      <NA>
+#> 3                       <NA>                      <NA>
+#> 4 anti-male homosexual (gay)                      <NA>
+#> 5                       <NA>                      <NA>
+#> 6                       <NA>                      <NA>
+#>   bias_motivation_offense_3 bias_motivation_offense_4 bias_motivation_offense_5
+#> 1                      <NA>                      <NA>                      <NA>
+#> 2                      <NA>                      <NA>                      <NA>
+#> 3                      <NA>                      <NA>                      <NA>
+#> 4                      <NA>                      <NA>                      <NA>
+#> 5                      <NA>                      <NA>                      <NA>
+#> 6                      <NA>                      <NA>                      <NA>
+#>   bias_motivation_offense_6 bias_motivation_offense_7 bias_motivation_offense_8
+#> 1                      <NA>                      <NA>                      <NA>
+#> 2                      <NA>                      <NA>                      <NA>
+#> 3                      <NA>                      <NA>                      <NA>
+#> 4                      <NA>                      <NA>                      <NA>
+#> 5                      <NA>                      <NA>                      <NA>
+#> 6                      <NA>                      <NA>                      <NA>
+#>   bias_motivation_offense_9 bias_motivation_offense_10
+#> 1                      <NA>                       <NA>
+#> 2                      <NA>                       <NA>
+#> 3                      <NA>                       <NA>
+#> 4                      <NA>                       <NA>
+#> 5                      <NA>                       <NA>
+#> 6                      <NA>                       <NA>
+#>       location_code_offense_1 location_code_offense_2 location_code_offense_3
+#> 1          highway/road/alley                    <NA>                    <NA>
+#> 2           construction site                    <NA>                    <NA>
+#> 3                        <NA>                    <NA>                    <NA>
+#> 4 school - college/university                    <NA>                    <NA>
+#> 5                        <NA>                    <NA>                    <NA>
+#> 6                        <NA>                    <NA>                    <NA>
+#>   location_code_offense_4 location_code_offense_5 location_code_offense_6
+#> 1                    <NA>                    <NA>                    <NA>
+#> 2                    <NA>                    <NA>                    <NA>
+#> 3                    <NA>                    <NA>                    <NA>
+#> 4                    <NA>                    <NA>                    <NA>
+#> 5                    <NA>                    <NA>                    <NA>
+#> 6                    <NA>                    <NA>                    <NA>
+#>   location_code_offense_7 location_code_offense_8 location_code_offense_9
+#> 1                    <NA>                    <NA>                    <NA>
+#> 2                    <NA>                    <NA>                    <NA>
+#> 3                    <NA>                    <NA>                    <NA>
+#> 4                    <NA>                    <NA>                    <NA>
+#> 5                    <NA>                    <NA>                    <NA>
+#> 6                    <NA>                    <NA>                    <NA>
+#>   location_code_offense_10 vic_type_individual_offense_1
+#> 1                     <NA>                             1
+#> 2                     <NA>                             1
+#> 3                     <NA>                          <NA>
+#> 4                     <NA>                             1
+#> 5                     <NA>                          <NA>
+#> 6                     <NA>                          <NA>
+#>   vic_type_individual_offense_2 vic_type_individual_offense_3
+#> 1                             0                             0
+#> 2                             0                             0
+#> 3                          <NA>                          <NA>
+#> 4                             0                             0
+#> 5                          <NA>                          <NA>
+#> 6                          <NA>                          <NA>
+#>   vic_type_individual_offense_4 vic_type_individual_offense_5
+#> 1                             0                             0
+#> 2                             0                             0
+#> 3                          <NA>                          <NA>
+#> 4                             0                             0
+#> 5                          <NA>                          <NA>
+#> 6                          <NA>                          <NA>
+#>   vic_type_individual_offense_6 vic_type_individual_offense_7
+#> 1                             0                             0
+#> 2                             0                             0
+#> 3                          <NA>                          <NA>
+#> 4                             0                             0
+#> 5                          <NA>                          <NA>
+#> 6                          <NA>                          <NA>
+#>   vic_type_individual_offense_8 vic_type_individual_offense_9
+#> 1                             0                             0
+#> 2                             0                             0
+#> 3                          <NA>                          <NA>
+#> 4                             0                             0
+#> 5                          <NA>                          <NA>
+#> 6                          <NA>                          <NA>
+#>   vic_type_individual_offense_10 vic_type_business_offense_1
+#> 1                              0                           0
+#> 2                              0                           0
+#> 3                           <NA>                        <NA>
+#> 4                              0                           0
+#> 5                           <NA>                        <NA>
+#> 6                           <NA>                        <NA>
+#>   vic_type_business_offense_2 vic_type_business_offense_3
+#> 1                           0                           0
+#> 2                           0                           0
+#> 3                        <NA>                        <NA>
+#> 4                           0                           0
+#> 5                        <NA>                        <NA>
+#> 6                        <NA>                        <NA>
+#>   vic_type_business_offense_4 vic_type_business_offense_5
+#> 1                           0                           0
+#> 2                           0                           0
+#> 3                        <NA>                        <NA>
+#> 4                           0                           0
+#> 5                        <NA>                        <NA>
+#> 6                        <NA>                        <NA>
+#>   vic_type_business_offense_6 vic_type_business_offense_7
+#> 1                           0                           0
+#> 2                           0                           0
+#> 3                        <NA>                        <NA>
+#> 4                           0                           0
+#> 5                        <NA>                        <NA>
+#> 6                        <NA>                        <NA>
+#>   vic_type_business_offense_8 vic_type_business_offense_9
+#> 1                           0                           0
+#> 2                           0                           0
+#> 3                        <NA>                        <NA>
+#> 4                           0                           0
+#> 5                        <NA>                        <NA>
+#> 6                        <NA>                        <NA>
+#>   vic_type_business_offense_10 vic_type_government_offense_1
+#> 1                            0                             0
+#> 2                            0                             0
+#> 3                         <NA>                          <NA>
+#> 4                            0                             0
+#> 5                         <NA>                          <NA>
+#> 6                         <NA>                          <NA>
+#>   vic_type_government_offense_2 vic_type_government_offense_3
+#> 1                             0                             0
+#> 2                             0                             0
+#> 3                          <NA>                          <NA>
+#> 4                             0                             0
+#> 5                          <NA>                          <NA>
+#> 6                          <NA>                          <NA>
+#>   vic_type_government_offense_4 vic_type_government_offense_5
+#> 1                             0                             0
+#> 2                             0                             0
+#> 3                          <NA>                          <NA>
+#> 4                             0                             0
+#> 5                          <NA>                          <NA>
+#> 6                          <NA>                          <NA>
+#>   vic_type_government_offense_6 vic_type_government_offense_7
+#> 1                             0                             0
+#> 2                             0                             0
+#> 3                          <NA>                          <NA>
+#> 4                             0                             0
+#> 5                          <NA>                          <NA>
+#> 6                          <NA>                          <NA>
+#>   vic_type_government_offense_8 vic_type_government_offense_9
+#> 1                             0                             0
+#> 2                             0                             0
+#> 3                          <NA>                          <NA>
+#> 4                             0                             0
+#> 5                          <NA>                          <NA>
+#> 6                          <NA>                          <NA>
+#>   vic_type_government_offense_10 vic_type_society_offense_1
+#> 1                              0                          0
+#> 2                              0                          0
+#> 3                           <NA>                       <NA>
+#> 4                              0                          0
+#> 5                           <NA>                       <NA>
+#> 6                           <NA>                       <NA>
+#>   vic_type_society_offense_2 vic_type_society_offense_3
+#> 1                          0                          0
+#> 2                          0                          0
+#> 3                       <NA>                       <NA>
+#> 4                          0                          0
+#> 5                       <NA>                       <NA>
+#> 6                       <NA>                       <NA>
+#>   vic_type_society_offense_4 vic_type_society_offense_5
+#> 1                          0                          0
+#> 2                          0                          0
+#> 3                       <NA>                       <NA>
+#> 4                          0                          0
+#> 5                       <NA>                       <NA>
+#> 6                       <NA>                       <NA>
+#>   vic_type_society_offense_6 vic_type_society_offense_7
+#> 1                          0                          0
+#> 2                          0                          0
+#> 3                       <NA>                       <NA>
+#> 4                          0                          0
+#> 5                       <NA>                       <NA>
+#> 6                       <NA>                       <NA>
+#>   vic_type_society_offense_8 vic_type_society_offense_9
+#> 1                          0                          0
+#> 2                          0                          0
+#> 3                       <NA>                       <NA>
+#> 4                          0                          0
+#> 5                       <NA>                       <NA>
+#> 6                       <NA>                       <NA>
+#>   vic_type_society_offense_10 vic_type_unknown_offense_1
+#> 1                           0                          0
+#> 2                           0                          0
+#> 3                        <NA>                       <NA>
+#> 4                           0                          0
+#> 5                        <NA>                       <NA>
+#> 6                        <NA>                       <NA>
+#>   vic_type_unknown_offense_2 vic_type_unknown_offense_3
+#> 1                          0                          0
+#> 2                          0                          0
+#> 3                       <NA>                       <NA>
+#> 4                          0                          0
+#> 5                       <NA>                       <NA>
+#> 6                       <NA>                       <NA>
+#>   vic_type_unknown_offense_4 vic_type_unknown_offense_5
+#> 1                          0                          0
+#> 2                          0                          0
+#> 3                       <NA>                       <NA>
+#> 4                          0                          0
+#> 5                       <NA>                       <NA>
+#> 6                       <NA>                       <NA>
+#>   vic_type_unknown_offense_6 vic_type_unknown_offense_7
+#> 1                          0                          0
+#> 2                          0                          0
+#> 3                       <NA>                       <NA>
+#> 4                          0                          0
+#> 5                       <NA>                       <NA>
+#> 6                       <NA>                       <NA>
+#>   vic_type_unknown_offense_8 vic_type_unknown_offense_9
+#> 1                          0                          0
+#> 2                          0                          0
+#> 3                       <NA>                       <NA>
+#> 4                          0                          0
+#> 5                       <NA>                       <NA>
+#> 6                       <NA>                       <NA>
+#>   vic_type_unknown_offense_10 vic_type_financial_offense_1
+#> 1                           0                            0
+#> 2                           0                            0
+#> 3                        <NA>                         <NA>
+#> 4                           0                            0
+#> 5                        <NA>                         <NA>
+#> 6                        <NA>                         <NA>
+#>   vic_type_financial_offense_2 vic_type_financial_offense_3
+#> 1                            0                            0
+#> 2                            0                            0
+#> 3                         <NA>                         <NA>
+#> 4                            0                            0
+#> 5                         <NA>                         <NA>
+#> 6                         <NA>                         <NA>
+#>   vic_type_financial_offense_4 vic_type_financial_offense_5
+#> 1                            0                            0
+#> 2                            0                            0
+#> 3                         <NA>                         <NA>
+#> 4                            0                            0
+#> 5                         <NA>                         <NA>
+#> 6                         <NA>                         <NA>
+#>   vic_type_financial_offense_6 vic_type_financial_offense_7
+#> 1                            0                            0
+#> 2                            0                            0
+#> 3                         <NA>                         <NA>
+#> 4                            0                            0
+#> 5                         <NA>                         <NA>
+#> 6                         <NA>                         <NA>
+#>   vic_type_financial_offense_8 vic_type_financial_offense_9
+#> 1                            0                            0
+#> 2                            0                            0
+#> 3                         <NA>                         <NA>
+#> 4                            0                            0
+#> 5                         <NA>                         <NA>
+#> 6                         <NA>                         <NA>
+#>   vic_type_financial_offense_10 vic_type_religious_offense_1
+#> 1                             0                            0
+#> 2                             0                            0
+#> 3                          <NA>                         <NA>
+#> 4                             0                            0
+#> 5                          <NA>                         <NA>
+#> 6                          <NA>                         <NA>
+#>   vic_type_religious_offense_2 vic_type_religious_offense_3
+#> 1                            0                            0
+#> 2                            0                            0
+#> 3                         <NA>                         <NA>
+#> 4                            0                            0
+#> 5                         <NA>                         <NA>
+#> 6                         <NA>                         <NA>
+#>   vic_type_religious_offense_4 vic_type_religious_offense_5
+#> 1                            0                            0
+#> 2                            0                            0
+#> 3                         <NA>                         <NA>
+#> 4                            0                            0
+#> 5                         <NA>                         <NA>
+#> 6                         <NA>                         <NA>
+#>   vic_type_religious_offense_6 vic_type_religious_offense_7
+#> 1                            0                            0
+#> 2                            0                            0
+#> 3                         <NA>                         <NA>
+#> 4                            0                            0
+#> 5                         <NA>                         <NA>
+#> 6                         <NA>                         <NA>
+#>   vic_type_religious_offense_8 vic_type_religious_offense_9
+#> 1                            0                            0
+#> 2                            0                            0
+#> 3                         <NA>                         <NA>
+#> 4                            0                            0
+#> 5                         <NA>                         <NA>
+#> 6                         <NA>                         <NA>
+#>   vic_type_religious_offense_10 vic_type_other_offense_1
+#> 1                             0                        0
+#> 2                             0                        0
+#> 3                          <NA>                     <NA>
+#> 4                             0                        0
+#> 5                          <NA>                     <NA>
+#> 6                          <NA>                     <NA>
+#>   vic_type_other_offense_2 vic_type_other_offense_3 vic_type_other_offense_4
+#> 1                        0                        0                        0
+#> 2                        0                        0                        0
+#> 3                     <NA>                     <NA>                     <NA>
+#> 4                        0                        0                        0
+#> 5                     <NA>                     <NA>                     <NA>
+#> 6                     <NA>                     <NA>                     <NA>
+#>   vic_type_other_offense_5 vic_type_other_offense_6 vic_type_other_offense_7
+#> 1                        0                        0                        0
+#> 2                        0                        0                        0
+#> 3                     <NA>                     <NA>                     <NA>
+#> 4                        0                        0                        0
+#> 5                     <NA>                     <NA>                     <NA>
+#> 6                     <NA>                     <NA>                     <NA>
+#>   vic_type_other_offense_8 vic_type_other_offense_9 vic_type_other_offense_10
+#> 1                        0                        0                         0
+#> 2                        0                        0                         0
+#> 3                     <NA>                     <NA>                      <NA>
+#> 4                        0                        0                         0
+#> 5                     <NA>                     <NA>                      <NA>
+#> 6                     <NA>                     <NA>                      <NA>
+#>   hate_crime_binary state_abb_ori total_offenses
+#> 1                 1            CT              1
+#> 2                 1            TN              1
+#> 3                 0            KY              0
+#> 4                 1            MI              1
+#> 5                 0            PA              0
+#> 6                 0            PA              0
+```
+
+<div class="figure" style="text-align: center">
+<img src="09_hate_crime_files/figure-html/jewishIncidentVictim-1.png" alt="The annual number of anti-Jewish hate crime incidents and victims in the United States, 1991-2022." width="90%" />
+<p class="caption">(\#fig:jewishIncidentVictim)The annual number of anti-Jewish hate crime incidents and victims in the United States, 1991-2022.</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<img src="09_hate_crime_files/figure-html/blackIncidentVictim-1.png" alt="The annual number of anti-Black hate crime incidents and victims in the United States, 1991-2022." width="90%" />
+<p class="caption">(\#fig:blackIncidentVictim)The annual number of anti-Black hate crime incidents and victims in the United States, 1991-2022.</p>
+</div>
+
