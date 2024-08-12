@@ -84,6 +84,7 @@ fig:leokaDisturbanceWeapon
 fig:leokaShiftAssignment
 fig:phoenixAssaultTimes
 fig:arsonAgencies
+fig:arsonAgencies12Months
 fig:arsonClearance
 fig:residenceArson
 fig:arsonCost
@@ -210,6 +211,7 @@ assaults-by-time
 arsonChapter
 agencies-reporting-5
 important-variables-5
+arsonType
 actual-arsons
 unfounded-arsons
 reported-arsons
@@ -217,7 +219,6 @@ cleared-arsons
 cleared-for-arsons-where-all-offenders-are-under-age-18
 uninhabited-building-arsons
 estimated-damage-cost
-arsonType
 data-errors-1
 hate_crimes
 agencies-reporting-6
