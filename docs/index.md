@@ -74,7 +74,7 @@ BibTeX format:
 
 #### openICPSR
 
-#### (Crimedatatool.com)[https://crimedatatool.com/]
+#### [Crimedatatool.com][https://crimedatatool.com/]
 
 ### NACJD
 
