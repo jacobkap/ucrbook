@@ -23,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2024-08-11" />
+<meta name="date" content="2024-08-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -358,13 +358,15 @@ div.csl-indent {
 <p>In cases where the arson led to a death, that death would be recorded as a murder on the Offenses Known and Clearances by Arrest dataset - but not indicated anywhere on this dataset. If an individual who responds to the arson dies because of it, such as a police officer or a firefighter, this is not considered a homicide (though the officer death is still included in the Law Enforcement Officers Killed and Assaulted data) unless the arsonist intended to cause their deaths. Even though the Offenses Known data uses the Hierarchy Rule, where only the most serious offense that occurs is recorded, all arsons are reported - arson is exempt from the Hierarchy Rule.</p>
 <div id="agencies-reporting-5" class="section level2 hasAnchor" number="8.1">
 <h2><span class="header-section-number">8.1</span> Agencies reporting<a href="arsonChapter.html#agencies-reporting-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Figure <a href="arsonChapter.html#fig:arsonAgencies">8.1</a> shows the annual number of police agencies that reported at least one month that year. With data starting in 1979, there were a little over 12,000 agencies reporting a year until the early 2000s where it recovered from a sharp drop in agencies to steadily increase to about 16,000 a year. Curiously, the number of reporting agencies dropped in 2019 and 2020. Then</p>
+<p>This dataset measures how many months that an agency reports data over a year in the same way as the Offenses Known data does: the standard FBI definition using the last month reported, and my own measure counting how many months reported data according to a column for each month that says so.<a href="#fn77" class="footnote-ref" id="fnref77"><sup>77</sup></a> And just like the Offenses Known data, the variable I use for my own measurement changed in 2018, leading to fewer months of data reported and making it non-comparable to pre-2018 data. The variable changed again in 2021 and said that all agencies always reported data in every month, making the variable useless.</p>
+<p>In Figure <a href="arsonChapter.html#fig:arsonAgencies">8.1</a> we can see the annual number of agencies that reported at least one month of data using both measures. These measures are nearly identical every year with the last month reported having slightly more agencies reported, but they are effectively the same. This changes in 2018 as my measure declines considerably and then skyrockets to nearly 25,000 agencies in 2021 and 2022. The last month reported variable declines considerably in 2021, consistent with the FBI ending SRS collection, and then rebounds in 2022 when the FBI reopens SRS collection. How can there be more than 18k agencies reporting? The 18k number is the estimated number of agencies that are active. Agencies that can respond to crimes and do investigations. Remember that SRS data goes back decades - the Offenses Known data is available since 1930. So agencies can come and go, with agencies shutting down or joining with other agencies. Over time this adds up to thousands of agencies other than the 18k we normal think about.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arsonAgencies"></span>
 <img src="08_arson_files/figure-html/arsonAgencies-1.png" alt="The annual number of police agencies that report at least month of data that year, 1979-2022." width="90%" />
 <p class="caption">
 Figure 8.1: The annual number of police agencies that report at least month of data that year, 1979-2022.
 </p>
 </div>
+<p>In Figure <a href="#arsonAgencies12Months"><strong>??</strong></a> we can see the same graph as before but now for agencies reporting 12 months of data that year. The trends in both measures are the same, at least until 2018, with the last month reported measure always being a bit higher than the number of months missing measure. Which measure is better to use? In general I’d say my own measure but obviously that doesn’t work starting in 2018. In practice both measures are quite similar so the decision on which to use depends on your own use-case such as if you are looking at data after 2017.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arsonAgencies12Months"></span>
 <img src="08_arson_files/figure-html/arsonAgencies12Months-1.png" alt="The annual number of police agencies that report 12 months of data that year, 1979-2022." width="90%" />
 <p class="caption">
@@ -418,7 +420,7 @@ Figure 8.2: The annual number of police agencies that report 12 months of data t
 </div>
 <div id="cleared-arsons" class="section level3 hasAnchor" number="8.2.5">
 <h3><span class="header-section-number">8.2.5</span> Cleared arsons<a href="arsonChapter.html#cleared-arsons" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>This shows the number of arsons where at least one offender is arrested or when an arrest cannot be made for some reason, but the police know who the offender is - the latter option is called “exceptional clearances” or “clearances by exceptional means.” There is no way to tell if a clearance is due to an arrest or due to exceptional means.<a href="#fn77" class="footnote-ref" id="fnref77"><sup>77</sup></a>.</p>
+<p>This shows the number of arsons where at least one offender is arrested or when an arrest cannot be made for some reason, but the police know who the offender is - the latter option is called “exceptional clearances” or “clearances by exceptional means.” There is no way to tell if a clearance is due to an arrest or due to exceptional means.<a href="#fn78" class="footnote-ref" id="fnref78"><sup>78</sup></a>.</p>
 <p>Please note that this data is at the incident-level which means that having multiple people arrested for an incident still only is a clearance for that single incident. If there are multiple people who committed the arson only one needs to be arrested or exceptionally cleared for the incident to be cleared.</p>
 <p>Clearances are also reported in the month they occur, not in the month that the initial crime happened. This can lead to cases where there are more clearances than crimes, incorrectly leading to the conclusion that police solve &gt;100% of crimes. Figure <a href="arsonChapter.html#fig:arsonClearance">8.3</a> shows the number of actual arsons (reports that are founded) and clearances for single-family home arsons in League City, Texas, a city of about 100,000 outside of Houston. In most years there were fewer clearances than arsons, but in four years (1982, 1981, 1992, and 2007) there were more clearances than arsons.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arsonClearance"></span>
@@ -463,7 +465,8 @@ Figure 8.5: The annual cost per arson for single family homes in Los Angeles, Ca
 <div class="footnotes">
 <hr />
 <ol start="77">
-<li id="fn77"><p>NIBRS data does tell more information about the type of arrest, but SRS data does not<a href="arsonChapter.html#fnref77" class="footnote-back">↩︎</a></p></li>
+<li id="fn77"><p>This is different than identifying how many months have an arson as there may be months that truly do not have any arsons. We don’t want to count those are non-reporting months.<a href="arsonChapter.html#fnref77" class="footnote-back">↩︎</a></p></li>
+<li id="fn78"><p>NIBRS data does tell more information about the type of arrest, but SRS data does not<a href="arsonChapter.html#fnref78" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

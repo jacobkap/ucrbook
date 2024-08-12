@@ -186,7 +186,8 @@ offenses_known_yearly %>%
   scale_color_manual(values = c("Last Month Reported" = "#1b9e77",
                                 "# of Months Missing" = "#d95f02")) +
   scale_y_continuous(labels = scales::comma) +
-  labs(color = "")
+  labs(color = "") +
+  expand_limits(y = 0)
 ```
 
 Usually when you are looking at crime data you want annual data, so having agencies report a full year's of data is more important than them submitting just partial data. This is especially important when comparing an agency over time or two different agencies to each other. Obviously, an agency with 6 month of data will have fewer crimes reported than one with 12 months reported, all else being equal. But this is something easy to overlook as it's an easy assumption that agencies will report a full years-worth of data. Unfortunately, this is always true. Some agencies don't report any data and others report only part of the year - though if an agency reports one month they usually do report all 12. Figure \@ref(fig:offensesAgenciesReportingFull) repeats Figure \@ref(fig:offensesAgenciesReporting) but now showing only agencies reporting 12 months of data, using both of our measures. Since 1960 every year has had fewer agencies reporting full data using the "number of months missing" method than the "last month reported" method. 
@@ -207,12 +208,13 @@ offenses_known_yearly %>%
   scale_color_manual(values = c("Last Month Reported" = "#1b9e77",
                                 "# of Months Missing" = "#d95f02")) +
   scale_y_continuous(labels = scales::comma) +
-  labs(color = "")
+  labs(color = "") +
+  expand_limits(y = 0)
 ```
 
-So using the far more common last month reported method will overestimate how many agencies report a full year of data. In practice, though, this affects very little data. At least when aggregating nationally - which I generally advise against since local crime matters a lot more than national averages. Still, let's look the increase in the total number of crimes reported by 12-month reporting agencies increases from the "number of months missing" measure to the "last month reported" measure. The answer is an extremely small increase, averaging (mean = 0.93, mean = 1.55) about a one percent point increase each year. The differences in measuring how many months are reported can matter a great deal at the agency-level, but does very little when aggregating nationally.
+So using the far more common last month reported method will overestimate how many agencies report a full year of data. In practice, though, this affects very little data. At least when aggregating nationally - which I generally advise against since local crime matters a lot more than national averages. Still, let's look the increase in the total number of crimes reported by 12-month reporting agencies increases from the "number of months missing" measure to the "last month reported" measure, shown in Figure \@ref(fig:murdersBothMeasures). The answer is an extremely small increase, averaging (mean = 0.93, mean = 1.55) about a one percent point increase each year. The differences in measuring how many months are reported can matter a great deal at the agency-level, but does very little when aggregating nationally.
 
-```{r}
+```{r murdersBothMeasures, fig.cap = "The percent change in the number of murders reported in the United States each year when moving from the number of months missing measure to the last month reported measure, 1960-2022."}
 last_month_murder <- 
   offenses_known_yearly %>%
   filter(last_month_full %in% 1) %>%
@@ -238,7 +240,8 @@ last_month_murder %>%
   ylab("% Change") +
   theme_crim() +
   scale_y_continuous(labels = scales::percent) +
-  labs(color = "")
+  labs(color = "") +
+  expand_limits(y = 0)
 
 ```
 
@@ -264,7 +267,8 @@ offenses_known_yearly %>%
   ylab("Rate per 100,000") +
   theme_crim() +
   scale_y_continuous(labels = scales::comma) +
-  labs(color = "")
+  labs(color = "") +
+  expand_limits(y = 0)
 
 ```
 
@@ -297,7 +301,8 @@ offenses_known_yearly %>%
   scale_color_manual(values = c("Actual Murders" = "#1b9e77",
                                 "Cleared Murders" = "#d95f02")) +
   scale_y_continuous(labels = scales::comma) +
-  labs(color = "")
+  labs(color = "") +
+  expand_limits(y = 0)
 
 ```
 
@@ -324,7 +329,8 @@ offenses_known_yearly %>%
   ylab("# of Rapes") +
   theme_crim() +
   scale_y_continuous(labels = scales::comma) +
-  labs(color = "")
+  labs(color = "") +
+  expand_limits(y = 0)
 ```
 
 While this is a useful variable, it is not captured in NIBRS data. Instead the number of unfounded crimes is always reported as zero. For example, Figures \@ref(fig:memphisUnfounded) and \@ref(fig:denverUnfounded) show the annual number of unfounded crimes (of any crime type) in Memphis, TN, and Denver, CO, which are two of the earliest large agencies to adopt NIBRS. Memphis started in reporting to NIBRS in 2000 and Denver did so in 2005. These agencies stopped reporting any unfounded crimes either in that or the following year.^[For Memphis, as agencies can report both SRS and NIBRS, that agency may have reported both in 2000 which is why we still see unfounded data that year.]
@@ -342,7 +348,8 @@ offenses_known_yearly %>%
   ylab("# of Crimes") +
   theme_crim() +
   scale_y_continuous(labels = scales::comma) +
-  labs(color = "")
+  labs(color = "") +
+  expand_limits(y = 0)
 ```
 
 
@@ -464,7 +471,8 @@ offenses_known_yearly %>%
   theme_crim() +
   crimeutils::scale_color_crim() + 
   scale_y_continuous(labels = scales::comma) +
-  labs(color = "")
+  labs(color = "") +
+  expand_limits(y = 0)
 ```
 
 Figure \@ref(fig:manslaughterPercent) shows another way to look at this data: manslaughter as a percent of reported murder. In the early years of our data manslaughter was fairly common, with about 70-80% as many manslaughters reported as murders. This declined sharply in the mid-1960s until there were around 45% as many manslaughters as murders in the mid-1970s. Again, this declined until it was about 4% in 1980, and it has remained around there ever since. As police behavior could reduce traffic fatalities - and arrests for DUIs and traffic tickets are designed to improve public safety - it is unfortunate the we no longer have data on traffic deaths. 
@@ -482,6 +490,7 @@ offenses_known_yearly %>%
   xlab("Year") +
   ylab("Percent of Murders") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent) 
+  scale_y_continuous(labels = scales::percent)  +
+  expand_limits(y = 0)
 ```
 

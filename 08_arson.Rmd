@@ -23,7 +23,10 @@ In cases where the arson led to a death, that death would be recorded as a murde
 
 ## Agencies reporting
 
-Figure \@ref(fig:arsonAgencies) shows the annual number of police agencies that reported at least one month that year. With data starting in 1979, there were a little over 12,000 agencies reporting a year until the early 2000s where it recovered from a sharp drop in agencies to steadily increase to about 16,000 a year. Curiously, the number of reporting agencies dropped in 2019 and 2020. Then 
+This dataset measures how many months that an agency reports data over a year in the same way as the Offenses Known data does: the standard FBI definition using the last month reported, and my own measure counting how many months reported data according to a column for each month that says so.^[This is different than identifying how many months have an arson as there may be months that truly do not have any arsons. We don't want to count those are non-reporting months.] And just like the Offenses Known data, the variable I use for my own measurement changed in 2018, leading to fewer months of data reported and making it non-comparable to pre-2018 data. The variable changed again in 2021 and said that all agencies always reported data in every month, making the variable useless. 
+
+In Figure \@ref(fig:arsonAgencies) we can see the annual number of agencies that reported at least one month of data using both measures. These measures are nearly identical every year with the last month reported having slightly more agencies reported, but they are effectively the same. This changes in 2018 as my measure declines considerably and then skyrockets to nearly 25,000 agencies in 2021 and 2022. The last month reported variable declines considerably in 2021, consistent with the FBI ending SRS collection, and then rebounds in 2022 when the FBI reopens SRS collection. How can there be more than 18k agencies reporting? The 18k number is the estimated number of agencies that are active. Agencies that can respond to crimes and do investigations. Remember that SRS data goes back decades - the Offenses Known data is available since 1930. So agencies can come and go, with agencies shutting down or joining with other agencies. Over time this adds up to thousands of agencies other than the 18k we normal think about. 
+
 
 ```{r arsonAgencies, fig.cap = "The annual number of police agencies that report at least month of data that year, 1979-2022."}
 arson$last_month_any <- 0
@@ -53,8 +56,11 @@ arson %>%
   scale_color_manual(values = c("Last Month Reported" = "#1b9e77",
                                 "# of Months Missing" = "#d95f02")) +
   scale_y_continuous(labels = scales::comma) +
-  labs(color = "")
+  labs(color = "") +
+  expand_limits(y = 0)
 ```
+
+In Figure \@ref(arsonAgencies12Months) we can see the same graph as before but now for agencies reporting 12 months of data that year. The trends in both measures are the same, at least until 2018, with the last month reported measure always being a bit higher than the number of months missing measure. Which measure is better to use? In general I'd say my own measure but obviously that doesn't work starting in 2018. In practice both measures are quite similar so the decision on which to use depends on your own use-case such as if you are looking at data after 2017. 
 
 ```{r arsonAgencies12Months, fig.cap = "The annual number of police agencies that report 12 months of data that year, 1979-2022."}
 
@@ -72,7 +78,8 @@ arson %>%
   scale_color_manual(values = c("Last Month Reported" = "#1b9e77",
                                 "# of Months Missing" = "#d95f02")) +
   scale_y_continuous(labels = scales::comma) +
-  labs(color = "")
+  labs(color = "") +
+  expand_limits(y = 0)
 
 ```
 

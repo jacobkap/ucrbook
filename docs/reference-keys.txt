@@ -15,6 +15,7 @@ fig:fbiHierarchy
 tab:nibrsHierarchy
 fig:offensesAgenciesReporting
 fig:offensesAgenciesReportingFull
+fig:murdersBothMeasures
 fig:newarkMurders
 fig:lapdClearance
 fig:frankenmuthRape
