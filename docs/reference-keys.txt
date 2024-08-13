@@ -121,7 +121,7 @@ tab:countyPhillyMurderMonthsMissing
 tab:countyDanvilleBurglaryMonthsMissing
 tab:countyMurderMonthsMissing
 tab:countyPopulationGroupStatsNational
-fig:countyPopulationGroupsBoxplot
+tab:countyPopulationGroupStats
 tab:countyPopulationGroupStatsTexas
 tab:countyPopulationGroupStatsMaine
 preface

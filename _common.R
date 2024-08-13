@@ -158,6 +158,7 @@ get_murder_by_pop_group <- function(data) {
     ),
     mean_murder = NA,
     median_murder = NA,
+    percentile_90 = NA,
     min_murder = NA,
     max_murder = NA
   )
@@ -169,6 +170,7 @@ get_murder_by_pop_group <- function(data) {
     final$mean_murder[i] <- mean(temp$actual_murder)
     final$median_murder[i] <- median(temp$actual_murder)
     final$min_murder[i] <- min(temp$actual_murder)
+    final$percentile_90[i] <- as.numeric(quantile(temp$actual_murder, 0.90))
     final$max_murder[i] <- max(temp$actual_murder)
     }
   }
@@ -181,6 +183,7 @@ get_murder_by_pop_group <- function(data) {
   final$mean_murder[final$mean_murder == "NA"] <- "-"
   final$median_murder[final$median_murder == "NA"] <- "-"
   final$min_murder[final$min_murder == "NA"] <- "-"
+  final$percentile_90[final$percentile_90 == "NA"] <- "-"
   final$max_murder[final$max_murder == "NA"] <- "-"
 
   final$agency_size <- gsub(" thru ", "-", final$agency_size, ignore.case = TRUE)
@@ -192,6 +195,7 @@ get_murder_by_pop_group <- function(data) {
     "Population Group",
     "Mean Murder",
     "Median Murder",
+    "90th Percentile Murder",
     "Minimum Murder",
     "Max Murder"
   )
