@@ -817,14 +817,14 @@ Table \@ref(tab:countyPopulationGroupStatsNational) shows these values for all a
 [^ucr_county-12]: The negative number for minimum crimes in the Non-MSA Counties and Non-MSA State Police is due to a reporting quirk of UCR, covered in Chapter 2, and is not a mistake in the data.
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:countyPopulationGroupStatsNational)The mean, median, minimum, and maximum agency size nationwide for all population groups in the 2022 Offenses Known and Clearances by Arrests data.</caption>
+<caption>(\#tab:countyPopulationGroupStatsNational)The mean, median, minimum, and maximum agency-level murder count nationwide for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.</caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Population Group </th>
-   <th style="text-align:right;"> Mean Murder + Gun Assault </th>
-   <th style="text-align:right;"> Median Murder + Gun Assault </th>
-   <th style="text-align:right;"> Minimum Murder + Gun Assault </th>
-   <th style="text-align:left;"> Max Murder + Gun Assault </th>
+   <th style="text-align:right;"> Mean Murder </th>
+   <th style="text-align:right;"> Median Murder </th>
+   <th style="text-align:right;"> Minimum Murder </th>
+   <th style="text-align:left;"> Max Murder </th>
   </tr>
  </thead>
 <tbody>
@@ -833,63 +833,63 @@ Table \@ref(tab:countyPopulationGroupStatsNational) shows these values for all a
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> 137 </td>
+   <td style="text-align:left;"> 26 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> City 2,500-9,999 </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 1 </td>
    <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> 138 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> 10 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> City 10,000-24,999 </td>
-   <td style="text-align:right;"> 9 </td>
-   <td style="text-align:right;"> 3 </td>
    <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> 330 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> 58 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> City 25,000-49,999 </td>
-   <td style="text-align:right;"> 23 </td>
-   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 1 </td>
    <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> 349 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> 21 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> City 50,000-99,999 </td>
-   <td style="text-align:right;"> 55 </td>
-   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
    <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> 462 </td>
+   <td style="text-align:left;"> 47 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> City 100,000-249,999 </td>
-   <td style="text-align:right;"> 198 </td>
-   <td style="text-align:right;"> 92 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 6 </td>
    <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> 1,893 </td>
+   <td style="text-align:left;"> 142 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> City 250,000+ </td>
-   <td style="text-align:right;"> 1,639 </td>
-   <td style="text-align:right;"> 950 </td>
-   <td style="text-align:right;"> 22 </td>
-   <td style="text-align:left;"> 10,056 </td>
+   <td style="text-align:right;"> 96 </td>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 604 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> MSA Counties And MSA State Police </td>
-   <td style="text-align:right;"> 33 </td>
-   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
    <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> 3,456 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> 141 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Non-MSA Counties And Non-MSA State Police </td>
-   <td style="text-align:right;"> 5 </td>
-   <td style="text-align:right;"> 1 </td>
    <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> 685 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> 29 </td>
   </tr>
 </tbody>
 </table>
@@ -899,21 +899,21 @@ Table \@ref(tab:countyPopulationGroupStatsNational) shows these values for all a
 To better see the distribution, Figure \@ref(fig:countyPopulationGroupsBoxplot) shows boxplots for the rate per 100,000 population of murders+gun-assaults in each population group in 2022. Since there can't be a rate without any population, this excludes all agencies with a population of zero. To make the graph simpler to see, it also excludes all agencies with a rate about 500, which is 57 agencies. Each population group has a relatively large range of values with the size of the boxplot growing as the size of the population group increases. This means that there are a wider variety of rates in larger population groups than in smaller population groups. Each population group also has a good number of agencies that are outliers with a much higher rate than is normal.
 
 <div class="figure" style="text-align: center">
-<img src="10_ucr_county_files/figure-html/countyPopulationGroupsBoxplot-1.png" alt="Boxplots showing the distribution of annual murders+gun-assaults for each population group for all agencies that reported December data in 2022." width="90%" />
-<p class="caption">(\#fig:countyPopulationGroupsBoxplot)Boxplots showing the distribution of annual murders+gun-assaults for each population group for all agencies that reported December data in 2022.</p>
+<img src="10_ucr_county_files/figure-html/countyPopulationGroupsBoxplot-1.png" alt="Boxplots showing the distribution of annual murders for each population group for all agencies that reported December data in 2022." width="90%" />
+<p class="caption">(\#fig:countyPopulationGroupsBoxplot)Boxplots showing the distribution of annual murders for each population group for all agencies that reported December data in 2022.</p>
 </div>
 
 Since the actual imputation process looks only at agencies in the same state, we'll look at two example states - Texas and Maine - and see how trends differ from nationally. These states are chosen as Texas is a very large (both in population and in number of jurisdictions) state with some areas of high crime while Maine is a small, more rural state with very low crime. Table \@ref(tab:countyPopulationGroupStatsTexas) shows results in Texas. Here, the findings are very similar to that of Table \@ref(tab:countyPopulationGroupStatsNational). While the numbers are different, and the maximum value is substantially smaller than using all agencies in the country, the basic findings of a wide range of values - especially at larger population groups - is the same.
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:countyPopulationGroupStatsTexas)The mean, median, minimum, and maximum agency size for agencies in Texas for all population groups in the 2022 Offenses Known and Clearances by Arrests data.</caption>
+<caption>(\#tab:countyPopulationGroupStatsTexas)The mean, median, minimum, and maximum agency-level murder count in Texas for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.</caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Population Group </th>
-   <th style="text-align:right;"> Mean Murder + Gun Assault </th>
-   <th style="text-align:right;"> Median Murder + Gun Assault </th>
-   <th style="text-align:right;"> Minimum Murder + Gun Assault </th>
-   <th style="text-align:left;"> Max Murder + Gun Assault </th>
+   <th style="text-align:right;"> Mean Murder </th>
+   <th style="text-align:right;"> Median Murder </th>
+   <th style="text-align:right;"> Minimum Murder </th>
+   <th style="text-align:left;"> Max Murder </th>
   </tr>
  </thead>
 <tbody>
@@ -922,63 +922,63 @@ Since the actual imputation process looks only at agencies in the same state, we
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> 15 </td>
+   <td style="text-align:left;"> 2 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> City 2,500-9,999 </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 2 </td>
    <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> 25 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> 3 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> City 10,000-24,999 </td>
-   <td style="text-align:right;"> 12 </td>
-   <td style="text-align:right;"> 9 </td>
    <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> 72 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> 22 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> City 25,000-49,999 </td>
-   <td style="text-align:right;"> 29 </td>
-   <td style="text-align:right;"> 23 </td>
    <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> 140 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> 8 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> City 50,000-99,999 </td>
-   <td style="text-align:right;"> 65 </td>
-   <td style="text-align:right;"> 50 </td>
-   <td style="text-align:right;"> 11 </td>
-   <td style="text-align:left;"> 217 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> 13 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> City 100,000-249,999 </td>
-   <td style="text-align:right;"> 173 </td>
-   <td style="text-align:right;"> 127 </td>
-   <td style="text-align:right;"> 24 </td>
-   <td style="text-align:left;"> 518 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> 23 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> City 250,000+ </td>
-   <td style="text-align:right;"> 2,310 </td>
-   <td style="text-align:right;"> 1,033 </td>
-   <td style="text-align:right;"> 142 </td>
-   <td style="text-align:left;"> 8,022 </td>
+   <td style="text-align:right;"> 93 </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 433 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> MSA Counties And MSA State Police </td>
-   <td style="text-align:right;"> 5 </td>
-   <td style="text-align:right;"> 2 </td>
    <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> 57 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> 7 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Non-MSA Counties And Non-MSA State Police </td>
-   <td style="text-align:right;"> 85 </td>
-   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
    <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> 3,456 </td>
+   <td style="text-align:left;"> 141 </td>
   </tr>
 </tbody>
 </table>
@@ -988,14 +988,14 @@ Since the actual imputation process looks only at agencies in the same state, we
 Now we'll look at data from Maine, as shown in Table \@ref(tab:countyPopulationGroupStatsMaine). Here, results are much better: there is a narrow range in values meaning that the imputation would be very similar to the real values. This is driven mainly by Maine being a tiny state, with only one city larger than 50,000 people (Portland) and Maine being an extremely safe state so most places have zero murders+gun-assaults. In cases like this, where both crime and population size are consistent across the state (which is generally caused by everywhere having low crime), this imputation process can work well.
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:countyPopulationGroupStatsMaine)The mean, median, minimum, and maximum agency size for agencies in Maine for all population groups in the 2022 Offenses Known and Clearances by Arrests data.</caption>
+<caption>(\#tab:countyPopulationGroupStatsMaine)The mean, median, minimum, and maximum agency-level murder count in Maine for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.</caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Population Group </th>
-   <th style="text-align:right;"> Mean Murder + Gun Assault </th>
-   <th style="text-align:right;"> Median Murder + Gun Assault </th>
-   <th style="text-align:right;"> Minimum Murder + Gun Assault </th>
-   <th style="text-align:left;"> Max Murder + Gun Assault </th>
+   <th style="text-align:right;"> Mean Murder </th>
+   <th style="text-align:right;"> Median Murder </th>
+   <th style="text-align:right;"> Minimum Murder </th>
+   <th style="text-align:left;"> Max Murder </th>
   </tr>
  </thead>
 <tbody>
@@ -1004,35 +1004,35 @@ Now we'll look at data from Maine, as shown in Table \@ref(tab:countyPopulationG
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> 3 </td>
+   <td style="text-align:left;"> 1 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> City 2,500-9,999 </td>
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:left;"> 1 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> City 10,000-24,999 </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 1 </td>
    <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> 25 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> 2 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> City 25,000-49,999 </td>
-   <td style="text-align:right;"> 6 </td>
-   <td style="text-align:right;"> 6 </td>
    <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> 13 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> 3 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> City 50,000-99,999 </td>
-   <td style="text-align:right;"> 12 </td>
-   <td style="text-align:right;"> 12 </td>
-   <td style="text-align:right;"> 12 </td>
-   <td style="text-align:left;"> 12 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> 5 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> City 100,000-249,999 </td>
@@ -1050,17 +1050,17 @@ Now we'll look at data from Maine, as shown in Table \@ref(tab:countyPopulationG
   </tr>
   <tr>
    <td style="text-align:left;"> MSA Counties And MSA State Police </td>
-   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> 19 </td>
+   <td style="text-align:left;"> 13 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Non-MSA Counties And Non-MSA State Police </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 2 </td>
    <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> 0 </td>
   </tr>
 </tbody>
 </table>

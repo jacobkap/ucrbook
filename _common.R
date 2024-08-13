@@ -137,7 +137,7 @@ get_percent_change <- function(number1,
   return(final)
 }
 
-get_murder_gun_assaults_by_pop_group <- function(data) {
+get_murder_by_pop_group <- function(data) {
   data$population_group[data$population_group %in% c("city 1,000,000+",
                                                      "city 250,000 thru 499,999",
                                                      "city 500,000 thru  999,999")] <- "city 250,000+"
@@ -156,21 +156,20 @@ get_murder_gun_assaults_by_pop_group <- function(data) {
       "msa counties and msa state police",
       "non-msa counties and non-msa state police"
     ),
-    mean_murder_or_gun_ass = NA,
-    median_murder_or_gun_ass = NA,
-    min_murder_or_gun_ass = NA,
-    max_murder_or_gun_ass = NA
+    mean_murder = NA,
+    median_murder = NA,
+    min_murder = NA,
+    max_murder = NA
   )
 
-  data$murder_gun_assaults <- data$actual_murder + data$actual_assault_with_a_gun
 
   for (i in 1:nrow(final)) {
     temp <- data[data$population_group %in% final$agency_size[i], ]
     if (nrow(temp) > 0) {
-    final$mean_murder_or_gun_ass[i] <- mean(temp$murder_gun_assaults)
-    final$median_murder_or_gun_ass[i] <- median(temp$murder_gun_assaults)
-    final$min_murder_or_gun_ass[i] <- min(temp$murder_gun_assaults)
-    final$max_murder_or_gun_ass[i] <- max(temp$murder_gun_assaults)
+    final$mean_murder[i] <- mean(temp$actual_murder)
+    final$median_murder[i] <- median(temp$actual_murder)
+    final$min_murder[i] <- min(temp$actual_murder)
+    final$max_murder[i] <- max(temp$actual_murder)
     }
   }
   final <-
@@ -179,10 +178,10 @@ get_murder_gun_assaults_by_pop_group <- function(data) {
     mutate_if(is.numeric, formatC, format = "d", big.mark = ",") %>%
     mutate(agency_size = capitalize_words(agency_size))
 
-  final$mean_murder_or_gun_ass[final$mean_murder_or_gun_ass == "NA"] <- "-"
-  final$median_murder_or_gun_ass[final$median_murder_or_gun_ass == "NA"] <- "-"
-  final$min_murder_or_gun_ass[final$min_murder_or_gun_ass == "NA"] <- "-"
-  final$max_murder_or_gun_ass[final$max_murder_or_gun_ass == "NA"] <- "-"
+  final$mean_murder[final$mean_murder == "NA"] <- "-"
+  final$median_murder[final$median_murder == "NA"] <- "-"
+  final$min_murder[final$min_murder == "NA"] <- "-"
+  final$max_murder[final$max_murder == "NA"] <- "-"
 
   final$agency_size <- gsub(" thru ", "-", final$agency_size, ignore.case = TRUE)
   final$agency_size <- gsub("msa", "MSA", final$agency_size, ignore.case = TRUE)
@@ -191,10 +190,10 @@ get_murder_gun_assaults_by_pop_group <- function(data) {
 
   names(final) <- c(
     "Population Group",
-    "Mean Murder + Gun Assault",
-    "Median Murder + Gun Assault",
-    "Minimum Murder + Gun Assault",
-    "Max Murder + Gun Assault"
+    "Mean Murder",
+    "Median Murder",
+    "Minimum Murder",
+    "Max Murder"
   )
 
   return(final)

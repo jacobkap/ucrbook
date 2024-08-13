@@ -1934,7 +1934,7 @@ Full data
 <p>Table <a href="county-level-data.html#tab:countyPopulationGroupStatsNational">10.8</a> shows these values for all agencies in the United States who reported 12 months of data (based on the “December last month reported” definition) in 2022. The actual imputation process only looks at agencies in the same state, but this is still information at seeing broad trends - and we’ll look at two specific states below. Column 1 shows each of the population groups in the data while the remaining columns show the mean, median, minimum, and maximum number of murders+gun-assaults in 2022, respectively.<a href="#fn96" class="footnote-ref" id="fnref96"><sup>96</sup></a> For each population group there is a large range of values, as seen from the minimum and maximum values. There are also large differences in the mean and median values for larger (25,000+ population) agencies, particularly when compared to the top and bottom of the range of values.<a href="#fn97" class="footnote-ref" id="fnref97"><sup>97</sup></a> Using this imputation method will, in most cases (but soon we’ll see an instance where there’s an exception) provide substantially different values than the real (but unknown) values.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:countyPopulationGroupStatsNational">Table 10.8: </span>The mean, median, minimum, and maximum agency size nationwide for all population groups in the 2022 Offenses Known and Clearances by Arrests data.
+<span id="tab:countyPopulationGroupStatsNational">Table 10.8: </span>The mean, median, minimum, and maximum agency-level murder count nationwide for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.
 </caption>
 <thead>
 <tr>
@@ -1942,16 +1942,16 @@ Full data
 Population Group
 </th>
 <th style="text-align:right;">
-Mean Murder + Gun Assault
+Mean Murder
 </th>
 <th style="text-align:right;">
-Median Murder + Gun Assault
+Median Murder
 </th>
 <th style="text-align:right;">
-Minimum Murder + Gun Assault
+Minimum Murder
 </th>
 <th style="text-align:left;">
-Max Murder + Gun Assault
+Max Murder
 </th>
 </tr>
 </thead>
@@ -1970,7 +1970,7 @@ City Under 2,500
 0
 </td>
 <td style="text-align:left;">
-137
+26
 </td>
 </tr>
 <tr>
@@ -1978,16 +1978,16 @@ City Under 2,500
 City 2,500-9,999
 </td>
 <td style="text-align:right;">
-3
+0
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:left;">
-138
+10
 </td>
 </tr>
 <tr>
@@ -1995,16 +1995,16 @@ City 2,500-9,999
 City 10,000-24,999
 </td>
 <td style="text-align:right;">
-9
+0
 </td>
 <td style="text-align:right;">
-3
+0
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:left;">
-330
+58
 </td>
 </tr>
 <tr>
@@ -2012,16 +2012,16 @@ City 10,000-24,999
 City 25,000-49,999
 </td>
 <td style="text-align:right;">
-23
+1
 </td>
 <td style="text-align:right;">
-9
+0
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:left;">
-349
+21
 </td>
 </tr>
 <tr>
@@ -2029,16 +2029,16 @@ City 25,000-49,999
 City 50,000-99,999
 </td>
 <td style="text-align:right;">
-55
+3
 </td>
 <td style="text-align:right;">
-28
+2
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:left;">
-462
+47
 </td>
 </tr>
 <tr>
@@ -2046,16 +2046,16 @@ City 50,000-99,999
 City 100,000-249,999
 </td>
 <td style="text-align:right;">
-198
+10
 </td>
 <td style="text-align:right;">
-92
+6
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:left;">
-1,893
+142
 </td>
 </tr>
 <tr>
@@ -2063,16 +2063,16 @@ City 100,000-249,999
 City 250,000+
 </td>
 <td style="text-align:right;">
-1,639
+96
 </td>
 <td style="text-align:right;">
-950
+48
 </td>
 <td style="text-align:right;">
-22
+1
 </td>
 <td style="text-align:left;">
-10,056
+604
 </td>
 </tr>
 <tr>
@@ -2080,16 +2080,16 @@ City 250,000+
 MSA Counties And MSA State Police
 </td>
 <td style="text-align:right;">
-33
+2
 </td>
 <td style="text-align:right;">
-3
+0
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:left;">
-3,456
+141
 </td>
 </tr>
 <tr>
@@ -2097,31 +2097,31 @@ MSA Counties And MSA State Police
 Non-MSA Counties And Non-MSA State Police
 </td>
 <td style="text-align:right;">
-5
+0
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:left;">
-685
+29
 </td>
 </tr>
 </tbody>
 </table>
 <p>To better see the distribution, Figure <a href="county-level-data.html#fig:countyPopulationGroupsBoxplot">10.9</a> shows boxplots for the rate per 100,000 population of murders+gun-assaults in each population group in 2022. Since there can’t be a rate without any population, this excludes all agencies with a population of zero. To make the graph simpler to see, it also excludes all agencies with a rate about 500, which is 57 agencies. Each population group has a relatively large range of values with the size of the boxplot growing as the size of the population group increases. This means that there are a wider variety of rates in larger population groups than in smaller population groups. Each population group also has a good number of agencies that are outliers with a much higher rate than is normal.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:countyPopulationGroupsBoxplot"></span>
-<img src="10_ucr_county_files/figure-html/countyPopulationGroupsBoxplot-1.png" alt="Boxplots showing the distribution of annual murders+gun-assaults for each population group for all agencies that reported December data in 2022." width="90%" />
+<img src="10_ucr_county_files/figure-html/countyPopulationGroupsBoxplot-1.png" alt="Boxplots showing the distribution of annual murders for each population group for all agencies that reported December data in 2022." width="90%" />
 <p class="caption">
-Figure 10.9: Boxplots showing the distribution of annual murders+gun-assaults for each population group for all agencies that reported December data in 2022.
+Figure 10.9: Boxplots showing the distribution of annual murders for each population group for all agencies that reported December data in 2022.
 </p>
 </div>
 <p>Since the actual imputation process looks only at agencies in the same state, we’ll look at two example states - Texas and Maine - and see how trends differ from nationally. These states are chosen as Texas is a very large (both in population and in number of jurisdictions) state with some areas of high crime while Maine is a small, more rural state with very low crime. Table <a href="county-level-data.html#tab:countyPopulationGroupStatsTexas">10.9</a> shows results in Texas. Here, the findings are very similar to that of Table <a href="county-level-data.html#tab:countyPopulationGroupStatsNational">10.8</a>. While the numbers are different, and the maximum value is substantially smaller than using all agencies in the country, the basic findings of a wide range of values - especially at larger population groups - is the same.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:countyPopulationGroupStatsTexas">Table 10.9: </span>The mean, median, minimum, and maximum agency size for agencies in Texas for all population groups in the 2022 Offenses Known and Clearances by Arrests data.
+<span id="tab:countyPopulationGroupStatsTexas">Table 10.9: </span>The mean, median, minimum, and maximum agency-level murder count in Texas for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.
 </caption>
 <thead>
 <tr>
@@ -2129,16 +2129,16 @@ Figure 10.9: Boxplots showing the distribution of annual murders+gun-assaults fo
 Population Group
 </th>
 <th style="text-align:right;">
-Mean Murder + Gun Assault
+Mean Murder
 </th>
 <th style="text-align:right;">
-Median Murder + Gun Assault
+Median Murder
 </th>
 <th style="text-align:right;">
-Minimum Murder + Gun Assault
+Minimum Murder
 </th>
 <th style="text-align:left;">
-Max Murder + Gun Assault
+Max Murder
 </th>
 </tr>
 </thead>
@@ -2157,7 +2157,7 @@ City Under 2,500
 0
 </td>
 <td style="text-align:left;">
-15
+2
 </td>
 </tr>
 <tr>
@@ -2165,16 +2165,16 @@ City Under 2,500
 City 2,500-9,999
 </td>
 <td style="text-align:right;">
-3
+0
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:left;">
-25
+3
 </td>
 </tr>
 <tr>
@@ -2182,16 +2182,16 @@ City 2,500-9,999
 City 10,000-24,999
 </td>
 <td style="text-align:right;">
-12
+0
 </td>
 <td style="text-align:right;">
-9
+0
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:left;">
-72
+22
 </td>
 </tr>
 <tr>
@@ -2199,16 +2199,16 @@ City 10,000-24,999
 City 25,000-49,999
 </td>
 <td style="text-align:right;">
-29
-</td>
-<td style="text-align:right;">
-23
+1
 </td>
 <td style="text-align:right;">
 1
 </td>
+<td style="text-align:right;">
+0
+</td>
 <td style="text-align:left;">
-140
+8
 </td>
 </tr>
 <tr>
@@ -2216,176 +2216,13 @@ City 25,000-49,999
 City 50,000-99,999
 </td>
 <td style="text-align:right;">
-65
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
-11
-</td>
-<td style="text-align:left;">
-217
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-City 100,000-249,999
-</td>
-<td style="text-align:right;">
-173
-</td>
-<td style="text-align:right;">
-127
-</td>
-<td style="text-align:right;">
-24
-</td>
-<td style="text-align:left;">
-518
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-City 250,000+
-</td>
-<td style="text-align:right;">
-2,310
-</td>
-<td style="text-align:right;">
-1,033
-</td>
-<td style="text-align:right;">
-142
-</td>
-<td style="text-align:left;">
-8,022
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MSA Counties And MSA State Police
-</td>
-<td style="text-align:right;">
-5
+2
 </td>
 <td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
 0
-</td>
-<td style="text-align:left;">
-57
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Non-MSA Counties And Non-MSA State Police
-</td>
-<td style="text-align:right;">
-85
-</td>
-<td style="text-align:right;">
-18
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:left;">
-3,456
-</td>
-</tr>
-</tbody>
-</table>
-<p>Now we’ll look at data from Maine, as shown in Table <a href="county-level-data.html#tab:countyPopulationGroupStatsMaine">10.10</a>. Here, results are much better: there is a narrow range in values meaning that the imputation would be very similar to the real values. This is driven mainly by Maine being a tiny state, with only one city larger than 50,000 people (Portland) and Maine being an extremely safe state so most places have zero murders+gun-assaults. In cases like this, where both crime and population size are consistent across the state (which is generally caused by everywhere having low crime), this imputation process can work well.</p>
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:countyPopulationGroupStatsMaine">Table 10.10: </span>The mean, median, minimum, and maximum agency size for agencies in Maine for all population groups in the 2022 Offenses Known and Clearances by Arrests data.
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-Population Group
-</th>
-<th style="text-align:right;">
-Mean Murder + Gun Assault
-</th>
-<th style="text-align:right;">
-Median Murder + Gun Assault
-</th>
-<th style="text-align:right;">
-Minimum Murder + Gun Assault
-</th>
-<th style="text-align:left;">
-Max Murder + Gun Assault
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-City Under 2,500
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:left;">
-3
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-City 2,500-9,999
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:left;">
-2
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-City 10,000-24,999
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:left;">
-25
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-City 25,000-49,999
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-1
 </td>
 <td style="text-align:left;">
 13
@@ -2393,19 +2230,182 @@ City 25,000-49,999
 </tr>
 <tr>
 <td style="text-align:left;">
+City 100,000-249,999
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+City 250,000+
+</td>
+<td style="text-align:right;">
+93
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+433
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MSA Counties And MSA State Police
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Non-MSA Counties And Non-MSA State Police
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+141
+</td>
+</tr>
+</tbody>
+</table>
+<p>Now we’ll look at data from Maine, as shown in Table <a href="county-level-data.html#tab:countyPopulationGroupStatsMaine">10.10</a>. Here, results are much better: there is a narrow range in values meaning that the imputation would be very similar to the real values. This is driven mainly by Maine being a tiny state, with only one city larger than 50,000 people (Portland) and Maine being an extremely safe state so most places have zero murders+gun-assaults. In cases like this, where both crime and population size are consistent across the state (which is generally caused by everywhere having low crime), this imputation process can work well.</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:countyPopulationGroupStatsMaine">Table 10.10: </span>The mean, median, minimum, and maximum agency-level murder count in Maine for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Population Group
+</th>
+<th style="text-align:right;">
+Mean Murder
+</th>
+<th style="text-align:right;">
+Median Murder
+</th>
+<th style="text-align:right;">
+Minimum Murder
+</th>
+<th style="text-align:left;">
+Max Murder
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+City Under 2,500
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+City 2,500-9,999
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+City 10,000-24,999
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+City 25,000-49,999
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 City 50,000-99,999
 </td>
 <td style="text-align:right;">
-12
+5
 </td>
 <td style="text-align:right;">
-12
+5
 </td>
 <td style="text-align:right;">
-12
+5
 </td>
 <td style="text-align:left;">
-12
+5
 </td>
 </tr>
 <tr>
@@ -2447,7 +2447,7 @@ City 250,000+
 MSA Counties And MSA State Police
 </td>
 <td style="text-align:right;">
-2
+1
 </td>
 <td style="text-align:right;">
 0
@@ -2456,7 +2456,7 @@ MSA Counties And MSA State Police
 0
 </td>
 <td style="text-align:left;">
-19
+13
 </td>
 </tr>
 <tr>
@@ -2464,16 +2464,16 @@ MSA Counties And MSA State Police
 Non-MSA Counties And Non-MSA State Police
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:left;">
-2
+0
 </td>
 </tr>
 </tbody>

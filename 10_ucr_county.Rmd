@@ -556,7 +556,7 @@ data <-
   filter(year %in% 2022,
          !population_group %in% c("7b", "possessions"),
          last_month_reported %in% "december")
-final <- get_murder_gun_assaults_by_pop_group(data)
+final <- get_murder_by_pop_group(data)
 
 knitr::kable(final, 
              format = "html",
@@ -565,13 +565,13 @@ knitr::kable(final,
              booktabs = TRUE, 
              longtable = TRUE,
              escape = FALSE,
-             caption = "The mean, median, minimum, and maximum agency size nationwide for all population groups in the 2022 Offenses Known and Clearances by Arrests data.") %>%
+             caption = "The mean, median, minimum, and maximum agency-level murder count nationwide for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 To better see the distribution, Figure \@ref(fig:countyPopulationGroupsBoxplot) shows boxplots for the rate per 100,000 population of murders+gun-assaults in each population group in 2022. Since there can't be a rate without any population, this excludes all agencies with a population of zero. To make the graph simpler to see, it also excludes all agencies with a rate about 500, which is 57 agencies. Each population group has a relatively large range of values with the size of the boxplot growing as the size of the population group increases. This means that there are a wider variety of rates in larger population groups than in smaller population groups. Each population group also has a good number of agencies that are outliers with a much higher rate than is normal.
 
-```{r countyPopulationGroupsBoxplot, fig.cap = "Boxplots showing the distribution of annual murders+gun-assaults for each population group for all agencies that reported December data in 2022.", fig.height=12}
+```{r countyPopulationGroupsBoxplot, fig.cap = "Boxplots showing the distribution of annual murders for each population group for all agencies that reported December data in 2022.", fig.height=12}
 
 offenses_known_yearly$population_group <- gsub("^msa.*",
                                                 "MSA Counties/MSA State Police",
@@ -589,7 +589,7 @@ data <-
          !is.na(population_group))
 
 
-data$murder_ass_gun_rate = (data$actual_murder + data$actual_assault_with_a_gun) / data$population * 100000
+data$murder_rate = data$actual_murder / data$population * 100000
 
 
 data$population_group <- capitalize_words(data$population_group)
@@ -614,8 +614,8 @@ data$population_group <- factor(data$population_group,
 
 
 data %>%
-  filter(murder_ass_gun_rate <= 500) %>%
-  ggplot(aes(y = population_group, x=murder_ass_gun_rate)) + 
+  filter(murder_rate <= 500) %>%
+  ggplot(aes(y = population_group, x=murder_rate)) + 
   geom_boxplot() +
   xlab("Rate per 100k Pop") +
   ylab("Population Group") +
@@ -633,7 +633,7 @@ data <-
         !is.na(population_group),
          state == "texas",
          last_month_reported %in% "december")
-final <- get_murder_gun_assaults_by_pop_group(data)
+final <- get_murder_by_pop_group(data)
 knitr::kable(final, 
              format = "html",
              digits = 2, 
@@ -641,7 +641,7 @@ knitr::kable(final,
              booktabs = TRUE, 
              longtable = TRUE,
              escape = FALSE,
-             caption = "The mean, median, minimum, and maximum agency size for agencies in Texas for all population groups in the 2022 Offenses Known and Clearances by Arrests data.") %>%
+             caption = "The mean, median, minimum, and maximum agency-level murder count in Texas for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
@@ -655,7 +655,7 @@ data <-
          !is.na(population_group),
          state == "maine",
          last_month_reported %in% "december")
-final <- get_murder_gun_assaults_by_pop_group(data)
+final <- get_murder_by_pop_group(data)
 
 knitr::kable(final, 
              format = "html",
@@ -664,7 +664,7 @@ knitr::kable(final,
              booktabs = TRUE, 
              longtable = TRUE,
              escape = FALSE,
-             caption = "The mean, median, minimum, and maximum agency size for agencies in Maine for all population groups in the 2022 Offenses Known and Clearances by Arrests data.") %>%
+             caption = "The mean, median, minimum, and maximum agency-level murder count in Maine for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
