@@ -1,4 +1,6 @@
-fig:unnamed-chunk-1
+fig:unnamed-chunk-3
+fig:SRSascii
+fig:ascii
 fig:SRSagenciesReporting
 fig:bigAgenciesReporting
 fig:nycGunAssaults
@@ -6,7 +8,6 @@ fig:nycMurderMonthly
 fig:nycMurderYearly
 fig:miamiDadeMurderAnnual
 fig:danvilleRape
-fig:SRSascii
 fig:fbiHierarchy
 tab:nibrsHierarchy
 fig:sfThefts
@@ -137,12 +138,15 @@ fbi-crime-data-explorer
 fbi-crimes-in-the-united-states-report
 recommended-reading
 how-to-contribute-to-this-book
-SRSGeneral
-crimes-included-in-the-srs-datasets
+ori
+the-data-as-you-get-it-from-the-fbi
 common-issues
 population
 voluntary
 zero-crimes-vs-no-reports
+agency-data-covered-by-another-agency
+SRSGeneral
+crimes-included-in-the-srs-datasets
 a-summary-of-each-srs-dataset
 offenses-known-and-clearances-by-arrest-1960---present
 arrests-by-age-sex-and-race-1974---present
@@ -151,8 +155,6 @@ supplementary-homicide-reports-shr
 hate-crime-data-1991---present
 property-stolen-and-recovered-supplement-to-return-a-1960---present
 arson-1979---present
-how-to-identify-a-particular-agency-ori-codes
-the-data-as-you-get-it-from-the-fbi
 offensesKnown
 indexCrimesOffensesKnown
 hierarchy
