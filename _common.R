@@ -20,7 +20,9 @@ packages <- c(
   "blscrapeR",
   "janitor",
   "quantmod",
-  "ggh4x"
+  "ggh4x",
+  "sf",
+  "tigris"
 )
 
 groundhog.library(packages, "2024-08-01")
@@ -78,7 +80,50 @@ get_replace_single_month <- function(data, crime_col, crime) {
   return(data)
 }
 
-
+get_average_months_missing_simulation <- function(data, variable) {
+  results_of_months_missing <- data.frame(months_missing = 1:9,
+                                          mean = NA,
+                                          median = NA,
+                                          min = NA,
+                                          max = NA)
+  
+  data$variable <- data[, variable]
+  actual_value <- data.frame(months_missing = 0,
+                             mean = sum(data$variable),
+                             median = sum(data$variable),
+                             min = sum(data$variable),
+                             max = sum(data$variable))
+  for (n in 1:9) {
+    months_missing <- n
+    final <- vector(mode = "logical", length = 10000)
+    set.seed(19104)
+    for (i in 1:10000) {
+      temp <- data[-sample(1:12, months_missing, replace = FALSE), ]
+      final[i] <- sum(temp$variable) * 12 / (12 - months_missing)
+    }
+    results_of_months_missing$mean[n] <- mean(final)
+    results_of_months_missing$median[n] <- median(final)
+    results_of_months_missing$min[n] <- min(final)
+    results_of_months_missing$max[n] <- max(final)
+  }
+  results_of_months_missing <-
+    results_of_months_missing %>%
+    bind_rows(actual_value) %>%
+    arrange(months_missing) %>%
+    mutate_if(is.numeric, round, 2)
+  results_of_months_missing$months_missing[1] <- "Full data"
+  results_of_months_missing$months_missing[2] <- "1 month"
+  
+  results_of_months_missing <-
+    results_of_months_missing %>%
+    rename(`# of Months Missing` = months_missing,
+           `Mean Imputed Value` = mean,
+           `Median Imputed Value` = median,
+           `Minimum Imputed Value` = min,
+           `Maximum Imputed Value` = max,
+    )
+  return(results_of_months_missing)
+}
 
 
 get_percent_change <- function(number1,
