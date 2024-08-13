@@ -601,6 +601,7 @@ data$population_group[data$population_group %in% c("City 1,000,000+",
                                                     "City 250,000-499,999",
                                                    "City 500,000-999,999")] <- "City 250,000+"
 
+data$population_group <- gsub("Counties.*", "Counties", data$population_group)
 data$population_group <- factor(data$population_group, 
                                 levels = rev(c("City Under 2,500",
                                                "City 2,500-9,999",
@@ -609,8 +610,8 @@ data$population_group <- factor(data$population_group,
                                                "City 50,000-99,999",
                                                "City 100,000-249,999",
                                                "City 250,000+",
-                                               "MSA Counties/MSA State Police",
-                                               "Non-MSA Counties/Non-MSA State Police")))
+                                               "MSA Counties",
+                                               "Non-MSA Counties")))
 
 
 data %>%
