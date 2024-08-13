@@ -968,17 +968,17 @@ Since the actual imputation process looks only at agencies in the same state, we
   </tr>
   <tr>
    <td style="text-align:left;"> MSA Counties And MSA State Police </td>
-   <td style="text-align:right;"> 85 </td>
-   <td style="text-align:right;"> 18 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> 3,456 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Non-MSA Counties And Non-MSA State Police </td>
    <td style="text-align:right;"> 5 </td>
    <td style="text-align:right;"> 2 </td>
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:left;"> 57 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Non-MSA Counties And Non-MSA State Police </td>
+   <td style="text-align:right;"> 85 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> 3,456 </td>
   </tr>
 </tbody>
 </table>
@@ -1050,17 +1050,17 @@ Now we'll look at data from Maine, as shown in Table \@ref(tab:countyPopulationG
   </tr>
   <tr>
    <td style="text-align:left;"> MSA Counties And MSA State Police </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> 2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Non-MSA Counties And Non-MSA State Police </td>
    <td style="text-align:right;"> 2 </td>
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:left;"> 19 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Non-MSA Counties And Non-MSA State Police </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> 2 </td>
   </tr>
 </tbody>
 </table>

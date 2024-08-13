@@ -572,12 +572,21 @@ knitr::kable(final,
 To better see the distribution, Figure \@ref(fig:countyPopulationGroupsBoxplot) shows boxplots for the rate per 100,000 population of murders+gun-assaults in each population group in 2022. Since there can't be a rate without any population, this excludes all agencies with a population of zero. To make the graph simpler to see, it also excludes all agencies with a rate about 500, which is 57 agencies. Each population group has a relatively large range of values with the size of the boxplot growing as the size of the population group increases. This means that there are a wider variety of rates in larger population groups than in smaller population groups. Each population group also has a good number of agencies that are outliers with a much higher rate than is normal.
 
 ```{r countyPopulationGroupsBoxplot, fig.cap = "Boxplots showing the distribution of annual murders+gun-assaults for each population group for all agencies that reported December data in 2022.", fig.height=12}
+
+offenses_known_yearly$population_group <- gsub("^msa.*",
+                                                "MSA Counties/MSA State Police",
+                                                offenses_known_yearly$population_group)
+offenses_known_yearly$population_group <- gsub("^non-msa.*",
+                                                "Non-MSA Counties/non-MSA State Police",
+                                                offenses_known_yearly$population_group)
+
 data <- 
   offenses_known_yearly %>%
   filter(year %in% 2022,
          !population_group %in% c("7b", "possessions"),
          last_month_reported %in% "december",
-         population != 0)
+         population != 0,
+         !is.na(population_group))
 
 
 data$murder_ass_gun_rate = (data$actual_murder + data$actual_assault_with_a_gun) / data$population * 100000
@@ -588,6 +597,10 @@ data$population_group <- gsub(" thru ", "-", data$population_group, ignore.case 
 data$population_group <- gsub("msa", "MSA", data$population_group, ignore.case = TRUE)
 data$population_group <- gsub(" and msa | and non-msa ", "/", data$population_group, ignore.case = TRUE)
 
+data$population_group[data$population_group %in% c("City 1,000,000+",
+                                                    "City 250,000-499,999",
+                                                   "City 500,000-999,999")] <- "City 250,000+"
+
 data$population_group <- factor(data$population_group, 
                                 levels = rev(c("City Under 2,500",
                                                "City 2,500-9,999",
@@ -596,8 +609,8 @@ data$population_group <- factor(data$population_group,
                                                "City 50,000-99,999",
                                                "City 100,000-249,999",
                                                "City 250,000+",
-                                               "MSA Counties/State Police",
-                                               "Non-MSA Counties/State Police")))
+                                               "MSA Counties/MSA State Police",
+                                               "Non-MSA Counties/Non-MSA State Police")))
 
 
 data %>%
@@ -617,6 +630,7 @@ data <-
   offenses_known_yearly %>%
   filter(year %in% 2022,
          !population_group %in% c("7b", "possessions"),
+        !is.na(population_group),
          state == "texas",
          last_month_reported %in% "december")
 final <- get_murder_gun_assaults_by_pop_group(data)
@@ -638,6 +652,7 @@ data <-
   offenses_known_yearly %>%
   filter(year %in% 2022,
          !population_group %in% c("7b", "possessions"),
+         !is.na(population_group),
          state == "maine",
          last_month_reported %in% "december")
 final <- get_murder_gun_assaults_by_pop_group(data)

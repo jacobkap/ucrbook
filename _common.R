@@ -138,6 +138,12 @@ get_percent_change <- function(number1,
 }
 
 get_murder_gun_assaults_by_pop_group <- function(data) {
+  data$population_group[data$population_group %in% c("city 1,000,000+",
+                                                     "city 250,000 thru 499,999",
+                                                     "city 500,000 thru  999,999")] <- "city 250,000+"
+  data$population_group[data$population_group %in% "Non-MSA Counties/non-MSA State Police"] <- "msa counties and msa state police"
+  data$population_group[data$population_group %in% "MSA Counties/MSA State Police"] <- "non-msa counties and non-msa state police"
+  
   final <- data.frame(
     agency_size = c(
       "city under 2,500",
@@ -160,10 +166,12 @@ get_murder_gun_assaults_by_pop_group <- function(data) {
 
   for (i in 1:nrow(final)) {
     temp <- data[data$population_group %in% final$agency_size[i], ]
+    if (nrow(temp) > 0) {
     final$mean_murder_or_gun_ass[i] <- mean(temp$murder_gun_assaults)
     final$median_murder_or_gun_ass[i] <- median(temp$murder_gun_assaults)
     final$min_murder_or_gun_ass[i] <- min(temp$murder_gun_assaults)
     final$max_murder_or_gun_ass[i] <- max(temp$murder_gun_assaults)
+    }
   }
   final <-
     final %>%
@@ -178,6 +186,8 @@ get_murder_gun_assaults_by_pop_group <- function(data) {
 
   final$agency_size <- gsub(" thru ", "-", final$agency_size, ignore.case = TRUE)
   final$agency_size <- gsub("msa", "MSA", final$agency_size, ignore.case = TRUE)
+  
+  
 
   names(final) <- c(
     "Population Group",

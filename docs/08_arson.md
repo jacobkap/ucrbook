@@ -24,7 +24,7 @@ In Figure \@ref(fig:arsonAgencies) we can see the annual number of agencies that
 <p class="caption">(\#fig:arsonAgencies)The annual number of police agencies that report at least month of data that year, 1979-2022.</p>
 </div>
 
-In Figure \@ref(arsonAgencies12Months) we can see the same graph as before but now for agencies reporting 12 months of data that year. The trends in both measures are the same, at least until 2018, with the last month reported measure always being a bit higher than the number of months missing measure. Which measure is better to use? In general I'd say my own measure but obviously that doesn't work starting in 2018. In practice both measures are quite similar so the decision on which to use depends on your own use-case such as if you are looking at data after 2017. 
+In Figure \@ref(fig:arsonAgencies12Months) we can see the same graph as before but now for agencies reporting 12 months of data that year. The trends in both measures are the same, at least until 2018, with the last month reported measure always being a bit higher than the number of months missing measure. Which measure is better to use? In general I'd say my own measure but obviously that doesn't work starting in 2018. In practice both measures are quite similar so the decision on which to use depends on your own use-case such as if you are looking at data after 2017. 
 
 <div class="figure" style="text-align: center">
 <img src="08_arson_files/figure-html/arsonAgencies12Months-1.png" alt="The annual number of police agencies that report 12 months of data that year, 1979-2022." width="90%" />
