@@ -1,6 +1,6 @@
 # County-Level Data
 
-```{r, echo=FALSE}
+```{r setup, echo=FALSE}
 knitr::opts_chunk$set(
   echo    = FALSE,
   warning = FALSE,
