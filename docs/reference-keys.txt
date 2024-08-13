@@ -109,6 +109,7 @@ tab:countyMonthsReportedDefinitions
 fig:countyAnyMonthReported
 fig:countyDecemberPercent
 fig:countyDecemberPercentAnyAgency
+fig:stateMap2022
 fig:countyMap2022
 fig:countyMap2010
 fig:countyMap2000

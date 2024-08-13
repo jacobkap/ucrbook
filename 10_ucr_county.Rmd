@@ -189,8 +189,36 @@ ggplot(offenses_full_reporters_by_year,
   expand_limits(y = c(0, 1))
 ```
 
+```{r stateMap2022, fig.cap = "The share of the population in each state covered by an agency reporting 12 months of data based on their last month reported being December, 2022."}
+state_agg_2022 <- offenses_known_yearly %>%
+  filter(year %in% 2022) %>%
+  distinct(ori,
+           .keep_all = TRUE) %>%
+  group_by(state,
+           last_month_full) %>%
+  summarize(population = sum(population)) %>%
+  pivot_wider(names_from = last_month_full,
+              values_from = population) %>%
+  rename_all(make_clean_names)
+state_agg_2022$x1[is.na(state_agg_2022$x1)] <- 0
+state_agg_2022$x0[is.na(state_agg_2022$x0)] <- 0
+state_agg_2022 %>%
+  mutate(total = x0 + x1,
+         prop_full_reporters = x1 / total * 100) %>%
+  ggplot2::ggplot(aes(map_id = state)) + 
+  ggplot2::geom_map(aes(fill = prop_full_reporters), map = fifty_states, color = "black") + 
+  expand_limits(x = fifty_states$long, y = fifty_states$lat) +
+  coord_map() +
+  scale_x_continuous(breaks = NULL) + 
+  scale_y_continuous(breaks = NULL) +
+  labs(x = "", y = "", fill = "Hate Crimes") +
+  theme(panel.background = element_blank()) +
+  fifty_states_inset_boxes() +
+  scale_fill_gradient(low = "white", high = "#d7191c") 
+```
 
-```{r countyMap2022, fig.cap = "The share of the population in each county covered by an agency reporting 12 months of data based on their last motnh reported being December, 2022."}
+
+```{r countyMap2022, fig.cap = "The share of the population in each county covered by an agency reporting 12 months of data based on their last month reported being December, 2022."}
 # https://stackoverflow.com/questions/76319472/is-it-possible-to-condense-a-county-level-map-of-the-us-including-alaska-and-ha
 
 county_agg_2022 <- offenses_known_yearly %>%
@@ -212,7 +240,7 @@ county_agg_2022 <-
          values = prop_full_reporters) %>%
   rename(GEOID = fips_state_county_code)
 
-df <- tigris::counties(state = NULL, cb = T, class = 'sf')
+df <- tigris::counties(state = NULL, cb = T, class = 'sf', progress_bar = FALSE, year = 2020)
 df <- df %>% filter(!STATEFP %in% c('60', '66', '69', '72', '78'))
 crs_lambert <- "+proj=laea +lat_0=45 +lon_0=-100 +x_0=0 +y_0=0 +a=6370997 +b=6370997 +units=m +no_defs"
 df <- df %>%
@@ -241,7 +269,7 @@ df %>%
   ggplot(aes(fill = values)) + 
   geom_sf() +
   scale_fill_gradient(low = "white",
-                      high = "#fc8d59") +
+                      high = "#d7191c") +
   theme(axis.text.x = element_blank(),
         axis.text.y = element_blank(),
         axis.ticks = element_blank(),
@@ -251,7 +279,7 @@ df %>%
 ```
 
 
-```{r countyMap2010, fig.cap = "The share of the population in each county covered by an agency reporting 12 months of data based on their last motnh reported being December, 2010."}
+```{r countyMap2010, fig.cap = "The share of the population in each county covered by an agency reporting 12 months of data based on their last month reported being December, 2010."}
 county_agg_2010 <- offenses_known_yearly %>%
   filter(year %in% 2010) %>%
   distinct(ori,
@@ -279,7 +307,7 @@ df %>%
   ggplot(aes(fill = values)) + 
   geom_sf() +
   scale_fill_gradient(low = "white",
-                      high = "#fc8d59") +
+                      high = "#d7191c") +
   theme(axis.text.x = element_blank(),
         axis.text.y = element_blank(),
         axis.ticks = element_blank(),
@@ -288,7 +316,7 @@ df %>%
 
 ```
 
-```{r countyMap2000, fig.cap = "The share of the population in each county covered by an agency reporting 12 months of data based on their last motnh reported being December, 2000."}
+```{r countyMap2000, fig.cap = "The share of the population in each county covered by an agency reporting 12 months of data based on their last month reported being December, 2000."}
 county_agg_2000 <- offenses_known_yearly %>%
   filter(year %in% 2000) %>%
   distinct(ori,
@@ -316,7 +344,7 @@ df %>%
   ggplot(aes(fill = values)) + 
   geom_sf() +
   scale_fill_gradient(low = "white",
-                      high = "#fc8d59") +
+                      high = "#d7191c") +
   theme(axis.text.x = element_blank(),
         axis.text.y = element_blank(),
         axis.ticks = element_blank(),
