@@ -25,7 +25,61 @@ packages <- c(
   "tigris"
 )
 
-groundhog.library(packages, "2024-08-01")
+groundhog.library(packages, "2023-10-01")
+
+
+# For agencies with a covered by ORI value, assign the last month reported 
+# variable to the value the covering agency has
+
+# 
+# offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2022.rds")
+# offenses_known_yearly$covered_by_ori <- toupper(offenses_known_yearly$covered_by_ori)
+# 
+# offenses_known_yearly$ori_year <- paste(offenses_known_yearly$ori,
+#                                         offenses_known_yearly$year)
+# offenses_known_yearly_covered_by <-
+#   offenses_known_yearly %>%
+#   filter(!is.na(covered_by_ori))
+# 
+# offenses_known_yearly_covering <-
+#   offenses_known_yearly %>%
+#   filter(paste(ori, year) %in% paste(offenses_known_yearly_covered_by$covered_by_ori,
+#                                      offenses_known_yearly_covered_by$year))
+# 
+# offenses_known_yearly_covered_by$last_month_reported_old <-
+#   offenses_known_yearly_covered_by$last_month_reported
+# offenses_known_yearly_covered_by$number_of_months_missing_old <-
+#   offenses_known_yearly_covered_by$number_of_months_missing
+# pb <- progress_bar$new(
+#   format = " [:bar] :current/:total :percent eta: :eta",
+#   total = nrow(offenses_known_yearly_covered_by), clear = FALSE, width= 60)
+# table(offenses_known_yearly_covered_by$last_month_reported)
+# table(offenses_known_yearly_covered_by$number_of_months_missing)
+# for (i in 1:nrow(offenses_known_yearly_covered_by)) {
+#   temp <-
+#     offenses_known_yearly_covering %>%
+#     filter(ori %in% offenses_known_yearly_covered_by$covered_by_ori[i],
+#            year %in% offenses_known_yearly_covered_by$year[i])
+#   if (nrow(temp) > 0) {
+#     offenses_known_yearly_covered_by$last_month_reported[i] <- temp$last_month_reported
+#     offenses_known_yearly_covered_by$number_of_months_missing[i] <- temp$number_of_months_missing
+#   }
+#   pb$tick()
+#   
+# }
+# table(offenses_known_yearly_covered_by$last_month_reported)
+# table(offenses_known_yearly_covered_by$number_of_months_missing)
+# 
+# offenses_known_yearly <-
+#   offenses_known_yearly %>%
+#   filter(!ori_year %in% offenses_known_yearly_covered_by$ori_year) %>%
+#   bind_rows(offenses_known_yearly_covered_by)
+# 
+# saveRDS(offenses_known_yearly, "data/offenses_known_yearly_with_covered_by_last_month_reported.rds")
+
+
+
+
 
 knitr::opts_chunk$set(
   comment = "#>",

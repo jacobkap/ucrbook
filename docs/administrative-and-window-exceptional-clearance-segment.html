@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 12 Administrative and Window Exceptional Clearance Segment | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide to FBI Data</title>
+  <title>Chapter 12 Administrative and Window Exceptional Clearance Segment | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 12 Administrative and Window Exceptional Clearance Segment | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide to FBI Data" />
+  <meta property="og:title" content="Chapter 12 Administrative and Window Exceptional Clearance Segment | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
   <meta name="github-repo" content="jacobkap/ucrbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 12 Administrative and Window Exceptional Clearance Segment | Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide to FBI Data" />
+  <meta name="twitter:title" content="Chapter 12 Administrative and Window Exceptional Clearance Segment | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
   
   <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2024-08-05" />
+<meta name="date" content="2024-08-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,14 +54,14 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-48BYKNQFJY"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ11HC6DC9"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-48BYKNQFJY');
+  gtag('config', 'G-NJ11HC6DC9');
 </script>
 
 
@@ -182,64 +182,68 @@ div.csl-indent {
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#citing-this-book"><i class="fa fa-check"></i><b>1.3</b> Citing this book</a></li>
 <li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#sources-of-ucr-data"><i class="fa fa-check"></i><b>1.4</b> Sources of UCR data</a>
 <ul>
-<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#where-to-find-the-data-used-in-this-book"><i class="fa fa-check"></i><b>1.4.1</b> Where to find the data used in this book</a></li>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#my-own-collection"><i class="fa fa-check"></i><b>1.4.1</b> My own collection</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#nacjd"><i class="fa fa-check"></i><b>1.4.2</b> NACJD</a></li>
+<li class="chapter" data-level="1.4.3" data-path="index.html"><a href="index.html#fbi-raw-data"><i class="fa fa-check"></i><b>1.4.3</b> FBI (raw data)</a></li>
+<li class="chapter" data-level="1.4.4" data-path="index.html"><a href="index.html#raw-data"><i class="fa fa-check"></i><b>1.4.4</b> Raw data</a></li>
+<li class="chapter" data-level="1.4.5" data-path="index.html"><a href="index.html#crime-data-explorer"><i class="fa fa-check"></i><b>1.4.5</b> Crime Data Explorer</a></li>
+<li class="chapter" data-level="1.4.6" data-path="index.html"><a href="index.html#crimes-in-the-united-states-report"><i class="fa fa-check"></i><b>1.4.6</b> Crimes in the United States report</a></li>
+<li class="chapter" data-level="1.4.7" data-path="index.html"><a href="index.html#fbi-crime-data-explorer"><i class="fa fa-check"></i><b>1.4.7</b> FBI (Crime Data Explorer)</a></li>
+<li class="chapter" data-level="1.4.8" data-path="index.html"><a href="index.html#fbi-crimes-in-the-united-states-report"><i class="fa fa-check"></i><b>1.4.8</b> FBI (Crimes in the United States Report)</a></li>
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#recommended-reading"><i class="fa fa-check"></i><b>1.5</b> Recommended reading</a></li>
 <li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#how-to-contribute-to-this-book"><i class="fa fa-check"></i><b>1.6</b> How to contribute to this book</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#ori"><i class="fa fa-check"></i><b>1.7</b> How to identify a particular agency (ORI codes)</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#the-data-as-you-get-it-from-the-fbi"><i class="fa fa-check"></i><b>1.8</b> The data as you get it from the FBI</a></li>
+<li class="chapter" data-level="1.9" data-path="index.html"><a href="index.html#common-issues"><i class="fa fa-check"></i><b>1.9</b> Common issues</a>
+<ul>
+<li class="chapter" data-level="1.9.1" data-path="index.html"><a href="index.html#population"><i class="fa fa-check"></i><b>1.9.1</b> Population</a></li>
+<li class="chapter" data-level="1.9.2" data-path="index.html"><a href="index.html#voluntary"><i class="fa fa-check"></i><b>1.9.2</b> Voluntary reporting</a></li>
+<li class="chapter" data-level="1.9.3" data-path="index.html"><a href="index.html#zero-crimes-vs-no-reports"><i class="fa fa-check"></i><b>1.9.3</b> Zero crimes vs no reports</a></li>
+<li class="chapter" data-level="1.9.4" data-path="index.html"><a href="index.html#agency-data-covered-by-another-agency"><i class="fa fa-check"></i><b>1.9.4</b> Agency data covered by another agency</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
 <li class="part"><span><b>II Summary Reporting System (SRS)</b></span></li>
-<li class="chapter" data-level="2" data-path="ucrGeneral.html"><a href="ucrGeneral.html"><i class="fa fa-check"></i><b>2</b> SRS Overview</a>
+<li class="chapter" data-level="2" data-path="SRSGeneral.html"><a href="SRSGeneral.html"><i class="fa fa-check"></i><b>2</b> SRS Overview</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="ucrGeneral.html"><a href="ucrGeneral.html#crimes-included-in-the-ucr-datasets"><i class="fa fa-check"></i><b>2.1</b> Crimes included in the UCR datasets</a>
+<li class="chapter" data-level="2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#crimes-included-in-the-srs-datasets"><i class="fa fa-check"></i><b>2.1</b> Crimes included in the SRS datasets</a></li>
+<li class="chapter" data-level="2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#a-summary-of-each-srs-dataset"><i class="fa fa-check"></i><b>2.2</b> A summary of each SRS dataset</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="ucrGeneral.html"><a href="ucrGeneral.html#crimes-in-the-offenses-known-and-clearances-by-arrest-dataset"><i class="fa fa-check"></i><b>2.1.1</b> Crimes in the Offenses Known and Clearances by Arrest dataset</a></li>
-<li class="chapter" data-level="2.1.2" data-path="ucrGeneral.html"><a href="ucrGeneral.html#crimes-in-the-arrests-by-age-sex-and-race-dataset"><i class="fa fa-check"></i><b>2.1.2</b> Crimes in the Arrests by Age, Sex, and Race dataset</a></li>
-<li class="chapter" data-level="2.1.3" data-path="ucrGeneral.html"><a href="ucrGeneral.html#indexCrimes"><i class="fa fa-check"></i><b>2.1.3</b> What is an index (or part 1) crime?</a></li>
+<li class="chapter" data-level="2.2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#offenses-known-and-clearances-by-arrest-1960---present"><i class="fa fa-check"></i><b>2.2.1</b> Offenses Known and Clearances by Arrest (1960 - present)</a></li>
+<li class="chapter" data-level="2.2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#arrests-by-age-sex-and-race-1974---present"><i class="fa fa-check"></i><b>2.2.2</b> Arrests by Age, Sex, and Race (1974 - present)</a></li>
+<li class="chapter" data-level="2.2.3" data-path="SRSGeneral.html"><a href="SRSGeneral.html#law-enforcement-officers-killed-and-assaulted-leoka-1960---present"><i class="fa fa-check"></i><b>2.2.3</b> Law Enforcement Officers Killed and Assaulted (LEOKA) (1960 - present)</a></li>
+<li class="chapter" data-level="2.2.4" data-path="SRSGeneral.html"><a href="SRSGeneral.html#supplementary-homicide-reports-shr"><i class="fa fa-check"></i><b>2.2.4</b> Supplementary Homicide Reports (SHR)</a></li>
+<li class="chapter" data-level="2.2.5" data-path="SRSGeneral.html"><a href="SRSGeneral.html#hate-crime-data-1991---present"><i class="fa fa-check"></i><b>2.2.5</b> Hate Crime Data (1991 - present)</a></li>
+<li class="chapter" data-level="2.2.6" data-path="SRSGeneral.html"><a href="SRSGeneral.html#property-stolen-and-recovered-supplement-to-return-a-1960---present"><i class="fa fa-check"></i><b>2.2.6</b> Property Stolen and Recovered (Supplement to Return A) (1960 - present)</a></li>
+<li class="chapter" data-level="2.2.7" data-path="SRSGeneral.html"><a href="SRSGeneral.html#arson-1979---present"><i class="fa fa-check"></i><b>2.2.7</b> Arson (1979 - present)</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="ucrGeneral.html"><a href="ucrGeneral.html#issues-common-across-ucr-datasets"><i class="fa fa-check"></i><b>2.2</b> Issues common across UCR datasets</a>
-<ul>
-<li class="chapter" data-level="2.2.1" data-path="ucrGeneral.html"><a href="ucrGeneral.html#negative-numbers"><i class="fa fa-check"></i><b>2.2.1</b> Negative numbers</a></li>
-<li class="chapter" data-level="2.2.2" data-path="ucrGeneral.html"><a href="ucrGeneral.html#agency-population-value"><i class="fa fa-check"></i><b>2.2.2</b> Agency population value</a></li>
-<li class="chapter" data-level="2.2.3" data-path="ucrGeneral.html"><a href="ucrGeneral.html#voluntary"><i class="fa fa-check"></i><b>2.2.3</b> Reporting is voluntary … so some agencies don’t (or report partially)</a></li>
-<li class="chapter" data-level="2.2.4" data-path="ucrGeneral.html"><a href="ucrGeneral.html#zero-crimes-vs-no-reports"><i class="fa fa-check"></i><b>2.2.4</b> Zero crimes vs no reports</a></li>
-</ul></li>
-<li class="chapter" data-level="2.3" data-path="ucrGeneral.html"><a href="ucrGeneral.html#a-summary-of-each-ucr-dataset"><i class="fa fa-check"></i><b>2.3</b> A summary of each UCR dataset</a>
-<ul>
-<li class="chapter" data-level="2.3.1" data-path="ucrGeneral.html"><a href="ucrGeneral.html#offenses-known-and-clearances-by-arrest"><i class="fa fa-check"></i><b>2.3.1</b> Offenses Known and Clearances by Arrest</a></li>
-<li class="chapter" data-level="2.3.2" data-path="ucrGeneral.html"><a href="ucrGeneral.html#arrests-by-age-sex-and-race"><i class="fa fa-check"></i><b>2.3.2</b> Arrests by Age, Sex, and Race</a></li>
-<li class="chapter" data-level="2.3.3" data-path="ucrGeneral.html"><a href="ucrGeneral.html#law-enforcement-officers-killed-and-assaulted-leoka"><i class="fa fa-check"></i><b>2.3.3</b> Law Enforcement Officers Killed and Assaulted (LEOKA)</a></li>
-<li class="chapter" data-level="2.3.4" data-path="ucrGeneral.html"><a href="ucrGeneral.html#supplementary-homicide-reports-shr"><i class="fa fa-check"></i><b>2.3.4</b> Supplementary Homicide Reports (SHR)</a></li>
-<li class="chapter" data-level="2.3.5" data-path="ucrGeneral.html"><a href="ucrGeneral.html#hate-crime-data"><i class="fa fa-check"></i><b>2.3.5</b> Hate Crime Data</a></li>
-<li class="chapter" data-level="2.3.6" data-path="ucrGeneral.html"><a href="ucrGeneral.html#property-stolen-and-recovered-supplement-to-return-a"><i class="fa fa-check"></i><b>2.3.6</b> Property Stolen and Recovered (Supplement to Return A)</a></li>
-<li class="chapter" data-level="2.3.7" data-path="ucrGeneral.html"><a href="ucrGeneral.html#arson"><i class="fa fa-check"></i><b>2.3.7</b> Arson</a></li>
-</ul></li>
-<li class="chapter" data-level="2.4" data-path="ucrGeneral.html"><a href="ucrGeneral.html#how-to-identify-a-particular-agency-ori-codes"><i class="fa fa-check"></i><b>2.4</b> How to identify a particular agency (ORI codes)</a></li>
-<li class="chapter" data-level="2.5" data-path="ucrGeneral.html"><a href="ucrGeneral.html#the-data-as-you-get-it-from-the-fbi"><i class="fa fa-check"></i><b>2.5</b> The data as you get it from the FBI</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="offensesKnown.html"><a href="offensesKnown.html"><i class="fa fa-check"></i><b>3</b> Offenses Known and Clearances by Arrest</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="offensesKnown.html"><a href="offensesKnown.html#indexCrimesOffensesKnown"><i class="fa fa-check"></i><b>3.1</b> Which crimes are included?</a>
 <ul>
 <li class="chapter" data-level="3.1.1" data-path="offensesKnown.html"><a href="offensesKnown.html#hierarchy"><i class="fa fa-check"></i><b>3.1.1</b> Hierarchy Rule</a></li>
+<li class="chapter" data-level="3.1.2" data-path="offensesKnown.html"><a href="offensesKnown.html#indexCrimes"><i class="fa fa-check"></i><b>3.1.2</b> Index (“Part 1”) crimes</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="offensesKnown.html"><a href="offensesKnown.html#agencies-reporting"><i class="fa fa-check"></i><b>3.2</b> Agencies reporting</a></li>
-<li class="chapter" data-level="3.3" data-path="offensesKnown.html"><a href="offensesKnown.html#important-variables"><i class="fa fa-check"></i><b>3.3</b> Important variables</a>
+<li class="chapter" data-level="3.2" data-path="offensesKnown.html"><a href="offensesKnown.html#offensesKnownReporting"><i class="fa fa-check"></i><b>3.2</b> Agencies reporting</a></li>
+<li class="chapter" data-level="3.3" data-path="offensesKnown.html"><a href="offensesKnown.html#negative-numbers"><i class="fa fa-check"></i><b>3.3</b> Negative numbers</a></li>
+<li class="chapter" data-level="3.4" data-path="offensesKnown.html"><a href="offensesKnown.html#important-variables"><i class="fa fa-check"></i><b>3.4</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="offensesKnown.html"><a href="offensesKnown.html#actual"><i class="fa fa-check"></i><b>3.3.1</b> Actual crimes</a></li>
-<li class="chapter" data-level="3.3.2" data-path="offensesKnown.html"><a href="offensesKnown.html#clearedCrimes"><i class="fa fa-check"></i><b>3.3.2</b> Total cleared crimes</a></li>
-<li class="chapter" data-level="3.3.3" data-path="offensesKnown.html"><a href="offensesKnown.html#crimes-cleared-where-all-offenders-are-under-18-years-old"><i class="fa fa-check"></i><b>3.3.3</b> Crimes cleared where all offenders are under 18 years old</a></li>
-<li class="chapter" data-level="3.3.4" data-path="offensesKnown.html"><a href="offensesKnown.html#unfounded-crimes"><i class="fa fa-check"></i><b>3.3.4</b> Unfounded crimes</a></li>
+<li class="chapter" data-level="3.4.1" data-path="offensesKnown.html"><a href="offensesKnown.html#actual"><i class="fa fa-check"></i><b>3.4.1</b> Actual crimes</a></li>
+<li class="chapter" data-level="3.4.2" data-path="offensesKnown.html"><a href="offensesKnown.html#clearedCrimes"><i class="fa fa-check"></i><b>3.4.2</b> Total cleared crimes</a></li>
+<li class="chapter" data-level="3.4.3" data-path="offensesKnown.html"><a href="offensesKnown.html#crimes-cleared-where-all-offenders-are-under-18-years-old"><i class="fa fa-check"></i><b>3.4.3</b> Crimes cleared where all offenders are under 18 years old</a></li>
+<li class="chapter" data-level="3.4.4" data-path="offensesKnown.html"><a href="offensesKnown.html#unfounded"><i class="fa fa-check"></i><b>3.4.4</b> Unfounded crimes</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="offensesKnown.html"><a href="offensesKnown.html#important-issues"><i class="fa fa-check"></i><b>3.4</b> Important issues</a>
+<li class="chapter" data-level="3.5" data-path="offensesKnown.html"><a href="offensesKnown.html#important-changes"><i class="fa fa-check"></i><b>3.5</b> Important changes</a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="offensesKnown.html"><a href="offensesKnown.html#rape-definition-change"><i class="fa fa-check"></i><b>3.4.1</b> Rape definition change</a></li>
-<li class="chapter" data-level="3.4.2" data-path="offensesKnown.html"><a href="offensesKnown.html#the-decline-of-manslaughter"><i class="fa fa-check"></i><b>3.4.2</b> The decline of manslaughter</a></li>
+<li class="chapter" data-level="3.5.1" data-path="offensesKnown.html"><a href="offensesKnown.html#rape-definition-change"><i class="fa fa-check"></i><b>3.5.1</b> Rape definition change</a></li>
+<li class="chapter" data-level="3.5.2" data-path="offensesKnown.html"><a href="offensesKnown.html#the-decline-of-manslaughter"><i class="fa fa-check"></i><b>3.5.2</b> The decline of manslaughter</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="stolen_property.html"><a href="stolen_property.html"><i class="fa fa-check"></i><b>4</b> Property Stolen and Recovered (Supplement to Return A)</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="stolen_property.html"><a href="stolen_property.html#agencies-reporting-1"><i class="fa fa-check"></i><b>4.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="4.1" data-path="stolen_property.html"><a href="stolen_property.html#agencies-reporting"><i class="fa fa-check"></i><b>4.1</b> Agencies reporting</a></li>
 <li class="chapter" data-level="4.2" data-path="stolen_property.html"><a href="stolen_property.html#important-variables-1"><i class="fa fa-check"></i><b>4.2</b> Important variables</a>
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="stolen_property.html"><a href="stolen_property.html#propertycount"><i class="fa fa-check"></i><b>4.2.1</b> A more detailed breakdown of property (and robbery) crimes</a></li>
@@ -250,7 +254,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="5" data-path="arrests.html"><a href="arrests.html"><i class="fa fa-check"></i><b>5</b> Arrests by Age, Sex, and Race</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="arrests.html"><a href="arrests.html#agencies-reporting-2"><i class="fa fa-check"></i><b>5.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="5.1" data-path="arrests.html"><a href="arrests.html#agencies-reporting-1"><i class="fa fa-check"></i><b>5.1</b> Agencies reporting</a></li>
 <li class="chapter" data-level="5.2" data-path="arrests.html"><a href="arrests.html#what-is-an-arrest-what-unit-is-this-data-in"><i class="fa fa-check"></i><b>5.2</b> What is an arrest? (what unit is this data in?)</a>
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="arrests.html"><a href="arrests.html#the-hierarchy-rule"><i class="fa fa-check"></i><b>5.2.1</b> The Hierarchy Rule</a></li>
@@ -266,7 +270,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="6" data-path="shr.html"><a href="shr.html"><i class="fa fa-check"></i><b>6</b> Supplementary Homicide Reports (SHR)</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="shr.html"><a href="shr.html#agencies-reporting-3"><i class="fa fa-check"></i><b>6.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="6.1" data-path="shr.html"><a href="shr.html#agencies-reporting-2"><i class="fa fa-check"></i><b>6.1</b> Agencies reporting</a></li>
 <li class="chapter" data-level="6.2" data-path="shr.html"><a href="shr.html#important-variables-3"><i class="fa fa-check"></i><b>6.2</b> Important variables</a>
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="shr.html"><a href="shr.html#demographics"><i class="fa fa-check"></i><b>6.2.1</b> Demographics</a></li>
@@ -275,7 +279,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7" data-path="leoka.html"><a href="leoka.html"><i class="fa fa-check"></i><b>7</b> Law Enforcement Officers Killed and Assaulted (LEOKA)</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="leoka.html"><a href="leoka.html#agencies-reporting-4"><i class="fa fa-check"></i><b>7.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="7.1" data-path="leoka.html"><a href="leoka.html#agencies-reporting-3"><i class="fa fa-check"></i><b>7.1</b> Agencies reporting</a></li>
 <li class="chapter" data-level="7.2" data-path="leoka.html"><a href="leoka.html#important-variables-4"><i class="fa fa-check"></i><b>7.2</b> Important variables</a>
 <ul>
 <li class="chapter" data-level="7.2.1" data-path="leoka.html"><a href="leoka.html#number-of-employees"><i class="fa fa-check"></i><b>7.2.1</b> Number of employees</a></li>
@@ -287,41 +291,42 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="8" data-path="arsonChapter.html"><a href="arsonChapter.html"><i class="fa fa-check"></i><b>8</b> Arson</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="arsonChapter.html"><a href="arsonChapter.html#agencies-reporting-5"><i class="fa fa-check"></i><b>8.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="8.1" data-path="arsonChapter.html"><a href="arsonChapter.html#agencies-reporting-4"><i class="fa fa-check"></i><b>8.1</b> Agencies reporting</a></li>
 <li class="chapter" data-level="8.2" data-path="arsonChapter.html"><a href="arsonChapter.html#important-variables-5"><i class="fa fa-check"></i><b>8.2</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="8.2.1" data-path="arsonChapter.html"><a href="arsonChapter.html#actual-arsons"><i class="fa fa-check"></i><b>8.2.1</b> Actual arsons</a></li>
-<li class="chapter" data-level="8.2.2" data-path="arsonChapter.html"><a href="arsonChapter.html#unfounded-arsons"><i class="fa fa-check"></i><b>8.2.2</b> Unfounded arsons</a></li>
-<li class="chapter" data-level="8.2.3" data-path="arsonChapter.html"><a href="arsonChapter.html#reported-arsons"><i class="fa fa-check"></i><b>8.2.3</b> Reported arsons</a></li>
-<li class="chapter" data-level="8.2.4" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-arsons"><i class="fa fa-check"></i><b>8.2.4</b> Cleared arsons</a></li>
-<li class="chapter" data-level="8.2.5" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-for-arsons-where-all-offenders-are-under-age-18"><i class="fa fa-check"></i><b>8.2.5</b> Cleared for arsons where all offenders are under age 18</a></li>
-<li class="chapter" data-level="8.2.6" data-path="arsonChapter.html"><a href="arsonChapter.html#uninhabited-building-arsons"><i class="fa fa-check"></i><b>8.2.6</b> Uninhabited building arsons</a></li>
-<li class="chapter" data-level="8.2.7" data-path="arsonChapter.html"><a href="arsonChapter.html#estimated-damage-cost"><i class="fa fa-check"></i><b>8.2.7</b> Estimated damage cost</a></li>
+<li class="chapter" data-level="8.2.1" data-path="arsonChapter.html"><a href="arsonChapter.html#arsonType"><i class="fa fa-check"></i><b>8.2.1</b> Types of arsons</a></li>
+<li class="chapter" data-level="8.2.2" data-path="arsonChapter.html"><a href="arsonChapter.html#actual-arsons"><i class="fa fa-check"></i><b>8.2.2</b> Actual arsons</a></li>
+<li class="chapter" data-level="8.2.3" data-path="arsonChapter.html"><a href="arsonChapter.html#unfounded-arsons"><i class="fa fa-check"></i><b>8.2.3</b> Unfounded arsons</a></li>
+<li class="chapter" data-level="8.2.4" data-path="arsonChapter.html"><a href="arsonChapter.html#reported-arsons"><i class="fa fa-check"></i><b>8.2.4</b> Reported arsons</a></li>
+<li class="chapter" data-level="8.2.5" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-arsons"><i class="fa fa-check"></i><b>8.2.5</b> Cleared arsons</a></li>
+<li class="chapter" data-level="8.2.6" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-for-arsons-where-all-offenders-are-under-age-18"><i class="fa fa-check"></i><b>8.2.6</b> Cleared for arsons where all offenders are under age 18</a></li>
+<li class="chapter" data-level="8.2.7" data-path="arsonChapter.html"><a href="arsonChapter.html#uninhabited-building-arsons"><i class="fa fa-check"></i><b>8.2.7</b> Uninhabited building arsons</a></li>
+<li class="chapter" data-level="8.2.8" data-path="arsonChapter.html"><a href="arsonChapter.html#estimated-damage-cost"><i class="fa fa-check"></i><b>8.2.8</b> Estimated damage cost</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="arsonChapter.html"><a href="arsonChapter.html#arsonType"><i class="fa fa-check"></i><b>8.3</b> Types of arsons</a></li>
-<li class="chapter" data-level="8.4" data-path="arsonChapter.html"><a href="arsonChapter.html#data-errors-1"><i class="fa fa-check"></i><b>8.4</b> Data errors</a></li>
+<li class="chapter" data-level="8.3" data-path="arsonChapter.html"><a href="arsonChapter.html#data-errors-1"><i class="fa fa-check"></i><b>8.3</b> Data errors</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="hate_crimes.html"><a href="hate_crimes.html"><i class="fa fa-check"></i><b>9</b> Hate Crime Data</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="hate_crimes.html"><a href="hate_crimes.html#agencies-reporting-6"><i class="fa fa-check"></i><b>9.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="9.2" data-path="hate_crimes.html"><a href="hate_crimes.html#important-variables-6"><i class="fa fa-check"></i><b>9.2</b> Important variables</a>
+<li class="chapter" data-level="9.1" data-path="hate_crimes.html"><a href="hate_crimes.html#agencies-reporting-5"><i class="fa fa-check"></i><b>9.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="9.2" data-path="hate_crimes.html"><a href="hate_crimes.html#treeOfLife"><i class="fa fa-check"></i><b>9.2</b> Tree of Life synagogue shooting</a></li>
+<li class="chapter" data-level="9.3" data-path="hate_crimes.html"><a href="hate_crimes.html#important-variables-6"><i class="fa fa-check"></i><b>9.3</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="9.2.1" data-path="hate_crimes.html"><a href="hate_crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>9.2.1</b> The bias motivation (who the hate is against)</a></li>
-<li class="chapter" data-level="9.2.2" data-path="hate_crimes.html"><a href="hate_crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>9.2.2</b> The crime that occurred</a></li>
-<li class="chapter" data-level="9.2.3" data-path="hate_crimes.html"><a href="hate_crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>9.2.3</b> The location of the crime</a></li>
-<li class="chapter" data-level="9.2.4" data-path="hate_crimes.html"><a href="hate_crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>9.2.4</b> Number and race of offenders</a></li>
+<li class="chapter" data-level="9.3.1" data-path="hate_crimes.html"><a href="hate_crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>9.3.1</b> The bias motivation (who the hate is against)</a></li>
+<li class="chapter" data-level="9.3.2" data-path="hate_crimes.html"><a href="hate_crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>9.3.2</b> The crime that occurred</a></li>
+<li class="chapter" data-level="9.3.3" data-path="hate_crimes.html"><a href="hate_crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>9.3.3</b> The location of the crime</a></li>
+<li class="chapter" data-level="9.3.4" data-path="hate_crimes.html"><a href="hate_crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>9.3.4</b> Number and race of offenders</a></li>
+<li class="chapter" data-level="9.3.5" data-path="hate_crimes.html"><a href="hate_crimes.html#number-of-victims"><i class="fa fa-check"></i><b>9.3.5</b> Number of victims</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="county-level-srs-data.html"><a href="county-level-srs-data.html"><i class="fa fa-check"></i><b>10</b> County-Level SRS Data</a>
+<li class="chapter" data-level="10" data-path="county-level-data.html"><a href="county-level-data.html"><i class="fa fa-check"></i><b>10</b> County-Level Data</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="county-level-srs-data.html"><a href="county-level-srs-data.html#current-usage"><i class="fa fa-check"></i><b>10.1</b> Current usage</a></li>
-<li class="chapter" data-level="10.2" data-path="county-level-srs-data.html"><a href="county-level-srs-data.html#how-much-data-is-missing"><i class="fa fa-check"></i><b>10.2</b> How much data is missing</a></li>
-<li class="chapter" data-level="10.3" data-path="county-level-srs-data.html"><a href="county-level-srs-data.html#current-imputation-practices"><i class="fa fa-check"></i><b>10.3</b> Current imputation practices</a>
+<li class="chapter" data-level="10.1" data-path="county-level-data.html"><a href="county-level-data.html#current-usage"><i class="fa fa-check"></i><b>10.1</b> Current usage</a></li>
+<li class="chapter" data-level="10.2" data-path="county-level-data.html"><a href="county-level-data.html#how-much-data-is-missing"><i class="fa fa-check"></i><b>10.2</b> How much data is missing</a></li>
+<li class="chapter" data-level="10.3" data-path="county-level-data.html"><a href="county-level-data.html#current-imputation-practices"><i class="fa fa-check"></i><b>10.3</b> Current imputation practices</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="county-level-srs-data.html"><a href="county-level-srs-data.html#months-missing"><i class="fa fa-check"></i><b>10.3.1</b> 1-9 months missing</a></li>
-<li class="chapter" data-level="10.3.2" data-path="county-level-srs-data.html"><a href="county-level-srs-data.html#months-missing-1"><i class="fa fa-check"></i><b>10.3.2</b> 10-12 months missing</a></li>
+<li class="chapter" data-level="10.3.1" data-path="county-level-data.html"><a href="county-level-data.html#months-missing"><i class="fa fa-check"></i><b>10.3.1</b> 1-9 months missing</a></li>
+<li class="chapter" data-level="10.3.2" data-path="county-level-data.html"><a href="county-level-data.html#months-missing-1"><i class="fa fa-check"></i><b>10.3.2</b> 10-12 months missing</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="county-level-srs-data.html"><a href="county-level-srs-data.html#final-thoughts"><i class="fa fa-check"></i><b>10.4</b> Final thoughts</a></li>
 </ul></li>
 <li class="part"><span><b>III National Incident-Based Reporting System (NIBRS)</b></span></li>
 <li class="chapter" data-level="11" data-path="nibrs-overview.html"><a href="nibrs-overview.html"><i class="fa fa-check"></i><b>11</b> NIBRS Overview</a>
@@ -351,76 +356,89 @@ div.csl-indent {
 <li class="chapter" data-level="11.4.7" data-path="nibrs-overview.html"><a href="nibrs-overview.html#window"><i class="fa fa-check"></i><b>11.4.7</b> Window segments</a></li>
 </ul></li>
 <li class="chapter" data-level="11.5" data-path="nibrs-overview.html"><a href="nibrs-overview.html#which-agencies-report-data"><i class="fa fa-check"></i><b>11.5</b> Which agencies report data</a></li>
-<li class="chapter" data-level="11.6" data-path="nibrs-overview.html"><a href="nibrs-overview.html#ori"><i class="fa fa-check"></i><b>11.6</b> How to identify a particular agency (ORI codes)</a></li>
-<li class="chapter" data-level="11.7" data-path="nibrs-overview.html"><a href="nibrs-overview.html#the-data-as-you-get-it-from-the-fbi-1"><i class="fa fa-check"></i><b>11.7</b> The data as you get it from the FBI</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html"><i class="fa fa-check"></i><b>12</b> Administrative and Window Exceptional Clearance Segment</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#important-variables-7"><i class="fa fa-check"></i><b>12.1</b> Important variables</a>
+<li class="chapter" data-level="12.1" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#the-incident-and-report-date"><i class="fa fa-check"></i><b>12.1</b> The incident and report date</a></li>
+<li class="chapter" data-level="12.2" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#hour-of-incident"><i class="fa fa-check"></i><b>12.2</b> Hour of incident</a></li>
+<li class="chapter" data-level="12.3" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#exceptional-clearance"><i class="fa fa-check"></i><b>12.3</b> Exceptional clearance</a></li>
+<li class="chapter" data-level="12.4" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#number-of-other-segments"><i class="fa fa-check"></i><b>12.4</b> Number of other segments</a>
 <ul>
-<li class="chapter" data-level="12.1.1" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#the-incident-and-report-date"><i class="fa fa-check"></i><b>12.1.1</b> The incident and report date</a></li>
-<li class="chapter" data-level="12.1.2" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#hour-of-incident"><i class="fa fa-check"></i><b>12.1.2</b> Hour of incident</a></li>
-<li class="chapter" data-level="12.1.3" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#exceptional-clearance"><i class="fa fa-check"></i><b>12.1.3</b> Exceptional clearance</a></li>
-<li class="chapter" data-level="12.1.4" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#number-of-other-segments"><i class="fa fa-check"></i><b>12.1.4</b> Number of other segments</a></li>
+<li class="chapter" data-level="12.4.1" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#offense-segments"><i class="fa fa-check"></i><b>12.4.1</b> Offense Segments</a></li>
+<li class="chapter" data-level="12.4.2" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#offender-segments"><i class="fa fa-check"></i><b>12.4.2</b> Offender Segments</a></li>
+<li class="chapter" data-level="12.4.3" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#victim-segments"><i class="fa fa-check"></i><b>12.4.3</b> Victim Segments</a></li>
+<li class="chapter" data-level="12.4.4" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#arrestee-segments"><i class="fa fa-check"></i><b>12.4.4</b> Arrestee Segments</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="offenseSegment.html"><a href="offenseSegment.html"><i class="fa fa-check"></i><b>13</b> Offense Segment</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="offenseSegment.html"><a href="offenseSegment.html#important-variables-8"><i class="fa fa-check"></i><b>13.1</b> Important variables</a>
-<ul>
-<li class="chapter" data-level="13.1.1" data-path="offenseSegment.html"><a href="offenseSegment.html#crime-category"><i class="fa fa-check"></i><b>13.1.1</b> Crime category</a></li>
-<li class="chapter" data-level="13.1.2" data-path="offenseSegment.html"><a href="offenseSegment.html#offense-subtype"><i class="fa fa-check"></i><b>13.1.2</b> Offense subtype</a></li>
-<li class="chapter" data-level="13.1.3" data-path="offenseSegment.html"><a href="offenseSegment.html#offense-completed"><i class="fa fa-check"></i><b>13.1.3</b> Offense completed</a></li>
-<li class="chapter" data-level="13.1.4" data-path="offenseSegment.html"><a href="offenseSegment.html#drug-alcohol-or-computer-use"><i class="fa fa-check"></i><b>13.1.4</b> Drug, alcohol, or computer use</a></li>
-<li class="chapter" data-level="13.1.5" data-path="offenseSegment.html"><a href="offenseSegment.html#crime-location"><i class="fa fa-check"></i><b>13.1.5</b> Crime location</a></li>
-<li class="chapter" data-level="13.1.6" data-path="offenseSegment.html"><a href="offenseSegment.html#offenseWeapons"><i class="fa fa-check"></i><b>13.1.6</b> Weapons</a></li>
-<li class="chapter" data-level="13.1.7" data-path="offenseSegment.html"><a href="offenseSegment.html#automatic-weapons"><i class="fa fa-check"></i><b>13.1.7</b> Automatic weapons</a></li>
-<li class="chapter" data-level="13.1.8" data-path="offenseSegment.html"><a href="offenseSegment.html#burglary-info"><i class="fa fa-check"></i><b>13.1.8</b> Burglary info</a></li>
-<li class="chapter" data-level="13.1.9" data-path="offenseSegment.html"><a href="offenseSegment.html#hate-crime-indicator-bias-motivation"><i class="fa fa-check"></i><b>13.1.9</b> Hate crime indicator (bias motivation)</a></li>
-</ul></li>
+<li class="chapter" data-level="13.1" data-path="offenseSegment.html"><a href="offenseSegment.html#crime-category"><i class="fa fa-check"></i><b>13.1</b> Crime category</a></li>
+<li class="chapter" data-level="13.2" data-path="offenseSegment.html"><a href="offenseSegment.html#offense-subtype"><i class="fa fa-check"></i><b>13.2</b> Offense subtype</a></li>
+<li class="chapter" data-level="13.3" data-path="offenseSegment.html"><a href="offenseSegment.html#offense-completed"><i class="fa fa-check"></i><b>13.3</b> Offense completed</a></li>
+<li class="chapter" data-level="13.4" data-path="offenseSegment.html"><a href="offenseSegment.html#drug-alcohol-or-computer-use"><i class="fa fa-check"></i><b>13.4</b> Drug, alcohol, or computer use</a></li>
+<li class="chapter" data-level="13.5" data-path="offenseSegment.html"><a href="offenseSegment.html#crime-location"><i class="fa fa-check"></i><b>13.5</b> Crime location</a></li>
+<li class="chapter" data-level="13.6" data-path="offenseSegment.html"><a href="offenseSegment.html#offenseWeapons"><i class="fa fa-check"></i><b>13.6</b> Weapons</a></li>
+<li class="chapter" data-level="13.7" data-path="offenseSegment.html"><a href="offenseSegment.html#automatic-weapons"><i class="fa fa-check"></i><b>13.7</b> Automatic weapons</a></li>
+<li class="chapter" data-level="13.8" data-path="offenseSegment.html"><a href="offenseSegment.html#burglary-info"><i class="fa fa-check"></i><b>13.8</b> Burglary info</a></li>
+<li class="chapter" data-level="13.9" data-path="offenseSegment.html"><a href="offenseSegment.html#hate-crime-indicator-bias-motivation"><i class="fa fa-check"></i><b>13.9</b> Hate crime indicator (bias motivation)</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="offender-segment-1.html"><a href="offender-segment-1.html"><i class="fa fa-check"></i><b>14</b> Offender Segment</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="offender-segment-1.html"><a href="offender-segment-1.html#important-variables-9"><i class="fa fa-check"></i><b>14.1</b> Important variables</a>
+<li class="chapter" data-level="14.1" data-path="offender-segment-1.html"><a href="offender-segment-1.html#demographics-1"><i class="fa fa-check"></i><b>14.1</b> Demographics</a>
 <ul>
-<li class="chapter" data-level="14.1.1" data-path="offender-segment-1.html"><a href="offender-segment-1.html#demographics-1"><i class="fa fa-check"></i><b>14.1.1</b> Demographics</a></li>
+<li class="chapter" data-level="14.1.1" data-path="offender-segment-1.html"><a href="offender-segment-1.html#age-2"><i class="fa fa-check"></i><b>14.1.1</b> Age</a></li>
+<li class="chapter" data-level="14.1.2" data-path="offender-segment-1.html"><a href="offender-segment-1.html#sex-1"><i class="fa fa-check"></i><b>14.1.2</b> Sex</a></li>
+<li class="chapter" data-level="14.1.3" data-path="offender-segment-1.html"><a href="offender-segment-1.html#race-2"><i class="fa fa-check"></i><b>14.1.3</b> Race</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="victim-segment-1.html"><a href="victim-segment-1.html"><i class="fa fa-check"></i><b>15</b> Victim Segment</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="victim-segment-1.html"><a href="victim-segment-1.html#important-variables-10"><i class="fa fa-check"></i><b>15.1</b> Important variables</a>
+<li class="chapter" data-level="15.1" data-path="victim-segment-1.html"><a href="victim-segment-1.html#crime-category-1"><i class="fa fa-check"></i><b>15.1</b> Crime category</a></li>
+<li class="chapter" data-level="15.2" data-path="victim-segment-1.html"><a href="victim-segment-1.html#victim-type"><i class="fa fa-check"></i><b>15.2</b> Victim type</a></li>
+<li class="chapter" data-level="15.3" data-path="victim-segment-1.html"><a href="victim-segment-1.html#injury"><i class="fa fa-check"></i><b>15.3</b> Injury</a></li>
+<li class="chapter" data-level="15.4" data-path="victim-segment-1.html"><a href="victim-segment-1.html#relationship-to-offender"><i class="fa fa-check"></i><b>15.4</b> Relationship to offender</a></li>
+<li class="chapter" data-level="15.5" data-path="victim-segment-1.html"><a href="victim-segment-1.html#aggravated-assault-and-homicide-circumstances"><i class="fa fa-check"></i><b>15.5</b> Aggravated assault and homicide circumstances</a></li>
+<li class="chapter" data-level="15.6" data-path="victim-segment-1.html"><a href="victim-segment-1.html#justifiable-homicide-circumstance"><i class="fa fa-check"></i><b>15.6</b> Justifiable homicide circumstance</a></li>
+<li class="chapter" data-level="15.7" data-path="victim-segment-1.html"><a href="victim-segment-1.html#demographics-2"><i class="fa fa-check"></i><b>15.7</b> Demographics</a>
 <ul>
-<li class="chapter" data-level="15.1.1" data-path="victim-segment-1.html"><a href="victim-segment-1.html#crime-category-1"><i class="fa fa-check"></i><b>15.1.1</b> Crime category</a></li>
-<li class="chapter" data-level="15.1.2" data-path="victim-segment-1.html"><a href="victim-segment-1.html#victim-type"><i class="fa fa-check"></i><b>15.1.2</b> Victim type</a></li>
-<li class="chapter" data-level="15.1.3" data-path="victim-segment-1.html"><a href="victim-segment-1.html#injury"><i class="fa fa-check"></i><b>15.1.3</b> Injury</a></li>
-<li class="chapter" data-level="15.1.4" data-path="victim-segment-1.html"><a href="victim-segment-1.html#relationship-to-offender"><i class="fa fa-check"></i><b>15.1.4</b> Relationship to offender</a></li>
-<li class="chapter" data-level="15.1.5" data-path="victim-segment-1.html"><a href="victim-segment-1.html#aggravated-assault-and-homicide-circumstances"><i class="fa fa-check"></i><b>15.1.5</b> Aggravated assault and homicide circumstances</a></li>
-<li class="chapter" data-level="15.1.6" data-path="victim-segment-1.html"><a href="victim-segment-1.html#justifiable-homicide-circumstance"><i class="fa fa-check"></i><b>15.1.6</b> Justifiable homicide circumstance</a></li>
-<li class="chapter" data-level="15.1.7" data-path="victim-segment-1.html"><a href="victim-segment-1.html#demographics-2"><i class="fa fa-check"></i><b>15.1.7</b> Demographics</a></li>
+<li class="chapter" data-level="15.7.1" data-path="victim-segment-1.html"><a href="victim-segment-1.html#residence-status"><i class="fa fa-check"></i><b>15.7.1</b> Residence status</a></li>
+<li class="chapter" data-level="15.7.2" data-path="victim-segment-1.html"><a href="victim-segment-1.html#age-3"><i class="fa fa-check"></i><b>15.7.2</b> Age</a></li>
+<li class="chapter" data-level="15.7.3" data-path="victim-segment-1.html"><a href="victim-segment-1.html#sex-2"><i class="fa fa-check"></i><b>15.7.3</b> Sex</a></li>
+<li class="chapter" data-level="15.7.4" data-path="victim-segment-1.html"><a href="victim-segment-1.html#race-3"><i class="fa fa-check"></i><b>15.7.4</b> Race</a></li>
+<li class="chapter" data-level="15.7.5" data-path="victim-segment-1.html"><a href="victim-segment-1.html#ethnicity-2"><i class="fa fa-check"></i><b>15.7.5</b> Ethnicity</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="arrestee.html"><a href="arrestee.html"><i class="fa fa-check"></i><b>16</b> Arrestee, Group B Arrestee, and Window Arrestee Segment</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="arrestee.html"><a href="arrestee.html#important-variables-11"><i class="fa fa-check"></i><b>16.1</b> Important variables</a>
+<li class="chapter" data-level="16.1" data-path="arrestee.html"><a href="arrestee.html#crimes-arrested-for"><i class="fa fa-check"></i><b>16.1</b> Crimes arrested for</a>
 <ul>
-<li class="chapter" data-level="16.1.1" data-path="arrestee.html"><a href="arrestee.html#crimes-arrested-for"><i class="fa fa-check"></i><b>16.1.1</b> Crimes arrested for</a></li>
-<li class="chapter" data-level="16.1.2" data-path="arrestee.html"><a href="arrestee.html#arrest-date"><i class="fa fa-check"></i><b>16.1.2</b> Arrest date</a></li>
-<li class="chapter" data-level="16.1.3" data-path="arrestee.html"><a href="arrestee.html#weapons"><i class="fa fa-check"></i><b>16.1.3</b> Weapons</a></li>
-<li class="chapter" data-level="16.1.4" data-path="arrestee.html"><a href="arrestee.html#automatic-weapons-1"><i class="fa fa-check"></i><b>16.1.4</b> Automatic weapons</a></li>
-<li class="chapter" data-level="16.1.5" data-path="arrestee.html"><a href="arrestee.html#type-of-arrest"><i class="fa fa-check"></i><b>16.1.5</b> Type of arrest</a></li>
-<li class="chapter" data-level="16.1.6" data-path="arrestee.html"><a href="arrestee.html#disposition-for-juvenile-arrestees"><i class="fa fa-check"></i><b>16.1.6</b> Disposition for juvenile arrestees</a></li>
-<li class="chapter" data-level="16.1.7" data-path="arrestee.html"><a href="arrestee.html#demographics-3"><i class="fa fa-check"></i><b>16.1.7</b> Demographics</a></li>
+<li class="chapter" data-level="16.1.1" data-path="arrestee.html"><a href="arrestee.html#arrestee-segment-arrest-crimes"><i class="fa fa-check"></i><b>16.1.1</b> Arrestee Segment arrest crimes</a></li>
+<li class="chapter" data-level="16.1.2" data-path="arrestee.html"><a href="arrestee.html#group-b-segment-arrest-crimes"><i class="fa fa-check"></i><b>16.1.2</b> Group B Segment arrest crimes</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="arrestee.html"><a href="arrestee.html#arrest-date"><i class="fa fa-check"></i><b>16.2</b> Arrest date</a></li>
+<li class="chapter" data-level="16.3" data-path="arrestee.html"><a href="arrestee.html#weapons"><i class="fa fa-check"></i><b>16.3</b> Weapons</a></li>
+<li class="chapter" data-level="16.4" data-path="arrestee.html"><a href="arrestee.html#automatic-weapons-1"><i class="fa fa-check"></i><b>16.4</b> Automatic weapons</a></li>
+<li class="chapter" data-level="16.5" data-path="arrestee.html"><a href="arrestee.html#type-of-arrest"><i class="fa fa-check"></i><b>16.5</b> Type of arrest</a></li>
+<li class="chapter" data-level="16.6" data-path="arrestee.html"><a href="arrestee.html#disposition-for-juvenile-arrestees"><i class="fa fa-check"></i><b>16.6</b> Disposition for juvenile arrestees</a></li>
+<li class="chapter" data-level="16.7" data-path="arrestee.html"><a href="arrestee.html#demographics-3"><i class="fa fa-check"></i><b>16.7</b> Demographics</a>
+<ul>
+<li class="chapter" data-level="16.7.1" data-path="arrestee.html"><a href="arrestee.html#residence-status-1"><i class="fa fa-check"></i><b>16.7.1</b> Residence status</a></li>
+<li class="chapter" data-level="16.7.2" data-path="arrestee.html"><a href="arrestee.html#age-4"><i class="fa fa-check"></i><b>16.7.2</b> Age</a></li>
+<li class="chapter" data-level="16.7.3" data-path="arrestee.html"><a href="arrestee.html#sex-3"><i class="fa fa-check"></i><b>16.7.3</b> Sex</a></li>
+<li class="chapter" data-level="16.7.4" data-path="arrestee.html"><a href="arrestee.html#race-4"><i class="fa fa-check"></i><b>16.7.4</b> Race</a></li>
+<li class="chapter" data-level="16.7.5" data-path="arrestee.html"><a href="arrestee.html#ethnicity-3"><i class="fa fa-check"></i><b>16.7.5</b> Ethnicity</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="property.html"><a href="property.html"><i class="fa fa-check"></i><b>17</b> Property and Window Property Segment</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="property.html"><a href="property.html#important-variables-12"><i class="fa fa-check"></i><b>17.1</b> Important variables</a>
+<li class="chapter" data-level="17.1" data-path="property.html"><a href="property.html#propertyLoss"><i class="fa fa-check"></i><b>17.1</b> Type of property loss</a></li>
+<li class="chapter" data-level="17.2" data-path="property.html"><a href="property.html#description-of-property"><i class="fa fa-check"></i><b>17.2</b> Description of property</a></li>
+<li class="chapter" data-level="17.3" data-path="property.html"><a href="property.html#value-of-stolen-property"><i class="fa fa-check"></i><b>17.3</b> Value of stolen property</a></li>
+<li class="chapter" data-level="17.4" data-path="property.html"><a href="property.html#date-property-was-recovered"><i class="fa fa-check"></i><b>17.4</b> Date property was recovered</a></li>
+<li class="chapter" data-level="17.5" data-path="property.html"><a href="property.html#drugs"><i class="fa fa-check"></i><b>17.5</b> Drugs</a>
 <ul>
-<li class="chapter" data-level="17.1.1" data-path="property.html"><a href="property.html#propertyLoss"><i class="fa fa-check"></i><b>17.1.1</b> Type of property loss</a></li>
-<li class="chapter" data-level="17.1.2" data-path="property.html"><a href="property.html#description-of-property"><i class="fa fa-check"></i><b>17.1.2</b> Description of property</a></li>
-<li class="chapter" data-level="17.1.3" data-path="property.html"><a href="property.html#value-of-stolen-property"><i class="fa fa-check"></i><b>17.1.3</b> Value of stolen property</a></li>
-<li class="chapter" data-level="17.1.4" data-path="property.html"><a href="property.html#date-property-was-recovered"><i class="fa fa-check"></i><b>17.1.4</b> Date property was recovered</a></li>
-<li class="chapter" data-level="17.1.5" data-path="property.html"><a href="property.html#drugs"><i class="fa fa-check"></i><b>17.1.5</b> Drugs</a></li>
+<li class="chapter" data-level="17.5.1" data-path="property.html"><a href="property.html#suspected-drug-type"><i class="fa fa-check"></i><b>17.5.1</b> Suspected drug type</a></li>
+<li class="chapter" data-level="17.5.2" data-path="property.html"><a href="property.html#amount-of-drugs"><i class="fa fa-check"></i><b>17.5.2</b> Amount of drugs</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -433,7 +451,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioner’s Guide to FBI Data</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</a>
           </h1>
         </div>
 
@@ -444,11 +462,9 @@ div.csl-indent {
 <div id="administrative-and-window-exceptional-clearance-segment" class="section level1 hasAnchor" number="12">
 <h1><span class="header-section-number">Chapter 12</span> Administrative and Window Exceptional Clearance Segment<a href="administrative-and-window-exceptional-clearance-segment.html#administrative-and-window-exceptional-clearance-segment" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>The Administrative Segment provides information about the incident itself, such as how many victims or offenders there were. In practice this means that it tells us how many other segments - offense, offender, victim, and arrestee segments - there are for this particular incident. It also has several important variables at the incident-level such as what hour of the day the incident occurred and whether the incident date variable is actually just the date the incident was reported. Finally, it tells us whether the case was cleared exceptionally and, if so, what type of exceptional clearance it was. This can tell us, for example, how many crimes were cleared because the offender died or the victim refused to cooperate. As the UCR data doesn’t differentiate between normal clearances (i.e. arrest the offender) and exceptional clearances, this provides a far deeper understanding of case outcomes.</p>
-<div id="important-variables-7" class="section level2 hasAnchor" number="12.1">
-<h2><span class="header-section-number">12.1</span> Important variables<a href="administrative-and-window-exceptional-clearance-segment.html#important-variables-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In addition to the variables detailed below, this segment has the traditional agency and incident identifiers: the ORI code, the agency state, the year of this data, and the incident number.</p>
-<div id="the-incident-and-report-date" class="section level3 hasAnchor" number="12.1.1">
-<h3><span class="header-section-number">12.1.1</span> The incident and report date<a href="administrative-and-window-exceptional-clearance-segment.html#the-incident-and-report-date" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="the-incident-and-report-date" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> The incident and report date<a href="administrative-and-window-exceptional-clearance-segment.html#the-incident-and-report-date" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>An important variable, especially for policy analyses, is when the crime happened. NIBRS tells you both the date and the hour of the day for when the crime occurred. We’ll start with the date. We can convert the date a few different ways, such as daily, weekly, monthly, quarterly. We could use this precise date to do regression discontinuity studies where we look at days just before and just after some policy change or natural experiment. In this chapter we’ll look simply at the percent of crimes each month and each day of the month (overall, not within each month).</p>
 <p>Figure <a href="administrative-and-window-exceptional-clearance-segment.html#fig:administrativeIncidentMonth">12.1</a> shows the percent of crimes in the 2022 NIBRS data each month. Past research has found that crimes are lowest when it is cold and highest when it is hot (and summer also comes with many teens and young adults out of school so have more free time to offend or be victimized). We find these same results with crime lowest in February and steadily increasing until it peaks in July and August, and then decreasing as weather gets cooler in the fall and winter.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:administrativeIncidentMonth"></span>
@@ -472,11 +488,11 @@ Figure 12.3: The percent of crimes that are reported (the day of the report, eve
 </p>
 </div>
 </div>
-<div id="hour-of-incident" class="section level3 hasAnchor" number="12.1.2">
-<h3><span class="header-section-number">12.1.2</span> Hour of incident<a href="administrative-and-window-exceptional-clearance-segment.html#hour-of-incident" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>An extremely important aspect of crime data is when exactly the crime occurs. If, for example, crime always spikes when the local high school ends their day that would likely indicate that high school students are involved with crime (both as victims or as offenders). In my own research on daylight saving time and crime I only care about the sunset hours, which is when daylight saving time would affect outdoor lighting.<a href="#fn101" class="footnote-ref" id="fnref101"><sup>101</sup></a> When crime happens also would affect police behavior as they’d likely increase patrol during times of elevated crime. Luckily, NIBRS data does have the time of each incident, though it’s only at the hour level.</p>
-<p>Figure <a href="administrative-and-window-exceptional-clearance-segment.html#fig:administrativeHours">12.4</a> shows the total number of crimes that occurred in the 2022 NIBRS data for each hour of the day. There are two key trends in this figure. First, past research has found that crime tends to increase during the night (this is especially true during weekends), drop to a daily low in the couple of hours before sunrise, and then slowly increase as the day progresses.<a href="#fn102" class="footnote-ref" id="fnref102"><sup>102</sup></a> What we find here is a little different. Crime peaks at night at 5-5:59pm which is far earlier than other estimates. Since this is all crimes it could be biased by large increases of certain crimes at this time, such as people coming home from work and finding their house burgled. As crimes differ in their timing (e.g. burglary happens often during the day, fights are more common at night), you’ll need to merge this segment with the Offense Segment to be able to look at certain types of crimes alone.</p>
-<p>The second key trend is the large spike at midnight-12:59am and at noon-12:59pm. The midnight spike certainly seems far too large to be real. The midnight hour is more than double that of neighboring hours, and reverses the trend in the hours before it. Crime increases more at night (though not as much here as in other studies of this topic) but not by such a massive amount. The noon hour is about 50% larger than in the neighboring hours, so is a sizable increase though continues the trend of increasing crime during the day and is a far smaller increase than at midnight. It seems unlikely that this spike is real, though potentially some of it could be. For example, if a lot of people take their lunch at noon then there could be an increase of crime (such as pickpocketing and purse snatching) when these people gather at restaurants and malls to eat. So what are these spikes? There is no option to say that the hour is unknown so the police must put something in, and it seems that they put midnight and noon as the default “unknown hour” hour.<a href="#fn103" class="footnote-ref" id="fnref103"><sup>103</sup></a> Given this, I recommend that you remove the midnight and noon hour from any analysis you do where the time of day is relevant.</p>
+<div id="hour-of-incident" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> Hour of incident<a href="administrative-and-window-exceptional-clearance-segment.html#hour-of-incident" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>An extremely important aspect of crime data is when exactly the crime occurs. If, for example, crime always spikes when the local high school ends their day that would likely indicate that high school students are involved with crime (both as victims or as offenders). In my own research on daylight saving time and crime I only care about the sunset hours, which is when daylight saving time would affect outdoor lighting.<a href="#fn103" class="footnote-ref" id="fnref103"><sup>103</sup></a> When crime happens also would affect police behavior as they’d likely increase patrol during times of elevated crime. Luckily, NIBRS data does have the time of each incident, though it’s only at the hour level.</p>
+<p>Figure <a href="administrative-and-window-exceptional-clearance-segment.html#fig:administrativeHours">12.4</a> shows the total number of crimes that occurred in the 2022 NIBRS data for each hour of the day. There are two key trends in this figure. First, past research has found that crime tends to increase during the night (this is especially true during weekends), drop to a daily low in the couple of hours before sunrise, and then slowly increase as the day progresses.<a href="#fn104" class="footnote-ref" id="fnref104"><sup>104</sup></a> What we find here is a little different. Crime peaks at night at 5-5:59pm which is far earlier than other estimates. Since this is all crimes it could be biased by large increases of certain crimes at this time, such as people coming home from work and finding their house burgled. As crimes differ in their timing (e.g. burglary happens often during the day, fights are more common at night), you’ll need to merge this segment with the Offense Segment to be able to look at certain types of crimes alone.</p>
+<p>The second key trend is the large spike at midnight-12:59am and at noon-12:59pm. The midnight spike certainly seems far too large to be real. The midnight hour is more than double that of neighboring hours, and reverses the trend in the hours before it. Crime increases more at night (though not as much here as in other studies of this topic) but not by such a massive amount. The noon hour is about 50% larger than in the neighboring hours, so is a sizable increase though continues the trend of increasing crime during the day and is a far smaller increase than at midnight. It seems unlikely that this spike is real, though potentially some of it could be. For example, if a lot of people take their lunch at noon then there could be an increase of crime (such as pickpocketing and purse snatching) when these people gather at restaurants and malls to eat. So what are these spikes? There is no option to say that the hour is unknown so the police must put something in, and it seems that they put midnight and noon as the default “unknown hour” hour.<a href="#fn105" class="footnote-ref" id="fnref105"><sup>105</sup></a> Given this, I recommend that you remove the midnight and noon hour from any analysis you do where the time of day is relevant.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:administrativeHours"></span>
 <img src="12_nibrs_administrative_files/figure-html/administrativeHours-1.png" alt="The percent of crimes that are reported each hour for all agencies reporting to NIBRS in 2022." width="90%" />
 <p class="caption">
@@ -484,10 +500,10 @@ Figure 12.4: The percent of crimes that are reported each hour for all agencies 
 </p>
 </div>
 </div>
-<div id="exceptional-clearance" class="section level3 hasAnchor" number="12.1.3">
-<h3><span class="header-section-number">12.1.3</span> Exceptional clearance<a href="administrative-and-window-exceptional-clearance-segment.html#exceptional-clearance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>When we speak of clearances we generally mean that a person was arrested for the crime.<a href="#fn104" class="footnote-ref" id="fnref104"><sup>104</sup></a> Cases may also be cleared “through exceptional means” which is also called an “exceptional clearance.” An exceptional clearance means that the police have identified who the offender is (in cases with multiple offenders, they need to identify only one offender), have sufficient evidence and ability (e.g. know where they are) to arrest this offender but are unable to do so for some reason. Basically, if they could arrest them they would but for some reason they can’t. NIBRS data tells us if the case is exceptionally cleared as well as the reason for the exceptional clearance.</p>
-<p>Exceptional clearances are relatively rare, making up about 5% of cases. Figure <a href="administrative-and-window-exceptional-clearance-segment.html#fig:administrativeExceptionalClearances">12.5</a> shows the breakdown of reasons why the case was cleared for these ~5% of cases that are exceptionally cleared. The most common reason, at 47.3% of exceptional clearances, is that the victim refused to cooperate with the police or prosecution. This can include cases where the victim reported their crime to the police and then later decide to stop assisting. The next most common reason, at 45.3% of exceptionally cleared cases, is that the prosecution decides to not prosecute the case. This excludes cases where the prosecution believes that there is not probable cause to make the arrest. Therefore it largely includes cases that the prosecution either doesn’t believe they could win or where the agency has a policy of non-prosecution - this is likely increasingly common in jurisdiction which has “progressive prosecutors” who de facto legalize certain crimes.<a href="#fn105" class="footnote-ref" id="fnref105"><sup>105</sup></a></p>
+<div id="exceptional-clearance" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">12.3</span> Exceptional clearance<a href="administrative-and-window-exceptional-clearance-segment.html#exceptional-clearance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When we speak of clearances we generally mean that a person was arrested for the crime.<a href="#fn106" class="footnote-ref" id="fnref106"><sup>106</sup></a> Cases may also be cleared “through exceptional means” which is also called an “exceptional clearance.” An exceptional clearance means that the police have identified who the offender is (in cases with multiple offenders, they need to identify only one offender), have sufficient evidence and ability (e.g. know where they are) to arrest this offender but are unable to do so for some reason. Basically, if they could arrest them they would but for some reason they can’t. NIBRS data tells us if the case is exceptionally cleared as well as the reason for the exceptional clearance.</p>
+<p>Exceptional clearances are relatively rare, making up about 5% of cases. Figure <a href="administrative-and-window-exceptional-clearance-segment.html#fig:administrativeExceptionalClearances">12.5</a> shows the breakdown of reasons why the case was cleared for these ~5% of cases that are exceptionally cleared. The most common reason, at 47.3% of exceptional clearances, is that the victim refused to cooperate with the police or prosecution. This can include cases where the victim reported their crime to the police and then later decide to stop assisting. The next most common reason, at 45.3% of exceptionally cleared cases, is that the prosecution decides to not prosecute the case. This excludes cases where the prosecution believes that there is not probable cause to make the arrest. Therefore it largely includes cases that the prosecution either doesn’t believe they could win or where the agency has a policy of non-prosecution - this is likely increasingly common in jurisdiction which has “progressive prosecutors” who de facto legalize certain crimes.<a href="#fn107" class="footnote-ref" id="fnref107"><sup>107</sup></a></p>
 <p>The next most common group is when the offender is a juvenile and the police chose to avoid arresting them due to their age. This occurs in minor offenses such as property crimes and the police do give notice to the juvenile offender’s parents or guardians about the situation. If the offender is in another agency’s jurisdiction (including out of the country) and the agency reporting data is unable to make an arrest, including when the agency who has the offender in their jurisdiction refuses to extradite the offender, the case can be exceptionally cleared. This occurs in 1.6% of exceptional clearances. In these cases we don’t know any information about which jurisdiction the offender is in at the time of the exceptional clearance. Finally, if the offender dies (by any means) before the arrest they can’t be arrested so the case is exceptionally cleared. This makes up about 0.9% of exceptional clearances.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:administrativeExceptionalClearances"></span>
 <img src="12_nibrs_administrative_files/figure-html/administrativeExceptionalClearances-1.png" alt="The distribution of exceptional clearances for all exceptional clearances reported to NIBRS in 2022." width="90%" />
@@ -496,12 +512,12 @@ Figure 12.5: The distribution of exceptional clearances for all exceptional clea
 </p>
 </div>
 </div>
-<div id="number-of-other-segments" class="section level3 hasAnchor" number="12.1.4">
-<h3><span class="header-section-number">12.1.4</span> Number of other segments<a href="administrative-and-window-exceptional-clearance-segment.html#number-of-other-segments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="number-of-other-segments" class="section level2 hasAnchor" number="12.4">
+<h2><span class="header-section-number">12.4</span> Number of other segments<a href="administrative-and-window-exceptional-clearance-segment.html#number-of-other-segments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The “Administrative” part of this segment is that it tells us about other segments related to this incident. Here we know how many Offense, Offender, Victim, and Arrestee segments there are for the incident. In effect it says how many crimes were committed, offenders involved (at least the number known to police), victims involved, and people arrested for this particular incident. This can be useful both as a check to make sure you’re not missing anything when looking at the other segments and to quickly subset data, such as to only single-victim or only multiple-offender incidents.</p>
-<div id="offense-segments" class="section level4 hasAnchor" number="12.1.4.1">
-<h4><span class="header-section-number">12.1.4.1</span> Offense Segments<a href="administrative-and-window-exceptional-clearance-segment.html#offense-segments" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>This variable indicates how many offense segments there are associated with this incident, with the possible values ranging from one to nine. Each incident can have multiple offenses, so this just says how many of these crimes there were. For example, if a person is raped and robbed then there’d be two offense segments related to that incident. Figure <a href="administrative-and-window-exceptional-clearance-segment.html#fig:administrativeOffenseSegments">12.6</a> shows the number of offense segments - and thus the number of crimes - associated with each incident. The vast majority of incidents only have one offense reported, making up 88.4% of incidents.<a href="#fn106" class="footnote-ref" id="fnref106"><sup>106</sup></a> This drops considerably to 10.3% of incidents having two offenses, 1.1% having three, and then under 0.15% of incidents having four through nine offenses.</p>
+<div id="offense-segments" class="section level3 hasAnchor" number="12.4.1">
+<h3><span class="header-section-number">12.4.1</span> Offense Segments<a href="administrative-and-window-exceptional-clearance-segment.html#offense-segments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This variable indicates how many offense segments there are associated with this incident, with the possible values ranging from one to nine. Each incident can have multiple offenses, so this just says how many of these crimes there were. For example, if a person is raped and robbed then there’d be two offense segments related to that incident. Figure <a href="administrative-and-window-exceptional-clearance-segment.html#fig:administrativeOffenseSegments">12.6</a> shows the number of offense segments - and thus the number of crimes - associated with each incident. The vast majority of incidents only have one offense reported, making up 88.4% of incidents.<a href="#fn108" class="footnote-ref" id="fnref108"><sup>108</sup></a> This drops considerably to 10.3% of incidents having two offenses, 1.1% having three, and then under 0.15% of incidents having four through nine offenses.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:administrativeOffenseSegments"></span>
 <img src="12_nibrs_administrative_files/figure-html/administrativeOffenseSegments-1.png" alt="The distribution for the number of Offender Segments per incident, for all incidents in NIBRS 2022." width="90%" />
 <p class="caption">
@@ -509,8 +525,8 @@ Figure 12.6: The distribution for the number of Offender Segments per incident, 
 </p>
 </div>
 </div>
-<div id="offender-segments" class="section level4 hasAnchor" number="12.1.4.2">
-<h4><span class="header-section-number">12.1.4.2</span> Offender Segments<a href="administrative-and-window-exceptional-clearance-segment.html#offender-segments" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="offender-segments" class="section level3 hasAnchor" number="12.4.2">
+<h3><span class="header-section-number">12.4.2</span> Offender Segments<a href="administrative-and-window-exceptional-clearance-segment.html#offender-segments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The Administrative Segment tells you how many offenders are involved with an incident. This is, of course, an estimate because in some incidents the police don’t know how many people are involved. If, for example, someone was robbed then they can tell the police how many robbers there were. But if someone comes home to find their home burglarized then they don’t know how many burglars there were. If there’s no video evidence (e.g. a home security camera) and neighbors didn’t see anything then the police would not know how many offenders were involved in the incident. In these cases they put in a single offender and in the Offender Segment all of the information about the offender is “unknown.” The remaining number of offenders are still estimates as the police may not know for sure how many offenders were involved, but this is more reliable than when there is only a single offender reported. With that major caveat in mind, Figure <a href="administrative-and-window-exceptional-clearance-segment.html#fig:administrativeOffenderSegments">12.7</a> shows the distribution in how many offenders there were per incident.</p>
 <p>The vast majority of incidents have only one (or potentially an unknown number) offenders, at 89.8% percent of incidents. Incidents with two offenders make up only 7.9% of incidents while those with three make up 1.6% of incidents. No other number of offenders make up more than 0.5% of incidents. The data does have the exact number of offenders but I’ve top coded it to 10 in the graph for simplicity. There can potentially be a large number of offenders involved in an incident and in the 2022 NIBRS data the incident with the higher number of offenders had 81. However, it is exceedingly rare for there to be even more than a handful of offenders.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:administrativeOffenderSegments"></span>
@@ -520,8 +536,8 @@ Figure 12.7: The distribution for the number of Offender Segments per incident, 
 </p>
 </div>
 </div>
-<div id="victim-segments" class="section level4 hasAnchor" number="12.1.4.3">
-<h4><span class="header-section-number">12.1.4.3</span> Victim Segments<a href="administrative-and-window-exceptional-clearance-segment.html#victim-segments" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="victim-segments" class="section level3 hasAnchor" number="12.4.3">
+<h3><span class="header-section-number">12.4.3</span> Victim Segments<a href="administrative-and-window-exceptional-clearance-segment.html#victim-segments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In cases where the offense is a “victimless crime” (or at least one where there’s no specific victim) such as a drug offense, the victim and the offender can be the same individual. For other cases, being a victim in an incident just means that you were the victim of at least one offense committed in the incident. Figure <a href="administrative-and-window-exceptional-clearance-segment.html#fig:administrativeVictimSegments">12.8</a> shows the distribution in the number of victims per incident. Like the number of offenses and offenders, this is massively skewed to the left with 90.3% of incidents having a single victim. Incidents with two victims make up 7.9% of the data while incidents with three victims are 1.2%. All remaining numbers of victims are less than one third of one percent of the data each. The data does have the exact number of victims but I’ve top coded it to 10 in the graph for simplicity. The incident with the most victims in 2022 had 207 victims.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:administrativeVictimSegments"></span>
 <img src="12_nibrs_administrative_files/figure-html/administrativeVictimSegments-1.png" alt="The distribution for the number of Victim Segments per incident, for all incidents in NIBRS 2022." width="90%" />
@@ -530,8 +546,8 @@ Figure 12.8: The distribution for the number of Victim Segments per incident, fo
 </p>
 </div>
 </div>
-<div id="arrestee-segments" class="section level4 hasAnchor" number="12.1.4.4">
-<h4><span class="header-section-number">12.1.4.4</span> Arrestee Segments<a href="administrative-and-window-exceptional-clearance-segment.html#arrestee-segments" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="arrestee-segments" class="section level3 hasAnchor" number="12.4.4">
+<h3><span class="header-section-number">12.4.4</span> Arrestee Segments<a href="administrative-and-window-exceptional-clearance-segment.html#arrestee-segments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Unlike the previous segments, there may not always be an arrestee segment since not all crimes lead to an arrest. Figure <a href="administrative-and-window-exceptional-clearance-segment.html#fig:administrativeArresteeSegments">12.9</a> shows the distribution in the number of arrestee segments per incident in the 2022 NIBRS data. Indeed, the vast majority - 72.9% of incidents - didn’t lead to a single arrest. In 24% of incidents a single person was arrested while in 2.5% of incidents two people were arrested. The remaining numbers of people arrested are increasingly small with a little over a third of one percent of incidents having three people arrested and no greater than 0.1% for larger numbers of people arrested. The incident with the most arrests in 2022 led to 81 people arrested.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:administrativeArresteeSegments"></span>
 <img src="12_nibrs_administrative_files/figure-html/administrativeArresteeSegments-1.png" alt="The distribution for the number of Arrestee Segments per incident, for all incidents in NIBRS 2022." width="90%" />
@@ -558,16 +574,15 @@ Figure 12.11: The percent of incidents by number of offenders where at least one
 </div>
 </div>
 </div>
-</div>
 <div class="footnotes">
 <hr />
-<ol start="101">
-<li id="fn101"><p>It also affects outdoor lighting in the morning, but crime is rare in the morning so would have less of an effect.<a href="administrative-and-window-exceptional-clearance-segment.html#fnref101" class="footnote-back">↩︎</a></p></li>
-<li id="fn102"><p>In all of the police ridealongs I’ve been on the police tend to stop patrolling in early morning (e.g. 3-4am) and go back to the station to do paperwork. I think this likely partially explains the findings that crime is lowest around 4-5am.<a href="administrative-and-window-exceptional-clearance-segment.html#fnref102" class="footnote-back">↩︎</a></p></li>
-<li id="fn103"><p>To my knowledge these spikes are not discussed in papers that use NIBRS data other than in my own papers.<a href="administrative-and-window-exceptional-clearance-segment.html#fnref103" class="footnote-back">↩︎</a></p></li>
-<li id="fn104"><p>While a more expansive definition may include a conviction in a court for that crime (including pleading guilty), NIBRS data only extends to the arrest stage so we never know the judicial outcome of the case.<a href="administrative-and-window-exceptional-clearance-segment.html#fnref104" class="footnote-back">↩︎</a></p></li>
-<li id="fn105"><p>Of course this is an empirical question and one that could potentially be examined through NIBRS data. Unfortunately, progressive prosecutors are generally found in large urban cities (e.g. Philadelphia), which also tend to not report NIBRS data. As these agencies start reporting we’ll be able to assess whether progressive prosecutors affect exceptional clearances.<a href="administrative-and-window-exceptional-clearance-segment.html#fnref105" class="footnote-back">↩︎</a></p></li>
-<li id="fn106"><p>In reality a person who commits a crime may be arrested or charged with many (often highly related) offenses related to a single criminal incident. So this data does report fewer incidents than you’d likely find in other data sources, such as if you request data from a local police agency or district attorney’s office.<a href="administrative-and-window-exceptional-clearance-segment.html#fnref106" class="footnote-back">↩︎</a></p></li>
+<ol start="103">
+<li id="fn103"><p>It also affects outdoor lighting in the morning, but crime is rare in the morning so would have less of an effect.<a href="administrative-and-window-exceptional-clearance-segment.html#fnref103" class="footnote-back">↩︎</a></p></li>
+<li id="fn104"><p>In all of the police ridealongs I’ve been on the police tend to stop patrolling in early morning (e.g. 3-4am) and go back to the station to do paperwork. I think this likely partially explains the findings that crime is lowest around 4-5am.<a href="administrative-and-window-exceptional-clearance-segment.html#fnref104" class="footnote-back">↩︎</a></p></li>
+<li id="fn105"><p>To my knowledge these spikes are not discussed in papers that use NIBRS data other than in my own papers.<a href="administrative-and-window-exceptional-clearance-segment.html#fnref105" class="footnote-back">↩︎</a></p></li>
+<li id="fn106"><p>While a more expansive definition may include a conviction in a court for that crime (including pleading guilty), NIBRS data only extends to the arrest stage so we never know the judicial outcome of the case.<a href="administrative-and-window-exceptional-clearance-segment.html#fnref106" class="footnote-back">↩︎</a></p></li>
+<li id="fn107"><p>Of course this is an empirical question and one that could potentially be examined through NIBRS data. Unfortunately, progressive prosecutors are generally found in large urban cities (e.g. Philadelphia), which also tend to not report NIBRS data. As these agencies start reporting we’ll be able to assess whether progressive prosecutors affect exceptional clearances.<a href="administrative-and-window-exceptional-clearance-segment.html#fnref107" class="footnote-back">↩︎</a></p></li>
+<li id="fn108"><p>In reality a person who commits a crime may be arrested or charged with many (often highly related) offenses related to a single criminal incident. So this data does report fewer incidents than you’d likely find in other data sources, such as if you request data from a local police agency or district attorney’s office.<a href="administrative-and-window-exceptional-clearance-segment.html#fnref108" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -608,7 +623,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["ucrbook.pdf"],
+"download": null,
 "search": {
 "engine": "fuse",
 "options": null
