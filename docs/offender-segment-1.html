@@ -23,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2024-08-14" />
+<meta name="date" content="2024-08-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -343,7 +343,6 @@ div.csl-indent {
 <li class="chapter" data-level="11.3" data-path="nibrs-overview.html"><a href="nibrs-overview.html#differences-from-ucr-data"><i class="fa fa-check"></i><b>11.3</b> Differences from UCR data</a>
 <ul>
 <li class="chapter" data-level="11.3.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#nibrs-does-not-have-unfounded-crimes"><i class="fa fa-check"></i><b>11.3.1</b> NIBRS does not have unfounded crimes</a></li>
-<li class="chapter" data-level="11.3.2" data-path="nibrs-overview.html"><a href="nibrs-overview.html#less-information-on-assaults-against-officers"><i class="fa fa-check"></i><b>11.3.2</b> Less information on assaults against officers</a></li>
 </ul></li>
 <li class="chapter" data-level="11.4" data-path="nibrs-overview.html"><a href="nibrs-overview.html#a-summary-of-each-segment-file"><i class="fa fa-check"></i><b>11.4</b> A summary of each segment file</a>
 <ul>
@@ -461,7 +460,7 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="offender-segment-1" class="section level1 hasAnchor" number="14">
 <h1><span class="header-section-number">Chapter 14</span> Offender Segment<a href="offender-segment-1.html#offender-segment-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>As might be expected, the Offender Segment provides information about who the offender (or offenders) is (are) for each incident, though this is limited to only demographic variables. So we know the age, sex, and race of each offender but nothing else. This means that important variables such as criminal history, ethnicity, socioeconomic status, and motive are missing. In the Victim Segment we learn about the relationship between the victim and offender, and in the Offense Segment we learn which weapon (if any) the offender used. So there is some other data on the offender in other segments but it’s quite limited. This data has one row per offender so incidents with multiple offenders have multiple rows. In cases where there is no information about the offender there will be a single row where all of the offender variables will be “unknown.” In these cases having a single row for the offender is merely a placeholder and doesn’t necessarily mean that there was only one offender for that incident. However, there’s no indicator for when this is a placeholder and when there was actually one offender but whose demographic info is unknown.</p>
+<p>As might be expected, the Offender Segment provides information about who the offender is for each incident, though this is limited to only demographic variables. In incidents with multiple offenders it provides information about each offender. From this data we know the age, sex, and race of each offender but nothing else. This means that important variables such as criminal history, socioeconomic status, and motive are missing. In the Victim Segment we learn about the relationship between the victim and offender, and in the Offense Segment we learn which weapon (if any) the offender used. So there is some other data on the offender in other segments but it’s quite limited. In cases where there is no information about the offender there will be a single row where all of the offender variables will be “unknown.” In these cases having a single row for the offender is merely a placeholder and doesn’t necessarily mean that there was only one offender for that incident. However, there’s no indicator for when this is a placeholder and when there was actually one offender but whose demographic info is unknown.</p>
 <p>The Offender Segment is the sparsest of the available segments, and provides only three new variables that are about the offender’s demographics. It also includes the standard set of variables: the agency ORI, the incident number, the state the agency is in, and the incident date (though we’d need to check the Administrative Segment to see if this is actually the incident date or the report date).</p>
 <div id="demographics-1" class="section level2 hasAnchor" number="14.1">
 <h2><span class="header-section-number">14.1</span> Demographics<a href="offender-segment-1.html#demographics-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -492,7 +491,7 @@ Figure 14.2: The sex of all offenders reported in the 2022 NIBRS data.
 <div id="race-2" class="section level3 hasAnchor" number="14.1.3">
 <h3><span class="header-section-number">14.1.3</span> Race<a href="offender-segment-1.html#race-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The final variable available is the race of the offender. The only possible races are White, Black, American Indian/Alaskan Native, Asian, and Native Hawaiian/Other Pacific Islander. These categories are mutually exclusive so people cannot be labeled as mixed race, they must be put into one of the categories. Other than offenders who were arrested, and thus police can clearly see them and potentially ask them what race they are, this variable is likely a rough estimate of a person’s race.</p>
-<p>Figure <a href="offender-segment-1.html#fig:offenderRace">14.3</a> shows the breakdown in offender races for every offender in the 2019 data. The most common offender race is Unknown, with about 38.5% of offenders not having a known race. This 38.5% of actually an undercount as in cases where the agency doesn’t know anything about the offenders they’ll put down a single offender with “unknown” for every demographics variable. So there could potentially be multiple offenders represented when there is a row with an unknown offender race. This is also dependent on the type of crimes committed and when they are committed. For example, a daytime robbery would likely have a known offender race as the victim can clearly see (complexities about identifying people’s race aside) the race of the robber. A daytime burglary where no one is home would likely have an unknown offender race and there’d be no witnesses.<a href="#fn116" class="footnote-ref" id="fnref116"><sup>116</sup></a> Likewise, a robbery at night could have an unknown offender race because the darkness makes it harder to identify people.</p>
+<p>Figure <a href="offender-segment-1.html#fig:offenderRace">14.3</a> shows the breakdown in offender races for every offender in the 2019 data. The most common offender race is Unknown, with about 38.5% of offenders not having a known race. This 38.5% of actually an undercount as in cases where the agency doesn’t know anything about the offenders they’ll put down a single offender with “unknown” for every demographics variable. So there could potentially be multiple offenders represented when there is a row with an unknown offender race. This is also dependent on the type of crimes committed and when they are committed. For example, a daytime robbery would likely have a known offender race as the victim can clearly see (complexities about identifying people’s race aside) the race of the robber. A daytime burglary where no one is home would likely have an unknown offender race and there’d be no witnesses. Likewise, a robbery at night could have an unknown offender race because the darkness makes it harder to identify people.</p>
 <p>The next most common offender race is White at 38.7% followed by Black at 22.1%. The remaining races make up only a little over 1.5% of offenders, with American Indian/Alaskan Native at 0.77%, Asian at 0.63%, and Native Hawaiian/Other Pacific Islander at 0.24%.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:offenderRace"></span>
 <img src="14_nibrs_offender_files/figure-html/offenderRace-1.png" alt="The race of all offenders reported in the 2022 NIBRS data." width="90%" />
@@ -503,12 +502,6 @@ Figure 14.3: The race of all offenders reported in the 2022 NIBRS data.
 
 </div>
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="116">
-<li id="fn116"><p>When NIBRS 2020 data comes out it’ll be interesting to see how people staying at home due to covid affects the amount of unknown offender info.<a href="offender-segment-1.html#fnref116" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
             </section>
 

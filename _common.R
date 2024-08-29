@@ -19,14 +19,15 @@ packages <- c(
   "priceR",
   "blscrapeR",
   "janitor",
-  "quantmod",
+ # "quantmod",
   "ggh4x",
   "sf",
   "tigris"
 )
 
-groundhog.library(packages, "2023-10-01")
-
+groundhog.library(packages, "2024-08-27")
+#library(priceR)
+#library(quantmod)
 
 # For agencies with a covered by ORI value, assign the last month reported 
 # variable to the value the covering agency has
