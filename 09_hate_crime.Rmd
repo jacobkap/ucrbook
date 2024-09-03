@@ -273,7 +273,7 @@ In the FBI data Bias motivation is based on the offender's perceptions of the vi
 
 The biases that the FBI includes in this data has grown over time, with new bias motivations being added in 1997, 2012, 2013, and 2015. Table \@ref(tab:hateBiasMotivation) shows each bias motivation in this data, the year it was first reported, how many hate crimes there were for this bias motivation from 1991-2022 and what percent of hate crimes that bias motivation makes up. For ease of seeing the most common biases, the table is sorted by frequency of incidents. The year is the first year with that bias motivation - as hate crimes for certain groups are very rare, the bias motivation could have technically been available in previous years. The last column in this table shows the percent of hate crime incidents from 1991-2022, though this is a very rough measure since some groups are so small that even accounting for a small percent of total hate crimes can mean that are massively disproportionately targeted. 
 
-```{r hateBiasMotivation}
+```{r }
 hate_crimes$bias_motivation_offense_1[hate_crimes$bias_motivation_offense_1 %in% "99"] <- NA
 temp <- make_frequency_table_year(hate_crimes,
                                   "bias_motivation_offense_1",
@@ -285,16 +285,17 @@ temp$`Bias Motivation` <- gsub("lgbt", "LGBT", ignore.case = TRUE, temp$`Bias Mo
 temp$`First Year Reported`[temp$`Bias Motivation` %in% "Total"] <- ""
 temp <- temp %>% arrange(desc(parse_number(`# of Incidents`)))
 knitr::kable(temp, 
-             format = "html",
+           #  format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
              booktabs = TRUE, 
              longtable = TRUE,
-             escape = FALSE,
-             caption = "The bias motivation for hate crime incidents. In incidents with multiple bias motivation, this shows only the first bias motivation recorded.") %>%
-  kable_styling(bootstrap_options = "striped",
-                full_width = FALSE,
-                latex_options = c("hold_position", "repeat_header"))
+             label = "hateBiasMotivation",
+           #  escape = FALSE,
+             caption = "The bias motivation for hate crime incidents. In incidents with multiple bias motivation, this shows only the first bias motivation recorded.")# %>%
+  # kable_styling(bootstrap_options = "striped",
+  #               full_width = FALSE,
+  #               latex_options = c("hold_position", "repeat_header"))
 ```
 
 2015 is the year with the most bias additions, as of data through 2022. This year added a number of religions such as Anti-Buddhist, Anti-Sikh, and Anti-Jehovah's Witness. In 2013, anti-Transgender was added and this is the most common of the bias motivations added since data began in 1991 with 1500 hate crimes between 2013-2022 - 0.63% of all hate crime incidents from 1991-2022. That year also added anti-male and Anti-Native Hawaiian or Other Pacific Islander, which is the most recent racial group added. In 2012, anti-gender non-conforming and anti-female were included, while in 1997 both anti-mental and anti-physical disability were added. In part due to having fewer years of data available, these newer bias motivations make up a small percent of total hate crimes. 
@@ -307,7 +308,7 @@ The "crime" part of hate crimes is which criminal offense occurred during the in
 
 Nearly all hate crimes are vandalism/destruction of property (30%), intimidation (30%), and simple assault (20%) or aggravated assault (11%) with no remaining crime making up more than 2% of total hate crimes. 
 
-```{r hateOffense}
+```{r }
 hate_crimes$ucr_offense_code_1[hate_crimes$ucr_offense_code_1 %in% "720"] <- NA
 temp <- make_frequency_table_year(hate_crimes, "ucr_offense_code_1",
                              c("Offense",
@@ -317,16 +318,17 @@ temp <- make_frequency_table_year(hate_crimes, "ucr_offense_code_1",
 temp$`First Year Reported`[temp$Offense %in% "Total"] <- ""
 temp <- temp %>% arrange(desc(parse_number(`# of Incidents`)))
 knitr::kable(temp, 
-             format = "html",
+          #   format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
              booktabs = TRUE, 
              longtable = TRUE,
-             escape = FALSE,
-             caption = "The offense type for hate crime incidents. In incidents with multiple offense types, this shows only the first offense type recorded.") %>%
-  kable_styling(bootstrap_options = "striped", 
-                full_width = FALSE, 
-                latex_options = c("hold_position", "repeat_header"))
+           #  escape = FALSE,
+             label = "hateOffense",
+             caption = "The offense type for hate crime incidents. In incidents with multiple offense types, this shows only the first offense type recorded.") #%>%
+  # kable_styling(bootstrap_options = "striped", 
+  #               full_width = FALSE, 
+  #               latex_options = c("hold_position", "repeat_header"))
 ```
 
 Agencies that report to the FBI's National Incident-Based Reporting System (NIBRS) can also report bias motivations for their crimes, and these reports are included in this dataset. One tricky thing is that the crimes included are different depending on if the agency reported through NIBRS or to the dataset directly, and are not NIBRS reporting agencies. NIBRS agencies report all of the crimes as the agencies directly submitting SRS data, but have a wider variety of crimes they can report. In practice, however, both NIBRS and SRS reporting agencies can report the most common offenses so there is relatively little difference.
@@ -337,7 +339,7 @@ This data is interesting because it includes the location - in categories for ty
 
 As with the crime and the bias motivation, the available locations have increased as time went on, though these newer locations are relatively uncommon. One important change in location is that starting in 2010 the location of school/college was split to have one location be for elementary and high schools and another location be for colleges and universities. The majority of hate crimes occur in the victim's home (30%), on a road or alley (19%), in an other or unknown location (13%), and in a parking lot or parking garage (6%). All other locations occur in fewer than 5% of hate crimes. 
 
-```{r hateLocations}
+```{r }
 hate_crimes$location_code_offense_1[hate_crimes$location_code_offense_1 %in% "undocumented code v13"] <- NA
 temp <- make_frequency_table_year(hate_crimes, "location_code_offense_1",
                              c("Location",
@@ -347,16 +349,17 @@ temp <- make_frequency_table_year(hate_crimes, "location_code_offense_1",
 temp$`First Year Reported`[temp$Location %in% "Total"] <- ""
 temp <- temp %>% arrange(desc(parse_number(`# of Incidents`)))
 knitr::kable(temp, 
-             format = "html",
+            # format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
              booktabs = TRUE, 
              longtable = TRUE,
-             escape = FALSE,
-             caption = "The location of hate crime incidents. In incidents with multiple locations, this shows only the first location recorded.") %>%
-  kable_styling(bootstrap_options = "striped", 
-                full_width = FALSE, 
-                latex_options = c("hold_position", "repeat_header"))
+           #  escape = FALSE,
+             label = "hateLocations",
+             caption = "The location of hate crime incidents. In incidents with multiple locations, this shows only the first location recorded.")# %>%
+  # kable_styling(bootstrap_options = "striped", 
+  #               full_width = FALSE, 
+  #               latex_options = c("hold_position", "repeat_header"))
 ```
 
 ### Number and race of offenders

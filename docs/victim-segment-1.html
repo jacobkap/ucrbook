@@ -23,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2024-08-29" />
+<meta name="date" content="2024-09-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -467,705 +467,330 @@ div.csl-indent {
 <h2><span class="header-section-number">15.1</span> Crime category<a href="victim-segment-1.html#crime-category-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The first variable we’ll look at is the crime the victim experienced. This is a bit different than the offenses in the Offense Segment as not all victims in an incident are victimized by all of the crimes involved. For example, if a couple is assaulted and the woman is raped, the woman would experience rape and assault while the man only experiences assault. NIBRS allows for up to 10 offenses per victim and these are supposed to be ranked in order of seriousness. So the first variable has the most serious offense, the second has the second most serious offense, and so on. This is true is most cases but some have more minor crimes presented before more serious crimes. This seems to just be a data entry issue and nothing systematic but you should still check all offense variables if you’re interested in finding the most serious crime per victim.</p>
 <p>There are 52 possible offenses included in this segment and Table <a href="victim-segment-1.html#tab:victimCrimeCategory">15.1</a> shows how frequent each offense is. Though there are 10 possible offenses per victim, this table only looks at the first offense. The most common offense is simple assault, affecting 12.7% of victims or 944k people. This is followed by damage, vandalism, or destruction of property for 11% of victims. About 9.6% of victims experience drugs/narcotic violations, and these victims are likely also the offenders in the case (all incidents must have a victim recorded so in drug crimes the victims are also the offenders in most cases). Theft crimes, broken into some subcategories like “all other larceny” and “theft from motor vehicle” make up the three of the top six crimes (ranks 3, 5, and 6) people are victimized by. And the only remaining crime that accounts for 5% or more of offenses is burglary at 6.4%.</p>
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:victimCrimeCategory">Table 15.1: </span>The number and percent of crimes committed against each victim. For victims with multiple crimes committed against them, this shows the most serious crime.
-</caption>
+<table>
+<caption><span id="tab:victimCrimeCategory">Table 15.1: </span>The number and percent of crimes committed against each victim. For victims with multiple crimes committed against them, this shows the most serious crime.</caption>
+<colgroup>
+<col width="70%" />
+<col width="14%" />
+<col width="14%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left;">
-Crime Category
-</th>
-<th style="text-align:right;">
-# of Victims
-</th>
-<th style="text-align:right;">
-% of Victims
-</th>
+<tr class="header">
+<th align="left">Crime Category</th>
+<th align="right"># of Victims</th>
+<th align="right">% of Victims</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Assault Offenses - Simple Assault
-</td>
-<td style="text-align:right;">
-1,963,108
-</td>
-<td style="text-align:right;">
-15.51%
-</td>
+<tr class="odd">
+<td align="left">Assault Offenses - Simple Assault</td>
+<td align="right">1,963,108</td>
+<td align="right">15.51%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - All Other Larceny
-</td>
-<td style="text-align:right;">
-1,349,448
-</td>
-<td style="text-align:right;">
-10.67%
-</td>
+<tr class="even">
+<td align="left">Larceny/Theft Offenses - All Other Larceny</td>
+<td align="right">1,349,448</td>
+<td align="right">10.67%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Destruction/Damage/Vandalism of Property
-</td>
-<td style="text-align:right;">
-1,204,569
-</td>
-<td style="text-align:right;">
-9.52%
-</td>
+<tr class="odd">
+<td align="left">Destruction/Damage/Vandalism of Property</td>
+<td align="right">1,204,569</td>
+<td align="right">9.52%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Drug/Narcotic Offenses - Drug/Narcotic Violations
-</td>
-<td style="text-align:right;">
-993,317
-</td>
-<td style="text-align:right;">
-7.85%
-</td>
+<tr class="even">
+<td align="left">Drug/Narcotic Offenses - Drug/Narcotic Violations</td>
+<td align="right">993,317</td>
+<td align="right">7.85%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Theft From Motor Vehicle
-</td>
-<td style="text-align:right;">
-959,554
-</td>
-<td style="text-align:right;">
-7.58%
-</td>
+<tr class="odd">
+<td align="left">Larceny/Theft Offenses - Theft From Motor Vehicle</td>
+<td align="right">959,554</td>
+<td align="right">7.58%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Burglary/Breaking And Entering
-</td>
-<td style="text-align:right;">
-757,933
-</td>
-<td style="text-align:right;">
-5.99%
-</td>
+<tr class="even">
+<td align="left">Burglary/Breaking And Entering</td>
+<td align="right">757,933</td>
+<td align="right">5.99%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Shoplifting
-</td>
-<td style="text-align:right;">
-747,655
-</td>
-<td style="text-align:right;">
-5.91%
-</td>
+<tr class="odd">
+<td align="left">Larceny/Theft Offenses - Shoplifting</td>
+<td align="right">747,655</td>
+<td align="right">5.91%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Motor Vehicle Theft
-</td>
-<td style="text-align:right;">
-703,215
-</td>
-<td style="text-align:right;">
-5.56%
-</td>
+<tr class="even">
+<td align="left">Motor Vehicle Theft</td>
+<td align="right">703,215</td>
+<td align="right">5.56%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Assault Offenses - Aggravated Assault
-</td>
-<td style="text-align:right;">
-669,067
-</td>
-<td style="text-align:right;">
-5.29%
-</td>
+<tr class="odd">
+<td align="left">Assault Offenses - Aggravated Assault</td>
+<td align="right">669,067</td>
+<td align="right">5.29%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Assault Offenses - Intimidation
-</td>
-<td style="text-align:right;">
-537,389
-</td>
-<td style="text-align:right;">
-4.25%
-</td>
+<tr class="even">
+<td align="left">Assault Offenses - Intimidation</td>
+<td align="right">537,389</td>
+<td align="right">4.25%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories
-</td>
-<td style="text-align:right;">
-387,566
-</td>
-<td style="text-align:right;">
-3.06%
-</td>
+<tr class="odd">
+<td align="left">Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories</td>
+<td align="right">387,566</td>
+<td align="right">3.06%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - False Pretenses/Swindle/Confidence Game
-</td>
-<td style="text-align:right;">
-333,517
-</td>
-<td style="text-align:right;">
-2.64%
-</td>
+<tr class="even">
+<td align="left">Fraud Offenses - False Pretenses/Swindle/Confidence Game</td>
+<td align="right">333,517</td>
+<td align="right">2.64%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Theft From Building
-</td>
-<td style="text-align:right;">
-276,139
-</td>
-<td style="text-align:right;">
-2.18%
-</td>
+<tr class="odd">
+<td align="left">Larceny/Theft Offenses - Theft From Building</td>
+<td align="right">276,139</td>
+<td align="right">2.18%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Weapon Law Violations - Weapon Law Violations
-</td>
-<td style="text-align:right;">
-240,037
-</td>
-<td style="text-align:right;">
-1.90%
-</td>
+<tr class="even">
+<td align="left">Weapon Law Violations - Weapon Law Violations</td>
+<td align="right">240,037</td>
+<td align="right">1.90%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Robbery
-</td>
-<td style="text-align:right;">
-194,500
-</td>
-<td style="text-align:right;">
-1.54%
-</td>
+<tr class="odd">
+<td align="left">Robbery</td>
+<td align="right">194,500</td>
+<td align="right">1.54%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Identity Theft
-</td>
-<td style="text-align:right;">
-177,323
-</td>
-<td style="text-align:right;">
-1.40%
-</td>
+<tr class="even">
+<td align="left">Fraud Offenses - Identity Theft</td>
+<td align="right">177,323</td>
+<td align="right">1.40%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Credit Card/Atm Fraud
-</td>
-<td style="text-align:right;">
-159,970
-</td>
-<td style="text-align:right;">
-1.26%
-</td>
+<tr class="odd">
+<td align="left">Fraud Offenses - Credit Card/Atm Fraud</td>
+<td align="right">159,970</td>
+<td align="right">1.26%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Drug/Narcotic Offenses - Drug Equipment Violations
-</td>
-<td style="text-align:right;">
-159,409
-</td>
-<td style="text-align:right;">
-1.26%
-</td>
+<tr class="even">
+<td align="left">Drug/Narcotic Offenses - Drug Equipment Violations</td>
+<td align="right">159,409</td>
+<td align="right">1.26%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Counterfeiting/Forgery
-</td>
-<td style="text-align:right;">
-143,052
-</td>
-<td style="text-align:right;">
-1.13%
-</td>
+<tr class="odd">
+<td align="left">Counterfeiting/Forgery</td>
+<td align="right">143,052</td>
+<td align="right">1.13%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Stolen Property Offenses (Receiving, Selling, Etc.)
-</td>
-<td style="text-align:right;">
-111,630
-</td>
-<td style="text-align:right;">
-0.88%
-</td>
+<tr class="even">
+<td align="left">Stolen Property Offenses (Receiving, Selling, Etc.)</td>
+<td align="right">111,630</td>
+<td align="right">0.88%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Fondling (Incident Liberties/Child Molest)
-</td>
-<td style="text-align:right;">
-87,715
-</td>
-<td style="text-align:right;">
-0.69%
-</td>
+<tr class="odd">
+<td align="left">Sex Offenses - Fondling (Incident Liberties/Child Molest)</td>
+<td align="right">87,715</td>
+<td align="right">0.69%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Rape
-</td>
-<td style="text-align:right;">
-76,759
-</td>
-<td style="text-align:right;">
-0.61%
-</td>
+<tr class="even">
+<td align="left">Sex Offenses - Rape</td>
+<td align="right">76,759</td>
+<td align="right">0.61%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Impersonation
-</td>
-<td style="text-align:right;">
-75,089
-</td>
-<td style="text-align:right;">
-0.59%
-</td>
+<tr class="odd">
+<td align="left">Fraud Offenses - Impersonation</td>
+<td align="right">75,089</td>
+<td align="right">0.59%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Kidnapping/Abduction
-</td>
-<td style="text-align:right;">
-43,094
-</td>
-<td style="text-align:right;">
-0.34%
-</td>
+<tr class="even">
+<td align="left">Kidnapping/Abduction</td>
+<td align="right">43,094</td>
+<td align="right">0.34%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Pornography/Obscene Material
-</td>
-<td style="text-align:right;">
-39,629
-</td>
-<td style="text-align:right;">
-0.31%
-</td>
+<tr class="odd">
+<td align="left">Pornography/Obscene Material</td>
+<td align="right">39,629</td>
+<td align="right">0.31%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Wire Fraud
-</td>
-<td style="text-align:right;">
-36,975
-</td>
-<td style="text-align:right;">
-0.29%
-</td>
+<tr class="even">
+<td align="left">Fraud Offenses - Wire Fraud</td>
+<td align="right">36,975</td>
+<td align="right">0.29%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Arson
-</td>
-<td style="text-align:right;">
-35,241
-</td>
-<td style="text-align:right;">
-0.28%
-</td>
+<tr class="odd">
+<td align="left">Arson</td>
+<td align="right">35,241</td>
+<td align="right">0.28%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Embezzlement
-</td>
-<td style="text-align:right;">
-32,065
-</td>
-<td style="text-align:right;">
-0.25%
-</td>
+<tr class="even">
+<td align="left">Embezzlement</td>
+<td align="right">32,065</td>
+<td align="right">0.25%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Pocket-Picking
-</td>
-<td style="text-align:right;">
-21,080
-</td>
-<td style="text-align:right;">
-0.17%
-</td>
+<tr class="odd">
+<td align="left">Larceny/Theft Offenses - Pocket-Picking</td>
+<td align="right">21,080</td>
+<td align="right">0.17%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Animal Cruelty
-</td>
-<td style="text-align:right;">
-20,100
-</td>
-<td style="text-align:right;">
-0.16%
-</td>
+<tr class="even">
+<td align="left">Animal Cruelty</td>
+<td align="right">20,100</td>
+<td align="right">0.16%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Extortion/Blackmail
-</td>
-<td style="text-align:right;">
-19,953
-</td>
-<td style="text-align:right;">
-0.16%
-</td>
+<tr class="odd">
+<td align="left">Extortion/Blackmail</td>
+<td align="right">19,953</td>
+<td align="right">0.16%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Sodomy
-</td>
-<td style="text-align:right;">
-17,447
-</td>
-<td style="text-align:right;">
-0.14%
-</td>
+<tr class="even">
+<td align="left">Sex Offenses - Sodomy</td>
+<td align="right">17,447</td>
+<td align="right">0.14%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Murder/Nonnegligent Manslaughter
-</td>
-<td style="text-align:right;">
-16,414
-</td>
-<td style="text-align:right;">
-0.13%
-</td>
+<tr class="odd">
+<td align="left">Murder/Nonnegligent Manslaughter</td>
+<td align="right">16,414</td>
+<td align="right">0.13%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Purse-Snatching
-</td>
-<td style="text-align:right;">
-11,048
-</td>
-<td style="text-align:right;">
-0.09%
-</td>
+<tr class="even">
+<td align="left">Larceny/Theft Offenses - Purse-Snatching</td>
+<td align="right">11,048</td>
+<td align="right">0.09%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Statutory Rape
-</td>
-<td style="text-align:right;">
-7,984
-</td>
-<td style="text-align:right;">
-0.06%
-</td>
+<tr class="odd">
+<td align="left">Sex Offenses - Statutory Rape</td>
+<td align="right">7,984</td>
+<td align="right">0.06%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Sexual Assault With An Object
-</td>
-<td style="text-align:right;">
-7,425
-</td>
-<td style="text-align:right;">
-0.06%
-</td>
+<tr class="even">
+<td align="left">Sex Offenses - Sexual Assault With An Object</td>
+<td align="right">7,425</td>
+<td align="right">0.06%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Prostitution Offenses - Prostitution
-</td>
-<td style="text-align:right;">
-7,113
-</td>
-<td style="text-align:right;">
-0.06%
-</td>
+<tr class="odd">
+<td align="left">Prostitution Offenses - Prostitution</td>
+<td align="right">7,113</td>
+<td align="right">0.06%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Hacking/Computer Invasion
-</td>
-<td style="text-align:right;">
-6,380
-</td>
-<td style="text-align:right;">
-0.05%
-</td>
+<tr class="even">
+<td align="left">Fraud Offenses - Hacking/Computer Invasion</td>
+<td align="right">6,380</td>
+<td align="right">0.05%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device
-</td>
-<td style="text-align:right;">
-5,630
-</td>
-<td style="text-align:right;">
-0.04%
-</td>
+<tr class="odd">
+<td align="left">Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device</td>
+<td align="right">5,630</td>
+<td align="right">0.04%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Welfare Fraud
-</td>
-<td style="text-align:right;">
-4,415
-</td>
-<td style="text-align:right;">
-0.03%
-</td>
+<tr class="even">
+<td align="left">Fraud Offenses - Welfare Fraud</td>
+<td align="right">4,415</td>
+<td align="right">0.03%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Prostitution Offenses - Assisting Or Promoting Prostitution
-</td>
-<td style="text-align:right;">
-2,378
-</td>
-<td style="text-align:right;">
-0.02%
-</td>
+<tr class="odd">
+<td align="left">Prostitution Offenses - Assisting Or Promoting Prostitution</td>
+<td align="right">2,378</td>
+<td align="right">0.02%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Prostitution Offenses - Purchasing Prostitution
-</td>
-<td style="text-align:right;">
-2,184
-</td>
-<td style="text-align:right;">
-0.02%
-</td>
+<tr class="even">
+<td align="left">Prostitution Offenses - Purchasing Prostitution</td>
+<td align="right">2,184</td>
+<td align="right">0.02%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Negligent Manslaughter
-</td>
-<td style="text-align:right;">
-1,750
-</td>
-<td style="text-align:right;">
-0.01%
-</td>
+<tr class="odd">
+<td align="left">Negligent Manslaughter</td>
+<td align="right">1,750</td>
+<td align="right">0.01%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Human Trafficking - Commercial Sex Acts
-</td>
-<td style="text-align:right;">
-1,749
-</td>
-<td style="text-align:right;">
-0.01%
-</td>
+<tr class="even">
+<td align="left">Human Trafficking - Commercial Sex Acts</td>
+<td align="right">1,749</td>
+<td align="right">0.01%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Incest
-</td>
-<td style="text-align:right;">
-1,277
-</td>
-<td style="text-align:right;">
-0.01%
-</td>
+<tr class="odd">
+<td align="left">Sex Offenses - Incest</td>
+<td align="right">1,277</td>
+<td align="right">0.01%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Gambling Offenses - Operating/Promoting/Assisting Gambling
-</td>
-<td style="text-align:right;">
-822
-</td>
-<td style="text-align:right;">
-0.01%
-</td>
+<tr class="even">
+<td align="left">Gambling Offenses - Operating/Promoting/Assisting Gambling</td>
+<td align="right">822</td>
+<td align="right">0.01%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Justifiable Homicide - Not A Crime
-</td>
-<td style="text-align:right;">
-634
-</td>
-<td style="text-align:right;">
-0.01%
-</td>
+<tr class="odd">
+<td align="left">Justifiable Homicide - Not A Crime</td>
+<td align="right">634</td>
+<td align="right">0.01%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Gambling Offenses - Betting/Wagering
-</td>
-<td style="text-align:right;">
-600
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="even">
+<td align="left">Gambling Offenses - Betting/Wagering</td>
+<td align="right">600</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Bribery
-</td>
-<td style="text-align:right;">
-567
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="odd">
+<td align="left">Bribery</td>
+<td align="right">567</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Human Trafficking - Involuntary Servitude
-</td>
-<td style="text-align:right;">
-506
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="even">
+<td align="left">Human Trafficking - Involuntary Servitude</td>
+<td align="right">506</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Gambling Offenses - Gambling Equipment Violations
-</td>
-<td style="text-align:right;">
-313
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="odd">
+<td align="left">Gambling Offenses - Gambling Equipment Violations</td>
+<td align="right">313</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Commerce Violations - Federal Liquor Offenses
-</td>
-<td style="text-align:right;">
-145
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="even">
+<td align="left">Commerce Violations - Federal Liquor Offenses</td>
+<td align="right">145</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fugitive Offenses - Flight To Avoid Prosecution
-</td>
-<td style="text-align:right;">
-66
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="odd">
+<td align="left">Fugitive Offenses - Flight To Avoid Prosecution</td>
+<td align="right">66</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Failure To Register As A Sex Offender
-</td>
-<td style="text-align:right;">
-27
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="even">
+<td align="left">Sex Offenses - Failure To Register As A Sex Offender</td>
+<td align="right">27</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Money Laundering
-</td>
-<td style="text-align:right;">
-7
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="odd">
+<td align="left">Fraud Offenses - Money Laundering</td>
+<td align="right">7</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Weapon Law Violations - Explosives
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="even">
+<td align="left">Weapon Law Violations - Explosives</td>
+<td align="right">4</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fugitive Offenses - Harboring Escappee/Concealing From Arrest
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="odd">
+<td align="left">Fugitive Offenses - Harboring Escappee/Concealing From Arrest</td>
+<td align="right">3</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Immigration Violations - Illegal Entry Into The United States
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="even">
+<td align="left">Immigration Violations - Illegal Entry Into The United States</td>
+<td align="right">3</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Gambling Offenses - Sports Tampering
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="odd">
+<td align="left">Gambling Offenses - Sports Tampering</td>
+<td align="right">2</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fugitive Offenses - Flight To Avoid Deportation
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="even">
+<td align="left">Fugitive Offenses - Flight To Avoid Deportation</td>
+<td align="right">1</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Weapon Law Violations - Violation of National Firearm Act of 1934
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="odd">
+<td align="left">Weapon Law Violations - Violation of National Firearm Act of 1934</td>
+<td align="right">1</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Total
-</td>
-<td style="text-align:right;">
-12,652,993
-</td>
-<td style="text-align:right;">
-100%
-</td>
+<tr class="even">
+<td align="left">Total</td>
+<td align="right">12,652,993</td>
+<td align="right">100%</td>
 </tr>
 </tbody>
 </table>
@@ -1221,627 +846,303 @@ Figure 15.3: The distribution of the injury sustained by the victim for those wh
 <p>One interesting variable in this segment is that we know the relationship between the victim and the offender. There are 27 possible relationship types (including “unknown” relationship) which can be broken into three broad categories: legal family members, people known to the victim but who aren’t family, and people not known to the victim. These relationship categories are mutually exclusive. If, for example, there were two possible relationship categories that apply, such as the victim was both the friend and the neighbor of the offender, only a single category would be reported.</p>
 <p>Table <a href="victim-segment-1.html#tab:victimRelationship">15.2</a> shows each of the relationship categories and how frequently they occur. The most common relationship category, accounting for 19.8% of relationships was that the relationship was unknown. This is followed by 14.4% of victims being the boyfriend or girlfriend (we can find out which by looking at their sex) of the offender. Then victims were the acquaintance of or a stranger to the offender at 13% and 12.8%, respectively. The only other categories that account for over 5% of victims are the victim being “otherwise known” to the offender at 9.5% and being the spouse of the offender at 5.4%. One relationship to note is that when the victim “was child” that means they were the offender’s biological or adopted child. This doesn’t mean that they are actually a child (&lt;18 years old).</p>
 <p>If you’re familiar with the FBI’s <a href="https://ucrbook.com/shr.html">Supplementary Homicide Report</a> data, this variable - and the two following variables - is also in that dataset.</p>
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:victimRelationship">Table 15.2: </span>The distribution of the relationship between the victim and the offender. Only individual and law enforcement officer victims have this variable available.
-</caption>
+<table style="width:100%;">
+<caption><span id="tab:victimRelationship">Table 15.2: </span>The distribution of the relationship between the victim and the offender. Only individual and law enforcement officer victims have this variable available.</caption>
+<colgroup>
+<col width="66%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left;">
-Crime Category
-</th>
-<th style="text-align:right;">
-# of Victims
-</th>
-<th style="text-align:right;">
-% of Victims
-</th>
+<tr class="header">
+<th align="left">Crime Category</th>
+<th align="right"># of Victims</th>
+<th align="right">% of Victims</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Relationship Unknown
-</td>
-<td style="text-align:right;">
-1,117,979
-</td>
-<td style="text-align:right;">
-24.31%
-</td>
+<tr class="odd">
+<td align="left">Relationship Unknown</td>
+<td align="right">1,117,979</td>
+<td align="right">24.31%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Stranger
-</td>
-<td style="text-align:right;">
-669,425
-</td>
-<td style="text-align:right;">
-14.56%
-</td>
+<tr class="even">
+<td align="left">Victim Was Stranger</td>
+<td align="right">669,425</td>
+<td align="right">14.56%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Boyfriend/Girlfriend
-</td>
-<td style="text-align:right;">
-538,762
-</td>
-<td style="text-align:right;">
-11.72%
-</td>
+<tr class="odd">
+<td align="left">Victim Was Boyfriend/Girlfriend</td>
+<td align="right">538,762</td>
+<td align="right">11.72%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Acquaintance
-</td>
-<td style="text-align:right;">
-505,720
-</td>
-<td style="text-align:right;">
-11.00%
-</td>
+<tr class="even">
+<td align="left">Victim Was Acquaintance</td>
+<td align="right">505,720</td>
+<td align="right">11.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Otherwise Known
-</td>
-<td style="text-align:right;">
-384,883
-</td>
-<td style="text-align:right;">
-8.37%
-</td>
+<tr class="odd">
+<td align="left">Victim Was Otherwise Known</td>
+<td align="right">384,883</td>
+<td align="right">8.37%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Spouse
-</td>
-<td style="text-align:right;">
-209,028
-</td>
-<td style="text-align:right;">
-4.55%
-</td>
+<tr class="even">
+<td align="left">Victim Was Spouse</td>
+<td align="right">209,028</td>
+<td align="right">4.55%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Ex-Relationship (Ex-Boyfriend/Ex-Girlfriend)
-</td>
-<td style="text-align:right;">
-172,218
-</td>
-<td style="text-align:right;">
-3.75%
-</td>
+<tr class="odd">
+<td align="left">Victim Was Ex-Relationship (Ex-Boyfriend/Ex-Girlfriend)</td>
+<td align="right">172,218</td>
+<td align="right">3.75%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Parent
-</td>
-<td style="text-align:right;">
-163,978
-</td>
-<td style="text-align:right;">
-3.57%
-</td>
+<tr class="even">
+<td align="left">Victim Was Parent</td>
+<td align="right">163,978</td>
+<td align="right">3.57%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Child
-</td>
-<td style="text-align:right;">
-128,085
-</td>
-<td style="text-align:right;">
-2.79%
-</td>
+<tr class="odd">
+<td align="left">Victim Was Child</td>
+<td align="right">128,085</td>
+<td align="right">2.79%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Other Family Member
-</td>
-<td style="text-align:right;">
-113,811
-</td>
-<td style="text-align:right;">
-2.48%
-</td>
+<tr class="even">
+<td align="left">Victim Was Other Family Member</td>
+<td align="right">113,811</td>
+<td align="right">2.48%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Sibling
-</td>
-<td style="text-align:right;">
-102,790
-</td>
-<td style="text-align:right;">
-2.24%
-</td>
+<tr class="odd">
+<td align="left">Victim Was Sibling</td>
+<td align="right">102,790</td>
+<td align="right">2.24%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Friend
-</td>
-<td style="text-align:right;">
-100,191
-</td>
-<td style="text-align:right;">
-2.18%
-</td>
+<tr class="even">
+<td align="left">Victim Was Friend</td>
+<td align="right">100,191</td>
+<td align="right">2.18%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Offender
-</td>
-<td style="text-align:right;">
-93,715
-</td>
-<td style="text-align:right;">
-2.04%
-</td>
+<tr class="odd">
+<td align="left">Victim Was Offender</td>
+<td align="right">93,715</td>
+<td align="right">2.04%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Neighbor
-</td>
-<td style="text-align:right;">
-86,725
-</td>
-<td style="text-align:right;">
-1.89%
-</td>
+<tr class="even">
+<td align="left">Victim Was Neighbor</td>
+<td align="right">86,725</td>
+<td align="right">1.89%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Ex-Spouse
-</td>
-<td style="text-align:right;">
-52,407
-</td>
-<td style="text-align:right;">
-1.14%
-</td>
+<tr class="odd">
+<td align="left">Victim Was Ex-Spouse</td>
+<td align="right">52,407</td>
+<td align="right">1.14%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Common-Law Spouse
-</td>
-<td style="text-align:right;">
-25,507
-</td>
-<td style="text-align:right;">
-0.55%
-</td>
+<tr class="even">
+<td align="left">Victim Was Common-Law Spouse</td>
+<td align="right">25,507</td>
+<td align="right">0.55%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was In-Law
-</td>
-<td style="text-align:right;">
-19,763
-</td>
-<td style="text-align:right;">
-0.43%
-</td>
+<tr class="odd">
+<td align="left">Victim Was In-Law</td>
+<td align="right">19,763</td>
+<td align="right">0.43%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Step-Child
-</td>
-<td style="text-align:right;">
-19,401
-</td>
-<td style="text-align:right;">
-0.42%
-</td>
+<tr class="even">
+<td align="left">Victim Was Step-Child</td>
+<td align="right">19,401</td>
+<td align="right">0.42%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Grandparent
-</td>
-<td style="text-align:right;">
-19,054
-</td>
-<td style="text-align:right;">
-0.41%
-</td>
+<tr class="odd">
+<td align="left">Victim Was Grandparent</td>
+<td align="right">19,054</td>
+<td align="right">0.41%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Step-Parent
-</td>
-<td style="text-align:right;">
-15,982
-</td>
-<td style="text-align:right;">
-0.35%
-</td>
+<tr class="even">
+<td align="left">Victim Was Step-Parent</td>
+<td align="right">15,982</td>
+<td align="right">0.35%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Employee
-</td>
-<td style="text-align:right;">
-14,920
-</td>
-<td style="text-align:right;">
-0.32%
-</td>
+<tr class="odd">
+<td align="left">Victim Was Employee</td>
+<td align="right">14,920</td>
+<td align="right">0.32%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Child of Boyfriend/Girlfriend
-</td>
-<td style="text-align:right;">
-14,423
-</td>
-<td style="text-align:right;">
-0.31%
-</td>
+<tr class="even">
+<td align="left">Victim Was Child of Boyfriend/Girlfriend</td>
+<td align="right">14,423</td>
+<td align="right">0.31%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Employer
-</td>
-<td style="text-align:right;">
-13,567
-</td>
-<td style="text-align:right;">
-0.30%
-</td>
+<tr class="odd">
+<td align="left">Victim Was Employer</td>
+<td align="right">13,567</td>
+<td align="right">0.30%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Grandchild
-</td>
-<td style="text-align:right;">
-8,776
-</td>
-<td style="text-align:right;">
-0.19%
-</td>
+<tr class="even">
+<td align="left">Victim Was Grandchild</td>
+<td align="right">8,776</td>
+<td align="right">0.19%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Step-Sibling
-</td>
-<td style="text-align:right;">
-4,616
-</td>
-<td style="text-align:right;">
-0.10%
-</td>
+<tr class="odd">
+<td align="left">Victim Was Step-Sibling</td>
+<td align="right">4,616</td>
+<td align="right">0.10%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Babysittee (The Baby)
-</td>
-<td style="text-align:right;">
-2,399
-</td>
-<td style="text-align:right;">
-0.05%
-</td>
+<tr class="even">
+<td align="left">Victim Was Babysittee (The Baby)</td>
+<td align="right">2,399</td>
+<td align="right">0.05%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Total
-</td>
-<td style="text-align:right;">
-4,598,125
-</td>
-<td style="text-align:right;">
-100%
-</td>
+<tr class="odd">
+<td align="left">Total</td>
+<td align="right">4,598,125</td>
+<td align="right">100%</td>
 </tr>
 </tbody>
 </table>
 <p>We also know the relationship between victim and offender when the victim is a law enforcement officer. As shown in Table <a href="victim-segment-1.html#tab:victimRelationshipPolice">15.3</a>, most of the time the officer didn’t know the offender, with 58.9% of victimizations being this relationship type. This is followed by 18.7% where the officer knew the offender, including if they were familiar with the person by arresting or stopping them previously. In about 18.5% we don’t know the relationship as it is unknown and in 3.2% the officer and the offender were acquaintances. There are also a number of unlikely (and some impossible) relationships like the three in which the officer was the offender’s child and the one in which the officer was a baby who was abused by their babysitter. These seem to be clear indications that there are some data errors with this variable.</p>
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:victimRelationshipPolice">Table 15.3: </span>The distribution of the relationship between the victim and the offender for law enforcement officer victims.
-</caption>
+<table style="width:100%;">
+<caption><span id="tab:victimRelationshipPolice">Table 15.3: </span>The distribution of the relationship between the victim and the offender for law enforcement officer victims.</caption>
+<colgroup>
+<col width="66%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left;">
-Crime Category
-</th>
-<th style="text-align:right;">
-# of Victims
-</th>
-<th style="text-align:right;">
-% of Victims
-</th>
+<tr class="header">
+<th align="left">Crime Category</th>
+<th align="right"># of Victims</th>
+<th align="right">% of Victims</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Victim Was Stranger
-</td>
-<td style="text-align:right;">
-40,978
-</td>
-<td style="text-align:right;">
-56.20%
-</td>
+<tr class="odd">
+<td align="left">Victim Was Stranger</td>
+<td align="right">40,978</td>
+<td align="right">56.20%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Relationship Unknown
-</td>
-<td style="text-align:right;">
-16,873
-</td>
-<td style="text-align:right;">
-23.14%
-</td>
+<tr class="even">
+<td align="left">Relationship Unknown</td>
+<td align="right">16,873</td>
+<td align="right">23.14%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Otherwise Known
-</td>
-<td style="text-align:right;">
-12,381
-</td>
-<td style="text-align:right;">
-16.98%
-</td>
+<tr class="odd">
+<td align="left">Victim Was Otherwise Known</td>
+<td align="right">12,381</td>
+<td align="right">16.98%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Acquaintance
-</td>
-<td style="text-align:right;">
-2,151
-</td>
-<td style="text-align:right;">
-2.95%
-</td>
+<tr class="even">
+<td align="left">Victim Was Acquaintance</td>
+<td align="right">2,151</td>
+<td align="right">2.95%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Employee
-</td>
-<td style="text-align:right;">
-158
-</td>
-<td style="text-align:right;">
-0.22%
-</td>
+<tr class="odd">
+<td align="left">Victim Was Employee</td>
+<td align="right">158</td>
+<td align="right">0.22%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Boyfriend/Girlfriend
-</td>
-<td style="text-align:right;">
-110
-</td>
-<td style="text-align:right;">
-0.15%
-</td>
+<tr class="even">
+<td align="left">Victim Was Boyfriend/Girlfriend</td>
+<td align="right">110</td>
+<td align="right">0.15%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Spouse
-</td>
-<td style="text-align:right;">
-55
-</td>
-<td style="text-align:right;">
-0.08%
-</td>
+<tr class="odd">
+<td align="left">Victim Was Spouse</td>
+<td align="right">55</td>
+<td align="right">0.08%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Other Family Member
-</td>
-<td style="text-align:right;">
-31
-</td>
-<td style="text-align:right;">
-0.04%
-</td>
+<tr class="even">
+<td align="left">Victim Was Other Family Member</td>
+<td align="right">31</td>
+<td align="right">0.04%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was In-Law
-</td>
-<td style="text-align:right;">
-27
-</td>
-<td style="text-align:right;">
-0.04%
-</td>
+<tr class="odd">
+<td align="left">Victim Was In-Law</td>
+<td align="right">27</td>
+<td align="right">0.04%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Parent
-</td>
-<td style="text-align:right;">
-26
-</td>
-<td style="text-align:right;">
-0.04%
-</td>
+<tr class="even">
+<td align="left">Victim Was Parent</td>
+<td align="right">26</td>
+<td align="right">0.04%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Neighbor
-</td>
-<td style="text-align:right;">
-19
-</td>
-<td style="text-align:right;">
-0.03%
-</td>
+<tr class="odd">
+<td align="left">Victim Was Neighbor</td>
+<td align="right">19</td>
+<td align="right">0.03%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Sibling
-</td>
-<td style="text-align:right;">
-18
-</td>
-<td style="text-align:right;">
-0.02%
-</td>
+<tr class="even">
+<td align="left">Victim Was Sibling</td>
+<td align="right">18</td>
+<td align="right">0.02%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Friend
-</td>
-<td style="text-align:right;">
-17
-</td>
-<td style="text-align:right;">
-0.02%
-</td>
+<tr class="odd">
+<td align="left">Victim Was Friend</td>
+<td align="right">17</td>
+<td align="right">0.02%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Step-Sibling
-</td>
-<td style="text-align:right;">
-13
-</td>
-<td style="text-align:right;">
-0.02%
-</td>
+<tr class="even">
+<td align="left">Victim Was Step-Sibling</td>
+<td align="right">13</td>
+<td align="right">0.02%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Ex-Relationship (Ex-Boyfriend/Ex-Girlfriend)
-</td>
-<td style="text-align:right;">
-11
-</td>
-<td style="text-align:right;">
-0.02%
-</td>
+<tr class="odd">
+<td align="left">Victim Was Ex-Relationship (Ex-Boyfriend/Ex-Girlfriend)</td>
+<td align="right">11</td>
+<td align="right">0.02%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Employer
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-0.01%
-</td>
+<tr class="even">
+<td align="left">Victim Was Employer</td>
+<td align="right">8</td>
+<td align="right">0.01%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Offender
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-0.01%
-</td>
+<tr class="odd">
+<td align="left">Victim Was Offender</td>
+<td align="right">8</td>
+<td align="right">0.01%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Ex-Spouse
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-0.01%
-</td>
+<tr class="even">
+<td align="left">Victim Was Ex-Spouse</td>
+<td align="right">8</td>
+<td align="right">0.01%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Common-Law Spouse
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-0.01%
-</td>
+<tr class="odd">
+<td align="left">Victim Was Common-Law Spouse</td>
+<td align="right">6</td>
+<td align="right">0.01%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Child
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-0.01%
-</td>
+<tr class="even">
+<td align="left">Victim Was Child</td>
+<td align="right">6</td>
+<td align="right">0.01%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Step-Child
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-0.01%
-</td>
+<tr class="odd">
+<td align="left">Victim Was Step-Child</td>
+<td align="right">5</td>
+<td align="right">0.01%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Babysittee (The Baby)
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="even">
+<td align="left">Victim Was Babysittee (The Baby)</td>
+<td align="right">3</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Step-Parent
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="odd">
+<td align="left">Victim Was Step-Parent</td>
+<td align="right">3</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Grandparent
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="even">
+<td align="left">Victim Was Grandparent</td>
+<td align="right">1</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Victim Was Child of Boyfriend/Girlfriend
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="odd">
+<td align="left">Victim Was Child of Boyfriend/Girlfriend</td>
+<td align="right">1</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Total
-</td>
-<td style="text-align:right;">
-72,917
-</td>
-<td style="text-align:right;">
-100%
-</td>
+<tr class="even">
+<td align="left">Total</td>
+<td align="right">72,917</td>
+<td align="right">100%</td>
 </tr>
 </tbody>
 </table>
@@ -1849,278 +1150,130 @@ Total
 <div id="aggravated-assault-and-homicide-circumstances" class="section level2 hasAnchor" number="15.5">
 <h2><span class="header-section-number">15.5</span> Aggravated assault and homicide circumstances<a href="victim-segment-1.html#aggravated-assault-and-homicide-circumstances" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In cases of aggravated assault or homicide we have some information about the motive of the offender. There can be up to two motives, what NIBRS calls circumstances, for each of these offenses. Table <a href="victim-segment-1.html#tab:victimAggAssault">15.4</a> shows all of the possible circumstances in the data, and shows the frequency only of the first circumstance. The most common circumstance is that there was an argument, and this accounts for 42.7% of these victims. The next most common is 24% which had unknown circumstances followed by 18.7% with “other” circumstances. The next most common group is “lovers’ quarrel” which the FBI relabeled as “domestic violence” beginning in 2019. This group accounts for 9.4% of victims. Assault on law enforcement officers is the next most common group at 2.8% of victims. All other groups are less common than 2% of victims.</p>
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:victimAggAssault">Table 15.4: </span>The distribution of circumstances for aggravated assault and homicides.
-</caption>
+<table>
+<caption><span id="tab:victimAggAssault">Table 15.4: </span>The distribution of circumstances for aggravated assault and homicides.</caption>
+<colgroup>
+<col width="41%" />
+<col width="28%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left;">
-Circumstance
-</th>
-<th style="text-align:right;">
-Crime Category
-</th>
-<th style="text-align:right;">
-# of Victims
-</th>
-<th style="text-align:left;">
-% of Victims
-</th>
+<tr class="header">
+<th align="left">Circumstance</th>
+<th align="right">Crime Category</th>
+<th align="right"># of Victims</th>
+<th align="left">% of Victims</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Argument
-</td>
-<td style="text-align:right;">
-Aggravated Assault/Murder
-</td>
-<td style="text-align:right;">
-263,394
-</td>
-<td style="text-align:left;">
-37.82%
-</td>
+<tr class="odd">
+<td align="left">Argument</td>
+<td align="right">Aggravated Assault/Murder</td>
+<td align="right">263,394</td>
+<td align="left">37.82%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Unknown Circumstances
-</td>
-<td style="text-align:right;">
-Aggravated Assault/Murder
-</td>
-<td style="text-align:right;">
-176,578
-</td>
-<td style="text-align:left;">
-25.35%
-</td>
+<tr class="even">
+<td align="left">Unknown Circumstances</td>
+<td align="right">Aggravated Assault/Murder</td>
+<td align="right">176,578</td>
+<td align="left">25.35%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Other Circumstances
-</td>
-<td style="text-align:right;">
-Aggravated Assault/Murder
-</td>
-<td style="text-align:right;">
-135,511
-</td>
-<td style="text-align:left;">
-19.46%
-</td>
+<tr class="odd">
+<td align="left">Other Circumstances</td>
+<td align="right">Aggravated Assault/Murder</td>
+<td align="right">135,511</td>
+<td align="left">19.46%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Domestic Violence
-</td>
-<td style="text-align:right;">
-Aggravated Assault/Murder
-</td>
-<td style="text-align:right;">
-83,118
-</td>
-<td style="text-align:left;">
-11.93%
-</td>
+<tr class="even">
+<td align="left">Domestic Violence</td>
+<td align="right">Aggravated Assault/Murder</td>
+<td align="right">83,118</td>
+<td align="left">11.93%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Assault On Law Enforcement Officer(S)
-</td>
-<td style="text-align:right;">
-Aggravated Assault/Murder
-</td>
-<td style="text-align:right;">
-19,495
-</td>
-<td style="text-align:left;">
-2.80%
-</td>
+<tr class="odd">
+<td align="left">Assault On Law Enforcement Officer(S)</td>
+<td align="right">Aggravated Assault/Murder</td>
+<td align="right">19,495</td>
+<td align="left">2.80%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Other Felony Involved
-</td>
-<td style="text-align:right;">
-Aggravated Assault/Murder
-</td>
-<td style="text-align:right;">
-9,213
-</td>
-<td style="text-align:left;">
-1.32%
-</td>
+<tr class="even">
+<td align="left">Other Felony Involved</td>
+<td align="right">Aggravated Assault/Murder</td>
+<td align="right">9,213</td>
+<td align="left">1.32%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Gangland
-</td>
-<td style="text-align:right;">
-Aggravated Assault/Murder
-</td>
-<td style="text-align:right;">
-2,938
-</td>
-<td style="text-align:left;">
-0.42%
-</td>
+<tr class="odd">
+<td align="left">Gangland</td>
+<td align="right">Aggravated Assault/Murder</td>
+<td align="right">2,938</td>
+<td align="left">0.42%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Drug Dealing
-</td>
-<td style="text-align:right;">
-Aggravated Assault/Murder
-</td>
-<td style="text-align:right;">
-2,326
-</td>
-<td style="text-align:left;">
-0.33%
-</td>
+<tr class="even">
+<td align="left">Drug Dealing</td>
+<td align="right">Aggravated Assault/Murder</td>
+<td align="right">2,326</td>
+<td align="left">0.33%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Juvenile Gang
-</td>
-<td style="text-align:right;">
-Aggravated Assault/Murder
-</td>
-<td style="text-align:right;">
-1,509
-</td>
-<td style="text-align:left;">
-0.22%
-</td>
+<tr class="odd">
+<td align="left">Juvenile Gang</td>
+<td align="right">Aggravated Assault/Murder</td>
+<td align="right">1,509</td>
+<td align="left">0.22%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Other Negligent Killings
-</td>
-<td style="text-align:right;">
-Negligent Manslaughter
-</td>
-<td style="text-align:right;">
-1,433
-</td>
-<td style="text-align:left;">
-0.21%
-</td>
+<tr class="even">
+<td align="left">Other Negligent Killings</td>
+<td align="right">Negligent Manslaughter</td>
+<td align="right">1,433</td>
+<td align="left">0.21%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Criminal Killed By Private Citizen
-</td>
-<td style="text-align:right;">
-Justifiable Homicide
-</td>
-<td style="text-align:right;">
-409
-</td>
-<td style="text-align:left;">
-0.06%
-</td>
+<tr class="odd">
+<td align="left">Criminal Killed By Private Citizen</td>
+<td align="right">Justifiable Homicide</td>
+<td align="right">409</td>
+<td align="left">0.06%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Other Negligent Weapon Handling
-</td>
-<td style="text-align:right;">
-Negligent Manslaughter
-</td>
-<td style="text-align:right;">
-270
-</td>
-<td style="text-align:left;">
-0.04%
-</td>
+<tr class="even">
+<td align="left">Other Negligent Weapon Handling</td>
+<td align="right">Negligent Manslaughter</td>
+<td align="right">270</td>
+<td align="left">0.04%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Criminal Killed By Police Officer
-</td>
-<td style="text-align:right;">
-Justifiable Homicide
-</td>
-<td style="text-align:right;">
-225
-</td>
-<td style="text-align:left;">
-0.03%
-</td>
+<tr class="odd">
+<td align="left">Criminal Killed By Police Officer</td>
+<td align="right">Justifiable Homicide</td>
+<td align="right">225</td>
+<td align="left">0.03%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Mercy Killing
-</td>
-<td style="text-align:right;">
-Aggravated Assault/Murder
-</td>
-<td style="text-align:right;">
-47
-</td>
-<td style="text-align:left;">
-0.01%
-</td>
+<tr class="even">
+<td align="left">Mercy Killing</td>
+<td align="right">Aggravated Assault/Murder</td>
+<td align="right">47</td>
+<td align="left">0.01%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Child Playing With Weapon
-</td>
-<td style="text-align:right;">
-Negligent Manslaughter
-</td>
-<td style="text-align:right;">
-40
-</td>
-<td style="text-align:left;">
-0.01%
-</td>
+<tr class="odd">
+<td align="left">Child Playing With Weapon</td>
+<td align="right">Negligent Manslaughter</td>
+<td align="right">40</td>
+<td align="left">0.01%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Gun-Cleaning Accident
-</td>
-<td style="text-align:right;">
-Negligent Manslaughter
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:left;">
-0.00%
-</td>
+<tr class="even">
+<td align="left">Gun-Cleaning Accident</td>
+<td align="right">Negligent Manslaughter</td>
+<td align="right">4</td>
+<td align="left">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Hunting Accident
-</td>
-<td style="text-align:right;">
-Negligent Manslaughter
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:left;">
-0.00%
-</td>
+<tr class="odd">
+<td align="left">Hunting Accident</td>
+<td align="right">Negligent Manslaughter</td>
+<td align="right">3</td>
+<td align="left">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Total
-</td>
-<td style="text-align:right;">
-Aggravated Assault/Murder
-</td>
-<td style="text-align:right;">
-696,513
-</td>
-<td style="text-align:left;">
-100%
-</td>
+<tr class="even">
+<td align="left">Total</td>
+<td align="right">Aggravated Assault/Murder</td>
+<td align="right">696,513</td>
+<td align="left">100%</td>
 </tr>
 </tbody>
 </table>
@@ -2250,7 +1403,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["ucrbook.pdf"],
 "search": {
 "engine": "fuse",
 "options": null

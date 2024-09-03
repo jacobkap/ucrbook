@@ -36,16 +36,6 @@ A perhaps obvious issue here is that we had no way to determining how much outli
 
 Part of this - and part of the long-term increase seen in Figure \@ref(fig:PhillyBurglaryCost) - is simply due to inflation. \$1 in 1964, the first year we have data on the value of burglaries, is worth \$9.84 in 2023, according to the Bureau of Labor Statistics.^[Based on June of both years] The values in this data are *not* adjusted for inflation so you need to do that adjustment yourself before any analyses, otherwise your results will be quite a bit off. When we adjust all values to 2023 dollars, as shown in Figure \@ref(fig:phillyHomeCostPerBurglaryInflation), the trend becomes changes a bit. There's still a steady increase in cost per burglary over time but it is far more gradual than in Figure \@ref(fig:phillyHomeCostPerBurglary). And now the difference from the cost in early years and late years are far smaller. 
 
-
-```
-#> Generating URL to request all 296 results
-#> Retrieving inflation data for US 
-#> Generating URL to request all 64 results
-#> Generating URL to request all 296 results
-#> Retrieving inflation data for US 
-#> Generating URL to request all 64 results
-```
-
 <div class="figure" style="text-align: center">
 <img src="04_stolen_property_files/figure-html/phillyHomeCostPerBurglaryInflation-1.png" alt="The inflation-adjusted annual number of burglaries and cost per burglary for daytime home burglaries in Philadelphia (2023 dollars), 1960-2022." width="90%" />
 <p class="caption">(\#fig:phillyHomeCostPerBurglaryInflation)The inflation-adjusted annual number of burglaries and cost per burglary for daytime home burglaries in Philadelphia (2023 dollars), 1960-2022.</p>

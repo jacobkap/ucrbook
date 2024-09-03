@@ -26,21 +26,22 @@ The first variable we'll look at is the crime the victim experienced. This is a 
 
 There are 52 possible offenses included in this segment and Table \@ref(tab:victimCrimeCategory) shows how frequent each offense is. Though there are 10 possible offenses per victim, this table only looks at the first offense. The most common offense is simple assault, affecting 12.7% of victims or 944k people. This is followed by damage, vandalism, or destruction of property for 11% of victims. About 9.6% of victims experience drugs/narcotic violations, and these victims are likely also the offenders in the case (all incidents must have a victim recorded so in drug crimes the victims are also the offenders in most cases). Theft crimes, broken into some subcategories like "all other larceny" and "theft from motor vehicle" make up the three of the top six crimes (ranks 3, 5, and 6) people are victimized by. And the only remaining crime that accounts for 5% or more of offenses is burglary at 6.4%.
 
-```{r victimCrimeCategory}
+```{r }
 temp <- make_frequency_table(victim,
                              "ucr_offense_code_1",
                              c("Crime Category",
                                "\\# of Victims",
                                "\\% of Victims"))
 knitr::kable(temp, 
-             format = "html",
+             #format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
              booktabs = TRUE, 
+             label = "victimCrimeCategory",
              longtable = TRUE,
-             escape = FALSE,
-             caption = "The number and percent of crimes committed against each victim. For victims with multiple crimes committed against them, this shows the most serious crime.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+         #    escape = FALSE,
+             caption = "The number and percent of crimes committed against each victim. For victims with multiple crimes committed against them, this shows the most serious crime.")# %>%
+ # kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 ## Victim type
@@ -109,26 +110,27 @@ Table \@ref(tab:victimRelationship) shows each of the relationship categories an
 
 If you're familiar with the FBI's [Supplementary Homicide Report](https://ucrbook.com/shr.html) data, this variable  - and the two following variables - is also in that dataset. 
 
-```{r victimRelationship}
+```{r }
 temp <- make_frequency_table(victim,
                              "relation_of_vict_to_offender1",
                              c("Crime Category",
                                "\\# of Victims",
                                "\\% of Victims"))
 knitr::kable(temp, 
-             format = "html",
+            # format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
              booktabs = TRUE, 
              longtable = TRUE,
-             escape = FALSE,
-             caption = "The distribution of the relationship between the victim and the offender. Only individual and law enforcement officer victims have this variable available.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             label = "victimRelationship",
+           #  escape = FALSE,
+             caption = "The distribution of the relationship between the victim and the offender. Only individual and law enforcement officer victims have this variable available.")# %>%
+ # kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 We also know the relationship between victim and offender when the victim is a law enforcement officer. As shown in Table \@ref(tab:victimRelationshipPolice), most of the time the officer didn't know the offender, with 58.9% of victimizations being this relationship type. This is followed by 18.7% where the officer knew the offender, including if they were familiar with the person by arresting or stopping them previously. In about 18.5% we don't know the relationship as it is unknown and in 3.2% the officer and the offender were acquaintances. There are also a number of unlikely (and some impossible) relationships like the three in which the officer was the offender's child and the one in which the officer was a baby who was abused by their babysitter. These seem to be clear indications that there are some data errors with this variable. 
 
-```{r victimRelationshipPolice}
+```{r }
 temp <- 
   victim %>%
   filter(type_of_victim %in% "law enforcement officer") %>%
@@ -137,21 +139,22 @@ temp <-
                          "\\# of Victims",
                          "\\% of Victims"))
 knitr::kable(temp, 
-             format = "html",
+            # format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
              booktabs = TRUE, 
              longtable = TRUE,
-             escape = FALSE,
-             caption = "The distribution of the relationship between the victim and the offender for law enforcement officer victims.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             label = "victimRelationshipPolice",
+           #  escape = FALSE,
+             caption = "The distribution of the relationship between the victim and the offender for law enforcement officer victims.")# %>%
+ # kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 ## Aggravated assault and homicide circumstances
 
 In cases of aggravated assault or homicide we have some information about the motive of the offender. There can be up to two motives, what NIBRS calls circumstances, for each of these offenses. Table \@ref(tab:victimAggAssault) shows all of the possible circumstances in the data, and shows the frequency only of the first circumstance. The most common circumstance is that there was an argument, and this accounts for 42.7% of these victims. The next most common is 24% which had unknown circumstances followed by 18.7% with "other" circumstances. The next most common group is "lovers' quarrel" which the FBI relabeled as "domestic violence" beginning in 2019. This group accounts for 9.4% of victims. Assault on law enforcement officers is the next most common group at 2.8% of victims. All other groups are less common than 2% of victims. 
 
-```{r victimAggAssault}
+```{r }
 victim$agg_assault_homicide_circumsta_1[victim$agg_assault_homicide_circumsta1 %in% "lovers quarrel"] <- "lovers quarrel/domestic violence"
 temp <- make_frequency_table(victim[!is.na(victim$agg_assault_homicide_circumsta1), ],
                              "agg_assault_homicide_circumsta1",
@@ -176,14 +179,15 @@ names(temp)[1] <- "Circumstance"
 names(temp)[2] <- "Crime Category"
 
 knitr::kable(temp, 
-             format = "html",
+          #   format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
              booktabs = TRUE, 
              longtable = TRUE,
-             escape = FALSE,
-             caption = "The distribution of circumstances for aggravated assault and homicides.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+           #  escape = FALSE,
+             label = "victimAggAssault",
+             caption = "The distribution of circumstances for aggravated assault and homicides.")# %>%
+ # kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 ## Justifiable homicide circumstance

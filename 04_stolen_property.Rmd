@@ -89,11 +89,10 @@ ggplot(temp, aes(x = year, y = cost_per_burglary )) +
 Part of this - and part of the long-term increase seen in Figure \@ref(fig:PhillyBurglaryCost) - is simply due to inflation. \$1 in 1964, the first year we have data on the value of burglaries, is worth \$9.84 in 2023, according to the Bureau of Labor Statistics.^[Based on June of both years] The values in this data are *not* adjusted for inflation so you need to do that adjustment yourself before any analyses, otherwise your results will be quite a bit off. When we adjust all values to 2023 dollars, as shown in Figure \@ref(fig:phillyHomeCostPerBurglaryInflation), the trend becomes changes a bit. There's still a steady increase in cost per burglary over time but it is far more gradual than in Figure \@ref(fig:phillyHomeCostPerBurglary). And now the difference from the cost in early years and late years are far smaller. 
 
 ```{r phillyHomeCostPerBurglaryInflation, fig.cap = "The inflation-adjusted annual number of burglaries and cost per burglary for daytime home burglaries in Philadelphia (2023 dollars), 1960-2022.", message=FALSE}
-
-temp <-
-  temp %>%
-  mutate(inflation_cost_per_burglary = adjust_for_inflation(cost_per_burglary, from_date = year, "US", to_date = 2023),
-         inflation_value_burg_resident_day =  adjust_for_inflation(value_burg_resident_day, from_date = year, "US", to_date = 2023))
+suppressMessages(capture.output(temp <-
+                                    temp %>%
+                                    mutate(inflation_cost_per_burglary = adjust_for_inflation(cost_per_burglary, from_date = year, "US", to_date = 2023),
+                                           inflation_value_burg_resident_day =  adjust_for_inflation(value_burg_resident_day, from_date = year, "US", to_date = 2023)), file = nullfile()))
 
 ggplot(temp, aes(x = year, y = inflation_cost_per_burglary)) +
   geom_path(size = 1.05) +

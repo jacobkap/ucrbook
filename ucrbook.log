@@ -1,0 +1,2487 @@
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.2)  2 SEP 2024 23:22
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**ucrbook.tex
+(./ucrbook.tex
+LaTeX2e <2024-06-01> patch level 2
+L3 programming layer <2024-08-16>
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2024/02/08 v1.4n Standard LaTeX document class
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/bk12.clo
+File: bk12.clo 2024/02/08 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count190
+\c@chapter=\count191
+\c@section=\count192
+\c@subsection=\count193
+\c@subsubsection=\count194
+\c@paragraph=\count195
+\c@subparagraph=\count196
+\c@figure=\count197
+\c@table=\count198
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen141
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2024/05/23 v2.17q AMS math features
+\@mathmargin=\skip51
+For additional information on amsmath, use the `?' option.
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks17
+\ex@=\dimen142
+)) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen143
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count199
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count266
+\leftroot@=\count267
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count268
+\DOTSCASE@=\count269
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box52
+\strutbox@=\box53
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen144
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count270
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count271
+\dotsspace@=\muskip17
+\c@parentequation=\count272
+\dspbrk@lvl=\count273
+\tag@help=\toks18
+\row@=\count274
+\column@=\count275
+\maxfields@=\count276
+\andhelp@=\toks19
+\eqnshift@=\dimen145
+\alignsep@=\dimen146
+\tagshift@=\dimen147
+\tagwidth@=\dimen148
+\totwidth@=\dimen149
+\lineht@=\dimen150
+\@envbody=\toks20
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2022/12/04 v6.7b set line spacing
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math.sty (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2024-08-16 L3 programming layer (loader) 
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
+File: l3backend-xetex.def 2024-05-08 L3 backend support: XeTeX
+\g__graphics_track_int=\count277
+\l__pdf_internal_box=\box54
+\g__pdf_backend_annotation_int=\count278
+\g__pdf_backend_link_int=\count279
+))
+Package: unicode-math 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLaTeX
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math-xetex.sty
+Package: unicode-math-xetex 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLaTeX
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2024-08-16 L3 Experimental document command parser
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2024-08-16 LaTeX2e option processing using LaTeX3 keys
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.sty
+Package: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+Package: fontspec-xetex 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
+\l__fontspec_script_int=\count280
+\l__fontspec_language_int=\count281
+\l__fontspec_strnum_int=\count282
+\l__fontspec_tmp_int=\count283
+\l__fontspec_tmpa_int=\count284
+\l__fontspec_tmpb_int=\count285
+\l__fontspec_tmpc_int=\count286
+\l__fontspec_em_int=\count287
+\l__fontspec_emdef_int=\count288
+\l__fontspec_strong_int=\count289
+\l__fontspec_strongdef_int=\count290
+\l__fontspec_tmpa_dim=\dimen151
+\l__fontspec_tmpb_dim=\dimen152
+\l__fontspec_tmpc_dim=\dimen153
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fix-cm.sty
+Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
+))
+\g__um_fam_int=\count291
+\g__um_fonts_used_int=\count292
+\l__um_primecount_int=\count293
+\g__um_primekern_muskip=\muskip18
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math-table.tex))) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/lmodern.sty
+Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: xetex.def on input line 274.
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def/xetex.def
+File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/svgnam.def
+File: svgnam.def 2023/11/15 v3.01 Predefined colors according to SVG 1.1 (UK)
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/x11nam.def
+File: x11nam.def 2023/11/15 v3.01 Predefined colors according to Unix/X11 (UK)
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks22
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count294
+\Gm@cntv=\count295
+\c@Gm@tempcnt=\count296
+\Gm@bindingoffset=\dimen154
+\Gm@wd@mp=\dimen155
+\Gm@odd@mp=\dimen156
+\Gm@even@mp=\dimen157
+\Gm@layoutwidth=\dimen158
+\Gm@layoutheight=\dimen159
+\Gm@layouthoffset=\dimen160
+\Gm@layoutvoffset=\dimen161
+\Gm@dimlist=\toks23
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2024/01/20 4.5c verbatim text (tvz,hv)
+\FV@CodeLineNo=\count297
+\FV@InFile=\read2
+\FV@TabBox=\box55
+\c@FancyVerbLine=\count298
+\FV@StepNumber=\count299
+\FV@OutFile=\write3
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip54
+\fb@frw=\dimen162
+\fb@frh=\dimen163
+\FrameRule=\dimen164
+\FrameSep=\dimen165
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2024-04-26 v4.20 Multi-page Table package (DPC)
+\LTleft=\skip55
+\LTright=\skip56
+\LTpre=\skip57
+\LTpost=\skip58
+\LTchunksize=\count300
+\LTcapwidth=\dimen166
+\LT@head=\box56
+\LT@firsthead=\box57
+\LT@foot=\box58
+\LT@lastfoot=\box59
+\LT@gbox=\box60
+\LT@cols=\count301
+\LT@rows=\count302
+\c@LT@tables=\count303
+\c@LT@chunks=\count304
+\LT@p@ftn=\toks24
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen167
+\lightrulewidth=\dimen168
+\cmidrulewidth=\dimen169
+\belowrulesep=\dimen170
+\belowbottomsep=\dimen171
+\aboverulesep=\dimen172
+\abovetopsep=\dimen173
+\cmidrulesep=\dimen174
+\cmidrulekern=\dimen175
+\defaultaddspace=\dimen176
+\@cmidla=\count305
+\@cmidlb=\count306
+\@aboverulesep=\dimen177
+\@belowrulesep=\dimen178
+\@thisruleclass=\count307
+\@lastruleclass=\count308
+\@thisrulewidth=\dimen179
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
+Package: array 2024/06/14 v2.6d Tabular extension package (FMi)
+\col@sep=\dimen180
+\ar@mcellbox=\box61
+\extrarowheight=\dimen181
+\NC@list=\toks25
+\extratabsurround=\skip59
+\backup@length=\skip60
+\ar@cellbox=\box62
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count309
+\calc@Bcount=\count310
+\calc@Adimen=\dimen182
+\calc@Bdimen=\dimen183
+\calc@Askip=\skip61
+\calc@Bskip=\skip62
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count311
+\calc@Cskip=\skip63
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count312
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.sty
+Package: footnote 1997/01/28 1.13 Save footnotes around boxes
+\fn@notes=\box63
+\fn@width=\dimen184
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/05/23 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 106.
+)
+\Gin@req@height=\dimen185
+\Gin@req@width=\dimen186
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip64
+\multirow@cntb=\count313
+\multirow@dima=\skip65
+\bigstrutjot=\dimen187
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen188
+\WF@size=\dimen189
+\c@WF@wrappedlines=\count314
+\WF@box=\box64
+\WF@everypar=\toks26
+Package: wrapfig 2003/01/31  v 3.6
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count315
+\float@exts=\toks27
+\float@box=\box65
+\@float@everytoks=\toks28
+\@floatcapt=\box66
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2024/07/06 v1.0i Color table columns (DPC)
+\everycr=\toks29
+\minrowclearance=\skip66
+\rownum=\count316
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PDF (HO)
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: dvipdfm (xetex) on input line 98.
+)) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tabu/tabu.sty
+Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box67
+\sift@deathcycles=\count317
+\@vwid@loff=\dimen190
+\@vwid@roff=\dimen191
+)
+\c@taburow=\count318
+\tabu@nbcols=\count319
+\tabu@cnt=\count320
+\tabu@Xcol=\count321
+\tabu@alloc=\count322
+\tabu@nested=\count323
+\tabu@target=\dimen192
+\tabu@spreadtarget=\dimen193
+\tabu@naturalX=\dimen194
+\tabucolX=\dimen195
+\tabu@Xsum=\dimen196
+\extrarowdepth=\dimen197
+\abovetabulinesep=\dimen198
+\belowtabulinesep=\dimen199
+\tabustrutrule=\dimen256
+\tabu@thebody=\toks30
+\tabu@footnotes=\toks31
+\tabu@box=\box68
+\tabu@arstrutbox=\box69
+\tabu@hleads=\box70
+\tabu@vleads=\box71
+\tabu@cellskip=\skip67
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box72
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttablex/threeparttablex.sty
+Package: threeparttablex 2013/07/23 v0.3 by daleif
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\TPTL@width=\skip68
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box73
+\UL@hyphenbox=\box74
+\UL@skip=\skip69
+\UL@hook=\toks32
+\UL@height=\dimen257
+\UL@pe=\count324
+\UL@pixel=\dimen258
+\ULC@box=\box75
+Package: ulem 2019/11/18
+\ULdepth=\dimen259
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/makecell/makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen260
+\c@nlinenum=\count325
+\TeXr@lab=\toks33
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip70
+\bibsep=\skip71
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count326
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/bookmark/bookmark.sty
+Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2024-07-10 v7.01j Hypertext links for LaTeX
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode not found.
+)) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count327
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+)
+\@linkdim=\dimen261
+\Hy@linkcounter=\count328
+\Hy@pagecounter=\count329
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2024-07-10 v7.01j Hyperref: PDFDocEncoding definition (HO)
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count330
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2024-07-10 v7.01j Hyperref: PDF Unicode definition (HO)
+)
+Package hyperref Info: Option `unicode' set `true' on input line 4040.
+Package hyperref Info: Hyper figures OFF on input line 4157.
+Package hyperref Info: Link nesting OFF on input line 4162.
+Package hyperref Info: Hyper index ON on input line 4165.
+Package hyperref Info: Plain pages OFF on input line 4172.
+Package hyperref Info: Backreferencing OFF on input line 4177.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4424.
+\c@Hy@tempcnt=\count331
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip19
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4763.
+\XeTeXLinkMargin=\dimen262
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count332
+\Field@Width=\dimen263
+\Fld@charsize=\dimen264
+Package hyperref Info: Hyper figures OFF on input line 6042.
+Package hyperref Info: Link nesting OFF on input line 6047.
+Package hyperref Info: Hyper index ON on input line 6050.
+Package hyperref Info: backreferencing OFF on input line 6057.
+Package hyperref Info: Link coloring OFF on input line 6062.
+Package hyperref Info: Link coloring with OCG OFF on input line 6067.
+Package hyperref Info: PDF/A mode OFF on input line 6072.
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count333
+\c@Item=\count334
+\c@Hfootnote=\count335
+)
+Package hyperref Info: Driver (autodetected): hxetex.
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hxetex.def
+File: hxetex.def 2024-07-10 v7.01j Hyperref driver for XeTeX
+\pdfm@box=\box76
+\c@Hy@AnnotLevel=\count336
+\HyField@AnnotCount=\count337
+\Fld@listcount=\count338
+\c@bookmark@seq@number=\count339
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+with kernel methods
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
+)
+\Hy@SectionHShift=\skip72
+) (c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/bookmark/bkm-dvipdfm.def
+File: bkm-dvipdfm.def 2023-12-10 v1.31 bookmark driver for dvipdfm (HO)
+\BKM@id=\count340
+))
+Package hyperref Info: Option `colorlinks' set `true' on input line 140.
+(./ucrbook.aux
+
+LaTeX Warning: Label `tab:offenseCrimeSubcategoriesAnimalAbuse' multiply defined.
+
+)
+\openout1 = `ucrbook.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 146.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 146.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 146.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 146.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 146.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 146.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 146.
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999970497384594.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999970497384594.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999970497384594.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'latinmodern-math.otf(0)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,BoldFont={latinmodern-math.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999970497384594]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999970497384594]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
+(Font)              scaled to size 12.0pt on input line 146.
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999970497384594.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999970497384594.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999970497384594.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999970497384594.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999970497384594.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'latinmodern-math.otf(1)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=10.2-},{Size=7.2-10.2,Font=latinmodern-math.otf,Style=MathScript},{Size=-7.2,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <10.2->s*[0.9999970497384594]"[latinmodern-math.otf]/OT:script=math;language=dflt;"<7.2-10.2>s*[0.9999970497384594]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;"<-7.2>s*[0.9999970497384594]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999970497384594]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 12.0pt on input line 146.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 146.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 146.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 146.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 146.
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999970497384594.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 1.000097049443433.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999970497384594.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 1.000097049443433.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999970497384594.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 1.000097049443433.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999970497384594.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 1.000097049443433.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999970497384594.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 1.000097049443433.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'latinmodern-math.otf(2)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=10.2-},{Size=7.2-10.2,Font=latinmodern-math.otf,Style=MathScript},{Size=-7.2,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=1.0001,FontAdjustment={\fontdimen
+(fontspec)             8\font =8.124pt\relax \fontdimen 9\font =4.728pt\relax
+(fontspec)             \fontdimen 10\font =5.328pt\relax \fontdimen 11\font
+(fontspec)             =8.232pt\relax \fontdimen 12\font =4.14pt\relax
+(fontspec)             \fontdimen 13\font =4.356pt\relax \fontdimen 14\font
+(fontspec)             =4.356pt\relax \fontdimen 15\font =3.468pt\relax
+(fontspec)             \fontdimen 16\font =2.964pt\relax \fontdimen 17\font
+(fontspec)             =2.964pt\relax \fontdimen 18\font =3.0pt\relax
+(fontspec)             \fontdimen 19\font =2.4pt\relax \fontdimen 22\font
+(fontspec)             =3.0pt\relax \fontdimen 20\font =0pt\relax \fontdimen
+(fontspec)             21\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <10.2->s*[1.000097049443433]"[latinmodern-math.otf]/OT:script=math;language=dflt;"<7.2-10.2>s*[1.000097049443433]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;"<-7.2>s*[1.000097049443433]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1.000097049443433]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `normal' on input line 146.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 146.
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `bold' on input line 146.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 146.
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999970497384594.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9998970500334856.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999970497384594.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9998970500334856.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999970497384594.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9998970500334856.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999970497384594.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9998970500334856.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999970497384594.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9998970500334856.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'latinmodern-math.otf(3)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=10.2-},{Size=7.2-10.2,Font=latinmodern-math.otf,Style=MathScript},{Size=-7.2,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=0.9999,FontAdjustment={\fontdimen
+(fontspec)             8\font =0.48pt\relax \fontdimen 9\font =2.4pt\relax
+(fontspec)             \fontdimen 10\font =2.004pt\relax \fontdimen 11\font
+(fontspec)             =1.332pt\relax \fontdimen 12\font =7.2pt\relax
+(fontspec)             \fontdimen 13\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <10.2->s*[0.9998970500334856]"[latinmodern-math.otf]/OT:script=math;language=dflt;"<7.2-10.2>s*[0.9998970500334856]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;"<-7.2>s*[0.9998970500334856]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9998970500334856]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `normal' on input line 146.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 146.
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `bold' on input line 146.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 146.
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+*geometry* verbose mode - [ preamble ] result:
+* driver: xetex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-31.8738pt
+* \headheight=12.0pt
+* \headsep=19.8738pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=98.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package hyperref Info: Link coloring ON on input line 146.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 14.4pt on input line 148.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 148.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 148.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 148.
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 14.4013pt on input line 148.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00092pt on input line 148.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.00064pt on input line 148.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 14.39845pt on input line 148.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 148.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 148.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 148.
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 148.
+(c:/Users/jkkap/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+[1
+
+
+] (./ucrbook.toc
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 8.4pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 12.0011pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 8.40076pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 6.00055pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 11.99872pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 8.3991pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 5.99936pt on input line 3.
+
+
+[2
+
+]
+
+[3]
+
+[4]
+
+[5]
+
+[6]
+
+[7])
+\tf@toc=\write4
+\openout4 = `ucrbook.toc'.
+
+
+
+[8] (./ucrbook.lof
+
+[9
+
+]
+
+[10]
+
+[11]
+
+[12]
+
+[13]
+
+[14]
+
+[15])
+\tf@lof=\write5
+\openout5 = `ucrbook.lof'.
+
+
+
+[16] (./ucrbook.lot
+
+[17
+
+]
+
+[18])
+\tf@lot=\write6
+\openout6 = `ucrbook.lot'.
+
+
+
+[19]
+
+[20
+
+]
+Chapter 1.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 171.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.00046pt on input line 171.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 171.
+
+
+[21
+
+]
+
+[22]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[23]
+
+[24]
+
+[25]
+File: images/edit_button.png Graphic file (type bmp)
+<images/edit_button.png>
+
+
+[26]
+File: images/offenses_known_raw_ascii_1960.png Graphic file (type bmp)
+<images/offenses_known_raw_ascii_1960.png>
+File: images/nibrs_ascii.png Graphic file (type bmp)
+<images/nibrs_ascii.png>
+
+
+[27]
+
+[28]
+
+[29]
+Underfull \vbox (badness 1112) has occurred while \output is active []
+
+
+
+[30]
+
+[31]
+File: index_files/figure-latex/SRSagenciesReporting-1.pdf Graphic file (type pdf)
+<use index_files/figure-latex/SRSagenciesReporting-1.pdf>
+File: index_files/figure-latex/bigAgenciesReporting-1.pdf Graphic file (type pdf)
+<use index_files/figure-latex/bigAgenciesReporting-1.pdf>
+
+
+[32]
+
+[33]
+File: index_files/figure-latex/nycGunAssaults-1.pdf Graphic file (type pdf)
+<use index_files/figure-latex/nycGunAssaults-1.pdf>
+File: index_files/figure-latex/nycMurderMonthly-1.pdf Graphic file (type pdf)
+<use index_files/figure-latex/nycMurderMonthly-1.pdf>
+
+
+[34]
+File: index_files/figure-latex/nycMurderYearly-1.pdf Graphic file (type pdf)
+<use index_files/figure-latex/nycMurderYearly-1.pdf>
+File: index_files/figure-latex/miamiDadeMurderAnnual-1.pdf Graphic file (type pdf)
+<use index_files/figure-latex/miamiDadeMurderAnnual-1.pdf>
+
+
+[35]
+
+[36]
+File: index_files/figure-latex/danvilleRape-1.pdf Graphic file (type pdf)
+<use index_files/figure-latex/danvilleRape-1.pdf>
+
+
+[37]
+
+[38
+
+]
+
+[39
+
+]
+Chapter 2.
+
+
+[40
+
+]
+
+[41]
+
+[42]
+
+[43]
+
+[44]
+
+[45]
+
+[46]
+Chapter 3.
+
+Underfull \vbox (badness 2213) has occurred while \output is active []
+
+
+
+[47
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 503--505
+
+ []
+
+
+
+[48]
+Underfull \hbox (badness 10000) in paragraph at lines 513--515
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 515--516
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 523--525
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 525--527
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 527--529
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 529--530
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 537--539
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 539--541
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 541--543
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 543--544
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 551--553
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 553--555
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 555--556
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 558--560
+
+ []
+
+
+
+[49]
+Underfull \hbox (badness 10000) in paragraph at lines 565--567
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 567--569
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 569--570
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 572--574
+
+ []
+
+
+
+[50]
+File: images/fbi_hierarchy.png Graphic file (type bmp)
+<images/fbi_hierarchy.png>
+
+
+[51]
+
+[52]
+File: 03_offenses_known_files/figure-latex/sfThefts-1.pdf Graphic file (type pdf)
+<use 03_offenses_known_files/figure-latex/sfThefts-1.pdf>
+File: 03_offenses_known_files/figure-latex/chicagoMurder-1.pdf Graphic file (type pdf)
+<use 03_offenses_known_files/figure-latex/chicagoMurder-1.pdf>
+
+
+[53]
+
+[54]
+File: 03_offenses_known_files/figure-latex/simpleIndex-1.pdf Graphic file (type pdf)
+<use 03_offenses_known_files/figure-latex/simpleIndex-1.pdf>
+
+Underfull \vbox (badness 5711) has occurred while \output is active []
+
+
+
+[55]
+
+[56]
+File: 03_offenses_known_files/figure-latex/offensesAgenciesReporting-1.pdf Graphic file (type pdf)
+<use 03_offenses_known_files/figure-latex/offensesAgenciesReporting-1.pdf>
+
+
+[57]
+File: 03_offenses_known_files/figure-latex/offensesAgenciesReportingFull-1.pdf Graphic file (type pdf)
+<use 03_offenses_known_files/figure-latex/offensesAgenciesReportingFull-1.pdf>
+File: 03_offenses_known_files/figure-latex/murdersBothMeasures-1.pdf Graphic file (type pdf)
+<use 03_offenses_known_files/figure-latex/murdersBothMeasures-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[58]
+
+[59]
+File: 03_offenses_known_files/figure-latex/newarkMurders-1.pdf Graphic file (type pdf)
+<use 03_offenses_known_files/figure-latex/newarkMurders-1.pdf>
+
+
+[60]
+
+[61]
+File: 03_offenses_known_files/figure-latex/lapdClearance-1.pdf Graphic file (type pdf)
+<use 03_offenses_known_files/figure-latex/lapdClearance-1.pdf>
+
+
+[62]
+
+[63]
+File: 03_offenses_known_files/figure-latex/frankenmuthRape-1.pdf Graphic file (type pdf)
+<use 03_offenses_known_files/figure-latex/frankenmuthRape-1.pdf>
+File: 03_offenses_known_files/figure-latex/memphisUnfounded-1.pdf Graphic file (type pdf)
+<use 03_offenses_known_files/figure-latex/memphisUnfounded-1.pdf>
+File: 03_offenses_known_files/figure-latex/denverUnfounded-1.pdf Graphic file (type pdf)
+<use 03_offenses_known_files/figure-latex/denverUnfounded-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[64]
+
+[65]
+File: 03_offenses_known_files/figure-latex/rapePhilly-1.pdf Graphic file (type pdf)
+<use 03_offenses_known_files/figure-latex/rapePhilly-1.pdf>
+
+
+[66]
+File: 03_offenses_known_files/figure-latex/rapeNYC-1.pdf Graphic file (type pdf)
+<use 03_offenses_known_files/figure-latex/rapeNYC-1.pdf>
+File: 03_offenses_known_files/figure-latex/rapeLA-1.pdf Graphic file (type pdf)
+<use 03_offenses_known_files/figure-latex/rapeLA-1.pdf>
+File: 03_offenses_known_files/figure-latex/rapeJackson-1.pdf Graphic file (type pdf)
+<use 03_offenses_known_files/figure-latex/rapeJackson-1.pdf>
+
+
+[67]
+
+[68]
+
+[69]
+File: 03_offenses_known_files/figure-latex/manslaughterVsMurder-1.pdf Graphic file (type pdf)
+<use 03_offenses_known_files/figure-latex/manslaughterVsMurder-1.pdf>
+
+
+[70]
+File: 03_offenses_known_files/figure-latex/manslaughterPercent-1.pdf Graphic file (type pdf)
+<use 03_offenses_known_files/figure-latex/manslaughterPercent-1.pdf>
+
+
+[71]
+Chapter 4.
+
+
+[72
+
+]
+File: 04_stolen_property_files/figure-latex/phillyHomeBurglaryCount-1.pdf Graphic file (type pdf)
+<use 04_stolen_property_files/figure-latex/phillyHomeBurglaryCount-1.pdf>
+
+
+[73]
+File: 04_stolen_property_files/figure-latex/PhillyBurglaryCost-1.pdf Graphic file (type pdf)
+<use 04_stolen_property_files/figure-latex/PhillyBurglaryCost-1.pdf>
+File: 04_stolen_property_files/figure-latex/phillyHomeCostPerBurglary-1.pdf Graphic file (type pdf)
+<use 04_stolen_property_files/figure-latex/phillyHomeCostPerBurglary-1.pdf>
+
+
+
+Overfull \hbox (25.96126pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 74 \TU/lmr/m/sl/12 CHAPTER 4.  PROPERTY STOLEN AND RECOVERED (SUPPLEMENT TO RETURN A)
+ []
+
+[74]
+
+[75]
+File: 04_stolen_property_files/figure-latex/phillyHomeCostPerBurglaryInflation-1.pdf Graphic file (type pdf)
+<use 04_stolen_property_files/figure-latex/phillyHomeCostPerBurglaryInflation-1.pdf>
+
+
+
+Overfull \hbox (25.96126pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 76 \TU/lmr/m/sl/12 CHAPTER 4.  PROPERTY STOLEN AND RECOVERED (SUPPLEMENT TO RETURN A)
+ []
+
+[76]
+File: 04_stolen_property_files/figure-latex/propertyAgencies-1.pdf Graphic file (type pdf)
+<use 04_stolen_property_files/figure-latex/propertyAgencies-1.pdf>
+File: 04_stolen_property_files/figure-latex/propertyAgencies12Month-1.pdf Graphic file (type pdf)
+<use 04_stolen_property_files/figure-latex/propertyAgencies12Month-1.pdf>
+File: 04_stolen_property_files/figure-latex/agenciesInBoth-1.pdf Graphic file (type pdf)
+<use 04_stolen_property_files/figure-latex/agenciesInBoth-1.pdf>
+
+LaTeX Warning: Reference `(' on page 77 undefined on input line 979.
+
+
+LaTeX Warning: Reference `(' on page 77 undefined on input line 979.
+
+File: 04_stolen_property_files/figure-latex/agenciesInBoth12Month-1.pdf Graphic file (type pdf)
+<use 04_stolen_property_files/figure-latex/agenciesInBoth12Month-1.pdf>
+
+
+[77]
+
+
+Overfull \hbox (25.96126pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 78 \TU/lmr/m/sl/12 CHAPTER 4.  PROPERTY STOLEN AND RECOVERED (SUPPLEMENT TO RETURN A)
+ []
+
+[78]
+
+[79]
+
+
+Overfull \hbox (25.96126pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 80 \TU/lmr/m/sl/12 CHAPTER 4.  PROPERTY STOLEN AND RECOVERED (SUPPLEMENT TO RETURN A)
+ []
+
+[80]
+
+[81]
+
+
+Overfull \hbox (25.96126pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 82 \TU/lmr/m/sl/12 CHAPTER 4.  PROPERTY STOLEN AND RECOVERED (SUPPLEMENT TO RETURN A)
+ []
+
+[82]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[83]
+
+
+Overfull \hbox (25.96126pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 84 \TU/lmr/m/sl/12 CHAPTER 4.  PROPERTY STOLEN AND RECOVERED (SUPPLEMENT TO RETURN A)
+ []
+
+[84]
+File: 04_stolen_property_files/figure-latex/nycLivestock-1.pdf Graphic file (type pdf)
+<use 04_stolen_property_files/figure-latex/nycLivestock-1.pdf>
+
+
+[85]
+File: 04_stolen_property_files/figure-latex/phillyFurValue-1.pdf Graphic file (type pdf)
+<use 04_stolen_property_files/figure-latex/phillyFurValue-1.pdf>
+File: 04_stolen_property_files/figure-latex/romeBicycles-1.pdf Graphic file (type pdf)
+<use 04_stolen_property_files/figure-latex/romeBicycles-1.pdf>
+
+Underfull \vbox (badness 1297) has occurred while \output is active []
+
+
+
+
+Overfull \hbox (25.96126pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 86 \TU/lmr/m/sl/12 CHAPTER 4.  PROPERTY STOLEN AND RECOVERED (SUPPLEMENT TO RETURN A)
+ []
+
+[86]
+File: 04_stolen_property_files/figure-latex/romeConsumable-1.pdf Graphic file (type pdf)
+<use 04_stolen_property_files/figure-latex/romeConsumable-1.pdf>
+
+
+[87]
+
+
+Overfull \hbox (25.96126pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 88 \TU/lmr/m/sl/12 CHAPTER 4.  PROPERTY STOLEN AND RECOVERED (SUPPLEMENT TO RETURN A)
+ []
+
+[88]
+Chapter 5.
+
+
+[89
+
+]
+File: 05_arrests_files/figure-latex/arrestsAgenciesReporting-1.pdf Graphic file (type pdf)
+<use 05_arrests_files/figure-latex/arrestsAgenciesReporting-1.pdf>
+File: 05_arrests_files/figure-latex/arrestsAgenciesReporting12Months-1.pdf Graphic file (type pdf)
+<use 05_arrests_files/figure-latex/arrestsAgenciesReporting12Months-1.pdf>
+
+
+[90]
+
+[91]
+
+[92]
+
+[93]
+
+[94]
+
+[95]
+
+[96]
+
+[97]
+File: 05_arrests_files/figure-latex/phillyRapeAge-1.pdf Graphic file (type pdf)
+<use 05_arrests_files/figure-latex/phillyRapeAge-1.pdf>
+
+
+[98]
+File: 05_arrests_files/figure-latex/phillyMarijuanaRacePercent-1.pdf Graphic file (type pdf)
+<use 05_arrests_files/figure-latex/phillyMarijuanaRacePercent-1.pdf>
+
+
+[99]
+File: 05_arrests_files/figure-latex/phillyMarijuanaRaceCount-1.pdf Graphic file (type pdf)
+<use 05_arrests_files/figure-latex/phillyMarijuanaRaceCount-1.pdf>
+
+
+[100]
+File: 05_arrests_files/figure-latex/theftHispanic-1.pdf Graphic file (type pdf)
+<use 05_arrests_files/figure-latex/theftHispanic-1.pdf>
+
+
+[101]
+File: 05_arrests_files/figure-latex/theftHispanicPercentAgencies-1.pdf Graphic file (type pdf)
+<use 05_arrests_files/figure-latex/theftHispanicPercentAgencies-1.pdf>
+
+
+[102]
+
+[103]
+File: 05_arrests_files/figure-latex/phillyJuvenileReferrals-1.pdf Graphic file (type pdf)
+<use 05_arrests_files/figure-latex/phillyJuvenileReferrals-1.pdf>
+
+
+[104]
+Chapter 6.
+
+
+[105
+
+]
+File: 06_shr_files/figure-latex/shrVsOffenses-1.pdf Graphic file (type pdf)
+<use 06_shr_files/figure-latex/shrVsOffenses-1.pdf>
+File: 06_shr_files/figure-latex/chicagoSHRvsOffensesKnown-1.pdf Graphic file (type pdf)
+<use 06_shr_files/figure-latex/chicagoSHRvsOffensesKnown-1.pdf>
+
+
+[106]
+
+[107]
+File: 06_shr_files/figure-latex/shrAnnualAgencies-1.pdf Graphic file (type pdf)
+<use 06_shr_files/figure-latex/shrAnnualAgencies-1.pdf>
+File: 06_shr_files/figure-latex/shrTopAgenciesCount-1.pdf Graphic file (type pdf)
+<use 06_shr_files/figure-latex/shrTopAgenciesCount-1.pdf>
+File: 06_shr_files/figure-latex/shrTopAgenciesCountPercent-1.pdf Graphic file (type pdf)
+<use 06_shr_files/figure-latex/shrTopAgenciesCountPercent-1.pdf>
+
+
+[108]
+
+[109]
+File: 06_shr_files/figure-latex/numberSHRVictims-1.pdf Graphic file (type pdf)
+<use 06_shr_files/figure-latex/numberSHRVictims-1.pdf>
+
+
+[110]
+File: 06_shr_files/figure-latex/numberSHROffenders-1.pdf Graphic file (type pdf)
+<use 06_shr_files/figure-latex/numberSHROffenders-1.pdf>
+
+
+[111]
+File: 06_shr_files/figure-latex/shrOffenderAge-1.pdf Graphic file (type pdf)
+<use 06_shr_files/figure-latex/shrOffenderAge-1.pdf>
+File: 06_shr_files/figure-latex/shrVictimAge-1.pdf Graphic file (type pdf)
+<use 06_shr_files/figure-latex/shrVictimAge-1.pdf>
+
+
+[112]
+File: 06_shr_files/figure-latex/shrOffenderSex-1.pdf Graphic file (type pdf)
+<use 06_shr_files/figure-latex/shrOffenderSex-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[113]
+Underfull \vbox (badness 7963) has occurred while \output is active []
+
+
+
+[114]
+File: 06_shr_files/figure-latex/shrVictimSex-1.pdf Graphic file (type pdf)
+<use 06_shr_files/figure-latex/shrVictimSex-1.pdf>
+
+
+[115]
+File: 06_shr_files/figure-latex/shrOffenderRace-1.pdf Graphic file (type pdf)
+<use 06_shr_files/figure-latex/shrOffenderRace-1.pdf>
+File: 06_shr_files/figure-latex/shrVictimRace-1.pdf Graphic file (type pdf)
+<use 06_shr_files/figure-latex/shrVictimRace-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[116]
+File: 06_shr_files/figure-latex/shrOffenderEthnicity-1.pdf Graphic file (type pdf)
+<use 06_shr_files/figure-latex/shrOffenderEthnicity-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[117]
+File: 06_shr_files/figure-latex/shrVictimEthnicity-1.pdf Graphic file (type pdf)
+<use 06_shr_files/figure-latex/shrVictimEthnicity-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[118]
+File: 06_shr_files/figure-latex/ABQ-1.pdf Graphic file (type pdf)
+<use 06_shr_files/figure-latex/ABQ-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[119]
+
+[120]
+
+[121]
+File: 06_shr_files/figure-latex/shrRifle-1.pdf Graphic file (type pdf)
+<use 06_shr_files/figure-latex/shrRifle-1.pdf>
+File: 06_shr_files/figure-latex/shrRiflePercent-1.pdf Graphic file (type pdf)
+<use 06_shr_files/figure-latex/shrRiflePercent-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[122]
+
+[123] [124]
+Overfull \hbox (226.67706pt too wide) in alignment at lines 2065--2114
+ [] [] [] [] 
+ []
+
+[125]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[126]
+
+[127]
+Chapter 7.
+
+
+[128
+
+]
+File: 07_leoka_files/figure-latex/leokaAgencies-1.pdf Graphic file (type pdf)
+<use 07_leoka_files/figure-latex/leokaAgencies-1.pdf>
+File: 07_leoka_files/figure-latex/leokaAgenciesEmployees-1.pdf Graphic file (type pdf)
+<use 07_leoka_files/figure-latex/leokaAgenciesEmployees-1.pdf>
+
+
+[129]
+File: 07_leoka_files/figure-latex/leokaAgenciesAssaults-1.pdf Graphic file (type pdf)
+<use 07_leoka_files/figure-latex/leokaAgenciesAssaults-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+
+Overfull \hbox (17.46255pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 130 \TU/lmr/m/sl/12 CHAPTER 7.  LAW ENFORCEMENT OFFICERS KILLED AND ASSAULTED (LEOKA)
+ []
+
+[130]
+
+[131]
+File: 07_leoka_files/figure-latex/leokaNationalEmployees-1.pdf Graphic file (type pdf)
+<use 07_leoka_files/figure-latex/leokaNationalEmployees-1.pdf>
+
+
+
+Overfull \hbox (17.46255pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 132 \TU/lmr/m/sl/12 CHAPTER 7.  LAW ENFORCEMENT OFFICERS KILLED AND ASSAULTED (LEOKA)
+ []
+
+[132]
+File: 07_leoka_files/figure-latex/leokaCivilianOfficers-1.pdf Graphic file (type pdf)
+<use 07_leoka_files/figure-latex/leokaCivilianOfficers-1.pdf>
+File: 07_leoka_files/figure-latex/leokaOfficersGender-1.pdf Graphic file (type pdf)
+<use 07_leoka_files/figure-latex/leokaOfficersGender-1.pdf>
+File: 07_leoka_files/figure-latex/leokaOfficersGenderCount-1.pdf Graphic file (type pdf)
+<use 07_leoka_files/figure-latex/leokaOfficersGenderCount-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[133]
+
+
+Overfull \hbox (17.46255pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 134 \TU/lmr/m/sl/12 CHAPTER 7.  LAW ENFORCEMENT OFFICERS KILLED AND ASSAULTED (LEOKA)
+ []
+
+[134]
+File: 07_leoka_files/figure-latex/leokaOfficersKilled-1.pdf Graphic file (type pdf)
+<use 07_leoka_files/figure-latex/leokaOfficersKilled-1.pdf>
+
+
+[135]
+File: 07_leoka_files/figure-latex/leokaOfficersKilledNational-1.pdf Graphic file (type pdf)
+<use 07_leoka_files/figure-latex/leokaOfficersKilledNational-1.pdf>
+
+
+
+Overfull \hbox (17.46255pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 136 \TU/lmr/m/sl/12 CHAPTER 7.  LAW ENFORCEMENT OFFICERS KILLED AND ASSAULTED (LEOKA)
+ []
+
+[136]
+
+[137]
+File: 07_leoka_files/figure-latex/leokaAssaultTypeInjury-1.pdf Graphic file (type pdf)
+<use 07_leoka_files/figure-latex/leokaAssaultTypeInjury-1.pdf>
+
+
+
+Overfull \hbox (17.46255pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 138 \TU/lmr/m/sl/12 CHAPTER 7.  LAW ENFORCEMENT OFFICERS KILLED AND ASSAULTED (LEOKA)
+ []
+
+[138]
+File: 07_leoka_files/figure-latex/leokaAssaultsInjuryYear-1.pdf Graphic file (type pdf)
+<use 07_leoka_files/figure-latex/leokaAssaultsInjuryYear-1.pdf>
+
+
+[139]
+File: 07_leoka_files/figure-latex/leokaAssaultCallType-1.pdf Graphic file (type pdf)
+<use 07_leoka_files/figure-latex/leokaAssaultCallType-1.pdf>
+
+
+
+Overfull \hbox (17.46255pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 140 \TU/lmr/m/sl/12 CHAPTER 7.  LAW ENFORCEMENT OFFICERS KILLED AND ASSAULTED (LEOKA)
+ []
+
+[140]
+File: 07_leoka_files/figure-latex/leokaDisturbanceWeapon-1.pdf Graphic file (type pdf)
+<use 07_leoka_files/figure-latex/leokaDisturbanceWeapon-1.pdf>
+
+
+[141]
+File: 07_leoka_files/figure-latex/leokaShiftAssignment-1.pdf Graphic file (type pdf)
+<use 07_leoka_files/figure-latex/leokaShiftAssignment-1.pdf>
+
+
+
+Overfull \hbox (17.46255pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 142 \TU/lmr/m/sl/12 CHAPTER 7.  LAW ENFORCEMENT OFFICERS KILLED AND ASSAULTED (LEOKA)
+ []
+
+[142]
+
+[143]
+File: 07_leoka_files/figure-latex/phoenixAssaultTimes-1.pdf Graphic file (type pdf)
+<use 07_leoka_files/figure-latex/phoenixAssaultTimes-1.pdf>
+
+
+
+Overfull \hbox (17.46255pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 144 \TU/lmr/m/sl/12 CHAPTER 7.  LAW ENFORCEMENT OFFICERS KILLED AND ASSAULTED (LEOKA)
+ []
+
+[144]
+Chapter 8.
+
+
+[145
+
+]
+File: 08_arson_files/figure-latex/arsonAgencies-1.pdf Graphic file (type pdf)
+<use 08_arson_files/figure-latex/arsonAgencies-1.pdf>
+File: 08_arson_files/figure-latex/arsonAgencies12Months-1.pdf Graphic file (type pdf)
+<use 08_arson_files/figure-latex/arsonAgencies12Months-1.pdf>
+
+Underfull \vbox (badness 3323) has occurred while \output is active []
+
+
+
+[146]
+
+[147]
+
+[148]
+
+[149]
+File: 08_arson_files/figure-latex/arsonClearance-1.pdf Graphic file (type pdf)
+<use 08_arson_files/figure-latex/arsonClearance-1.pdf>
+
+
+[150]
+
+[151]
+File: 08_arson_files/figure-latex/residenceArson-1.pdf Graphic file (type pdf)
+<use 08_arson_files/figure-latex/residenceArson-1.pdf>
+
+
+[152]
+File: 08_arson_files/figure-latex/arsonCost-1.pdf Graphic file (type pdf)
+<use 08_arson_files/figure-latex/arsonCost-1.pdf>
+
+
+[153]
+Chapter 9.
+
+
+[154
+
+]
+File: 09_hate_crime_files/figure-latex/hateAgencies-1.pdf Graphic file (type pdf)
+<use 09_hate_crime_files/figure-latex/hateAgencies-1.pdf>
+File: 09_hate_crime_files/figure-latex/hateCrimesEver-1.pdf Graphic file (type pdf)
+<use 09_hate_crime_files/figure-latex/hateCrimesEver-1.pdf>
+File: 09_hate_crime_files/figure-latex/hateCrimesPreviousYear-1.pdf Graphic file (type pdf)
+<use 09_hate_crime_files/figure-latex/hateCrimesPreviousYear-1.pdf>
+
+
+[155]
+
+[156]
+File: 09_hate_crime_files/figure-latex/hateCrimesMap-1.pdf Graphic file (type pdf)
+<use 09_hate_crime_files/figure-latex/hateCrimesMap-1.pdf>
+File: 09_hate_crime_files/figure-latex/statePercentReporting-1.pdf Graphic file (type pdf)
+<use 09_hate_crime_files/figure-latex/statePercentReporting-1.pdf>
+
+
+[157]
+File: 09_hate_crime_files/figure-latex/statePercentReportingPop-1.pdf Graphic file (type pdf)
+<use 09_hate_crime_files/figure-latex/statePercentReportingPop-1.pdf>
+
+
+[158]
+
+[159]
+File: 09_hate_crime_files/figure-latex/hateCrimesByDay-1.pdf Graphic file (type pdf)
+<use 09_hate_crime_files/figure-latex/hateCrimesByDay-1.pdf>
+File: 09_hate_crime_files/figure-latex/hateCrimesByMonthDay-1.pdf Graphic file (type pdf)
+<use 09_hate_crime_files/figure-latex/hateCrimesByMonthDay-1.pdf>
+
+
+[160]
+File: 09_hate_crime_files/figure-latex/crimesPerHateCrime-1.pdf Graphic file (type pdf)
+<use 09_hate_crime_files/figure-latex/crimesPerHateCrime-1.pdf>
+
+
+[161]
+Underfull \vbox (badness 2573) has occurred while \output is active []
+
+
+
+[162]
+Overfull \hbox (182.62506pt too wide) in alignment at lines 2795--2842
+ [] [] [] [] 
+ []
+
+[163]
+
+[164]
+Overfull \hbox (94.35306pt too wide) in alignment at lines 2854--2917
+ [] [] [] [] 
+ []
+
+[165] [166]
+Overfull \hbox (28.49704pt too wide) in alignment at lines 2927--2988
+ [] [] [] [] 
+ []
+
+
+
+[167] [168]
+File: 09_hate_crime_files/figure-latex/hateCrimeOffenderNumber-1.pdf Graphic file (type pdf)
+<use 09_hate_crime_files/figure-latex/hateCrimeOffenderNumber-1.pdf>
+
+
+[169]
+File: 09_hate_crime_files/figure-latex/hateCrimeOffenderRace-1.pdf Graphic file (type pdf)
+<use 09_hate_crime_files/figure-latex/hateCrimeOffenderRace-1.pdf>
+
+
+[170]
+
+[171]
+File: 09_hate_crime_files/figure-latex/jewishIncidentVictim-1.pdf Graphic file (type pdf)
+<use 09_hate_crime_files/figure-latex/jewishIncidentVictim-1.pdf>
+File: 09_hate_crime_files/figure-latex/blackIncidentVictim-1.pdf Graphic file (type pdf)
+<use 09_hate_crime_files/figure-latex/blackIncidentVictim-1.pdf>
+
+
+[172]
+
+[173]
+Chapter 10.
+
+
+[174
+
+]
+
+[175]
+
+[176]
+Overfull \hbox (36.15298pt too wide) in alignment at lines 3080--3101
+ [] [] [] [] 
+ []
+
+[177]
+File: 10_ucr_county_files/figure-latex/countyAnyMonthReported-1.pdf Graphic file (type pdf)
+<use 10_ucr_county_files/figure-latex/countyAnyMonthReported-1.pdf>
+File: 10_ucr_county_files/figure-latex/stateMap2022-1.pdf Graphic file (type pdf)
+<use 10_ucr_county_files/figure-latex/stateMap2022-1.pdf>
+File: 10_ucr_county_files/figure-latex/countyMap2022-1.pdf Graphic file (type pdf)
+<use 10_ucr_county_files/figure-latex/countyMap2022-1.pdf>
+File: 10_ucr_county_files/figure-latex/countyMap2010-1.pdf Graphic file (type pdf)
+<use 10_ucr_county_files/figure-latex/countyMap2010-1.pdf>
+File: 10_ucr_county_files/figure-latex/countyMap2000-1.pdf Graphic file (type pdf)
+<use 10_ucr_county_files/figure-latex/countyMap2000-1.pdf>
+
+
+[178]
+
+[179]
+
+[180]
+File: images/segments_flowchart.png Graphic file (type bmp)
+<images/segments_flowchart.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[181]
+Overfull \hbox (88.64105pt too wide) in alignment at lines 3181--3201
+ [] [] [] [] [] 
+ []
+
+[182]
+Overfull \hbox (59.26503pt too wide) in alignment at lines 3205--3225
+ [] [] [] [] [] 
+ []
+
+[183]
+Overfull \hbox (180.62106pt too wide) in alignment at lines 3229--3249
+ [] [] [] [] [] 
+ []
+
+
+
+[184]
+Overfull \hbox (186.64508pt too wide) in alignment at lines 3257--3274
+ [] [] [] [] [] 
+ []
+
+[185]
+Overfull \hbox (186.64508pt too wide) in alignment at lines 3278--3295
+ [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (186.64508pt too wide) in alignment at lines 3297--3314
+ [] [] [] [] [] 
+ []
+
+[186]
+
+[187]
+Overfull \hbox (274.90504pt too wide) in alignment at lines 3332--3348
+ [] [] [] [] [] [] 
+ []
+
+
+
+[188]
+Overfull \hbox (274.90504pt too wide) in alignment at lines 3350--3366
+ [] [] [] [] [] [] 
+ []
+
+
+
+[189]
+Overfull \hbox (274.90504pt too wide) in alignment at lines 3370--3386
+ [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (274.90504pt too wide) in alignment at lines 3390--3406
+ [] [] [] [] [] [] 
+ []
+
+[190]
+
+[191]
+
+[192
+
+]
+Chapter 11.
+
+
+[193
+
+]
+
+[194]
+
+[195]
+
+[196]
+
+[197]
+
+[198]
+
+[199]
+
+[200]
+File: images/segments_flowchart.png Graphic file (type bmp)
+<images/segments_flowchart.png>
+
+
+[201]
+
+[202]
+Underfull \vbox (badness 1320) has occurred while \output is active []
+
+
+
+[203]
+
+[204]
+
+[205]
+
+[206]
+
+[207]
+File: 11_nibrs_general_files/figure-latex/agenciesReporting-1.pdf Graphic file (type pdf)
+<use 11_nibrs_general_files/figure-latex/agenciesReporting-1.pdf>
+
+
+[208]
+File: 11_nibrs_general_files/figure-latex/agenciesReportingMap-1.pdf Graphic file (type pdf)
+<use 11_nibrs_general_files/figure-latex/agenciesReportingMap-1.pdf>
+File: 11_nibrs_general_files/figure-latex/agenciesReportingMapPercent-1.pdf Graphic file (type pdf)
+<use 11_nibrs_general_files/figure-latex/agenciesReportingMapPercent-1.pdf>
+[209] [210]
+
+[211]
+
+[212]
+Chapter 12.
+
+
+[213
+
+]
+File: 12_nibrs_administrative_files/figure-latex/administrativeIncidentMonth-1.pdf Graphic file (type pdf)
+<use 12_nibrs_administrative_files/figure-latex/administrativeIncidentMonth-1.pdf>
+
+
+
+Overfull \hbox (56.49586pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 214 \TU/lmr/m/sl/12 CHAPTER 12.  ADMINISTRATIVE AND WINDOW EXCEPTIONAL CLEARANCE SEGMENT
+ []
+
+[214]
+File: 12_nibrs_administrative_files/figure-latex/administrativeMonthDayIncident-1.pdf Graphic file (type pdf)
+<use 12_nibrs_administrative_files/figure-latex/administrativeMonthDayIncident-1.pdf>
+File: 12_nibrs_administrative_files/figure-latex/administrativeMonthDayReport-1.pdf Graphic file (type pdf)
+<use 12_nibrs_administrative_files/figure-latex/administrativeMonthDayReport-1.pdf>
+
+
+[215]
+
+
+Overfull \hbox (56.49586pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 216 \TU/lmr/m/sl/12 CHAPTER 12.  ADMINISTRATIVE AND WINDOW EXCEPTIONAL CLEARANCE SEGMENT
+ []
+
+[216]
+File: 12_nibrs_administrative_files/figure-latex/administrativeHours-1.pdf Graphic file (type pdf)
+<use 12_nibrs_administrative_files/figure-latex/administrativeHours-1.pdf>
+
+
+[217]
+File: 12_nibrs_administrative_files/figure-latex/administrativeExceptionalClearances-1.pdf Graphic file (type pdf)
+<use 12_nibrs_administrative_files/figure-latex/administrativeExceptionalClearances-1.pdf>
+
+
+
+Overfull \hbox (56.49586pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 218 \TU/lmr/m/sl/12 CHAPTER 12.  ADMINISTRATIVE AND WINDOW EXCEPTIONAL CLEARANCE SEGMENT
+ []
+
+[218]
+File: 12_nibrs_administrative_files/figure-latex/administrativeOffenseSegments-1.pdf Graphic file (type pdf)
+<use 12_nibrs_administrative_files/figure-latex/administrativeOffenseSegments-1.pdf>
+
+
+[219]
+File: 12_nibrs_administrative_files/figure-latex/administrativeOffenderSegments-1.pdf Graphic file (type pdf)
+<use 12_nibrs_administrative_files/figure-latex/administrativeOffenderSegments-1.pdf>
+
+
+
+Overfull \hbox (56.49586pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 220 \TU/lmr/m/sl/12 CHAPTER 12.  ADMINISTRATIVE AND WINDOW EXCEPTIONAL CLEARANCE SEGMENT
+ []
+
+[220]
+File: 12_nibrs_administrative_files/figure-latex/administrativeVictimSegments-1.pdf Graphic file (type pdf)
+<use 12_nibrs_administrative_files/figure-latex/administrativeVictimSegments-1.pdf>
+File: 12_nibrs_administrative_files/figure-latex/administrativeArresteeSegments-1.pdf Graphic file (type pdf)
+<use 12_nibrs_administrative_files/figure-latex/administrativeArresteeSegments-1.pdf>
+
+
+[221]
+
+
+Overfull \hbox (56.49586pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 222 \TU/lmr/m/sl/12 CHAPTER 12.  ADMINISTRATIVE AND WINDOW EXCEPTIONAL CLEARANCE SEGMENT
+ []
+
+[222]
+File: 12_nibrs_administrative_files/figure-latex/administrativePercentArrested-1.pdf Graphic file (type pdf)
+<use 12_nibrs_administrative_files/figure-latex/administrativePercentArrested-1.pdf>
+
+
+[223]
+File: 12_nibrs_administrative_files/figure-latex/administrativeArrestsAny-1.pdf Graphic file (type pdf)
+<use 12_nibrs_administrative_files/figure-latex/administrativeArrestsAny-1.pdf>
+
+
+
+Overfull \hbox (56.49586pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 224 \TU/lmr/m/sl/12 CHAPTER 12.  ADMINISTRATIVE AND WINDOW EXCEPTIONAL CLEARANCE SEGMENT
+ []
+
+[224]
+Chapter 13.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[225
+
+]
+Overfull \hbox (91.49702pt too wide) in alignment at lines 3939--4019
+ [] [] [] 
+ []
+
+
+
+[226] [227]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[228]
+
+[229]
+Overfull \hbox (453.40509pt too wide) in alignment at lines 4071--4096
+ [] [] [] 
+ []
+
+
+
+[230]
+Overfull \hbox (453.40509pt too wide) in alignment at lines 4100--4105
+ [] [] [] 
+ []
+
+
+Overfull \hbox (453.40509pt too wide) in alignment at lines 4105--4110
+ [] [] [] 
+ []
+
+
+Overfull \hbox (453.40509pt too wide) in alignment at lines 4110--4112
+ [] [] [] 
+ []
+
+
+Overfull \hbox (453.40509pt too wide) in alignment at lines 4112--4114
+ [] [] [] 
+ []
+
+
+Overfull \hbox (453.40509pt too wide) in alignment at lines 4114--4120
+ [] [] [] 
+ []
+
+
+Overfull \hbox (85.25703pt too wide) in alignment at lines 4126--4202
+ [] [] [] 
+ []
+
+[231] [232]
+
+[233]
+File: 13_nibrs_offense_files/figure-latex/offenseDrugAlcoholComputer-1.pdf Graphic file (type pdf)
+<use 13_nibrs_offense_files/figure-latex/offenseDrugAlcoholComputer-1.pdf>
+File: 13_nibrs_offense_files/figure-latex/offenseDrugAlcoholComputerAny-1.pdf Graphic file (type pdf)
+<use 13_nibrs_offense_files/figure-latex/offenseDrugAlcoholComputerAny-1.pdf>
+
+Underfull \vbox (badness 2529) has occurred while \output is active []
+
+
+
+[234]
+
+[235] [236]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[237]
+
+[238]
+Overfull \hbox (62.92502pt too wide) in alignment at lines 4344--4373
+ [] [] [] 
+ []
+
+[239]
+File: 13_nibrs_offense_files/figure-latex/offenseAutomaticWeapon-1.pdf Graphic file (type pdf)
+<use 13_nibrs_offense_files/figure-latex/offenseAutomaticWeapon-1.pdf>
+
+
+[240]
+File: 13_nibrs_offense_files/figure-latex/offensePremisesEntered-1.pdf Graphic file (type pdf)
+<use 13_nibrs_offense_files/figure-latex/offensePremisesEntered-1.pdf>
+
+
+[241]
+File: 13_nibrs_offense_files/figure-latex/offensesTypeOfEntry-1.pdf Graphic file (type pdf)
+<use 13_nibrs_offense_files/figure-latex/offensesTypeOfEntry-1.pdf>
+
+
+[242]
+
+[243]
+Overfull \hbox (30.21303pt too wide) in alignment at lines 4441--4488
+ [] [] [] 
+ []
+
+[244]
+
+[245]
+Chapter 14.
+
+
+[246
+
+]
+File: 14_nibrs_offender_files/figure-latex/offenderAge-1.pdf Graphic file (type pdf)
+<use 14_nibrs_offender_files/figure-latex/offenderAge-1.pdf>
+
+
+[247]
+File: 14_nibrs_offender_files/figure-latex/offenderSex-1.pdf Graphic file (type pdf)
+<use 14_nibrs_offender_files/figure-latex/offenderSex-1.pdf>
+
+
+[248]
+File: 14_nibrs_offender_files/figure-latex/offenderRace-1.pdf Graphic file (type pdf)
+<use 14_nibrs_offender_files/figure-latex/offenderRace-1.pdf>
+
+
+[249]
+
+[250]
+Chapter 15.
+
+
+[251
+
+]
+Overfull \hbox (86.14503pt too wide) in alignment at lines 4563--4643
+ [] [] [] 
+ []
+
+[252] [253]
+
+[254]
+File: 15_nibrs_victim_files/figure-latex/victimType-1.pdf Graphic file (type pdf)
+<use 15_nibrs_victim_files/figure-latex/victimType-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[255]
+
+[256]
+File: 15_nibrs_victim_files/figure-latex/victimInjury-1.pdf Graphic file (type pdf)
+<use 15_nibrs_victim_files/figure-latex/victimInjury-1.pdf>
+File: 15_nibrs_victim_files/figure-latex/victimInjuryExcludeNone-1.pdf Graphic file (type pdf)
+<use 15_nibrs_victim_files/figure-latex/victimInjuryExcludeNone-1.pdf>
+
+
+[257]
+Overfull \hbox (13.12503pt too wide) in alignment at lines 4728--4766
+ [] [] [] 
+ []
+
+
+
+[258]
+
+[259]
+Overfull \hbox (13.12503pt too wide) in alignment at lines 4770--4807
+ [] [] [] 
+ []
+
+[260]
+Overfull \hbox (73.68904pt too wide) in alignment at lines 4813--4840
+ [] [] [] [] 
+ []
+
+[261]
+File: 15_nibrs_victim_files/figure-latex/victimJustifiableHomicide-1.pdf Graphic file (type pdf)
+<use 15_nibrs_victim_files/figure-latex/victimJustifiableHomicide-1.pdf>
+
+
+[262]
+File: 15_nibrs_victim_files/figure-latex/victimResidenceStatus-1.pdf Graphic file (type pdf)
+<use 15_nibrs_victim_files/figure-latex/victimResidenceStatus-1.pdf>
+File: 15_nibrs_victim_files/figure-latex/victimResidenceStatusPolice-1.pdf Graphic file (type pdf)
+<use 15_nibrs_victim_files/figure-latex/victimResidenceStatusPolice-1.pdf>
+
+Underfull \vbox (badness 6575) has occurred while \output is active []
+
+
+
+[263]
+
+[264]
+File: 15_nibrs_victim_files/figure-latex/victimAge-1.pdf Graphic file (type pdf)
+<use 15_nibrs_victim_files/figure-latex/victimAge-1.pdf>
+
+
+[265]
+File: 15_nibrs_victim_files/figure-latex/victimSex-1.pdf Graphic file (type pdf)
+<use 15_nibrs_victim_files/figure-latex/victimSex-1.pdf>
+
+
+[266]
+File: 15_nibrs_victim_files/figure-latex/victimRace-1.pdf Graphic file (type pdf)
+<use 15_nibrs_victim_files/figure-latex/victimRace-1.pdf>
+
+
+[267]
+File: 15_nibrs_victim_files/figure-latex/victimEthnicity-1.pdf Graphic file (type pdf)
+<use 15_nibrs_victim_files/figure-latex/victimEthnicity-1.pdf>
+
+
+[268]
+Chapter 16.
+
+
+[269
+
+]
+
+
+Overfull \hbox (45.36786pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 270 \TU/lmr/m/sl/12 CHAPTER 16.  ARRESTEE, GROUP B ARRESTEE, AND WINDOW ARRESTEE SEGMENT
+ []
+
+[270]
+Overfull \hbox (91.49702pt too wide) in alignment at lines 4967--5055
+ [] [] [] 
+ []
+
+[271]
+Overfull \hbox (45.36786pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 272 \TU/lmr/m/sl/12 CHAPTER 16.  ARRESTEE, GROUP B ARRESTEE, AND WINDOW ARRESTEE SEGMENT
+ []
+
+[272]
+
+[273]
+
+
+Overfull \hbox (45.36786pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 274 \TU/lmr/m/sl/12 CHAPTER 16.  ARRESTEE, GROUP B ARRESTEE, AND WINDOW ARRESTEE SEGMENT
+ []
+
+[274]
+File: 16_nibrs_arrestee_files/figure-latex/arrestsDaysUntilArrest-1.pdf Graphic file (type pdf)
+<use 16_nibrs_arrestee_files/figure-latex/arrestsDaysUntilArrest-1.pdf>
+File: 16_nibrs_arrestee_files/figure-latex/arrestsDaysUntilArrestBarplot-1.pdf Graphic file (type pdf)
+<use 16_nibrs_arrestee_files/figure-latex/arrestsDaysUntilArrestBarplot-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[275]
+File: 16_nibrs_arrestee_files/figure-latex/arresteeWeapon-1.pdf Graphic file (type pdf)
+<use 16_nibrs_arrestee_files/figure-latex/arresteeWeapon-1.pdf>
+
+
+
+Overfull \hbox (45.36786pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 276 \TU/lmr/m/sl/12 CHAPTER 16.  ARRESTEE, GROUP B ARRESTEE, AND WINDOW ARRESTEE SEGMENT
+ []
+
+[276]
+File: 16_nibrs_arrestee_files/figure-latex/arresteeWeaponArmed-1.pdf Graphic file (type pdf)
+<use 16_nibrs_arrestee_files/figure-latex/arresteeWeaponArmed-1.pdf>
+
+
+[277]
+File: 16_nibrs_arrestee_files/figure-latex/arresteeAutomaticWeapon-1.pdf Graphic file (type pdf)
+<use 16_nibrs_arrestee_files/figure-latex/arresteeAutomaticWeapon-1.pdf>
+
+
+
+Overfull \hbox (45.36786pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 278 \TU/lmr/m/sl/12 CHAPTER 16.  ARRESTEE, GROUP B ARRESTEE, AND WINDOW ARRESTEE SEGMENT
+ []
+
+[278]
+File: 16_nibrs_arrestee_files/figure-latex/arresteeTypeOfArrest-1.pdf Graphic file (type pdf)
+<use 16_nibrs_arrestee_files/figure-latex/arresteeTypeOfArrest-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[279]
+File: 16_nibrs_arrestee_files/figure-latex/arresteeJuvenileDisposition-1.pdf Graphic file (type pdf)
+<use 16_nibrs_arrestee_files/figure-latex/arresteeJuvenileDisposition-1.pdf>
+
+Underfull \vbox (badness 5726) has occurred while \output is active []
+
+
+
+
+Overfull \hbox (45.36786pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 280 \TU/lmr/m/sl/12 CHAPTER 16.  ARRESTEE, GROUP B ARRESTEE, AND WINDOW ARRESTEE SEGMENT
+ []
+
+[280]
+
+[281]
+File: 16_nibrs_arrestee_files/figure-latex/arresteeResidenceStatus-1.pdf Graphic file (type pdf)
+<use 16_nibrs_arrestee_files/figure-latex/arresteeResidenceStatus-1.pdf>
+
+
+
+Overfull \hbox (45.36786pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 282 \TU/lmr/m/sl/12 CHAPTER 16.  ARRESTEE, GROUP B ARRESTEE, AND WINDOW ARRESTEE SEGMENT
+ []
+
+[282]
+File: 16_nibrs_arrestee_files/figure-latex/arresteeAge-1.pdf Graphic file (type pdf)
+<use 16_nibrs_arrestee_files/figure-latex/arresteeAge-1.pdf>
+File: 16_nibrs_arrestee_files/figure-latex/arresteeSex-1.pdf Graphic file (type pdf)
+<use 16_nibrs_arrestee_files/figure-latex/arresteeSex-1.pdf>
+
+
+[283]
+File: 16_nibrs_arrestee_files/figure-latex/arresteeRace-1.pdf Graphic file (type pdf)
+<use 16_nibrs_arrestee_files/figure-latex/arresteeRace-1.pdf>
+
+
+
+Overfull \hbox (45.36786pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 284 \TU/lmr/m/sl/12 CHAPTER 16.  ARRESTEE, GROUP B ARRESTEE, AND WINDOW ARRESTEE SEGMENT
+ []
+
+[284]
+
+[285]
+File: 16_nibrs_arrestee_files/figure-latex/arresteeEthnicity-1.pdf Graphic file (type pdf)
+<use 16_nibrs_arrestee_files/figure-latex/arresteeEthnicity-1.pdf>
+
+
+
+Overfull \hbox (45.36786pt too wide) has occurred while \output is active
+\TU/lmr/m/n/12 286 \TU/lmr/m/sl/12 CHAPTER 16.  ARRESTEE, GROUP B ARRESTEE, AND WINDOW ARRESTEE SEGMENT
+ []
+
+[286]
+
+[287]
+Chapter 17.
+
+
+[288
+
+]
+File: 17_nibrs_property_files/figure-latex/propertyTypeLoss-1.pdf Graphic file (type pdf)
+<use 17_nibrs_property_files/figure-latex/propertyTypeLoss-1.pdf>
+
+
+[289]
+
+[290]
+Overfull \hbox (29.55305pt too wide) in alignment at lines 5298--5386
+ [] [] [] 
+ []
+
+[291] [292]
+Overfull \hbox (29.52904pt too wide) in alignment at lines 5390--5478
+ [] [] [] 
+ []
+
+[293] [294]
+
+[295]
+File: 17_nibrs_property_files/figure-latex/propertyValuePropertyLevel-1.pdf Graphic file (type pdf)
+<use 17_nibrs_property_files/figure-latex/propertyValuePropertyLevel-1.pdf>
+File: 17_nibrs_property_files/figure-latex/propertyValueIncidentLevel-1.pdf Graphic file (type pdf)
+<use 17_nibrs_property_files/figure-latex/propertyValueIncidentLevel-1.pdf>
+
+
+[296]
+
+[297]
+File: 17_nibrs_property_files/figure-latex/propertyDaysUntilRecovered-1.pdf Graphic file (type pdf)
+<use 17_nibrs_property_files/figure-latex/propertyDaysUntilRecovered-1.pdf>
+
+
+[298]
+Overfull \hbox (688.67311pt too wide) in alignment at lines 5535--5562
+ [] [] [] 
+ []
+
+[299]
+
+[300]
+File: 17_nibrs_property_files/figure-latex/propertyMarijuanaGramMeasures-1.pdf Graphic file (type pdf)
+<use 17_nibrs_property_files/figure-latex/propertyMarijuanaGramMeasures-1.pdf>
+
+
+[301] (./ucrbook.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 14--17
+[]\TU/lmr/m/n/12 Earlenbaugh, E. (2020).  More people were arrested for cannabis last
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--17
+\TU/lmr/m/n/12 year than for all violent crimes put together, according to FBI data.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--17
+\TU/lmr/m/n/12 https://www.forbes.com/sites/emilyearlenbaugh/2020/10/06/more-people-were-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--17
+\TU/lmr/m/n/12 arrested-for-cannabis-last-year-than-for-all-violent-crimes-put-together-according-to-
+ []
+
+
+Underfull \hbox (badness 2269) in paragraph at lines 24--27
+\TU/lmr/m/n/12 — combined.  https://www.washingtonpost.com/news/wonk/wp/2016/10/12/police-
+ []
+
+
+
+[302
+
+
+])
+
+[303] (./ucrbook.aux)
+ ***********
+LaTeX2e <2024-06-01> patch level 2
+L3 programming layer <2024-08-16>
+ ***********
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 22372 strings out of 476233
+ 476136 string characters out of 5785518
+ 1951612 words of memory out of 5000000
+ 44449 multiletter control sequences out of 15000+600000
+ 565611 words of font info for 99 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 90i,8n,123p,2020b,488s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on ucrbook.pdf (303 pages).

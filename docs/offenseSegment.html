@@ -23,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2024-08-29" />
+<meta name="date" content="2024-09-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -467,705 +467,330 @@ div.csl-indent {
 <p>The first important variable in the Offense Segment is figuring out exactly what offense was committed. This tells you what crime occurred in the incident. There can be multiple crimes in a single incident so this provides info about each crime that occurred. To figure out which offenses belong together, just look at the incident number and the ORI. Within ORI, each incident number is a unique identifier for an incident. Each crime is mutually exclusive and crimes which are elements of another crime are counted only as the crime they are elements of. For example, robberies are basically theft plus assault/intimidation - it is the use of force or threat of force (assault or intimidation) to take property (theft). A case of robbery in this data would only count as robbery, not as robbery and theft and assault/intimidation. If there are these crimes together in an incident that’s because that crime <em>also</em> occurred separately. For example, if someone is robbed and after the robbery is over (i.e. they hand over their belongings) they are then punched repeatedly, that could potentially be classified as a robbery and an assault.</p>
 <p>Table <a href="offenseSegment.html#tab:offenseCrimeCategories">13.1</a> shows each possible crime in the data and how common it was in 2019. It’s sorted by frequency instead of alphabetically so it’s easier to see which crimes are most common. There were about 7.4 million crimes reported to NIBRS in 2019. The most common crime is simple assault - which is an assault that didn’t use a weapon and didn’t result in serious injury - at 12.7% of crimes, or about 944k crimes. If you think this is odd because property crimes are more common than violent crimes, you’d be right. NIBRS data is pretty specific in its crime categories so it splits up certain crimes into a number of different categories. Theft is the most common crime committed in the United States. In NIBRS it’s broken into several different types of theft so you need to combine them together to actually measure theft in its entirety. Of the top 6 most common crimes, theft crimes make up ranks 3, 5, and 6 (all other larceny, theft from motor vehicle, and shoplifting).</p>
 <p>Though each agency is supposed to report the same crimes - using the exact same definition of the crimes so the data is consistent - that isn’t always true in practice. For example, animal cruelty became a NIBRS crime in 2018 (before that it wasn’t an option so agencies could not report it) and likely most agencies in the US have had at least one animal abuse crime since then. In 2018, however, reporting was concentrated in a small number of states, meaning that not all agencies reported that offense. The concentration in certain states suggests that this low reporting is due to agencies in certain states deciding (or not being able to, such as if having older reporting systems which don’t have animal cruelty as an option) not to report that offense at all. Reporting has increased in 2019 (though still remains highly concentrated), suggesting that over time more agencies begin reporting crimes as they are added. Therefore, I strongly suggest examining your data over time and across geographic areas to see if there are any biases before using it.</p>
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:offenseCrimeCategories">Table 13.1: </span>The number and percent of crimes reported from all agencies in 2022, by crime category.
-</caption>
+<table>
+<caption><span id="tab:offenseCrimeCategories">Table 13.1: </span>The number and percent of crimes reported from all agencies in 2022, by crime category.</caption>
+<colgroup>
+<col width="69%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left;">
-Crime Category
-</th>
-<th style="text-align:right;">
-# of Offenses
-</th>
-<th style="text-align:right;">
-% of Offenses
-</th>
+<tr class="header">
+<th align="left">Crime Category</th>
+<th align="right"># of Offenses</th>
+<th align="right">% of Offenses</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Assault Offenses - Simple Assault
-</td>
-<td style="text-align:right;">
-1,725,221
-</td>
-<td style="text-align:right;">
-13.57%
-</td>
+<tr class="odd">
+<td align="left">Assault Offenses - Simple Assault</td>
+<td align="right">1,725,221</td>
+<td align="right">13.57%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Destruction/Damage/Vandalism of Property
-</td>
-<td style="text-align:right;">
-1,499,936
-</td>
-<td style="text-align:right;">
-11.80%
-</td>
+<tr class="even">
+<td align="left">Destruction/Damage/Vandalism of Property</td>
+<td align="right">1,499,936</td>
+<td align="right">11.80%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - All Other Larceny
-</td>
-<td style="text-align:right;">
-1,341,444
-</td>
-<td style="text-align:right;">
-10.55%
-</td>
+<tr class="odd">
+<td align="left">Larceny/Theft Offenses - All Other Larceny</td>
+<td align="right">1,341,444</td>
+<td align="right">10.55%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Drug/Narcotic Offenses - Drug/Narcotic Violations
-</td>
-<td style="text-align:right;">
-993,308
-</td>
-<td style="text-align:right;">
-7.81%
-</td>
+<tr class="even">
+<td align="left">Drug/Narcotic Offenses - Drug/Narcotic Violations</td>
+<td align="right">993,308</td>
+<td align="right">7.81%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Theft From Motor Vehicle
-</td>
-<td style="text-align:right;">
-851,640
-</td>
-<td style="text-align:right;">
-6.70%
-</td>
+<tr class="odd">
+<td align="left">Larceny/Theft Offenses - Theft From Motor Vehicle</td>
+<td align="right">851,640</td>
+<td align="right">6.70%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Shoplifting
-</td>
-<td style="text-align:right;">
-733,952
-</td>
-<td style="text-align:right;">
-5.77%
-</td>
+<tr class="even">
+<td align="left">Larceny/Theft Offenses - Shoplifting</td>
+<td align="right">733,952</td>
+<td align="right">5.77%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Motor Vehicle Theft
-</td>
-<td style="text-align:right;">
-721,788
-</td>
-<td style="text-align:right;">
-5.68%
-</td>
+<tr class="odd">
+<td align="left">Motor Vehicle Theft</td>
+<td align="right">721,788</td>
+<td align="right">5.68%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Burglary/Breaking And Entering
-</td>
-<td style="text-align:right;">
-673,144
-</td>
-<td style="text-align:right;">
-5.30%
-</td>
+<tr class="even">
+<td align="left">Burglary/Breaking And Entering</td>
+<td align="right">673,144</td>
+<td align="right">5.30%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Assault Offenses - Aggravated Assault
-</td>
-<td style="text-align:right;">
-540,892
-</td>
-<td style="text-align:right;">
-4.25%
-</td>
+<tr class="odd">
+<td align="left">Assault Offenses - Aggravated Assault</td>
+<td align="right">540,892</td>
+<td align="right">4.25%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Assault Offenses - Intimidation
-</td>
-<td style="text-align:right;">
-474,517
-</td>
-<td style="text-align:right;">
-3.73%
-</td>
+<tr class="even">
+<td align="left">Assault Offenses - Intimidation</td>
+<td align="right">474,517</td>
+<td align="right">3.73%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Drug/Narcotic Offenses - Drug Equipment Violations
-</td>
-<td style="text-align:right;">
-467,075
-</td>
-<td style="text-align:right;">
-3.67%
-</td>
+<tr class="odd">
+<td align="left">Drug/Narcotic Offenses - Drug Equipment Violations</td>
+<td align="right">467,075</td>
+<td align="right">3.67%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories
-</td>
-<td style="text-align:right;">
-378,447
-</td>
-<td style="text-align:right;">
-2.98%
-</td>
+<tr class="even">
+<td align="left">Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories</td>
+<td align="right">378,447</td>
+<td align="right">2.98%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - False Pretenses/Swindle/Confidence Game
-</td>
-<td style="text-align:right;">
-337,056
-</td>
-<td style="text-align:right;">
-2.65%
-</td>
+<tr class="odd">
+<td align="left">Fraud Offenses - False Pretenses/Swindle/Confidence Game</td>
+<td align="right">337,056</td>
+<td align="right">2.65%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Weapon Law Violations - Weapon Law Violations
-</td>
-<td style="text-align:right;">
-326,104
-</td>
-<td style="text-align:right;">
-2.57%
-</td>
+<tr class="even">
+<td align="left">Weapon Law Violations - Weapon Law Violations</td>
+<td align="right">326,104</td>
+<td align="right">2.57%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Theft From Building
-</td>
-<td style="text-align:right;">
-279,349
-</td>
-<td style="text-align:right;">
-2.20%
-</td>
+<tr class="odd">
+<td align="left">Larceny/Theft Offenses - Theft From Building</td>
+<td align="right">279,349</td>
+<td align="right">2.20%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Credit Card/Atm Fraud
-</td>
-<td style="text-align:right;">
-190,962
-</td>
-<td style="text-align:right;">
-1.50%
-</td>
+<tr class="even">
+<td align="left">Fraud Offenses - Credit Card/Atm Fraud</td>
+<td align="right">190,962</td>
+<td align="right">1.50%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Identity Theft
-</td>
-<td style="text-align:right;">
-186,144
-</td>
-<td style="text-align:right;">
-1.46%
-</td>
+<tr class="odd">
+<td align="left">Fraud Offenses - Identity Theft</td>
+<td align="right">186,144</td>
+<td align="right">1.46%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Robbery
-</td>
-<td style="text-align:right;">
-149,999
-</td>
-<td style="text-align:right;">
-1.18%
-</td>
+<tr class="even">
+<td align="left">Robbery</td>
+<td align="right">149,999</td>
+<td align="right">1.18%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Counterfeiting/Forgery
-</td>
-<td style="text-align:right;">
-147,991
-</td>
-<td style="text-align:right;">
-1.16%
-</td>
+<tr class="odd">
+<td align="left">Counterfeiting/Forgery</td>
+<td align="right">147,991</td>
+<td align="right">1.16%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Stolen Property Offenses (Receiving, Selling, Etc.)
-</td>
-<td style="text-align:right;">
-115,472
-</td>
-<td style="text-align:right;">
-0.91%
-</td>
+<tr class="even">
+<td align="left">Stolen Property Offenses (Receiving, Selling, Etc.)</td>
+<td align="right">115,472</td>
+<td align="right">0.91%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Fondling (Incident Liberties/Child Molest)
-</td>
-<td style="text-align:right;">
-80,711
-</td>
-<td style="text-align:right;">
-0.63%
-</td>
+<tr class="odd">
+<td align="left">Sex Offenses - Fondling (Incident Liberties/Child Molest)</td>
+<td align="right">80,711</td>
+<td align="right">0.63%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Impersonation
-</td>
-<td style="text-align:right;">
-79,049
-</td>
-<td style="text-align:right;">
-0.62%
-</td>
+<tr class="even">
+<td align="left">Fraud Offenses - Impersonation</td>
+<td align="right">79,049</td>
+<td align="right">0.62%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Rape
-</td>
-<td style="text-align:right;">
-76,495
-</td>
-<td style="text-align:right;">
-0.60%
-</td>
+<tr class="odd">
+<td align="left">Sex Offenses - Rape</td>
+<td align="right">76,495</td>
+<td align="right">0.60%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Pornography/Obscene Material
-</td>
-<td style="text-align:right;">
-39,885
-</td>
-<td style="text-align:right;">
-0.31%
-</td>
+<tr class="even">
+<td align="left">Pornography/Obscene Material</td>
+<td align="right">39,885</td>
+<td align="right">0.31%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Kidnapping/Abduction
-</td>
-<td style="text-align:right;">
-39,148
-</td>
-<td style="text-align:right;">
-0.31%
-</td>
+<tr class="odd">
+<td align="left">Kidnapping/Abduction</td>
+<td align="right">39,148</td>
+<td align="right">0.31%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Wire Fraud
-</td>
-<td style="text-align:right;">
-38,373
-</td>
-<td style="text-align:right;">
-0.30%
-</td>
+<tr class="even">
+<td align="left">Fraud Offenses - Wire Fraud</td>
+<td align="right">38,373</td>
+<td align="right">0.30%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Embezzlement
-</td>
-<td style="text-align:right;">
-32,487
-</td>
-<td style="text-align:right;">
-0.26%
-</td>
+<tr class="odd">
+<td align="left">Embezzlement</td>
+<td align="right">32,487</td>
+<td align="right">0.26%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Arson
-</td>
-<td style="text-align:right;">
-30,178
-</td>
-<td style="text-align:right;">
-0.24%
-</td>
+<tr class="even">
+<td align="left">Arson</td>
+<td align="right">30,178</td>
+<td align="right">0.24%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Pocket-Picking
-</td>
-<td style="text-align:right;">
-21,078
-</td>
-<td style="text-align:right;">
-0.17%
-</td>
+<tr class="odd">
+<td align="left">Larceny/Theft Offenses - Pocket-Picking</td>
+<td align="right">21,078</td>
+<td align="right">0.17%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Animal Cruelty
-</td>
-<td style="text-align:right;">
-20,527
-</td>
-<td style="text-align:right;">
-0.16%
-</td>
+<tr class="even">
+<td align="left">Animal Cruelty</td>
+<td align="right">20,527</td>
+<td align="right">0.16%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Extortion/Blackmail
-</td>
-<td style="text-align:right;">
-20,305
-</td>
-<td style="text-align:right;">
-0.16%
-</td>
+<tr class="odd">
+<td align="left">Extortion/Blackmail</td>
+<td align="right">20,305</td>
+<td align="right">0.16%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Sodomy
-</td>
-<td style="text-align:right;">
-18,353
-</td>
-<td style="text-align:right;">
-0.14%
-</td>
+<tr class="even">
+<td align="left">Sex Offenses - Sodomy</td>
+<td align="right">18,353</td>
+<td align="right">0.14%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Murder/Nonnegligent Manslaughter
-</td>
-<td style="text-align:right;">
-14,994
-</td>
-<td style="text-align:right;">
-0.12%
-</td>
+<tr class="odd">
+<td align="left">Murder/Nonnegligent Manslaughter</td>
+<td align="right">14,994</td>
+<td align="right">0.12%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Purse-Snatching
-</td>
-<td style="text-align:right;">
-11,278
-</td>
-<td style="text-align:right;">
-0.09%
-</td>
+<tr class="even">
+<td align="left">Larceny/Theft Offenses - Purse-Snatching</td>
+<td align="right">11,278</td>
+<td align="right">0.09%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Hacking/Computer Invasion
-</td>
-<td style="text-align:right;">
-8,151
-</td>
-<td style="text-align:right;">
-0.06%
-</td>
+<tr class="odd">
+<td align="left">Fraud Offenses - Hacking/Computer Invasion</td>
+<td align="right">8,151</td>
+<td align="right">0.06%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Sexual Assault With An Object
-</td>
-<td style="text-align:right;">
-7,871
-</td>
-<td style="text-align:right;">
-0.06%
-</td>
+<tr class="even">
+<td align="left">Sex Offenses - Sexual Assault With An Object</td>
+<td align="right">7,871</td>
+<td align="right">0.06%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Statutory Rape
-</td>
-<td style="text-align:right;">
-7,752
-</td>
-<td style="text-align:right;">
-0.06%
-</td>
+<tr class="odd">
+<td align="left">Sex Offenses - Statutory Rape</td>
+<td align="right">7,752</td>
+<td align="right">0.06%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Prostitution Offenses - Prostitution
-</td>
-<td style="text-align:right;">
-7,670
-</td>
-<td style="text-align:right;">
-0.06%
-</td>
+<tr class="even">
+<td align="left">Prostitution Offenses - Prostitution</td>
+<td align="right">7,670</td>
+<td align="right">0.06%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device
-</td>
-<td style="text-align:right;">
-5,500
-</td>
-<td style="text-align:right;">
-0.04%
-</td>
+<tr class="odd">
+<td align="left">Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device</td>
+<td align="right">5,500</td>
+<td align="right">0.04%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Welfare Fraud
-</td>
-<td style="text-align:right;">
-4,580
-</td>
-<td style="text-align:right;">
-0.04%
-</td>
+<tr class="even">
+<td align="left">Fraud Offenses - Welfare Fraud</td>
+<td align="right">4,580</td>
+<td align="right">0.04%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Prostitution Offenses - Assisting Or Promoting Prostitution
-</td>
-<td style="text-align:right;">
-2,961
-</td>
-<td style="text-align:right;">
-0.02%
-</td>
+<tr class="odd">
+<td align="left">Prostitution Offenses - Assisting Or Promoting Prostitution</td>
+<td align="right">2,961</td>
+<td align="right">0.02%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Prostitution Offenses - Purchasing Prostitution
-</td>
-<td style="text-align:right;">
-2,380
-</td>
-<td style="text-align:right;">
-0.02%
-</td>
+<tr class="even">
+<td align="left">Prostitution Offenses - Purchasing Prostitution</td>
+<td align="right">2,380</td>
+<td align="right">0.02%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Human Trafficking - Commercial Sex Acts
-</td>
-<td style="text-align:right;">
-1,818
-</td>
-<td style="text-align:right;">
-0.01%
-</td>
+<tr class="odd">
+<td align="left">Human Trafficking - Commercial Sex Acts</td>
+<td align="right">1,818</td>
+<td align="right">0.01%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Negligent Manslaughter
-</td>
-<td style="text-align:right;">
-1,588
-</td>
-<td style="text-align:right;">
-0.01%
-</td>
+<tr class="even">
+<td align="left">Negligent Manslaughter</td>
+<td align="right">1,588</td>
+<td align="right">0.01%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Incest
-</td>
-<td style="text-align:right;">
-1,175
-</td>
-<td style="text-align:right;">
-0.01%
-</td>
+<tr class="odd">
+<td align="left">Sex Offenses - Incest</td>
+<td align="right">1,175</td>
+<td align="right">0.01%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Gambling Offenses - Operating/Promoting/Assisting Gambling
-</td>
-<td style="text-align:right;">
-909
-</td>
-<td style="text-align:right;">
-0.01%
-</td>
+<tr class="even">
+<td align="left">Gambling Offenses - Operating/Promoting/Assisting Gambling</td>
+<td align="right">909</td>
+<td align="right">0.01%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Bribery
-</td>
-<td style="text-align:right;">
-652
-</td>
-<td style="text-align:right;">
-0.01%
-</td>
+<tr class="odd">
+<td align="left">Bribery</td>
+<td align="right">652</td>
+<td align="right">0.01%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Gambling Offenses - Betting/Wagering
-</td>
-<td style="text-align:right;">
-649
-</td>
-<td style="text-align:right;">
-0.01%
-</td>
+<tr class="even">
+<td align="left">Gambling Offenses - Betting/Wagering</td>
+<td align="right">649</td>
+<td align="right">0.01%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Justifiable Homicide - Not A Crime
-</td>
-<td style="text-align:right;">
-617
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="odd">
+<td align="left">Justifiable Homicide - Not A Crime</td>
+<td align="right">617</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Gambling Offenses - Gambling Equipment Violations
-</td>
-<td style="text-align:right;">
-560
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="even">
+<td align="left">Gambling Offenses - Gambling Equipment Violations</td>
+<td align="right">560</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Human Trafficking - Involuntary Servitude
-</td>
-<td style="text-align:right;">
-416
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="odd">
+<td align="left">Human Trafficking - Involuntary Servitude</td>
+<td align="right">416</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Commerce Violations - Federal Liquor Offenses
-</td>
-<td style="text-align:right;">
-145
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="even">
+<td align="left">Commerce Violations - Federal Liquor Offenses</td>
+<td align="right">145</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fugitive Offenses - Flight To Avoid Prosecution
-</td>
-<td style="text-align:right;">
-68
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="odd">
+<td align="left">Fugitive Offenses - Flight To Avoid Prosecution</td>
+<td align="right">68</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Failure To Register As A Sex Offender
-</td>
-<td style="text-align:right;">
-27
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="even">
+<td align="left">Sex Offenses - Failure To Register As A Sex Offender</td>
+<td align="right">27</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Money Laundering
-</td>
-<td style="text-align:right;">
-7
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="odd">
+<td align="left">Fraud Offenses - Money Laundering</td>
+<td align="right">7</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Weapon Law Violations - Explosives
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="even">
+<td align="left">Weapon Law Violations - Explosives</td>
+<td align="right">4</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fugitive Offenses - Harboring Escappee/Concealing From Arrest
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="odd">
+<td align="left">Fugitive Offenses - Harboring Escappee/Concealing From Arrest</td>
+<td align="right">3</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Immigration Violations - Illegal Entry Into The United States
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="even">
+<td align="left">Immigration Violations - Illegal Entry Into The United States</td>
+<td align="right">3</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Gambling Offenses - Sports Tampering
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="odd">
+<td align="left">Gambling Offenses - Sports Tampering</td>
+<td align="right">3</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fugitive Offenses - Flight To Avoid Deportation
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="even">
+<td align="left">Fugitive Offenses - Flight To Avoid Deportation</td>
+<td align="right">1</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Weapon Law Violations - Violation of National Firearm Act of 1934
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="odd">
+<td align="left">Weapon Law Violations - Violation of National Firearm Act of 1934</td>
+<td align="right">1</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Total
-</td>
-<td style="text-align:right;">
-12,712,813
-</td>
-<td style="text-align:right;">
-100%
-</td>
+<tr class="even">
+<td align="left">Total</td>
+<td align="right">12,712,813</td>
+<td align="right">100%</td>
 </tr>
 </tbody>
 </table>
@@ -1196,199 +821,100 @@ Total
 <li>Stolen Property Offenses (Receiving, Selling, Etc.)</li>
 <li>Weapon Law Violations</li>
 </ul>
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:offenseCrimeSubcategories">Table 13.2: </span>The number and percent of crime subtypes. This breakdown is only available for a subset of offenses.
-</caption>
+<table>
+<caption><span id="tab:offenseCrimeSubcategories">Table 13.2: </span>The number and percent of crime subtypes. This breakdown is only available for a subset of offenses.</caption>
+<colgroup>
+<col width="82%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left;">
-Crime Subcategory
-</th>
-<th style="text-align:right;">
-# of Offenses
-</th>
-<th style="text-align:right;">
-% of Offenses
-</th>
+<tr class="header">
+<th align="left">Crime Subcategory</th>
+<th align="right"># of Offenses</th>
+<th align="right">% of Offenses</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-None/Unknown Gang Involvement (Mutually Exclusive)
-</td>
-<td style="text-align:right;">
-1,707,560
-</td>
-<td style="text-align:right;">
-44.55%
-</td>
+<tr class="odd">
+<td align="left">None/Unknown Gang Involvement (Mutually Exclusive)</td>
+<td align="right">1,707,560</td>
+<td align="right">44.55%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Possessing/Concealing
-</td>
-<td style="text-align:right;">
-1,625,157
-</td>
-<td style="text-align:right;">
-42.40%
-</td>
+<tr class="even">
+<td align="left">Possessing/Concealing</td>
+<td align="right">1,625,157</td>
+<td align="right">42.40%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Using/Consuming
-</td>
-<td style="text-align:right;">
-187,874
-</td>
-<td style="text-align:right;">
-4.90%
-</td>
+<tr class="odd">
+<td align="left">Using/Consuming</td>
+<td align="right">187,874</td>
+<td align="right">4.90%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Distributing/Selling
-</td>
-<td style="text-align:right;">
-120,107
-</td>
-<td style="text-align:right;">
-3.13%
-</td>
+<tr class="even">
+<td align="left">Distributing/Selling</td>
+<td align="right">120,107</td>
+<td align="right">3.13%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Buying/Receiving
-</td>
-<td style="text-align:right;">
-66,675
-</td>
-<td style="text-align:right;">
-1.74%
-</td>
+<tr class="odd">
+<td align="left">Buying/Receiving</td>
+<td align="right">66,675</td>
+<td align="right">1.74%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Cultivating/Manufacturing/Publishing
-</td>
-<td style="text-align:right;">
-38,428
-</td>
-<td style="text-align:right;">
-1.00%
-</td>
+<tr class="even">
+<td align="left">Cultivating/Manufacturing/Publishing</td>
+<td align="right">38,428</td>
+<td align="right">1.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Operating/Promoting/Assisting
-</td>
-<td style="text-align:right;">
-23,630
-</td>
-<td style="text-align:right;">
-0.62%
-</td>
+<tr class="odd">
+<td align="left">Operating/Promoting/Assisting</td>
+<td align="right">23,630</td>
+<td align="right">0.62%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Transporting/Transmitting/Importing
-</td>
-<td style="text-align:right;">
-15,816
-</td>
-<td style="text-align:right;">
-0.41%
-</td>
+<tr class="even">
+<td align="left">Transporting/Transmitting/Importing</td>
+<td align="right">15,816</td>
+<td align="right">0.41%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Simple/Gross Neglect (Unintentionally, Intentionally, Or Knowingly Failing To Provide Food, Water, Shelter, Veterinary Care, Hoarding, Etc.)
-</td>
-<td style="text-align:right;">
-13,144
-</td>
-<td style="text-align:right;">
-0.34%
-</td>
+<tr class="odd">
+<td align="left">Simple/Gross Neglect (Unintentionally, Intentionally, Or Knowingly Failing To Provide Food, Water, Shelter, Veterinary Care, Hoarding, Etc.)</td>
+<td align="right">13,144</td>
+<td align="right">0.34%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Exploiting Children
-</td>
-<td style="text-align:right;">
-12,861
-</td>
-<td style="text-align:right;">
-0.34%
-</td>
+<tr class="even">
+<td align="left">Exploiting Children</td>
+<td align="right">12,861</td>
+<td align="right">0.34%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Other Gang
-</td>
-<td style="text-align:right;">
-10,516
-</td>
-<td style="text-align:right;">
-0.27%
-</td>
+<tr class="odd">
+<td align="left">Other Gang</td>
+<td align="right">10,516</td>
+<td align="right">0.27%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Intentional Abuse And Torture (Tormenting, Mutilating, Poisoning, Or Abandonment)
-</td>
-<td style="text-align:right;">
-6,835
-</td>
-<td style="text-align:right;">
-0.18%
-</td>
+<tr class="even">
+<td align="left">Intentional Abuse And Torture (Tormenting, Mutilating, Poisoning, Or Abandonment)</td>
+<td align="right">6,835</td>
+<td align="right">0.18%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Juvenile Gang Involvement
-</td>
-<td style="text-align:right;">
-3,790
-</td>
-<td style="text-align:right;">
-0.10%
-</td>
+<tr class="odd">
+<td align="left">Juvenile Gang Involvement</td>
+<td align="right">3,790</td>
+<td align="right">0.10%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Animal Sexual Abuse (Bestiality)
-</td>
-<td style="text-align:right;">
-293
-</td>
-<td style="text-align:right;">
-0.01%
-</td>
+<tr class="even">
+<td align="left">Animal Sexual Abuse (Bestiality)</td>
+<td align="right">293</td>
+<td align="right">0.01%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Organized Abuse (Dog Fighting And Cock Fighting)
-</td>
-<td style="text-align:right;">
-255
-</td>
-<td style="text-align:right;">
-0.01%
-</td>
+<tr class="odd">
+<td align="left">Organized Abuse (Dog Fighting And Cock Fighting)</td>
+<td align="right">255</td>
+<td align="right">0.01%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Total
-</td>
-<td style="text-align:right;">
-3,832,941
-</td>
-<td style="text-align:right;">
-100%
-</td>
+<tr class="even">
+<td align="left">Total</td>
+<td align="right">3,832,941</td>
+<td align="right">100%</td>
 </tr>
 </tbody>
 </table>
@@ -1472,672 +998,315 @@ Total
 <div id="offense-completed" class="section level2 hasAnchor" number="13.3">
 <h2><span class="header-section-number">13.3</span> Offense completed<a href="offenseSegment.html#offense-completed" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>For each offense, this segment also tells you if the offense was completed or only attempted. Some offenses, such as simple and aggravated assault or homicide, are only labeled as completed. This is because an attempted murder, for example, would be classified as aggravated assault. Since crimes in NIBRS are mutually exclusive, there cannot be both attempted murder and aggravated assault, so only aggravated assault is included. This does limit the data as it is important to know when an aggravated assault is done with the intent to kill the victim and when it’s just to seriously harm the victim (though measuring this would likely be extremely imprecise since it requires knowing the motives of the offender). For other crimes, we do know if each crime was completed or not. In the vast majority of offenses they are completed.<a href="#fn95" class="footnote-ref" id="fnref95"><sup>95</sup></a> Table <a href="offenseSegment.html#tab:offensesCompleted">13.5</a> shows the percent of each crime category in 2019 NIBRS data that was completed or was only attempted.</p>
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:offensesCompleted">Table 13.5: </span>The percent of crimes completed or attempted, by crime category.
-</caption>
+<table>
+<caption><span id="tab:offensesCompleted">Table 13.5: </span>The percent of crimes completed or attempted, by crime category.</caption>
+<colgroup>
+<col width="73%" />
+<col width="13%" />
+<col width="12%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left;">
-Crime Category
-</th>
-<th style="text-align:right;">
-% Completed
-</th>
-<th style="text-align:right;">
-% Attempted
-</th>
+<tr class="header">
+<th align="left">Crime Category</th>
+<th align="right">% Completed</th>
+<th align="right">% Attempted</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Animal Cruelty
-</td>
-<td style="text-align:right;">
-97.25 %
-</td>
-<td style="text-align:right;">
-2.75 %
-</td>
+<tr class="odd">
+<td align="left">Animal Cruelty</td>
+<td align="right">97.25 %</td>
+<td align="right">2.75 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Arson
-</td>
-<td style="text-align:right;">
-95.1 %
-</td>
-<td style="text-align:right;">
-4.9 %
-</td>
+<tr class="even">
+<td align="left">Arson</td>
+<td align="right">95.1 %</td>
+<td align="right">4.9 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Assault Offenses - Aggravated Assault
-</td>
-<td style="text-align:right;">
-100 %
-</td>
-<td style="text-align:right;">
-0 %
-</td>
+<tr class="odd">
+<td align="left">Assault Offenses - Aggravated Assault</td>
+<td align="right">100 %</td>
+<td align="right">0 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Assault Offenses - Intimidation
-</td>
-<td style="text-align:right;">
-100 %
-</td>
-<td style="text-align:right;">
-0 %
-</td>
+<tr class="even">
+<td align="left">Assault Offenses - Intimidation</td>
+<td align="right">100 %</td>
+<td align="right">0 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Assault Offenses - Simple Assault
-</td>
-<td style="text-align:right;">
-100 %
-</td>
-<td style="text-align:right;">
-0 %
-</td>
+<tr class="odd">
+<td align="left">Assault Offenses - Simple Assault</td>
+<td align="right">100 %</td>
+<td align="right">0 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Bribery
-</td>
-<td style="text-align:right;">
-83.9 %
-</td>
-<td style="text-align:right;">
-16.1 %
-</td>
+<tr class="even">
+<td align="left">Bribery</td>
+<td align="right">83.9 %</td>
+<td align="right">16.1 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Burglary/Breaking And Entering
-</td>
-<td style="text-align:right;">
-93.55 %
-</td>
-<td style="text-align:right;">
-6.45 %
-</td>
+<tr class="odd">
+<td align="left">Burglary/Breaking And Entering</td>
+<td align="right">93.55 %</td>
+<td align="right">6.45 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Commerce Violations - Federal Liquor Offenses
-</td>
-<td style="text-align:right;">
-64.83 %
-</td>
-<td style="text-align:right;">
-35.17 %
-</td>
+<tr class="even">
+<td align="left">Commerce Violations - Federal Liquor Offenses</td>
+<td align="right">64.83 %</td>
+<td align="right">35.17 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Counterfeiting/Forgery
-</td>
-<td style="text-align:right;">
-95.72 %
-</td>
-<td style="text-align:right;">
-4.28 %
-</td>
+<tr class="odd">
+<td align="left">Counterfeiting/Forgery</td>
+<td align="right">95.72 %</td>
+<td align="right">4.28 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Destruction/Damage/Vandalism of Property
-</td>
-<td style="text-align:right;">
-99.43 %
-</td>
-<td style="text-align:right;">
-0.57 %
-</td>
+<tr class="even">
+<td align="left">Destruction/Damage/Vandalism of Property</td>
+<td align="right">99.43 %</td>
+<td align="right">0.57 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Drug/Narcotic Offenses - Drug Equipment Violations
-</td>
-<td style="text-align:right;">
-99.81 %
-</td>
-<td style="text-align:right;">
-0.19 %
-</td>
+<tr class="odd">
+<td align="left">Drug/Narcotic Offenses - Drug Equipment Violations</td>
+<td align="right">99.81 %</td>
+<td align="right">0.19 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Drug/Narcotic Offenses - Drug/Narcotic Violations
-</td>
-<td style="text-align:right;">
-99.63 %
-</td>
-<td style="text-align:right;">
-0.37 %
-</td>
+<tr class="even">
+<td align="left">Drug/Narcotic Offenses - Drug/Narcotic Violations</td>
+<td align="right">99.63 %</td>
+<td align="right">0.37 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Embezzlement
-</td>
-<td style="text-align:right;">
-98.73 %
-</td>
-<td style="text-align:right;">
-1.27 %
-</td>
+<tr class="odd">
+<td align="left">Embezzlement</td>
+<td align="right">98.73 %</td>
+<td align="right">1.27 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Extortion/Blackmail
-</td>
-<td style="text-align:right;">
-60.81 %
-</td>
-<td style="text-align:right;">
-39.19 %
-</td>
+<tr class="even">
+<td align="left">Extortion/Blackmail</td>
+<td align="right">60.81 %</td>
+<td align="right">39.19 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Credit Card/Atm Fraud
-</td>
-<td style="text-align:right;">
-94.19 %
-</td>
-<td style="text-align:right;">
-5.81 %
-</td>
+<tr class="odd">
+<td align="left">Fraud Offenses - Credit Card/Atm Fraud</td>
+<td align="right">94.19 %</td>
+<td align="right">5.81 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - False Pretenses/Swindle/Confidence Game
-</td>
-<td style="text-align:right;">
-92.36 %
-</td>
-<td style="text-align:right;">
-7.64 %
-</td>
+<tr class="even">
+<td align="left">Fraud Offenses - False Pretenses/Swindle/Confidence Game</td>
+<td align="right">92.36 %</td>
+<td align="right">7.64 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Hacking/Computer Invasion
-</td>
-<td style="text-align:right;">
-89.18 %
-</td>
-<td style="text-align:right;">
-10.82 %
-</td>
+<tr class="odd">
+<td align="left">Fraud Offenses - Hacking/Computer Invasion</td>
+<td align="right">89.18 %</td>
+<td align="right">10.82 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Identity Theft
-</td>
-<td style="text-align:right;">
-95.33 %
-</td>
-<td style="text-align:right;">
-4.67 %
-</td>
+<tr class="even">
+<td align="left">Fraud Offenses - Identity Theft</td>
+<td align="right">95.33 %</td>
+<td align="right">4.67 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Impersonation
-</td>
-<td style="text-align:right;">
-92.43 %
-</td>
-<td style="text-align:right;">
-7.57 %
-</td>
+<tr class="odd">
+<td align="left">Fraud Offenses - Impersonation</td>
+<td align="right">92.43 %</td>
+<td align="right">7.57 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Money Laundering
-</td>
-<td style="text-align:right;">
-85.71 %
-</td>
-<td style="text-align:right;">
-14.29 %
-</td>
+<tr class="even">
+<td align="left">Fraud Offenses - Money Laundering</td>
+<td align="right">85.71 %</td>
+<td align="right">14.29 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Welfare Fraud
-</td>
-<td style="text-align:right;">
-90.15 %
-</td>
-<td style="text-align:right;">
-9.85 %
-</td>
+<tr class="odd">
+<td align="left">Fraud Offenses - Welfare Fraud</td>
+<td align="right">90.15 %</td>
+<td align="right">9.85 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Wire Fraud
-</td>
-<td style="text-align:right;">
-92.04 %
-</td>
-<td style="text-align:right;">
-7.96 %
-</td>
+<tr class="even">
+<td align="left">Fraud Offenses - Wire Fraud</td>
+<td align="right">92.04 %</td>
+<td align="right">7.96 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fugitive Offenses - Flight To Avoid Prosecution
-</td>
-<td style="text-align:right;">
-30.88 %
-</td>
-<td style="text-align:right;">
-69.12 %
-</td>
+<tr class="odd">
+<td align="left">Fugitive Offenses - Flight To Avoid Prosecution</td>
+<td align="right">30.88 %</td>
+<td align="right">69.12 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fugitive Offenses - Harboring Escappee/Concealing From Arrest
-</td>
-<td style="text-align:right;">
-100 %
-</td>
-<td style="text-align:right;">
-0 %
-</td>
+<tr class="even">
+<td align="left">Fugitive Offenses - Harboring Escappee/Concealing From Arrest</td>
+<td align="right">100 %</td>
+<td align="right">0 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Gambling Offenses - Betting/Wagering
-</td>
-<td style="text-align:right;">
-83.36 %
-</td>
-<td style="text-align:right;">
-16.64 %
-</td>
+<tr class="odd">
+<td align="left">Gambling Offenses - Betting/Wagering</td>
+<td align="right">83.36 %</td>
+<td align="right">16.64 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Gambling Offenses - Gambling Equipment Violations
-</td>
-<td style="text-align:right;">
-91.43 %
-</td>
-<td style="text-align:right;">
-8.57 %
-</td>
+<tr class="even">
+<td align="left">Gambling Offenses - Gambling Equipment Violations</td>
+<td align="right">91.43 %</td>
+<td align="right">8.57 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Gambling Offenses - Operating/Promoting/Assisting Gambling
-</td>
-<td style="text-align:right;">
-85.7 %
-</td>
-<td style="text-align:right;">
-14.3 %
-</td>
+<tr class="odd">
+<td align="left">Gambling Offenses - Operating/Promoting/Assisting Gambling</td>
+<td align="right">85.7 %</td>
+<td align="right">14.3 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Gambling Offenses - Sports Tampering
-</td>
-<td style="text-align:right;">
-66.67 %
-</td>
-<td style="text-align:right;">
-33.33 %
-</td>
+<tr class="even">
+<td align="left">Gambling Offenses - Sports Tampering</td>
+<td align="right">66.67 %</td>
+<td align="right">33.33 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Human Trafficking - Commercial Sex Acts
-</td>
-<td style="text-align:right;">
-91.09 %
-</td>
-<td style="text-align:right;">
-8.91 %
-</td>
+<tr class="odd">
+<td align="left">Human Trafficking - Commercial Sex Acts</td>
+<td align="right">91.09 %</td>
+<td align="right">8.91 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Human Trafficking - Involuntary Servitude
-</td>
-<td style="text-align:right;">
-91.11 %
-</td>
-<td style="text-align:right;">
-8.89 %
-</td>
+<tr class="even">
+<td align="left">Human Trafficking - Involuntary Servitude</td>
+<td align="right">91.11 %</td>
+<td align="right">8.89 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Immigration Violations - Illegal Entry Into The United States
-</td>
-<td style="text-align:right;">
-100 %
-</td>
-<td style="text-align:right;">
-0 %
-</td>
+<tr class="odd">
+<td align="left">Immigration Violations - Illegal Entry Into The United States</td>
+<td align="right">100 %</td>
+<td align="right">0 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Justifiable Homicide - Not A Crime
-</td>
-<td style="text-align:right;">
-100 %
-</td>
-<td style="text-align:right;">
-0 %
-</td>
+<tr class="even">
+<td align="left">Justifiable Homicide - Not A Crime</td>
+<td align="right">100 %</td>
+<td align="right">0 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Kidnapping/Abduction
-</td>
-<td style="text-align:right;">
-94.82 %
-</td>
-<td style="text-align:right;">
-5.18 %
-</td>
+<tr class="odd">
+<td align="left">Kidnapping/Abduction</td>
+<td align="right">94.82 %</td>
+<td align="right">5.18 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - All Other Larceny
-</td>
-<td style="text-align:right;">
-98.8 %
-</td>
-<td style="text-align:right;">
-1.2 %
-</td>
+<tr class="even">
+<td align="left">Larceny/Theft Offenses - All Other Larceny</td>
+<td align="right">98.8 %</td>
+<td align="right">1.2 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Pocket-Picking
-</td>
-<td style="text-align:right;">
-98.83 %
-</td>
-<td style="text-align:right;">
-1.17 %
-</td>
+<tr class="odd">
+<td align="left">Larceny/Theft Offenses - Pocket-Picking</td>
+<td align="right">98.83 %</td>
+<td align="right">1.17 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Purse-Snatching
-</td>
-<td style="text-align:right;">
-98.19 %
-</td>
-<td style="text-align:right;">
-1.81 %
-</td>
+<tr class="even">
+<td align="left">Larceny/Theft Offenses - Purse-Snatching</td>
+<td align="right">98.19 %</td>
+<td align="right">1.81 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Shoplifting
-</td>
-<td style="text-align:right;">
-98.68 %
-</td>
-<td style="text-align:right;">
-1.32 %
-</td>
+<tr class="odd">
+<td align="left">Larceny/Theft Offenses - Shoplifting</td>
+<td align="right">98.68 %</td>
+<td align="right">1.32 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Theft From Building
-</td>
-<td style="text-align:right;">
-99.27 %
-</td>
-<td style="text-align:right;">
-0.73 %
-</td>
+<tr class="even">
+<td align="left">Larceny/Theft Offenses - Theft From Building</td>
+<td align="right">99.27 %</td>
+<td align="right">0.73 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device
-</td>
-<td style="text-align:right;">
-89.76 %
-</td>
-<td style="text-align:right;">
-10.24 %
-</td>
+<tr class="odd">
+<td align="left">Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device</td>
+<td align="right">89.76 %</td>
+<td align="right">10.24 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Theft From Motor Vehicle
-</td>
-<td style="text-align:right;">
-92.84 %
-</td>
-<td style="text-align:right;">
-7.16 %
-</td>
+<tr class="even">
+<td align="left">Larceny/Theft Offenses - Theft From Motor Vehicle</td>
+<td align="right">92.84 %</td>
+<td align="right">7.16 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories
-</td>
-<td style="text-align:right;">
-97.81 %
-</td>
-<td style="text-align:right;">
-2.19 %
-</td>
+<tr class="odd">
+<td align="left">Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories</td>
+<td align="right">97.81 %</td>
+<td align="right">2.19 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Motor Vehicle Theft
-</td>
-<td style="text-align:right;">
-94.69 %
-</td>
-<td style="text-align:right;">
-5.31 %
-</td>
+<tr class="even">
+<td align="left">Motor Vehicle Theft</td>
+<td align="right">94.69 %</td>
+<td align="right">5.31 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Murder/Nonnegligent Manslaughter
-</td>
-<td style="text-align:right;">
-100 %
-</td>
-<td style="text-align:right;">
-0 %
-</td>
+<tr class="odd">
+<td align="left">Murder/Nonnegligent Manslaughter</td>
+<td align="right">100 %</td>
+<td align="right">0 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Negligent Manslaughter
-</td>
-<td style="text-align:right;">
-100 %
-</td>
-<td style="text-align:right;">
-0 %
-</td>
+<tr class="even">
+<td align="left">Negligent Manslaughter</td>
+<td align="right">100 %</td>
+<td align="right">0 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Pornography/Obscene Material
-</td>
-<td style="text-align:right;">
-97.17 %
-</td>
-<td style="text-align:right;">
-2.83 %
-</td>
+<tr class="odd">
+<td align="left">Pornography/Obscene Material</td>
+<td align="right">97.17 %</td>
+<td align="right">2.83 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Prostitution Offenses - Assisting Or Promoting Prostitution
-</td>
-<td style="text-align:right;">
-94.97 %
-</td>
-<td style="text-align:right;">
-5.03 %
-</td>
+<tr class="even">
+<td align="left">Prostitution Offenses - Assisting Or Promoting Prostitution</td>
+<td align="right">94.97 %</td>
+<td align="right">5.03 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Prostitution Offenses - Prostitution
-</td>
-<td style="text-align:right;">
-95.62 %
-</td>
-<td style="text-align:right;">
-4.38 %
-</td>
+<tr class="odd">
+<td align="left">Prostitution Offenses - Prostitution</td>
+<td align="right">95.62 %</td>
+<td align="right">4.38 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Prostitution Offenses - Purchasing Prostitution
-</td>
-<td style="text-align:right;">
-90.29 %
-</td>
-<td style="text-align:right;">
-9.71 %
-</td>
+<tr class="even">
+<td align="left">Prostitution Offenses - Purchasing Prostitution</td>
+<td align="right">90.29 %</td>
+<td align="right">9.71 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Robbery
-</td>
-<td style="text-align:right;">
-90.17 %
-</td>
-<td style="text-align:right;">
-9.83 %
-</td>
+<tr class="odd">
+<td align="left">Robbery</td>
+<td align="right">90.17 %</td>
+<td align="right">9.83 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Failure To Register As A Sex Offender
-</td>
-<td style="text-align:right;">
-100 %
-</td>
-<td style="text-align:right;">
-0 %
-</td>
+<tr class="even">
+<td align="left">Sex Offenses - Failure To Register As A Sex Offender</td>
+<td align="right">100 %</td>
+<td align="right">0 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Fondling (Incident Liberties/Child Molest)
-</td>
-<td style="text-align:right;">
-97.12 %
-</td>
-<td style="text-align:right;">
-2.88 %
-</td>
+<tr class="odd">
+<td align="left">Sex Offenses - Fondling (Incident Liberties/Child Molest)</td>
+<td align="right">97.12 %</td>
+<td align="right">2.88 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Incest
-</td>
-<td style="text-align:right;">
-96.43 %
-</td>
-<td style="text-align:right;">
-3.57 %
-</td>
+<tr class="even">
+<td align="left">Sex Offenses - Incest</td>
+<td align="right">96.43 %</td>
+<td align="right">3.57 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Rape
-</td>
-<td style="text-align:right;">
-96.7 %
-</td>
-<td style="text-align:right;">
-3.3 %
-</td>
+<tr class="odd">
+<td align="left">Sex Offenses - Rape</td>
+<td align="right">96.7 %</td>
+<td align="right">3.3 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Sexual Assault With An Object
-</td>
-<td style="text-align:right;">
-97.33 %
-</td>
-<td style="text-align:right;">
-2.67 %
-</td>
+<tr class="even">
+<td align="left">Sex Offenses - Sexual Assault With An Object</td>
+<td align="right">97.33 %</td>
+<td align="right">2.67 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Sodomy
-</td>
-<td style="text-align:right;">
-97.16 %
-</td>
-<td style="text-align:right;">
-2.84 %
-</td>
+<tr class="odd">
+<td align="left">Sex Offenses - Sodomy</td>
+<td align="right">97.16 %</td>
+<td align="right">2.84 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Statutory Rape
-</td>
-<td style="text-align:right;">
-97.3 %
-</td>
-<td style="text-align:right;">
-2.7 %
-</td>
+<tr class="even">
+<td align="left">Sex Offenses - Statutory Rape</td>
+<td align="right">97.3 %</td>
+<td align="right">2.7 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Stolen Property Offenses (Receiving, Selling, Etc.)
-</td>
-<td style="text-align:right;">
-98.73 %
-</td>
-<td style="text-align:right;">
-1.27 %
-</td>
+<tr class="odd">
+<td align="left">Stolen Property Offenses (Receiving, Selling, Etc.)</td>
+<td align="right">98.73 %</td>
+<td align="right">1.27 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Weapon Law Violations - Violation of National Firearm Act of 1934
-</td>
-<td style="text-align:right;">
-100 %
-</td>
-<td style="text-align:right;">
-0 %
-</td>
+<tr class="even">
+<td align="left">Weapon Law Violations - Violation of National Firearm Act of 1934</td>
+<td align="right">100 %</td>
+<td align="right">0 %</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Weapon Law Violations - Weapon Law Violations
-</td>
-<td style="text-align:right;">
-98.81 %
-</td>
-<td style="text-align:right;">
-1.19 %
-</td>
+<tr class="odd">
+<td align="left">Weapon Law Violations - Weapon Law Violations</td>
+<td align="right">98.81 %</td>
+<td align="right">1.19 %</td>
 </tr>
 </tbody>
 </table>
@@ -2164,540 +1333,250 @@ Figure 13.2: The distribution of drug, alcohol, or computer use for offenses whe
 <h2><span class="header-section-number">13.5</span> Crime location<a href="offenseSegment.html#crime-location" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>NIBRS tells us where each crime happened, giving more of a type of location rather than the precise location (e.g. coordinates) where it happened. Table <a href="offenseSegment.html#tab:offenseLocation">13.6</a> shows the 46 different location types where each offense could occur, sorted by most common to least common location. The most common place for a crime to occur is in someone’s own home, at 40.4% of crimes. This makes a bit of sense as people spend a lot of time at home and certain crimes, such as burglary and domestic violence, happen a lot of the victim’s own home. Crimes happening on a road or alley make up the second most common location at 16% and parking lot or garage follows at 8.6%. The remaining locations only make up 5% or fewer of offense locations.</p>
 <p>But keep in mind that some locations may be an overly specific location that fits well into a broader category that you’re interested in. For example, if you care about crimes that happen in stores you’d look at “Bank/Savings and Loan”, “Restaurant”, “Bar/Nightclub” among other locations, which combined have a lot more offenses than any one individually. This is a recurring theme of NIBRS data - you have a lot of data and some of it is so specific that you need to do extra work to aggregate data into units you want.</p>
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:offenseLocation">Table 13.6: </span>The location of crimes for all offenses reported in 2022.
-</caption>
+<table>
+<caption><span id="tab:offenseLocation">Table 13.6: </span>The location of crimes for all offenses reported in 2022.</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-Crime Location
-</th>
-<th style="text-align:right;">
-# of Offenses
-</th>
-<th style="text-align:right;">
-% of Offenses
-</th>
+<tr class="header">
+<th align="left">Crime Location</th>
+<th align="right"># of Offenses</th>
+<th align="right">% of Offenses</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Residence/Home
-</td>
-<td style="text-align:right;">
-4,782,593
-</td>
-<td style="text-align:right;">
-37.62%
-</td>
+<tr class="odd">
+<td align="left">Residence/Home</td>
+<td align="right">4,782,593</td>
+<td align="right">37.62%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Highway/Road/Alley
-</td>
-<td style="text-align:right;">
-2,159,647
-</td>
-<td style="text-align:right;">
-16.99%
-</td>
+<tr class="even">
+<td align="left">Highway/Road/Alley</td>
+<td align="right">2,159,647</td>
+<td align="right">16.99%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Parking Lot/Garage
-</td>
-<td style="text-align:right;">
-1,245,424
-</td>
-<td style="text-align:right;">
-9.80%
-</td>
+<tr class="odd">
+<td align="left">Parking Lot/Garage</td>
+<td align="right">1,245,424</td>
+<td align="right">9.80%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Other/Unknown
-</td>
-<td style="text-align:right;">
-614,236
-</td>
-<td style="text-align:right;">
-4.83%
-</td>
+<tr class="even">
+<td align="left">Other/Unknown</td>
+<td align="right">614,236</td>
+<td align="right">4.83%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Department/Discount Store
-</td>
-<td style="text-align:right;">
-495,673
-</td>
-<td style="text-align:right;">
-3.90%
-</td>
+<tr class="odd">
+<td align="left">Department/Discount Store</td>
+<td align="right">495,673</td>
+<td align="right">3.90%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Commercial/Office Building
-</td>
-<td style="text-align:right;">
-293,432
-</td>
-<td style="text-align:right;">
-2.31%
-</td>
+<tr class="even">
+<td align="left">Commercial/Office Building</td>
+<td align="right">293,432</td>
+<td align="right">2.31%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Specialty Store (Tv, Fur, Etc.)
-</td>
-<td style="text-align:right;">
-285,175
-</td>
-<td style="text-align:right;">
-2.24%
-</td>
+<tr class="odd">
+<td align="left">Specialty Store (Tv, Fur, Etc.)</td>
+<td align="right">285,175</td>
+<td align="right">2.24%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Convenience Store
-</td>
-<td style="text-align:right;">
-282,025
-</td>
-<td style="text-align:right;">
-2.22%
-</td>
+<tr class="even">
+<td align="left">Convenience Store</td>
+<td align="right">282,025</td>
+<td align="right">2.22%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Grocery/Supermarket
-</td>
-<td style="text-align:right;">
-263,737
-</td>
-<td style="text-align:right;">
-2.07%
-</td>
+<tr class="odd">
+<td align="left">Grocery/Supermarket</td>
+<td align="right">263,737</td>
+<td align="right">2.07%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Hotel/Motel/Etc.
-</td>
-<td style="text-align:right;">
-226,396
-</td>
-<td style="text-align:right;">
-1.78%
-</td>
+<tr class="even">
+<td align="left">Hotel/Motel/Etc.</td>
+<td align="right">226,396</td>
+<td align="right">1.78%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-School - Elementary/Secondary
-</td>
-<td style="text-align:right;">
-222,077
-</td>
-<td style="text-align:right;">
-1.75%
-</td>
+<tr class="odd">
+<td align="left">School - Elementary/Secondary</td>
+<td align="right">222,077</td>
+<td align="right">1.75%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Restaurant
-</td>
-<td style="text-align:right;">
-203,154
-</td>
-<td style="text-align:right;">
-1.60%
-</td>
+<tr class="even">
+<td align="left">Restaurant</td>
+<td align="right">203,154</td>
+<td align="right">1.60%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Service/Gas Station
-</td>
-<td style="text-align:right;">
-190,517
-</td>
-<td style="text-align:right;">
-1.50%
-</td>
+<tr class="odd">
+<td align="left">Service/Gas Station</td>
+<td align="right">190,517</td>
+<td align="right">1.50%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Drug Store/Doctors Office/Hospital
-</td>
-<td style="text-align:right;">
-138,569
-</td>
-<td style="text-align:right;">
-1.09%
-</td>
+<tr class="even">
+<td align="left">Drug Store/Doctors Office/Hospital</td>
+<td align="right">138,569</td>
+<td align="right">1.09%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Cyberspace
-</td>
-<td style="text-align:right;">
-127,061
-</td>
-<td style="text-align:right;">
-1.00%
-</td>
+<tr class="odd">
+<td align="left">Cyberspace</td>
+<td align="right">127,061</td>
+<td align="right">1.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Bank/Savings And Loan
-</td>
-<td style="text-align:right;">
-121,775
-</td>
-<td style="text-align:right;">
-0.96%
-</td>
+<tr class="even">
+<td align="left">Bank/Savings And Loan</td>
+<td align="right">121,775</td>
+<td align="right">0.96%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Park/Playground
-</td>
-<td style="text-align:right;">
-112,826
-</td>
-<td style="text-align:right;">
-0.89%
-</td>
+<tr class="odd">
+<td align="left">Park/Playground</td>
+<td align="right">112,826</td>
+<td align="right">0.89%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Bar/Nightclub
-</td>
-<td style="text-align:right;">
-87,592
-</td>
-<td style="text-align:right;">
-0.69%
-</td>
+<tr class="even">
+<td align="left">Bar/Nightclub</td>
+<td align="right">87,592</td>
+<td align="right">0.69%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Government/Public Building
-</td>
-<td style="text-align:right;">
-87,227
-</td>
-<td style="text-align:right;">
-0.69%
-</td>
+<tr class="odd">
+<td align="left">Government/Public Building</td>
+<td align="right">87,227</td>
+<td align="right">0.69%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Rental Storage Facility
-</td>
-<td style="text-align:right;">
-82,479
-</td>
-<td style="text-align:right;">
-0.65%
-</td>
+<tr class="even">
+<td align="left">Rental Storage Facility</td>
+<td align="right">82,479</td>
+<td align="right">0.65%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Construction Site
-</td>
-<td style="text-align:right;">
-72,579
-</td>
-<td style="text-align:right;">
-0.57%
-</td>
+<tr class="odd">
+<td align="left">Construction Site</td>
+<td align="right">72,579</td>
+<td align="right">0.57%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-School - College/University
-</td>
-<td style="text-align:right;">
-65,940
-</td>
-<td style="text-align:right;">
-0.52%
-</td>
+<tr class="even">
+<td align="left">School - College/University</td>
+<td align="right">65,940</td>
+<td align="right">0.52%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Jail/Prison
-</td>
-<td style="text-align:right;">
-65,250
-</td>
-<td style="text-align:right;">
-0.51%
-</td>
+<tr class="odd">
+<td align="left">Jail/Prison</td>
+<td align="right">65,250</td>
+<td align="right">0.51%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Air/Bus/Train Terminal
-</td>
-<td style="text-align:right;">
-58,884
-</td>
-<td style="text-align:right;">
-0.46%
-</td>
+<tr class="even">
+<td align="left">Air/Bus/Train Terminal</td>
+<td align="right">58,884</td>
+<td align="right">0.46%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Shopping Mall
-</td>
-<td style="text-align:right;">
-57,199
-</td>
-<td style="text-align:right;">
-0.45%
-</td>
+<tr class="odd">
+<td align="left">Shopping Mall</td>
+<td align="right">57,199</td>
+<td align="right">0.45%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Field/Woods
-</td>
-<td style="text-align:right;">
-54,266
-</td>
-<td style="text-align:right;">
-0.43%
-</td>
+<tr class="even">
+<td align="left">Field/Woods</td>
+<td align="right">54,266</td>
+<td align="right">0.43%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Church/Synagogue/Temple
-</td>
-<td style="text-align:right;">
-42,293
-</td>
-<td style="text-align:right;">
-0.33%
-</td>
+<tr class="odd">
+<td align="left">Church/Synagogue/Temple</td>
+<td align="right">42,293</td>
+<td align="right">0.33%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Auto Dealership New/Used
-</td>
-<td style="text-align:right;">
-42,120
-</td>
-<td style="text-align:right;">
-0.33%
-</td>
+<tr class="even">
+<td align="left">Auto Dealership New/Used</td>
+<td align="right">42,120</td>
+<td align="right">0.33%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Gambling Facility/Casino/Race Track
-</td>
-<td style="text-align:right;">
-32,557
-</td>
-<td style="text-align:right;">
-0.26%
-</td>
+<tr class="odd">
+<td align="left">Gambling Facility/Casino/Race Track</td>
+<td align="right">32,557</td>
+<td align="right">0.26%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-School/College
-</td>
-<td style="text-align:right;">
-30,474
-</td>
-<td style="text-align:right;">
-0.24%
-</td>
+<tr class="even">
+<td align="left">School/College</td>
+<td align="right">30,474</td>
+<td align="right">0.24%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Liquor Store
-</td>
-<td style="text-align:right;">
-28,907
-</td>
-<td style="text-align:right;">
-0.23%
-</td>
+<tr class="odd">
+<td align="left">Liquor Store</td>
+<td align="right">28,907</td>
+<td align="right">0.23%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Industrial Site
-</td>
-<td style="text-align:right;">
-22,938
-</td>
-<td style="text-align:right;">
-0.18%
-</td>
+<tr class="even">
+<td align="left">Industrial Site</td>
+<td align="right">22,938</td>
+<td align="right">0.18%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Community Center
-</td>
-<td style="text-align:right;">
-14,362
-</td>
-<td style="text-align:right;">
-0.11%
-</td>
+<tr class="odd">
+<td align="left">Community Center</td>
+<td align="right">14,362</td>
+<td align="right">0.11%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Camp/Campground
-</td>
-<td style="text-align:right;">
-12,287
-</td>
-<td style="text-align:right;">
-0.10%
-</td>
+<tr class="even">
+<td align="left">Camp/Campground</td>
+<td align="right">12,287</td>
+<td align="right">0.10%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Shelter - Mission/Homeless
-</td>
-<td style="text-align:right;">
-11,573
-</td>
-<td style="text-align:right;">
-0.09%
-</td>
+<tr class="odd">
+<td align="left">Shelter - Mission/Homeless</td>
+<td align="right">11,573</td>
+<td align="right">0.09%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Lake/Waterway
-</td>
-<td style="text-align:right;">
-11,237
-</td>
-<td style="text-align:right;">
-0.09%
-</td>
+<tr class="even">
+<td align="left">Lake/Waterway</td>
+<td align="right">11,237</td>
+<td align="right">0.09%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Farm Facility
-</td>
-<td style="text-align:right;">
-10,580
-</td>
-<td style="text-align:right;">
-0.08%
-</td>
+<tr class="odd">
+<td align="left">Farm Facility</td>
+<td align="right">10,580</td>
+<td align="right">0.08%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Arena/Stadium/Fairgrounds/Coliseum
-</td>
-<td style="text-align:right;">
-9,586
-</td>
-<td style="text-align:right;">
-0.08%
-</td>
+<tr class="even">
+<td align="left">Arena/Stadium/Fairgrounds/Coliseum</td>
+<td align="right">9,586</td>
+<td align="right">0.08%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Atm Separate From Bank
-</td>
-<td style="text-align:right;">
-9,214
-</td>
-<td style="text-align:right;">
-0.07%
-</td>
+<tr class="odd">
+<td align="left">Atm Separate From Bank</td>
+<td align="right">9,214</td>
+<td align="right">0.07%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Abandoned/Condemned Structure
-</td>
-<td style="text-align:right;">
-8,757
-</td>
-<td style="text-align:right;">
-0.07%
-</td>
+<tr class="even">
+<td align="left">Abandoned/Condemned Structure</td>
+<td align="right">8,757</td>
+<td align="right">0.07%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Amusement Park
-</td>
-<td style="text-align:right;">
-7,275
-</td>
-<td style="text-align:right;">
-0.06%
-</td>
+<tr class="odd">
+<td align="left">Amusement Park</td>
+<td align="right">7,275</td>
+<td align="right">0.06%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Daycare Facility
-</td>
-<td style="text-align:right;">
-7,268
-</td>
-<td style="text-align:right;">
-0.06%
-</td>
+<tr class="even">
+<td align="left">Daycare Facility</td>
+<td align="right">7,268</td>
+<td align="right">0.06%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Dock/Wharf/Freight/Model Terminal
-</td>
-<td style="text-align:right;">
-6,469
-</td>
-<td style="text-align:right;">
-0.05%
-</td>
+<tr class="odd">
+<td align="left">Dock/Wharf/Freight/Model Terminal</td>
+<td align="right">6,469</td>
+<td align="right">0.05%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Tribal Lands
-</td>
-<td style="text-align:right;">
-5,372
-</td>
-<td style="text-align:right;">
-0.04%
-</td>
+<tr class="even">
+<td align="left">Tribal Lands</td>
+<td align="right">5,372</td>
+<td align="right">0.04%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Rest Area
-</td>
-<td style="text-align:right;">
-3,216
-</td>
-<td style="text-align:right;">
-0.03%
-</td>
+<tr class="odd">
+<td align="left">Rest Area</td>
+<td align="right">3,216</td>
+<td align="right">0.03%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Military Installation
-</td>
-<td style="text-align:right;">
-595
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="even">
+<td align="left">Military Installation</td>
+<td align="right">595</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Total
-</td>
-<td style="text-align:right;">
-12,712,813
-</td>
-<td style="text-align:right;">
-100%
-</td>
+<tr class="odd">
+<td align="left">Total</td>
+<td align="right">12,712,813</td>
+<td align="right">100%</td>
 </tr>
 </tbody>
 </table>
@@ -2725,243 +1604,120 @@ Total
 </ul>
 <p>Table <a href="offenseSegment.html#tab:offenseWeapon">13.7</a> shows the breakdown in the weapons used in the above offenses. There were about 1.6 million offenses reported in NIBRS in 2019 that could have used a weapon. The most common weapon used was only the offender’s body at 57.8% of offenses. The “personal weapons (hands, feet, teeth, etc.) basically means that the offender used or threatened force but wasn’t carrying a weapon. So this includes things like punching, kicking, biting, wrestling, and anything you may see in a boxing or MMA match. Strangulation can be done without any weapons but as strangulation is its own weapon, it is not included in the”personal weapons” category. The next most common group is the offender doesn’t have any weapons, and doesn’t use their body as a weapon, at a little over 10% of offenses, following by the offender using a handgun in 9.4% of offenses.</p>
 <p>“Other” is the next most common category which just means any weapon not already included in the weapon categories. Knife/cutting instrument makes up 4.5% of offenses and is a rather broad category, composed of anything that could cut or pierce someone’s body. The most likely weapon in this category is a knife, but can extend to rarer items like broken glass or a sword. The remaining weapon groups are rarer than 4% of offenses, but given that NIBRS covers so many crimes these weapons still occur in hundreds or thousands of cases.</p>
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:offenseWeapon">Table 13.7: </span>The weapon used by an offender in the crime for all offenses reported in 2019. The use means that it was part of the crime though may not have been physically discharged. For example, pointing a gun at someone even without firing the gun is still using it.
-</caption>
+<table>
+<caption><span id="tab:offenseWeapon">Table 13.7: </span>The weapon used by an offender in the crime for all offenses reported in 2019. The use means that it was part of the crime though may not have been physically discharged. For example, pointing a gun at someone even without firing the gun is still using it.</caption>
+<colgroup>
+<col width="68%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left;">
-Weapon Used
-</th>
-<th style="text-align:right;">
-# of Offenses
-</th>
-<th style="text-align:right;">
-% of Offenses
-</th>
+<tr class="header">
+<th align="left">Weapon Used</th>
+<th align="right"># of Offenses</th>
+<th align="right">% of Offenses</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Personal Weapons (Hands, Feet, Teeth, Etc.)
-</td>
-<td style="text-align:right;">
-1,606,675
-</td>
-<td style="text-align:right;">
-53.47%
-</td>
+<tr class="odd">
+<td align="left">Personal Weapons (Hands, Feet, Teeth, Etc.)</td>
+<td align="right">1,606,675</td>
+<td align="right">53.47%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Handgun
-</td>
-<td style="text-align:right;">
-338,577
-</td>
-<td style="text-align:right;">
-11.27%
-</td>
+<tr class="even">
+<td align="left">Handgun</td>
+<td align="right">338,577</td>
+<td align="right">11.27%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-None
-</td>
-<td style="text-align:right;">
-335,457
-</td>
-<td style="text-align:right;">
-11.17%
-</td>
+<tr class="odd">
+<td align="left">None</td>
+<td align="right">335,457</td>
+<td align="right">11.17%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Other
-</td>
-<td style="text-align:right;">
-215,383
-</td>
-<td style="text-align:right;">
-7.17%
-</td>
+<tr class="even">
+<td align="left">Other</td>
+<td align="right">215,383</td>
+<td align="right">7.17%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Firearm (Type Not Stated)
-</td>
-<td style="text-align:right;">
-148,388
-</td>
-<td style="text-align:right;">
-4.94%
-</td>
+<tr class="odd">
+<td align="left">Firearm (Type Not Stated)</td>
+<td align="right">148,388</td>
+<td align="right">4.94%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Knife/Cutting Instrument (Ice Pick, Screwdriver, Ax, Etc.)
-</td>
-<td style="text-align:right;">
-124,928
-</td>
-<td style="text-align:right;">
-4.16%
-</td>
+<tr class="even">
+<td align="left">Knife/Cutting Instrument (Ice Pick, Screwdriver, Ax, Etc.)</td>
+<td align="right">124,928</td>
+<td align="right">4.16%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-87,932
-</td>
-<td style="text-align:right;">
-2.93%
-</td>
+<tr class="odd">
+<td align="left">Unknown</td>
+<td align="right">87,932</td>
+<td align="right">2.93%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Blunt Object (Club, Hammer, Etc.)
-</td>
-<td style="text-align:right;">
-61,767
-</td>
-<td style="text-align:right;">
-2.06%
-</td>
+<tr class="even">
+<td align="left">Blunt Object (Club, Hammer, Etc.)</td>
+<td align="right">61,767</td>
+<td align="right">2.06%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Motor Vehicle
-</td>
-<td style="text-align:right;">
-29,078
-</td>
-<td style="text-align:right;">
-0.97%
-</td>
+<tr class="odd">
+<td align="left">Motor Vehicle</td>
+<td align="right">29,078</td>
+<td align="right">0.97%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Rifle
-</td>
-<td style="text-align:right;">
-17,093
-</td>
-<td style="text-align:right;">
-0.57%
-</td>
+<tr class="even">
+<td align="left">Rifle</td>
+<td align="right">17,093</td>
+<td align="right">0.57%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Other Firearm
-</td>
-<td style="text-align:right;">
-12,213
-</td>
-<td style="text-align:right;">
-0.41%
-</td>
+<tr class="odd">
+<td align="left">Other Firearm</td>
+<td align="right">12,213</td>
+<td align="right">0.41%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Asphyxiation (By Drowning, Strangulation, Suffocation, Gas, Etc.)
-</td>
-<td style="text-align:right;">
-11,853
-</td>
-<td style="text-align:right;">
-0.39%
-</td>
+<tr class="even">
+<td align="left">Asphyxiation (By Drowning, Strangulation, Suffocation, Gas, Etc.)</td>
+<td align="right">11,853</td>
+<td align="right">0.39%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Shotgun
-</td>
-<td style="text-align:right;">
-8,857
-</td>
-<td style="text-align:right;">
-0.29%
-</td>
+<tr class="odd">
+<td align="left">Shotgun</td>
+<td align="right">8,857</td>
+<td align="right">0.29%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Drugs/Narcotics/Sleeping Pills
-</td>
-<td style="text-align:right;">
-2,362
-</td>
-<td style="text-align:right;">
-0.08%
-</td>
+<tr class="even">
+<td align="left">Drugs/Narcotics/Sleeping Pills</td>
+<td align="right">2,362</td>
+<td align="right">0.08%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Explosives
-</td>
-<td style="text-align:right;">
-1,832
-</td>
-<td style="text-align:right;">
-0.06%
-</td>
+<tr class="odd">
+<td align="left">Explosives</td>
+<td align="right">1,832</td>
+<td align="right">0.06%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Fire/Incendiary Device
-</td>
-<td style="text-align:right;">
-1,476
-</td>
-<td style="text-align:right;">
-0.05%
-</td>
+<tr class="even">
+<td align="left">Fire/Incendiary Device</td>
+<td align="right">1,476</td>
+<td align="right">0.05%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Poison (Include Gas)
-</td>
-<td style="text-align:right;">
-664
-</td>
-<td style="text-align:right;">
-0.02%
-</td>
+<tr class="odd">
+<td align="left">Poison (Include Gas)</td>
+<td align="right">664</td>
+<td align="right">0.02%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-16
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="even">
+<td align="left">16</td>
+<td align="right">1</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-17
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
+<tr class="odd">
+<td align="left">17</td>
+<td align="right">1</td>
+<td align="right">0.00%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Total
-</td>
-<td style="text-align:right;">
-3,004,537
-</td>
-<td style="text-align:right;">
-100%
-</td>
+<tr class="even">
+<td align="left">Total</td>
+<td align="right">3,004,537</td>
+<td align="right">100%</td>
 </tr>
 </tbody>
 </table>
@@ -3001,463 +1757,224 @@ Figure 13.5: The percent of burglaries reported in 2022 where the burglary enter
 <p>First, if someone walked to an Asian person and called them an anti-Asian slur, that is clearly a hateful act and would be classified as a hate crime under some organization’s collections methods. However, as hateful as this incident is, this alone would not be classified as a hate crime in this dataset as a slur is not a crime. If accompanied by other criminal behavior, or if it continues to the point where it can be considered intimidation, it would then be classified as a hate crime. Second, crimes against Asian victims that are in fact hate crimes, but have no evidence that they are hate crimes would not be classified as hate crimes in this data.</p>
 <p>Bias motivation is based on the offender’s perceptions of the victim so even if they are incorrect in who their victim is, if they intended to target someone for their perceived group membership, that is still a hate crime. For example, if a person assaults a man because they think he is gay, that is a hate crime because the assault was motivated by hate towards gay people. Whether the victim is actually gay or not is not relevant - the offender perceived him to be gay so it is an anti-gay hate crime. To make this even more complicated, the offender must have committed the crime because they are motivated, at least to some degree, by their bias against the victim. Being biased against the victim but targeting them for some other reason means that the crime is not a hate crime.</p>
 <p>Table <a href="offenseSegment.html#tab:offenseBiasMotivation">13.8</a> shows the percent of all offenses in 2019 that were classified with or without a bias motivation. Nearly all offenses - 99.14% - are without a bias motivation meaning that they are not considered hate crimes. This still leaves a 63,876 offenses classified as hate crimes.</p>
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:offenseBiasMotivation">Table 13.8: </span>The number and percent of offenders that had a bias motivation or not for all offenses reported in 2022.
-</caption>
+<table>
+<caption><span id="tab:offenseBiasMotivation">Table 13.8: </span>The number and percent of offenders that had a bias motivation or not for all offenses reported in 2022.</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-Bias Motivation
-</th>
-<th style="text-align:right;">
-# of Offenses
-</th>
-<th style="text-align:right;">
-% of Offenses
-</th>
+<tr class="header">
+<th align="left">Bias Motivation</th>
+<th align="right"># of Offenses</th>
+<th align="right">% of Offenses</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-No Bias Motivation
-</td>
-<td style="text-align:right;">
-12,610,154
-</td>
-<td style="text-align:right;">
-99.19%
-</td>
+<tr class="odd">
+<td align="left">No Bias Motivation</td>
+<td align="right">12,610,154</td>
+<td align="right">99.19%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Bias Motivation
-</td>
-<td style="text-align:right;">
-102,659
-</td>
-<td style="text-align:right;">
-0.81%
-</td>
+<tr class="even">
+<td align="left">Bias Motivation</td>
+<td align="right">102,659</td>
+<td align="right">0.81%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Total
-</td>
-<td style="text-align:right;">
-12,712,813
-</td>
-<td style="text-align:right;">
-100%
-</td>
+<tr class="odd">
+<td align="left">Total</td>
+<td align="right">12,712,813</td>
+<td align="right">100%</td>
 </tr>
 </tbody>
 </table>
 <p>Table <a href="offenseSegment.html#tab:offenseBiasMotivationBiases">13.9</a> shows the breakdown in the bias motivation of hate crimes, for all incidents where the crime is considered a hate crime. The most common bias motivation is anti-Black, which accounts for 29% of all hate crimes in the data. This is followed by anti-White at 12.7% and “anti-male homosexual (gay)” at almost 8% of crimes. The only other biases that make up more than 5% of hate crimes are anti-Hispanic and anti-Jewish.<a href="#fn97" class="footnote-ref" id="fnref97"><sup>97</sup></a></p>
 <p>Some of these groups are also subsets of larger groups. For example, anti-Muslim, anti-Arab, and anti-Sikh (while Sikhs are not Muslim or Arabic, some Sikhs have been targeted by people who incorrectly believe that they are) are probably all the same bias motivation. Likewise, attacks on LGBT people are in multiple categories, which allows for a more detailed understanding of these hate crimes but requires aggregation to look at them as a group. While this aggregation is easy enough to do, accidentally missing any of the subcategories could vastly undercount offenses against the larger category.</p>
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:offenseBiasMotivationBiases">Table 13.9: </span>The bias motivation (i.e. if hate crime or not and what type of hate crime) for all offenses reported in 2022 that were classified as hate crimes. For easier viewing of how hate crimes are broken down, this excludes all offenses where there was no bias motivation.
-</caption>
+<table style="width:100%;">
+<caption><span id="tab:offenseBiasMotivationBiases">Table 13.9: </span>The bias motivation (i.e. if hate crime or not and what type of hate crime) for all offenses reported in 2022 that were classified as hate crimes. For easier viewing of how hate crimes are broken down, this excludes all offenses where there was no bias motivation.</caption>
+<colgroup>
+<col width="65%" />
+<col width="17%" />
+<col width="17%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left;">
-Bias Motivation
-</th>
-<th style="text-align:right;">
-# of Offenses
-</th>
-<th style="text-align:right;">
-% of Offenses
-</th>
+<tr class="header">
+<th align="left">Bias Motivation</th>
+<th align="right"># of Offenses</th>
+<th align="right">% of Offenses</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Anti-Black
-</td>
-<td style="text-align:right;">
-2,806
-</td>
-<td style="text-align:right;">
-31.43%
-</td>
+<tr class="odd">
+<td align="left">Anti-Black</td>
+<td align="right">2,806</td>
+<td align="right">31.43%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-White
-</td>
-<td style="text-align:right;">
-890
-</td>
-<td style="text-align:right;">
-9.97%
-</td>
+<tr class="even">
+<td align="left">Anti-White</td>
+<td align="right">890</td>
+<td align="right">9.97%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Gay (Male)
-</td>
-<td style="text-align:right;">
-752
-</td>
-<td style="text-align:right;">
-8.42%
-</td>
+<tr class="odd">
+<td align="left">Anti-Gay (Male)</td>
+<td align="right">752</td>
+<td align="right">8.42%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Jewish
-</td>
-<td style="text-align:right;">
-577
-</td>
-<td style="text-align:right;">
-6.46%
-</td>
+<tr class="even">
+<td align="left">Anti-Jewish</td>
+<td align="right">577</td>
+<td align="right">6.46%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Lesbian, Gay, Bisexual, Or Transgender (Mixed Group)
-</td>
-<td style="text-align:right;">
-571
-</td>
-<td style="text-align:right;">
-6.39%
-</td>
+<tr class="odd">
+<td align="left">Anti-Lesbian, Gay, Bisexual, Or Transgender (Mixed Group)</td>
+<td align="right">571</td>
+<td align="right">6.39%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Hispanic
-</td>
-<td style="text-align:right;">
-561
-</td>
-<td style="text-align:right;">
-6.28%
-</td>
+<tr class="even">
+<td align="left">Anti-Hispanic</td>
+<td align="right">561</td>
+<td align="right">6.28%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Asian
-</td>
-<td style="text-align:right;">
-304
-</td>
-<td style="text-align:right;">
-3.40%
-</td>
+<tr class="odd">
+<td align="left">Anti-Asian</td>
+<td align="right">304</td>
+<td align="right">3.40%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Other Race/Ethnicity/National Origin
-</td>
-<td style="text-align:right;">
-300
-</td>
-<td style="text-align:right;">
-3.36%
-</td>
+<tr class="even">
+<td align="left">Anti-Other Race/Ethnicity/National Origin</td>
+<td align="right">300</td>
+<td align="right">3.36%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Transgender
-</td>
-<td style="text-align:right;">
-262
-</td>
-<td style="text-align:right;">
-2.93%
-</td>
+<tr class="odd">
+<td align="left">Anti-Transgender</td>
+<td align="right">262</td>
+<td align="right">2.93%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Multi-Racial Group
-</td>
-<td style="text-align:right;">
-215
-</td>
-<td style="text-align:right;">
-2.41%
-</td>
+<tr class="even">
+<td align="left">Anti-Multi-Racial Group</td>
+<td align="right">215</td>
+<td align="right">2.41%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-American Indian Or Alaskan Native
-</td>
-<td style="text-align:right;">
-187
-</td>
-<td style="text-align:right;">
-2.09%
-</td>
+<tr class="odd">
+<td align="left">Anti-American Indian Or Alaskan Native</td>
+<td align="right">187</td>
+<td align="right">2.09%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Sikh
-</td>
-<td style="text-align:right;">
-178
-</td>
-<td style="text-align:right;">
-1.99%
-</td>
+<tr class="even">
+<td align="left">Anti-Sikh</td>
+<td align="right">178</td>
+<td align="right">1.99%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Lesbian (Female)
-</td>
-<td style="text-align:right;">
-149
-</td>
-<td style="text-align:right;">
-1.67%
-</td>
+<tr class="odd">
+<td align="left">Anti-Lesbian (Female)</td>
+<td align="right">149</td>
+<td align="right">1.67%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Islamic (Muslim)
-</td>
-<td style="text-align:right;">
-121
-</td>
-<td style="text-align:right;">
-1.36%
-</td>
+<tr class="even">
+<td align="left">Anti-Islamic (Muslim)</td>
+<td align="right">121</td>
+<td align="right">1.36%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Gender Non-Conforming
-</td>
-<td style="text-align:right;">
-118
-</td>
-<td style="text-align:right;">
-1.32%
-</td>
+<tr class="odd">
+<td align="left">Anti-Gender Non-Conforming</td>
+<td align="right">118</td>
+<td align="right">1.32%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Other Christian
-</td>
-<td style="text-align:right;">
-94
-</td>
-<td style="text-align:right;">
-1.05%
-</td>
+<tr class="even">
+<td align="left">Anti-Other Christian</td>
+<td align="right">94</td>
+<td align="right">1.05%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Mental Disability
-</td>
-<td style="text-align:right;">
-93
-</td>
-<td style="text-align:right;">
-1.04%
-</td>
+<tr class="odd">
+<td align="left">Anti-Mental Disability</td>
+<td align="right">93</td>
+<td align="right">1.04%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Other Religion
-</td>
-<td style="text-align:right;">
-84
-</td>
-<td style="text-align:right;">
-0.94%
-</td>
+<tr class="even">
+<td align="left">Anti-Other Religion</td>
+<td align="right">84</td>
+<td align="right">0.94%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Physical Disability
-</td>
-<td style="text-align:right;">
-76
-</td>
-<td style="text-align:right;">
-0.85%
-</td>
+<tr class="odd">
+<td align="left">Anti-Physical Disability</td>
+<td align="right">76</td>
+<td align="right">0.85%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Arab
-</td>
-<td style="text-align:right;">
-76
-</td>
-<td style="text-align:right;">
-0.85%
-</td>
+<tr class="even">
+<td align="left">Anti-Arab</td>
+<td align="right">76</td>
+<td align="right">0.85%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Catholic
-</td>
-<td style="text-align:right;">
-76
-</td>
-<td style="text-align:right;">
-0.85%
-</td>
+<tr class="odd">
+<td align="left">Anti-Catholic</td>
+<td align="right">76</td>
+<td align="right">0.85%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Eastern Orthodox (Greek, Russian, Etc.)
-</td>
-<td style="text-align:right;">
-75
-</td>
-<td style="text-align:right;">
-0.84%
-</td>
+<tr class="even">
+<td align="left">Anti-Eastern Orthodox (Greek, Russian, Etc.)</td>
+<td align="right">75</td>
+<td align="right">0.84%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Female
-</td>
-<td style="text-align:right;">
-71
-</td>
-<td style="text-align:right;">
-0.80%
-</td>
+<tr class="odd">
+<td align="left">Anti-Female</td>
+<td align="right">71</td>
+<td align="right">0.80%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Protestant
-</td>
-<td style="text-align:right;">
-56
-</td>
-<td style="text-align:right;">
-0.63%
-</td>
+<tr class="even">
+<td align="left">Anti-Protestant</td>
+<td align="right">56</td>
+<td align="right">0.63%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Multi-Religious Group
-</td>
-<td style="text-align:right;">
-42
-</td>
-<td style="text-align:right;">
-0.47%
-</td>
+<tr class="odd">
+<td align="left">Anti-Multi-Religious Group</td>
+<td align="right">42</td>
+<td align="right">0.47%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Bisexual
-</td>
-<td style="text-align:right;">
-34
-</td>
-<td style="text-align:right;">
-0.38%
-</td>
+<tr class="even">
+<td align="left">Anti-Bisexual</td>
+<td align="right">34</td>
+<td align="right">0.38%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Mormon
-</td>
-<td style="text-align:right;">
-32
-</td>
-<td style="text-align:right;">
-0.36%
-</td>
+<tr class="odd">
+<td align="left">Anti-Mormon</td>
+<td align="right">32</td>
+<td align="right">0.36%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Native Hawaiian Or Other Pacific Islander
-</td>
-<td style="text-align:right;">
-26
-</td>
-<td style="text-align:right;">
-0.29%
-</td>
+<tr class="even">
+<td align="left">Anti-Native Hawaiian Or Other Pacific Islander</td>
+<td align="right">26</td>
+<td align="right">0.29%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Heterosexual
-</td>
-<td style="text-align:right;">
-21
-</td>
-<td style="text-align:right;">
-0.24%
-</td>
+<tr class="odd">
+<td align="left">Anti-Heterosexual</td>
+<td align="right">21</td>
+<td align="right">0.24%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Hindu
-</td>
-<td style="text-align:right;">
-20
-</td>
-<td style="text-align:right;">
-0.22%
-</td>
+<tr class="even">
+<td align="left">Anti-Hindu</td>
+<td align="right">20</td>
+<td align="right">0.22%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Buddhist
-</td>
-<td style="text-align:right;">
-19
-</td>
-<td style="text-align:right;">
-0.21%
-</td>
+<tr class="odd">
+<td align="left">Anti-Buddhist</td>
+<td align="right">19</td>
+<td align="right">0.21%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Male
-</td>
-<td style="text-align:right;">
-18
-</td>
-<td style="text-align:right;">
-0.20%
-</td>
+<tr class="even">
+<td align="left">Anti-Male</td>
+<td align="right">18</td>
+<td align="right">0.20%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Atheism/Agnosticism
-</td>
-<td style="text-align:right;">
-14
-</td>
-<td style="text-align:right;">
-0.16%
-</td>
+<tr class="odd">
+<td align="left">Anti-Atheism/Agnosticism</td>
+<td align="right">14</td>
+<td align="right">0.16%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Anti-Jehovahs Witness
-</td>
-<td style="text-align:right;">
-11
-</td>
-<td style="text-align:right;">
-0.12%
-</td>
+<tr class="even">
+<td align="left">Anti-Jehovahs Witness</td>
+<td align="right">11</td>
+<td align="right">0.12%</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Total
-</td>
-<td style="text-align:right;">
-8,929
-</td>
-<td style="text-align:right;">
-100%
-</td>
+<tr class="odd">
+<td align="left">Total</td>
+<td align="right">8,929</td>
+<td align="right">100%</td>
 </tr>
 </tbody>
 </table>
@@ -3512,7 +2029,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["ucrbook.pdf"],
 "search": {
 "engine": "fuse",
 "options": null

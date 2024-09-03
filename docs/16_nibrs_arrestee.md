@@ -29,363 +29,81 @@ One interesting part of this segment is that while it's associated with Group A 
 
 Table \@ref(tab:arresteeCrime) shows the number and percent of arrests for all arrests associated with a Group A crime incident. Perhaps unsurprising, drug crimes are the most common arrest making up a quarter of all arrests (30% when including drug equipment crimes). Simple assault (assault without a weapon or without seriously injuring the victim) is the next most common at 19% of arrests, and aggravated assault is the 4th most common arrest crime at 6.3% of arrests. Theft, which NIBRS breaks into a number of subcategories of theft such as shoplifting and "all other larceny" is among the most common arrest crimes, making up ranks 3 and 6 of the top 6, as well as several other subcategories later on. The remaining crimes are all relatively rare, consisting of under 5% of arrests each. This is due to how the top crimes are broad categories (e.g. drug offenses ranges from simple possession to large scale sales but is all grouped into "drug/narcotic violations" here) while other crimes are specific (e.g. purse-snatching is a very specific form of theft).  
 
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:arresteeCrime)(\#tab:arresteeCrime)The number and percent of arrests for Group A crimes for all arrests reported to NIBRS in 2022.</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Crime Category </th>
-   <th style="text-align:right;"> \# of Offenses </th>
-   <th style="text-align:right;"> \% of Offenses </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug/Narcotic Violations </td>
-   <td style="text-align:right;"> 651,593 </td>
-   <td style="text-align:right;"> 22.44\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
-   <td style="text-align:right;"> 625,914 </td>
-   <td style="text-align:right;"> 21.55\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Larceny/Theft Offenses - Shoplifting </td>
-   <td style="text-align:right;"> 262,281 </td>
-   <td style="text-align:right;"> 9.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
-   <td style="text-align:right;"> 217,608 </td>
-   <td style="text-align:right;"> 7.49\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug Equipment Violations </td>
-   <td style="text-align:right;"> 142,720 </td>
-   <td style="text-align:right;"> 4.91\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Weapon Law Violations - Weapon Law Violations </td>
-   <td style="text-align:right;"> 123,203 </td>
-   <td style="text-align:right;"> 4.24\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
-   <td style="text-align:right;"> 121,677 </td>
-   <td style="text-align:right;"> 4.19\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
-   <td style="text-align:right;"> 113,049 </td>
-   <td style="text-align:right;"> 3.89\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
-   <td style="text-align:right;"> 85,136 </td>
-   <td style="text-align:right;"> 2.93\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
-   <td style="text-align:right;"> 82,832 </td>
-   <td style="text-align:right;"> 2.85\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> All Other Offenses </td>
-   <td style="text-align:right;"> 71,084 </td>
-   <td style="text-align:right;"> 2.45\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Stolen Property Offenses (Receiving, Selling, Etc.) </td>
-   <td style="text-align:right;"> 57,907 </td>
-   <td style="text-align:right;"> 1.99\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Motor Vehicle Theft </td>
-   <td style="text-align:right;"> 52,882 </td>
-   <td style="text-align:right;"> 1.82\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Robbery </td>
-   <td style="text-align:right;"> 38,048 </td>
-   <td style="text-align:right;"> 1.31\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fraud Offenses - False Pretenses/Swindle/Confidence Game </td>
-   <td style="text-align:right;"> 31,922 </td>
-   <td style="text-align:right;"> 1.10\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Motor Vehicle </td>
-   <td style="text-align:right;"> 23,673 </td>
-   <td style="text-align:right;"> 0.82\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Counterfeiting/Forgery </td>
-   <td style="text-align:right;"> 20,107 </td>
-   <td style="text-align:right;"> 0.69\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Building </td>
-   <td style="text-align:right;"> 18,030 </td>
-   <td style="text-align:right;"> 0.62\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Driving Under The Influence </td>
-   <td style="text-align:right;"> 16,410 </td>
-   <td style="text-align:right;"> 0.57\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Disorderly Conduct </td>
-   <td style="text-align:right;"> 13,700 </td>
-   <td style="text-align:right;"> 0.47\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Kidnapping/Abduction </td>
-   <td style="text-align:right;"> 12,869 </td>
-   <td style="text-align:right;"> 0.44\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fraud Offenses - Impersonation </td>
-   <td style="text-align:right;"> 11,225 </td>
-   <td style="text-align:right;"> 0.39\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Trespass of Real Property </td>
-   <td style="text-align:right;"> 10,687 </td>
-   <td style="text-align:right;"> 0.37\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sex Offenses - Fondling (Incident Liberties/Child Molest) </td>
-   <td style="text-align:right;"> 10,298 </td>
-   <td style="text-align:right;"> 0.35\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sex Offenses - Rape </td>
-   <td style="text-align:right;"> 8,956 </td>
-   <td style="text-align:right;"> 0.31\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Murder/Nonnegligent Manslaughter </td>
-   <td style="text-align:right;"> 8,284 </td>
-   <td style="text-align:right;"> 0.29\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fraud Offenses - Credit Card/Atm Fraud </td>
-   <td style="text-align:right;"> 7,281 </td>
-   <td style="text-align:right;"> 0.25\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Embezzlement </td>
-   <td style="text-align:right;"> 6,689 </td>
-   <td style="text-align:right;"> 0.23\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fraud Offenses - Identity Theft </td>
-   <td style="text-align:right;"> 6,414 </td>
-   <td style="text-align:right;"> 0.22\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Arson </td>
-   <td style="text-align:right;"> 6,338 </td>
-   <td style="text-align:right;"> 0.22\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Prostitution Offenses - Prostitution </td>
-   <td style="text-align:right;"> 5,843 </td>
-   <td style="text-align:right;"> 0.20\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories </td>
-   <td style="text-align:right;"> 5,621 </td>
-   <td style="text-align:right;"> 0.19\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Pornography/Obscene Material </td>
-   <td style="text-align:right;"> 5,187 </td>
-   <td style="text-align:right;"> 0.18\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Liquor Law Violations </td>
-   <td style="text-align:right;"> 4,142 </td>
-   <td style="text-align:right;"> 0.14\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Animal Cruelty </td>
-   <td style="text-align:right;"> 3,904 </td>
-   <td style="text-align:right;"> 0.13\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Family Offenses, Nonviolent </td>
-   <td style="text-align:right;"> 3,629 </td>
-   <td style="text-align:right;"> 0.12\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Larceny/Theft Offenses - Pocket-Picking </td>
-   <td style="text-align:right;"> 3,323 </td>
-   <td style="text-align:right;"> 0.11\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sex Offenses - Sodomy </td>
-   <td style="text-align:right;"> 2,081 </td>
-   <td style="text-align:right;"> 0.07\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Prostitution Offenses - Assisting Or Promoting Prostitution </td>
-   <td style="text-align:right;"> 1,559 </td>
-   <td style="text-align:right;"> 0.05\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sex Offenses - Statutory Rape </td>
-   <td style="text-align:right;"> 1,472 </td>
-   <td style="text-align:right;"> 0.05\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Prostitution Offenses - Purchasing Prostitution </td>
-   <td style="text-align:right;"> 1,274 </td>
-   <td style="text-align:right;"> 0.04\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Curfew/Loitering/Vagrancy Violations </td>
-   <td style="text-align:right;"> 1,191 </td>
-   <td style="text-align:right;"> 0.04\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Larceny/Theft Offenses - Purse-Snatching </td>
-   <td style="text-align:right;"> 959 </td>
-   <td style="text-align:right;"> 0.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sex Offenses - Sexual Assault With An Object </td>
-   <td style="text-align:right;"> 912 </td>
-   <td style="text-align:right;"> 0.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Negligent Manslaughter </td>
-   <td style="text-align:right;"> 858 </td>
-   <td style="text-align:right;"> 0.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device </td>
-   <td style="text-align:right;"> 500 </td>
-   <td style="text-align:right;"> 0.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Extortion/Blackmail </td>
-   <td style="text-align:right;"> 458 </td>
-   <td style="text-align:right;"> 0.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Human Trafficking - Commercial Sex Acts </td>
-   <td style="text-align:right;"> 374 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Gambling Offenses - Betting/Wagering </td>
-   <td style="text-align:right;"> 365 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fraud Offenses - Wire Fraud </td>
-   <td style="text-align:right;"> 360 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Gambling Offenses - Operating/Promoting/Assisting Gambling </td>
-   <td style="text-align:right;"> 279 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sex Offenses - Incest </td>
-   <td style="text-align:right;"> 207 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Bribery </td>
-   <td style="text-align:right;"> 200 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fraud Offenses - Hacking/Computer Invasion </td>
-   <td style="text-align:right;"> 125 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Failure To Appear </td>
-   <td style="text-align:right;"> 119 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fraud Offenses - Welfare Fraud </td>
-   <td style="text-align:right;"> 112 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Gambling Offenses - Gambling Equipment Violations </td>
-   <td style="text-align:right;"> 102 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Human Trafficking - Involuntary Servitude </td>
-   <td style="text-align:right;"> 80 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Runaway </td>
-   <td style="text-align:right;"> 42 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fugitive Offenses - Flight To Avoid Prosecution </td>
-   <td style="text-align:right;"> 24 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sex Offenses - Failure To Register As A Sex Offender </td>
-   <td style="text-align:right;"> 11 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Commerce Violations - Federal Liquor Offenses </td>
-   <td style="text-align:right;"> 9 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Gambling Offenses - Sports Tampering </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Immigration Violations - Illegal Entry Into The United States </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Weapon Law Violations - Explosives </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fugitive Offenses - Harboring Escappee/Concealing From Arrest </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Perjury </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Federal Resource Violations </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:right;"> 2,904,147 </td>
-   <td style="text-align:right;"> 100\% </td>
-  </tr>
-</tbody>
-</table>
+
+
+Table: (\#tab:arresteeCrime)The number and percent of arrests for Group A crimes for all arrests reported to NIBRS in 2022.
+
+|Crime Category                                                      | \# of Offenses| \% of Offenses|
+|:-------------------------------------------------------------------|--------------:|--------------:|
+|Drug/Narcotic Offenses - Drug/Narcotic Violations                   |        651,593|        22.44\%|
+|Assault Offenses - Simple Assault                                   |        625,914|        21.55\%|
+|Larceny/Theft Offenses - Shoplifting                                |        262,281|         9.03\%|
+|Assault Offenses - Aggravated Assault                               |        217,608|         7.49\%|
+|Drug/Narcotic Offenses - Drug Equipment Violations                  |        142,720|         4.91\%|
+|Weapon Law Violations - Weapon Law Violations                       |        123,203|         4.24\%|
+|Larceny/Theft Offenses - All Other Larceny                          |        121,677|         4.19\%|
+|Destruction/Damage/Vandalism of Property                            |        113,049|         3.89\%|
+|Assault Offenses - Intimidation                                     |         85,136|         2.93\%|
+|Burglary/Breaking And Entering                                      |         82,832|         2.85\%|
+|All Other Offenses                                                  |         71,084|         2.45\%|
+|Stolen Property Offenses (Receiving, Selling, Etc.)                 |         57,907|         1.99\%|
+|Motor Vehicle Theft                                                 |         52,882|         1.82\%|
+|Robbery                                                             |         38,048|         1.31\%|
+|Fraud Offenses - False Pretenses/Swindle/Confidence Game            |         31,922|         1.10\%|
+|Larceny/Theft Offenses - Theft From Motor Vehicle                   |         23,673|         0.82\%|
+|Counterfeiting/Forgery                                              |         20,107|         0.69\%|
+|Larceny/Theft Offenses - Theft From Building                        |         18,030|         0.62\%|
+|Driving Under The Influence                                         |         16,410|         0.57\%|
+|Disorderly Conduct                                                  |         13,700|         0.47\%|
+|Kidnapping/Abduction                                                |         12,869|         0.44\%|
+|Fraud Offenses - Impersonation                                      |         11,225|         0.39\%|
+|Trespass of Real Property                                           |         10,687|         0.37\%|
+|Sex Offenses - Fondling (Incident Liberties/Child Molest)           |         10,298|         0.35\%|
+|Sex Offenses - Rape                                                 |          8,956|         0.31\%|
+|Murder/Nonnegligent Manslaughter                                    |          8,284|         0.29\%|
+|Fraud Offenses - Credit Card/Atm Fraud                              |          7,281|         0.25\%|
+|Embezzlement                                                        |          6,689|         0.23\%|
+|Fraud Offenses - Identity Theft                                     |          6,414|         0.22\%|
+|Arson                                                               |          6,338|         0.22\%|
+|Prostitution Offenses - Prostitution                                |          5,843|         0.20\%|
+|Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories   |          5,621|         0.19\%|
+|Pornography/Obscene Material                                        |          5,187|         0.18\%|
+|Liquor Law Violations                                               |          4,142|         0.14\%|
+|Animal Cruelty                                                      |          3,904|         0.13\%|
+|Family Offenses, Nonviolent                                         |          3,629|         0.12\%|
+|Larceny/Theft Offenses - Pocket-Picking                             |          3,323|         0.11\%|
+|Sex Offenses - Sodomy                                               |          2,081|         0.07\%|
+|Prostitution Offenses - Assisting Or Promoting Prostitution         |          1,559|         0.05\%|
+|Sex Offenses - Statutory Rape                                       |          1,472|         0.05\%|
+|Prostitution Offenses - Purchasing Prostitution                     |          1,274|         0.04\%|
+|Curfew/Loitering/Vagrancy Violations                                |          1,191|         0.04\%|
+|Larceny/Theft Offenses - Purse-Snatching                            |            959|         0.03\%|
+|Sex Offenses - Sexual Assault With An Object                        |            912|         0.03\%|
+|Negligent Manslaughter                                              |            858|         0.03\%|
+|Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device |            500|         0.02\%|
+|Extortion/Blackmail                                                 |            458|         0.02\%|
+|Human Trafficking - Commercial Sex Acts                             |            374|         0.01\%|
+|Gambling Offenses - Betting/Wagering                                |            365|         0.01\%|
+|Fraud Offenses - Wire Fraud                                         |            360|         0.01\%|
+|Gambling Offenses - Operating/Promoting/Assisting Gambling          |            279|         0.01\%|
+|Sex Offenses - Incest                                               |            207|         0.01\%|
+|Bribery                                                             |            200|         0.01\%|
+|Fraud Offenses - Hacking/Computer Invasion                          |            125|         0.00\%|
+|Failure To Appear                                                   |            119|         0.00\%|
+|Fraud Offenses - Welfare Fraud                                      |            112|         0.00\%|
+|Gambling Offenses - Gambling Equipment Violations                   |            102|         0.00\%|
+|Human Trafficking - Involuntary Servitude                           |             80|         0.00\%|
+|Runaway                                                             |             42|         0.00\%|
+|Fugitive Offenses - Flight To Avoid Prosecution                     |             24|         0.00\%|
+|Sex Offenses - Failure To Register As A Sex Offender                |             11|         0.00\%|
+|Commerce Violations - Federal Liquor Offenses                       |              9|         0.00\%|
+|Gambling Offenses - Sports Tampering                                |              3|         0.00\%|
+|Immigration Violations - Illegal Entry Into The United States       |              1|         0.00\%|
+|Weapon Law Violations - Explosives                                  |              1|         0.00\%|
+|Fugitive Offenses - Harboring Escappee/Concealing From Arrest       |              1|         0.00\%|
+|Perjury                                                             |              1|         0.00\%|
+|Federal Resource Violations                                         |              1|         0.00\%|
+|Total                                                               |      2,904,147|          100\%|
 
 
 
@@ -395,78 +113,24 @@ Table \@ref(tab:GroupBarresteeCrime) shows the number and percent of arrests for
 
 Trespassing makes up 5.7% of arrests and this is unlawfully entering someone's property, including a building. The difference between this and burglary is that this is entering without any intent to commit theft or a felony. Disorderly conduct is a broad category ranging from indecent exposure (which should be its own sex offense but isn't for some reason) to "profanity" and noise violations, and it makes up 6.2% of arrests. So be cautious with this offense as it ranges from very minor to quite serious and there's no distinguishing what actually happened. Drunkenness and liquor law violations make up 6% and 3.6% of arrests, respectively. The difference is that drunkenness is when someone is seriously drunk in public (to the point where they can't control their own body) and liquor law violations are about illegal making or selling of liquor. So basically bootlegging, selling alcohol without a license (or to people not allowed to drink, like minors), or avoiding paying tax on alcohol sales. "Family Offenses, Nonviolent" is also a rather vague category and includes "nonviolent abuse" (which I guess means emotional abusive) as well as neglecting the child in a few different ways like not paying alimony and deserting the child. Since these are arrests, the actions have to reach the level of criminal behavior, simply being an awful parent (or even leaving the child, as long as they have another adult to watch them) is not this offense. Runaways is an offense that only applies to people under age 18. The remaining categories are all rare and none are more than 1% of arrests.
 
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:GroupBarresteeCrime)The number and percent of arrests for Group B crimes for all arrests reported to NIBRS in 2022.</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Crime Category </th>
-   <th style="text-align:right;"> \# of Offenses </th>
-   <th style="text-align:right;"> \% of Offenses </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> All Other Offenses </td>
-   <td style="text-align:right;"> 1,470,699 </td>
-   <td style="text-align:right;"> 58.45\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Driving Under The Influence </td>
-   <td style="text-align:right;"> 565,429 </td>
-   <td style="text-align:right;"> 22.47\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Trespass of Real Property </td>
-   <td style="text-align:right;"> 177,586 </td>
-   <td style="text-align:right;"> 7.06\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Disorderly Conduct </td>
-   <td style="text-align:right;"> 176,937 </td>
-   <td style="text-align:right;"> 7.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Liquor Law Violations </td>
-   <td style="text-align:right;"> 72,044 </td>
-   <td style="text-align:right;"> 2.86\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Family Offenses, Nonviolent </td>
-   <td style="text-align:right;"> 33,545 </td>
-   <td style="text-align:right;"> 1.33\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Curfew/Loitering/Vagrancy Violations </td>
-   <td style="text-align:right;"> 16,266 </td>
-   <td style="text-align:right;"> 0.65\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Failure To Appear </td>
-   <td style="text-align:right;"> 1,816 </td>
-   <td style="text-align:right;"> 0.07\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Runaway </td>
-   <td style="text-align:right;"> 1,629 </td>
-   <td style="text-align:right;"> 0.06\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Federal Resource Violations </td>
-   <td style="text-align:right;"> 15 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Perjury </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:right;"> 2,515,967 </td>
-   <td style="text-align:right;"> 100\% </td>
-  </tr>
-</tbody>
-</table>
+
+
+Table: (\#tab:GroupBarresteeCrime)The number and percent of arrests for Group B crimes for all arrests reported to NIBRS in 2022.
+
+|Crime Category                       | \# of Offenses| \% of Offenses|
+|:------------------------------------|--------------:|--------------:|
+|All Other Offenses                   |      1,470,699|        58.45\%|
+|Driving Under The Influence          |        565,429|        22.47\%|
+|Trespass of Real Property            |        177,586|         7.06\%|
+|Disorderly Conduct                   |        176,937|         7.03\%|
+|Liquor Law Violations                |         72,044|         2.86\%|
+|Family Offenses, Nonviolent          |         33,545|         1.33\%|
+|Curfew/Loitering/Vagrancy Violations |         16,266|         0.65\%|
+|Failure To Appear                    |          1,816|         0.07\%|
+|Runaway                              |          1,629|         0.06\%|
+|Federal Resource Violations          |             15|         0.00\%|
+|Perjury                              |              1|         0.00\%|
+|Total                                |      2,515,967|          100\%|
 
 
 

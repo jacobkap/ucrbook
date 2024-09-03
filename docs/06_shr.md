@@ -167,118 +167,32 @@ The first variable we'll look at is the weapon used by each offender. Table \@re
 
 The most commonly used weapon is a handgun, which is used in nearly half of homicides. This is followed by a knife or other sharp weapon used to cut at almost 15% of homicides, and then by "firearm, type not stated" which is just a firearm where we don't know the exact type (it can include handguns) at 8.9% of homicides The fourth most common weapon is "personal weapons" at nearly 6% of homicides. "Personal weapons" is a weird term to mean that there was no weapon - the "weapon" was the offender who beat the victim to death. Shotguns are involved in almost 5% of homicides and all other weapons are involved in fewer than 5% of cases. In total there are 19 different weapons included though most are very uncommon. 
 
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:shrWeapon)The weapon used in a homicide incident, 1976-2022. In cases where there are multiple offenders, shows only the primary weapon for the first offender.</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Weapon </th>
-   <th style="text-align:right;"> \# of Incidents </th>
-   <th style="text-align:right;"> \% of Incidents </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Handgun </td>
-   <td style="text-align:right;"> 388,178 </td>
-   <td style="text-align:right;"> 49.06\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Knife Or Cutting Instrument </td>
-   <td style="text-align:right;"> 115,540 </td>
-   <td style="text-align:right;"> 14.60\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Firearm, Type Not Stated </td>
-   <td style="text-align:right;"> 70,632 </td>
-   <td style="text-align:right;"> 8.93\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Personal Weapons - Includes Beating </td>
-   <td style="text-align:right;"> 45,473 </td>
-   <td style="text-align:right;"> 5.75\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other Or Unknown Weapon </td>
-   <td style="text-align:right;"> 42,002 </td>
-   <td style="text-align:right;"> 5.31\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Shotgun </td>
-   <td style="text-align:right;"> 36,827 </td>
-   <td style="text-align:right;"> 4.65\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Blunt Object </td>
-   <td style="text-align:right;"> 34,716 </td>
-   <td style="text-align:right;"> 4.39\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Rifle </td>
-   <td style="text-align:right;"> 28,108 </td>
-   <td style="text-align:right;"> 3.55\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Strangulation - Includes Hanging </td>
-   <td style="text-align:right;"> 9,763 </td>
-   <td style="text-align:right;"> 1.23\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fire </td>
-   <td style="text-align:right;"> 5,380 </td>
-   <td style="text-align:right;"> 0.68\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Asphyxiation - Includes Death By Gas </td>
-   <td style="text-align:right;"> 4,804 </td>
-   <td style="text-align:right;"> 0.61\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other Gun </td>
-   <td style="text-align:right;"> 3,473 </td>
-   <td style="text-align:right;"> 0.44\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Narcotics/Drugs - Includes Sleeping Pills </td>
-   <td style="text-align:right;"> 3,144 </td>
-   <td style="text-align:right;"> 0.40\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Drowning </td>
-   <td style="text-align:right;"> 1,387 </td>
-   <td style="text-align:right;"> 0.18\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other Or Type Unknown </td>
-   <td style="text-align:right;"> 586 </td>
-   <td style="text-align:right;"> 0.07\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Poison - Does Not Include Gas </td>
-   <td style="text-align:right;"> 531 </td>
-   <td style="text-align:right;"> 0.07\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Explosives </td>
-   <td style="text-align:right;"> 386 </td>
-   <td style="text-align:right;"> 0.05\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Pushed Or Thrown Out of Window </td>
-   <td style="text-align:right;"> 257 </td>
-   <td style="text-align:right;"> 0.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Narcotics Or Drugs </td>
-   <td style="text-align:right;"> 48 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:right;"> 791,235 </td>
-   <td style="text-align:right;"> 100\% </td>
-  </tr>
-</tbody>
-</table>
+
+
+Table: (\#tab:shrWeapon)The weapon used in a homicide incident, 1976-2022. In cases where there are multiple offenders, shows only the primary weapon for the first offender.
+
+|Weapon                                    | \# of Incidents| \% of Incidents|
+|:-----------------------------------------|---------------:|---------------:|
+|Handgun                                   |         388,178|         49.06\%|
+|Knife Or Cutting Instrument               |         115,540|         14.60\%|
+|Firearm, Type Not Stated                  |          70,632|          8.93\%|
+|Personal Weapons - Includes Beating       |          45,473|          5.75\%|
+|Other Or Unknown Weapon                   |          42,002|          5.31\%|
+|Shotgun                                   |          36,827|          4.65\%|
+|Blunt Object                              |          34,716|          4.39\%|
+|Rifle                                     |          28,108|          3.55\%|
+|Strangulation - Includes Hanging          |           9,763|          1.23\%|
+|Fire                                      |           5,380|          0.68\%|
+|Asphyxiation - Includes Death By Gas      |           4,804|          0.61\%|
+|Other Gun                                 |           3,473|          0.44\%|
+|Narcotics/Drugs - Includes Sleeping Pills |           3,144|          0.40\%|
+|Drowning                                  |           1,387|          0.18\%|
+|Other Or Type Unknown                     |             586|          0.07\%|
+|Poison - Does Not Include Gas             |             531|          0.07\%|
+|Explosives                                |             386|          0.05\%|
+|Pushed Or Thrown Out of Window            |             257|          0.03\%|
+|Narcotics Or Drugs                        |              48|          0.01\%|
+|Total                                     |         791,235|           100\%|
 
 
 You may have noticed from the table that AR-15 isn't included. While AR-15 is the commonly discussed in the media and policy circles as a way to control gun violence, it isn't in a category by itself. Instead it is combined with other rifles in the "rifle" weapon group, and makes up about 3.6% of the weapons used by offender #1 in the data. 
@@ -303,199 +217,42 @@ An interesting and highly useful variable is the relationship between the first 
 
 The most common relationship, with about 28% of homicides, is that the police don't know the relationship. So there is a good deal of uncertainty in the relationship between victims and offenders. Next is that the victim is the offender's acquaintance at 19.7% or is a stranger at 15.3%. The next is "other - known to victim" which is similar to being an acquaintance at almost 5% of homicides. This is followed by the victim being the friend of the murderer at 3.6%. The 6th most common relationship, at 3.6% is that the victim is the wife of the offender, so she is murdered by her husband, and is the first familial relationship of this list. The remaining relationships all make up fewer than 3% of all homicides. 
 
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:shrRelationship)The relationship between the first victim and the first offender in a homicide incident, 1976-2022.</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Relationship </th>
-   <th style="text-align:right;"> Category </th>
-   <th style="text-align:right;"> \# of Incidents </th>
-   <th style="text-align:left;"> \% of Incidents </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Unknown </td>
-   <td style="text-align:right;">  </td>
-   <td style="text-align:right;"> 296,757 </td>
-   <td style="text-align:left;"> 37.51\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Acquaintance </td>
-   <td style="text-align:right;"> Not family (but known) </td>
-   <td style="text-align:right;"> 156,115 </td>
-   <td style="text-align:left;"> 19.73\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Stranger </td>
-   <td style="text-align:right;"> Not known </td>
-   <td style="text-align:right;"> 120,719 </td>
-   <td style="text-align:left;"> 15.26\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other - Known To Victim </td>
-   <td style="text-align:right;"> Not family (but known) </td>
-   <td style="text-align:right;"> 37,899 </td>
-   <td style="text-align:left;"> 4.79\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Friend </td>
-   <td style="text-align:right;"> Not family (but known) </td>
-   <td style="text-align:right;"> 28,411 </td>
-   <td style="text-align:left;"> 3.59\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Wife </td>
-   <td style="text-align:right;"> Family </td>
-   <td style="text-align:right;"> 27,977 </td>
-   <td style="text-align:left;"> 3.54\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Girlfriend </td>
-   <td style="text-align:right;"> Not family (but known) </td>
-   <td style="text-align:right;"> 21,447 </td>
-   <td style="text-align:left;"> 2.71\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Husband </td>
-   <td style="text-align:right;"> Family </td>
-   <td style="text-align:right;"> 12,085 </td>
-   <td style="text-align:left;"> 1.53\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other Family </td>
-   <td style="text-align:right;"> Family </td>
-   <td style="text-align:right;"> 11,760 </td>
-   <td style="text-align:left;"> 1.49\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Son </td>
-   <td style="text-align:right;"> Family </td>
-   <td style="text-align:right;"> 11,408 </td>
-   <td style="text-align:left;"> 1.44\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Boyfriend </td>
-   <td style="text-align:right;"> Not family (but known) </td>
-   <td style="text-align:right;"> 10,009 </td>
-   <td style="text-align:left;"> 1.26\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Neighbor </td>
-   <td style="text-align:right;"> Not family (but known) </td>
-   <td style="text-align:right;"> 8,081 </td>
-   <td style="text-align:left;"> 1.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Daughter </td>
-   <td style="text-align:right;"> Family </td>
-   <td style="text-align:right;"> 8,056 </td>
-   <td style="text-align:left;"> 1.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Brother </td>
-   <td style="text-align:right;"> Family </td>
-   <td style="text-align:right;"> 6,961 </td>
-   <td style="text-align:left;"> 0.88\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Father </td>
-   <td style="text-align:right;"> Family </td>
-   <td style="text-align:right;"> 5,667 </td>
-   <td style="text-align:left;"> 0.72\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Mother </td>
-   <td style="text-align:right;"> Family </td>
-   <td style="text-align:right;"> 5,274 </td>
-   <td style="text-align:left;"> 0.67\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> In-Law </td>
-   <td style="text-align:right;"> Family </td>
-   <td style="text-align:right;"> 4,608 </td>
-   <td style="text-align:left;"> 0.58\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Common-Law Wife </td>
-   <td style="text-align:right;"> Family </td>
-   <td style="text-align:right;"> 3,317 </td>
-   <td style="text-align:left;"> 0.42\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Common-Law Husband </td>
-   <td style="text-align:right;"> Family </td>
-   <td style="text-align:right;"> 2,722 </td>
-   <td style="text-align:left;"> 0.34\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Ex-Wife </td>
-   <td style="text-align:right;"> Not family (but known) </td>
-   <td style="text-align:right;"> 2,365 </td>
-   <td style="text-align:left;"> 0.30\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Stepfather </td>
-   <td style="text-align:right;"> Family </td>
-   <td style="text-align:right;"> 1,864 </td>
-   <td style="text-align:left;"> 0.24\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Homosexual Relationship </td>
-   <td style="text-align:right;"> Not family (but known) </td>
-   <td style="text-align:right;"> 1,704 </td>
-   <td style="text-align:left;"> 0.22\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sister </td>
-   <td style="text-align:right;"> Family </td>
-   <td style="text-align:right;"> 1,536 </td>
-   <td style="text-align:left;"> 0.19\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Stepson </td>
-   <td style="text-align:right;"> Family </td>
-   <td style="text-align:right;"> 1,500 </td>
-   <td style="text-align:left;"> 0.19\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Ex-Husband </td>
-   <td style="text-align:right;"> Not family (but known) </td>
-   <td style="text-align:right;"> 937 </td>
-   <td style="text-align:left;"> 0.12\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Stepdaughter </td>
-   <td style="text-align:right;"> Family </td>
-   <td style="text-align:right;"> 792 </td>
-   <td style="text-align:left;"> 0.10\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Employer </td>
-   <td style="text-align:right;"> Not family (but known) </td>
-   <td style="text-align:right;"> 564 </td>
-   <td style="text-align:left;"> 0.07\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Employee </td>
-   <td style="text-align:right;"> Not family (but known) </td>
-   <td style="text-align:right;"> 451 </td>
-   <td style="text-align:left;"> 0.06\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Stepmother </td>
-   <td style="text-align:right;"> Family </td>
-   <td style="text-align:right;"> 250 </td>
-   <td style="text-align:left;"> 0.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:right;">  </td>
-   <td style="text-align:right;"> 791,236 </td>
-   <td style="text-align:left;"> 100\% </td>
-  </tr>
-</tbody>
-</table>
+
+
+Table: (\#tab:shrRelationship)The relationship between the first victim and the first offender in a homicide incident, 1976-2022.
+
+|Relationship            |               Category| \# of Incidents|\% of Incidents |
+|:-----------------------|----------------------:|---------------:|:---------------|
+|Unknown                 |                       |         296,757|37.51\%         |
+|Acquaintance            | Not family (but known)|         156,115|19.73\%         |
+|Stranger                |              Not known|         120,719|15.26\%         |
+|Other - Known To Victim | Not family (but known)|          37,899|4.79\%          |
+|Friend                  | Not family (but known)|          28,411|3.59\%          |
+|Wife                    |                 Family|          27,977|3.54\%          |
+|Girlfriend              | Not family (but known)|          21,447|2.71\%          |
+|Husband                 |                 Family|          12,085|1.53\%          |
+|Other Family            |                 Family|          11,760|1.49\%          |
+|Son                     |                 Family|          11,408|1.44\%          |
+|Boyfriend               | Not family (but known)|          10,009|1.26\%          |
+|Neighbor                | Not family (but known)|           8,081|1.02\%          |
+|Daughter                |                 Family|           8,056|1.02\%          |
+|Brother                 |                 Family|           6,961|0.88\%          |
+|Father                  |                 Family|           5,667|0.72\%          |
+|Mother                  |                 Family|           5,274|0.67\%          |
+|In-Law                  |                 Family|           4,608|0.58\%          |
+|Common-Law Wife         |                 Family|           3,317|0.42\%          |
+|Common-Law Husband      |                 Family|           2,722|0.34\%          |
+|Ex-Wife                 | Not family (but known)|           2,365|0.30\%          |
+|Stepfather              |                 Family|           1,864|0.24\%          |
+|Homosexual Relationship | Not family (but known)|           1,704|0.22\%          |
+|Sister                  |                 Family|           1,536|0.19\%          |
+|Stepson                 |                 Family|           1,500|0.19\%          |
+|Ex-Husband              | Not family (but known)|             937|0.12\%          |
+|Stepdaughter            |                 Family|             792|0.10\%          |
+|Employer                | Not family (but known)|             564|0.07\%          |
+|Employee                | Not family (but known)|             451|0.06\%          |
+|Stepmother              |                 Family|             250|0.03\%          |
+|Total                   |                       |         791,236|100\%           |
 
 
 
@@ -507,235 +264,48 @@ The felony type murders are simply ones where another crime occurred during the 
 
 The most common circumstances, accounting for 27.4%, 26.9%, and 12.5%, respectively, are "Unknown", "Other Arguments", and "Other Non-Felony Type - Not Specified." Since the data includes "Argument Over Money Or Property" as one category, the "Other Arguments" mean that it's an argument for a reason other than over money or property. The "Other Non-Felony Type" one does not mean that the murder did not occur alongside another crime, but also doesn't fall into the non-felony categories included. Robbery is the only remaining circumstance with more than 5% of murders, at 7.4%. 
 
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:shrCircumstance)The circumstance of the homicide for the first offender in a homicide incident.</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Circumstance </th>
-   <th style="text-align:right;"> Category </th>
-   <th style="text-align:right;"> \# of Incidents </th>
-   <th style="text-align:left;"> \% of Incidents </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Unknown </td>
-   <td style="text-align:right;">  </td>
-   <td style="text-align:right;"> 219,450 </td>
-   <td style="text-align:left;"> 27.74\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other Arguments </td>
-   <td style="text-align:right;"> Non-Felony Type </td>
-   <td style="text-align:right;"> 212,941 </td>
-   <td style="text-align:left;"> 26.91\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other Non-Felony Type - Not Specified </td>
-   <td style="text-align:right;"> Non-Felony Type </td>
-   <td style="text-align:right;"> 98,730 </td>
-   <td style="text-align:left;"> 12.48\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Robbery </td>
-   <td style="text-align:right;"> Felony Type </td>
-   <td style="text-align:right;"> 58,885 </td>
-   <td style="text-align:left;"> 7.44\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Narcotic Drug Laws </td>
-   <td style="text-align:right;"> Felony Type </td>
-   <td style="text-align:right;"> 28,360 </td>
-   <td style="text-align:left;"> 3.58\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Juvenile Gang Killings </td>
-   <td style="text-align:right;"> Non-Felony Type </td>
-   <td style="text-align:right;"> 24,309 </td>
-   <td style="text-align:left;"> 3.07\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Felon Killed By Police </td>
-   <td style="text-align:right;"> Justifiable Homicide </td>
-   <td style="text-align:right;"> 17,553 </td>
-   <td style="text-align:left;"> 2.22\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other Felony Type - Not Specified </td>
-   <td style="text-align:right;"> Felony Type </td>
-   <td style="text-align:right;"> 15,460 </td>
-   <td style="text-align:left;"> 1.95\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Brawl Due To Influence of Alcohol </td>
-   <td style="text-align:right;"> Non-Felony Type </td>
-   <td style="text-align:right;"> 15,227 </td>
-   <td style="text-align:left;"> 1.92\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Argument Over Money Or Property </td>
-   <td style="text-align:right;"> Non-Felony Type </td>
-   <td style="text-align:right;"> 14,972 </td>
-   <td style="text-align:left;"> 1.89\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Felon Killed By Private Citizen </td>
-   <td style="text-align:right;"> Justifiable Homicide </td>
-   <td style="text-align:right;"> 13,928 </td>
-   <td style="text-align:left;"> 1.76\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> All Suspected Felony Type </td>
-   <td style="text-align:right;"> Felony Type </td>
-   <td style="text-align:right;"> 12,975 </td>
-   <td style="text-align:left;"> 1.64\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> All Other Manslaughter By Negligence Except Traffic Deaths </td>
-   <td style="text-align:right;"> Negligent Manslaughter </td>
-   <td style="text-align:right;"> 8,536 </td>
-   <td style="text-align:left;"> 1.08\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Domestic Violence (Historically Called Lovers Triangle/Quarrel) </td>
-   <td style="text-align:right;">  </td>
-   <td style="text-align:right;"> 6,431 </td>
-   <td style="text-align:left;"> 0.81\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Burglary </td>
-   <td style="text-align:right;"> Felony Type </td>
-   <td style="text-align:right;"> 6,356 </td>
-   <td style="text-align:left;"> 0.80\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Gangland Killings </td>
-   <td style="text-align:right;"> Non-Felony Type </td>
-   <td style="text-align:right;"> 5,809 </td>
-   <td style="text-align:left;"> 0.73\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Brawl Due To Influence of Narcotics </td>
-   <td style="text-align:right;"> Non-Felony Type </td>
-   <td style="text-align:right;"> 4,750 </td>
-   <td style="text-align:left;"> 0.60\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Lovers Triangle </td>
-   <td style="text-align:right;"> Non-Felony Type </td>
-   <td style="text-align:right;"> 4,158 </td>
-   <td style="text-align:left;"> 0.53\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Rape </td>
-   <td style="text-align:right;"> Felony Type </td>
-   <td style="text-align:right;"> 4,142 </td>
-   <td style="text-align:left;"> 0.52\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other Negligent Handling of Gun Which Resulted In Death of Another </td>
-   <td style="text-align:right;"> Negligent Manslaughter </td>
-   <td style="text-align:right;"> 3,877 </td>
-   <td style="text-align:left;"> 0.49\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Arson </td>
-   <td style="text-align:right;"> Felony Type </td>
-   <td style="text-align:right;"> 3,304 </td>
-   <td style="text-align:left;"> 0.42\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Motor Vehicle Theft </td>
-   <td style="text-align:right;"> Felony Type </td>
-   <td style="text-align:right;"> 1,468 </td>
-   <td style="text-align:left;"> 0.19\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Children Playing With Gun </td>
-   <td style="text-align:right;"> Negligent Manslaughter </td>
-   <td style="text-align:right;"> 1,453 </td>
-   <td style="text-align:left;"> 0.18\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other Sex Offenses </td>
-   <td style="text-align:right;"> Felony Type </td>
-   <td style="text-align:right;"> 1,433 </td>
-   <td style="text-align:left;"> 0.18\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Child Killed By Babysitter </td>
-   <td style="text-align:right;"> Non-Felony Type </td>
-   <td style="text-align:right;"> 1,342 </td>
-   <td style="text-align:left;"> 0.17\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Institutional Killings </td>
-   <td style="text-align:right;"> Non-Felony Type </td>
-   <td style="text-align:right;"> 1,262 </td>
-   <td style="text-align:left;"> 0.16\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Gambling </td>
-   <td style="text-align:right;"> Felony Type </td>
-   <td style="text-align:right;"> 1,040 </td>
-   <td style="text-align:left;"> 0.13\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Larceny </td>
-   <td style="text-align:right;"> Felony Type </td>
-   <td style="text-align:right;"> 916 </td>
-   <td style="text-align:left;"> 0.12\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Prostitution And Commercialized Vice </td>
-   <td style="text-align:right;"> Felony Type </td>
-   <td style="text-align:right;"> 626 </td>
-   <td style="text-align:left;"> 0.08\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other - Not Specified </td>
-   <td style="text-align:right;"> Felony Type </td>
-   <td style="text-align:right;"> 554 </td>
-   <td style="text-align:left;"> 0.07\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sniper Attack </td>
-   <td style="text-align:right;"> Non-Felony Type </td>
-   <td style="text-align:right;"> 480 </td>
-   <td style="text-align:left;"> 0.06\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Shot In Hunting Accident </td>
-   <td style="text-align:right;"> Negligent Manslaughter </td>
-   <td style="text-align:right;"> 350 </td>
-   <td style="text-align:left;"> 0.04\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Gun Cleaning Death - Other Than Self-Inflicted </td>
-   <td style="text-align:right;"> Negligent Manslaughter </td>
-   <td style="text-align:right;"> 144 </td>
-   <td style="text-align:left;"> 0.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Abortion </td>
-   <td style="text-align:right;"> Felony Type </td>
-   <td style="text-align:right;"> 14 </td>
-   <td style="text-align:left;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Human Trafficking/Commercial Sex Acts </td>
-   <td style="text-align:right;">  </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:right;">  </td>
-   <td style="text-align:right;"> 791,236 </td>
-   <td style="text-align:left;"> 100\% </td>
-  </tr>
-</tbody>
-</table>
+
+
+Table: (\#tab:shrCircumstance)The circumstance of the homicide for the first offender in a homicide incident.
+
+|Circumstance                                                       |               Category| \# of Incidents|\% of Incidents |
+|:------------------------------------------------------------------|----------------------:|---------------:|:---------------|
+|Unknown                                                            |                       |         219,450|27.74\%         |
+|Other Arguments                                                    |        Non-Felony Type|         212,941|26.91\%         |
+|Other Non-Felony Type - Not Specified                              |        Non-Felony Type|          98,730|12.48\%         |
+|Robbery                                                            |            Felony Type|          58,885|7.44\%          |
+|Narcotic Drug Laws                                                 |            Felony Type|          28,360|3.58\%          |
+|Juvenile Gang Killings                                             |        Non-Felony Type|          24,309|3.07\%          |
+|Felon Killed By Police                                             |   Justifiable Homicide|          17,553|2.22\%          |
+|Other Felony Type - Not Specified                                  |            Felony Type|          15,460|1.95\%          |
+|Brawl Due To Influence of Alcohol                                  |        Non-Felony Type|          15,227|1.92\%          |
+|Argument Over Money Or Property                                    |        Non-Felony Type|          14,972|1.89\%          |
+|Felon Killed By Private Citizen                                    |   Justifiable Homicide|          13,928|1.76\%          |
+|All Suspected Felony Type                                          |            Felony Type|          12,975|1.64\%          |
+|All Other Manslaughter By Negligence Except Traffic Deaths         | Negligent Manslaughter|           8,536|1.08\%          |
+|Domestic Violence (Historically Called Lovers Triangle/Quarrel)    |                       |           6,431|0.81\%          |
+|Burglary                                                           |            Felony Type|           6,356|0.80\%          |
+|Gangland Killings                                                  |        Non-Felony Type|           5,809|0.73\%          |
+|Brawl Due To Influence of Narcotics                                |        Non-Felony Type|           4,750|0.60\%          |
+|Lovers Triangle                                                    |        Non-Felony Type|           4,158|0.53\%          |
+|Rape                                                               |            Felony Type|           4,142|0.52\%          |
+|Other Negligent Handling of Gun Which Resulted In Death of Another | Negligent Manslaughter|           3,877|0.49\%          |
+|Arson                                                              |            Felony Type|           3,304|0.42\%          |
+|Motor Vehicle Theft                                                |            Felony Type|           1,468|0.19\%          |
+|Children Playing With Gun                                          | Negligent Manslaughter|           1,453|0.18\%          |
+|Other Sex Offenses                                                 |            Felony Type|           1,433|0.18\%          |
+|Child Killed By Babysitter                                         |        Non-Felony Type|           1,342|0.17\%          |
+|Institutional Killings                                             |        Non-Felony Type|           1,262|0.16\%          |
+|Gambling                                                           |            Felony Type|           1,040|0.13\%          |
+|Larceny                                                            |            Felony Type|             916|0.12\%          |
+|Prostitution And Commercialized Vice                               |            Felony Type|             626|0.08\%          |
+|Other - Not Specified                                              |            Felony Type|             554|0.07\%          |
+|Sniper Attack                                                      |        Non-Felony Type|             480|0.06\%          |
+|Victim Shot In Hunting Accident                                    | Negligent Manslaughter|             350|0.04\%          |
+|Gun Cleaning Death - Other Than Self-Inflicted                     | Negligent Manslaughter|             144|0.02\%          |
+|Abortion                                                           |            Felony Type|              14|0.00\%          |
+|Human Trafficking/Commercial Sex Acts                              |                       |               1|0.00\%          |
+|Total                                                              |                       |         791,236|100\%           |
 
 
 
@@ -745,58 +315,20 @@ The "subcircumstance" just tells you more information about justifiable homicide
 
 This dataset is one source of information on how many people police kill each year. But it is a large undercount compared to other sources such as the Washington Post collection, so is not a very useful source of information on this topic. 
 
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:shrSubCircumstance)The circumstance for the first offender in a homicide incident in cases where the offender is killed. This includes incidents where the only person who dies in the offender.</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Subcircumstance </th>
-   <th style="text-align:right;"> \# of Incidents </th>
-   <th style="text-align:right;"> \% of Incidents </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Felon Killed In Commission of A Crime </td>
-   <td style="text-align:right;"> 11,026 </td>
-   <td style="text-align:right;"> 35.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Felon Attacked Police Officer </td>
-   <td style="text-align:right;"> 9,224 </td>
-   <td style="text-align:right;"> 29.30\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Felon Attacked A Civilian </td>
-   <td style="text-align:right;"> 5,499 </td>
-   <td style="text-align:right;"> 17.47\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Not Enough Information To Determine </td>
-   <td style="text-align:right;"> 2,529 </td>
-   <td style="text-align:right;"> 8.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Felon Resisted Arrest </td>
-   <td style="text-align:right;"> 1,268 </td>
-   <td style="text-align:right;"> 4.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Felon Attacked Fellow Police Officer </td>
-   <td style="text-align:right;"> 1,096 </td>
-   <td style="text-align:right;"> 3.48\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Felon Attempted Flight From A Crime </td>
-   <td style="text-align:right;"> 840 </td>
-   <td style="text-align:right;"> 2.67\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:right;"> 31,482 </td>
-   <td style="text-align:right;"> 100\% </td>
-  </tr>
-</tbody>
-</table>
+
+
+Table: (\#tab:shrSubCircumstance)The circumstance for the first offender in a homicide incident in cases where the offender is killed. This includes incidents where the only person who dies in the offender.
+
+|Subcircumstance                       | \# of Incidents| \% of Incidents|
+|:-------------------------------------|---------------:|---------------:|
+|Felon Killed In Commission of A Crime |          11,026|         35.02\%|
+|Felon Attacked Police Officer         |           9,224|         29.30\%|
+|Felon Attacked A Civilian             |           5,499|         17.47\%|
+|Not Enough Information To Determine   |           2,529|          8.03\%|
+|Felon Resisted Arrest                 |           1,268|          4.03\%|
+|Felon Attacked Fellow Police Officer  |           1,096|          3.48\%|
+|Felon Attempted Flight From A Crime   |             840|          2.67\%|
+|Total                                 |          31,482|           100\%|
 
 
 

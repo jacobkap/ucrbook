@@ -41,7 +41,7 @@ One interesting part of this segment is that while it's associated with Group A 
 
 Table \@ref(tab:arresteeCrime) shows the number and percent of arrests for all arrests associated with a Group A crime incident. Perhaps unsurprising, drug crimes are the most common arrest making up a quarter of all arrests (30% when including drug equipment crimes). Simple assault (assault without a weapon or without seriously injuring the victim) is the next most common at 19% of arrests, and aggravated assault is the 4th most common arrest crime at 6.3% of arrests. Theft, which NIBRS breaks into a number of subcategories of theft such as shoplifting and "all other larceny" is among the most common arrest crimes, making up ranks 3 and 6 of the top 6, as well as several other subcategories later on. The remaining crimes are all relatively rare, consisting of under 5% of arrests each. This is due to how the top crimes are broad categories (e.g. drug offenses ranges from simple possession to large scale sales but is all grouped into "drug/narcotic violations" here) while other crimes are specific (e.g. purse-snatching is a very specific form of theft).  
 
-```{r arresteeCrime, results = 'asis' }
+```{r}
 
 temp <- make_frequency_table(arrestee,
                              "ucr_arrest_offense_code",
@@ -49,16 +49,17 @@ temp <- make_frequency_table(arrestee,
                                "\\# of Offenses",
                                "\\% of Offenses"))
 knitr::kable(temp, 
-            format = 'markdown',
+            #format = 'markdown',
              digits = 2, 
              align = c("l", "r", "r"),
              booktabs = TRUE, 
              longtable = TRUE,
-             escape = FALSE,
-             caption = "The number and percent of arrests for Group A crimes for all arrests reported to NIBRS in 2022.") %>%
-  kable_styling(bootstrap_options = "striped",
-                full_width = FALSE,
-                latex_options = c("hold_position", "repeat_header"))
+            # escape = FALSE,
+            label = "arresteeCrime",
+             caption = "The number and percent of arrests for Group A crimes for all arrests reported to NIBRS in 2022.")# %>%
+  # kable_styling(bootstrap_options = "striped",
+  #               full_width = FALSE,
+  #               latex_options = c("hold_position", "repeat_header"))
 ```
 
 ### Group B Segment arrest crimes
@@ -67,7 +68,7 @@ Table \@ref(tab:GroupBarresteeCrime) shows the number and percent of arrests for
 
 Trespassing makes up 5.7% of arrests and this is unlawfully entering someone's property, including a building. The difference between this and burglary is that this is entering without any intent to commit theft or a felony. Disorderly conduct is a broad category ranging from indecent exposure (which should be its own sex offense but isn't for some reason) to "profanity" and noise violations, and it makes up 6.2% of arrests. So be cautious with this offense as it ranges from very minor to quite serious and there's no distinguishing what actually happened. Drunkenness and liquor law violations make up 6% and 3.6% of arrests, respectively. The difference is that drunkenness is when someone is seriously drunk in public (to the point where they can't control their own body) and liquor law violations are about illegal making or selling of liquor. So basically bootlegging, selling alcohol without a license (or to people not allowed to drink, like minors), or avoiding paying tax on alcohol sales. "Family Offenses, Nonviolent" is also a rather vague category and includes "nonviolent abuse" (which I guess means emotional abusive) as well as neglecting the child in a few different ways like not paying alimony and deserting the child. Since these are arrests, the actions have to reach the level of criminal behavior, simply being an awful parent (or even leaving the child, as long as they have another adult to watch them) is not this offense. Runaways is an offense that only applies to people under age 18. The remaining categories are all rare and none are more than 1% of arrests.
 
-```{r GroupBarresteeCrime}
+```{r }
 
 temp <- make_frequency_table(group_b,
                              "ucr_arrest_offense_code",
@@ -75,14 +76,15 @@ temp <- make_frequency_table(group_b,
                                "\\# of Offenses",
                                "\\% of Offenses"))
 knitr::kable(temp, 
-             format = "html",
+            # format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
              booktabs = TRUE, 
              longtable = TRUE,
-             escape = FALSE,
-             caption = "The number and percent of arrests for Group B crimes for all arrests reported to NIBRS in 2022.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             label = "GroupBarresteeCrime",
+           #  escape = FALSE,
+             caption = "The number and percent of arrests for Group B crimes for all arrests reported to NIBRS in 2022.") #%>%
+  #kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 ## Arrest date

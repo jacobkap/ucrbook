@@ -48,7 +48,7 @@ Table \@ref(tab:propertyStolenDescription) shows each of the 68 different types 
 
 There are about 4.8 million rows in the Property Segment where the item was stolen (the other 3.1 million rows are about property that was seized by police, recovered, damaged, or one of the other types of property loss detailed in Section \@ref(propertyLoss)). As such, even items stolen very rarely can occur thousands or tens of thousands of times. For example, pets were the property stolen about 0.14% of the time and that tiny percent still accounts of 6,821 incidents with a pet stolen. Given the huge number of rows in this data - and as more agencies report to NIBRS this will grow quickly - it can be possible to study specific types of property, such as pets stolen, that wouldn't be possible with a more narrow dataset (both in terms of how specific the items they include are, and the size of the data). 
 
-```{r propertyStolenDescription}
+```{r }
 
 temp <- make_frequency_table(property[property$type_of_property_loss %in% "stolen/etc. (includes bribed, defrauded, embezzled, extorted, ransomed, robbed, etc.)", ],
                              "property_description",
@@ -56,19 +56,20 @@ temp <- make_frequency_table(property[property$type_of_property_loss %in% "stole
                                "# of Property Stolen",
                                "% of Property Stolen"))
 knitr::kable(temp, 
-             format = "html",
+             #format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
              booktabs = TRUE, 
              longtable = TRUE,
-             escape = FALSE,
-             caption = "The number and percent of property stolen (including forcibly taken such as during a robbery) in a crime, for all offenses in 2022. Each incident can have multiple items stolen.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             label = "propertyStolenDescription",
+            # escape = FALSE,
+             caption = "The number and percent of property stolen (including forcibly taken such as during a robbery) in a crime, for all offenses in 2022. Each incident can have multiple items stolen.")# %>%
+  #kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 As seen in Table \@ref(tab:propertySeizedDescription), all of the 68 different types of properties available in NIBRS can and, in 2022, were seized by police during an incident at least once. This includes atypical property like building material, musical instruments, and pets (and leads me to think that at least some of this is incorrectly labeled as property seized by the police). The vast majority of property seized by police, however, is drugs. 63.2% of the property seized were drugs themselves while 27.3% were equipment related to the drugs. The remaining items were mostly "other" (i.e. anything not explicitly categorized here) at 2.6%, money at 2%, firearms at 0.9%, and then a bunch of very rarely seized items. 
 
-```{r propertySeizedDescription}
+```{r }
 
 temp <- make_frequency_table(property[property$type_of_property_loss %in% "seized", ],
                              "property_description",
@@ -76,14 +77,15 @@ temp <- make_frequency_table(property[property$type_of_property_loss %in% "seize
                                "# of Property Seized",
                                "% of Property Seized"))
 knitr::kable(temp, 
-             format = "html",
+          #   format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
              booktabs = TRUE, 
              longtable = TRUE,
-             escape = FALSE,
-             caption = "The number and percent of property seized by police (excludes recovering property that was stolen, for all offenses in 2022. Each incident can have multiple items seized.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             label = "propertySeizedDescription",
+           #  escape = FALSE,
+             caption = "The number and percent of property seized by police (excludes recovering property that was stolen, for all offenses in 2022. Each incident can have multiple items seized.") #%>%
+ # kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 ## Value of stolen property
@@ -189,7 +191,7 @@ The drugs in NIBRS are the "suspected drug types" which means that they are what
 
 Not too surprising, marijuana is the most common drug seized at 47% - or 455k incidents with it seized - of the data. This is followed by amphetamines/methamphetamines (including what we'd normally just call meth) at 20.7% and then heroin at 8.5%. Interestingly, cocaine and crack cocaine (which are always separate categories) both occur in 5.09% of drugs seized. Given the large disparity in sentences for these types of drugs, and that "crack wars" were a major purported cause of violent crime in the 1980s and 1990s, I expected crack cocaine to be much more common than normal cocaine. The remaining drug types are all less than 5% of drugs seized each and has some groupings of drug types (e.g. stimulants) rather than specific drug types (though some of these categories, such as LSD, are specific drugs). 
 
-```{r propertyDrugs}
+```{r }
 temp <- make_frequency_table(property,
                              "suspected_drug_type_1",
                              c("Drug Type",
@@ -203,14 +205,15 @@ temp$`Drug Type` <- gsub("mdma", "MDMA", temp$`Drug Type`, ignore.case = TRUE)
 temp$`Drug Type` <- gsub("stp",  "STP",  temp$`Drug Type`, ignore.case = TRUE)
 temp$`Drug Type` <- gsub("pcp",  "PCP",  temp$`Drug Type`, ignore.case = TRUE)
 knitr::kable(temp, 
-             format = "html",
+          #   format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
              booktabs = TRUE, 
              longtable = TRUE,
-             escape = FALSE,
-             caption = "The number and percent of drugs seized by police by type of drug, for all drugs seized in 2022.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             label = "propertyDrugs",
+         #    escape = FALSE,
+             caption = "The number and percent of drugs seized by police by type of drug, for all drugs seized in 2022.")# %>%
+ # kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 

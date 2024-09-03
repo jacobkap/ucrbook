@@ -35,725 +35,161 @@ Table \@ref(tab:propertyStolenDescription) shows each of the 68 different types 
 
 There are about 4.8 million rows in the Property Segment where the item was stolen (the other 3.1 million rows are about property that was seized by police, recovered, damaged, or one of the other types of property loss detailed in Section \@ref(propertyLoss)). As such, even items stolen very rarely can occur thousands or tens of thousands of times. For example, pets were the property stolen about 0.14% of the time and that tiny percent still accounts of 6,821 incidents with a pet stolen. Given the huge number of rows in this data - and as more agencies report to NIBRS this will grow quickly - it can be possible to study specific types of property, such as pets stolen, that wouldn't be possible with a more narrow dataset (both in terms of how specific the items they include are, and the size of the data). 
 
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:propertyStolenDescription)The number and percent of property stolen (including forcibly taken such as during a robbery) in a crime, for all offenses in 2022. Each incident can have multiple items stolen.</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Property </th>
-   <th style="text-align:right;"> # of Property Stolen </th>
-   <th style="text-align:right;"> % of Property Stolen </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Other </td>
-   <td style="text-align:right;"> 1,149,292 </td>
-   <td style="text-align:right;"> 15.09\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Money </td>
-   <td style="text-align:right;"> 824,234 </td>
-   <td style="text-align:right;"> 10.82\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Automobiles </td>
-   <td style="text-align:right;"> 570,623 </td>
-   <td style="text-align:right;"> 7.49\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Vehicle Parts/Accessories </td>
-   <td style="text-align:right;"> 535,780 </td>
-   <td style="text-align:right;"> 7.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Purses/Handbags/Wallets </td>
-   <td style="text-align:right;"> 377,761 </td>
-   <td style="text-align:right;"> 4.96\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Clothes/Furs </td>
-   <td style="text-align:right;"> 348,984 </td>
-   <td style="text-align:right;"> 4.58\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Credit/Debit Cards </td>
-   <td style="text-align:right;"> 313,888 </td>
-   <td style="text-align:right;"> 4.12\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Tools - Power/Hand </td>
-   <td style="text-align:right;"> 309,668 </td>
-   <td style="text-align:right;"> 4.07\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Merchandise </td>
-   <td style="text-align:right;"> 289,078 </td>
-   <td style="text-align:right;"> 3.79\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Consumable Goods </td>
-   <td style="text-align:right;"> 253,272 </td>
-   <td style="text-align:right;"> 3.32\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Identity Documents </td>
-   <td style="text-align:right;"> 252,837 </td>
-   <td style="text-align:right;"> 3.32\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Portible Electronic Communications </td>
-   <td style="text-align:right;"> 244,450 </td>
-   <td style="text-align:right;"> 3.21\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Computer Hardware/Software </td>
-   <td style="text-align:right;"> 201,441 </td>
-   <td style="text-align:right;"> 2.64\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Household Goods </td>
-   <td style="text-align:right;"> 200,120 </td>
-   <td style="text-align:right;"> 2.63\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Firearms </td>
-   <td style="text-align:right;"> 170,635 </td>
-   <td style="text-align:right;"> 2.24\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Identity - Intangible </td>
-   <td style="text-align:right;"> 162,824 </td>
-   <td style="text-align:right;"> 2.14\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Radios/Tvs/Vcrs </td>
-   <td style="text-align:right;"> 144,002 </td>
-   <td style="text-align:right;"> 1.89\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Jewelry/Precious Metals </td>
-   <td style="text-align:right;"> 141,635 </td>
-   <td style="text-align:right;"> 1.86\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Bicycles </td>
-   <td style="text-align:right;"> 123,395 </td>
-   <td style="text-align:right;"> 1.62\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Documents - Personal Or Business </td>
-   <td style="text-align:right;"> 94,572 </td>
-   <td style="text-align:right;"> 1.24\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Trucks </td>
-   <td style="text-align:right;"> 93,364 </td>
-   <td style="text-align:right;"> 1.23\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Alcohol </td>
-   <td style="text-align:right;"> 75,575 </td>
-   <td style="text-align:right;"> 0.99\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other Motor Vehicles </td>
-   <td style="text-align:right;"> 59,593 </td>
-   <td style="text-align:right;"> 0.78\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Negotiable Instruments </td>
-   <td style="text-align:right;"> 54,250 </td>
-   <td style="text-align:right;"> 0.71\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Office-Type Equipment </td>
-   <td style="text-align:right;"> 53,825 </td>
-   <td style="text-align:right;"> 0.71\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Lawn/Yard/Garden Equipment </td>
-   <td style="text-align:right;"> 47,867 </td>
-   <td style="text-align:right;"> 0.63\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Trailers </td>
-   <td style="text-align:right;"> 45,526 </td>
-   <td style="text-align:right;"> 0.60\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Building Materials </td>
-   <td style="text-align:right;"> 43,258 </td>
-   <td style="text-align:right;"> 0.57\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Drugs/Narcotics </td>
-   <td style="text-align:right;"> 42,540 </td>
-   <td style="text-align:right;"> 0.56\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Recreational/Sports Equipment </td>
-   <td style="text-align:right;"> 40,414 </td>
-   <td style="text-align:right;"> 0.53\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Nonnegotiable Instruments </td>
-   <td style="text-align:right;"> 31,060 </td>
-   <td style="text-align:right;"> 0.41\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fuel </td>
-   <td style="text-align:right;"> 30,233 </td>
-   <td style="text-align:right;"> 0.40\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Camping/Hunting/Fishing Equipment/Supplies </td>
-   <td style="text-align:right;"> 28,371 </td>
-   <td style="text-align:right;"> 0.37\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Photographic/Optical Equipment </td>
-   <td style="text-align:right;"> 27,502 </td>
-   <td style="text-align:right;"> 0.36\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Heavy Construction/Industrial Equipment </td>
-   <td style="text-align:right;"> 24,878 </td>
-   <td style="text-align:right;"> 0.33\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Metals, Non-Precious </td>
-   <td style="text-align:right;"> 18,589 </td>
-   <td style="text-align:right;"> 0.24\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Collections/Collectibles </td>
-   <td style="text-align:right;"> 18,126 </td>
-   <td style="text-align:right;"> 0.24\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Firearm Accessories </td>
-   <td style="text-align:right;"> 18,115 </td>
-   <td style="text-align:right;"> 0.24\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Weapons - Other </td>
-   <td style="text-align:right;"> 17,843 </td>
-   <td style="text-align:right;"> 0.23\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Pending Inventory (Of Property) </td>
-   <td style="text-align:right;"> 17,818 </td>
-   <td style="text-align:right;"> 0.23\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Recordings - Audio/Visual </td>
-   <td style="text-align:right;"> 17,146 </td>
-   <td style="text-align:right;"> 0.23\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Medical/Medical Lab Equipment </td>
-   <td style="text-align:right;"> 13,153 </td>
-   <td style="text-align:right;"> 0.17\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Musical Instruments </td>
-   <td style="text-align:right;"> 12,275 </td>
-   <td style="text-align:right;"> 0.16\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Recreational Vehicles </td>
-   <td style="text-align:right;"> 11,395 </td>
-   <td style="text-align:right;"> 0.15\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Pets </td>
-   <td style="text-align:right;"> 11,368 </td>
-   <td style="text-align:right;"> 0.15\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Farm Equipment </td>
-   <td style="text-align:right;"> 8,892 </td>
-   <td style="text-align:right;"> 0.12\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Artistic Supplies/Accessories </td>
-   <td style="text-align:right;"> 6,265 </td>
-   <td style="text-align:right;"> 0.08\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Chemicals </td>
-   <td style="text-align:right;"> 5,326 </td>
-   <td style="text-align:right;"> 0.07\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Explosives </td>
-   <td style="text-align:right;"> 4,542 </td>
-   <td style="text-align:right;"> 0.06\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Gambling Equipment </td>
-   <td style="text-align:right;"> 4,482 </td>
-   <td style="text-align:right;"> 0.06\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Watercraft </td>
-   <td style="text-align:right;"> 4,064 </td>
-   <td style="text-align:right;"> 0.05\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Drug/Narcotic Equipment </td>
-   <td style="text-align:right;"> 4,000 </td>
-   <td style="text-align:right;"> 0.05\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Watercraft Equipment/Parts/Accessories </td>
-   <td style="text-align:right;"> 3,186 </td>
-   <td style="text-align:right;"> 0.04\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Law Enforcement Equipment </td>
-   <td style="text-align:right;"> 2,773 </td>
-   <td style="text-align:right;"> 0.04\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Livestock </td>
-   <td style="text-align:right;"> 2,242 </td>
-   <td style="text-align:right;"> 0.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Logging Equipment </td>
-   <td style="text-align:right;"> 1,470 </td>
-   <td style="text-align:right;"> 0.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Structures - Other </td>
-   <td style="text-align:right;"> 1,311 </td>
-   <td style="text-align:right;"> 0.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Crops </td>
-   <td style="text-align:right;"> 1,199 </td>
-   <td style="text-align:right;"> 0.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Buses </td>
-   <td style="text-align:right;"> 1,121 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Aircraft Parts/Accessories </td>
-   <td style="text-align:right;"> 1,053 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Structures - Single Occupancy Dwellings </td>
-   <td style="text-align:right;"> 624 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Structures - Storage </td>
-   <td style="text-align:right;"> 546 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Aircraft </td>
-   <td style="text-align:right;"> 491 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Structures - Commercial/Business </td>
-   <td style="text-align:right;"> 438 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Structures - Other Dwellings </td>
-   <td style="text-align:right;"> 348 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Special Category </td>
-   <td style="text-align:right;"> 281 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Structures - Industrial Manufacturing </td>
-   <td style="text-align:right;"> 224 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Structures - Public/Community </td>
-   <td style="text-align:right;"> 207 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:right;"> 7,617,660 </td>
-   <td style="text-align:right;"> 100\% </td>
-  </tr>
-</tbody>
-</table>
+
+
+Table: (\#tab:propertyStolenDescription)The number and percent of property stolen (including forcibly taken such as during a robbery) in a crime, for all offenses in 2022. Each incident can have multiple items stolen.
+
+|Property                                   | # of Property Stolen| % of Property Stolen|
+|:------------------------------------------|--------------------:|--------------------:|
+|Other                                      |            1,149,292|              15.09\%|
+|Money                                      |              824,234|              10.82\%|
+|Automobiles                                |              570,623|               7.49\%|
+|Vehicle Parts/Accessories                  |              535,780|               7.03\%|
+|Purses/Handbags/Wallets                    |              377,761|               4.96\%|
+|Clothes/Furs                               |              348,984|               4.58\%|
+|Credit/Debit Cards                         |              313,888|               4.12\%|
+|Tools - Power/Hand                         |              309,668|               4.07\%|
+|Merchandise                                |              289,078|               3.79\%|
+|Consumable Goods                           |              253,272|               3.32\%|
+|Identity Documents                         |              252,837|               3.32\%|
+|Portible Electronic Communications         |              244,450|               3.21\%|
+|Computer Hardware/Software                 |              201,441|               2.64\%|
+|Household Goods                            |              200,120|               2.63\%|
+|Firearms                                   |              170,635|               2.24\%|
+|Identity - Intangible                      |              162,824|               2.14\%|
+|Radios/Tvs/Vcrs                            |              144,002|               1.89\%|
+|Jewelry/Precious Metals                    |              141,635|               1.86\%|
+|Bicycles                                   |              123,395|               1.62\%|
+|Documents - Personal Or Business           |               94,572|               1.24\%|
+|Trucks                                     |               93,364|               1.23\%|
+|Alcohol                                    |               75,575|               0.99\%|
+|Other Motor Vehicles                       |               59,593|               0.78\%|
+|Negotiable Instruments                     |               54,250|               0.71\%|
+|Office-Type Equipment                      |               53,825|               0.71\%|
+|Lawn/Yard/Garden Equipment                 |               47,867|               0.63\%|
+|Trailers                                   |               45,526|               0.60\%|
+|Building Materials                         |               43,258|               0.57\%|
+|Drugs/Narcotics                            |               42,540|               0.56\%|
+|Recreational/Sports Equipment              |               40,414|               0.53\%|
+|Nonnegotiable Instruments                  |               31,060|               0.41\%|
+|Fuel                                       |               30,233|               0.40\%|
+|Camping/Hunting/Fishing Equipment/Supplies |               28,371|               0.37\%|
+|Photographic/Optical Equipment             |               27,502|               0.36\%|
+|Heavy Construction/Industrial Equipment    |               24,878|               0.33\%|
+|Metals, Non-Precious                       |               18,589|               0.24\%|
+|Collections/Collectibles                   |               18,126|               0.24\%|
+|Firearm Accessories                        |               18,115|               0.24\%|
+|Weapons - Other                            |               17,843|               0.23\%|
+|Pending Inventory (Of Property)            |               17,818|               0.23\%|
+|Recordings - Audio/Visual                  |               17,146|               0.23\%|
+|Medical/Medical Lab Equipment              |               13,153|               0.17\%|
+|Musical Instruments                        |               12,275|               0.16\%|
+|Recreational Vehicles                      |               11,395|               0.15\%|
+|Pets                                       |               11,368|               0.15\%|
+|Farm Equipment                             |                8,892|               0.12\%|
+|Artistic Supplies/Accessories              |                6,265|               0.08\%|
+|Chemicals                                  |                5,326|               0.07\%|
+|Explosives                                 |                4,542|               0.06\%|
+|Gambling Equipment                         |                4,482|               0.06\%|
+|Watercraft                                 |                4,064|               0.05\%|
+|Drug/Narcotic Equipment                    |                4,000|               0.05\%|
+|Watercraft Equipment/Parts/Accessories     |                3,186|               0.04\%|
+|Law Enforcement Equipment                  |                2,773|               0.04\%|
+|Livestock                                  |                2,242|               0.03\%|
+|Logging Equipment                          |                1,470|               0.02\%|
+|Structures - Other                         |                1,311|               0.02\%|
+|Crops                                      |                1,199|               0.02\%|
+|Buses                                      |                1,121|               0.01\%|
+|Aircraft Parts/Accessories                 |                1,053|               0.01\%|
+|Structures - Single Occupancy Dwellings    |                  624|               0.01\%|
+|Structures - Storage                       |                  546|               0.01\%|
+|Aircraft                                   |                  491|               0.01\%|
+|Structures - Commercial/Business           |                  438|               0.01\%|
+|Structures - Other Dwellings               |                  348|               0.00\%|
+|Special Category                           |                  281|               0.00\%|
+|Structures - Industrial Manufacturing      |                  224|               0.00\%|
+|Structures - Public/Community              |                  207|               0.00\%|
+|Total                                      |            7,617,660|                100\%|
 
 
 
 As seen in Table \@ref(tab:propertySeizedDescription), all of the 68 different types of properties available in NIBRS can and, in 2022, were seized by police during an incident at least once. This includes atypical property like building material, musical instruments, and pets (and leads me to think that at least some of this is incorrectly labeled as property seized by the police). The vast majority of property seized by police, however, is drugs. 63.2% of the property seized were drugs themselves while 27.3% were equipment related to the drugs. The remaining items were mostly "other" (i.e. anything not explicitly categorized here) at 2.6%, money at 2%, firearms at 0.9%, and then a bunch of very rarely seized items. 
 
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:propertySeizedDescription)The number and percent of property seized by police (excludes recovering property that was stolen, for all offenses in 2022. Each incident can have multiple items seized.</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Property </th>
-   <th style="text-align:right;"> # of Property Seized </th>
-   <th style="text-align:right;"> % of Property Seized </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Drugs/Narcotics </td>
-   <td style="text-align:right;"> 916,616 </td>
-   <td style="text-align:right;"> 63.68\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Drug/Narcotic Equipment </td>
-   <td style="text-align:right;"> 391,785 </td>
-   <td style="text-align:right;"> 27.22\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other </td>
-   <td style="text-align:right;"> 37,857 </td>
-   <td style="text-align:right;"> 2.63\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Money </td>
-   <td style="text-align:right;"> 21,762 </td>
-   <td style="text-align:right;"> 1.51\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Firearms </td>
-   <td style="text-align:right;"> 17,471 </td>
-   <td style="text-align:right;"> 1.21\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Portible Electronic Communications </td>
-   <td style="text-align:right;"> 7,798 </td>
-   <td style="text-align:right;"> 0.54\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Firearm Accessories </td>
-   <td style="text-align:right;"> 4,740 </td>
-   <td style="text-align:right;"> 0.33\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Automobiles </td>
-   <td style="text-align:right;"> 4,037 </td>
-   <td style="text-align:right;"> 0.28\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Documents - Personal Or Business </td>
-   <td style="text-align:right;"> 3,580 </td>
-   <td style="text-align:right;"> 0.25\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Identity Documents </td>
-   <td style="text-align:right;"> 3,477 </td>
-   <td style="text-align:right;"> 0.24\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Purses/Handbags/Wallets </td>
-   <td style="text-align:right;"> 2,852 </td>
-   <td style="text-align:right;"> 0.20\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Weapons - Other </td>
-   <td style="text-align:right;"> 2,699 </td>
-   <td style="text-align:right;"> 0.19\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Credit/Debit Cards </td>
-   <td style="text-align:right;"> 1,981 </td>
-   <td style="text-align:right;"> 0.14\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Consumable Goods </td>
-   <td style="text-align:right;"> 1,954 </td>
-   <td style="text-align:right;"> 0.14\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Office-Type Equipment </td>
-   <td style="text-align:right;"> 1,899 </td>
-   <td style="text-align:right;"> 0.13\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Vehicle Parts/Accessories </td>
-   <td style="text-align:right;"> 1,712 </td>
-   <td style="text-align:right;"> 0.12\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Negotiable Instruments </td>
-   <td style="text-align:right;"> 1,521 </td>
-   <td style="text-align:right;"> 0.11\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Recordings - Audio/Visual </td>
-   <td style="text-align:right;"> 1,505 </td>
-   <td style="text-align:right;"> 0.10\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Computer Hardware/Software </td>
-   <td style="text-align:right;"> 1,494 </td>
-   <td style="text-align:right;"> 0.10\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Alcohol </td>
-   <td style="text-align:right;"> 1,433 </td>
-   <td style="text-align:right;"> 0.10\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Clothes/Furs </td>
-   <td style="text-align:right;"> 1,350 </td>
-   <td style="text-align:right;"> 0.09\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Household Goods </td>
-   <td style="text-align:right;"> 1,300 </td>
-   <td style="text-align:right;"> 0.09\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Explosives </td>
-   <td style="text-align:right;"> 1,267 </td>
-   <td style="text-align:right;"> 0.09\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Tools - Power/Hand </td>
-   <td style="text-align:right;"> 1,131 </td>
-   <td style="text-align:right;"> 0.08\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Nonnegotiable Instruments </td>
-   <td style="text-align:right;"> 1,106 </td>
-   <td style="text-align:right;"> 0.08\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Merchandise </td>
-   <td style="text-align:right;"> 525 </td>
-   <td style="text-align:right;"> 0.04\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Gambling Equipment </td>
-   <td style="text-align:right;"> 503 </td>
-   <td style="text-align:right;"> 0.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Radios/Tvs/Vcrs </td>
-   <td style="text-align:right;"> 467 </td>
-   <td style="text-align:right;"> 0.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Heavy Construction/Industrial Equipment </td>
-   <td style="text-align:right;"> 407 </td>
-   <td style="text-align:right;"> 0.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other Motor Vehicles </td>
-   <td style="text-align:right;"> 363 </td>
-   <td style="text-align:right;"> 0.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Jewelry/Precious Metals </td>
-   <td style="text-align:right;"> 358 </td>
-   <td style="text-align:right;"> 0.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Medical/Medical Lab Equipment </td>
-   <td style="text-align:right;"> 329 </td>
-   <td style="text-align:right;"> 0.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Trucks </td>
-   <td style="text-align:right;"> 274 </td>
-   <td style="text-align:right;"> 0.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Photographic/Optical Equipment </td>
-   <td style="text-align:right;"> 231 </td>
-   <td style="text-align:right;"> 0.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Identity - Intangible </td>
-   <td style="text-align:right;"> 217 </td>
-   <td style="text-align:right;"> 0.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Chemicals </td>
-   <td style="text-align:right;"> 181 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Bicycles </td>
-   <td style="text-align:right;"> 160 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Pending Inventory (Of Property) </td>
-   <td style="text-align:right;"> 142 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Camping/Hunting/Fishing Equipment/Supplies </td>
-   <td style="text-align:right;"> 96 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Collections/Collectibles </td>
-   <td style="text-align:right;"> 94 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Recreational/Sports Equipment </td>
-   <td style="text-align:right;"> 81 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Law Enforcement Equipment </td>
-   <td style="text-align:right;"> 68 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Metals, Non-Precious </td>
-   <td style="text-align:right;"> 54 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Farm Equipment </td>
-   <td style="text-align:right;"> 54 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Artistic Supplies/Accessories </td>
-   <td style="text-align:right;"> 53 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Building Materials </td>
-   <td style="text-align:right;"> 49 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Trailers </td>
-   <td style="text-align:right;"> 45 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Structures - Other </td>
-   <td style="text-align:right;"> 40 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Recreational Vehicles </td>
-   <td style="text-align:right;"> 34 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Crops </td>
-   <td style="text-align:right;"> 29 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Lawn/Yard/Garden Equipment </td>
-   <td style="text-align:right;"> 29 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fuel </td>
-   <td style="text-align:right;"> 23 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Structures - Storage </td>
-   <td style="text-align:right;"> 20 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Aircraft </td>
-   <td style="text-align:right;"> 17 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Musical Instruments </td>
-   <td style="text-align:right;"> 16 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Pets </td>
-   <td style="text-align:right;"> 11 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Aircraft Parts/Accessories </td>
-   <td style="text-align:right;"> 10 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Livestock </td>
-   <td style="text-align:right;"> 9 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Structures - Public/Community </td>
-   <td style="text-align:right;"> 8 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Structures - Commercial/Business </td>
-   <td style="text-align:right;"> 7 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Buses </td>
-   <td style="text-align:right;"> 6 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Watercraft Equipment/Parts/Accessories </td>
-   <td style="text-align:right;"> 6 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Structures - Industrial Manufacturing </td>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Structures - Single Occupancy Dwellings </td>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Logging Equipment </td>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Watercraft </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Structures - Other Dwellings </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Special Category </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:right;"> 1,439,363 </td>
-   <td style="text-align:right;"> 100\% </td>
-  </tr>
-</tbody>
-</table>
+
+
+Table: (\#tab:propertySeizedDescription)The number and percent of property seized by police (excludes recovering property that was stolen, for all offenses in 2022. Each incident can have multiple items seized.
+
+|Property                                   | # of Property Seized| % of Property Seized|
+|:------------------------------------------|--------------------:|--------------------:|
+|Drugs/Narcotics                            |              916,616|              63.68\%|
+|Drug/Narcotic Equipment                    |              391,785|              27.22\%|
+|Other                                      |               37,857|               2.63\%|
+|Money                                      |               21,762|               1.51\%|
+|Firearms                                   |               17,471|               1.21\%|
+|Portible Electronic Communications         |                7,798|               0.54\%|
+|Firearm Accessories                        |                4,740|               0.33\%|
+|Automobiles                                |                4,037|               0.28\%|
+|Documents - Personal Or Business           |                3,580|               0.25\%|
+|Identity Documents                         |                3,477|               0.24\%|
+|Purses/Handbags/Wallets                    |                2,852|               0.20\%|
+|Weapons - Other                            |                2,699|               0.19\%|
+|Credit/Debit Cards                         |                1,981|               0.14\%|
+|Consumable Goods                           |                1,954|               0.14\%|
+|Office-Type Equipment                      |                1,899|               0.13\%|
+|Vehicle Parts/Accessories                  |                1,712|               0.12\%|
+|Negotiable Instruments                     |                1,521|               0.11\%|
+|Recordings - Audio/Visual                  |                1,505|               0.10\%|
+|Computer Hardware/Software                 |                1,494|               0.10\%|
+|Alcohol                                    |                1,433|               0.10\%|
+|Clothes/Furs                               |                1,350|               0.09\%|
+|Household Goods                            |                1,300|               0.09\%|
+|Explosives                                 |                1,267|               0.09\%|
+|Tools - Power/Hand                         |                1,131|               0.08\%|
+|Nonnegotiable Instruments                  |                1,106|               0.08\%|
+|Merchandise                                |                  525|               0.04\%|
+|Gambling Equipment                         |                  503|               0.03\%|
+|Radios/Tvs/Vcrs                            |                  467|               0.03\%|
+|Heavy Construction/Industrial Equipment    |                  407|               0.03\%|
+|Other Motor Vehicles                       |                  363|               0.03\%|
+|Jewelry/Precious Metals                    |                  358|               0.02\%|
+|Medical/Medical Lab Equipment              |                  329|               0.02\%|
+|Trucks                                     |                  274|               0.02\%|
+|Photographic/Optical Equipment             |                  231|               0.02\%|
+|Identity - Intangible                      |                  217|               0.02\%|
+|Chemicals                                  |                  181|               0.01\%|
+|Bicycles                                   |                  160|               0.01\%|
+|Pending Inventory (Of Property)            |                  142|               0.01\%|
+|Camping/Hunting/Fishing Equipment/Supplies |                   96|               0.01\%|
+|Collections/Collectibles                   |                   94|               0.01\%|
+|Recreational/Sports Equipment              |                   81|               0.01\%|
+|Law Enforcement Equipment                  |                   68|               0.00\%|
+|Metals, Non-Precious                       |                   54|               0.00\%|
+|Farm Equipment                             |                   54|               0.00\%|
+|Artistic Supplies/Accessories              |                   53|               0.00\%|
+|Building Materials                         |                   49|               0.00\%|
+|Trailers                                   |                   45|               0.00\%|
+|Structures - Other                         |                   40|               0.00\%|
+|Recreational Vehicles                      |                   34|               0.00\%|
+|Crops                                      |                   29|               0.00\%|
+|Lawn/Yard/Garden Equipment                 |                   29|               0.00\%|
+|Fuel                                       |                   23|               0.00\%|
+|Structures - Storage                       |                   20|               0.00\%|
+|Aircraft                                   |                   17|               0.00\%|
+|Musical Instruments                        |                   16|               0.00\%|
+|Pets                                       |                   11|               0.00\%|
+|Aircraft Parts/Accessories                 |                   10|               0.00\%|
+|Livestock                                  |                    9|               0.00\%|
+|Structures - Public/Community              |                    8|               0.00\%|
+|Structures - Commercial/Business           |                    7|               0.00\%|
+|Buses                                      |                    6|               0.00\%|
+|Watercraft Equipment/Parts/Accessories     |                    6|               0.00\%|
+|Structures - Industrial Manufacturing      |                    4|               0.00\%|
+|Structures - Single Occupancy Dwellings    |                    4|               0.00\%|
+|Logging Equipment                          |                    4|               0.00\%|
+|Watercraft                                 |                    3|               0.00\%|
+|Structures - Other Dwellings               |                    3|               0.00\%|
+|Special Category                           |                    2|               0.00\%|
+|Total                                      |            1,439,363|                100\%|
 
 
 
@@ -800,108 +236,30 @@ The drugs in NIBRS are the "suspected drug types" which means that they are what
 
 Not too surprising, marijuana is the most common drug seized at 47% - or 455k incidents with it seized - of the data. This is followed by amphetamines/methamphetamines (including what we'd normally just call meth) at 20.7% and then heroin at 8.5%. Interestingly, cocaine and crack cocaine (which are always separate categories) both occur in 5.09% of drugs seized. Given the large disparity in sentences for these types of drugs, and that "crack wars" were a major purported cause of violent crime in the 1980s and 1990s, I expected crack cocaine to be much more common than normal cocaine. The remaining drug types are all less than 5% of drugs seized each and has some groupings of drug types (e.g. stimulants) rather than specific drug types (though some of these categories, such as LSD, are specific drugs). 
 
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:propertyDrugs)The number and percent of drugs seized by police by type of drug, for all drugs seized in 2022.</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Drug Type </th>
-   <th style="text-align:right;"> \# of Drugs </th>
-   <th style="text-align:right;"> \% of Drugs </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Marijuana </td>
-   <td style="text-align:right;"> 557,044 </td>
-   <td style="text-align:right;"> 44.09\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Amphetamines/Methamphetamines </td>
-   <td style="text-align:right;"> 301,759 </td>
-   <td style="text-align:right;"> 23.88\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other Narcotics: Codeine, Demerol, Dihydromorphinone Or Dilaudid, Hydrocodone Or Percodan, Methadone, Etc. </td>
-   <td style="text-align:right;"> 78,941 </td>
-   <td style="text-align:right;"> 6.25\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Cocaine (All Forms Except Crack) </td>
-   <td style="text-align:right;"> 73,157 </td>
-   <td style="text-align:right;"> 5.79\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Heroin </td>
-   <td style="text-align:right;"> 68,859 </td>
-   <td style="text-align:right;"> 5.45\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Crack Cocaine </td>
-   <td style="text-align:right;"> 64,853 </td>
-   <td style="text-align:right;"> 5.13\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other Drugs: Antidepressants (Elavil, Triavil, Tofranil, Etc.), Aromatic Hydrocarbons, Propoxyphene Or Darvon, Tranquilizers (Chlordiazepoxide Or Librium, Diazepam Or Valium, Etc.), Etc. </td>
-   <td style="text-align:right;"> 47,748 </td>
-   <td style="text-align:right;"> 3.78\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Unknown Type Drug </td>
-   <td style="text-align:right;"> 26,787 </td>
-   <td style="text-align:right;"> 2.12\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Opium </td>
-   <td style="text-align:right;"> 11,881 </td>
-   <td style="text-align:right;"> 0.94\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other Hallucinogrens: BMDA (White Acid), DMT, MDA, MDMA, Mescaline Or Peyote, Psilocybin, STP, Etc. </td>
-   <td style="text-align:right;"> 8,799 </td>
-   <td style="text-align:right;"> 0.70\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Hashish </td>
-   <td style="text-align:right;"> 6,963 </td>
-   <td style="text-align:right;"> 0.55\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other Depressants: Glutethimide Or Doriden, Methaqualone Or Quaalude, Pentazocine Or Talwin, Etc. </td>
-   <td style="text-align:right;"> 6,825 </td>
-   <td style="text-align:right;"> 0.54\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other Stimulants: Adipex, Fastine And Ionamin (Derivatives of Phentermine), Benzedrine, Didrex, Methylphenidate Or Ritalin, Phenmetrazine Or Preludin, Tenuate, Etc. </td>
-   <td style="text-align:right;"> 3,996 </td>
-   <td style="text-align:right;"> 0.32\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Barbiturates </td>
-   <td style="text-align:right;"> 1,582 </td>
-   <td style="text-align:right;"> 0.13\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> PCP </td>
-   <td style="text-align:right;"> 1,510 </td>
-   <td style="text-align:right;"> 0.12\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> LSD </td>
-   <td style="text-align:right;"> 1,461 </td>
-   <td style="text-align:right;"> 0.12\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Morphine </td>
-   <td style="text-align:right;"> 1,271 </td>
-   <td style="text-align:right;"> 0.10\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:right;"> 1,263,436 </td>
-   <td style="text-align:right;"> 100\% </td>
-  </tr>
-</tbody>
-</table>
+
+
+Table: (\#tab:propertyDrugs)The number and percent of drugs seized by police by type of drug, for all drugs seized in 2022.
+
+|Drug Type                                                                                                                                                                                  | \# of Drugs| \% of Drugs|
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------:|-----------:|
+|Marijuana                                                                                                                                                                                  |     557,044|     44.09\%|
+|Amphetamines/Methamphetamines                                                                                                                                                              |     301,759|     23.88\%|
+|Other Narcotics: Codeine, Demerol, Dihydromorphinone Or Dilaudid, Hydrocodone Or Percodan, Methadone, Etc.                                                                                 |      78,941|      6.25\%|
+|Cocaine (All Forms Except Crack)                                                                                                                                                           |      73,157|      5.79\%|
+|Heroin                                                                                                                                                                                     |      68,859|      5.45\%|
+|Crack Cocaine                                                                                                                                                                              |      64,853|      5.13\%|
+|Other Drugs: Antidepressants (Elavil, Triavil, Tofranil, Etc.), Aromatic Hydrocarbons, Propoxyphene Or Darvon, Tranquilizers (Chlordiazepoxide Or Librium, Diazepam Or Valium, Etc.), Etc. |      47,748|      3.78\%|
+|Unknown Type Drug                                                                                                                                                                          |      26,787|      2.12\%|
+|Opium                                                                                                                                                                                      |      11,881|      0.94\%|
+|Other Hallucinogrens: BMDA (White Acid), DMT, MDA, MDMA, Mescaline Or Peyote, Psilocybin, STP, Etc.                                                                                        |       8,799|      0.70\%|
+|Hashish                                                                                                                                                                                    |       6,963|      0.55\%|
+|Other Depressants: Glutethimide Or Doriden, Methaqualone Or Quaalude, Pentazocine Or Talwin, Etc.                                                                                          |       6,825|      0.54\%|
+|Other Stimulants: Adipex, Fastine And Ionamin (Derivatives of Phentermine), Benzedrine, Didrex, Methylphenidate Or Ritalin, Phenmetrazine Or Preludin, Tenuate, Etc.                       |       3,996|      0.32\%|
+|Barbiturates                                                                                                                                                                               |       1,582|      0.13\%|
+|PCP                                                                                                                                                                                        |       1,510|      0.12\%|
+|LSD                                                                                                                                                                                        |       1,461|      0.12\%|
+|Morphine                                                                                                                                                                                   |       1,271|      0.10\%|
+|Total                                                                                                                                                                                      |   1,263,436|       100\%|
 
 
 

@@ -389,19 +389,20 @@ The first variable we'll look at is the weapon used by each offender. Table \@re
 
 The most commonly used weapon is a handgun, which is used in nearly half of homicides. This is followed by a knife or other sharp weapon used to cut at almost 15% of homicides, and then by "firearm, type not stated" which is just a firearm where we don't know the exact type (it can include handguns) at 8.9% of homicides The fourth most common weapon is "personal weapons" at nearly 6% of homicides. "Personal weapons" is a weird term to mean that there was no weapon - the "weapon" was the offender who beat the victim to death. Shotguns are involved in almost 5% of homicides and all other weapons are involved in fewer than 5% of cases. In total there are 19 different weapons included though most are very uncommon. 
 
-```{r shrWeapon}
+```{r }
 temp <- make_frequency_table(shr %>% filter(offender_1_weapon != 35), "offender_1_weapon",
                              c("Weapon", "\\# of Incidents", "\\% of Incidents"))
 knitr::kable(temp, 
-             format = "html",
+           #  format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
              booktabs = TRUE, 
              longtable = TRUE,
              label = "shrWeapon",
-             caption = "The weapon used in a homicide incident, 1976-2022. In cases where there are multiple offenders, shows only the primary weapon for the first offender.",
-             escape = FALSE) %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             caption = "The weapon used in a homicide incident, 1976-2022. In cases where there are multiple offenders, shows only the primary weapon for the first offender."#,
+           #  escape = FALSE
+           ) #%>%
+ # kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 You may have noticed from the table that AR-15 isn't included. While AR-15 is the commonly discussed in the media and policy circles as a way to control gun violence, it isn't in a category by itself. Instead it is combined with other rifles in the "rifle" weapon group, and makes up about 3.6% of the weapons used by offender #1 in the data. 
 
@@ -455,7 +456,7 @@ An interesting and highly useful variable is the relationship between the first 
 
 The most common relationship, with about 28% of homicides, is that the police don't know the relationship. So there is a good deal of uncertainty in the relationship between victims and offenders. Next is that the victim is the offender's acquaintance at 19.7% or is a stranger at 15.3%. The next is "other - known to victim" which is similar to being an acquaintance at almost 5% of homicides. This is followed by the victim being the friend of the murderer at 3.6%. The 6th most common relationship, at 3.6% is that the victim is the wife of the offender, so she is murdered by her husband, and is the first familial relationship of this list. The remaining relationships all make up fewer than 3% of all homicides. 
 
-```{r shrRelationship}
+```{r }
 temp <- make_frequency_table(shr, "victim_1_relation_to_offender_1",
                              c("Relationship", "\\# of Incidents", "\\% of Incidents"))
 
@@ -496,15 +497,16 @@ temp <-
          everything())
 
 knitr::kable(temp, 
-             format = "html",
+          #   format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
              booktabs = TRUE, 
              longtable = TRUE,
              label = "shrRelationship",
              caption = "The relationship between the first victim and the first offender in a homicide incident, 1976-2022.",
-             escape = FALSE) %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+          #   escape = FALSE
+          ) #%>%
+  #kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 #### Homicide circumstance {#circumstance}
@@ -515,7 +517,7 @@ The felony type murders are simply ones where another crime occurred during the 
 
 The most common circumstances, accounting for 27.4%, 26.9%, and 12.5%, respectively, are "Unknown", "Other Arguments", and "Other Non-Felony Type - Not Specified." Since the data includes "Argument Over Money Or Property" as one category, the "Other Arguments" mean that it's an argument for a reason other than over money or property. The "Other Non-Felony Type" one does not mean that the murder did not occur alongside another crime, but also doesn't fall into the non-felony categories included. Robbery is the only remaining circumstance with more than 5% of murders, at 7.4%. 
 
-```{r shrCircumstance}
+```{r }
 shr$offender_1_circumstance[shr$offender_1_circumstance %in% "30"] <- "unknown"
 shr$offender_1_circumstance[shr$offender_1_circumstance %in% "circumstances undetermined"] <- "unknown"
 shr$offender_1_circumstance[shr$offender_1_circumstance %in% "circumstances undetermined"] <- "unknown"
@@ -562,15 +564,15 @@ temp <-
          Category,
          everything())
 knitr::kable(temp, 
-             format = "html",
+             #format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
              booktabs = TRUE, 
              longtable = TRUE,
-             escape = FALSE,
+            # escape = FALSE,
              label = "shrCircumstance",
-             caption = "The circumstance of the homicide for the first offender in a homicide incident.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             caption = "The circumstance of the homicide for the first offender in a homicide incident.")# %>%
+ # kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 #### Homicide subcircumstance
@@ -579,18 +581,19 @@ The "subcircumstance" just tells you more information about justifiable homicide
 
 This dataset is one source of information on how many people police kill each year. But it is a large undercount compared to other sources such as the Washington Post collection, so is not a very useful source of information on this topic. 
 
-```{r shrSubCircumstance}
+```{r }
 temp <- make_frequency_table(shr, "offender_1_subcircumstance",
                              c("Subcircumstance", "\\# of Incidents", "\\% of Incidents"))
 knitr::kable(temp, 
-             format = "html",
+            # format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
              booktabs = TRUE, 
              longtable = TRUE,
              label = "shrSubCircumstance",
-             caption = "The circumstance for the first offender in a homicide incident in cases where the offender is killed. This includes incidents where the only person who dies in the offender.",
-             escape = FALSE) %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             caption = "The circumstance for the first offender in a homicide incident in cases where the offender is killed. This includes incidents where the only person who dies in the offender."#,
+            # escape = FALSE
+            )# %>%
+  #kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 

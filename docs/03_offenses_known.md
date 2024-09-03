@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Offenses Known and Clearances by Arrest {#offensesKnown}
 
 
@@ -68,49 +73,20 @@ The FBI released a report [available here](https://ucr.fbi.gov/nibrs/2014/resour
 
 In Table \@ref(tab:nibrsHierarchy) I replicate the FBI's table using NIBRS 2022 data. Results are fairly close. Homicide and rape and unchanged; robbery and aggravated assault both increase by <1%; my count for theft and burglary are a bit smaller, and motor vehicle theft is almost triple the FBI's 2014 number. But these numbers are mostly consistent - particularly so for violent crime - and I expect the differences are just that 2014 and 2022 data are different. So using the Hierarchy Rule does undercount crime, but this is a small undercounting and is primarily led by property crime. Violent crime is only slightly undercounted. And compared to the number of crimes not counted because the victim doesn't reports it to the police, this is a very small share of crimes. 
 
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:nibrsHierarchy)The percent increase in reported crimes for each index crime if the Hierarchy Rule was not used, NIBRS 2022.</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Crime </th>
-   <th style="text-align:right;"> % increase without Hierarchy Rule </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Homicide </td>
-   <td style="text-align:right;"> 0.00 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Rape </td>
-   <td style="text-align:right;"> 0.03 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Robbery </td>
-   <td style="text-align:right;"> 0.54 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Aggravated Assault </td>
-   <td style="text-align:right;"> 0.82 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Burglary </td>
-   <td style="text-align:right;"> 1.57 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Theft </td>
-   <td style="text-align:right;"> 1.47 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Motor Vehicle Theft </td>
-   <td style="text-align:right;"> 7.92 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Arson </td>
-   <td style="text-align:right;"> 7.54 </td>
-  </tr>
-</tbody>
-</table>
+
+
+Table: (\#tab:nibrsHierarchy)The percent increase in reported crimes for each index crime if the Hierarchy Rule was not used, NIBRS 2022.
+
+|Crime               | % increase without Hierarchy Rule|
+|:-------------------|---------------------------------:|
+|Homicide            |                              0.00|
+|Rape                |                              0.03|
+|Robbery             |                              0.54|
+|Aggravated Assault  |                              0.82|
+|Burglary            |                              1.57|
+|Theft               |                              1.47|
+|Motor Vehicle Theft |                              7.92|
+|Arson               |                              7.54|
 
 
 
