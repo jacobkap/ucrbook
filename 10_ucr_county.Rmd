@@ -34,7 +34,7 @@ philly <- read_csv("data/jacobdkaplan.com_offenses_count_Philadelphia Police Dep
 danville <- read_csv("data/jacobdkaplan.com_offenses_count_Danville Police Dept_California.csv")
 ```
 
-SRS data is only available at the agency-level.^[Even for county-level agencies such as Sheriff's Offices, the data is only for crimes in that agency's jurisdiction. So the county sheriff reports crimes that they responded to but not crimes within the county that other agencies, such as a city police force, responded to.] This has caused a lot of problems for researchers because many variables from other datasets (e.g. CDC data, economic data) is primarily available at the county-level. Their solution to this problem is to aggregate the data to the county-level by summing all the agencies in a particular county.^[Because the county-level data imputes missing months, this dataset is *only* available at the annual-level, not at the monthly level.]
+SRS data is only available at the agency-level.^[Even for county-level agencies such as Sheriff's Offices, the data is only for crimes in that agency's jurisdiction. So the county sheriff reports crimes that they responded to but not crimes within the county that other agencies, such as a city police force, responded to.] This has caused a lot of problems for researchers because many variables from other datasets (e.g. CDC data, economic data) is primarily available at the county-level. Their solution to this problem is to aggregate the data to the county-level by summing all the agencies in a particular county.^[Because the county-level data imputes missing months, this dataset is only available at the annual-level, not at the monthly level.]
 
 More specifically, nearly all researchers who use this county-level data use the National Archive for Criminal Justice Data (NACJD)'s [datasets](https://www.icpsr.umich.edu/web/NACJD/series/57) which have done the aggregation themselves^[Full disclosure, I used to have my own version of this data available on openICPSR and followed NACJD's method. My reasoning was that people were using it anyways and I wanted to make sure that they knew the problem of the data, so I included the issues with this data in the documentation when downloading it. However, I decided that the data was more flawed than I originally thought so I took down the data.]. These are not official FBI datasets but "UCR staff were consulted in developing the new adjustment procedures".^[This chapter isn't a critique of NACJD, merely of a single dataset collection that they released using imputation methods from decades ago.] The "new" procedures is because NACJD changed their missing data imputation procedure starting with 1994 SRS data, and for this chapter I'll only focus on this "new" procedure. 
 
@@ -99,16 +99,17 @@ names(months_table) <- c("Months Reported",
                          "Percent Difference")
 
 
-knitr::kable(months_table, 
+kableExtra::kbl(months_table, 
             # format = "html",
              digits = 2, 
              align = c("l", "r", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
              label = "countyMonthsReportedDefinitions",
-             #escape = FALSE,
-             caption = "The number of months reported to the 2017 Offenses Known and Clearances by Arrest data using two definitions of months reported. The 'Last Month' definition is the preferred measure of months reported by both the FBI and researchers, though this overcounts months.") #%>%
-  #kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             escape = TRUE,
+             caption = "The number of months reported to the 2017 Offenses Known and Clearances by Arrest data using two definitions of months reported. The 'Last Month' definition is the preferred measure of months reported by both the FBI and researchers, though this overcounts months.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header")) %>%
+  column_spec(column = 1:ncol(months_table), width = "1in")
 
 ```
 
@@ -345,16 +346,17 @@ data <- philly %>%
          actual_murder) %>%
   get_replace_single_month("actual_murder", "Murders")
 
-knitr::kable(data, 
+kableExtra::kbl(data, 
             # format = "html",
              digits = 2, 
              align = c("l", "r", "r", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
-            # escape = FALSE,
+             escape = TRUE,
              label = "CountyPhillyMurders",
-             caption = "The imputed number of murders in Philadelphia in 2022 when missing a single month. This shows how different the imputed value is to the real value for each month missing.")# %>%
-#  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             caption = "The imputed number of murders in Philadelphia in 2022 when missing a single month. This shows how different the imputed value is to the real value for each month missing.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))# %>%
+ # column_spec(column = 1:ncol(data), width = "0.65in")
 
 ```
 
@@ -369,16 +371,17 @@ data <- philly %>%
          actual_theft_total) %>%
   get_replace_single_month("actual_theft_total", "Thefts")
 
-knitr::kable(data, 
+kableExtra::kbl(data, 
             # format = "html",
              digits = 2, 
              align = c("l", "r", "r", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
-           #  escape = FALSE,
+            escape = TRUE,
              label = "countyPhillyThefts",
-             caption = "The imputed number of thefts in Philadelphia in 2022 when missing a single month. This shows how different the imputed value is to the real value for each month missing.") #%>%
-#  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             caption = "The imputed number of thefts in Philadelphia in 2022 when missing a single month. This shows how different the imputed value is to the real value for each month missing.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header")) #%>%
+ # column_spec(column = 1:ncol(data), width = "0.65in")
 
 ```
 
@@ -394,16 +397,17 @@ data <- danville %>%
   get_replace_single_month("actual_mtr_veh_theft_total", "Vehicle Thefts")
 
 
-knitr::kable(data, 
+kableExtra::kbl(data, 
             # format = "html",
              digits = 2, 
              align = c("l", "r", "r", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
-            # escape = FALSE,
+             escape = TRUE,
              label = "countyDanvilleVehicle",
-             caption = "The imputed number of motor vehicle thefts in Danville, California, in 2022 when missing a single month. This shows how different the imputed value is to the real value for each month missing.")# %>%
- # kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             caption = "The imputed number of motor vehicle thefts in Danville, California, in 2022 when missing a single month. This shows how different the imputed value is to the real value for each month missing.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))# %>%
+ # column_spec(column = 1:ncol(data), width = "0.65in")
 
 ```
 
@@ -422,16 +426,17 @@ philly %>%
   select(month,
          actual_murder) %>%
   get_average_months_missing_simulation(variable = "actual_murder") %>%
-knitr::kable(
+kableExtra::kbl(
   #format = "html",
              digits = 2, 
              align = c("l", "r", "r", "r", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
-            # escape = FALSE,
+             escape = TRUE,
              label = "countyPhillyMurderMonthsMissing",
-             caption = "A simulation showing how the imputed values of murders in Philadelphia in 2022 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run removing and imputing those months of data.") #%>%
- # kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             caption = "A simulation showing how the imputed values of murders in Philadelphia in 2022 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run removing and imputing those months of data.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))# %>%
+#  column_spec(column = 1:ncol(data), width = "0.65in")
 ```
 
 This problem is even more pronounced when looking at agencies with fewer crimes and less evenly distributed crimes. Table \@ref(tab:countyDanvilleBurglaryMonthsMissing) repeats the above table but now looks at motor vehicle thefts in Danville, California. By the time 5 months are missing, the minimum value is nearly half of the actual value while the maximum value is a little under 50% larger than the actual value. By 9 months missing, possible imputed values range from 0% of the actual value to over twice as large as the actual value.
@@ -444,16 +449,16 @@ danville %>%
   select(month,
          actual_mtr_veh_theft_total) %>%
   get_average_months_missing_simulation(variable = "actual_mtr_veh_theft_total") %>%
-knitr::kable(
+kableExtra::kbl(
   #format = "html",
              digits = 2, 
              align = c("l", "r", "r", "r", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
-            # escape = FALSE,
+             escape = TRUE,
              label = "countyDanvilleBurglaryMonthsMissing",
-             caption = "A simulation showing how the imputed values of motor vehicle thefts in Danville, California, in 2022 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run for removing and imputing those months of data.") #%>%
-#  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             caption = "A simulation showing how the imputed values of motor vehicle thefts in Danville, California, in 2022 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run for removing and imputing those months of data.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 ```{r }
@@ -464,16 +469,18 @@ danville %>%
   select(month,
          actual_murder) %>%
   get_average_months_missing_simulation(variable = "actual_murder") %>%
-knitr::kable(
+kableExtra::kbl(
   #format = "html",
              digits = 2, 
              align = c("l", "r", "r", "r", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
              label = "countyMurderMonthsMissing",
-            # escape = FALSE,
-             caption = "A simulation showing how the imputed values of murder in Danville, California, in 2019 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run for removing and imputing those months of data.") #%>%
- # kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             escape = TRUE,
+             caption = "A simulation showing how the imputed values of murder in Danville, California, in 2019 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run for removing and imputing those months of data.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))# %>%
+#  column_spec(column = 1:ncol(data), width = "0.65in")
+
 ```
 
 ### 10-12 months missing
@@ -524,16 +531,18 @@ data <-
          last_month_reported %in% "december")
 final <- get_murder_by_pop_group(data)
 
-knitr::kable(final, 
+kableExtra::kbl(final, 
              #format = "html",
              digits = 2, 
              align = c("l", "r", "r", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
              label = "countyPopulationGroupStatsNational",
-           #  escape = FALSE,
-             caption = "The mean, median, minimum, and maximum agency-level murder count nationwide for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.")# %>%
-  #kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             escape = TRUE,
+             caption = "The mean, median, minimum, and maximum agency-level murder count nationwide for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))# %>%
+ # column_spec(column = 1, width = "1.6in") %>%
+ # column_spec(column = 2:ncol(data), width = "0.65in")
 ```
 
 ```{r }
@@ -544,16 +553,18 @@ data <-
         !is.na(population_group),
          last_month_reported %in% "december")
 final <- get_murder_by_pop_group(data)
-knitr::kable(final, 
+kableExtra::kbl(final, 
             # format = "html",
              digits = 2, 
              align = c("l", "r", "r", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
              label = "countyPopulationGroupStats",
-            # escape = FALSE,
-             caption = "The mean, median, minimum, 90th percentile, and maximum agency-level murder count nationwide for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.") #%>%
- # kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             escape = TRUE,
+             caption = "The mean, median, minimum, 90th percentile, and maximum agency-level murder count nationwide for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))# %>%
+#  column_spec(column = 1, width = "1.6in") %>%
+#  column_spec(column = 2:ncol(data), width = "0.65in")
 ```
 
 Since the actual imputation process looks only at agencies in the same state, we'll look at two example states - Texas and Maine - and see how trends differ from nationally. These states are chosen as Texas is a very large (both in population and in number of jurisdictions) state with some areas of high crime while Maine is a small, more rural state with very low crime. Table \@ref(tab:countyPopulationGroupStatsTexas) shows results in Texas. Here, the findings are very similar to that of Table \@ref(tab:countyPopulationGroupStatsNational). While the numbers are different, and the maximum value is substantially smaller than using all agencies in the country, the basic findings of a wide range of values - especially at larger population groups - is the same.
@@ -567,16 +578,18 @@ data <-
          state == "texas",
          last_month_reported %in% "december")
 final <- get_murder_by_pop_group(data)
-knitr::kable(final, 
+kableExtra::kbl(final, 
             # format = "html",
              digits = 2, 
              align = c("l", "r", "r", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
-            # escape = FALSE,
+             escape = TRUE,
              label = "countyPopulationGroupStatsTexas",
-             caption = "The mean, median, minimum, 90th percentile, and maximum agency-level murder count in Texas for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.")# %>%
-  #kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             caption = "The mean, median, minimum, 90th percentile, and maximum agency-level murder count in Texas for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))# %>%
+ # column_spec(column = 1, width = "1.6in") %>%
+ # column_spec(column = 2:ncol(data), width = "0.65in")
 ```
 
 Now we'll look at data from Maine, as shown in Table \@ref(tab:countyPopulationGroupStatsMaine). Here, results are much better: there is a narrow range in values meaning that the imputation would be very similar to the real values. This is driven mainly by Maine being a tiny state, with only one city larger than 50,000 people (Portland) and Maine being an extremely safe state so most places have zero murders+gun-assaults. In cases like this, where both crime and population size are consistent across the state (which is generally caused by everywhere having low crime), this imputation process can work well.
@@ -591,14 +604,16 @@ data <-
          last_month_reported %in% "december")
 final <- get_murder_by_pop_group(data)
 
-knitr::kable(final, 
-            # format = "html",
+kableExtra::kbl(final, 
+           #  format = "latex",
              digits = 2, 
-             align = c("l", "r", "r", "r"),
-             booktabs = TRUE, 
-             longtable = TRUE,
-          #   escape = FALSE,
+             align = c("l", "r", "r", "r", "r", "r"),
+           #  #booktabs = TRUE, 
+             escape = TRUE,
+           longtable = TRUE,
              label = "countyPopulationGroupStatsMaine",
-             caption = "The mean, median, minimum, 90th percentile, and maximum agency-level murder count in Maine for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.")# %>%
- # kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             caption = "The mean, median, minimum, 90th percentile, and maximum agency-level murder count in Maine for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))# %>%
+ # column_spec(column = 1, width = "1.6in") %>%
+ # column_spec(column = 2:ncol(data), width = "0.65in")
 ```

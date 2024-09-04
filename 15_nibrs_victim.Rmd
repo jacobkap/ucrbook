@@ -32,16 +32,16 @@ temp <- make_frequency_table(victim,
                              c("Crime Category",
                                "\\# of Victims",
                                "\\% of Victims"))
-knitr::kable(temp, 
+kableExtra::kbl(temp, 
              #format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              label = "victimCrimeCategory",
              longtable = TRUE,
-         #    escape = FALSE,
-             caption = "The number and percent of crimes committed against each victim. For victims with multiple crimes committed against them, this shows the most serious crime.")# %>%
- # kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             escape = TRUE,
+             caption = "The number and percent of crimes committed against each victim. For victims with multiple crimes committed against them, this shows the most serious crime.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 ## Victim type
@@ -116,16 +116,16 @@ temp <- make_frequency_table(victim,
                              c("Crime Category",
                                "\\# of Victims",
                                "\\% of Victims"))
-knitr::kable(temp, 
+kableExtra::kbl(temp, 
             # format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
              label = "victimRelationship",
-           #  escape = FALSE,
-             caption = "The distribution of the relationship between the victim and the offender. Only individual and law enforcement officer victims have this variable available.")# %>%
- # kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             escape = TRUE,
+             caption = "The distribution of the relationship between the victim and the offender. Only individual and law enforcement officer victims have this variable available.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 We also know the relationship between victim and offender when the victim is a law enforcement officer. As shown in Table \@ref(tab:victimRelationshipPolice), most of the time the officer didn't know the offender, with 58.9% of victimizations being this relationship type. This is followed by 18.7% where the officer knew the offender, including if they were familiar with the person by arresting or stopping them previously. In about 18.5% we don't know the relationship as it is unknown and in 3.2% the officer and the offender were acquaintances. There are also a number of unlikely (and some impossible) relationships like the three in which the officer was the offender's child and the one in which the officer was a baby who was abused by their babysitter. These seem to be clear indications that there are some data errors with this variable. 
@@ -138,16 +138,16 @@ temp <-
                        c("Crime Category",
                          "\\# of Victims",
                          "\\% of Victims"))
-knitr::kable(temp, 
+kableExtra::kbl(temp, 
             # format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
              label = "victimRelationshipPolice",
-           #  escape = FALSE,
-             caption = "The distribution of the relationship between the victim and the offender for law enforcement officer victims.")# %>%
- # kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             escape = TRUE,
+             caption = "The distribution of the relationship between the victim and the offender for law enforcement officer victims.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 ## Aggravated assault and homicide circumstances
@@ -178,16 +178,16 @@ temp <-
 names(temp)[1] <- "Circumstance"
 names(temp)[2] <- "Crime Category"
 
-knitr::kable(temp, 
+kableExtra::kbl(temp, 
           #   format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
-           #  escape = FALSE,
+             escape = TRUE,
              label = "victimAggAssault",
-             caption = "The distribution of circumstances for aggravated assault and homicides.")# %>%
- # kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             caption = "The distribution of circumstances for aggravated assault and homicides.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 ## Justifiable homicide circumstance

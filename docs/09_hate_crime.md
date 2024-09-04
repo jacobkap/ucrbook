@@ -104,47 +104,229 @@ In the FBI data Bias motivation is based on the offender's perceptions of the vi
 
 The biases that the FBI includes in this data has grown over time, with new bias motivations being added in 1997, 2012, 2013, and 2015. Table \@ref(tab:hateBiasMotivation) shows each bias motivation in this data, the year it was first reported, how many hate crimes there were for this bias motivation from 1991-2022 and what percent of hate crimes that bias motivation makes up. For ease of seeing the most common biases, the table is sorted by frequency of incidents. The year is the first year with that bias motivation - as hate crimes for certain groups are very rare, the bias motivation could have technically been available in previous years. The last column in this table shows the percent of hate crime incidents from 1991-2022, though this is a very rough measure since some groups are so small that even accounting for a small percent of total hate crimes can mean that are massively disproportionately targeted. 
 
-
-
-Table: (\#tab:hateBiasMotivation)The bias motivation for hate crime incidents. In incidents with multiple bias motivation, this shows only the first bias motivation recorded.
-
-|Bias Motivation                                                 | First Year Reported| # of Incidents|% of Incidents |
-|:---------------------------------------------------------------|-------------------:|--------------:|:--------------|
-|Total                                                           |                    |        240,108|100\%          |
-|Anti-Black                                                      |                1991|         81,208|33.82\%        |
-|Anti-Jewish                                                     |                1991|         29,967|12.48\%        |
-|Anti-White                                                      |                1991|         27,360|11.39\%        |
-|Anti-Male Homosexual (Gay)                                      |                1991|         23,862|9.94\%         |
-|Anti-Hispanic                                                   |                1991|         15,397|6.41\%         |
-|Anti-Ethnicity Other Than Hispanic                              |                1991|         11,498|4.79\%         |
-|Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (LGBT) |                1991|          7,815|3.25\%         |
-|Anti-Asian                                                      |                1991|          7,671|3.19\%         |
-|Anti-Multi-Racial Group                                         |                1991|          5,652|2.35\%         |
-|Anti-Female Homosexual (Lesbian)                                |                1991|          4,876|2.03\%         |
-|Anti-Muslim                                                     |                1991|          4,206|1.75\%         |
-|Anti-Other Religion                                             |                1991|          3,621|1.51\%         |
-|Anti-American Indian Or Native Alaskan                          |                1991|          2,781|1.16\%         |
-|Anti-Catholic                                                   |                1991|          1,819|0.76\%         |
-|Anti-Arab                                                       |                1991|          1,510|0.63\%         |
-|Anti-Transgender                                                |                2013|          1,500|0.62\%         |
-|Anti-Protestant                                                 |                1991|          1,361|0.57\%         |
-|Anti-Mental Disability                                          |                1997|          1,333|0.56\%         |
-|Anti-Multi-Religious Group                                      |                1991|          1,314|0.55\%         |
-|Anti-Physical Disability                                        |                1997|            752|0.31\%         |
-|Anti-Sikh                                                       |                2015|            673|0.28\%         |
-|Anti-Bisexual                                                   |                1991|            652|0.27\%         |
-|Anti-Heterosexual                                               |                1991|            615|0.26\%         |
-|Anti-Gender Non-Conforming                                      |                2012|            514|0.21\%         |
-|Anti-Female                                                     |                2012|            443|0.18\%         |
-|Anti-Other Christian                                            |                2015|            403|0.17\%         |
-|Anti-Eastern Orthodox (Greek, Russian, Etc.)                    |                2015|            388|0.16\%         |
-|Anti-Atheism/Agnosticism                                        |                1991|            201|0.08\%         |
-|Anti-Native Hawaiian Or Other Pacific Islander                  |                2013|            184|0.08\%         |
-|Anti-Male                                                       |                2013|            171|0.07\%         |
-|Anti-Mormon                                                     |                2015|            106|0.04\%         |
-|Anti-Hindu                                                      |                2015|            103|0.04\%         |
-|Anti-Buddhist                                                   |                2015|            101|0.04\%         |
-|Anti-Jehovahs Witness                                           |                2015|             51|0.02\%         |
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:hateBiasMotivation)The bias motivation for hate crime incidents. In incidents with multiple bias motivation, this shows only the first bias motivation recorded.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Bias Motivation </th>
+   <th style="text-align:right;"> First Year Reported </th>
+   <th style="text-align:right;"> # of Incidents </th>
+   <th style="text-align:left;"> % of Incidents </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;"> 240,108 </td>
+   <td style="text-align:left;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 81,208 </td>
+   <td style="text-align:left;"> 33.82\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Jewish </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 29,967 </td>
+   <td style="text-align:left;"> 12.48\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 27,360 </td>
+   <td style="text-align:left;"> 11.39\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Male Homosexual (Gay) </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 23,862 </td>
+   <td style="text-align:left;"> 9.94\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Hispanic </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 15,397 </td>
+   <td style="text-align:left;"> 6.41\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Ethnicity Other Than Hispanic </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 11,498 </td>
+   <td style="text-align:left;"> 4.79\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (LGBT) </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 7,815 </td>
+   <td style="text-align:left;"> 3.25\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Asian </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 7,671 </td>
+   <td style="text-align:left;"> 3.19\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Multi-Racial Group </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 5,652 </td>
+   <td style="text-align:left;"> 2.35\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Female Homosexual (Lesbian) </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 4,876 </td>
+   <td style="text-align:left;"> 2.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Muslim </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 4,206 </td>
+   <td style="text-align:left;"> 1.75\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Other Religion </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 3,621 </td>
+   <td style="text-align:left;"> 1.51\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 2,781 </td>
+   <td style="text-align:left;"> 1.16\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Catholic </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 1,819 </td>
+   <td style="text-align:left;"> 0.76\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Arab </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 1,510 </td>
+   <td style="text-align:left;"> 0.63\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Transgender </td>
+   <td style="text-align:right;"> 2013 </td>
+   <td style="text-align:right;"> 1,500 </td>
+   <td style="text-align:left;"> 0.62\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Protestant </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 1,361 </td>
+   <td style="text-align:left;"> 0.57\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Mental Disability </td>
+   <td style="text-align:right;"> 1997 </td>
+   <td style="text-align:right;"> 1,333 </td>
+   <td style="text-align:left;"> 0.56\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Multi-Religious Group </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 1,314 </td>
+   <td style="text-align:left;"> 0.55\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Physical Disability </td>
+   <td style="text-align:right;"> 1997 </td>
+   <td style="text-align:right;"> 752 </td>
+   <td style="text-align:left;"> 0.31\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Sikh </td>
+   <td style="text-align:right;"> 2015 </td>
+   <td style="text-align:right;"> 673 </td>
+   <td style="text-align:left;"> 0.28\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Bisexual </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 652 </td>
+   <td style="text-align:left;"> 0.27\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Heterosexual </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 615 </td>
+   <td style="text-align:left;"> 0.26\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Gender Non-Conforming </td>
+   <td style="text-align:right;"> 2012 </td>
+   <td style="text-align:right;"> 514 </td>
+   <td style="text-align:left;"> 0.21\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Female </td>
+   <td style="text-align:right;"> 2012 </td>
+   <td style="text-align:right;"> 443 </td>
+   <td style="text-align:left;"> 0.18\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Other Christian </td>
+   <td style="text-align:right;"> 2015 </td>
+   <td style="text-align:right;"> 403 </td>
+   <td style="text-align:left;"> 0.17\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Eastern Orthodox (Greek, Russian, Etc.) </td>
+   <td style="text-align:right;"> 2015 </td>
+   <td style="text-align:right;"> 388 </td>
+   <td style="text-align:left;"> 0.16\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Atheism/Agnosticism </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 201 </td>
+   <td style="text-align:left;"> 0.08\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Native Hawaiian Or Other Pacific Islander </td>
+   <td style="text-align:right;"> 2013 </td>
+   <td style="text-align:right;"> 184 </td>
+   <td style="text-align:left;"> 0.08\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Male </td>
+   <td style="text-align:right;"> 2013 </td>
+   <td style="text-align:right;"> 171 </td>
+   <td style="text-align:left;"> 0.07\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Mormon </td>
+   <td style="text-align:right;"> 2015 </td>
+   <td style="text-align:right;"> 106 </td>
+   <td style="text-align:left;"> 0.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Hindu </td>
+   <td style="text-align:right;"> 2015 </td>
+   <td style="text-align:right;"> 103 </td>
+   <td style="text-align:left;"> 0.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Buddhist </td>
+   <td style="text-align:right;"> 2015 </td>
+   <td style="text-align:right;"> 101 </td>
+   <td style="text-align:left;"> 0.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Jehovahs Witness </td>
+   <td style="text-align:right;"> 2015 </td>
+   <td style="text-align:right;"> 51 </td>
+   <td style="text-align:left;"> 0.02\% </td>
+  </tr>
+</tbody>
+</table>
 
 
 
@@ -158,60 +340,307 @@ The "crime" part of hate crimes is which criminal offense occurred during the in
 
 Nearly all hate crimes are vandalism/destruction of property (30%), intimidation (30%), and simple assault (20%) or aggravated assault (11%) with no remaining crime making up more than 2% of total hate crimes. 
 
-
-
-Table: (\#tab:hateOffense)The offense type for hate crime incidents. In incidents with multiple offense types, this shows only the first offense type recorded.
-
-|Offense                                             | First Year Reported| # of Incidents|% of Incidents |
-|:---------------------------------------------------|-------------------:|--------------:|:--------------|
-|Total                                               |                    |        240,108|100\%          |
-|Destruction of Property/Vandalism                   |                1991|         72,489|30.19\%        |
-|Intimidation                                        |                1991|         71,583|29.81\%        |
-|Simple Assault                                      |                1991|         47,917|19.96\%        |
-|Aggravated Assault                                  |                1991|         26,879|11.19\%        |
-|Robbery                                             |                1991|          4,339|1.81\%         |
-|Burglary/Breaking And Entering                      |                1991|          3,890|1.62\%         |
-|All Other Larceny                                   |                1993|          2,584|1.08\%         |
-|Arson                                               |                1991|          1,456|0.61\%         |
-|Drug/Narcotic Violations                            |                1993|          1,380|0.57\%         |
-|Theft-Other                                         |                1991|            917|0.38\%         |
-|Theft From Motor Vehicle                            |                1993|            884|0.37\%         |
-|Shoplifting                                         |                1993|            771|0.32\%         |
-|Theft From Building                                 |                1994|            617|0.26\%         |
-|Motor Vehicle Theft                                 |                1992|            577|0.24\%         |
-|Weapon Law Violations                               |                1993|            469|0.20\%         |
-|Drug Equipment Violations                           |                1995|            391|0.16\%         |
-|False Pretenses/Swindle/Confidence Game             |                1997|            353|0.15\%         |
-|Murder/Non-Negligent Manslaughter                   |                1991|            330|0.14\%         |
-|Forcible Rape                                       |                1991|            314|0.13\%         |
-|Theft of Motor Vehicle Parts/Accessories            |                1993|            249|0.10\%         |
-|Counterfeiting/Forgery                              |                1993|            245|0.10\%         |
-|Forcible Fondling - Indecent Liberties/Child Molest |                1993|            225|0.09\%         |
-|Credit Card/Atm Fraud                               |                1995|            182|0.08\%         |
-|Impersonation                                       |                2001|            152|0.06\%         |
-|Kidnapping/Abduction                                |                1994|            152|0.06\%         |
-|Stolen Property Offenses - Receiving, Selling, Etc. |                1996|            140|0.06\%         |
-|Fraud-Other                                         |                2016|            103|0.04\%         |
-|Forcible Sodomy                                     |                1995|             82|0.03\%         |
-|Pornography/Obscene Material                        |                1995|             81|0.03\%         |
-|Embezzlement                                        |                1995|             66|0.03\%         |
-|Extortion/Blackmail                                 |                1997|             62|0.03\%         |
-|Sexual Assault With An Object                       |                1996|             41|0.02\%         |
-|Purse-Snatching                                     |                1995|             29|0.01\%         |
-|Pocket-Picking                                      |                1996|             28|0.01\%         |
-|Wire Fraud                                          |                2006|             26|0.01\%         |
-|Statutory Rape                                      |                1999|             21|0.01\%         |
-|Theft From Coin-Operated Machine Or Device          |                1999|             16|0.01\%         |
-|Unknown                                             |                2018|             15|0.01\%         |
-|Prostitution                                        |                2001|             14|0.01\%         |
-|Negligent Manslaughter                              |                1999|              8|0.00\%         |
-|Welfare Fraud                                       |                1996|              8|0.00\%         |
-|Incest                                              |                1997|              7|0.00\%         |
-|Assisting Or Promoting Prostitution                 |                2013|              5|0.00\%         |
-|Human Trafficking - Commercial Sex Acts             |                2017|              4|0.00\%         |
-|Bribery                                             |                2014|              4|0.00\%         |
-|Purchasing Prostitution                             |                2013|              2|0.00\%         |
-|Human Trafficking - Involuntary Servitude           |                2021|              1|0.00\%         |
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:hateOffense)The offense type for hate crime incidents. In incidents with multiple offense types, this shows only the first offense type recorded.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Offense </th>
+   <th style="text-align:right;"> First Year Reported </th>
+   <th style="text-align:right;"> # of Incidents </th>
+   <th style="text-align:left;"> % of Incidents </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;"> 240,108 </td>
+   <td style="text-align:left;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Destruction of Property/Vandalism </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 72,489 </td>
+   <td style="text-align:left;"> 30.19\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Intimidation </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 71,583 </td>
+   <td style="text-align:left;"> 29.81\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Simple Assault </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 47,917 </td>
+   <td style="text-align:left;"> 19.96\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Aggravated Assault </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 26,879 </td>
+   <td style="text-align:left;"> 11.19\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 4,339 </td>
+   <td style="text-align:left;"> 1.81\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 3,890 </td>
+   <td style="text-align:left;"> 1.62\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> All Other Larceny </td>
+   <td style="text-align:right;"> 1993 </td>
+   <td style="text-align:right;"> 2,584 </td>
+   <td style="text-align:left;"> 1.08\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arson </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 1,456 </td>
+   <td style="text-align:left;"> 0.61\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Drug/Narcotic Violations </td>
+   <td style="text-align:right;"> 1993 </td>
+   <td style="text-align:right;"> 1,380 </td>
+   <td style="text-align:left;"> 0.57\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Theft-Other </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 917 </td>
+   <td style="text-align:left;"> 0.38\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Theft From Motor Vehicle </td>
+   <td style="text-align:right;"> 1993 </td>
+   <td style="text-align:right;"> 884 </td>
+   <td style="text-align:left;"> 0.37\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Shoplifting </td>
+   <td style="text-align:right;"> 1993 </td>
+   <td style="text-align:right;"> 771 </td>
+   <td style="text-align:left;"> 0.32\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Theft From Building </td>
+   <td style="text-align:right;"> 1994 </td>
+   <td style="text-align:right;"> 617 </td>
+   <td style="text-align:left;"> 0.26\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Motor Vehicle Theft </td>
+   <td style="text-align:right;"> 1992 </td>
+   <td style="text-align:right;"> 577 </td>
+   <td style="text-align:left;"> 0.24\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Weapon Law Violations </td>
+   <td style="text-align:right;"> 1993 </td>
+   <td style="text-align:right;"> 469 </td>
+   <td style="text-align:left;"> 0.20\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Drug Equipment Violations </td>
+   <td style="text-align:right;"> 1995 </td>
+   <td style="text-align:right;"> 391 </td>
+   <td style="text-align:left;"> 0.16\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> False Pretenses/Swindle/Confidence Game </td>
+   <td style="text-align:right;"> 1997 </td>
+   <td style="text-align:right;"> 353 </td>
+   <td style="text-align:left;"> 0.15\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Murder/Non-Negligent Manslaughter </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 330 </td>
+   <td style="text-align:left;"> 0.14\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Forcible Rape </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 314 </td>
+   <td style="text-align:left;"> 0.13\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Theft of Motor Vehicle Parts/Accessories </td>
+   <td style="text-align:right;"> 1993 </td>
+   <td style="text-align:right;"> 249 </td>
+   <td style="text-align:left;"> 0.10\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Counterfeiting/Forgery </td>
+   <td style="text-align:right;"> 1993 </td>
+   <td style="text-align:right;"> 245 </td>
+   <td style="text-align:left;"> 0.10\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Forcible Fondling - Indecent Liberties/Child Molest </td>
+   <td style="text-align:right;"> 1993 </td>
+   <td style="text-align:right;"> 225 </td>
+   <td style="text-align:left;"> 0.09\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Credit Card/Atm Fraud </td>
+   <td style="text-align:right;"> 1995 </td>
+   <td style="text-align:right;"> 182 </td>
+   <td style="text-align:left;"> 0.08\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Impersonation </td>
+   <td style="text-align:right;"> 2001 </td>
+   <td style="text-align:right;"> 152 </td>
+   <td style="text-align:left;"> 0.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Kidnapping/Abduction </td>
+   <td style="text-align:right;"> 1994 </td>
+   <td style="text-align:right;"> 152 </td>
+   <td style="text-align:left;"> 0.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Stolen Property Offenses - Receiving, Selling, Etc. </td>
+   <td style="text-align:right;"> 1996 </td>
+   <td style="text-align:right;"> 140 </td>
+   <td style="text-align:left;"> 0.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud-Other </td>
+   <td style="text-align:right;"> 2016 </td>
+   <td style="text-align:right;"> 103 </td>
+   <td style="text-align:left;"> 0.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Forcible Sodomy </td>
+   <td style="text-align:right;"> 1995 </td>
+   <td style="text-align:right;"> 82 </td>
+   <td style="text-align:left;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pornography/Obscene Material </td>
+   <td style="text-align:right;"> 1995 </td>
+   <td style="text-align:right;"> 81 </td>
+   <td style="text-align:left;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Embezzlement </td>
+   <td style="text-align:right;"> 1995 </td>
+   <td style="text-align:right;"> 66 </td>
+   <td style="text-align:left;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Extortion/Blackmail </td>
+   <td style="text-align:right;"> 1997 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:left;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sexual Assault With An Object </td>
+   <td style="text-align:right;"> 1996 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:left;"> 0.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Purse-Snatching </td>
+   <td style="text-align:right;"> 1995 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pocket-Picking </td>
+   <td style="text-align:right;"> 1996 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Wire Fraud </td>
+   <td style="text-align:right;"> 2006 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Statutory Rape </td>
+   <td style="text-align:right;"> 1999 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Theft From Coin-Operated Machine Or Device </td>
+   <td style="text-align:right;"> 1999 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Unknown </td>
+   <td style="text-align:right;"> 2018 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Prostitution </td>
+   <td style="text-align:right;"> 2001 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Negligent Manslaughter </td>
+   <td style="text-align:right;"> 1999 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Welfare Fraud </td>
+   <td style="text-align:right;"> 1996 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Incest </td>
+   <td style="text-align:right;"> 1997 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Assisting Or Promoting Prostitution </td>
+   <td style="text-align:right;"> 2013 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Human Trafficking - Commercial Sex Acts </td>
+   <td style="text-align:right;"> 2017 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bribery </td>
+   <td style="text-align:right;"> 2014 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Purchasing Prostitution </td>
+   <td style="text-align:right;"> 2013 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Human Trafficking - Involuntary Servitude </td>
+   <td style="text-align:right;"> 2021 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+</tbody>
+</table>
 
 
 
@@ -223,58 +652,295 @@ This data is interesting because it includes the location - in categories for ty
 
 As with the crime and the bias motivation, the available locations have increased as time went on, though these newer locations are relatively uncommon. One important change in location is that starting in 2010 the location of school/college was split to have one location be for elementary and high schools and another location be for colleges and universities. The majority of hate crimes occur in the victim's home (30%), on a road or alley (19%), in an other or unknown location (13%), and in a parking lot or parking garage (6%). All other locations occur in fewer than 5% of hate crimes. 
 
-
-
-Table: (\#tab:hateLocations)The location of hate crime incidents. In incidents with multiple locations, this shows only the first location recorded.
-
-|Location                            | First Year Reported| # of Incidents|% of Incidents |
-|:-----------------------------------|-------------------:|--------------:|:--------------|
-|Total                               |                    |        239,665|100\%          |
-|Residence/Home                      |                1991|         70,736|29.51\%        |
-|Highway/Road/Alley                  |                1991|         45,004|18.78\%        |
-|Other/Unknown                       |                1991|         31,218|13.03\%        |
-|School/College                      |                1991|         17,550|7.32\%         |
-|Parking Lot/Garage                  |                1991|         13,786|5.75\%         |
-|Church/Synagogue/Temple             |                1991|          8,926|3.72\%         |
-|Commercial/Office Building          |                1991|          5,403|2.25\%         |
-|Restaurant                          |                1991|          5,099|2.13\%         |
-|Bar/Nightclub                       |                1991|          4,088|1.71\%         |
-|School - Elementary/Secondary       |                2010|          3,919|1.64\%         |
-|Government/Public Building          |                1991|          3,545|1.48\%         |
-|Convenience Store                   |                1991|          3,357|1.40\%         |
-|Specialty Store - Tv, Fur, Etc.     |                1991|          2,795|1.17\%         |
-|Air/Bus/Train Terminal              |                1991|          2,531|1.06\%         |
-|Service/Gas Station                 |                1991|          2,287|0.95\%         |
-|Grocery/Supermarket                 |                1991|          2,178|0.91\%         |
-|Field/Woods                         |                1991|          2,169|0.91\%         |
-|School - College/University         |                2010|          2,068|0.86\%         |
-|Department/Discount Store           |                1991|          2,024|0.84\%         |
-|Drug Store/Doctors Office/Hospital  |                1991|          1,967|0.82\%         |
-|Park/Playground                     |                2010|          1,883|0.79\%         |
-|Jail/Prison                         |                1991|          1,726|0.72\%         |
-|Hotel/Motel                         |                1991|          1,618|0.68\%         |
-|Construction Site                   |                1991|            643|0.27\%         |
-|Bank/Savings And Loan               |                1991|            556|0.23\%         |
-|Liquor Store                        |                1991|            459|0.19\%         |
-|Lake/Waterway                       |                1991|            416|0.17\%         |
-|Shopping Mall                       |                2010|            268|0.11\%         |
-|Rental Storage Facility             |                1991|            257|0.11\%         |
-|Community Center                    |                2013|            215|0.09\%         |
-|Shelter - Mission/Homeless          |                2011|            169|0.07\%         |
-|Industrial Site                     |                2010|            135|0.06\%         |
-|Arena/Stadium/Fairgrounds/Coliseum  |                2011|             88|0.04\%         |
-|Auto Dealership New/Used            |                2011|             82|0.03\%         |
-|Camp/Campground                     |                2010|             77|0.03\%         |
-|Abandoned/Condemned Structure       |                2011|             75|0.03\%         |
-|Gambling Facility/Casino/Race Track |                2010|             69|0.03\%         |
-|Rest Area                           |                2011|             65|0.03\%         |
-|Dock/Wharf/Freight/Modal Terminal   |                2012|             47|0.02\%         |
-|Daycare Facility                    |                2011|             47|0.02\%         |
-|Amusement Park                      |                2011|             41|0.02\%         |
-|Farm Facility                       |                2011|             34|0.01\%         |
-|Tribal Lands                        |                2011|             23|0.01\%         |
-|Atm Separate From Bank              |                2011|             17|0.01\%         |
-|Military Installation               |                2015|              5|0.00\%         |
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:hateLocations)The location of hate crime incidents. In incidents with multiple locations, this shows only the first location recorded.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Location </th>
+   <th style="text-align:right;"> First Year Reported </th>
+   <th style="text-align:right;"> # of Incidents </th>
+   <th style="text-align:left;"> % of Incidents </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;"> 239,665 </td>
+   <td style="text-align:left;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Residence/Home </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 70,736 </td>
+   <td style="text-align:left;"> 29.51\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Highway/Road/Alley </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 45,004 </td>
+   <td style="text-align:left;"> 18.78\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Other/Unknown </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 31,218 </td>
+   <td style="text-align:left;"> 13.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School/College </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 17,550 </td>
+   <td style="text-align:left;"> 7.32\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Parking Lot/Garage </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 13,786 </td>
+   <td style="text-align:left;"> 5.75\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Church/Synagogue/Temple </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 8,926 </td>
+   <td style="text-align:left;"> 3.72\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Commercial/Office Building </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 5,403 </td>
+   <td style="text-align:left;"> 2.25\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Restaurant </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 5,099 </td>
+   <td style="text-align:left;"> 2.13\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bar/Nightclub </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 4,088 </td>
+   <td style="text-align:left;"> 1.71\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School - Elementary/Secondary </td>
+   <td style="text-align:right;"> 2010 </td>
+   <td style="text-align:right;"> 3,919 </td>
+   <td style="text-align:left;"> 1.64\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Government/Public Building </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 3,545 </td>
+   <td style="text-align:left;"> 1.48\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Convenience Store </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 3,357 </td>
+   <td style="text-align:left;"> 1.40\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Specialty Store - Tv, Fur, Etc. </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 2,795 </td>
+   <td style="text-align:left;"> 1.17\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Air/Bus/Train Terminal </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 2,531 </td>
+   <td style="text-align:left;"> 1.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Service/Gas Station </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 2,287 </td>
+   <td style="text-align:left;"> 0.95\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Grocery/Supermarket </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 2,178 </td>
+   <td style="text-align:left;"> 0.91\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Field/Woods </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 2,169 </td>
+   <td style="text-align:left;"> 0.91\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School - College/University </td>
+   <td style="text-align:right;"> 2010 </td>
+   <td style="text-align:right;"> 2,068 </td>
+   <td style="text-align:left;"> 0.86\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Department/Discount Store </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 2,024 </td>
+   <td style="text-align:left;"> 0.84\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Drug Store/Doctors Office/Hospital </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 1,967 </td>
+   <td style="text-align:left;"> 0.82\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Park/Playground </td>
+   <td style="text-align:right;"> 2010 </td>
+   <td style="text-align:right;"> 1,883 </td>
+   <td style="text-align:left;"> 0.79\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Jail/Prison </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 1,726 </td>
+   <td style="text-align:left;"> 0.72\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hotel/Motel </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 1,618 </td>
+   <td style="text-align:left;"> 0.68\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Construction Site </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 643 </td>
+   <td style="text-align:left;"> 0.27\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bank/Savings And Loan </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 556 </td>
+   <td style="text-align:left;"> 0.23\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Liquor Store </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 459 </td>
+   <td style="text-align:left;"> 0.19\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Lake/Waterway </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 416 </td>
+   <td style="text-align:left;"> 0.17\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Shopping Mall </td>
+   <td style="text-align:right;"> 2010 </td>
+   <td style="text-align:right;"> 268 </td>
+   <td style="text-align:left;"> 0.11\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Rental Storage Facility </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 257 </td>
+   <td style="text-align:left;"> 0.11\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Community Center </td>
+   <td style="text-align:right;"> 2013 </td>
+   <td style="text-align:right;"> 215 </td>
+   <td style="text-align:left;"> 0.09\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Shelter - Mission/Homeless </td>
+   <td style="text-align:right;"> 2011 </td>
+   <td style="text-align:right;"> 169 </td>
+   <td style="text-align:left;"> 0.07\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Industrial Site </td>
+   <td style="text-align:right;"> 2010 </td>
+   <td style="text-align:right;"> 135 </td>
+   <td style="text-align:left;"> 0.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arena/Stadium/Fairgrounds/Coliseum </td>
+   <td style="text-align:right;"> 2011 </td>
+   <td style="text-align:right;"> 88 </td>
+   <td style="text-align:left;"> 0.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Auto Dealership New/Used </td>
+   <td style="text-align:right;"> 2011 </td>
+   <td style="text-align:right;"> 82 </td>
+   <td style="text-align:left;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Camp/Campground </td>
+   <td style="text-align:right;"> 2010 </td>
+   <td style="text-align:right;"> 77 </td>
+   <td style="text-align:left;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Abandoned/Condemned Structure </td>
+   <td style="text-align:right;"> 2011 </td>
+   <td style="text-align:right;"> 75 </td>
+   <td style="text-align:left;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gambling Facility/Casino/Race Track </td>
+   <td style="text-align:right;"> 2010 </td>
+   <td style="text-align:right;"> 69 </td>
+   <td style="text-align:left;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Rest Area </td>
+   <td style="text-align:right;"> 2011 </td>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:left;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Dock/Wharf/Freight/Modal Terminal </td>
+   <td style="text-align:right;"> 2012 </td>
+   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:left;"> 0.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Daycare Facility </td>
+   <td style="text-align:right;"> 2011 </td>
+   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:left;"> 0.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amusement Park </td>
+   <td style="text-align:right;"> 2011 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:left;"> 0.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Farm Facility </td>
+   <td style="text-align:right;"> 2011 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tribal Lands </td>
+   <td style="text-align:right;"> 2011 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Atm Separate From Bank </td>
+   <td style="text-align:right;"> 2011 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Military Installation </td>
+   <td style="text-align:right;"> 2015 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+</tbody>
+</table>
 
 
 

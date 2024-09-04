@@ -200,7 +200,7 @@ While there is information on up to 11 victims and offenders, in most cases, the
 
 To see how the breakdown for the number of victims in each incident looks, Figure \@ref(fig:numberSHRVictims) shows the percent of incidents with each possible number of victims.^[There are five incident where there are more than 11 victims. For simplicity of the graph, these incident are excluded.] In nearly all incidents - 96.0% - there was only a single victim. This drops to 3.3% of incidents for two victims, 0.5% for three victims, and only about 0.2% of incidents have four or more victims. 
 
-```{r numberSHRVictims, fig.cap = "The percent of incidents from  that have 1-11 victims."}
+```{r numberSHRVictims, fig.cap = "The percent of incidents that have 1-11 victims."}
 shr$number_victims   <- shr$additional_victim_count + 1
 shr$number_offenders <- shr$additional_offender_count + 1
 
@@ -214,7 +214,7 @@ shr %>%
 
 Figure \@ref(fig:numberSHROffenders) shows the breakdown of the number of offenders per homicide incident.^[There are seven incidents with more than 11 offenders. For simplicity of the graph, these incidents are excluded.] It's a little less concentrated than with victims but the vast majority of homicides are committed by one offender - or at least the police only report one offender. About 87.6% of homicides have only one offender, 8.4% have two, 2.5% have three, and 1.5% have four. Fewer than 0.5% of homicides have more than four offenders. However, this is all a bit misleading. In cases where there is no information about the offender, including how many offenders there is, the data simply says that there is a single offender. So the number of homicides with a single offender is an over-count while the number with more offenders is an undercount. 
 
-```{r numberSHROffenders, fig.cap = "The percent of incidents from  that have 1-11 offenders."}
+```{r numberSHROffenders, fig.cap = "The percent of incidents that have 1-11 offenders."}
 shr %>%
   filter(number_offenders < 12) %>%
   crimeutils::make_stat_count_plots("number_offenders", count = "FALSE",
@@ -234,7 +234,7 @@ There are two broad categories of variables that we'll cover: demographics of th
 
 This data includes the age (in years) for each victim and each offender. For those under one years old, it also breaks this down into those from birth to six days old "including abandoned infant" and those seven days old to 364 days old. So there's a bit more info on homicides of babies. It also maxes out the age at 99 so for victims or offenders older than that we don't get their exact age, just text that says "99 years or older" (which I turn to the number 99 in the figures below).  
 
-Figure \@ref(fig:shrOffenderAge) shows the percent of homicides from  where the first offender in the case is of each age from 0-99. Offenders with unknown ages are excluded from this graph and make up about 27% of cases. The average (mean) age is 31.1 years old (shown in orange) which is due to a long right tail; the median age is 28 years old. If you look closely at the left side of the graph you can see that there are some very young offenders, with at least one offender for each year of age from 0 to 10 included in the data. It's not clear from this alone that these ages are a data entry error. While a two-year-old certainly couldn't kill someone, the data does include deaths caused by "children playing with gun" (homicide circumstances will be discussed in Section \@ref(circumstance)) so these ages could potentially be correct. 
+Figure \@ref(fig:shrOffenderAge) shows the percent of homicides where the first offender in the case is of each age from 0-99. Offenders with unknown ages are excluded from this graph and make up about 27% of cases. The average (mean) age is 31.1 years old (shown in orange) which is due to a long right tail; the median age is 28 years old. If you look closely at the left side of the graph you can see that there are some very young offenders, with at least one offender for each year of age from 0 to 10 included in the data. It's not clear from this alone that these ages are a data entry error. While a two-year-old certainly couldn't kill someone, the data does include deaths caused by "children playing with gun" (homicide circumstances will be discussed in Section \@ref(circumstance)) so these ages could potentially be correct. 
 
 If you're familiar with the age-crime curve in criminology - which basically says crime peaks in late teen years then falls dramatically - this shows that exact curve, though is older and doesn't decline as the offender ages as quickly as we see with less serious crimes. 
 
@@ -274,7 +274,7 @@ crimeutils::make_stat_count_plots(temp,
 
 We'll next look at victim and offender sex, a simple variable since only male and female are included. About 62.2% of offenders, as seen in Figure \@ref(fig:shrOffenderSex), are male and about 8.2% are female, indicating a large disparity in the sex of homicide offenders. The remaining 29.6% of offenders do not have sex data available because the police do not know the sex of this individual. For offenders who aren't arrested, this variable may be inaccurate since it is perceived sex of the offender.^[If we ignore unknown sex, essentially saying that the unknown people will have their sex distributed exactly as the known sex people, 88% are male and 12% are female. However, this assumption is probably wrong since the unknown people may be materially different than the known people, as evidence by them likely not being arrested and committing the crime in a way where even their sex can't be identified. ] 
 
-```{r shrOffenderSex, fig.cap = "The sex of offender #1, 1976-2022."}
+```{r shrOffenderSex, fig.cap = "The sex of offender \\#1, 1976-2022."}
 shr$offender_1_sex[is.na(shr$offender_1_sex)] <- "unknown"
 shr$offender_1_sex <- tolower(shr$offender_1_sex)
 shr %>%
@@ -285,7 +285,7 @@ shr %>%
 
 There is far less uncertainty for victim sex, with under 0.17% of victims having an unknown sex. Here again there is a large disparity between male and female with about 78.2% of victims being male and 21.6% being female. 
 
-```{r shrVictimSex, fig.cap = "The sex of victim #1, 1976-2022."}
+```{r shrVictimSex, fig.cap = "The sex of victim \\#1, 1976-2022."}
 shr %>%
   mutate(victim_1_sex = capitalize_words(victim_1_sex)) %>%
   crimeutils::make_barplots("victim_1_sex", count = "FALSE") +
@@ -298,7 +298,7 @@ This data also includes the race of the victims and offenders. This includes the
 
 Figure \@ref(fig:shrOffenderRace) shows the percent of homicides in the data by the race of offender #1. Black and White offenders are included are similar percentages, at 34.3% and 33.6% of victims, respectively. The next most common group is Unknown at about 30.6% of offenders. Given that so many offenders have an unknown race, the reliability of race measures is limited. The remaining races are Asian at 0.9% of offenders, American Indian or Alaskan Native at 0.6%, and Native Hawaiian or Other Pacific Islander at 0.02%. 
 
-```{r shrOffenderRace, fig.cap = "The race of offender #1, 1976-2022."}
+```{r shrOffenderRace, fig.cap = "The race of offender \\#1, 1976-2022."}
 shr$offender_1_race[shr$offender_1_race %in% "p"] <- "Native Hawaiian/Pacific Islander"
 shr$offender_1_race[shr$offender_1_race %in% "american indian or alaskan native"] <- "American Indian/Alaskan Native"
 shr$offender_1_race[is.na(shr$offender_1_race)] <- "unknown"
@@ -310,7 +310,7 @@ shr %>%
 
 For victim race, seen in Figure \@ref(fig:shrVictimRace), only about 1% of victim #1 races are unknown. This means we can be a lot more confident in the race of the victims than in the race of the offender. Similar to offenders, White and Black victims are the two most common races, with 48.4% and 48.1% of victims, respectively. There is a greater share of Asian victims than Asian offenders at 1.5% of victims. American Indian or Alaskan Natives make up 0.8% of victims while Native Hawaiian or Pacific Islanders make up 0.02% of victims.
 
-```{r shrVictimRace, fig.cap = "The race of victim #1, 1976-2022"}
+```{r shrVictimRace, fig.cap = "The race of victim \\#1, 1976-2022"}
 shr$victim_1_race[shr$victim_1_race %in% c("P", "p")] <- "Native Hawaiian/Pacific Islander"
 shr$victim_1_race[shr$victim_1_race %in% "american indian or alaskan native"] <- "American Indian/Alaskan Native"
 shr %>%
@@ -325,7 +325,7 @@ The final demographic variable is ethnicity which is whether the victim or offen
 
 The vast majority - 69.7% - of offenders have an unknown ethnicity while 23.4% are not Hispanic and 7.1% are Hispanic. 
 
-```{r shrOffenderEthnicity, fig.cap = "The ethnicity of offender #1, 1976-2022."}
+```{r shrOffenderEthnicity, fig.cap = "The ethnicity of offender \\#1, 1976-2022."}
 shr$offender_1_ethnic_origin[is.na(shr$offender_1_ethnic_origin)] <- "unknown"
 shr %>%
   mutate(offender_1_ethnic_origin = capitalize_words(offender_1_ethnic_origin)) %>%
@@ -335,7 +335,7 @@ shr %>%
 
 Unlike the other demographic variables, there is still a huge amount of underreporting when it comes to victim ethnicity, though still less than for offender ethnicity. 55.6% of victims have an unknown ethnicity. Approximately 33.2% of victim #1 are reported as not Hispanic while 11.1% are reported as Hispanic.
 
-```{r shrVictimEthnicity, fig.cap = "The ethnicity of victim #1, 1976-2022."}
+```{r shrVictimEthnicity, fig.cap = "The ethnicity of victim \\#1, 1976-2022."}
 shr$victim_1_ethnic_origin[is.na(shr$victim_1_ethnic_origin)] <- "unknown"
 shr %>%
   mutate(victim_1_ethnic_origin = capitalize_words(victim_1_ethnic_origin)) %>%
@@ -345,7 +345,7 @@ shr %>%
 
 As an example of agencies under-reporting this variable, let's look at the number of offender #1s in Albuquerque, New Mexico, a city which the [US Census](https://www.census.gov/quickfacts/fact/table/albuquerquecitynewmexico,US/PST045222) says is about 50% Hispanic. Yet the Albuquerque police reported no ethnicity information for almost three decades of data. 
 
-```{r ABQ, fig.cap = "Annual number of offender #1 who is Hispanic in Albuquerque, New Mexico, 1976-2022."}
+```{r ABQ, fig.cap = "Annual number of offender \\#1 who is Hispanic in Albuquerque, New Mexico, 1976-2022."}
 shr$hispanic_offender <- 0
 shr$hispanic_offender[shr$offender_1_ethnic_origin %in% "hispanic"] <- 1
 
@@ -391,24 +391,24 @@ The most commonly used weapon is a handgun, which is used in nearly half of homi
 
 ```{r }
 temp <- make_frequency_table(shr %>% filter(offender_1_weapon != 35), "offender_1_weapon",
-                             c("Weapon", "\\# of Incidents", "\\% of Incidents"))
-knitr::kable(temp, 
+                             c("Weapon", "# of Incidents", "% of Incidents"))
+kableExtra::kbl(temp, 
            #  format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
              label = "shrWeapon",
-             caption = "The weapon used in a homicide incident, 1976-2022. In cases where there are multiple offenders, shows only the primary weapon for the first offender."#,
-           #  escape = FALSE
-           ) #%>%
- # kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             caption = "The weapon used in a homicide incident, 1976-2022. In cases where there are multiple offenders, shows only the primary weapon for the first offender.",
+            escape = TRUE
+           ) %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 You may have noticed from the table that AR-15 isn't included. While AR-15 is the commonly discussed in the media and policy circles as a way to control gun violence, it isn't in a category by itself. Instead it is combined with other rifles in the "rifle" weapon group, and makes up about 3.6% of the weapons used by offender #1 in the data. 
 
 Let's check if AR-15s, through our rough proxy of the "rifle" weapon group, is getting more common over time. Figure \@ref(fig:shrRifle) shows the number of homicide incidents (including manslaughters, so not necessarily all murders) where offender #1 used a rifle. Figure \@ref(fig:shrRiflePercent) shows the percent of all homicide incidents where the the weapon was a rifle. Using both of these measures we can see the rifles are getting less common, declining substantially since 1980 though increasing again starting in the mid-2010s.  
 
-```{r, shrRifle, fig.cap = "The annual number of homicide incidents where offender #1's weapon was a rifle, 1976-2022."}
+```{r, shrRifle, fig.cap = "The annual number of homicide incidents where offender \\#1's weapon was a rifle, 1976-2022."}
 shr$rifle <- 0
 shr$rifle[shr$offender_1_weapon %in% "rifle"] <- 1
 
@@ -428,7 +428,7 @@ shr %>%
   expand_limits(y = 0)
 ```
 
-```{r shrRiflePercent, fig.cap = "The annual share of homicide incidents where offender #1's weapon was a rifle, 1976-2022."}
+```{r shrRiflePercent, fig.cap = "The annual share of homicide incidents where offender \\#1's weapon was a rifle, 1976-2022."}
 shr %>%
   mutate(dummy = 1) %>%
   group_by(year) %>%
@@ -458,7 +458,7 @@ The most common relationship, with about 28% of homicides, is that the police do
 
 ```{r }
 temp <- make_frequency_table(shr, "victim_1_relation_to_offender_1",
-                             c("Relationship", "\\# of Incidents", "\\% of Incidents"))
+                             c("Relationship", "# of Incidents", "% of Incidents"))
 
 temp$Category <- ""
 temp$Category[tolower(temp$Relationship) %in% c("brother",
@@ -496,17 +496,17 @@ temp <-
          Category,
          everything())
 
-knitr::kable(temp, 
+kableExtra::kbl(temp, 
           #   format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
              label = "shrRelationship",
              caption = "The relationship between the first victim and the first offender in a homicide incident, 1976-2022.",
-          #   escape = FALSE
-          ) #%>%
-  #kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             escape = TRUE
+          )%>%
+ kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 #### Homicide circumstance {#circumstance}
@@ -522,7 +522,7 @@ shr$offender_1_circumstance[shr$offender_1_circumstance %in% "30"] <- "unknown"
 shr$offender_1_circumstance[shr$offender_1_circumstance %in% "circumstances undetermined"] <- "unknown"
 shr$offender_1_circumstance[shr$offender_1_circumstance %in% "circumstances undetermined"] <- "unknown"
 temp <- make_frequency_table(shr, "offender_1_circumstance",
-                             c("Circumstance", "\\# of Incidents", "\\% of Incidents"))
+                             c("Circumstance", "# of Incidents", "% of Incidents"))
 
 temp$Category <- ""
 temp$Category[tolower(temp$Circumstance) %in% c("abortion",
@@ -563,16 +563,16 @@ temp <-
   select(Circumstance,
          Category,
          everything())
-knitr::kable(temp, 
+kableExtra::kbl(temp, 
              #format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
-            # escape = FALSE,
+             escape = TRUE,
              label = "shrCircumstance",
-             caption = "The circumstance of the homicide for the first offender in a homicide incident.")# %>%
- # kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             caption = "The circumstance of the homicide for the first offender in a homicide incident.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 #### Homicide subcircumstance
@@ -583,17 +583,17 @@ This dataset is one source of information on how many people police kill each ye
 
 ```{r }
 temp <- make_frequency_table(shr, "offender_1_subcircumstance",
-                             c("Subcircumstance", "\\# of Incidents", "\\% of Incidents"))
-knitr::kable(temp, 
+                             c("Subcircumstance", "# of Incidents", "% of Incidents"))
+kableExtra::kbl(temp, 
             # format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
              label = "shrSubCircumstance",
-             caption = "The circumstance for the first offender in a homicide incident in cases where the offender is killed. This includes incidents where the only person who dies in the offender."#,
-            # escape = FALSE
-            )# %>%
-  #kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             caption = "The circumstance for the first offender in a homicide incident in cases where the offender is killed. This includes incidents where the only person who dies in the offender.",
+             escape = TRUE
+            ) %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 

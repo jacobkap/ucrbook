@@ -284,18 +284,18 @@ temp <- make_frequency_table_year(hate_crimes,
 temp$`Bias Motivation` <- gsub("lgbt", "LGBT", ignore.case = TRUE, temp$`Bias Motivation`)
 temp$`First Year Reported`[temp$`Bias Motivation` %in% "Total"] <- ""
 temp <- temp %>% arrange(desc(parse_number(`# of Incidents`)))
-knitr::kable(temp, 
+kableExtra::kbl(temp, 
            #  format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
              label = "hateBiasMotivation",
-           #  escape = FALSE,
-             caption = "The bias motivation for hate crime incidents. In incidents with multiple bias motivation, this shows only the first bias motivation recorded.")# %>%
-  # kable_styling(bootstrap_options = "striped",
-  #               full_width = FALSE,
-  #               latex_options = c("hold_position", "repeat_header"))
+             escape = TRUE,
+             caption = "The bias motivation for hate crime incidents. In incidents with multiple bias motivation, this shows only the first bias motivation recorded.") %>%
+   kable_styling(bootstrap_options = "striped",
+                 full_width = FALSE,
+                 latex_options = c("hold_position", "repeat_header"))
 ```
 
 2015 is the year with the most bias additions, as of data through 2022. This year added a number of religions such as Anti-Buddhist, Anti-Sikh, and Anti-Jehovah's Witness. In 2013, anti-Transgender was added and this is the most common of the bias motivations added since data began in 1991 with 1500 hate crimes between 2013-2022 - 0.63% of all hate crime incidents from 1991-2022. That year also added anti-male and Anti-Native Hawaiian or Other Pacific Islander, which is the most recent racial group added. In 2012, anti-gender non-conforming and anti-female were included, while in 1997 both anti-mental and anti-physical disability were added. In part due to having fewer years of data available, these newer bias motivations make up a small percent of total hate crimes. 
@@ -317,18 +317,18 @@ temp <- make_frequency_table_year(hate_crimes, "ucr_offense_code_1",
                                "% of Incidents"))
 temp$`First Year Reported`[temp$Offense %in% "Total"] <- ""
 temp <- temp %>% arrange(desc(parse_number(`# of Incidents`)))
-knitr::kable(temp, 
+kableExtra::kbl(temp, 
           #   format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
-           #  escape = FALSE,
+             escape = TRUE,
              label = "hateOffense",
-             caption = "The offense type for hate crime incidents. In incidents with multiple offense types, this shows only the first offense type recorded.") #%>%
-  # kable_styling(bootstrap_options = "striped", 
-  #               full_width = FALSE, 
-  #               latex_options = c("hold_position", "repeat_header"))
+             caption = "The offense type for hate crime incidents. In incidents with multiple offense types, this shows only the first offense type recorded.") %>%
+   kable_styling(bootstrap_options = "striped", 
+                 full_width = FALSE, 
+                 latex_options = c("hold_position", "repeat_header"))
 ```
 
 Agencies that report to the FBI's National Incident-Based Reporting System (NIBRS) can also report bias motivations for their crimes, and these reports are included in this dataset. One tricky thing is that the crimes included are different depending on if the agency reported through NIBRS or to the dataset directly, and are not NIBRS reporting agencies. NIBRS agencies report all of the crimes as the agencies directly submitting SRS data, but have a wider variety of crimes they can report. In practice, however, both NIBRS and SRS reporting agencies can report the most common offenses so there is relatively little difference.
@@ -348,18 +348,18 @@ temp <- make_frequency_table_year(hate_crimes, "location_code_offense_1",
                                "% of Incidents"))
 temp$`First Year Reported`[temp$Location %in% "Total"] <- ""
 temp <- temp %>% arrange(desc(parse_number(`# of Incidents`)))
-knitr::kable(temp, 
+kableExtra::kbl(temp, 
             # format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
-           #  escape = FALSE,
+             escape = TRUE,
              label = "hateLocations",
-             caption = "The location of hate crime incidents. In incidents with multiple locations, this shows only the first location recorded.")# %>%
-  # kable_styling(bootstrap_options = "striped", 
-  #               full_width = FALSE, 
-  #               latex_options = c("hold_position", "repeat_header"))
+             caption = "The location of hate crime incidents. In incidents with multiple locations, this shows only the first location recorded.") %>%
+   kable_styling(bootstrap_options = "striped", 
+                 full_width = FALSE, 
+                 latex_options = c("hold_position", "repeat_header"))
 ```
 
 ### Number and race of offenders

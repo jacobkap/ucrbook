@@ -5,19 +5,19 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Offenses Known and Clearances by Arrest | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</title>
-  <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
+  <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Offenses Known and Clearances by Arrest | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
+  <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="github-repo" content="jacobkap/ucrbook" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 3 Offenses Known and Clearances by Arrest | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
   
-  <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
+  <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   
 
 <meta name="author" content="Jacob Kaplan, Ph.D." />
@@ -171,7 +171,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide</a></li>
+<li><a href="./">Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</a></li>
 
 <li class="divider"></li>
 <li class="part"><span><b>I Welcome</b></span></li>
@@ -543,46 +543,84 @@ Figure 3.1: The FBI’s findings of how crime reporting changes when using the H
 </p>
 </div>
 <p>In Table <a href="offensesKnown.html#tab:nibrsHierarchy">3.1</a> I replicate the FBI’s table using NIBRS 2022 data. Results are fairly close. Homicide and rape and unchanged; robbery and aggravated assault both increase by &lt;1%; my count for theft and burglary are a bit smaller, and motor vehicle theft is almost triple the FBI’s 2014 number. But these numbers are mostly consistent - particularly so for violent crime - and I expect the differences are just that 2014 and 2022 data are different. So using the Hierarchy Rule does undercount crime, but this is a small undercounting and is primarily led by property crime. Violent crime is only slightly undercounted. And compared to the number of crimes not counted because the victim doesn’t reports it to the police, this is a very small share of crimes.</p>
-<table>
-<caption><span id="tab:nibrsHierarchy">Table 3.1: </span>The percent increase in reported crimes for each index crime if the Hierarchy Rule was not used, NIBRS 2022.</caption>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:nibrsHierarchy">Table 3.1: </span>The percent increase in reported crimes for each index crime if the Hierarchy Rule was not used, NIBRS 2022.
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Crime</th>
-<th align="right">% increase without Hierarchy Rule</th>
+<tr>
+<th style="text-align:left;">
+Crime
+</th>
+<th style="text-align:right;">
+% increase without Hierarchy Rule
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Homicide</td>
-<td align="right">0.00</td>
+<tr>
+<td style="text-align:left;">
+Homicide
+</td>
+<td style="text-align:right;">
+0.00
+</td>
 </tr>
-<tr class="even">
-<td align="left">Rape</td>
-<td align="right">0.03</td>
+<tr>
+<td style="text-align:left;">
+Rape
+</td>
+<td style="text-align:right;">
+0.03
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Robbery</td>
-<td align="right">0.54</td>
+<tr>
+<td style="text-align:left;">
+Robbery
+</td>
+<td style="text-align:right;">
+0.54
+</td>
 </tr>
-<tr class="even">
-<td align="left">Aggravated Assault</td>
-<td align="right">0.82</td>
+<tr>
+<td style="text-align:left;">
+Aggravated Assault
+</td>
+<td style="text-align:right;">
+0.82
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Burglary</td>
-<td align="right">1.57</td>
+<tr>
+<td style="text-align:left;">
+Burglary
+</td>
+<td style="text-align:right;">
+1.57
+</td>
 </tr>
-<tr class="even">
-<td align="left">Theft</td>
-<td align="right">1.47</td>
+<tr>
+<td style="text-align:left;">
+Theft
+</td>
+<td style="text-align:right;">
+1.47
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Motor Vehicle Theft</td>
-<td align="right">7.92</td>
+<tr>
+<td style="text-align:left;">
+Motor Vehicle Theft
+</td>
+<td style="text-align:right;">
+7.92
+</td>
 </tr>
-<tr class="even">
-<td align="left">Arson</td>
-<td align="right">7.54</td>
+<tr>
+<td style="text-align:left;">
+Arson
+</td>
+<td style="text-align:right;">
+7.54
+</td>
 </tr>
 </tbody>
 </table>

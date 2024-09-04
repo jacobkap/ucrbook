@@ -268,15 +268,15 @@ admin_map       <- admin_map %>% arrange(state)
 admin_map$percent <- paste0(admin_map$percent, "\\%")
 names(admin_map) <- c("State", "NIBRS Agencies", "UCR Agencies", "\\% of UCR Agencies")
 
-knitr::kable(admin_map, 
+kableExtra::kbl(admin_map, 
              #format = "html",
              digits = 2, 
              align = c("l", "r", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
-             escape = FALSE,
+             escape = TRUE,
              label = "agenciesReportingTable",
-             caption = "The number of agencies in each state reporting to NIBRS and to UCR in 2019. Also shows NIBRS reporting in each state as a percent of UCR reporting.")# %>%
- # kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             caption = "The number of agencies in each state reporting to NIBRS and to UCR in 2019. Also shows NIBRS reporting in each state as a percent of UCR reporting.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 

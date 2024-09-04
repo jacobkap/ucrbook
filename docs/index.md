@@ -2,23 +2,18 @@
 title: "Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data"
 author: "Jacob Kaplan, Ph.D."
 date: "2024-09-03"
-site: bookdown::bookdown_site
-documentclass: book
-lof: yes
-lot: yes
-bibliography: [book.bib, packages.bib]
+bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
-description: "This is a comprehensive guide to using the FBI's Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data."
-graphics: yes
-always_allow_html: yes 
 colorlinks: yes
+description: "This is a comprehensive guide to using the FBI's Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files."
 url: "https://ucrbook.com"
-fontsize: 12pt
 github-repo: "jacobkap/ucrbook"
-classoption: openany
-linestretch: 1.15
-geometry: margin=1in
+site: bookdown::bookdown_site
+documentclass: krantz
+monofont: "Source Code Pro"
+monofontoptions: "Scale=0.7"
+graphics: yes
 ---
 
 
@@ -28,6 +23,8 @@ geometry: margin=1in
 
 
 
+\pagenumbering{roman}
+\mainmatter
 # (PART) Welcome {-}
 
 # Preface 

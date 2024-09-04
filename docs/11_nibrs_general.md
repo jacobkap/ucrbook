@@ -207,64 +207,331 @@ Since the number of agencies in a state is partially just a factor of population
 
 For ease of reference, Table \@ref(tab:agenciesReportingTable) shows the number of agencies in each state reporting to NIBRS and to UCR in 2019, and the percent shown in Figure \@ref(fig:agenciesReportingMapPercent). 
 
-
-
-Table: (\#tab:agenciesReportingTable)The number of agencies in each state reporting to NIBRS and to UCR in 2019. Also shows NIBRS reporting in each state as a percent of UCR reporting.
-
-|State                | NIBRS Agencies| UCR Agencies| \% of UCR Agencies|
-|:--------------------|--------------:|------------:|------------------:|
-|Alabama              |            393|          414|            94.93\%|
-|Alaska               |             32|           33|            96.97\%|
-|Arizona              |             88|          108|            81.48\%|
-|Arkansas             |            292|          294|            99.32\%|
-|California           |            530|          665|             79.7\%|
-|Colorado             |            225|          233|            96.57\%|
-|Connecticut          |            104|          107|             97.2\%|
-|Delaware             |             62|           63|            98.41\%|
-|District of Columbia |              2|            2|              100\%|
-|Florida              |             78|          372|            20.97\%|
-|Georgia              |            425|          457|               93\%|
-|Guam                 |              1|            1|              100\%|
-|Hawaii               |              3|            3|              100\%|
-|Idaho                |            111|          110|           100.91\%|
-|Illinois             |            497|          522|            95.21\%|
-|Indiana              |            205|          212|             96.7\%|
-|Iowa                 |            225|          228|            98.68\%|
-|Kansas               |            320|          327|            97.86\%|
-|Kentucky             |            394|          432|             91.2\%|
-|Louisiana            |            137|          151|            90.73\%|
-|Maine                |            129|          131|            98.47\%|
-|Maryland             |             77|          150|            51.33\%|
-|Massachusetts        |            378|          384|            98.44\%|
-|Michigan             |            595|          603|            98.67\%|
-|Minnesota            |            398|          411|            96.84\%|
-|Mississippi          |            150|          152|            98.68\%|
-|Missouri             |            471|          498|            94.58\%|
-|Montana              |            106|          110|            96.36\%|
-|Nebraska             |            238|          263|            90.49\%|
-|Nevada               |             52|           54|             96.3\%|
-|New Hampshire        |            208|          213|            97.65\%|
-|New Jersey           |            307|          543|            56.54\%|
-|New Mexico           |             93|           96|            96.88\%|
-|New York             |            149|          560|            26.61\%|
-|North Carolina       |            395|          407|            97.05\%|
-|North Dakota         |            111|          111|              100\%|
-|Ohio                 |            629|          638|            98.59\%|
-|Oklahoma             |            443|          457|            96.94\%|
-|Oregon               |            181|          212|            85.38\%|
-|Pennsylvania         |            130|         1123|            11.58\%|
-|Rhode Island         |             47|           49|            95.92\%|
-|South Carolina       |            351|          472|            74.36\%|
-|South Dakota         |            102|          107|            95.33\%|
-|Tennessee            |            397|          399|             99.5\%|
-|Texas                |           1041|         1064|            97.84\%|
-|Utah                 |            133|          135|            98.52\%|
-|Vermont              |             85|           88|            96.59\%|
-|Virginia             |            405|          410|            98.78\%|
-|Washington           |            240|          246|            97.56\%|
-|West Virginia        |            201|          214|            93.93\%|
-|Wisconsin            |            361|          403|            89.58\%|
-|Wyoming              |             49|           50|               98\%|
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:agenciesReportingTable)The number of agencies in each state reporting to NIBRS and to UCR in 2019. Also shows NIBRS reporting in each state as a percent of UCR reporting.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> State </th>
+   <th style="text-align:right;"> NIBRS Agencies </th>
+   <th style="text-align:right;"> UCR Agencies </th>
+   <th style="text-align:right;"> \% of UCR Agencies </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Alabama </td>
+   <td style="text-align:right;"> 393 </td>
+   <td style="text-align:right;"> 414 </td>
+   <td style="text-align:right;"> 94.93\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Alaska </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 96.97\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arizona </td>
+   <td style="text-align:right;"> 88 </td>
+   <td style="text-align:right;"> 108 </td>
+   <td style="text-align:right;"> 81.48\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arkansas </td>
+   <td style="text-align:right;"> 292 </td>
+   <td style="text-align:right;"> 294 </td>
+   <td style="text-align:right;"> 99.32\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> California </td>
+   <td style="text-align:right;"> 530 </td>
+   <td style="text-align:right;"> 665 </td>
+   <td style="text-align:right;"> 79.7\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Colorado </td>
+   <td style="text-align:right;"> 225 </td>
+   <td style="text-align:right;"> 233 </td>
+   <td style="text-align:right;"> 96.57\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Connecticut </td>
+   <td style="text-align:right;"> 104 </td>
+   <td style="text-align:right;"> 107 </td>
+   <td style="text-align:right;"> 97.2\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Delaware </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:right;"> 98.41\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> District of Columbia </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Florida </td>
+   <td style="text-align:right;"> 78 </td>
+   <td style="text-align:right;"> 372 </td>
+   <td style="text-align:right;"> 20.97\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Georgia </td>
+   <td style="text-align:right;"> 425 </td>
+   <td style="text-align:right;"> 457 </td>
+   <td style="text-align:right;"> 93\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Guam </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hawaii </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Idaho </td>
+   <td style="text-align:right;"> 111 </td>
+   <td style="text-align:right;"> 110 </td>
+   <td style="text-align:right;"> 100.91\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Illinois </td>
+   <td style="text-align:right;"> 497 </td>
+   <td style="text-align:right;"> 522 </td>
+   <td style="text-align:right;"> 95.21\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Indiana </td>
+   <td style="text-align:right;"> 205 </td>
+   <td style="text-align:right;"> 212 </td>
+   <td style="text-align:right;"> 96.7\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Iowa </td>
+   <td style="text-align:right;"> 225 </td>
+   <td style="text-align:right;"> 228 </td>
+   <td style="text-align:right;"> 98.68\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Kansas </td>
+   <td style="text-align:right;"> 320 </td>
+   <td style="text-align:right;"> 327 </td>
+   <td style="text-align:right;"> 97.86\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Kentucky </td>
+   <td style="text-align:right;"> 394 </td>
+   <td style="text-align:right;"> 432 </td>
+   <td style="text-align:right;"> 91.2\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Louisiana </td>
+   <td style="text-align:right;"> 137 </td>
+   <td style="text-align:right;"> 151 </td>
+   <td style="text-align:right;"> 90.73\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Maine </td>
+   <td style="text-align:right;"> 129 </td>
+   <td style="text-align:right;"> 131 </td>
+   <td style="text-align:right;"> 98.47\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Maryland </td>
+   <td style="text-align:right;"> 77 </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:right;"> 51.33\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Massachusetts </td>
+   <td style="text-align:right;"> 378 </td>
+   <td style="text-align:right;"> 384 </td>
+   <td style="text-align:right;"> 98.44\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Michigan </td>
+   <td style="text-align:right;"> 595 </td>
+   <td style="text-align:right;"> 603 </td>
+   <td style="text-align:right;"> 98.67\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Minnesota </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> 411 </td>
+   <td style="text-align:right;"> 96.84\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mississippi </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:right;"> 152 </td>
+   <td style="text-align:right;"> 98.68\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Missouri </td>
+   <td style="text-align:right;"> 471 </td>
+   <td style="text-align:right;"> 498 </td>
+   <td style="text-align:right;"> 94.58\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Montana </td>
+   <td style="text-align:right;"> 106 </td>
+   <td style="text-align:right;"> 110 </td>
+   <td style="text-align:right;"> 96.36\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Nebraska </td>
+   <td style="text-align:right;"> 238 </td>
+   <td style="text-align:right;"> 263 </td>
+   <td style="text-align:right;"> 90.49\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Nevada </td>
+   <td style="text-align:right;"> 52 </td>
+   <td style="text-align:right;"> 54 </td>
+   <td style="text-align:right;"> 96.3\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> New Hampshire </td>
+   <td style="text-align:right;"> 208 </td>
+   <td style="text-align:right;"> 213 </td>
+   <td style="text-align:right;"> 97.65\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> New Jersey </td>
+   <td style="text-align:right;"> 307 </td>
+   <td style="text-align:right;"> 543 </td>
+   <td style="text-align:right;"> 56.54\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> New Mexico </td>
+   <td style="text-align:right;"> 93 </td>
+   <td style="text-align:right;"> 96 </td>
+   <td style="text-align:right;"> 96.88\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> New York </td>
+   <td style="text-align:right;"> 149 </td>
+   <td style="text-align:right;"> 560 </td>
+   <td style="text-align:right;"> 26.61\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> North Carolina </td>
+   <td style="text-align:right;"> 395 </td>
+   <td style="text-align:right;"> 407 </td>
+   <td style="text-align:right;"> 97.05\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> North Dakota </td>
+   <td style="text-align:right;"> 111 </td>
+   <td style="text-align:right;"> 111 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ohio </td>
+   <td style="text-align:right;"> 629 </td>
+   <td style="text-align:right;"> 638 </td>
+   <td style="text-align:right;"> 98.59\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Oklahoma </td>
+   <td style="text-align:right;"> 443 </td>
+   <td style="text-align:right;"> 457 </td>
+   <td style="text-align:right;"> 96.94\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Oregon </td>
+   <td style="text-align:right;"> 181 </td>
+   <td style="text-align:right;"> 212 </td>
+   <td style="text-align:right;"> 85.38\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pennsylvania </td>
+   <td style="text-align:right;"> 130 </td>
+   <td style="text-align:right;"> 1123 </td>
+   <td style="text-align:right;"> 11.58\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Rhode Island </td>
+   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:right;"> 95.92\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> South Carolina </td>
+   <td style="text-align:right;"> 351 </td>
+   <td style="text-align:right;"> 472 </td>
+   <td style="text-align:right;"> 74.36\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> South Dakota </td>
+   <td style="text-align:right;"> 102 </td>
+   <td style="text-align:right;"> 107 </td>
+   <td style="text-align:right;"> 95.33\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tennessee </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 399 </td>
+   <td style="text-align:right;"> 99.5\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Texas </td>
+   <td style="text-align:right;"> 1041 </td>
+   <td style="text-align:right;"> 1064 </td>
+   <td style="text-align:right;"> 97.84\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Utah </td>
+   <td style="text-align:right;"> 133 </td>
+   <td style="text-align:right;"> 135 </td>
+   <td style="text-align:right;"> 98.52\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Vermont </td>
+   <td style="text-align:right;"> 85 </td>
+   <td style="text-align:right;"> 88 </td>
+   <td style="text-align:right;"> 96.59\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Virginia </td>
+   <td style="text-align:right;"> 405 </td>
+   <td style="text-align:right;"> 410 </td>
+   <td style="text-align:right;"> 98.78\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Washington </td>
+   <td style="text-align:right;"> 240 </td>
+   <td style="text-align:right;"> 246 </td>
+   <td style="text-align:right;"> 97.56\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> West Virginia </td>
+   <td style="text-align:right;"> 201 </td>
+   <td style="text-align:right;"> 214 </td>
+   <td style="text-align:right;"> 93.93\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Wisconsin </td>
+   <td style="text-align:right;"> 361 </td>
+   <td style="text-align:right;"> 403 </td>
+   <td style="text-align:right;"> 89.58\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Wyoming </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 98\% </td>
+  </tr>
+</tbody>
+</table>
 
 
 

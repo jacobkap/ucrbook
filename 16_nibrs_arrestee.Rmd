@@ -48,18 +48,18 @@ temp <- make_frequency_table(arrestee,
                              c("Crime Category",
                                "\\# of Offenses",
                                "\\% of Offenses"))
-knitr::kable(temp, 
+kableExtra::kbl(temp, 
             #format = 'markdown',
              digits = 2, 
              align = c("l", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
-            # escape = FALSE,
+            escape = TRUE,
             label = "arresteeCrime",
-             caption = "The number and percent of arrests for Group A crimes for all arrests reported to NIBRS in 2022.")# %>%
-  # kable_styling(bootstrap_options = "striped",
-  #               full_width = FALSE,
-  #               latex_options = c("hold_position", "repeat_header"))
+             caption = "The number and percent of arrests for Group A crimes for all arrests reported to NIBRS in 2022.") %>%
+   kable_styling(bootstrap_options = "striped",
+                 full_width = FALSE,
+                 latex_options = c("hold_position", "repeat_header"))
 ```
 
 ### Group B Segment arrest crimes
@@ -75,16 +75,16 @@ temp <- make_frequency_table(group_b,
                              c("Crime Category",
                                "\\# of Offenses",
                                "\\% of Offenses"))
-knitr::kable(temp, 
+kableExtra::kbl(temp, 
             # format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
-             booktabs = TRUE, 
+            # booktabs = TRUE, 
              longtable = TRUE,
              label = "GroupBarresteeCrime",
-           #  escape = FALSE,
-             caption = "The number and percent of arrests for Group B crimes for all arrests reported to NIBRS in 2022.") #%>%
-  #kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             escape = TRUE,
+             caption = "The number and percent of arrests for Group B crimes for all arrests reported to NIBRS in 2022.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 ## Arrest date

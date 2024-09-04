@@ -1,4 +1,3 @@
-%%
 %% This is file `Krantz.cls'
 %%% Created by Shashi Kumar / ITC [August 2008]
 
@@ -238,8 +237,8 @@
 \newdimen\tempa
 \newdimen\tempdimen
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Parameter Initializaton %%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Parameter Initialization %%%%%%%%%%%%%%%%%%%%%%%%%%
+%
 \newdimen\htrim
 \newdimen\vtrimtop
 \newdimen\vtrimbot
@@ -249,7 +248,7 @@
 %
 %
 \if@krantza
-\textheight = 45\baselineskip
+\textheight = 45pc
   %\advance\textheight by \topskip
 \addtolength\textheight{3pt}
   \textwidth 28pc
@@ -277,20 +276,36 @@
   \voffset-.15in%.04in
 \let\normaltextheight\textheight
 \else
-\textheight = 43\baselineskip
+%%%Uncomment to get 6x9 trim
+%%%%\textheight = 43pc
+%%%%  %\advance\textheight by \topskip
+%%%%\addtolength\textheight{3pt}
+%%%%  \textwidth 26pc
+%%%%\addtolength\textwidth{.5pt}
+%%%% \topmargin0in
+%%%%  \oddsidemargin1.1875in
+%%%%  \evensidemargin1.1875in
+%%%%  \htrim5.05pc
+%%%%  \vtrimtop7.7pc
+%%%%  \vtrimbot5.44pc
+%%%%%  \hoffset-5pt
+%%%%  \voffset45pt
+%%%%\let\normaltextheight\textheight
+\textheight = 45pc
   %\advance\textheight by \topskip
 \addtolength\textheight{3pt}
-  \textwidth 26pc
+  \textwidth 28pc
 \addtolength\textwidth{.5pt}
- \topmargin0in
+  \topmargin0in
   \oddsidemargin1.1875in
   \evensidemargin1.1875in
-  \htrim5.05pc
-  \vtrimtop7.7pc
-  \vtrimbot5.44pc
-%  \hoffset-5pt
-  \voffset45pt
+  \htrim.7365in
+  \vtrimtop1.068in
+  \vtrimbot1.068in
+  \hoffset-15pt
+  \voffset39pt
 \let\normaltextheight\textheight
+
   \fi
 \fi
 %
@@ -335,12 +350,12 @@
 \top@cornermarks
   {\@the@page\RunningHeadFont
     \hfill
-\leftmark
+\if@mainmatter\ifnum\value{chapter}>0 \thechapter\enspace\fi\fi\leftmark
     }}
 \def\odd@head{%
 \top@cornermarks
   \hfil{\RunningHeadFont
-\rightmark
+\if@mainmatter\ifnum\value{section}>0 \thesection\enspace\fi\fi\rightmark
     }
 \hfill
     \@the@page
@@ -699,10 +714,11 @@
                    \@topnewpage[\@makeschapterhead{#1}]%
                  \else
                    \@makeschapterhead{#1}%
+                   \addcontentsline{toc}{fm}{#1}
                    \markboth{#1}{#1}
                    \@afterheading
                  \fi}
-                 
+
 \def\@makeschapterhead#1{%
   {\parindent \z@ \raggedright \baselineskip 6\p@ \lineskip \z@ \parskip \z@
     \vbox{
@@ -989,11 +1005,11 @@
   \vskip\abovecaptionskip
   \sbox\@tempboxa{#1: #2}%
   \ifdim \wd\@tempboxa >\hsize
-    {\FigCapFont #1}\par #2\par
+    {\FigCapFont #1} #2\par
   \else
     \global \@minipagefalse
 %    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
-    {\FigCapFont #1}\par #2\par
+    {\FigCapFont #1} #2\par
   \fi
   \vskip\belowcaptionskip}
 \DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
@@ -1014,24 +1030,38 @@
 \newcounter{numauthors}
 \newif\if@break
 \newif\if@firstauthor
-\newcommand\tableofcontents{%
+
+\newcommand\tableofcontents{\cleardoublepage\markboth{Contents}{Contents}%
+  \make@cornermarks
+    \gdef\chapterauthor{\@caplusone}%
+  \gdef\endchapterauthors{\end@casplusone}%
     \if@twocolumn
       \@restonecoltrue\onecolumn
     \else
       \@restonecolfalse
     \fi
-    \chapter*{\contentsname
-        \@mkboth{%
-           \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+      {\parindent \z@ \raggedright \baselineskip 6\p@ \lineskip \z@ \parskip \z@
+    \vbox{
+    \vskip 22\p@
+    \unnumchap@rule
+    \vskip 5\p@
+    \FMHeadFont \contentsname\par\vskip-12pt
+    \noindent\hbox{\vrule height.5pt width84pt}
+    \vskip 41\p@}}
+%%%    \chapter*{\contentsname
+%%%        \@mkboth{%
+%%%           \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+           \pagestyle{headings}\thispagestyle{folio}
              {\let\break\space
     \let\author\toc@author
     \reset@authors
     \let\toc@draw\relax
     \@starttoc{toc}
-    \toc@draw
+%%    \toc@draw
     }
     \if@restonecol\twocolumn\fi
     }
+
 
 \def\draw@part#1#2{%
   \addpenalty{-\@highpenalty}%
@@ -1054,9 +1084,33 @@
 
 \let\toc@draw\relax
 %
-\def\l@part#1#2{% 
+\def\l@part#1#2{%
 \toc@draw
  \gdef\toc@draw{\draw@part{\large #1}{\large #2}}}
+
+\def\l@fm#1#2{%
+  \toc@draw
+  \gdef\toc@draw{\draw@fm{#1}{#2}}}
+\def\@pnumwidth{1.8em}
+\def\draw@fm#1#2{%
+  \addpenalty{-\@highpenalty}%
+  \vskip1em plus\p@
+  \@tempdima1.5em
+  \begingroup
+    \parindent\z@\rightskip\@pnumwidth
+    \parfillskip-\rightskip
+    \bfseries
+    \leavevmode
+    \advance\leftskip\@tempdima
+    \hskip-\leftskip
+    {#1\hfil}\nobreak
+      \if@pdf
+      \else
+        \hfil\nobreak\hb@xt@\@pnumwidth{\hss #2}%
+\fi
+    \par
+    \penalty\@highpenalty\endgroup}
+
 
 
   \def\l@chapter#1#2{%
@@ -1091,7 +1145,7 @@
     \else
       \@cons{\@authors}{, \last@author}\fi\fi
   \stepcounter{numauthors}%
-%%%%%%% commented and deleted below the second part to aviod inaccessible error % shashi % September-2008
+%%%%%%% commented and deleted below the second part to avoid inaccessible error % shashi % September-2008
 %%  \gdef\last@author{#1 {\rm\fontsize{9\p@}{11\p@}\selectfont #2}}
 \gdef\last@author{#1}
 }
@@ -1185,15 +1239,15 @@
         \hb@xt@\@pnumwidth{\hfil\normalfont\normalcolor #5}%
 \fi
       \par}\fi}
-      
+
 \newcommand\chapterauthors{%
   \def\break{\string\break\ }%
   \def\protect##1{\string ##1 }}
 \def\end@cas{}
 \def\end@casplusone{\vskip4pt\@doendpe}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\def\make@chaptoc{% chapter author 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\make@chaptoc{% chapter author
   {\parindent\z@
   \newcommand\FolioBoldFont{}%
   \let\@b\bullet
@@ -1290,10 +1344,10 @@
 
 \ifnum\c@numauthors>4
     \resetcounter{numauthors}
-\fi 
+\fi
 \stepcounter{numauthors}
 %%\the\c@numauthors
-\ifnum\c@numauthors=1 % 
+\ifnum\c@numauthors=1 %
     \sbox\@AUonebox{\CAPlusOneFont#1}
     \sbox\@AUaffonebox{\vbox{\hsize\textwidth\CAAPlusOneFont\noindent #2\par}}
     \sbox\@finalAUboxfromone{\copy\@AUonebox}
@@ -1373,14 +1427,14 @@
 %      \advance\hsize-\secnumwidth
 %      \hskip-\secnumwidth
 \if@sevenbyten
-\hangindent\secnumwidth\hsize372pt\else\hangindent\secnumwidth\hsize312pt\fi 
+\hangindent\secnumwidth\hsize372pt\else\hangindent\secnumwidth\hsize312pt\fi
 #4
         \if@pdf
           \hfill
         \else
           \nobreak\leaders\hbox{$\m@th\mkern\@dotsep mu.\mkern\@dotsep mu$}\hfill\nobreak
           \hbox to24\p@{\hfil #5}\fi
-      \par}\fi}      
+      \par}\fi}
 
 \newcommand\listoffigures{%
     \if@twocolumn
@@ -1414,7 +1468,7 @@
 \newenvironment{thebibliography}[1]
      {\chapter*{\bibname}%
       \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
-       \addcontentsline{toc}{chapter}{\bibname}
+%       \addcontentsline{toc}{chapter}{\bibname}
       \list{\@biblabel{\@arabic\c@enumiv}}%
            {\settowidth\labelwidth{\@biblabel{#1}}%
             \leftmargin\labelwidth
@@ -1433,6 +1487,7 @@
       \endlist}
 \newcommand\newblock{\hskip .11em\@plus.33em\@minus.07em}
 \let\@openbib@code\@empty
+\newcommand\indexname{Index}
 \newenvironment{theindex}
                {\cleardoublepage\if@twocolumn
                   \@restonecolfalse
@@ -1444,7 +1499,10 @@
                         {\MakeUppercase\indexname}%
                         \pagestyle{headings}
                         \addcontentsline{toc}{chapter}{\indexname}
-                \thispagestyle{folio}\parindent\z@\markboth{Index}{Index}
+% there seems to be a weird bug in krantz.cls that prevents the very _last_ item
+% of \addcontentsline from being added to TOC, so I have to add an empty entry
+\addcontentsline{toc}{section}{}
+                \thispagestyle{folio}\parindent\z@\markboth{\indexname}{\indexname}
                 \parskip\z@ \@plus .3\p@\relax\raggedright
                 \columnseprule \z@
                 \columnsep 35\p@
@@ -1467,7 +1525,6 @@
 \newcommand\listfigurename{List of Figures}
 \newcommand\listtablename{List of Tables}
 \newcommand\bibname{Bibliography}
-\newcommand\indexname{Index}
 \newcommand\figurename{FIGURE}
 \newcommand\tablename{TABLE}
 \newcommand\partname{Part}
@@ -1604,44 +1661,13 @@
   \long\def\caption##1{\tabletitle{##1}\@TableTitle\par}%
   \@dblfloat{table}}
 
-\def\@tabular{%
-  \leavevmode
-  \if@centertable\hfil\fi
-  \vbox\bgroup
-  \setbox\@tablebox\hbox\bgroup
-  \baselineskip11pt
-  \global\let\@fn\@empty
-  \def\footnote##1{\footnotemark\gdef\@fn{##1}}
-  \renewcommand{\arraystretch}{.916666666667}%
-  $\let\@acol\@tabacol
-  \let\@classz\@tabclassz
-  \let\@classiv\@tabclassiv
-  \let\\\@tabularcr
-  \@tabarray}
-\def\endtabular{%
-  \crcr\egroup\egroup $\egroup
-  \@tablewidth\wd\@tablebox
-  \ifnum\@tabletitlewidth>0
-    {\hsize\@tabletitlewidth\raggedright\global\setbox\@tabletitlebox\vbox{\@Tabletitle}}%
-  \else
-    \setbox\@tabletitlebox\hbox{\@Tabletitle}%
-    \ifnum\wd\@tabletitlebox>\@tablewidth
-      {\hsize\@tablewidth\raggedright\global\setbox\@tabletitlebox\vbox{\@Tabletitle}}\fi
-    \@tabletitlewidth\wd\@tabletitlebox\fi
-  \ifnum\@tabletitlewidth>0
-    \ifnum\@tabletitlewidth>\@tablewidth\@tablewidth\@tabletitlewidth\fi
-    \hbox to\@tabletitlewidth{\if@centertabletitle\hfil\fi\box\@tabletitlebox\hfil}\par\fi
-  \max@tablewidth\@tablewidth
-  \ifnum\@tabletitlewidth>\max@tablewidth\max@tablewidth\@tabletitlewidth\fi
-  \if@tablerules
-    \ifnum\@tabletitlewidth>0\vskip-6pt\fi
-    \hbox to\max@tablewidth{\if@centertable\hfil\fi\rule{\@tablewidth}{1pt}\hfil}\par\fi
-  \hbox to\max@tablewidth{\if@centertable\hfil\fi\box\@tablebox\hfil}\vskip1pt
-  \if@tablerules\hbox to\max@tablewidth{\if@centertable\hfil\fi\rule{\@tablewidth}{1pt}\hfil}\par\fi
-  \ifx\@fn\@empty\else\FootnoteFont\parindent\z@\noindent\@makefnmark\@fn\par\fi
-  \egroup\hfil
-  \vskip 0pt plus 12pt
-  \gdef\@Tabletitle{}}
+\def\endtabular{\crcr\egroup\egroup $\egroup}
+\expandafter \let \csname endtabular*\endcsname = \endtabular
+\def\tabular{\let\@halignto\@empty\@tabular}
+\@namedef{tabular*}#1{%
+ \setlength\dimen@{#1}%
+   \edef\@halignto{to\the\dimen@}\@tabular}
+
 
 \def\tch#1{\TableColHeadFont #1\llstrut\hfill}
 \def\tsh#1{\TableSubheadFont #1\hfill}
@@ -1671,17 +1697,17 @@
 
 
 \def\grayink{\special{color cmyk 0 0 0 0.2}}
-\def\blackink{\special{color cmyk 0 0 0 1.0}} %  
+\def\blackink{\special{color cmyk 0 0 0 1.0}} %
 \def\whiteink{\special{color cmyk 0 0 0 0}} % 0%
 
 \newenvironment{shadebox}{%
-\setbox\tempbox\hbox\bgroup\vbox\bgroup\leftskip12pt\rightskip\leftskip}{\par\addvspace{12pt}
-\egroup\egroup\par\addvspace{25pt} 
+\setbox\tempbox\hbox\bgroup\vbox\bgroup\leftskip12pt\rightskip\leftskip\vspace*{12pt}}{\par\addvspace{-6pt}
+\egroup\egroup\par\addvspace{15pt}
 \tempdimen\ht\tempbox
 \advance\tempdimen by 1pc
-\noindent{\hbox to \wd\tempbox{\vbox to \ht\tempbox{\hsize\textwidth{\special{color push}\grayink\vspace*{-12pt}\noindent\vrule height\tempdimen width\textwidth 
+\noindent{\hbox to \wd\tempbox{\vbox to \ht\tempbox{\hsize\textwidth{\special{color push}\grayink\noindent\vrule height\tempdimen width\textwidth
 \special{color pop}\blackink}}}}%
-\llap{\unhbox\tempbox}\par\addvspace{12pt}}
+\llap{\unhbox\tempbox}\par\addvspace{20pt}}
 
 %%%%%%%%%% Note %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newbox\tempbox
@@ -1813,25 +1839,25 @@
      \leftmargini\listtextleftmargin
      \ifdim\listlabelleftskip>\z@
         \advance\leftmargini-\listlabelleftskip
-     \fi  
+     \fi
   \fi
   \ifdim\listtextleftmarginii>\z@
      \leftmarginii\listtextleftmarginii
      \ifdim\listlabelleftskipii>\z@
         \advance\leftmarginii-\listlabelleftskipii
-     \fi  
+     \fi
   \fi
   \ifdim\listtextleftmarginiii>\z@
      \leftmarginiii\listtextleftmarginiii
      \ifdim\listlabelleftskipiii>\z@
         \advance\leftmarginiii-\listlabelleftskipiii
-     \fi  
+     \fi
   \fi
 }
 %
 \enummax{1.}
 %
-\def\enumerate{\@ifnextchar[{\@enumerate}{\@enumerate[\csname label\@enumctr\endcsname]}}%% 
+\def\enumerate{\@ifnextchar[{\@enumerate}{\@enumerate[\csname label\@enumctr\endcsname]}}%%
 %
 
 \def\@enumerate[#1]{\par
@@ -1851,13 +1877,13 @@
             \advance\leftmargin\leftskip
             \tempdimen\leftmargini
             \advance\tempdimen-\labelsep
-           %%%%%%%%%%% 
-           \iffnalpha 
+           %%%%%%%%%%%
+           \iffnalpha
             \def\makelabel##1{{\hskip\listlabelleftskip{\csname listdevicefont\romannumeral\the\@enumdepth\endcsname{\iflabelrightalign\hss\fi\textlistlabel##1}}}}%
             \global\fnalphafalse
            \else
             \def\makelabel##1{\hbox to \tempdimen{\hskip\listlabelleftskip{\csname listdevicefont\romannumeral\the\@enumdepth\endcsname\hbox to \enumdimwd{\iflabelrightalign\hss\fi\textlistlabel##1}}\blackink}}%
-           \fi 
+           \fi
            %%%%%%%%%%%%%%%%%%%%%%%%%%%
          \else
             \ifnum \@enumdepth=2
@@ -1871,8 +1897,8 @@
                   \def\makelabel##1{\hbox to \tempdimen{\hskip\listlabelleftskipiii{\csname listdevicefont\romannumeral\the\@enumdepth\endcsname\hbox to \enumdimwd{\iflabelrightalign\hss\fi##1}\blackink}}}%
               \else
                                        \def\makelabel##1{\hss\llap{\csname listdevicefont\romannumeral\the\@enumdepth\endcsname##1}}%
-                                    \fi   
-                                 \fi   
+                                    \fi
+                                 \fi
          \fi}
       \fi}
 %
@@ -1902,13 +1928,19 @@
 %%  {\centering\HeadFont CONTRIBUTORS\vskip2\p@}
 %%  \noindent\rule{\textwidth}{1\p@}\vskip25\p@}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+    \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+
+\frenchspacing
+\tolerance=5000
+\raggedbottom
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \@centertabletitlefalse
-\HeadingsBookChapter
-%\HeadingsChapterSection
+%\HeadingsBookChapter
+\HeadingsChapterSection
 \endinput
 %%
 %% End of file `krantz.cls'.
-

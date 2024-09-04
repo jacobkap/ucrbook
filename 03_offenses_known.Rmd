@@ -141,15 +141,16 @@ hierarchy_table <-
   rename(`Crime` = offense,
          `% increase without Hierarchy Rule` = percent_above_hierarchy)
  
-knitr::kable(hierarchy_table,  
+kableExtra::kbl(hierarchy_table,  
            #  format = "latex",
              digits = 2, 
              align = c("l", "r", "r"),
              booktabs = TRUE, 
              longtable = TRUE,
+             escape = TRUE,
              label = "nibrsHierarchy",
-             caption = "The percent increase in reported crimes for each index crime if the Hierarchy Rule was not used, NIBRS 2022.") #%>%
- # kable_styling(bootstrap_options = "striped")
+             caption = "The percent increase in reported crimes for each index crime if the Hierarchy Rule was not used, NIBRS 2022.") %>%
+    kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 
 ```
 

@@ -78,7 +78,9 @@ groundhog.library(packages, "2024-08-27")
 # 
 # saveRDS(offenses_known_yearly, "data/offenses_known_yearly_with_covered_by_last_month_reported.rds")
 
-
+options(tidygeocoder.quiet = TRUE)
+options(tidygeocoder.verbose =  FALSE)
+options(readr.show_col_types = FALSE) 
 
 
 
@@ -92,6 +94,23 @@ knitr::opts_chunk$set(
   fig.show = "hold",
   error = TRUE
 )
+
+
+# library(formatR)
+# knitr::opts_chunk$set(
+#   comment = "#",
+#  # collapse = TRUE,
+#   fig.align = 'center',
+#   fig.width = 9,
+#   fig.asp =  0.618,
+#   fig.show = "hold",
+#   #error = TRUE,
+#  # fig.pos = "!H",
+#   out.extra = "",
+#   tidy = "styler",
+#   out.width = "100%",
+#   out.height= "45%"
+# )
 
 get_replace_single_month <- function(data, crime_col, crime) {
   data <- data[match(data$month, month.name), ]
@@ -243,6 +262,7 @@ get_murder_by_pop_group <- function(data) {
 
   final$agency_size <- gsub(" thru ", "-", final$agency_size, ignore.case = TRUE)
   final$agency_size <- gsub("msa", "MSA", final$agency_size, ignore.case = TRUE)
+  final$agency_size <- gsub("And", "and", final$agency_size, ignore.case = TRUE)
   
   
 

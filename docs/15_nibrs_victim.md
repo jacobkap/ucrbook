@@ -16,74 +16,328 @@ The first variable we'll look at is the crime the victim experienced. This is a 
 
 There are 52 possible offenses included in this segment and Table \@ref(tab:victimCrimeCategory) shows how frequent each offense is. Though there are 10 possible offenses per victim, this table only looks at the first offense. The most common offense is simple assault, affecting 12.7% of victims or 944k people. This is followed by damage, vandalism, or destruction of property for 11% of victims. About 9.6% of victims experience drugs/narcotic violations, and these victims are likely also the offenders in the case (all incidents must have a victim recorded so in drug crimes the victims are also the offenders in most cases). Theft crimes, broken into some subcategories like "all other larceny" and "theft from motor vehicle" make up the three of the top six crimes (ranks 3, 5, and 6) people are victimized by. And the only remaining crime that accounts for 5% or more of offenses is burglary at 6.4%.
 
-
-
-Table: (\#tab:victimCrimeCategory)The number and percent of crimes committed against each victim. For victims with multiple crimes committed against them, this shows the most serious crime.
-
-|Crime Category                                                      | \# of Victims| \% of Victims|
-|:-------------------------------------------------------------------|-------------:|-------------:|
-|Assault Offenses - Simple Assault                                   |     1,963,108|       15.51\%|
-|Larceny/Theft Offenses - All Other Larceny                          |     1,349,448|       10.67\%|
-|Destruction/Damage/Vandalism of Property                            |     1,204,569|        9.52\%|
-|Drug/Narcotic Offenses - Drug/Narcotic Violations                   |       993,317|        7.85\%|
-|Larceny/Theft Offenses - Theft From Motor Vehicle                   |       959,554|        7.58\%|
-|Burglary/Breaking And Entering                                      |       757,933|        5.99\%|
-|Larceny/Theft Offenses - Shoplifting                                |       747,655|        5.91\%|
-|Motor Vehicle Theft                                                 |       703,215|        5.56\%|
-|Assault Offenses - Aggravated Assault                               |       669,067|        5.29\%|
-|Assault Offenses - Intimidation                                     |       537,389|        4.25\%|
-|Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories   |       387,566|        3.06\%|
-|Fraud Offenses - False Pretenses/Swindle/Confidence Game            |       333,517|        2.64\%|
-|Larceny/Theft Offenses - Theft From Building                        |       276,139|        2.18\%|
-|Weapon Law Violations - Weapon Law Violations                       |       240,037|        1.90\%|
-|Robbery                                                             |       194,500|        1.54\%|
-|Fraud Offenses - Identity Theft                                     |       177,323|        1.40\%|
-|Fraud Offenses - Credit Card/Atm Fraud                              |       159,970|        1.26\%|
-|Drug/Narcotic Offenses - Drug Equipment Violations                  |       159,409|        1.26\%|
-|Counterfeiting/Forgery                                              |       143,052|        1.13\%|
-|Stolen Property Offenses (Receiving, Selling, Etc.)                 |       111,630|        0.88\%|
-|Sex Offenses - Fondling (Incident Liberties/Child Molest)           |        87,715|        0.69\%|
-|Sex Offenses - Rape                                                 |        76,759|        0.61\%|
-|Fraud Offenses - Impersonation                                      |        75,089|        0.59\%|
-|Kidnapping/Abduction                                                |        43,094|        0.34\%|
-|Pornography/Obscene Material                                        |        39,629|        0.31\%|
-|Fraud Offenses - Wire Fraud                                         |        36,975|        0.29\%|
-|Arson                                                               |        35,241|        0.28\%|
-|Embezzlement                                                        |        32,065|        0.25\%|
-|Larceny/Theft Offenses - Pocket-Picking                             |        21,080|        0.17\%|
-|Animal Cruelty                                                      |        20,100|        0.16\%|
-|Extortion/Blackmail                                                 |        19,953|        0.16\%|
-|Sex Offenses - Sodomy                                               |        17,447|        0.14\%|
-|Murder/Nonnegligent Manslaughter                                    |        16,414|        0.13\%|
-|Larceny/Theft Offenses - Purse-Snatching                            |        11,048|        0.09\%|
-|Sex Offenses - Statutory Rape                                       |         7,984|        0.06\%|
-|Sex Offenses - Sexual Assault With An Object                        |         7,425|        0.06\%|
-|Prostitution Offenses - Prostitution                                |         7,113|        0.06\%|
-|Fraud Offenses - Hacking/Computer Invasion                          |         6,380|        0.05\%|
-|Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device |         5,630|        0.04\%|
-|Fraud Offenses - Welfare Fraud                                      |         4,415|        0.03\%|
-|Prostitution Offenses - Assisting Or Promoting Prostitution         |         2,378|        0.02\%|
-|Prostitution Offenses - Purchasing Prostitution                     |         2,184|        0.02\%|
-|Negligent Manslaughter                                              |         1,750|        0.01\%|
-|Human Trafficking - Commercial Sex Acts                             |         1,749|        0.01\%|
-|Sex Offenses - Incest                                               |         1,277|        0.01\%|
-|Gambling Offenses - Operating/Promoting/Assisting Gambling          |           822|        0.01\%|
-|Justifiable Homicide - Not A Crime                                  |           634|        0.01\%|
-|Gambling Offenses - Betting/Wagering                                |           600|        0.00\%|
-|Bribery                                                             |           567|        0.00\%|
-|Human Trafficking - Involuntary Servitude                           |           506|        0.00\%|
-|Gambling Offenses - Gambling Equipment Violations                   |           313|        0.00\%|
-|Commerce Violations - Federal Liquor Offenses                       |           145|        0.00\%|
-|Fugitive Offenses - Flight To Avoid Prosecution                     |            66|        0.00\%|
-|Sex Offenses - Failure To Register As A Sex Offender                |            27|        0.00\%|
-|Fraud Offenses - Money Laundering                                   |             7|        0.00\%|
-|Weapon Law Violations - Explosives                                  |             4|        0.00\%|
-|Fugitive Offenses - Harboring Escappee/Concealing From Arrest       |             3|        0.00\%|
-|Immigration Violations - Illegal Entry Into The United States       |             3|        0.00\%|
-|Gambling Offenses - Sports Tampering                                |             2|        0.00\%|
-|Fugitive Offenses - Flight To Avoid Deportation                     |             1|        0.00\%|
-|Weapon Law Violations - Violation of National Firearm Act of 1934   |             1|        0.00\%|
-|Total                                                               |    12,652,993|         100\%|
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:victimCrimeCategory)The number and percent of crimes committed against each victim. For victims with multiple crimes committed against them, this shows the most serious crime.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Crime Category </th>
+   <th style="text-align:right;"> \# of Victims </th>
+   <th style="text-align:right;"> \% of Victims </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 1,963,108 </td>
+   <td style="text-align:right;"> 15.51\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 1,349,448 </td>
+   <td style="text-align:right;"> 10.67\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 1,204,569 </td>
+   <td style="text-align:right;"> 9.52\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug/Narcotic Violations </td>
+   <td style="text-align:right;"> 993,317 </td>
+   <td style="text-align:right;"> 7.85\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Motor Vehicle </td>
+   <td style="text-align:right;"> 959,554 </td>
+   <td style="text-align:right;"> 7.58\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 757,933 </td>
+   <td style="text-align:right;"> 5.99\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Shoplifting </td>
+   <td style="text-align:right;"> 747,655 </td>
+   <td style="text-align:right;"> 5.91\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Motor Vehicle Theft </td>
+   <td style="text-align:right;"> 703,215 </td>
+   <td style="text-align:right;"> 5.56\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 669,067 </td>
+   <td style="text-align:right;"> 5.29\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 537,389 </td>
+   <td style="text-align:right;"> 4.25\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories </td>
+   <td style="text-align:right;"> 387,566 </td>
+   <td style="text-align:right;"> 3.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud Offenses - False Pretenses/Swindle/Confidence Game </td>
+   <td style="text-align:right;"> 333,517 </td>
+   <td style="text-align:right;"> 2.64\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Building </td>
+   <td style="text-align:right;"> 276,139 </td>
+   <td style="text-align:right;"> 2.18\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Weapon Law Violations - Weapon Law Violations </td>
+   <td style="text-align:right;"> 240,037 </td>
+   <td style="text-align:right;"> 1.90\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:right;"> 194,500 </td>
+   <td style="text-align:right;"> 1.54\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud Offenses - Identity Theft </td>
+   <td style="text-align:right;"> 177,323 </td>
+   <td style="text-align:right;"> 1.40\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud Offenses - Credit Card/Atm Fraud </td>
+   <td style="text-align:right;"> 159,970 </td>
+   <td style="text-align:right;"> 1.26\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug Equipment Violations </td>
+   <td style="text-align:right;"> 159,409 </td>
+   <td style="text-align:right;"> 1.26\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Counterfeiting/Forgery </td>
+   <td style="text-align:right;"> 143,052 </td>
+   <td style="text-align:right;"> 1.13\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Stolen Property Offenses (Receiving, Selling, Etc.) </td>
+   <td style="text-align:right;"> 111,630 </td>
+   <td style="text-align:right;"> 0.88\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sex Offenses - Fondling (Incident Liberties/Child Molest) </td>
+   <td style="text-align:right;"> 87,715 </td>
+   <td style="text-align:right;"> 0.69\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sex Offenses - Rape </td>
+   <td style="text-align:right;"> 76,759 </td>
+   <td style="text-align:right;"> 0.61\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud Offenses - Impersonation </td>
+   <td style="text-align:right;"> 75,089 </td>
+   <td style="text-align:right;"> 0.59\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Kidnapping/Abduction </td>
+   <td style="text-align:right;"> 43,094 </td>
+   <td style="text-align:right;"> 0.34\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pornography/Obscene Material </td>
+   <td style="text-align:right;"> 39,629 </td>
+   <td style="text-align:right;"> 0.31\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud Offenses - Wire Fraud </td>
+   <td style="text-align:right;"> 36,975 </td>
+   <td style="text-align:right;"> 0.29\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arson </td>
+   <td style="text-align:right;"> 35,241 </td>
+   <td style="text-align:right;"> 0.28\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Embezzlement </td>
+   <td style="text-align:right;"> 32,065 </td>
+   <td style="text-align:right;"> 0.25\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Pocket-Picking </td>
+   <td style="text-align:right;"> 21,080 </td>
+   <td style="text-align:right;"> 0.17\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Animal Cruelty </td>
+   <td style="text-align:right;"> 20,100 </td>
+   <td style="text-align:right;"> 0.16\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Extortion/Blackmail </td>
+   <td style="text-align:right;"> 19,953 </td>
+   <td style="text-align:right;"> 0.16\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sex Offenses - Sodomy </td>
+   <td style="text-align:right;"> 17,447 </td>
+   <td style="text-align:right;"> 0.14\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Murder/Nonnegligent Manslaughter </td>
+   <td style="text-align:right;"> 16,414 </td>
+   <td style="text-align:right;"> 0.13\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Purse-Snatching </td>
+   <td style="text-align:right;"> 11,048 </td>
+   <td style="text-align:right;"> 0.09\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sex Offenses - Statutory Rape </td>
+   <td style="text-align:right;"> 7,984 </td>
+   <td style="text-align:right;"> 0.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sex Offenses - Sexual Assault With An Object </td>
+   <td style="text-align:right;"> 7,425 </td>
+   <td style="text-align:right;"> 0.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Prostitution Offenses - Prostitution </td>
+   <td style="text-align:right;"> 7,113 </td>
+   <td style="text-align:right;"> 0.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud Offenses - Hacking/Computer Invasion </td>
+   <td style="text-align:right;"> 6,380 </td>
+   <td style="text-align:right;"> 0.05\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device </td>
+   <td style="text-align:right;"> 5,630 </td>
+   <td style="text-align:right;"> 0.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud Offenses - Welfare Fraud </td>
+   <td style="text-align:right;"> 4,415 </td>
+   <td style="text-align:right;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Prostitution Offenses - Assisting Or Promoting Prostitution </td>
+   <td style="text-align:right;"> 2,378 </td>
+   <td style="text-align:right;"> 0.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Prostitution Offenses - Purchasing Prostitution </td>
+   <td style="text-align:right;"> 2,184 </td>
+   <td style="text-align:right;"> 0.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Negligent Manslaughter </td>
+   <td style="text-align:right;"> 1,750 </td>
+   <td style="text-align:right;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Human Trafficking - Commercial Sex Acts </td>
+   <td style="text-align:right;"> 1,749 </td>
+   <td style="text-align:right;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sex Offenses - Incest </td>
+   <td style="text-align:right;"> 1,277 </td>
+   <td style="text-align:right;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gambling Offenses - Operating/Promoting/Assisting Gambling </td>
+   <td style="text-align:right;"> 822 </td>
+   <td style="text-align:right;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Justifiable Homicide - Not A Crime </td>
+   <td style="text-align:right;"> 634 </td>
+   <td style="text-align:right;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gambling Offenses - Betting/Wagering </td>
+   <td style="text-align:right;"> 600 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bribery </td>
+   <td style="text-align:right;"> 567 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Human Trafficking - Involuntary Servitude </td>
+   <td style="text-align:right;"> 506 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gambling Offenses - Gambling Equipment Violations </td>
+   <td style="text-align:right;"> 313 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Commerce Violations - Federal Liquor Offenses </td>
+   <td style="text-align:right;"> 145 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fugitive Offenses - Flight To Avoid Prosecution </td>
+   <td style="text-align:right;"> 66 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sex Offenses - Failure To Register As A Sex Offender </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud Offenses - Money Laundering </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Weapon Law Violations - Explosives </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fugitive Offenses - Harboring Escappee/Concealing From Arrest </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Immigration Violations - Illegal Entry Into The United States </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gambling Offenses - Sports Tampering </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fugitive Offenses - Flight To Avoid Deportation </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Weapon Law Violations - Violation of National Firearm Act of 1934 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 12,652,993 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+</tbody>
+</table>
 
 
 
@@ -144,76 +398,300 @@ Table \@ref(tab:victimRelationship) shows each of the relationship categories an
 
 If you're familiar with the FBI's [Supplementary Homicide Report](https://ucrbook.com/shr.html) data, this variable  - and the two following variables - is also in that dataset. 
 
-
-
-Table: (\#tab:victimRelationship)The distribution of the relationship between the victim and the offender. Only individual and law enforcement officer victims have this variable available.
-
-|Crime Category                                          | \# of Victims| \% of Victims|
-|:-------------------------------------------------------|-------------:|-------------:|
-|Relationship Unknown                                    |     1,117,979|       24.31\%|
-|Victim Was Stranger                                     |       669,425|       14.56\%|
-|Victim Was Boyfriend/Girlfriend                         |       538,762|       11.72\%|
-|Victim Was Acquaintance                                 |       505,720|       11.00\%|
-|Victim Was Otherwise Known                              |       384,883|        8.37\%|
-|Victim Was Spouse                                       |       209,028|        4.55\%|
-|Victim Was Ex-Relationship (Ex-Boyfriend/Ex-Girlfriend) |       172,218|        3.75\%|
-|Victim Was Parent                                       |       163,978|        3.57\%|
-|Victim Was Child                                        |       128,085|        2.79\%|
-|Victim Was Other Family Member                          |       113,811|        2.48\%|
-|Victim Was Sibling                                      |       102,790|        2.24\%|
-|Victim Was Friend                                       |       100,191|        2.18\%|
-|Victim Was Offender                                     |        93,715|        2.04\%|
-|Victim Was Neighbor                                     |        86,725|        1.89\%|
-|Victim Was Ex-Spouse                                    |        52,407|        1.14\%|
-|Victim Was Common-Law Spouse                            |        25,507|        0.55\%|
-|Victim Was In-Law                                       |        19,763|        0.43\%|
-|Victim Was Step-Child                                   |        19,401|        0.42\%|
-|Victim Was Grandparent                                  |        19,054|        0.41\%|
-|Victim Was Step-Parent                                  |        15,982|        0.35\%|
-|Victim Was Employee                                     |        14,920|        0.32\%|
-|Victim Was Child of Boyfriend/Girlfriend                |        14,423|        0.31\%|
-|Victim Was Employer                                     |        13,567|        0.30\%|
-|Victim Was Grandchild                                   |         8,776|        0.19\%|
-|Victim Was Step-Sibling                                 |         4,616|        0.10\%|
-|Victim Was Babysittee (The Baby)                        |         2,399|        0.05\%|
-|Total                                                   |     4,598,125|         100\%|
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:victimRelationship)The distribution of the relationship between the victim and the offender. Only individual and law enforcement officer victims have this variable available.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Crime Category </th>
+   <th style="text-align:right;"> \# of Victims </th>
+   <th style="text-align:right;"> \% of Victims </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Relationship Unknown </td>
+   <td style="text-align:right;"> 1,117,979 </td>
+   <td style="text-align:right;"> 24.31\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Stranger </td>
+   <td style="text-align:right;"> 669,425 </td>
+   <td style="text-align:right;"> 14.56\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Boyfriend/Girlfriend </td>
+   <td style="text-align:right;"> 538,762 </td>
+   <td style="text-align:right;"> 11.72\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Acquaintance </td>
+   <td style="text-align:right;"> 505,720 </td>
+   <td style="text-align:right;"> 11.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Otherwise Known </td>
+   <td style="text-align:right;"> 384,883 </td>
+   <td style="text-align:right;"> 8.37\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Spouse </td>
+   <td style="text-align:right;"> 209,028 </td>
+   <td style="text-align:right;"> 4.55\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Ex-Relationship (Ex-Boyfriend/Ex-Girlfriend) </td>
+   <td style="text-align:right;"> 172,218 </td>
+   <td style="text-align:right;"> 3.75\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Parent </td>
+   <td style="text-align:right;"> 163,978 </td>
+   <td style="text-align:right;"> 3.57\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Child </td>
+   <td style="text-align:right;"> 128,085 </td>
+   <td style="text-align:right;"> 2.79\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Other Family Member </td>
+   <td style="text-align:right;"> 113,811 </td>
+   <td style="text-align:right;"> 2.48\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Sibling </td>
+   <td style="text-align:right;"> 102,790 </td>
+   <td style="text-align:right;"> 2.24\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Friend </td>
+   <td style="text-align:right;"> 100,191 </td>
+   <td style="text-align:right;"> 2.18\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Offender </td>
+   <td style="text-align:right;"> 93,715 </td>
+   <td style="text-align:right;"> 2.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Neighbor </td>
+   <td style="text-align:right;"> 86,725 </td>
+   <td style="text-align:right;"> 1.89\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Ex-Spouse </td>
+   <td style="text-align:right;"> 52,407 </td>
+   <td style="text-align:right;"> 1.14\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Common-Law Spouse </td>
+   <td style="text-align:right;"> 25,507 </td>
+   <td style="text-align:right;"> 0.55\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was In-Law </td>
+   <td style="text-align:right;"> 19,763 </td>
+   <td style="text-align:right;"> 0.43\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Step-Child </td>
+   <td style="text-align:right;"> 19,401 </td>
+   <td style="text-align:right;"> 0.42\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Grandparent </td>
+   <td style="text-align:right;"> 19,054 </td>
+   <td style="text-align:right;"> 0.41\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Step-Parent </td>
+   <td style="text-align:right;"> 15,982 </td>
+   <td style="text-align:right;"> 0.35\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Employee </td>
+   <td style="text-align:right;"> 14,920 </td>
+   <td style="text-align:right;"> 0.32\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Child of Boyfriend/Girlfriend </td>
+   <td style="text-align:right;"> 14,423 </td>
+   <td style="text-align:right;"> 0.31\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Employer </td>
+   <td style="text-align:right;"> 13,567 </td>
+   <td style="text-align:right;"> 0.30\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Grandchild </td>
+   <td style="text-align:right;"> 8,776 </td>
+   <td style="text-align:right;"> 0.19\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Step-Sibling </td>
+   <td style="text-align:right;"> 4,616 </td>
+   <td style="text-align:right;"> 0.10\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Babysittee (The Baby) </td>
+   <td style="text-align:right;"> 2,399 </td>
+   <td style="text-align:right;"> 0.05\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 4,598,125 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+</tbody>
+</table>
 
 
 
 We also know the relationship between victim and offender when the victim is a law enforcement officer. As shown in Table \@ref(tab:victimRelationshipPolice), most of the time the officer didn't know the offender, with 58.9% of victimizations being this relationship type. This is followed by 18.7% where the officer knew the offender, including if they were familiar with the person by arresting or stopping them previously. In about 18.5% we don't know the relationship as it is unknown and in 3.2% the officer and the offender were acquaintances. There are also a number of unlikely (and some impossible) relationships like the three in which the officer was the offender's child and the one in which the officer was a baby who was abused by their babysitter. These seem to be clear indications that there are some data errors with this variable. 
 
-
-
-Table: (\#tab:victimRelationshipPolice)The distribution of the relationship between the victim and the offender for law enforcement officer victims.
-
-|Crime Category                                          | \# of Victims| \% of Victims|
-|:-------------------------------------------------------|-------------:|-------------:|
-|Victim Was Stranger                                     |        40,978|       56.20\%|
-|Relationship Unknown                                    |        16,873|       23.14\%|
-|Victim Was Otherwise Known                              |        12,381|       16.98\%|
-|Victim Was Acquaintance                                 |         2,151|        2.95\%|
-|Victim Was Employee                                     |           158|        0.22\%|
-|Victim Was Boyfriend/Girlfriend                         |           110|        0.15\%|
-|Victim Was Spouse                                       |            55|        0.08\%|
-|Victim Was Other Family Member                          |            31|        0.04\%|
-|Victim Was In-Law                                       |            27|        0.04\%|
-|Victim Was Parent                                       |            26|        0.04\%|
-|Victim Was Neighbor                                     |            19|        0.03\%|
-|Victim Was Sibling                                      |            18|        0.02\%|
-|Victim Was Friend                                       |            17|        0.02\%|
-|Victim Was Step-Sibling                                 |            13|        0.02\%|
-|Victim Was Ex-Relationship (Ex-Boyfriend/Ex-Girlfriend) |            11|        0.02\%|
-|Victim Was Employer                                     |             8|        0.01\%|
-|Victim Was Offender                                     |             8|        0.01\%|
-|Victim Was Ex-Spouse                                    |             8|        0.01\%|
-|Victim Was Common-Law Spouse                            |             6|        0.01\%|
-|Victim Was Child                                        |             6|        0.01\%|
-|Victim Was Step-Child                                   |             5|        0.01\%|
-|Victim Was Babysittee (The Baby)                        |             3|        0.00\%|
-|Victim Was Step-Parent                                  |             3|        0.00\%|
-|Victim Was Grandparent                                  |             1|        0.00\%|
-|Victim Was Child of Boyfriend/Girlfriend                |             1|        0.00\%|
-|Total                                                   |        72,917|         100\%|
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:victimRelationshipPolice)The distribution of the relationship between the victim and the offender for law enforcement officer victims.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Crime Category </th>
+   <th style="text-align:right;"> \# of Victims </th>
+   <th style="text-align:right;"> \% of Victims </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Victim Was Stranger </td>
+   <td style="text-align:right;"> 40,978 </td>
+   <td style="text-align:right;"> 56.20\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Relationship Unknown </td>
+   <td style="text-align:right;"> 16,873 </td>
+   <td style="text-align:right;"> 23.14\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Otherwise Known </td>
+   <td style="text-align:right;"> 12,381 </td>
+   <td style="text-align:right;"> 16.98\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Acquaintance </td>
+   <td style="text-align:right;"> 2,151 </td>
+   <td style="text-align:right;"> 2.95\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Employee </td>
+   <td style="text-align:right;"> 158 </td>
+   <td style="text-align:right;"> 0.22\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Boyfriend/Girlfriend </td>
+   <td style="text-align:right;"> 110 </td>
+   <td style="text-align:right;"> 0.15\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Spouse </td>
+   <td style="text-align:right;"> 55 </td>
+   <td style="text-align:right;"> 0.08\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Other Family Member </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 0.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was In-Law </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 0.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Parent </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 0.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Neighbor </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Sibling </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 0.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Friend </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 0.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Step-Sibling </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 0.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Ex-Relationship (Ex-Boyfriend/Ex-Girlfriend) </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 0.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Employer </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Offender </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Ex-Spouse </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Common-Law Spouse </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Child </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Step-Child </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Babysittee (The Baby) </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Step-Parent </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Grandparent </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Victim Was Child of Boyfriend/Girlfriend </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 72,917 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+</tbody>
+</table>
 
 
 
@@ -221,30 +699,127 @@ Table: (\#tab:victimRelationshipPolice)The distribution of the relationship betw
 
 In cases of aggravated assault or homicide we have some information about the motive of the offender. There can be up to two motives, what NIBRS calls circumstances, for each of these offenses. Table \@ref(tab:victimAggAssault) shows all of the possible circumstances in the data, and shows the frequency only of the first circumstance. The most common circumstance is that there was an argument, and this accounts for 42.7% of these victims. The next most common is 24% which had unknown circumstances followed by 18.7% with "other" circumstances. The next most common group is "lovers' quarrel" which the FBI relabeled as "domestic violence" beginning in 2019. This group accounts for 9.4% of victims. Assault on law enforcement officers is the next most common group at 2.8% of victims. All other groups are less common than 2% of victims. 
 
-
-
-Table: (\#tab:victimAggAssault)The distribution of circumstances for aggravated assault and homicides.
-
-|Circumstance                          |            Crime Category| \# of Victims|\% of Victims |
-|:-------------------------------------|-------------------------:|-------------:|:-------------|
-|Argument                              | Aggravated Assault/Murder|       263,394|37.82\%       |
-|Unknown Circumstances                 | Aggravated Assault/Murder|       176,578|25.35\%       |
-|Other Circumstances                   | Aggravated Assault/Murder|       135,511|19.46\%       |
-|Domestic Violence                     | Aggravated Assault/Murder|        83,118|11.93\%       |
-|Assault On Law Enforcement Officer(S) | Aggravated Assault/Murder|        19,495|2.80\%        |
-|Other Felony Involved                 | Aggravated Assault/Murder|         9,213|1.32\%        |
-|Gangland                              | Aggravated Assault/Murder|         2,938|0.42\%        |
-|Drug Dealing                          | Aggravated Assault/Murder|         2,326|0.33\%        |
-|Juvenile Gang                         | Aggravated Assault/Murder|         1,509|0.22\%        |
-|Other Negligent Killings              |    Negligent Manslaughter|         1,433|0.21\%        |
-|Criminal Killed By Private Citizen    |      Justifiable Homicide|           409|0.06\%        |
-|Other Negligent Weapon Handling       |    Negligent Manslaughter|           270|0.04\%        |
-|Criminal Killed By Police Officer     |      Justifiable Homicide|           225|0.03\%        |
-|Mercy Killing                         | Aggravated Assault/Murder|            47|0.01\%        |
-|Child Playing With Weapon             |    Negligent Manslaughter|            40|0.01\%        |
-|Gun-Cleaning Accident                 |    Negligent Manslaughter|             4|0.00\%        |
-|Hunting Accident                      |    Negligent Manslaughter|             3|0.00\%        |
-|Total                                 | Aggravated Assault/Murder|       696,513|100\%         |
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:victimAggAssault)The distribution of circumstances for aggravated assault and homicides.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Circumstance </th>
+   <th style="text-align:right;"> Crime Category </th>
+   <th style="text-align:right;"> \# of Victims </th>
+   <th style="text-align:left;"> \% of Victims </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Argument </td>
+   <td style="text-align:right;"> Aggravated Assault/Murder </td>
+   <td style="text-align:right;"> 263,394 </td>
+   <td style="text-align:left;"> 37.82\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Unknown Circumstances </td>
+   <td style="text-align:right;"> Aggravated Assault/Murder </td>
+   <td style="text-align:right;"> 176,578 </td>
+   <td style="text-align:left;"> 25.35\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Other Circumstances </td>
+   <td style="text-align:right;"> Aggravated Assault/Murder </td>
+   <td style="text-align:right;"> 135,511 </td>
+   <td style="text-align:left;"> 19.46\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Domestic Violence </td>
+   <td style="text-align:right;"> Aggravated Assault/Murder </td>
+   <td style="text-align:right;"> 83,118 </td>
+   <td style="text-align:left;"> 11.93\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Assault On Law Enforcement Officer(S) </td>
+   <td style="text-align:right;"> Aggravated Assault/Murder </td>
+   <td style="text-align:right;"> 19,495 </td>
+   <td style="text-align:left;"> 2.80\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Other Felony Involved </td>
+   <td style="text-align:right;"> Aggravated Assault/Murder </td>
+   <td style="text-align:right;"> 9,213 </td>
+   <td style="text-align:left;"> 1.32\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gangland </td>
+   <td style="text-align:right;"> Aggravated Assault/Murder </td>
+   <td style="text-align:right;"> 2,938 </td>
+   <td style="text-align:left;"> 0.42\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Drug Dealing </td>
+   <td style="text-align:right;"> Aggravated Assault/Murder </td>
+   <td style="text-align:right;"> 2,326 </td>
+   <td style="text-align:left;"> 0.33\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Juvenile Gang </td>
+   <td style="text-align:right;"> Aggravated Assault/Murder </td>
+   <td style="text-align:right;"> 1,509 </td>
+   <td style="text-align:left;"> 0.22\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Other Negligent Killings </td>
+   <td style="text-align:right;"> Negligent Manslaughter </td>
+   <td style="text-align:right;"> 1,433 </td>
+   <td style="text-align:left;"> 0.21\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Criminal Killed By Private Citizen </td>
+   <td style="text-align:right;"> Justifiable Homicide </td>
+   <td style="text-align:right;"> 409 </td>
+   <td style="text-align:left;"> 0.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Other Negligent Weapon Handling </td>
+   <td style="text-align:right;"> Negligent Manslaughter </td>
+   <td style="text-align:right;"> 270 </td>
+   <td style="text-align:left;"> 0.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Criminal Killed By Police Officer </td>
+   <td style="text-align:right;"> Justifiable Homicide </td>
+   <td style="text-align:right;"> 225 </td>
+   <td style="text-align:left;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mercy Killing </td>
+   <td style="text-align:right;"> Aggravated Assault/Murder </td>
+   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Child Playing With Weapon </td>
+   <td style="text-align:right;"> Negligent Manslaughter </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gun-Cleaning Accident </td>
+   <td style="text-align:right;"> Negligent Manslaughter </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hunting Accident </td>
+   <td style="text-align:right;"> Negligent Manslaughter </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> Aggravated Assault/Murder </td>
+   <td style="text-align:right;"> 696,513 </td>
+   <td style="text-align:left;"> 100\% </td>
+  </tr>
+</tbody>
+</table>
 
 
 

@@ -1,0 +1,1980 @@
+--- 
+title: "Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data"
+author: "Jacob Kaplan, Ph.D."
+date: "`r Sys.Date()`"
+bibliography: [book.bib]
+biblio-style: apalike
+link-citations: yes
+colorlinks: yes
+description: "This is a comprehensive guide to using the FBI's Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files."
+url: "https://ucrbook.com"
+github-repo: "jacobkap/ucrbook"
+site: bookdown::bookdown_site
+documentclass: krantz
+monofont: "Source Code Pro"
+monofontoptions: "Scale=0.7"
+graphics: yes
+---
+```{r include=FALSE, cache=FALSE}
+library(groundhog)
+
+# devtools::install_github("wmurphyrd/fiftystater")
+library(fiftystater)
+
+
+packages <- c(
+  "crimeutils",
+  "dplyr",
+  "readr",
+  "kableExtra",
+  "knitr",
+  "scales",
+  "tidyr",
+  "ggplot2",
+  "mapproj",
+  "lubridate",
+  "gridExtra",
+  "priceR",
+  "blscrapeR",
+  "janitor",
+ # "quantmod",
+  "ggh4x",
+  "sf",
+  "tigris"
+)
+
+groundhog.library(packages, "2024-08-27")
+#library(priceR)
+#library(quantmod)
+
+# For agencies with a covered by ORI value, assign the last month reported 
+# variable to the value the covering agency has
+
+# 
+# offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2022.rds")
+# offenses_known_yearly$covered_by_ori <- toupper(offenses_known_yearly$covered_by_ori)
+# 
+# offenses_known_yearly$ori_year <- paste(offenses_known_yearly$ori,
+#                                         offenses_known_yearly$year)
+# offenses_known_yearly_covered_by <-
+#   offenses_known_yearly %>%
+#   filter(!is.na(covered_by_ori))
+# 
+# offenses_known_yearly_covering <-
+#   offenses_known_yearly %>%
+#   filter(paste(ori, year) %in% paste(offenses_known_yearly_covered_by$covered_by_ori,
+#                                      offenses_known_yearly_covered_by$year))
+# 
+# offenses_known_yearly_covered_by$last_month_reported_old <-
+#   offenses_known_yearly_covered_by$last_month_reported
+# offenses_known_yearly_covered_by$number_of_months_missing_old <-
+#   offenses_known_yearly_covered_by$number_of_months_missing
+# pb <- progress_bar$new(
+#   format = " [:bar] :current/:total :percent eta: :eta",
+#   total = nrow(offenses_known_yearly_covered_by), clear = FALSE, width= 60)
+# table(offenses_known_yearly_covered_by$last_month_reported)
+# table(offenses_known_yearly_covered_by$number_of_months_missing)
+# for (i in 1:nrow(offenses_known_yearly_covered_by)) {
+#   temp <-
+#     offenses_known_yearly_covering %>%
+#     filter(ori %in% offenses_known_yearly_covered_by$covered_by_ori[i],
+#            year %in% offenses_known_yearly_covered_by$year[i])
+#   if (nrow(temp) > 0) {
+#     offenses_known_yearly_covered_by$last_month_reported[i] <- temp$last_month_reported
+#     offenses_known_yearly_covered_by$number_of_months_missing[i] <- temp$number_of_months_missing
+#   }
+#   pb$tick()
+#   
+# }
+# table(offenses_known_yearly_covered_by$last_month_reported)
+# table(offenses_known_yearly_covered_by$number_of_months_missing)
+# 
+# offenses_known_yearly <-
+#   offenses_known_yearly %>%
+#   filter(!ori_year %in% offenses_known_yearly_covered_by$ori_year) %>%
+#   bind_rows(offenses_known_yearly_covered_by)
+# 
+# saveRDS(offenses_known_yearly, "data/offenses_known_yearly_with_covered_by_last_month_reported.rds")
+
+options(tidygeocoder.quiet = TRUE)
+options(tidygeocoder.verbose =  FALSE)
+options(readr.show_col_types = FALSE) 
+
+
+
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  out.width = "90%",
+  fig.align = "center",
+  fig.width = 15.33333,
+  fig.asp = (1 / 1.618033988749895), # 1 / phi
+  fig.show = "hold",
+  error = TRUE
+)
+
+
+# library(formatR)
+# knitr::opts_chunk$set(
+#   comment = "#",
+#  # collapse = TRUE,
+#   fig.align = 'center',
+#   fig.width = 9,
+#   fig.asp =  0.618,
+#   fig.show = "hold",
+#   #error = TRUE,
+#  # fig.pos = "!H",
+#   out.extra = "",
+#   tidy = "styler",
+#   out.width = "100%",
+#   out.height= "45%"
+# )
+
+get_replace_single_month <- function(data, crime_col, crime) {
+  data <- data[match(data$month, month.name), ]
+  data$imputed_if_missing <- NA
+  data <- data.frame(data)
+  for (i in 1:nrow(data)) {
+    rows <- 1:12
+    rows <- rows[!rows %in% i]
+    data$imputed_if_missing[i] <- sum(data[, crime_col][rows]) * (12 / 11)
+  }
+  data$imputed_if_missing <- round(data$imputed_if_missing, 0)
+  data$actual_crimes <- data[, crime_col]
+  data$annual_crimes <- sum(data$actual_crimes)
+
+  data <-
+    data %>%
+    select(month, actual_crimes, annual_crimes, imputed_if_missing)
+  data$percent_change <- get_percent_change(sum(data$actual_crimes), data$imputed_if_missing)
+  data <-
+    data %>%
+    mutate_if(is.numeric, formatC, format = "d", big.mark = ",")
+
+
+  data$actual_crimes <- as.character(data$actual_crimes)
+  crime_percent <- parse_number(data$actual_crimes) / sum(parse_number(data$actual_crimes)) * 100
+  crime_percent <- round(crime_percent, 2)
+  crime_percent <- pad_decimals(crime_percent, 2)
+  crime_percent <- paste0("(", crime_percent, "%)")
+  data$actual_crimes <- paste(data$actual_crimes, crime_percent)
+
+
+
+  names(data) <- c(
+    "Month",
+    paste(crime, "That Month"),
+    paste("Actual Annual", crime),
+    paste("Imputed Annual", crime),
+    "Percent Change"
+  )
+
+  return(data)
+}
+
+get_average_months_missing_simulation <- function(data, variable) {
+  results_of_months_missing <- data.frame(months_missing = 1:9,
+                                          mean = NA,
+                                          median = NA,
+                                          min = NA,
+                                          max = NA)
+  
+  data$variable <- data[, variable]
+  actual_value <- data.frame(months_missing = 0,
+                             mean = sum(data$variable),
+                             median = sum(data$variable),
+                             min = sum(data$variable),
+                             max = sum(data$variable))
+  for (n in 1:9) {
+    months_missing <- n
+    final <- vector(mode = "logical", length = 10000)
+    set.seed(19104)
+    for (i in 1:10000) {
+      temp <- data[-sample(1:12, months_missing, replace = FALSE), ]
+      final[i] <- sum(temp$variable) * 12 / (12 - months_missing)
+    }
+    results_of_months_missing$mean[n] <- mean(final)
+    results_of_months_missing$median[n] <- median(final)
+    results_of_months_missing$min[n] <- min(final)
+    results_of_months_missing$max[n] <- max(final)
+  }
+  results_of_months_missing <-
+    results_of_months_missing %>%
+    bind_rows(actual_value) %>%
+    arrange(months_missing) %>%
+    mutate_if(is.numeric, round, 2)
+  results_of_months_missing$months_missing[1] <- "Full data"
+  results_of_months_missing$months_missing[2] <- "1 month"
+  
+  results_of_months_missing <-
+    results_of_months_missing %>%
+    rename(`# of Months Missing` = months_missing,
+           `Mean Imputed Value` = mean,
+           `Median Imputed Value` = median,
+           `Minimum Imputed Value` = min,
+           `Maximum Imputed Value` = max,
+    )
+  return(results_of_months_missing)
+}
+
+
+get_percent_change <- function(number1,
+                               number2) {
+  final <- number2 - number1
+  final <- final / abs(number1) * 100
+  final <- round(final, 2)
+  final <- pad_decimals(final, 2)
+  final[-grep("-", final)] <- paste0("+", final[-grep("-", final)])
+
+  return(final)
+}
+
+get_murder_by_pop_group <- function(data) {
+  data$population_group[data$population_group %in% c("city 1,000,000+",
+                                                     "city 250,000 thru 499,999",
+                                                     "city 500,000 thru  999,999")] <- "city 250,000+"
+  data$population_group[data$population_group %in% "Non-MSA Counties/non-MSA State Police"] <- "msa counties and msa state police"
+  data$population_group[data$population_group %in% "MSA Counties/MSA State Police"] <- "non-msa counties and non-msa state police"
+  
+  final <- data.frame(
+    agency_size = c(
+      "city under 2,500",
+      "city 2,500 thru 9,999",
+      "city 10,000 thru 24,999",
+      "city 25,000 thru 49,999",
+      "city 50,000 thru 99,999",
+      "city 100,000 thru 249,999",
+      "city 250,000+",
+      "msa counties and msa state police",
+      "non-msa counties and non-msa state police"
+    ),
+    mean_murder = NA,
+    median_murder = NA,
+    percentile_90 = NA,
+    min_murder = NA,
+    max_murder = NA
+  )
+
+
+  for (i in 1:nrow(final)) {
+    temp <- data[data$population_group %in% final$agency_size[i], ]
+    if (nrow(temp) > 0) {
+    final$mean_murder[i] <- mean(temp$actual_murder)
+    final$median_murder[i] <- median(temp$actual_murder)
+    final$min_murder[i] <- min(temp$actual_murder)
+    final$percentile_90[i] <- as.numeric(quantile(temp$actual_murder, 0.90))
+    final$max_murder[i] <- max(temp$actual_murder)
+    }
+  }
+  final <-
+    final %>%
+    mutate_if(is.numeric, round, 1) %>%
+    mutate_if(is.numeric, formatC, format = "d", big.mark = ",") %>%
+    mutate(agency_size = capitalize_words(agency_size))
+
+  final$mean_murder[final$mean_murder == "NA"] <- "-"
+  final$median_murder[final$median_murder == "NA"] <- "-"
+  final$min_murder[final$min_murder == "NA"] <- "-"
+  final$percentile_90[final$percentile_90 == "NA"] <- "-"
+  final$max_murder[final$max_murder == "NA"] <- "-"
+
+  final$agency_size <- gsub(" thru ", "-", final$agency_size, ignore.case = TRUE)
+  final$agency_size <- gsub("msa", "MSA", final$agency_size, ignore.case = TRUE)
+  final$agency_size <- gsub("And", "and", final$agency_size, ignore.case = TRUE)
+  
+  
+
+  names(final) <- c(
+    "Population Group",
+    "Mean Murder",
+    "Median Murder",
+    "90th Percentile Murder",
+    "Minimum Murder",
+    "Max Murder"
+  )
+
+  return(final)
+}
+
+
+make_frequency_table_year <- function(data, column, col_names) {
+  temp <- unique(data[, column])
+  temp <- temp[!is.na(temp)]
+  temp_df <- data.frame(
+    col1 = temp,
+    first_year = NA,
+    number = NA
+  )
+
+  for (i in 1:nrow(temp_df)) {
+    loop_value <- temp_df$col1[i]
+    storage <- data[data[, column] %in% loop_value, ]
+    temp_df$number[i] <- nrow(storage)
+    temp_df$first_year[i] <- min(storage$year)
+  }
+  temp_df <-
+    temp_df %>%
+    mutate(percent = number / sum(number)) %>%
+    arrange(
+      desc(first_year),
+      desc(number)
+    ) %>%
+    mutate(col1 = crimeutils::capitalize_words(col1))
+  temp_df$percent <- temp_df$percent * 100
+  temp_df$percent <- round(temp_df$percent, 2)
+  temp_df$percent <- pad_decimals(temp_df$percent, 2)
+  temp_df$percent <- paste0(temp_df$percent, "\\%")
+  total <- data.frame(col1 = "Total", number = sum(temp_df$number), percent = "100\\%")
+  temp_df <- bind_rows(temp_df, total)
+
+  temp_df$number <- formatC(temp_df$number, format = "d", big.mark = ",")
+  names(temp_df) <- col_names
+  return(temp_df)
+}
+
+make_frequency_table <- function(data, column, col_names) {
+  temp <- unique(data[, column])
+  temp <- temp[!is.na(temp)]
+  temp_df <- data.frame(
+    col1 = temp,
+    number = NA
+  )
+
+  for (i in 1:nrow(temp_df)) {
+    loop_value <- temp_df$col1[i]
+    storage <- data[data[, column] %in% loop_value, ]
+    temp_df$number[i] <- nrow(storage)
+  }
+  temp_df <-
+    temp_df %>%
+    mutate(percent = number / sum(number)) %>%
+    arrange(desc(number)) %>%
+    mutate(col1 = crimeutils::capitalize_words(col1))
+
+  temp_df$percent <- temp_df$percent * 100
+  temp_df$percent <- round(temp_df$percent, 2)
+  temp_df$percent <- pad_decimals(temp_df$percent, 2)
+  temp_df$percent <- paste0(temp_df$percent, "\\%")
+  total <- data.frame(col1 = "Total", number = sum(temp_df$number), percent = "100\\%")
+  temp_df <- bind_rows(temp_df, total)
+
+  temp_df$number <- formatC(temp_df$number, format = "d", big.mark = ",")
+
+  names(temp_df) <- col_names
+  return(temp_df)
+}
+```
+
+
+```{r setup, include=FALSE}
+options(
+  htmltools.dir.version  = FALSE,
+  formatR.indent         = 1,
+  width                  = 65,
+  digits                 = 4,
+  warnPartialMatchAttr   = FALSE,
+  warnPartialMatchDollar = FALSE,
+  echo                   = FALSE,
+  warning                = FALSE
+)
+
+# bookdown::render_book("index.Rmd", "bookdown::gitbook")
+# bookdown::render_book("index.Rmd", "bookdown::pdf_book")
+
+```
+
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  echo    = FALSE,
+  warning = FALSE,
+  error   = FALSE,
+  message = FALSE
+)
+
+```
+
+```{r}
+nyc <- read_csv("data/New_York_New_York_City_Police_Department.csv")
+offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2022.rds")
+SRS_hate_crimes <- readRDS("data/ucr_hate_crimes_1991_2022.rds")
+```
+
+# (PART) Welcome {-}
+
+# Preface 
+
+If you've read an article about crime or arrests in the United States in the last half century, in most cases it was referring to the FBI's Uniform Crime Reporting Program Data, otherwise known as UCR data. UCR data is, with the exception of the more detailed data that only covers murders, a *monthly number of crimes or arrests reported to a single police agency* which is then gathered by the FBI into one file that includes all reporting agencies. It is actually a collection of different datasets, all of which have information about crimes and arrests that occur in a particular jurisdiction. Think of your home town. This data will tell you how many crimes were reported for a small number of crime categories or how many people (broken down by age, sex, and race) were arrested for a (larger) set of crime categories in that city (if the city has multiple police agencies then each agency will report crimes/arrests under their jurisdiction though the largest agency - usually the local police department - will cover the vast majority of crimes/arrests in that city) in a given month. 
+
+This is a very broad measure of crime, and its uses in research - or uses for understanding crime at all - is fairly limited. Yet is has become over much of the last century - and will likely remain among researchers for at least the next decade - the most important crime data in the United States.
+
+UCR data is important for three reasons: 
+
+1. The definitions are standard, and all agencies (tend to) follow them so you can compare across agencies and over time.^[We'll see many examples of when agencies do not follow the definitions, which really limits this data.]
+2. The data is available since 1960 (for most of the datasets) so there is a long period of available data.^[While the original UCR data first reported in 1929, there is only machine-readable data since 1960.]
+3. The data is available for most of the 18,000 police agencies in the United States so you can compare across agencies. 
+
+More than many other datasets, there will be times when using UCR data that you'll think "that's weird". This book will cover this weirdness and when we think the weirdness is just an odd - but acceptable - quirk of the data, and when it is a sign of a big problem in the data or in that particular variable and that we should avoid using it. For most of this book we'll be discussing the caveats of the above reasons - or, more directly, why these assumptions are wrong - but these are the reasons why the data is so influential. 
+
+## Goal of the book
+
+By the end of each chapter you should have a firm grasp on the dataset that is covered and how to use it properly. However, this book can't possibly cover every potential use case for the data so make sure to carefully examine the data yourself for your own particular use. 
+
+I get a lot of emails from people asking questions about this data so my own goal is to create a single place that answers as many questions as I can about the data. Again, this is among the most commonly used crime datasets and there are still many current papers published with incorrect information about the data (including such simple aspects like what geographic unit data is in and what time unit it is in). So hopefully this book will decrease the number of misconceptions about this data, increasing overall research quality.
+
+Since manuals are boring, I'll try to include graphs and images to try to alleviate the boredom. That said, I don't think it's possible to make it too fun so sorry in advanced. This book is a mix of facts about the data, such as how many years are available, and my opinions about it, such as whether it is reliable. In cases of facts I'll just say a statement - e.g. "the offenses data is available since 1960". In cases of opinion I'll temper the statement by saying something like "in my opinion..." or "I think". 
+
+## Structure of the book
+
+This book will be divided into ten chapters: this chapter, an intro chapter briefly summarizing each dataset and going over overall issues with UCR data, and seven chapters each covering one of the seven UCR datasets. The final chapter will cover county-level UCR data, a commonly used but highly flawed aggregation of UCR data that I recommend against using. Each chapter will follow the same format: we'll start with a brief summary of the data such as when it first because available and how it can be used. Next we'll look at how many agencies report their data to this dataset, often looking at how to measure this reporting rate a couple of different ways. Finally, we'll cover the important variables included in the data and how to use them properly (including not using them at all) - this will be the bulk of each chapter. 
+
+## Citing this book
+
+If this data was useful in your research, please cite it. To cite this book, please use the below citation: 
+
+Kaplan J (2021). *Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide to FBI Data*. https://ucrbook.com/. 
+
+BibTeX format:
+
+```bibtex
+@Manual{ucrbook,
+  title = {Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide to FBI Data},
+  author = {{Jacob Kaplan}},
+  year = {2021},
+  url = {https://ucrbook.com/},
+}
+```
+
+## Sources of UCR data
+
+### My own collection
+
+#### openICPSR
+
+#### [Crimedatatool.com][https://crimedatatool.com/]
+
+### NACJD
+
+### FBI (raw data)
+
+### Raw data
+
+### Crime Data Explorer
+
+### Crimes in the United States report
+
+
+
+### FBI (Crime Data Explorer)
+
+### FBI (Crimes in the United States Report)
+
+There are a few different sources of UCR data available today. First, and probably most commonly used, is the data put together by the [National Archive of Criminal Justice Data (NACJD)](https://www.icpsr.umich.edu/web/pages/NACJD/index.html)). This a team out of the University of Michigan who manages a huge number of criminal justice datasets and makes them available to the public. If you have any questions about crime data - UCR or other crime data - I highly recommend you reach out to them for answers. They have a collection of data and excellent documentation available for UCR data available on their site [here](https://www.icpsr.umich.edu/web/NACJD/series/57). One limitation to their data, however, is that each year of data is available as an individual file meaning that you'll need to concatenate each year together into a single file. Some years also have different column names (generally minor changes like spelling robbery "rob" one year and "robb" the next) which requires more work to standardize before you could concatenate. They also only have data through 2016 which means that the most recent years (UCR data is available through 2019) of data are (as of this writing) unavailable. 
+
+Next, and most usable for the general public - but limited for researchers - is the FBI's official website [Crime Data Explorer](https://crime-data-explorer.fr.cloud.gov/). On this site you can chose an agency and see annual crime data (remember, UCR data is monthly so this isn't as detailed as it can be) for certain crimes (and not even all the crimes actually available in the data). This is okay for the general public but only provides a fraction of the data available in the actual data so is really not good for researchers. 
+
+It's worth mentioning a final source of UCR information. This is the annual Crimes in the United States report released by the FBI each year around the start of October. As an example, here is the [website for the 2019 report](https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019). In this report is summarized data which in most cases estimates missing data and provides information about national and subnational (though rarely city-level) crime data. As with the FBI's site, it is only a fraction of the true data available so is not a very useful source of crime data for quality research. Still, this is a very common source of information used by researchers.
+
+
+## Recommended reading
+
+While this book is designed to help researchers use this data, the FBI has an excellent manual on this data designed to help police agencies submit their data. That manual, called the "Summary Reporting System (SRS) User Manual" provides excellent definitions and examples of many variables included in the data. In this book when I quote the FBI, such as defining a crime, I quote from this manual. The manual is available to download as a PDF on the FBI's site and I've also posted it on my GitHub page [here](https://github.com/jacobkap/ucrbook/blob/main/FBI%20Uniform%20Crime%20Reporting%20(UCR)%20Program%20User%20Manual.pdf) for convenienceq. I highly recommend that you read this manual before using the data. That manual, alongside this book which tries to explain when and how the agencies don't follow the manual, will provide a solid foundation for your understanding of UCR data.
+
+## How to contribute to this book
+
+If you have any questions, suggestions (such as a topic to cover), or find any issues, please make a post on the [Issues page](https://github.com/jacobkap/ucrbook/issues) for this book on GitHub. On this page you can create a new issue (which is basically just a post on this forum) with a title and a longer description of your issue. You'll need a GitHub account to make a post. Posting here lets me track issues and respond to your message or alert you when the issue is closed (i.e. I've finished or denied the request). Issues are also public so you can see if someone has already posted something similar. 
+
+For more minor issues like typos or grammar mistakes, you can edit the book directly through its GitHub page. That'll make an update for me to accept, which will change the book to include your edit. To do that, click the edit button at the top of the site - the button is highlighted in the below figure. You will need to make a GitHub account to make edits. When you click on that button you'll be taken to a page that looks like a Word Doc where you can make edits. Make any edits you want and then scroll to the bottom of the page. There you can write a short (please, no more than a sentence or two) description of what you've done and then submit the changes for me to review.
+
+```{r, echo = FALSE, fig.cap="The edit button for how to make edits of this book."}
+knitr::include_graphics('images/edit_button.PNG')
+```
+
+Please only use the above two methods to contribute or make suggestions about the book. While it's a bit more work for you to do it this way, since you'll need to make a GitHub account if you don't already have one, it helps me organize all the questions in one place and update the book if I decide to add answers to certain questions. 
+
+## How to identify a particular agency (ORI codes) {#ori}
+
+In NIBRS and other FBI data sets, agencies are identified using **OR**iginating Agency **I**dentifiers or an ORI. An ORI is a unique ID code used to identify an agency.^[This is referred to as an "ORI", "ORI code", and "ORI number", all of which mean the same thing.] If we used the agency's name we'd end up with some duplicates since there can be multiple agencies in the country (and in a state, those this is very rare) with the same name. For example, if you looked for the Philadelphia Police Department using the agency name, you'd find both the "Philadelphia Police Department" in Pennsylvania and the one in Mississippi. Each ORI is a 9-digit value starting with the state abbreviation (for some reason the FBI incorrectly puts the abbreviation for Nebraska as NB instead of NE) followed by 7 numbers. In the UCR data (another FBI data set) the ORI uses only a 7-digit code - with only the 5 numbers following the state abbreviation instead of 7. So the NIBRS ORI codes are sometimes called ORI9. For nearly all agencies, the only difference between the UCR ORI and the NIBRS ORI is that the NIBRS ORI has "00" at the end so it is technically 9 characters long but isn't any more specific than the 7-character UCR ORI code. 
+
+When dealing with specific agencies, make sure to use the ORI rather than the agency name to avoid any mistakes. For an easy way to find the ORI number of an agency, use [this page](https://crimedatatool.com/crosswalk.html) on my site. Type an agency name or an ORI code into the search section and it will return everything that is a match.
+
+
+## The data as you get it from the FBI
+
+We'll finish this overview of the SRS data by briefly talking about format of the data that is released by the FBI, before the processing done by myself or [NACJD](https://www.icpsr.umich.edu/web/pages/NACJD/index.html) that converts the data to a type that software like R or Stata or Excel can understand. The FBI releases their data as fixed-width ASCII files which are basically just an Excel file but with all of the columns squished together. As an example, Figure \@ref(fig:SRSascii) shows what the data looks like as you receive it from the FBI for the Offenses Known and Clearances by Arrest dataset for 1960, the first year with data available. In the figure, it seems like there are multiple rows but that's just because the software that I opened the file in isn't wide enough - in reality what is shown is a single row that is extremely wide because there are over 1,500 columns in this data. If you scroll down enough you'll see the next row, but that isn't shown in the current image. What is shown is a single row with a ton of columns all pushed up next to each other. Since all of the columns are squished together (the gaps are just blank spaces because the value there is a space, but that doesn't mean there is a in the data. Spaces are possible values in the data and are meaningful), you need some way to figure out which parts of the data belong in which column. 
+
+```{r SRSascii, fig.cap="Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset."}
+knitr::include_graphics('images/offenses_known_raw_ascii_1960.PNG')
+```
+
+```{r ascii, fig.cap="Fixed-width ASCII file for the 1991 National Incident-Based Reporting System (NIBRS) dataset."}
+knitr::include_graphics('images/nibrs_ascii.PNG')
+```
+
+The "fixed-width" part of the file type is how this works (the ASCII part basically means it's a text file). Each row is the same width - literally the same number of characters, including blank spaces. So you must tell the software you are using to process this file - by literally writing code in something called a "setup file" but is basically just instructions for whatever software you use (R, SPSS, Stata, SAS can all do this) - which characters are certain columns. For example, in this data the first character says which type of SRS data it is (1 means the Offenses Known and Clearances by Arrest data) and the next two characters (in the setup file written as 2-3 since it is characters 2 through 3 [inclusive]) are the state number (01 is the state code for Alabama). So we can read this row as the first column indicating it is an Offenses Known data, the second column indicating that it is for the state of Alabama, and so on for each of the remaining columns. To read in this data you'll need a setup file that covers every column in the data (some software, like R, can handle just reading in the specific columns you want and don't need to include every column in the setup file). 
+
+The second important thing to know about reading in a fixed-width ASCII file is something called a "value label."^[For most fixed-width ASCII files there are also missing values where it'll have placeholder value such as -8 and the setup file will instruct the software to convert that to NA. SRS data, however, does not have this and does not indicate when values are missing in this manner.] For example, in the above image we saw the characters 2-3 is the state and in the row we have the value "01" which means that the state is "Alabama." Since this type of data is trying to be as small as efficient as possible, it often replaces longer values with shorter one and provides a translation for the software to use to convert it to the proper value when reading it. "Alabama" is more characters than "01" so it saves space to say "01" and just replace that with "Alabama" later on. So "01" would be the "value" and "Alabama" would be the "label" that it changes to once read. 
+
+Fixed-width ASCII files may seem awful to you reading it today, and it is awful to use. But it appears to be an efficient way to store data back many decades ago when data releases began but now is extremely inefficient - in terms of speed, file size, ease of use - compared to modern software so I'm not sure why they *still* release data in this format. But they do, and even the more *modern* (if starting in 1991, before I was born, is modern!) NIBRS data comes in this format. For you, however, the important part to understand is not how exactly to read this type of data, but to understand that people who made this data publicly available (such as myself and the team at NACJD) must make this conversion process.^[For those interested in reading in this type of data, please see my R package asciiSetupReader.] **This conversion process, from fixed-width ASCII to a useful format is the most dangerous step taken in using this data - and one that is nearly entirely unseen by researchers.** 
+
+Every line of code you write (or, for SPSS users, click you make) invites the possibility of making a mistake.^[Even highly experienced programmers who are doing something like can make mistakes. For example, if you type out "2+2" 100 times - something extremely simple that anyone can do - how often will you mistype a character and get a wrong result? I'd guess that at least once you'd make a mistake.] The FBI does not provide a setup file with the fixed-width ASCII data so to read in this data you need to make it yourself. Since some SRS data are massive, this involves assigning the column width for thousands of columns and the value labels for hundreds of different value labels.^[With the exception of the arrest data and some value label changes in hate crimes and homicide data, the setup files remain consistent so a single file will work for all years for a given dataset. You do not need to make a setup file for each year.] A typo anywhere could have potentially far-reaching consequences, so this is a crucial weak point in the data cleaning process - and one in which I have not seen anything written about before. While I have been diligent in checking the setup files and my code to seek out any issues - and I know that NACJD has a robust checking process for their own work - that doesn't mean our work is perfect.^[For evidence of this, please see any of the openICPSR pages for my detail as they detail changes I've made in the data such as decisions on what level to aggregate to and mistakes that I made and later found and fixed.] Even with perfection in processing the raw data to useful files, decisions we make (e.g. what level to aggregate to, what is an outlier) can affect both what type of questions you can ask when using this data, and how well you can answer them.    
+
+
+
+
+## Common issues
+
+In this section we'll discuss issues common to most or all of the SRS datasets. For some of these, we'll come back to the issues in more detail in the chapter for the datasets most affected by the problem. 
+
+### Population
+
+Each of the SRS datasets include a population variable that has the estimated population under the jurisdiction of that agency.^[Jurisdiction here refers to the boundaries of the local government, not any legal authority for where the officer can make arrests. For example, the Los Angeles Police Department's jurisdiction in this case refers to crimes that happen inside the city or are otherwise investigated by the LAPD - and are not primarily investigated by another agency.] This variable is often used to create crime rates that control for population. In cases where jurisdiction overlaps, such as when a city has university police agencies or county sheriffs in counties where the cities in that county have their own police, SRS data assigns the population covered to the most local agency and zero population to the overlapping agency. So an agency's population is the number of people in that jurisdiction that isn't already covered by a different agency. 
+
+For example, the city of Los Angeles in California has nearly four million residents according to the US Census. There are multiple police agencies in the city, including the Los Angeles Police Department, the Los Angeles County Sheriff's Office, the California Highway Patrol that operates in the area, airport and port police, and university police departments. If each agency reported the number of people in their jurisdiction - which all overlap with each other - we would end up with a population far higher than LA's four million people. To prevent double-counting population when agency's jurisdictions overlap, the non-primary agency will report a population of 0, even though they still report crime data like normal. As an example, in 2018 the police department for California State University - Los Angeles reported 92 thefts and a population of 0. Those 92 thefts are not counted in the Los Angeles Police Department data, even though the department counts the population. To get complete crime counts in Los Angeles, you'd need to add up all police agencies within in the city; since the population value is 0 for non-LAPD agencies, both the population and the crime sum will be correct. 
+
+The SRS uses this method even when only parts of a jurisdiction overlaps. Los Angeles County Sheriff has a population of about one million people, far less than the actual county population (the number of residents, according to the Census) of about 10 million people. This is because the other nine million people are accounted for by other agencies, mainly the local police agencies in the cities that make up Los Angeles County. 
+
+The population value is the population who reside in that jurisdiction and does not count people who are in the area but don't live there, such as tourists or people who commute there for work. This means that using the population value to determine a rate can be misleading as some places have much higher numbers of non-residents in the area (e.g. Las Vegas, Washington D.C.) than others. 
+
+### Voluntary reporting {#voluntary}
+
+When an agency reports their data to the FBI, they do so voluntarily - there is no national requirement to report.^[Some states do mandate that their agencies report, but this is not always followed.] This means that there is inconsistency in which agencies report, how many months of the year they report for, and which variables they include in their data submissions. 
+
+In general, more agencies report their data every year and once an agency begins reporting data they tend to keep reporting. The SRS datasets are a collection of separate, though related, datasets and an agency can report to as many of these datasets as they want - an agency that reports to one dataset does not mean that they report to other datasets. Figure \@ref(fig:SRSagenciesReporting) shows the number of agencies that submitted at least one month of data to the Offenses Known and Clearances by Arrest data in the given year. For the first decade of available data under 8,000 agencies reported data and this grew to over 13,500 by the late 1970s before plateauing for about a decade. The number of agencies that reported their data actually declined in the 1990s, driven primarily by many Florida agencies temporarily dropping out, before growing steadily to nearly 17,000 agencies in 2010; from here it kept increasing but slower than before. 
+
+```{r SRSagenciesReporting, fig.cap="The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year."}
+offenses_known_yearly %>%
+  dplyr::filter(!last_month_reported %in% "no months reported") %>%
+  count(year) %>%
+  ggplot(aes(x = year, y = n)) +
+  geom_line(size = 1.05) +
+  xlab("Year") +
+  ylab("# of Agencies Reporting") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  expand_limits(y = 0)
+```
+
+There are approximately 18,000 police agencies in the United States so recent data has reports from nearly all agencies, while older data has far fewer agencies reporting. When trying to estimate to larger geographies, such as state or national-level, later years will be more accurate as you're missing less data. For earlier data, however, you're dealing with a smaller share of agencies meaning that you have a large amount of missing data and a less representative sample. 
+
+Figure \@ref(fig:bigAgenciesReporting) repeats the above figure but now including only agencies with 100,000 people or more in their jurisdiction. While these agencies have a far more linear trend than all agencies, the basic lesson is the same: recent data has most agencies reporting; old data excludes many agencies. 
+
+```{r bigAgenciesReporting, fig.cap = "The annual number of agencies with a population of 100,000 or higher reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year."}
+offenses_known_yearly %>%
+  dplyr::filter(!last_month_reported %in% "no months reported",
+                population >= 100000) %>%
+  count(year) %>%
+  ggplot(aes(x = year, y = n)) +
+  geom_line(size = 1.05) +
+  xlab("Year") +
+  ylab("# of Agencies Reporting") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  expand_limits(y = 0)
+```
+
+This voluntariness extends beyond whether they report or not, but into which variables they report. While in practice most agencies report every crime when they report any, they do have the choice to report only a subset of offenses. This is especially true for subsets of larger categories - such as gun assaults, a subset of aggravated assaults, or marijuana possession arrests which is a subset of drug possession arrests. As an example, Figure \@ref(fig:nycGunAssaults) shows the annual number of aggravated assaults with a gun in New York City. In 2003 the New York Police Department stopped reporting this category of offense, resuming only in 2013. They continued to report the broader aggravated assault category, but not any of the subsections of aggravated assaults which say which weapon was used during the assault.
+
+```{r nycGunAssaults, fig.cap = "Monthly reports of gun assaults in New York City, 1960-2022."}
+nyc_annual <- offenses_known_yearly[offenses_known_yearly$ori %in% "NY03030",]
+ggplot(nyc_annual, aes(x = year, y = actual_assault_with_a_gun)) +
+  geom_line(size = 1.02) +
+  xlab("Year") +
+  ylab("Gun Assaults") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma)
+```
+
+Given that agencies can join or drop out of the SRS program at will, and report only partial data, it is highly important to carefully examine your data to make sure that there are no issues caused by this. 
+
+Even when an agency reports SRS data, and even when they report every crime category, they can report fewer than 12 months of data. In some cases they simply report all of their data in December, or report quarterly or semi-annually so some months have zero crimes reported while others count multiple months in that month's data. One example of this is New York City, shown in Figure \@ref(fig:nycMurderMonthly), in the early-2000s to the mid-2010s where they began reporting data quarterly instead of monthly. 
+
+```{r nycMurderMonthly, fig.cap = "Monthly murders in New York City, 1990-2022. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting."}
+nyc %>%
+filter(lubridate::year(year) >= 1990) %>%
+ggplot(aes(x = year, y = actual_murder)) +
+geom_line() +
+xlab("Year") +
+ylab("Murders") +
+theme_crim()
+```
+
+When you sum up each month into an annual count, as shown in Figure \@ref(fig:nycMurderYearly), the problem disappears since the zero months are accounted for in the months that have the quarterly data. If you're using monthly data and only examine the data at the annual level, you'll fall into the trap of having incorrect data that is hidden due to the level of aggregation examined. While cases like NYC are obvious when viewed monthly, for people that are including thousands of agencies in their data, it is unfeasible to look at each agency for each crime included. This can introduce errors as the best way to examine the data is manually viewing graphs and the automated method, looking for outliers through some kind of comparison to expected values, can be incorrect.   
+
+```{r nycMurderYearly, fig.cap = "Annual murders in New York City, 1990-2022."}
+nyc_annual %>%
+  filter(year >= 1990) %>%
+ggplot(aes(x = year, y = actual_murder)) +
+  geom_line(size = 1.02) +
+  xlab("Year") +
+  ylab("Murders") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma)
+```
+
+In other cases when agencies report fewer than 12 months of the year, they simply report partial data and as a result undercount crimes. Figure \@ref(fig:miamiDadeMurderAnnual) shows annual murders in Miami-Dade, Florida and has three years of this issue occurring. The first two years with this issue are the two where zero murders are reported - this is because the agency didn't report any months of data. The final year is in 2018, the last year of data in this graph, where it looks like murder suddenly dropped significantly. That's just because Miami-Dade only reported through June, so they're missing half of 2018. 
+
+```{r miamiDadeMurderAnnual, fig.cap = "Annual murders in Miami-Dade, Florida, 1960-2022."}
+offenses_known_yearly %>%
+  dplyr::filter(ori %in% "FL01300") %>%
+ggplot(aes(x = year, y = actual_murder)) +
+  geom_line(size = 1.02) +
+  xlab("Year") +
+  ylab("Murders") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma)
+```
+
+### Zero crimes vs no reports
+
+When an agency does not report, we see it in the data as reporting zero crimes, not reporting NA or any indicator that they did not report. In cases where the agency says they didn't report that month we can be fairly sure (not entirely since that variable isn't always accurate) that the zero crimes reported are simply that the agency didn't report. In cases where the agency says they report that month but report zero crimes, we can't be sure if that's a true no crimes reported to the agency or the agency not reporting to the SRS. As agencies can report some crimes but not others in a given month and still be considered reporting that month, just saying they reported doesn't mean that the zero is a true zero.
+
+In some cases it is easy to see when a zero crimes reported is actually the agency not reporting. As Figure \@ref(fig:nycGunAssaults) shows with New York City gun assaults, there is a massive and sustained drop-off to zero crimes and then a sudden return years later. Obviously, going from hundreds of crimes to zero crimes is not a matter of crimes not occurring anymore, it is a matter of the agency not reporting - and New York City did report other crimes these years so in the data it says that they reported every month. So in agencies which tend to report many crimes - and many here can be a few as 10 a year since going from 10 to 0 is a big drop - a sudden report of zero crimes is probably just non-reporting. 
+
+Differentiating zero crimes and no reports becomes tricky in agencies that tend to report few crimes, which most small towns do. As an example, Figure \@ref(fig:danvilleRape) shows the annual reports of rape in Danville, California, a city of approximately 45,000 people. The city reports on average 2.8 rapes per year and in five years reported zero rapes. In cases like this it's not clear whether we should consider those zero years as true zeros (that no one was raped or reported their rape to the police) or whether the agency simply didn't report rape data that year.  
+
+
+```{r danvilleRape, fig.cap = "Annual rapes reported in Danville, CA, 1960-2022."}
+danville <- offenses_known_yearly[offenses_known_yearly$ori %in% "CA00723",]
+ggplot(danville, aes(x = year, y = actual_rape_total)) +
+  geom_line(size = 1.02) +
+  xlab("Year") +
+  ylab("Rapes") +
+  theme_crim() 
+```
+
+### Agency data covered by another agency
+
+<!--chapter:end:index.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+library(groundhog)
+
+# devtools::install_github("wmurphyrd/fiftystater")
+library(fiftystater)
+
+
+packages <- c(
+  "crimeutils",
+  "dplyr",
+  "readr",
+  "kableExtra",
+  "knitr",
+  "scales",
+  "tidyr",
+  "ggplot2",
+  "mapproj",
+  "lubridate",
+  "gridExtra",
+  "priceR",
+  "blscrapeR",
+  "janitor",
+ # "quantmod",
+  "ggh4x",
+  "sf",
+  "tigris"
+)
+
+groundhog.library(packages, "2024-08-27")
+#library(priceR)
+#library(quantmod)
+
+# For agencies with a covered by ORI value, assign the last month reported 
+# variable to the value the covering agency has
+
+# 
+# offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2022.rds")
+# offenses_known_yearly$covered_by_ori <- toupper(offenses_known_yearly$covered_by_ori)
+# 
+# offenses_known_yearly$ori_year <- paste(offenses_known_yearly$ori,
+#                                         offenses_known_yearly$year)
+# offenses_known_yearly_covered_by <-
+#   offenses_known_yearly %>%
+#   filter(!is.na(covered_by_ori))
+# 
+# offenses_known_yearly_covering <-
+#   offenses_known_yearly %>%
+#   filter(paste(ori, year) %in% paste(offenses_known_yearly_covered_by$covered_by_ori,
+#                                      offenses_known_yearly_covered_by$year))
+# 
+# offenses_known_yearly_covered_by$last_month_reported_old <-
+#   offenses_known_yearly_covered_by$last_month_reported
+# offenses_known_yearly_covered_by$number_of_months_missing_old <-
+#   offenses_known_yearly_covered_by$number_of_months_missing
+# pb <- progress_bar$new(
+#   format = " [:bar] :current/:total :percent eta: :eta",
+#   total = nrow(offenses_known_yearly_covered_by), clear = FALSE, width= 60)
+# table(offenses_known_yearly_covered_by$last_month_reported)
+# table(offenses_known_yearly_covered_by$number_of_months_missing)
+# for (i in 1:nrow(offenses_known_yearly_covered_by)) {
+#   temp <-
+#     offenses_known_yearly_covering %>%
+#     filter(ori %in% offenses_known_yearly_covered_by$covered_by_ori[i],
+#            year %in% offenses_known_yearly_covered_by$year[i])
+#   if (nrow(temp) > 0) {
+#     offenses_known_yearly_covered_by$last_month_reported[i] <- temp$last_month_reported
+#     offenses_known_yearly_covered_by$number_of_months_missing[i] <- temp$number_of_months_missing
+#   }
+#   pb$tick()
+#   
+# }
+# table(offenses_known_yearly_covered_by$last_month_reported)
+# table(offenses_known_yearly_covered_by$number_of_months_missing)
+# 
+# offenses_known_yearly <-
+#   offenses_known_yearly %>%
+#   filter(!ori_year %in% offenses_known_yearly_covered_by$ori_year) %>%
+#   bind_rows(offenses_known_yearly_covered_by)
+# 
+# saveRDS(offenses_known_yearly, "data/offenses_known_yearly_with_covered_by_last_month_reported.rds")
+
+options(tidygeocoder.quiet = TRUE)
+options(tidygeocoder.verbose =  FALSE)
+options(readr.show_col_types = FALSE) 
+
+
+
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  out.width = "90%",
+  fig.align = "center",
+  fig.width = 15.33333,
+  fig.asp = (1 / 1.618033988749895), # 1 / phi
+  fig.show = "hold",
+  error = TRUE
+)
+
+
+# library(formatR)
+# knitr::opts_chunk$set(
+#   comment = "#",
+#  # collapse = TRUE,
+#   fig.align = 'center',
+#   fig.width = 9,
+#   fig.asp =  0.618,
+#   fig.show = "hold",
+#   #error = TRUE,
+#  # fig.pos = "!H",
+#   out.extra = "",
+#   tidy = "styler",
+#   out.width = "100%",
+#   out.height= "45%"
+# )
+
+get_replace_single_month <- function(data, crime_col, crime) {
+  data <- data[match(data$month, month.name), ]
+  data$imputed_if_missing <- NA
+  data <- data.frame(data)
+  for (i in 1:nrow(data)) {
+    rows <- 1:12
+    rows <- rows[!rows %in% i]
+    data$imputed_if_missing[i] <- sum(data[, crime_col][rows]) * (12 / 11)
+  }
+  data$imputed_if_missing <- round(data$imputed_if_missing, 0)
+  data$actual_crimes <- data[, crime_col]
+  data$annual_crimes <- sum(data$actual_crimes)
+
+  data <-
+    data %>%
+    select(month, actual_crimes, annual_crimes, imputed_if_missing)
+  data$percent_change <- get_percent_change(sum(data$actual_crimes), data$imputed_if_missing)
+  data <-
+    data %>%
+    mutate_if(is.numeric, formatC, format = "d", big.mark = ",")
+
+
+  data$actual_crimes <- as.character(data$actual_crimes)
+  crime_percent <- parse_number(data$actual_crimes) / sum(parse_number(data$actual_crimes)) * 100
+  crime_percent <- round(crime_percent, 2)
+  crime_percent <- pad_decimals(crime_percent, 2)
+  crime_percent <- paste0("(", crime_percent, "%)")
+  data$actual_crimes <- paste(data$actual_crimes, crime_percent)
+
+
+
+  names(data) <- c(
+    "Month",
+    paste(crime, "That Month"),
+    paste("Actual Annual", crime),
+    paste("Imputed Annual", crime),
+    "Percent Change"
+  )
+
+  return(data)
+}
+
+get_average_months_missing_simulation <- function(data, variable) {
+  results_of_months_missing <- data.frame(months_missing = 1:9,
+                                          mean = NA,
+                                          median = NA,
+                                          min = NA,
+                                          max = NA)
+  
+  data$variable <- data[, variable]
+  actual_value <- data.frame(months_missing = 0,
+                             mean = sum(data$variable),
+                             median = sum(data$variable),
+                             min = sum(data$variable),
+                             max = sum(data$variable))
+  for (n in 1:9) {
+    months_missing <- n
+    final <- vector(mode = "logical", length = 10000)
+    set.seed(19104)
+    for (i in 1:10000) {
+      temp <- data[-sample(1:12, months_missing, replace = FALSE), ]
+      final[i] <- sum(temp$variable) * 12 / (12 - months_missing)
+    }
+    results_of_months_missing$mean[n] <- mean(final)
+    results_of_months_missing$median[n] <- median(final)
+    results_of_months_missing$min[n] <- min(final)
+    results_of_months_missing$max[n] <- max(final)
+  }
+  results_of_months_missing <-
+    results_of_months_missing %>%
+    bind_rows(actual_value) %>%
+    arrange(months_missing) %>%
+    mutate_if(is.numeric, round, 2)
+  results_of_months_missing$months_missing[1] <- "Full data"
+  results_of_months_missing$months_missing[2] <- "1 month"
+  
+  results_of_months_missing <-
+    results_of_months_missing %>%
+    rename(`# of Months Missing` = months_missing,
+           `Mean Imputed Value` = mean,
+           `Median Imputed Value` = median,
+           `Minimum Imputed Value` = min,
+           `Maximum Imputed Value` = max,
+    )
+  return(results_of_months_missing)
+}
+
+
+get_percent_change <- function(number1,
+                               number2) {
+  final <- number2 - number1
+  final <- final / abs(number1) * 100
+  final <- round(final, 2)
+  final <- pad_decimals(final, 2)
+  final[-grep("-", final)] <- paste0("+", final[-grep("-", final)])
+
+  return(final)
+}
+
+get_murder_by_pop_group <- function(data) {
+  data$population_group[data$population_group %in% c("city 1,000,000+",
+                                                     "city 250,000 thru 499,999",
+                                                     "city 500,000 thru  999,999")] <- "city 250,000+"
+  data$population_group[data$population_group %in% "Non-MSA Counties/non-MSA State Police"] <- "msa counties and msa state police"
+  data$population_group[data$population_group %in% "MSA Counties/MSA State Police"] <- "non-msa counties and non-msa state police"
+  
+  final <- data.frame(
+    agency_size = c(
+      "city under 2,500",
+      "city 2,500 thru 9,999",
+      "city 10,000 thru 24,999",
+      "city 25,000 thru 49,999",
+      "city 50,000 thru 99,999",
+      "city 100,000 thru 249,999",
+      "city 250,000+",
+      "msa counties and msa state police",
+      "non-msa counties and non-msa state police"
+    ),
+    mean_murder = NA,
+    median_murder = NA,
+    percentile_90 = NA,
+    min_murder = NA,
+    max_murder = NA
+  )
+
+
+  for (i in 1:nrow(final)) {
+    temp <- data[data$population_group %in% final$agency_size[i], ]
+    if (nrow(temp) > 0) {
+    final$mean_murder[i] <- mean(temp$actual_murder)
+    final$median_murder[i] <- median(temp$actual_murder)
+    final$min_murder[i] <- min(temp$actual_murder)
+    final$percentile_90[i] <- as.numeric(quantile(temp$actual_murder, 0.90))
+    final$max_murder[i] <- max(temp$actual_murder)
+    }
+  }
+  final <-
+    final %>%
+    mutate_if(is.numeric, round, 1) %>%
+    mutate_if(is.numeric, formatC, format = "d", big.mark = ",") %>%
+    mutate(agency_size = capitalize_words(agency_size))
+
+  final$mean_murder[final$mean_murder == "NA"] <- "-"
+  final$median_murder[final$median_murder == "NA"] <- "-"
+  final$min_murder[final$min_murder == "NA"] <- "-"
+  final$percentile_90[final$percentile_90 == "NA"] <- "-"
+  final$max_murder[final$max_murder == "NA"] <- "-"
+
+  final$agency_size <- gsub(" thru ", "-", final$agency_size, ignore.case = TRUE)
+  final$agency_size <- gsub("msa", "MSA", final$agency_size, ignore.case = TRUE)
+  final$agency_size <- gsub("And", "and", final$agency_size, ignore.case = TRUE)
+  
+  
+
+  names(final) <- c(
+    "Population Group",
+    "Mean Murder",
+    "Median Murder",
+    "90th Percentile Murder",
+    "Minimum Murder",
+    "Max Murder"
+  )
+
+  return(final)
+}
+
+
+make_frequency_table_year <- function(data, column, col_names) {
+  temp <- unique(data[, column])
+  temp <- temp[!is.na(temp)]
+  temp_df <- data.frame(
+    col1 = temp,
+    first_year = NA,
+    number = NA
+  )
+
+  for (i in 1:nrow(temp_df)) {
+    loop_value <- temp_df$col1[i]
+    storage <- data[data[, column] %in% loop_value, ]
+    temp_df$number[i] <- nrow(storage)
+    temp_df$first_year[i] <- min(storage$year)
+  }
+  temp_df <-
+    temp_df %>%
+    mutate(percent = number / sum(number)) %>%
+    arrange(
+      desc(first_year),
+      desc(number)
+    ) %>%
+    mutate(col1 = crimeutils::capitalize_words(col1))
+  temp_df$percent <- temp_df$percent * 100
+  temp_df$percent <- round(temp_df$percent, 2)
+  temp_df$percent <- pad_decimals(temp_df$percent, 2)
+  temp_df$percent <- paste0(temp_df$percent, "\\%")
+  total <- data.frame(col1 = "Total", number = sum(temp_df$number), percent = "100\\%")
+  temp_df <- bind_rows(temp_df, total)
+
+  temp_df$number <- formatC(temp_df$number, format = "d", big.mark = ",")
+  names(temp_df) <- col_names
+  return(temp_df)
+}
+
+make_frequency_table <- function(data, column, col_names) {
+  temp <- unique(data[, column])
+  temp <- temp[!is.na(temp)]
+  temp_df <- data.frame(
+    col1 = temp,
+    number = NA
+  )
+
+  for (i in 1:nrow(temp_df)) {
+    loop_value <- temp_df$col1[i]
+    storage <- data[data[, column] %in% loop_value, ]
+    temp_df$number[i] <- nrow(storage)
+  }
+  temp_df <-
+    temp_df %>%
+    mutate(percent = number / sum(number)) %>%
+    arrange(desc(number)) %>%
+    mutate(col1 = crimeutils::capitalize_words(col1))
+
+  temp_df$percent <- temp_df$percent * 100
+  temp_df$percent <- round(temp_df$percent, 2)
+  temp_df$percent <- pad_decimals(temp_df$percent, 2)
+  temp_df$percent <- paste0(temp_df$percent, "\\%")
+  total <- data.frame(col1 = "Total", number = sum(temp_df$number), percent = "100\\%")
+  temp_df <- bind_rows(temp_df, total)
+
+  temp_df$number <- formatC(temp_df$number, format = "d", big.mark = ",")
+
+  names(temp_df) <- col_names
+  return(temp_df)
+}
+```
+# About the Author {-}
+
+
+**Dr. Jacob Kaplan** is a Professional Specialist at the School of Public and International Affairs at Princeton University. He holds a Ph.D. in Criminology from the University of Pennsylvania. He is a former member of the FBI’s Criminal Justice Information Services (CJIS) Advisory Policy Board (APB) Uniform Crime Reporting (UCR) Subcommittee.
+
+He is the author of several R packages that make it easier to work with data, including  [fastDummies](https://jacobkap.github.io/fastDummies/), [asciiSetupReader](https://jacobkap.github.io/asciiSetupReader/), [predictrace](https://jacobkap.github.io/predictrace/), and [caesar](https://jacobkap.github.io/caesar/). 
+
+For a list of papers he has written, please see [here](https://jacobdkaplan.weebly.com/research.html).
+
+For a list of data he has cleaned and published (including data discussed in this book), please see [here](https://jacobdkaplan.weebly.com/data.html).
+
+<!--chapter:end:01_author.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+library(groundhog)
+
+# devtools::install_github("wmurphyrd/fiftystater")
+library(fiftystater)
+
+
+packages <- c(
+  "crimeutils",
+  "dplyr",
+  "readr",
+  "kableExtra",
+  "knitr",
+  "scales",
+  "tidyr",
+  "ggplot2",
+  "mapproj",
+  "lubridate",
+  "gridExtra",
+  "priceR",
+  "blscrapeR",
+  "janitor",
+ # "quantmod",
+  "ggh4x",
+  "sf",
+  "tigris"
+)
+
+groundhog.library(packages, "2024-08-27")
+#library(priceR)
+#library(quantmod)
+
+# For agencies with a covered by ORI value, assign the last month reported 
+# variable to the value the covering agency has
+
+# 
+# offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2022.rds")
+# offenses_known_yearly$covered_by_ori <- toupper(offenses_known_yearly$covered_by_ori)
+# 
+# offenses_known_yearly$ori_year <- paste(offenses_known_yearly$ori,
+#                                         offenses_known_yearly$year)
+# offenses_known_yearly_covered_by <-
+#   offenses_known_yearly %>%
+#   filter(!is.na(covered_by_ori))
+# 
+# offenses_known_yearly_covering <-
+#   offenses_known_yearly %>%
+#   filter(paste(ori, year) %in% paste(offenses_known_yearly_covered_by$covered_by_ori,
+#                                      offenses_known_yearly_covered_by$year))
+# 
+# offenses_known_yearly_covered_by$last_month_reported_old <-
+#   offenses_known_yearly_covered_by$last_month_reported
+# offenses_known_yearly_covered_by$number_of_months_missing_old <-
+#   offenses_known_yearly_covered_by$number_of_months_missing
+# pb <- progress_bar$new(
+#   format = " [:bar] :current/:total :percent eta: :eta",
+#   total = nrow(offenses_known_yearly_covered_by), clear = FALSE, width= 60)
+# table(offenses_known_yearly_covered_by$last_month_reported)
+# table(offenses_known_yearly_covered_by$number_of_months_missing)
+# for (i in 1:nrow(offenses_known_yearly_covered_by)) {
+#   temp <-
+#     offenses_known_yearly_covering %>%
+#     filter(ori %in% offenses_known_yearly_covered_by$covered_by_ori[i],
+#            year %in% offenses_known_yearly_covered_by$year[i])
+#   if (nrow(temp) > 0) {
+#     offenses_known_yearly_covered_by$last_month_reported[i] <- temp$last_month_reported
+#     offenses_known_yearly_covered_by$number_of_months_missing[i] <- temp$number_of_months_missing
+#   }
+#   pb$tick()
+#   
+# }
+# table(offenses_known_yearly_covered_by$last_month_reported)
+# table(offenses_known_yearly_covered_by$number_of_months_missing)
+# 
+# offenses_known_yearly <-
+#   offenses_known_yearly %>%
+#   filter(!ori_year %in% offenses_known_yearly_covered_by$ori_year) %>%
+#   bind_rows(offenses_known_yearly_covered_by)
+# 
+# saveRDS(offenses_known_yearly, "data/offenses_known_yearly_with_covered_by_last_month_reported.rds")
+
+options(tidygeocoder.quiet = TRUE)
+options(tidygeocoder.verbose =  FALSE)
+options(readr.show_col_types = FALSE) 
+
+
+
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  out.width = "90%",
+  fig.align = "center",
+  fig.width = 15.33333,
+  fig.asp = (1 / 1.618033988749895), # 1 / phi
+  fig.show = "hold",
+  error = TRUE
+)
+
+
+# library(formatR)
+# knitr::opts_chunk$set(
+#   comment = "#",
+#  # collapse = TRUE,
+#   fig.align = 'center',
+#   fig.width = 9,
+#   fig.asp =  0.618,
+#   fig.show = "hold",
+#   #error = TRUE,
+#  # fig.pos = "!H",
+#   out.extra = "",
+#   tidy = "styler",
+#   out.width = "100%",
+#   out.height= "45%"
+# )
+
+get_replace_single_month <- function(data, crime_col, crime) {
+  data <- data[match(data$month, month.name), ]
+  data$imputed_if_missing <- NA
+  data <- data.frame(data)
+  for (i in 1:nrow(data)) {
+    rows <- 1:12
+    rows <- rows[!rows %in% i]
+    data$imputed_if_missing[i] <- sum(data[, crime_col][rows]) * (12 / 11)
+  }
+  data$imputed_if_missing <- round(data$imputed_if_missing, 0)
+  data$actual_crimes <- data[, crime_col]
+  data$annual_crimes <- sum(data$actual_crimes)
+
+  data <-
+    data %>%
+    select(month, actual_crimes, annual_crimes, imputed_if_missing)
+  data$percent_change <- get_percent_change(sum(data$actual_crimes), data$imputed_if_missing)
+  data <-
+    data %>%
+    mutate_if(is.numeric, formatC, format = "d", big.mark = ",")
+
+
+  data$actual_crimes <- as.character(data$actual_crimes)
+  crime_percent <- parse_number(data$actual_crimes) / sum(parse_number(data$actual_crimes)) * 100
+  crime_percent <- round(crime_percent, 2)
+  crime_percent <- pad_decimals(crime_percent, 2)
+  crime_percent <- paste0("(", crime_percent, "%)")
+  data$actual_crimes <- paste(data$actual_crimes, crime_percent)
+
+
+
+  names(data) <- c(
+    "Month",
+    paste(crime, "That Month"),
+    paste("Actual Annual", crime),
+    paste("Imputed Annual", crime),
+    "Percent Change"
+  )
+
+  return(data)
+}
+
+get_average_months_missing_simulation <- function(data, variable) {
+  results_of_months_missing <- data.frame(months_missing = 1:9,
+                                          mean = NA,
+                                          median = NA,
+                                          min = NA,
+                                          max = NA)
+  
+  data$variable <- data[, variable]
+  actual_value <- data.frame(months_missing = 0,
+                             mean = sum(data$variable),
+                             median = sum(data$variable),
+                             min = sum(data$variable),
+                             max = sum(data$variable))
+  for (n in 1:9) {
+    months_missing <- n
+    final <- vector(mode = "logical", length = 10000)
+    set.seed(19104)
+    for (i in 1:10000) {
+      temp <- data[-sample(1:12, months_missing, replace = FALSE), ]
+      final[i] <- sum(temp$variable) * 12 / (12 - months_missing)
+    }
+    results_of_months_missing$mean[n] <- mean(final)
+    results_of_months_missing$median[n] <- median(final)
+    results_of_months_missing$min[n] <- min(final)
+    results_of_months_missing$max[n] <- max(final)
+  }
+  results_of_months_missing <-
+    results_of_months_missing %>%
+    bind_rows(actual_value) %>%
+    arrange(months_missing) %>%
+    mutate_if(is.numeric, round, 2)
+  results_of_months_missing$months_missing[1] <- "Full data"
+  results_of_months_missing$months_missing[2] <- "1 month"
+  
+  results_of_months_missing <-
+    results_of_months_missing %>%
+    rename(`# of Months Missing` = months_missing,
+           `Mean Imputed Value` = mean,
+           `Median Imputed Value` = median,
+           `Minimum Imputed Value` = min,
+           `Maximum Imputed Value` = max,
+    )
+  return(results_of_months_missing)
+}
+
+
+get_percent_change <- function(number1,
+                               number2) {
+  final <- number2 - number1
+  final <- final / abs(number1) * 100
+  final <- round(final, 2)
+  final <- pad_decimals(final, 2)
+  final[-grep("-", final)] <- paste0("+", final[-grep("-", final)])
+
+  return(final)
+}
+
+get_murder_by_pop_group <- function(data) {
+  data$population_group[data$population_group %in% c("city 1,000,000+",
+                                                     "city 250,000 thru 499,999",
+                                                     "city 500,000 thru  999,999")] <- "city 250,000+"
+  data$population_group[data$population_group %in% "Non-MSA Counties/non-MSA State Police"] <- "msa counties and msa state police"
+  data$population_group[data$population_group %in% "MSA Counties/MSA State Police"] <- "non-msa counties and non-msa state police"
+  
+  final <- data.frame(
+    agency_size = c(
+      "city under 2,500",
+      "city 2,500 thru 9,999",
+      "city 10,000 thru 24,999",
+      "city 25,000 thru 49,999",
+      "city 50,000 thru 99,999",
+      "city 100,000 thru 249,999",
+      "city 250,000+",
+      "msa counties and msa state police",
+      "non-msa counties and non-msa state police"
+    ),
+    mean_murder = NA,
+    median_murder = NA,
+    percentile_90 = NA,
+    min_murder = NA,
+    max_murder = NA
+  )
+
+
+  for (i in 1:nrow(final)) {
+    temp <- data[data$population_group %in% final$agency_size[i], ]
+    if (nrow(temp) > 0) {
+    final$mean_murder[i] <- mean(temp$actual_murder)
+    final$median_murder[i] <- median(temp$actual_murder)
+    final$min_murder[i] <- min(temp$actual_murder)
+    final$percentile_90[i] <- as.numeric(quantile(temp$actual_murder, 0.90))
+    final$max_murder[i] <- max(temp$actual_murder)
+    }
+  }
+  final <-
+    final %>%
+    mutate_if(is.numeric, round, 1) %>%
+    mutate_if(is.numeric, formatC, format = "d", big.mark = ",") %>%
+    mutate(agency_size = capitalize_words(agency_size))
+
+  final$mean_murder[final$mean_murder == "NA"] <- "-"
+  final$median_murder[final$median_murder == "NA"] <- "-"
+  final$min_murder[final$min_murder == "NA"] <- "-"
+  final$percentile_90[final$percentile_90 == "NA"] <- "-"
+  final$max_murder[final$max_murder == "NA"] <- "-"
+
+  final$agency_size <- gsub(" thru ", "-", final$agency_size, ignore.case = TRUE)
+  final$agency_size <- gsub("msa", "MSA", final$agency_size, ignore.case = TRUE)
+  final$agency_size <- gsub("And", "and", final$agency_size, ignore.case = TRUE)
+  
+  
+
+  names(final) <- c(
+    "Population Group",
+    "Mean Murder",
+    "Median Murder",
+    "90th Percentile Murder",
+    "Minimum Murder",
+    "Max Murder"
+  )
+
+  return(final)
+}
+
+
+make_frequency_table_year <- function(data, column, col_names) {
+  temp <- unique(data[, column])
+  temp <- temp[!is.na(temp)]
+  temp_df <- data.frame(
+    col1 = temp,
+    first_year = NA,
+    number = NA
+  )
+
+  for (i in 1:nrow(temp_df)) {
+    loop_value <- temp_df$col1[i]
+    storage <- data[data[, column] %in% loop_value, ]
+    temp_df$number[i] <- nrow(storage)
+    temp_df$first_year[i] <- min(storage$year)
+  }
+  temp_df <-
+    temp_df %>%
+    mutate(percent = number / sum(number)) %>%
+    arrange(
+      desc(first_year),
+      desc(number)
+    ) %>%
+    mutate(col1 = crimeutils::capitalize_words(col1))
+  temp_df$percent <- temp_df$percent * 100
+  temp_df$percent <- round(temp_df$percent, 2)
+  temp_df$percent <- pad_decimals(temp_df$percent, 2)
+  temp_df$percent <- paste0(temp_df$percent, "\\%")
+  total <- data.frame(col1 = "Total", number = sum(temp_df$number), percent = "100\\%")
+  temp_df <- bind_rows(temp_df, total)
+
+  temp_df$number <- formatC(temp_df$number, format = "d", big.mark = ",")
+  names(temp_df) <- col_names
+  return(temp_df)
+}
+
+make_frequency_table <- function(data, column, col_names) {
+  temp <- unique(data[, column])
+  temp <- temp[!is.na(temp)]
+  temp_df <- data.frame(
+    col1 = temp,
+    number = NA
+  )
+
+  for (i in 1:nrow(temp_df)) {
+    loop_value <- temp_df$col1[i]
+    storage <- data[data[, column] %in% loop_value, ]
+    temp_df$number[i] <- nrow(storage)
+  }
+  temp_df <-
+    temp_df %>%
+    mutate(percent = number / sum(number)) %>%
+    arrange(desc(number)) %>%
+    mutate(col1 = crimeutils::capitalize_words(col1))
+
+  temp_df$percent <- temp_df$percent * 100
+  temp_df$percent <- round(temp_df$percent, 2)
+  temp_df$percent <- pad_decimals(temp_df$percent, 2)
+  temp_df$percent <- paste0(temp_df$percent, "\\%")
+  total <- data.frame(col1 = "Total", number = sum(temp_df$number), percent = "100\\%")
+  temp_df <- bind_rows(temp_df, total)
+
+  temp_df$number <- formatC(temp_df$number, format = "d", big.mark = ",")
+
+  names(temp_df) <- col_names
+  return(temp_df)
+}
+```
+# County-Level Data
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(
+  echo    = FALSE,
+  warning = FALSE,
+  error   = FALSE,
+  message = FALSE
+)
+```
+
+```{r}
+offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2022.rds") %>%
+  filter(!agency_type %in% c("federal",
+                             "special jurisdiction"),
+         !state %in% c("american samoa",
+                       "guam",
+                       "canal zone",
+                       "puerto rico"),
+         !is.na(state))
+
+offenses_known_yearly_covered_by <- readRDS("data/offenses_known_yearly_with_covered_by_last_month_reported.rds") %>%
+  filter(!agency_type %in% c("federal",
+                             "special jurisdiction"),
+         !state %in% c("american samoa",
+                       "guam",
+                       "canal zone",
+                       "puerto rico"),
+         !is.na(state))
+
+offenses_known_yearly <- offenses_known_yearly_covered_by
+
+philly <- read_csv("data/jacobdkaplan.com_offenses_count_Philadelphia Police Department_Pennsylvania.csv")
+danville <- read_csv("data/jacobdkaplan.com_offenses_count_Danville Police Dept_California.csv")
+```
+
+SRS data is only available at the agency-level.^[Even for county-level agencies such as Sheriff's Offices, the data is only for crimes in that agency's jurisdiction. So the county sheriff reports crimes that they responded to but not crimes within the county that other agencies, such as a city police force, responded to.] This has caused a lot of problems for researchers because many variables from other datasets (e.g. CDC data, economic data) is primarily available at the county-level. Their solution to this problem is to aggregate the data to the county-level by summing all the agencies in a particular county.^[Because the county-level data imputes missing months, this dataset is only available at the annual-level, not at the monthly level.]
+
+More specifically, nearly all researchers who use this county-level data use the National Archive for Criminal Justice Data (NACJD)'s [datasets](https://www.icpsr.umich.edu/web/NACJD/series/57) which have done the aggregation themselves^[Full disclosure, I used to have my own version of this data available on openICPSR and followed NACJD's method. My reasoning was that people were using it anyways and I wanted to make sure that they knew the problem of the data, so I included the issues with this data in the documentation when downloading it. However, I decided that the data was more flawed than I originally thought so I took down the data.]. These are not official FBI datasets but "UCR staff were consulted in developing the new adjustment procedures".^[This chapter isn't a critique of NACJD, merely of a single dataset collection that they released using imputation methods from decades ago.] The "new" procedures is because NACJD changed their missing data imputation procedure starting with 1994 SRS data, and for this chapter I'll only focus on this "new" procedure. 
+
+It makes sense to aggregate SRS data to the county-level. That level is often times more useful to analyze than the agency-level. But there are two problems with county-level SRS data: 1) agencies in multiple counties, 2) and agencies with missing data.^[These problems are in addition to all the other quirks and issues with SRS data that have been discussed throughout this book.]
+
+The first issue is in distributing crimes across counties when an agency is in multiple counties. If, for example, New York City had 100 murders in a given year, how do you create county-level data from this? SRS data only tells you how many crimes happened in a particular agency, not where in the jurisdiction it happened. So we have no idea how many of these 100 murders happened in Kings County, how many happened in Bronx County, and so on. 
+
+SRS data does, however, tell you how many counties the agency is in and the population of each. They only do this for up to three counties so in cases like New York City you don't actually have every county the agency is part of.^[For New York City specifically NACJD does distribute to all five counties, and does so by county population.] NACJD's method is to distribute crimes *according to the population of the agency in each county*. In the New York City example, Kings County is home to about 31% of the people in NYC while Bronx County is home to about 17%. So Kings County would get 31 murders while Bronx County gets 17 murders. The problem with this is the crime is not evenly distributed by population. Indeed, crime is generally extremely concentrated in a small number of areas in a city. Even if 100% of the murders in NYC actually happened in Bronx County, only 17% would get assigned there. So for agencies in multiple counties could have their crimes distributed among their different counties incorrectly. This is not that big of a deal, however, as most agencies are only in a single county. It is likely incorrect given how crime is concentrated, but affects relatively little in our data so is not worth much worry. 
+
+The second problem is the one we need to be concerned about. This issue is that not all agencies report data, and even those that do may report only partially (e.g. report fewer than 12 months of the year). So by necessity the missing data has to be filled in somehow. All methods of estimating missing data are wrong, some are useful. How useful are the methods used for SRS data? I'll argue that they're not useful enough to be used in most crime research. This is by no means the first argument against using that data. Most famously is [Maltz and Targonski's (2002)](https://link.springer.com/article/10.1023/A:1016060020848) paper in the Journal of Quantitative Criminology about the issues with this data. They concluded that "Until improved methods of imputing county-level crime data are developed, tested, and implemented, they should not be used, especially in policy studies" which is a conclusion I also hold. 
+
+County-level data aggregates both crimes from the Offenses Known and Clearances by Arrests dataset and arrests from the Arrests by Age, Sex, and Race dataset, which has lower reporting (and thus more missingness) than the crime data. For simplicity, in this chapter we'll use the crime data as an example. We'll do so in a number of different ways to try to really understand how much data is missing and how it changed over time. Estimation is largely the same for arrests and county-level arrests is far less commonly used
+
+Since these methods are for dealing with missing data, if there is no missing data then it doesn't matter how good or bad the estimation process is. Counties where all agencies report full data are perfectly fine to use without concerning yourself with anything from this chapter. In this chapter we'll also look at where counties have missing data and how that changed over time. 
+
+## Current usage
+
+Even with the well-known flaws of this data, it remains a popular dataset. A search on Google Scholar for ["county-level UCR"](https://scholar.google.com/scholar?q=county-level+ucr&hl=en&as_sdt=0,20) returns 5,580 results as of this writing in summer 2024. About half of these results are from 2015 or later. In addition to use by researchers, the county-level UCR data is used by organizations such as the FBI in their annual [Crimes in the United States](https://ucr.fbi.gov/crime-in-the-u.s) report (which is essentially the report that informs the media and the public about crime, even though it's actually only a subset of their published UCR data) and [Social Explorer](https://www.socialexplorer.com/explore-maps), a website that makes it extremely convenient to examine US Census data. 
+
+## How much data is missing
+
+Since estimating missing data only matters when the data is missing, let's look at how many agencies report less than a full year of data.
+
+For each of the below graphs and tables we use the Offenses Known and Clearances by Arrest data for 1960-2022 and exclude any agency that are "special jurisdictions". Special jurisdiction agencies are, as it seems, special agencies that tend to have an extremely specific jurisdiction and goals. These include agencies such as port authorities, alcohol beverage control, university police, and airport police. These agencies tend to cover a tiny geographic area and have both very low crime and very low reporting rates.[^ucr_county-7] So to prevent missingness being overcounted due to these weird agencies I'm excluding them from the below examples. I'm also excluding federal agencies as these operate much the same as special jurisdiction agencies. Since some estimation is based on state-level data and I present maps that exclude territories, I am also going to subset the data to only agencies in a state or in Washington DC. 
+
+[^ucr_county-7]: Even though these are unusual agencies, in real analyses using UCR data at the county-level you'd like want to include them. Or justify why you're not including them.
+
+We'll first look at how many months are reported in the 2017. Table \@ref(tab:countyMonthsReportedDefinitions) shows the number of months reported using two ways to measure how many months an agency has reported data, the "last month reported" and the "number of months missing" measure that we considered in Section \@ref(offensesKnownReporting). The data changed how some of the variables were used starting in 2018, making post-2017 data unreliable for the "number of months missing variable. 
+
+The table shows what percent of agencies that reported data had data for each possible number of months: 0 through 12 months. Column 2 shows the percent for the "last month reported" method while column 3 shows the percent for my "number of months missing" method. And the final column shows the percent change^[Not the percentage point difference.] from moving from the 1st to 2nd measure. 
+
+Ultimately the measures are quite similar though systematically overcount reporting using the 1st method. Both show that about 27% of agencies reported zero months. The 1st method has about 69% of agencies reporting 12 months while the 2nd method has 66%, a difference of about 5% which is potentially a sizable difference depending on exactly which agencies are missing. The remaining nearly 4% of agencies all have far more people in the 2nd method than in the first, which is because in the 1st method those agencies are recorded as having 12 months since they reported in December but not actually all 12 months of the year. There are huge percent increases in moving from the 1st to 2nd method for 1-11 months reported though this is due to having very few agencies report this many months. Most months have only about 50 agencies in the 1st method and about 70 in the 2nd, so the actual difference is not that large. 
+
+```{r }
+month_to_num <- data.frame(last_month_reported = c(tolower(month.name), "no months reported"),
+                           last_month_reported_num = c(1:12, 0))
+
+z <- offenses_known_yearly %>%
+  filter(year %in% 2017) %>%
+  mutate(number_of_months_reported = 12 - number_of_months_missing) %>%
+  left_join(month_to_num)
+
+
+months_table <- data.frame(table(z$last_month_reported_num),
+                           table(z$number_of_months_reported))
+months_table$Var1.1 <- NULL
+months_table$percent_change <- months_table$Freq.1 - months_table$Freq
+months_table$percent_change <- months_table$percent_change / months_table$Freq * 100
+months_table$percent_change <- round(months_table$percent_change, 2)
+months_table$percent_change <- pad_decimals(months_table$percent_change, 2)
+months_table$percent_change[-grep("-", months_table$percent_change)] <- paste0("+", months_table$percent_change[-grep("-", months_table$percent_change)])
+
+months_table$Freq <- formatC(months_table$Freq, format = "d", big.mark = ",")
+percent_val <- paste0("(", round(parse_number(months_table$Freq) / sum(parse_number(months_table$Freq)) * 100, 2), "%)")
+months_table$Freq <- paste(months_table$Freq, percent_val)
+months_table$Freq.1 <- formatC(months_table$Freq.1, format = "d", big.mark = ",")
+percent_val <- paste0("(", round(parse_number(months_table$Freq.1) / sum(parse_number(months_table$Freq.1)) * 100, 2), "%)")
+months_table$Freq.1 <- paste(months_table$Freq.1, percent_val)
+names(months_table) <- c("Months Reported",
+                         "Last Month Definition",
+                         "Months Not Missing Definition", 
+                         "Percent Difference")
+
+
+kableExtra::kbl(months_table, 
+            # format = "html",
+             digits = 2, 
+             align = c("l", "r", "r", "r"),
+             booktabs = TRUE, 
+             longtable = TRUE,
+             label = "countyMonthsReportedDefinitions",
+             escape = TRUE,
+             caption = "The number of months reported to the 2017 Offenses Known and Clearances by Arrest data using two definitions of months reported. The 'Last Month' definition is the preferred measure of months reported by both the FBI and researchers, though this overcounts months.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header")) %>%
+  column_spec(column = 1:ncol(months_table), width = "1in")
+
+```
+
+We can look at how these trends change over time in Figure \@ref(fig:countyAnyMonthReported) that shows the annual number of agencies that reported at least one month of data in that year. Both measures have the exact same trend with the last month reported measure always being a bit higher than the number of months missing method, at least until the data change in 2018 that renders my method unreliable. 
+
+```{r countyAnyMonthReported, fig.cap = "The annual number of agencies that reported at least 12 months of data in that year."}
+offenses_known_yearly$last_month_any <- 0
+offenses_known_yearly$last_month_any[!offenses_known_yearly$last_month_reported %in% "no months reported"] <- 1
+
+offenses_known_yearly$months_missing_any <- 0
+offenses_known_yearly$months_missing_any[!offenses_known_yearly$number_of_months_missing %in% 12] <- 1
+
+
+offenses_known_yearly$last_month_full <- 0
+offenses_known_yearly$last_month_full[offenses_known_yearly$last_month_reported %in% "december"] <- 1
+
+offenses_known_yearly$months_missing_full <- 0
+offenses_known_yearly$months_missing_full[offenses_known_yearly$number_of_months_missing %in% 0] <- 1
+
+offenses_known_yearly %>%
+  group_by(year) %>%
+  summarize(last_month_full = sum(last_month_full),
+            months_missing_full = sum(months_missing_full)) %>%
+  ungroup() %>%
+  ggplot(aes(x = year, y = last_month_full)) +
+  geom_line(aes(color = "Last Month Reported"), size = 1.05) +
+  geom_line(aes(y = months_missing_full, color = "# of Months Missing"), size = 1.05) +
+  xlab("Year") +
+  ylab("# of Agencies") +
+  theme_crim() +
+  scale_color_manual(values = c("Last Month Reported" = "#1b9e77",
+                                "# of Months Missing" = "#d95f02")) +
+  scale_y_continuous(labels = scales::comma) +
+  labs(color = "") +
+  expand_limits(y = 0)
+```
+
+For the remainder of this chapter we'll treat the last month reported variable as our measure of how many months an agency reports data. I believe that pre-2018 this is not as good a measure at the number of months missing, but it has the benefit of consistency post-2017. So keep in mind that the true number of agencies reporting fewer than 12 months of data is a bit larger than what it seems when using this measure. 
+
+```{r stateMap2022, fig.cap = "The share of the population in each state covered by an agency reporting 12 months of data based on their last month reported being December, 2022."}
+state_agg_2022 <- offenses_known_yearly %>%
+  filter(year %in% 2022) %>%
+  distinct(ori,
+           .keep_all = TRUE) %>%
+  group_by(state,
+           last_month_full) %>%
+  summarize(population = sum(population)) %>%
+  pivot_wider(names_from = last_month_full,
+              values_from = population) %>%
+  rename_all(make_clean_names)
+state_agg_2022$x1[is.na(state_agg_2022$x1)] <- 0
+state_agg_2022$x0[is.na(state_agg_2022$x0)] <- 0
+state_agg_2022 %>%
+  mutate(total = x0 + x1,
+         prop_full_reporters = x1 / total * 100) %>%
+  ggplot2::ggplot(aes(map_id = state)) + 
+  ggplot2::geom_map(aes(fill = prop_full_reporters), map = fifty_states, color = "black") + 
+  expand_limits(x = fifty_states$long, y = fifty_states$lat) +
+  coord_map() +
+  scale_x_continuous(breaks = NULL) + 
+  scale_y_continuous(breaks = NULL) +
+  labs(x = "", y = "", fill = "Hate Crimes") +
+  theme(panel.background = element_blank()) +
+  fifty_states_inset_boxes() +
+  scale_fill_gradient(low = "white", high = "#d7191c") 
+```
+
+
+```{r countyMap2022, fig.cap = "The share of the population in each county covered by an agency reporting 12 months of data based on their last month reported being December, 2022."}
+# https://stackoverflow.com/questions/76319472/is-it-possible-to-condense-a-county-level-map-of-the-us-including-alaska-and-ha
+
+county_agg_2022 <- offenses_known_yearly %>%
+  filter(year %in% 2022) %>%
+  distinct(ori,
+           .keep_all = TRUE) %>%
+  group_by(fips_state_county_code,
+           last_month_full) %>%
+  summarize(population = sum(population)) %>%
+  pivot_wider(names_from = last_month_full,
+              values_from = population) %>%
+  rename_all(make_clean_names)
+county_agg_2022$x1[is.na(county_agg_2022$x1)] <- 0
+county_agg_2022$x0[is.na(county_agg_2022$x0)] <- 0
+county_agg_2022 <-
+  county_agg_2022 %>%
+  mutate(total = x0 + x1,
+         prop_full_reporters = x1 / total * 100,
+         values = prop_full_reporters) %>%
+  rename(GEOID = fips_state_county_code)
+
+df <- tigris::counties(state = NULL, cb = T, class = 'sf', progress_bar = FALSE, year = 2020)
+df <- df %>% filter(!STATEFP %in% c('60', '66', '69', '72', '78'))
+crs_lambert <- "+proj=laea +lat_0=45 +lon_0=-100 +x_0=0 +y_0=0 +a=6370997 +b=6370997 +units=m +no_defs"
+df <- df %>%
+  st_transform(crs = crs_lambert)
+
+
+alaska <- df %>% filter(STATE_NAME %in% 'Alaska')
+alaska_g <- st_geometry(alaska)
+alaska_centroid <- st_centroid(st_union(alaska_g))
+
+rot <- function(a) matrix(c(cos(a), sin(a), -sin(a), cos(a)), 2, 2)
+
+alaska_trans <- (alaska_g - alaska_centroid) * rot(-39 * pi/180) / 2.3 + alaska_centroid + c(1000000, -5000000)
+alaska <- alaska %>% st_set_geometry(alaska_trans) %>% st_set_crs(st_crs(df))
+hawaii <- df %>% filter(STATE_NAME %in% 'Hawaii')
+hawaii_g <- st_geometry(hawaii)
+hawaii_centroid <- st_centroid(st_union(hawaii_g))
+hawaii_trans <- (hawaii_g - hawaii_centroid) * rot(-35 * pi/180) + hawaii_centroid + c(5200000, -1400000)
+hawaii <- hawaii %>% st_set_geometry(hawaii_trans) %>% st_set_crs(st_crs(df))
+
+df %>%
+  filter(!STATE_NAME %in% c('Alaska', 'Hawaii')) %>%
+  rbind(alaska) %>%
+  rbind(hawaii) %>%
+  left_join(county_agg_2022) %>%
+  ggplot(aes(fill = values)) + 
+  geom_sf() +
+  scale_fill_gradient(low = "white",
+                      high = "#d7191c") +
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks = element_blank(),
+        panel.background = element_blank()) +
+  labs(fill = "% of Population Covered")
+
+```
+
+
+```{r countyMap2010, fig.cap = "The share of the population in each county covered by an agency reporting 12 months of data based on their last month reported being December, 2010."}
+county_agg_2010 <- offenses_known_yearly %>%
+  filter(year %in% 2010) %>%
+  distinct(ori,
+           .keep_all = TRUE) %>%
+  group_by(fips_state_county_code,
+           last_month_full) %>%
+  summarize(population = sum(population)) %>%
+  pivot_wider(names_from = last_month_full,
+              values_from = population) %>%
+  rename_all(make_clean_names)
+county_agg_2010$x1[is.na(county_agg_2010$x1)] <- 0
+county_agg_2010$x0[is.na(county_agg_2010$x0)] <- 0
+county_agg_2010 <-
+  county_agg_2010 %>%
+  mutate(total = x0 + x1,
+         prop_full_reporters = x1 / total * 100,
+         values = prop_full_reporters) %>%
+  rename(GEOID = fips_state_county_code)
+
+df %>%
+  filter(!STATE_NAME %in% c('Alaska', 'Hawaii')) %>%
+  rbind(alaska) %>%
+  rbind(hawaii) %>%
+  left_join(county_agg_2010) %>%
+  ggplot(aes(fill = values)) + 
+  geom_sf() +
+  scale_fill_gradient(low = "white",
+                      high = "#d7191c") +
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks = element_blank(),
+        panel.background = element_blank()) +
+  labs(fill = "% of Population Covered")
+
+```
+
+```{r countyMap2000, fig.cap = "The share of the population in each county covered by an agency reporting 12 months of data based on their last month reported being December, 2000."}
+county_agg_2000 <- offenses_known_yearly %>%
+  filter(year %in% 2000) %>%
+  distinct(ori,
+           .keep_all = TRUE) %>%
+  group_by(fips_state_county_code,
+           last_month_full) %>%
+  summarize(population = sum(population)) %>%
+  pivot_wider(names_from = last_month_full,
+              values_from = population) %>%
+  rename_all(make_clean_names)
+county_agg_2000$x1[is.na(county_agg_2000$x1)] <- 0
+county_agg_2000$x0[is.na(county_agg_2000$x0)] <- 0
+county_agg_2000 <-
+  county_agg_2000 %>%
+  mutate(total = x0 + x1,
+         prop_full_reporters = x1 / total * 100,
+         values = prop_full_reporters) %>%
+  rename(GEOID = fips_state_county_code)
+
+df %>%
+  filter(!STATE_NAME %in% c('Alaska', 'Hawaii')) %>%
+  rbind(alaska) %>%
+  rbind(hawaii) %>%
+  left_join(county_agg_2000) %>%
+  ggplot(aes(fill = values)) + 
+  geom_sf() +
+  scale_fill_gradient(low = "white",
+                      high = "#d7191c") +
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks = element_blank(),
+        panel.background = element_blank()) +
+  labs(fill = "% of Population Covered")
+
+```
+
+## Current imputation practices
+
+There are three paths that the county-level UCR data takes when dealing with the agency-level data before aggregating it to the county-level. The path each agency is on is dependent on how many months of data they report. Figure \@ref(fig:countyImputation) shows each of these three paths. We'll look in detail at these paths in the below sections, but for now we'll briefly summarize each path. 
+
+First, if an agency reports only two or fewer months, the entire agency's data (that is, any month that they do report) is deleted and their annual data is replaced with the average of agencies that are: 1) in the same state, 2) in the same population group (i.e. very roughly the same size), 3) and that reported all 12 months of the year (i.e. reported in December but potentially not any other month). 
+
+When an agency reports 3-11 months, those months of data are multiplied by 12/numbers-of-months-reported so it just upweights the available data to account for the missing months, assuming that missing months are like the present months. 
+
+Finally, for agencies that reported all 12 months there's nothing missing so it just uses the data as it is.
+
+```{r countyImputation, fig.cap="The imputation procedure for missing data based on the number of months missing."}
+knitr::include_graphics('images/segments_flowchart.PNG')
+```
+
+### 1-9 months missing
+
+When there are 1-9 months reported the missing months are imputed by multiplying the reported months of data by 12/numbers-of-months-reported, essentially just scaling up the reported months. For example, if 6 months are reported then it multiplies each crime values by 12/6=2, doubling each reported crime value. This method makes the assumption that missing values are similar to present ones, at on average. Given that there are seasonal differences in crime - which tends to increase in the summer and decrease in the winter - how accurate this replacement is depends on how consistent crime is over the year and which months are missing. Miss the summer months and you'll undercount crime. Miss the winter months and you'll overcount crime. Miss random months and you'll be wrong randomly (and maybe it'll balance out but maybe it won't).
+
+We'll look at a number of examples and simulations about how accurate this method is. For each example we'll use agencies that reported in 2018 so we have a real comparison when using their method of replacing "missing" months.
+
+Starting with Table \@ref(tab:CountyPhillyMurders), we will see the change in the actual annual count of murders in Philadelphia when replacing data from each month. Each row shows what happens when you assume that month - and only that month - is missing and interpolate using the current 12/numbers-of-months-reported method. Column 1 shows the month that we are "replacing" while column 2 shows the actual number of murders in that month and the percent of annual murders in parentheses. Column 3 shows the actual annual murders which is 351 in 2018; column 4 shows the annual murder count when imputing the "missing" month" and column 5 shows the percent change between columns 3 and 4.
+
+If each month had the same number of crimes we'd expect each month to account for 8.33% of the year's total. That's not what we're seeing in Philadelphia for murders as the percentages range from 5.13% in both January and April to 12.25% in December. This means that replacing these months will not give us an accurate count of crimes as crime is not distributed evenly across months. Indeed, as seen in column 5, on average, the annual sum of murders when imputing a single month is 1.85% off from the real value. When imputing the worst (as far as its effect on results) months you can report murder as either 4.27% lower than it is or 3.5% higher than it is.
+
+```{r }
+
+data <- philly %>%
+  filter(lubridate::year(year) %in% 2022) %>%
+  mutate(month = month(year, label = TRUE, abbr = FALSE)) %>%
+  select(month,
+         actual_murder) %>%
+  get_replace_single_month("actual_murder", "Murders")
+
+kableExtra::kbl(data, 
+            # format = "html",
+             digits = 2, 
+             align = c("l", "r", "r", "r", "r"),
+             booktabs = TRUE, 
+             longtable = TRUE,
+             escape = TRUE,
+             label = "CountyPhillyMurders",
+             caption = "The imputed number of murders in Philadelphia in 2022 when missing a single month. This shows how different the imputed value is to the real value for each month missing.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header")) %>%
+  column_spec(column = 1:ncol(data), width = "0.65in")
+
+```
+
+Part of the reason for the percent difference for murders when replacing a month found above is that there was high variation in the number of murders per month with some months having more than double the number as other months. We'll look at what happens when crimes are far more evenly distributed across months in Table \@ref(tab:countyPhillyThefts). This table replicates Table \@ref(tab:CountyPhillyMurders) but uses thefts in Philadelphia in 2022 instead of murders. Here the monthly share of thefts ranged only from 6.85% to 9.16% so month-to-month variation is not very large. Now the percent change never increases above an absolute value of 1.62 and changes by an average of 0.77%. In cases like this, the imputation method is less of a problem.
+
+```{r }
+
+data <- philly %>%
+  filter(lubridate::year(year) %in% 2022) %>%
+  mutate(month = month(year, label = TRUE, abbr = FALSE)) %>%
+  select(month,
+         actual_theft_total) %>%
+  get_replace_single_month("actual_theft_total", "Thefts")
+
+kableExtra::kbl(data, 
+            # format = "html",
+             digits = 2, 
+             align = c("l", "r", "r", "r", "r"),
+             booktabs = TRUE, 
+             longtable = TRUE,
+            escape = TRUE,
+             label = "countyPhillyThefts",
+             caption = "The imputed number of thefts in Philadelphia in 2022 when missing a single month. This shows how different the imputed value is to the real value for each month missing.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header")) %>%
+  column_spec(column = 1:ncol(data), width = "0.65in")
+
+```
+
+Given that the imputation method is largely dependent on consistency across months, what happens when crime is very rare? Table \@ref(tab:countyDanvilleVehicle) shows what happens when replacing a single month for motor vehicle thefts in Danville, California, a small town which had 22 of these thefts in 2022. While possible to still have an even distribution of crimes over months, this is less likely when it comes to rare events. Here, having so few motor vehicle thefts means that small changes in monthly crimes can have an outsize effect. The average absolute value percent change now is 7.3% and this ranges from a -15.68% difference to a +9.1% difference from the real annual count. This means that having even a single month missing can vastly overcount or undercount the real values.
+
+```{r }
+
+data <- danville %>%
+  filter(lubridate::year(year) %in% 2022) %>%
+  mutate(month = month(year, label = TRUE, abbr = FALSE)) %>%
+  select(month,
+         actual_mtr_veh_theft_total) %>%
+  get_replace_single_month("actual_mtr_veh_theft_total", "Vehicle Thefts")
+
+
+kableExtra::kbl(data, 
+            # format = "html",
+             digits = 2, 
+             align = c("l", "r", "r", "r", "r"),
+             booktabs = TRUE, 
+             longtable = TRUE,
+             escape = TRUE,
+             label = "countyDanvilleVehicle",
+             caption = "The imputed number of motor vehicle thefts in Danville, California, in 2022 when missing a single month. This shows how different the imputed value is to the real value for each month missing.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header")) %>%
+  column_spec(column = 1:ncol(data), width = "0.65in")
+
+```
+
+In the above three tables we looked at what happens if a single month is missing. Below we'll look at the results of simulating when between 1 and 9 months are missing for an agency. Table \@ref(tab:countyPhillyMurderMonthsMissing) looks at murder in Philadelphia again but now randomizes removing between 1 and 9 months of the year and interpolating the annual murder count using the current method. For each number of months removed I run 10,000 simulations.[^ucr_county-8] Given that I am literally randomly choosing which months to say are missing, I am assuming that missing data is missing completely at random. This is a very bold assumption and one that is the best-case scenario since it means that missing data is not related to crimes, police funding/staffing, or anything else relevant. So you should read the below tables as the most optimistic (and thus likely wrong) outcomes.
+
+[^ucr_county-8]: This is actually more than I need to run to get the same results..
+
+For each number of months reported the table shows the actual annual murder (which never changes) and the imputed mean, median, modal, minimum, and maximum annual murder count. As a function of the randomization, the imputed mean is always nearly identical to the real value. The most important columns, I believe, are the minimum and maximum imputed value since these show the worst-case scenario - that is, what happens when the month(s) least like the average month is replaced. Since as researchers we should try to minimize the harm caused from our work if it is wrong, I think it is safest to assume that if data is missing it is missing in the worst possible way. While this is a conservative approach, doing so otherwise leads to the greatest risk of using incorrect data, and incorrect results - and criminology is a field important enough to necessitate this caution.
+
+As might be expected, as the number of months missing increases the quality of the imputation decreases. The minimum is further and further below the actual value while the maximum is further and further above the actual value.
+
+```{r }
+philly %>%
+  filter(lubridate::year(year) %in% 2022) %>%
+  mutate(month = month(year, label = TRUE, abbr = FALSE)) %>%
+  select(month,
+         actual_murder) %>%
+  get_average_months_missing_simulation(variable = "actual_murder") %>%
+kableExtra::kbl(
+  #format = "html",
+             digits = 2, 
+             align = c("l", "r", "r", "r", "r", "r"),
+             booktabs = TRUE, 
+             longtable = TRUE,
+             escape = TRUE,
+             label = "countyPhillyMurderMonthsMissing",
+             caption = "A simulation showing how the imputed values of murders in Philadelphia in 2022 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run removing and imputing those months of data.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header")) %>%
+  column_spec(column = 1:ncol(data), width = "0.65in")
+```
+
+This problem is even more pronounced when looking at agencies with fewer crimes and less evenly distributed crimes. Table \@ref(tab:countyDanvilleBurglaryMonthsMissing) repeats the above table but now looks at motor vehicle thefts in Danville, California. By the time 5 months are missing, the minimum value is nearly half of the actual value while the maximum value is a little under 50% larger than the actual value. By 9 months missing, possible imputed values range from 0% of the actual value to over twice as large as the actual value.
+
+```{r }
+
+danville %>%
+  filter(lubridate::year(year) %in% 2022) %>%
+  mutate(month = month(year, label = TRUE, abbr = FALSE)) %>%
+  select(month,
+         actual_mtr_veh_theft_total) %>%
+  get_average_months_missing_simulation(variable = "actual_mtr_veh_theft_total") %>%
+kableExtra::kbl(
+  #format = "html",
+             digits = 2, 
+             align = c("l", "r", "r", "r", "r", "r"),
+             booktabs = TRUE, 
+             longtable = TRUE,
+             escape = TRUE,
+             label = "countyDanvilleBurglaryMonthsMissing",
+             caption = "A simulation showing how the imputed values of motor vehicle thefts in Danville, California, in 2022 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run for removing and imputing those months of data.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+```
+
+```{r }
+
+danville %>%
+  filter(lubridate::year(year) %in% 2019) %>%
+  mutate(month = month(year, label = TRUE, abbr = FALSE)) %>%
+  select(month,
+         actual_murder) %>%
+  get_average_months_missing_simulation(variable = "actual_murder") %>%
+kableExtra::kbl(
+  #format = "html",
+             digits = 2, 
+             align = c("l", "r", "r", "r", "r", "r"),
+             booktabs = TRUE, 
+             longtable = TRUE,
+             label = "countyMurderMonthsMissing",
+             escape = TRUE,
+             caption = "A simulation showing how the imputed values of murder in Danville, California, in 2019 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run for removing and imputing those months of data.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header")) %>%
+  column_spec(column = 1:ncol(data), width = "0.65in")
+```
+
+### 10-12 months missing
+
+In cases where there are more than 9 months of data missing, the current imputation method replaces the entire year of data for that agency with the average of the crime for agencies who reported 12 months of data, are in the same state and in the same population group as the given agency. Considering that when an agency reports data it tends to report every month of the year - and about a quarter of agencies still do not report any months of data - this is a far bigger issue than when agencies are missing 1-9 months of data. The imputation process is also far worse here.
+
+Whereas with 1-9 months missing the results were at least based on the own agency's data, and were actually not terribly wrong (depending on the specific agency and crime patterns) when only a small number of months were missing, the imputation for 10+ months missing is nonsensical. It assumes that these agencies are much like similarly sized agencies in the same state.
+
+There are two major problems here. First, similarly sized agencies are based on the population group which is quite literally just a category indicating how big the agency is when grouped into rather arbitrary categories. These categories can range quite far - with agencies having millions more people than other agencies in the same category in some cases - so in most cases "similarly sized" agencies are not that similarly sized. The second issue is simply the assumption that population is all that important to crime rates. Population is certainly important to crime counts; New York City is going to have many more crimes than small towns purely due to its huge population, even though NYC has a low crime rate. But there is still huge variation in crimes among cities of the same or similar size as crime tends to concentrate in certain areas. So replacing an agency's annual crime counts with that or other agencies (even the average of other agencies) will give you a very wrong count.
+
+For this method of replacing missing data to be accurate agencies in the same population group in each state would need to have very similar crime counts. Otherwise it is assuming that missing agencies are just average (literally) in terms of crime. This again assumes that missing data is missing at random, which is unlikely to be true.
+
+In each of the below examples we use data from 2022 Offenses Known and Clearances by Arrest and use only agencies whose final month reported was December. This makes it the actual agencies in each population group that would replace agencies that are missing 10 or more months of data in 2022. As agencies can - and do - report different numbers of months each year, these numbers would be a little different if using any year other than 2022.
+
+For each population group we'll look at the mean, median, and maximum number of murders plus aggravated assaults with a gun.[^ucr_county-9] This is essentially a measure of the most serious violent crimes as the difference between gun assaults and murders is, to some degree, a matter of luck (e.g. where the person is shot can make the difference between an assault and a murder).[^ucr_county-10] This is actually not available in NACJD's county-level UCR data as they don't separate gun assaults from other aggravated assaults, though that data is available in the agency-level UCR data. If we see a wide range in the number of murders+gun-assaults in the below table, that'll indicate that this method of imputing missing data is highly flawed.
+
+[^ucr_county-9]: Aggravated assaults with a gun include but are not limited to shootings. The gun does not need to be fired to be considered an aggregated assault.
+
+[^ucr_county-10]: Attempted murders are considered aggravated assaults in the UCR.
+
+Table \@ref(tab:countyPopulationGroupStatsNational) shows these values for all agencies in the United States who reported 12 months of data (based on the "December last month reported" definition) in 2022. The actual imputation process only looks at agencies in the same state, but this is still information at seeing broad trends - and we'll look at two specific states below. Column 1 shows each of the population groups in the data while the remaining columns show the mean, median, minimum, and maximum number of murders+gun-assaults in 2022, respectively.[^ucr_county-11] For each population group there is a large range of values, as seen from the minimum and maximum values. There are also large differences in the mean and median values for larger (25,000+ population) agencies, particularly when compared to the top and bottom of the range of values. Using this imputation method will, in most cases (but soon we'll see an instance where there's an exception) provide substantially different values than the real (but unknown) values.
+
+[^ucr_county-11]: The agency-level UCR data actually has more population groups than this list, but NACJD has grouped some together. Given that some states may have few (or no) agencies in a population group, combining more groups together does alleviate the problem of having no comparison cities but at the tradeoff of making the comparison less similar to the given agency.
+
+```{r }
+
+
+offenses_known_yearly$population_group[offenses_known_yearly$population_group %in% 
+                        c( "non-msa county 10,000 thru 24,999",
+                           "non-msa county 100,000+",
+                           "non-msa county 25,000 thru 99,999",
+                           "non-msa county under 10,000",
+                           "non-msa state police")] <- "non-msa counties and non-msa state police"
+offenses_known_yearly$population_group[offenses_known_yearly$population_group %in% 
+                        c("msa-county 10,000 thru 24,999",
+                          "msa-county 100,000+",
+                          "msa-county 25,000 thru 99,999",
+                          "msa-county under 10,000",
+                          "msa state police")] <- "msa counties and msa state police"
+offenses_known_yearly$population_group[offenses_known_yearly$population_group %in% 
+                        c("city 1,000,000+",
+                          "city 500,000 thru 999,999",
+                          "city 250,000 thru 499,999")] <- "city 250,000+"
+data <- 
+  offenses_known_yearly %>%
+  filter(year %in% 2022,
+         !population_group %in% c("7b", "possessions"),
+         last_month_reported %in% "december")
+final <- get_murder_by_pop_group(data)
+
+kableExtra::kbl(final, 
+             #format = "html",
+             digits = 2, 
+             align = c("l", "r", "r", "r", "r"),
+             booktabs = TRUE, 
+             longtable = TRUE,
+             label = "countyPopulationGroupStatsNational",
+             escape = TRUE,
+             caption = "The mean, median, minimum, and maximum agency-level murder count nationwide for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header")) %>%
+  column_spec(column = 1, width = "1.6in") %>%
+  column_spec(column = 2:ncol(data), width = "0.65in")
+```
+
+```{r }
+data <- 
+  offenses_known_yearly %>%
+  filter(year %in% 2022,
+         !population_group %in% c("7b", "possessions"),
+        !is.na(population_group),
+         last_month_reported %in% "december")
+final <- get_murder_by_pop_group(data)
+kableExtra::kbl(final, 
+            # format = "html",
+             digits = 2, 
+             align = c("l", "r", "r", "r", "r"),
+             booktabs = TRUE, 
+             longtable = TRUE,
+             label = "countyPopulationGroupStats",
+             escape = TRUE,
+             caption = "The mean, median, minimum, 90th percentile, and maximum agency-level murder count nationwide for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header")) %>%
+  column_spec(column = 1, width = "1.6in") %>%
+  column_spec(column = 2:ncol(data), width = "0.65in")
+```
+
+Since the actual imputation process looks only at agencies in the same state, we'll look at two example states - Texas and Maine - and see how trends differ from nationally. These states are chosen as Texas is a very large (both in population and in number of jurisdictions) state with some areas of high crime while Maine is a small, more rural state with very low crime. Table \@ref(tab:countyPopulationGroupStatsTexas) shows results in Texas. Here, the findings are very similar to that of Table \@ref(tab:countyPopulationGroupStatsNational). While the numbers are different, and the maximum value is substantially smaller than using all agencies in the country, the basic findings of a wide range of values - especially at larger population groups - is the same.
+
+```{r }
+data <- 
+  offenses_known_yearly %>%
+  filter(year %in% 2022,
+         !population_group %in% c("7b", "possessions"),
+        !is.na(population_group),
+         state == "texas",
+         last_month_reported %in% "december")
+final <- get_murder_by_pop_group(data)
+kableExtra::kbl(final, 
+            # format = "html",
+             digits = 2, 
+             align = c("l", "r", "r", "r", "r"),
+             booktabs = TRUE, 
+             longtable = TRUE,
+             escape = TRUE,
+             label = "countyPopulationGroupStatsTexas",
+             caption = "The mean, median, minimum, 90th percentile, and maximum agency-level murder count in Texas for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header")) %>%
+  column_spec(column = 1, width = "1.6in") %>%
+  column_spec(column = 2:ncol(data), width = "0.65in")
+```
+
+Now we'll look at data from Maine, as shown in Table \@ref(tab:countyPopulationGroupStatsMaine). Here, results are much better: there is a narrow range in values meaning that the imputation would be very similar to the real values. This is driven mainly by Maine being a tiny state, with only one city larger than 50,000 people (Portland) and Maine being an extremely safe state so most places have zero murders+gun-assaults. In cases like this, where both crime and population size are consistent across the state (which is generally caused by everywhere having low crime), this imputation process can work well.
+
+```{r }
+data <- 
+  offenses_known_yearly %>%
+  filter(year %in% 2022,
+         !population_group %in% c("7b", "possessions"),
+         !is.na(population_group),
+         state == "maine",
+         last_month_reported %in% "december")
+final <- get_murder_by_pop_group(data)
+
+kableExtra::kbl(final, 
+           #  format = "latex",
+             digits = 2, 
+             align = c("l", "r", "r", "r", "r", "r"),
+             booktabs = TRUE, 
+             escape = TRUE,
+             label = "countyPopulationGroupStatsMaine",
+             caption = "The mean, median, minimum, 90th percentile, and maximum agency-level murder count in Maine for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.") %>%
+  kable_styling(bootstrap_options = "striped", latex_options = c("hold_position", "repeat_header")) %>%
+  column_spec(column = 1, width = "1.6in") %>%
+  column_spec(column = 2:ncol(data), width = "0.65in")
+```
+
+<!--chapter:end:10_ucr_county.Rmd-->
+

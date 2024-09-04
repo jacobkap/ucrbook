@@ -5,19 +5,19 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 11 NIBRS Overview | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</title>
-  <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
+  <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 11 NIBRS Overview | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
+  <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="github-repo" content="jacobkap/ucrbook" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 11 NIBRS Overview | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
   
-  <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, a collection of crime and arrest datasets which are often referred to as UCR data." />
+  <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   
 
 <meta name="author" content="Jacob Kaplan, Ph.D." />
@@ -171,7 +171,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide</a></li>
+<li><a href="./">Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</a></li>
 
 <li class="divider"></li>
 <li class="part"><span><b>I Welcome</b></span></li>
@@ -696,334 +696,754 @@ Figure 11.4: Agencies in each state reporting at least one crime to NIBRS in 202
 </p>
 </div>
 <p>For ease of reference, Table <a href="nibrs-overview.html#tab:agenciesReportingTable">11.1</a> shows the number of agencies in each state reporting to NIBRS and to UCR in 2019, and the percent shown in Figure <a href="nibrs-overview.html#fig:agenciesReportingMapPercent">11.4</a>.</p>
-<table>
-<caption><span id="tab:agenciesReportingTable">Table 11.1: </span>The number of agencies in each state reporting to NIBRS and to UCR in 2019. Also shows NIBRS reporting in each state as a percent of UCR reporting.</caption>
-<colgroup>
-<col width="30%" />
-<col width="22%" />
-<col width="19%" />
-<col width="27%" />
-</colgroup>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:agenciesReportingTable">Table 11.1: </span>The number of agencies in each state reporting to NIBRS and to UCR in 2019. Also shows NIBRS reporting in each state as a percent of UCR reporting.
+</caption>
 <thead>
-<tr class="header">
-<th align="left">State</th>
-<th align="right">NIBRS Agencies</th>
-<th align="right">UCR Agencies</th>
-<th align="right">% of UCR Agencies</th>
+<tr>
+<th style="text-align:left;">
+State
+</th>
+<th style="text-align:right;">
+NIBRS Agencies
+</th>
+<th style="text-align:right;">
+UCR Agencies
+</th>
+<th style="text-align:right;">
+% of UCR Agencies
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Alabama</td>
-<td align="right">393</td>
-<td align="right">414</td>
-<td align="right">94.93%</td>
+<tr>
+<td style="text-align:left;">
+Alabama
+</td>
+<td style="text-align:right;">
+393
+</td>
+<td style="text-align:right;">
+414
+</td>
+<td style="text-align:right;">
+94.93%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Alaska</td>
-<td align="right">32</td>
-<td align="right">33</td>
-<td align="right">96.97%</td>
+<tr>
+<td style="text-align:left;">
+Alaska
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+96.97%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Arizona</td>
-<td align="right">88</td>
-<td align="right">108</td>
-<td align="right">81.48%</td>
+<tr>
+<td style="text-align:left;">
+Arizona
+</td>
+<td style="text-align:right;">
+88
+</td>
+<td style="text-align:right;">
+108
+</td>
+<td style="text-align:right;">
+81.48%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Arkansas</td>
-<td align="right">292</td>
-<td align="right">294</td>
-<td align="right">99.32%</td>
+<tr>
+<td style="text-align:left;">
+Arkansas
+</td>
+<td style="text-align:right;">
+292
+</td>
+<td style="text-align:right;">
+294
+</td>
+<td style="text-align:right;">
+99.32%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">California</td>
-<td align="right">530</td>
-<td align="right">665</td>
-<td align="right">79.7%</td>
+<tr>
+<td style="text-align:left;">
+California
+</td>
+<td style="text-align:right;">
+530
+</td>
+<td style="text-align:right;">
+665
+</td>
+<td style="text-align:right;">
+79.7%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Colorado</td>
-<td align="right">225</td>
-<td align="right">233</td>
-<td align="right">96.57%</td>
+<tr>
+<td style="text-align:left;">
+Colorado
+</td>
+<td style="text-align:right;">
+225
+</td>
+<td style="text-align:right;">
+233
+</td>
+<td style="text-align:right;">
+96.57%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Connecticut</td>
-<td align="right">104</td>
-<td align="right">107</td>
-<td align="right">97.2%</td>
+<tr>
+<td style="text-align:left;">
+Connecticut
+</td>
+<td style="text-align:right;">
+104
+</td>
+<td style="text-align:right;">
+107
+</td>
+<td style="text-align:right;">
+97.2%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Delaware</td>
-<td align="right">62</td>
-<td align="right">63</td>
-<td align="right">98.41%</td>
+<tr>
+<td style="text-align:left;">
+Delaware
+</td>
+<td style="text-align:right;">
+62
+</td>
+<td style="text-align:right;">
+63
+</td>
+<td style="text-align:right;">
+98.41%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">District of Columbia</td>
-<td align="right">2</td>
-<td align="right">2</td>
-<td align="right">100%</td>
+<tr>
+<td style="text-align:left;">
+District of Columbia
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+100%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Florida</td>
-<td align="right">78</td>
-<td align="right">372</td>
-<td align="right">20.97%</td>
+<tr>
+<td style="text-align:left;">
+Florida
+</td>
+<td style="text-align:right;">
+78
+</td>
+<td style="text-align:right;">
+372
+</td>
+<td style="text-align:right;">
+20.97%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Georgia</td>
-<td align="right">425</td>
-<td align="right">457</td>
-<td align="right">93%</td>
+<tr>
+<td style="text-align:left;">
+Georgia
+</td>
+<td style="text-align:right;">
+425
+</td>
+<td style="text-align:right;">
+457
+</td>
+<td style="text-align:right;">
+93%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Guam</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">100%</td>
+<tr>
+<td style="text-align:left;">
+Guam
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+100%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Hawaii</td>
-<td align="right">3</td>
-<td align="right">3</td>
-<td align="right">100%</td>
+<tr>
+<td style="text-align:left;">
+Hawaii
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+100%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Idaho</td>
-<td align="right">111</td>
-<td align="right">110</td>
-<td align="right">100.91%</td>
+<tr>
+<td style="text-align:left;">
+Idaho
+</td>
+<td style="text-align:right;">
+111
+</td>
+<td style="text-align:right;">
+110
+</td>
+<td style="text-align:right;">
+100.91%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Illinois</td>
-<td align="right">497</td>
-<td align="right">522</td>
-<td align="right">95.21%</td>
+<tr>
+<td style="text-align:left;">
+Illinois
+</td>
+<td style="text-align:right;">
+497
+</td>
+<td style="text-align:right;">
+522
+</td>
+<td style="text-align:right;">
+95.21%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Indiana</td>
-<td align="right">205</td>
-<td align="right">212</td>
-<td align="right">96.7%</td>
+<tr>
+<td style="text-align:left;">
+Indiana
+</td>
+<td style="text-align:right;">
+205
+</td>
+<td style="text-align:right;">
+212
+</td>
+<td style="text-align:right;">
+96.7%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Iowa</td>
-<td align="right">225</td>
-<td align="right">228</td>
-<td align="right">98.68%</td>
+<tr>
+<td style="text-align:left;">
+Iowa
+</td>
+<td style="text-align:right;">
+225
+</td>
+<td style="text-align:right;">
+228
+</td>
+<td style="text-align:right;">
+98.68%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Kansas</td>
-<td align="right">320</td>
-<td align="right">327</td>
-<td align="right">97.86%</td>
+<tr>
+<td style="text-align:left;">
+Kansas
+</td>
+<td style="text-align:right;">
+320
+</td>
+<td style="text-align:right;">
+327
+</td>
+<td style="text-align:right;">
+97.86%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Kentucky</td>
-<td align="right">394</td>
-<td align="right">432</td>
-<td align="right">91.2%</td>
+<tr>
+<td style="text-align:left;">
+Kentucky
+</td>
+<td style="text-align:right;">
+394
+</td>
+<td style="text-align:right;">
+432
+</td>
+<td style="text-align:right;">
+91.2%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Louisiana</td>
-<td align="right">137</td>
-<td align="right">151</td>
-<td align="right">90.73%</td>
+<tr>
+<td style="text-align:left;">
+Louisiana
+</td>
+<td style="text-align:right;">
+137
+</td>
+<td style="text-align:right;">
+151
+</td>
+<td style="text-align:right;">
+90.73%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Maine</td>
-<td align="right">129</td>
-<td align="right">131</td>
-<td align="right">98.47%</td>
+<tr>
+<td style="text-align:left;">
+Maine
+</td>
+<td style="text-align:right;">
+129
+</td>
+<td style="text-align:right;">
+131
+</td>
+<td style="text-align:right;">
+98.47%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Maryland</td>
-<td align="right">77</td>
-<td align="right">150</td>
-<td align="right">51.33%</td>
+<tr>
+<td style="text-align:left;">
+Maryland
+</td>
+<td style="text-align:right;">
+77
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:right;">
+51.33%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Massachusetts</td>
-<td align="right">378</td>
-<td align="right">384</td>
-<td align="right">98.44%</td>
+<tr>
+<td style="text-align:left;">
+Massachusetts
+</td>
+<td style="text-align:right;">
+378
+</td>
+<td style="text-align:right;">
+384
+</td>
+<td style="text-align:right;">
+98.44%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Michigan</td>
-<td align="right">595</td>
-<td align="right">603</td>
-<td align="right">98.67%</td>
+<tr>
+<td style="text-align:left;">
+Michigan
+</td>
+<td style="text-align:right;">
+595
+</td>
+<td style="text-align:right;">
+603
+</td>
+<td style="text-align:right;">
+98.67%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Minnesota</td>
-<td align="right">398</td>
-<td align="right">411</td>
-<td align="right">96.84%</td>
+<tr>
+<td style="text-align:left;">
+Minnesota
+</td>
+<td style="text-align:right;">
+398
+</td>
+<td style="text-align:right;">
+411
+</td>
+<td style="text-align:right;">
+96.84%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Mississippi</td>
-<td align="right">150</td>
-<td align="right">152</td>
-<td align="right">98.68%</td>
+<tr>
+<td style="text-align:left;">
+Mississippi
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:right;">
+152
+</td>
+<td style="text-align:right;">
+98.68%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Missouri</td>
-<td align="right">471</td>
-<td align="right">498</td>
-<td align="right">94.58%</td>
+<tr>
+<td style="text-align:left;">
+Missouri
+</td>
+<td style="text-align:right;">
+471
+</td>
+<td style="text-align:right;">
+498
+</td>
+<td style="text-align:right;">
+94.58%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Montana</td>
-<td align="right">106</td>
-<td align="right">110</td>
-<td align="right">96.36%</td>
+<tr>
+<td style="text-align:left;">
+Montana
+</td>
+<td style="text-align:right;">
+106
+</td>
+<td style="text-align:right;">
+110
+</td>
+<td style="text-align:right;">
+96.36%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Nebraska</td>
-<td align="right">238</td>
-<td align="right">263</td>
-<td align="right">90.49%</td>
+<tr>
+<td style="text-align:left;">
+Nebraska
+</td>
+<td style="text-align:right;">
+238
+</td>
+<td style="text-align:right;">
+263
+</td>
+<td style="text-align:right;">
+90.49%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Nevada</td>
-<td align="right">52</td>
-<td align="right">54</td>
-<td align="right">96.3%</td>
+<tr>
+<td style="text-align:left;">
+Nevada
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:right;">
+96.3%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">New Hampshire</td>
-<td align="right">208</td>
-<td align="right">213</td>
-<td align="right">97.65%</td>
+<tr>
+<td style="text-align:left;">
+New Hampshire
+</td>
+<td style="text-align:right;">
+208
+</td>
+<td style="text-align:right;">
+213
+</td>
+<td style="text-align:right;">
+97.65%
+</td>
 </tr>
-<tr class="even">
-<td align="left">New Jersey</td>
-<td align="right">307</td>
-<td align="right">543</td>
-<td align="right">56.54%</td>
+<tr>
+<td style="text-align:left;">
+New Jersey
+</td>
+<td style="text-align:right;">
+307
+</td>
+<td style="text-align:right;">
+543
+</td>
+<td style="text-align:right;">
+56.54%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">New Mexico</td>
-<td align="right">93</td>
-<td align="right">96</td>
-<td align="right">96.88%</td>
+<tr>
+<td style="text-align:left;">
+New Mexico
+</td>
+<td style="text-align:right;">
+93
+</td>
+<td style="text-align:right;">
+96
+</td>
+<td style="text-align:right;">
+96.88%
+</td>
 </tr>
-<tr class="even">
-<td align="left">New York</td>
-<td align="right">149</td>
-<td align="right">560</td>
-<td align="right">26.61%</td>
+<tr>
+<td style="text-align:left;">
+New York
+</td>
+<td style="text-align:right;">
+149
+</td>
+<td style="text-align:right;">
+560
+</td>
+<td style="text-align:right;">
+26.61%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">North Carolina</td>
-<td align="right">395</td>
-<td align="right">407</td>
-<td align="right">97.05%</td>
+<tr>
+<td style="text-align:left;">
+North Carolina
+</td>
+<td style="text-align:right;">
+395
+</td>
+<td style="text-align:right;">
+407
+</td>
+<td style="text-align:right;">
+97.05%
+</td>
 </tr>
-<tr class="even">
-<td align="left">North Dakota</td>
-<td align="right">111</td>
-<td align="right">111</td>
-<td align="right">100%</td>
+<tr>
+<td style="text-align:left;">
+North Dakota
+</td>
+<td style="text-align:right;">
+111
+</td>
+<td style="text-align:right;">
+111
+</td>
+<td style="text-align:right;">
+100%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Ohio</td>
-<td align="right">629</td>
-<td align="right">638</td>
-<td align="right">98.59%</td>
+<tr>
+<td style="text-align:left;">
+Ohio
+</td>
+<td style="text-align:right;">
+629
+</td>
+<td style="text-align:right;">
+638
+</td>
+<td style="text-align:right;">
+98.59%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Oklahoma</td>
-<td align="right">443</td>
-<td align="right">457</td>
-<td align="right">96.94%</td>
+<tr>
+<td style="text-align:left;">
+Oklahoma
+</td>
+<td style="text-align:right;">
+443
+</td>
+<td style="text-align:right;">
+457
+</td>
+<td style="text-align:right;">
+96.94%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Oregon</td>
-<td align="right">181</td>
-<td align="right">212</td>
-<td align="right">85.38%</td>
+<tr>
+<td style="text-align:left;">
+Oregon
+</td>
+<td style="text-align:right;">
+181
+</td>
+<td style="text-align:right;">
+212
+</td>
+<td style="text-align:right;">
+85.38%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Pennsylvania</td>
-<td align="right">130</td>
-<td align="right">1123</td>
-<td align="right">11.58%</td>
+<tr>
+<td style="text-align:left;">
+Pennsylvania
+</td>
+<td style="text-align:right;">
+130
+</td>
+<td style="text-align:right;">
+1123
+</td>
+<td style="text-align:right;">
+11.58%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Rhode Island</td>
-<td align="right">47</td>
-<td align="right">49</td>
-<td align="right">95.92%</td>
+<tr>
+<td style="text-align:left;">
+Rhode Island
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+95.92%
+</td>
 </tr>
-<tr class="even">
-<td align="left">South Carolina</td>
-<td align="right">351</td>
-<td align="right">472</td>
-<td align="right">74.36%</td>
+<tr>
+<td style="text-align:left;">
+South Carolina
+</td>
+<td style="text-align:right;">
+351
+</td>
+<td style="text-align:right;">
+472
+</td>
+<td style="text-align:right;">
+74.36%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">South Dakota</td>
-<td align="right">102</td>
-<td align="right">107</td>
-<td align="right">95.33%</td>
+<tr>
+<td style="text-align:left;">
+South Dakota
+</td>
+<td style="text-align:right;">
+102
+</td>
+<td style="text-align:right;">
+107
+</td>
+<td style="text-align:right;">
+95.33%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Tennessee</td>
-<td align="right">397</td>
-<td align="right">399</td>
-<td align="right">99.5%</td>
+<tr>
+<td style="text-align:left;">
+Tennessee
+</td>
+<td style="text-align:right;">
+397
+</td>
+<td style="text-align:right;">
+399
+</td>
+<td style="text-align:right;">
+99.5%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Texas</td>
-<td align="right">1041</td>
-<td align="right">1064</td>
-<td align="right">97.84%</td>
+<tr>
+<td style="text-align:left;">
+Texas
+</td>
+<td style="text-align:right;">
+1041
+</td>
+<td style="text-align:right;">
+1064
+</td>
+<td style="text-align:right;">
+97.84%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Utah</td>
-<td align="right">133</td>
-<td align="right">135</td>
-<td align="right">98.52%</td>
+<tr>
+<td style="text-align:left;">
+Utah
+</td>
+<td style="text-align:right;">
+133
+</td>
+<td style="text-align:right;">
+135
+</td>
+<td style="text-align:right;">
+98.52%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Vermont</td>
-<td align="right">85</td>
-<td align="right">88</td>
-<td align="right">96.59%</td>
+<tr>
+<td style="text-align:left;">
+Vermont
+</td>
+<td style="text-align:right;">
+85
+</td>
+<td style="text-align:right;">
+88
+</td>
+<td style="text-align:right;">
+96.59%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Virginia</td>
-<td align="right">405</td>
-<td align="right">410</td>
-<td align="right">98.78%</td>
+<tr>
+<td style="text-align:left;">
+Virginia
+</td>
+<td style="text-align:right;">
+405
+</td>
+<td style="text-align:right;">
+410
+</td>
+<td style="text-align:right;">
+98.78%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Washington</td>
-<td align="right">240</td>
-<td align="right">246</td>
-<td align="right">97.56%</td>
+<tr>
+<td style="text-align:left;">
+Washington
+</td>
+<td style="text-align:right;">
+240
+</td>
+<td style="text-align:right;">
+246
+</td>
+<td style="text-align:right;">
+97.56%
+</td>
 </tr>
-<tr class="even">
-<td align="left">West Virginia</td>
-<td align="right">201</td>
-<td align="right">214</td>
-<td align="right">93.93%</td>
+<tr>
+<td style="text-align:left;">
+West Virginia
+</td>
+<td style="text-align:right;">
+201
+</td>
+<td style="text-align:right;">
+214
+</td>
+<td style="text-align:right;">
+93.93%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Wisconsin</td>
-<td align="right">361</td>
-<td align="right">403</td>
-<td align="right">89.58%</td>
+<tr>
+<td style="text-align:left;">
+Wisconsin
+</td>
+<td style="text-align:right;">
+361
+</td>
+<td style="text-align:right;">
+403
+</td>
+<td style="text-align:right;">
+89.58%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Wyoming</td>
-<td align="right">49</td>
-<td align="right">50</td>
-<td align="right">98%</td>
+<tr>
+<td style="text-align:left;">
+Wyoming
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+98%
+</td>
 </tr>
 </tbody>
 </table>

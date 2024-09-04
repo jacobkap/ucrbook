@@ -34,16 +34,16 @@ temp <- make_frequency_table(offense,
                                "\\# of Offenses",
                                "\\% of Offenses"))
 
-knitr::kable(temp, 
+kableExtra::kbl(temp, 
             # format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
-           #  escape = FALSE,
+             escape = TRUE,
              label = "offenseCrimeCategories",
-             caption = "The number and percent of crimes reported from all agencies in 2022, by crime category.") #%>%
- # kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             caption = "The number and percent of crimes reported from all agencies in 2022, by crime category.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 ## Offense subtype
@@ -81,16 +81,16 @@ temp <- make_frequency_table(offense,
                              c("Crime Subcategory",
                                "\\# of Offenses",
                                "\\% of Offenses"))
-knitr::kable(temp, 
+kableExtra::kbl(temp, 
            #  format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
-            # escape = FALSE,
+             escape = TRUE,
              label = "offenseCrimeSubcategories",
-             caption = "The number and percent of crime subtypes. This breakdown is only available for a subset of offenses.") #%>%
-#  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             caption = "The number and percent of crime subtypes. This breakdown is only available for a subset of offenses.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 We'll look in more detail about the subtype of offenses for animal cruelty. Table \@ref(tab:offenseCrimeSubcategories) shows each possible subtype for animal cruelty and how often they occur. There were about 10,000 cases of animal cruelty reporting to NIBRS in 2019 and over two-thirds are for neglect of the animal. Over a quarter are for torturing or abandoning the poor animal. And the remaining small share of offenses are for sexual abuse of the animal or for forcing them to fight other animals. These subtypes provide a lot more information about the crime that occurred, but still have some uncertainties. We don't, for example, know the type of animal involved or the severity of the abuse (other than that it was serious enough for police to become involved). Still, this is a large improvement in our understanding of this crime (and others which have subtypes), and a colossal improvement when compared with UCR data. 
@@ -106,9 +106,9 @@ kableExtra::kbl(temp,
              format = "markdown",
              digits = 2, 
              align = c("l", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
-             escape = FALSE,
+             escape = TRUE,
              caption = "The number and percent of crime subtypes for animal abuse.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
@@ -144,16 +144,16 @@ final <- completed %>%
 
 names(final) <- c("Crime Category", "\\% Completed", "% Attempted")
 
-knitr::kable(final, 
+kableExtra::kbl(final, 
              #format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
              label = "offensesCompleted",
-           #  escape = FALSE,
-             caption = "The percent of crimes completed or attempted, by crime category.") #%>%
-#  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             escape = TRUE,
+             caption = "The percent of crimes completed or attempted, by crime category.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 ## Drug, alcohol, or computer use
@@ -192,16 +192,16 @@ temp <- make_frequency_table(offense,
                              c("Crime Location",
                                "\\# of Offenses",
                                "\\% of Offenses"))
-knitr::kable(temp, 
+kableExtra::kbl(temp, 
           #   format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
           label = "offenseLocation",
-        #     escape = FALSE,
-             caption = "The location of crimes for all offenses reported in 2022.")# %>%
-#  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             escape = TRUE,
+             caption = "The location of crimes for all offenses reported in 2022.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 ## Weapons {#offenseWeapons}
@@ -237,16 +237,16 @@ temp <- make_frequency_table(offense,
                              c("Weapon Used",
                                "\\# of Offenses",
                                "\\% of Offenses"))
-knitr::kable(temp, 
+kableExtra::kbl(temp, 
             # format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
              label = "offenseWeapon",
-            # escape = FALSE,
-             caption = "The weapon used by an offender in the crime for all offenses reported in 2019. The use means that it was part of the crime though may not have been physically discharged. For example, pointing a gun at someone even without firing the gun is still using it.")# %>%
-#  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             escape = TRUE,
+             caption = "The weapon used by an offender in the crime for all offenses reported in 2019. The use means that it was part of the crime though may not have been physically discharged. For example, pointing a gun at someone even without firing the gun is still using it.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 ## Automatic weapons
@@ -350,16 +350,16 @@ temp <- make_frequency_table(temp,
                              c("Bias Motivation",
                                "\\# of Offenses",
                                "\\% of Offenses"))
-knitr::kable(temp, 
+kableExtra::kbl(temp, 
            #  format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
-            # escape = FALSE,
+             escape = TRUE,
              label = "offenseBiasMotivation",
-             caption = "The number and percent of offenders that had a bias motivation or not for all offenses reported in 2022.") #%>%
-#  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             caption = "The number and percent of offenders that had a bias motivation or not for all offenses reported in 2022.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 Table \@ref(tab:offenseBiasMotivationBiases) shows the breakdown in the bias motivation of hate crimes, for all incidents where the crime is considered a hate crime. The most common bias motivation is anti-Black, which accounts for 29% of all hate crimes in the data. This is followed by anti-White at 12.7% and "anti-male homosexual (gay)" at almost 8% of crimes. The only other biases that make up more than 5% of hate crimes are anti-Hispanic and anti-Jewish.^[Looking at the raw percents is a rather naive measure as it assumes that all groups have equal risk of hate crimes. Certain groups, such as Jews and transgender people, make up a relatively small share of the percent of hate crimes but when considering their percent of the overall population (itself only a slightly better measure as even total population doesn't account for true opportunity to be victimized) are victimized at much higher rates than many other groups.]
@@ -374,14 +374,14 @@ temp <- make_frequency_table(offense[!offense$bias_motivation %in% c("no bias mo
                              c("Bias Motivation",
                                "\\# of Offenses",
                                "\\% of Offenses"))
-knitr::kable(temp, 
+kableExtra::kbl(temp, 
            #  format = "html",
              digits = 2, 
              align = c("l", "r", "r"),
-             booktabs = TRUE, 
+             #booktabs = TRUE, 
              longtable = TRUE,
              label = "offenseBiasMotivationBiases",
-            # escape = FALSE,
-             caption = "The bias motivation (i.e. if hate crime or not and what type of hate crime) for all offenses reported in 2022 that were classified as hate crimes. For easier viewing of how hate crimes are broken down, this excludes all offenses where there was no bias motivation.")# %>%
- # kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+             escape = TRUE,
+             caption = "The bias motivation (i.e. if hate crime or not and what type of hate crime) for all offenses reported in 2022 that were classified as hate crimes. For easier viewing of how hate crimes are broken down, this excludes all offenses where there was no bias motivation.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```

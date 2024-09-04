@@ -6,28 +6,26 @@ bookdown::gitbook:
     toc:
       collapse: section
       before: |
-        <li><a href="./">Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide</a></li>
+        <li><a href="./">Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</a></li>
     edit:
       link: https://github.com/jacobkap/ucrbook/edit/main/%s
       text: "Edit"
     sharing: yes
 bookdown::pdf_book:
- keep_tex: true
+ pandoc_args: [--top-level-division=chapter, --wrap=auto, --columns=60]
+ extra_dependencies: ["float", "booktabs"]
  dev: "cairo_pdf"
+ includes:
+    in_header: latex/preamble.tex
+    before_body: latex/before_body.tex
+    after_body: latex/after_body.tex
+ keep_tex: true
  latex_engine: xelatex
  citation_package: natbib
  template: null
- pandoc_args: --top-level-division=chapter
  toc_depth: 3
- toc_unnumbered: false
- toc_appendix: true
+ toc_unnumbered: no
+ toc_appendix: yes
  quote_footer: ["\\VA{", "}{}"]
  highlight_bw: true
- stylesheet: style.css
- documentclass: book
- classoption: openany
- linestretch: 1.15
- geometry: margin=1in
-bookdown::epub_book:
-  dev: svglite
-  stylesheet: style.css
+ 
