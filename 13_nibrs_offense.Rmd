@@ -11,12 +11,59 @@ knitr::opts_chunk$set(
 
 ```{r,  results='hide'}
 offense <- readRDS("data/nibrs_offense_segment_2022.rds")
+nibrs_offense_summary_stats <- readRDS("data/nibrs_summary_stats/nibrs_offense_summary_stats.rds")
+nibrs_offense_first_year <- readRDS("data/nibrs_summary_stats/nibrs_offense_first_year.rds")
+nibrs_location_first_year <- readRDS("data/nibrs_summary_stats/nibrs_location_first_year.rds")
 gc()
 ```
 
 This segment provides information about the offense that occurred, and each incident can have multiple offenses. This data tells you which offense occurred and for a subset of offenses it also provides a more detailed subcategory of offense, allowing a deeper dive into what exactly happened. For example, for animal abuse there are four subcategories of offenses: simple/gross neglect of an animal, intentional abuse or torture, animal sexual abuse (bestiality), and organized fighting of animals such as dog or cock fights. This segment also says what date the crime occurred on, where the crime occurred - in categories such as residence or sidewalk rather than exact coordinates in a city - whether the offender is suspected of using drugs, alcohol, or "computer equipment" (which includes cell phones) during the crime, and which weapon was used. In cases where the weapon was a firearm it says whether that weapon was fully automatic or not. It also provides information on if the crime was a hate crime by including a variable on the bias motivation (if any) of the offender. This is based on evidence that the crime was motivated, at least in part, by the victim's group (e.g. race, sexuality, religion, etc.). There are 34 possible bias motivations and while hate crimes could potentially be motivated by bias against multiple groups, this data only allows for a single bias motivation.
 
 In addition to the variables detailed below this segment has the traditional agency and incident identifiers: the ORI code, the agency state, the year of this data, and the incident number. It also has the date of the incident, which is also included in the Administrative Segment.^[Potentially some offenses could occur after the incident date. For example, if an incident happened at 11:50pm and it had multiple crimes involved, some of them may occur the follow day, such as at 12:01am.] 
+
+
+
+```{r nibrsOffenseAgenciesReporting, fig.cap="The annual number of agencies reporting data in the NIBRS Offense Segment, 1991-2022."}
+nibrs_offense_summary_stats  %>%
+  ungroup() %>%
+  ggplot(aes(x = year, y = number_of_agencies)) +
+  geom_line(size = 1.05) +
+  xlab("Year") +
+  ylab("# of Agencies") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(color = "") +
+  expand_limits(y = 0)
+```
+
+
+
+```{r nibrsOffenseOffensesReported, fig.cap="The annual number of offenses reported, 1991-2022."}
+nibrs_offense_summary_stats  %>%
+  ungroup() %>%
+  ggplot(aes(x = year, y = number_of_offenses )) +
+  geom_line(size = 1.05) +
+  xlab("Year") +
+  ylab("# of Offenses") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(color = "") +
+  expand_limits(y = 0)
+```
+
+
+```{r nibrsOffenseMurdersReported, fig.cap="The annual number of murders and nonnegligent homicides reported, 1991-2022."}
+nibrs_offense_summary_stats  %>%
+  ungroup() %>%
+  ggplot(aes(x = year, y = number_murders  )) +
+  geom_line(size = 1.05) +
+  xlab("Year") +
+  ylab("# of Murders") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(color = "") +
+  expand_limits(y = 0)
+```
 
 ## Crime category
 
@@ -32,7 +79,16 @@ temp <- make_frequency_table(offense,
                              "ucr_offense_code",
                              c("Crime Category",
                                "\\# of Offenses",
-                               "\\% of Offenses"))
+                               "\\% of Offenses")) %>%
+  left_join(nibrs_offense_first_year %>% 
+              mutate(ucr_offense_code = capitalize_words(ucr_offense_code)) %>%
+              rename(`Crime Category` = ucr_offense_code)) %>%
+  select(`Crime Category`,
+         `First Year` = year,
+         everything())
+temp$`First Year`[is.na(temp$`First Year`)] <- "-"
+temp
+
 
 kableExtra::kbl(temp, 
             # format = "html",
@@ -156,6 +212,21 @@ kableExtra::kbl(final,
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
+
+
+```{r nibrsOffenseCompleted, fig.cap="The annual percent of offenses reported as completed, 1991-2022."}
+nibrs_offense_summary_stats  %>%
+  ungroup() %>%
+  ggplot(aes(x = year, y = percent_offense_completed )) +
+  geom_line(size = 1.05) +
+  xlab("Year") +
+  ylab("% Completed") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(color = "") +
+  expand_limits(y = 0)
+```
+
 ## Drug, alcohol, or computer use
 
 Intoxication, mainly by alcohol, is known to be a major correlate (and cause) of crime. Drunk people commit a lot of crime (even though most drunk people never commit crime). Drunk people are also better targets for crime so are chosen by certain offenders who want an easy victim. NIBRS tries to capture this by telling us if the offender is *suspected of using* drugs (just "drugs" as we don't know which drug was involved, though we could look in the Property Segment to see what drug [if any] was seized by the police), alcohol, or "computer equipment" which also includes cell phones. Computer equipment is more relevant for certain crimes such as fraud or pornography/obscene materials. For each offense there are three variables about usage of any of these so potentially the offender could have used all three. The data doesn't get any more specific than if the offender is *suspected of using* these items. So we don't know how intoxicated they are or what they used the computer equipment for. Just that they're suspected of using it. And suspected is key. We don't know for sure if they used it. If, for example, a victim says that their mugger was drunk, NIBRS will say they're suspected of using alcohol, even though there's no definitive proof such as a blood test or breathalyzer. Unlike some past variables like offense subtype where it applies to only a subset of crimes, this variable is available for every crime. 
@@ -191,7 +262,15 @@ temp <- make_frequency_table(offense,
                              "location_type",
                              c("Crime Location",
                                "\\# of Offenses",
-                               "\\% of Offenses"))
+                               "\\% of Offenses")) %>%
+  left_join(nibrs_location_first_year %>% 
+              mutate(location_type = capitalize_words(location_type)) %>%
+              rename(`Crime Location` = location_type)) %>%
+  select(`Crime Location`,
+         `First Year` = year,
+         everything())
+temp$`First Year`[is.na(temp$`First Year`)] <- "-"
+temp
 kableExtra::kbl(temp, 
           #   format = "html",
              digits = 2, 
@@ -203,6 +282,21 @@ kableExtra::kbl(temp,
              caption = "The location of crimes for all offenses reported in 2022.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
+
+
+
+```{r nibrsOffenseHome, fig.cap="The annual percent of offenses reported as occuring at the victim's home, 1991-2022."}
+nibrs_offense_summary_stats  %>%
+  ggplot(aes(x = year, y = percent_at_home)) +
+  geom_line(size = 1.05) +
+  xlab("Year") +
+  ylab("% at Victim's Home") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(color = "") +
+  expand_limits(y = 0)
+```
+
 
 ## Weapons {#offenseWeapons}
 
@@ -247,6 +341,28 @@ kableExtra::kbl(temp,
              escape = TRUE,
              caption = "The weapon used by an offender in the crime for all offenses reported in 2019. The use means that it was part of the crime though may not have been physically discharged. For example, pointing a gun at someone even without firing the gun is still using it.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+```
+
+
+```{r nibrsMurdersWeapon, fig.cap="The annual percent of murders and nonnegligent homicides, by offender weapon, 1991-2022."}
+nibrs_offense_summary_stats  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = percent_murders_gun, color = "Gun"), size = 1.05) +
+  geom_line(aes(y = percent_murders_knife, color = "Knife"), size = 1.05) +
+  geom_line(aes(y = percent_murders_other_weapon, color = "Other Weapon"), size = 1.05) +
+  geom_line(aes(y = percent_murders_unarmed, color = "Unarmed"), size = 1.05) +
+  geom_line(aes(y = percent_murders_handgun, color = "Handgun"), size = 1.05) +
+  xlab("Year") +
+  ylab("% at Murders") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Gun" = "#a6cee3",
+                                "Knife" = "#1f78b4",
+                                "Other Weapon" = "#b2df8a",
+                                "Unarmed" = "#33a02c",
+                                "Handgun" = "black"))
 ```
 
 ## Automatic weapons
@@ -329,6 +445,22 @@ ggplot2::ggplot(aes(x = method_of_entry)) +
   ylab("% of Burglaries")
 ```
 
+
+```{r nibrsBurglaryForce, fig.cap="The annual percent of burglaries, by whether entry used force, 1991-2022."}
+nibrs_offense_summary_stats  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = percent_burglary_force, color = "Force"), size = 1.05) +
+  geom_line(aes(y = percent_burglary_no_force , color = "No Force"), size = 1.05) +
+  xlab("Year") +
+  ylab("% of Burglaries") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Force" = "#1b9e77",
+                                "No Force" = "#d95f02"))
+```
+
 ## Hate crime indicator (bias motivation)
 
 For each offense NIBRS indicates whether it had a bias motivation, which is NIBRS way of saying if it was a hate crime or not. For the police to classify an incident as a hate crime, and to assign a particular bias motivation, the police must have some evidence that the crime was motivated by hate. The victim saying that the crime is a hate crime alone is not sufficient - though if large portions of the victim’s community believe that the crime is a hate crime, this is a factor in the police’s assessment. The evidence required is not major, it includes things as explicit as racial slurs said during an incident and less obvious factors like if the crime happened while the victim was celebrating their community (e.g. attending a holiday event) or the crime occurring on an important holiday for that community (e.g. Martin Luther King Day, religious holidays). The FBI also encourages police to consider the totality of the evidence even if none alone strongly suggests that the crime was a hate crime in making their determination about whether the incident was a hate crime or not.
@@ -384,4 +516,19 @@ kableExtra::kbl(temp,
              escape = TRUE,
              caption = "The bias motivation (i.e. if hate crime or not and what type of hate crime) for all offenses reported in 2022 that were classified as hate crimes. For easier viewing of how hate crimes are broken down, this excludes all offenses where there was no bias motivation.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+```
+
+
+
+```{r nibrsOffenseBias, fig.cap="The annual percent of offenses reported as having a bias motivation (i.e. hate crime), 1993-2022."}
+nibrs_offense_summary_stats  %>%
+  filter(year > 1992) %>%
+  ggplot(aes(x = year, y = percent_with_bias )) +
+  geom_line(size = 1.05) +
+  xlab("Year") +
+  ylab("% With Bias Motivation") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(color = "") +
+  expand_limits(y = 0)
 ```

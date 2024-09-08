@@ -15,6 +15,7 @@ knitr::opts_chunk$set(
 agencies_reporting <- readRDS("data/agencies_reporting.rds")
 administrative <- readRDS("data/nibrs_administrative_segment_2022.rds")
 ucr <- readRDS("data/offenses_known_yearly_1960_2022.rds")
+batch_header <- readRDS("data/nibrs_summary_stats/batch_header_all_years.rds")
 gc()
 ```
 

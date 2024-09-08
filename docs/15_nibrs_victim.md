@@ -10,6 +10,14 @@ One highly interesting variable in this segment is the relationship between the 
 
 In addition to the variables detailed below this segment has the traditional agency and incident identifiers: the ORI code, the agency state, the year of this data, and the incident number. It also has a "victim sequence number" which is a number identifying the victim in an incident since some incidents have multiple victims. 
 
+
+
+<div class="figure" style="text-align: center">
+<img src="15_nibrs_victim_files/figure-html/nibrsVictimAgenciesReporting-1.png" alt="The annual number of agencies reporting data in the NIBRS Victim Segment, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsVictimAgenciesReporting)The annual number of agencies reporting data in the NIBRS Victim Segment, 1991-2022.</p>
+</div>
+
+
 ## Crime category
 
 The first variable we'll look at is the crime the victim experienced. This is a bit different than the offenses in the Offense Segment as not all victims in an incident are victimized by all of the crimes involved. For example, if a couple is assaulted and the woman is raped, the woman would experience rape and assault while the man only experiences assault. NIBRS allows for up to 10 offenses per victim and these are supposed to be ranked in order of seriousness. So the first variable has the most serious offense, the second has the second most serious offense, and so on. This is true is most cases but some have more minor crimes presented before more serious crimes. This seems to just be a data entry issue and nothing systematic but you should still check all offense variables if you're interested in finding the most serious crime per victim. 
@@ -17,7 +25,7 @@ The first variable we'll look at is the crime the victim experienced. This is a 
 There are 52 possible offenses included in this segment and Table \@ref(tab:victimCrimeCategory) shows how frequent each offense is. Though there are 10 possible offenses per victim, this table only looks at the first offense. The most common offense is simple assault, affecting 12.7% of victims or 944k people. This is followed by damage, vandalism, or destruction of property for 11% of victims. About 9.6% of victims experience drugs/narcotic violations, and these victims are likely also the offenders in the case (all incidents must have a victim recorded so in drug crimes the victims are also the offenders in most cases). Theft crimes, broken into some subcategories like "all other larceny" and "theft from motor vehicle" make up the three of the top six crimes (ranks 3, 5, and 6) people are victimized by. And the only remaining crime that accounts for 5% or more of offenses is burglary at 6.4%.
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:victimCrimeCategory)The number and percent of crimes committed against each victim. For victims with multiple crimes committed against them, this shows the most serious crime.</caption>
+<caption>(\#tab:victimCrimeCategory)The number and percent of crimes committed against each victim. For victims with multiple crimes committed against them, this shows the first crime reported.</caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Crime Category </th>
@@ -341,17 +349,311 @@ There are 52 possible offenses included in this segment and Table \@ref(tab:vict
 
 
 
+
+
+```
+#>                                                       Crime Category First Year
+#> 1                              Assault Offenses - Aggravated Assault       2002
+#> 2                                  Assault Offenses - Simple Assault       2002
+#> 3                                               Kidnapping/Abduction       2002
+#> 4                                    Assault Offenses - Intimidation       2003
+#> 5                                     Burglary/Breaking And Entering       2003
+#> 6                           Destruction/Damage/Vandalism of Property       2003
+#> 7                                   Murder/Nonnegligent Manslaughter       2003
+#> 8                Stolen Property Offenses (Receiving, Selling, Etc.)       2003
+#> 9                                                            Bribery       2004
+#> 10          Fraud Offenses - False Pretenses/Swindle/Confidence Game       2004
+#> 11                        Larceny/Theft Offenses - All Other Larceny       2004
+#> 12                              Larceny/Theft Offenses - Shoplifting       2004
+#> 13                                               Motor Vehicle Theft       2004
+#> 14                                    Fraud Offenses - Impersonation       2006
+#> 15                 Larceny/Theft Offenses - Theft From Motor Vehicle       2008
+#> 16                                            Counterfeiting/Forgery       2009
+#> 17                                                             Arson       2011
+#> 18                      Larceny/Theft Offenses - Theft From Building       2011
+#> 19         Sex Offenses - Fondling (Incident Liberties/Child Molest)       2014
+#> 20                           Larceny/Theft Offenses - Pocket-Picking       2018
+#> 21 Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories       2018
+#>    # of Victims in 1st Year # of Victims in 2022
+#> 1                        69                17616
+#> 2                        86                47190
+#> 3                         1                    8
+#> 4                         4                 8584
+#> 5                         1                    0
+#> 6                         1                    0
+#> 7                         2                   55
+#> 8                         2                    0
+#> 9                         1                    0
+#> 10                        2                    0
+#> 11                        1                    0
+#> 12                        1                    0
+#> 13                        1                    0
+#> 14                        1                    0
+#> 15                        1                    0
+#> 16                        1                    0
+#> 17                        1                    0
+#> 18                        1                    0
+#> 19                        1                    0
+#> 20                        1                    0
+#> 21                        1                    0
+```
+
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:offenseOfficerCrimeCategories)The number and percent of crimes reported for offenses where the victim type was 'law enforcement officer.'</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Crime Category </th>
+   <th style="text-align:right;"> First Year </th>
+   <th style="text-align:right;"> # of Victims in 1st Year </th>
+   <th style="text-align:left;"> # of Victims in 2022 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 2002 </td>
+   <td style="text-align:right;"> 69 </td>
+   <td style="text-align:left;"> 17616 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 2002 </td>
+   <td style="text-align:right;"> 86 </td>
+   <td style="text-align:left;"> 47190 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Kidnapping/Abduction </td>
+   <td style="text-align:right;"> 2002 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 2003 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 8584 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 2003 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 2003 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Murder/Nonnegligent Manslaughter </td>
+   <td style="text-align:right;"> 2003 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> 55 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Stolen Property Offenses (Receiving, Selling, Etc.) </td>
+   <td style="text-align:right;"> 2003 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bribery </td>
+   <td style="text-align:right;"> 2004 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud Offenses - False Pretenses/Swindle/Confidence Game </td>
+   <td style="text-align:right;"> 2004 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 2004 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Shoplifting </td>
+   <td style="text-align:right;"> 2004 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Motor Vehicle Theft </td>
+   <td style="text-align:right;"> 2004 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud Offenses - Impersonation </td>
+   <td style="text-align:right;"> 2006 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Motor Vehicle </td>
+   <td style="text-align:right;"> 2008 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Counterfeiting/Forgery </td>
+   <td style="text-align:right;"> 2009 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arson </td>
+   <td style="text-align:right;"> 2011 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Building </td>
+   <td style="text-align:right;"> 2011 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sex Offenses - Fondling (Incident Liberties/Child Molest) </td>
+   <td style="text-align:right;"> 2014 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Pocket-Picking </td>
+   <td style="text-align:right;"> 2018 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories </td>
+   <td style="text-align:right;"> 2018 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+</tbody>
+</table>
+
+
+
+
+<div class="figure" style="text-align: center">
+<img src="15_nibrs_victim_files/figure-html/nibrsFirstVsAllOffenses-1.png" alt="The numbers of murders and sexual offenders when considering only the first offense or all offenses, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsFirstVsAllOffenses)The numbers of murders and sexual offenders when considering only the first offense or all offenses, 1991-2022.</p>
+</div>
+
 ## Victim type
 
 I spoke above as if all victims are people who are victimized. This isn't entirely true. Some victims may be organizations, businesses, or other inanimate objects. NIBRS has nine different types of victims (including "unknown" type and "other" type) in the data and it tells us which type each victim is. 
 
-Figure \@ref(fig:victimType) shows each of the victim types and how commonly they appear in the data. Two key ones are "individual" at 69.4% of victims and law enforcement officer at 0.5% of victims. Law enforcement officers who are victimized are only classified as law enforcement officers when they are the victims of murder, aggravated or simple assault, or intimidation. Otherwise they're labeled as "individual" victims. So an individual is a person who is either not a law enforcement officer or who is an officer but isn't victimized by one of the approved crimes. These two are special types of victims as all other variables in this segment apply only to them. This is because non-humans cannot have demographic information, injuries (injury to property would be detailed in the Property Segment in Chapter \@ref(property)), or relationships.^[Businesses may have some form of demographic information if you think about demographics of the owners or managers. However, that information is not available. If the business was targeted due to the owner's demographics then that may be considered a hate crime and be reported in the Offense Segment.]
+Table \@ref(tab:victimType) shows each of the victim types and how commonly they appear in the data. Two key ones are "individual" at 69.4% of victims and law enforcement officer at 0.5% of victims. Law enforcement officers who are victimized are only classified as law enforcement officers when they are the victims of murder, aggravated or simple assault, or intimidation. Otherwise they're labeled as "individual" victims. So an individual is a person who is either not a law enforcement officer or who is an officer but isn't victimized by one of the approved crimes. These two are special types of victims as all other variables in this segment apply only to them. This is because non-humans cannot have demographic information, injuries (injury to property would be detailed in the Property Segment in Chapter \@ref(property)), or relationships.^[Businesses may have some form of demographic information if you think about demographics of the owners or managers. However, that information is not available. If the business was targeted due to the owner's demographics then that may be considered a hate crime and be reported in the Offense Segment.]
 
 The next most common type is business at 15.6% of victims, "society/public" at 12.9% of victims, and the government in 1% of victims. When the victim is society/public that means that the offense is a "victimless crime" or one where there is no specific victim. This includes drug offenses, animal cruelty (animals cannon be victims in this data), prostitution-related offenses (purchasing, promoting, and being a prostitute), pornography/obscene materials, and weapon offenses. The remaining categories - financial institution, other victim type, unknown victim type, and religion organization - are each under 0.25% of victims. 
 
+
+```
+#>             Type of Victim First Year \\# of Victims \\% of Victims
+#> 1               Individual       1991      8,983,510       71.00\\%
+#> 2                 Business       1991      1,897,966       15.00\\%
+#> 3           Society/Public       1991      1,466,005       11.59\\%
+#> 4               Government       1991        139,194        1.10\\%
+#> 5  Law Enforcement Officer       2002         73,453        0.58\\%
+#> 6                    Other       1991         36,800        0.29\\%
+#> 7    Financial Institution       1991         21,144        0.17\\%
+#> 8                  Unknown       1991         17,953        0.14\\%
+#> 9   Religious Organization       1991         16,968        0.13\\%
+#> 10                   Total          -     12,652,993         100\\%
+```
+
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:victimType)The distribution of the type of victim. Victim types are mutually exclusive.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Type of Victim </th>
+   <th style="text-align:right;"> First Year </th>
+   <th style="text-align:right;"> \# of Victims </th>
+   <th style="text-align:left;"> \% of Victims </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Individual </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 8,983,510 </td>
+   <td style="text-align:left;"> 71.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Business </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 1,897,966 </td>
+   <td style="text-align:left;"> 15.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Society/Public </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 1,466,005 </td>
+   <td style="text-align:left;"> 11.59\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Government </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 139,194 </td>
+   <td style="text-align:left;"> 1.10\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Law Enforcement Officer </td>
+   <td style="text-align:right;"> 2002 </td>
+   <td style="text-align:right;"> 73,453 </td>
+   <td style="text-align:left;"> 0.58\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Other </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 36,800 </td>
+   <td style="text-align:left;"> 0.29\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Financial Institution </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 21,144 </td>
+   <td style="text-align:left;"> 0.17\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Unknown </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 17,953 </td>
+   <td style="text-align:left;"> 0.14\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Religious Organization </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 16,968 </td>
+   <td style="text-align:left;"> 0.13\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> - </td>
+   <td style="text-align:right;"> 12,652,993 </td>
+   <td style="text-align:left;"> 100\% </td>
+  </tr>
+</tbody>
+</table>
+
+
+
+
 <div class="figure" style="text-align: center">
-<img src="15_nibrs_victim_files/figure-html/victimType-1.png" alt="The distribution of the type of victim. Victim types are mutually exclusive." width="90%" />
-<p class="caption">(\#fig:victimType)The distribution of the type of victim. Victim types are mutually exclusive.</p>
+<img src="15_nibrs_victim_files/figure-html/nibrsVictimNumberOfficer-1.png" alt="The annual number of law enforcement officer victims, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsVictimNumberOfficer)The annual number of law enforcement officer victims, 1991-2022.</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<img src="15_nibrs_victim_files/figure-html/nibrsVictimPercentIndividualOfficer-1.png" alt="Percent of victimizations whose victim type of 'law enforcement officer,' 'business,' or 'invidual,' 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsVictimPercentIndividualOfficer)Percent of victimizations whose victim type of 'law enforcement officer,' 'business,' or 'invidual,' 1991-2022.</p>
 </div>
 
 ## Injury
@@ -388,6 +690,11 @@ Trends for law enforcement officer victims (not shown) are nearly identical for 
 <div class="figure" style="text-align: center">
 <img src="15_nibrs_victim_files/figure-html/victimInjuryExcludeNone-1.png" alt="The distribution of the injury sustained by the victim for those who had an injury other than 'none' or 'apparent minor injuries'." width="90%" />
 <p class="caption">(\#fig:victimInjuryExcludeNone)The distribution of the injury sustained by the victim for those who had an injury other than 'none' or 'apparent minor injuries'.</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<img src="15_nibrs_victim_files/figure-html/nibrsVictimAssaultInjury-1.png" alt="Victim injury for assault offenses, by injury severity, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsVictimAssaultInjury)Victim injury for assault offenses, by injury severity, 1991-2022.</p>
 </div>
 
 ## Relationship to offender
@@ -695,6 +1002,12 @@ We also know the relationship between victim and offender when the victim is a l
 
 
 
+
+<div class="figure" style="text-align: center">
+<img src="15_nibrs_victim_files/figure-html/nibrsVictimAssaultSpouse-1.png" alt="The annual percent of assault victims whose perpetrator is their spouse, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsVictimAssaultSpouse)The annual percent of assault victims whose perpetrator is their spouse, 1991-2022.</p>
+</div>
+
 ## Aggravated assault and homicide circumstances
 
 In cases of aggravated assault or homicide we have some information about the motive of the offender. There can be up to two motives, what NIBRS calls circumstances, for each of these offenses. Table \@ref(tab:victimAggAssault) shows all of the possible circumstances in the data, and shows the frequency only of the first circumstance. The most common circumstance is that there was an argument, and this accounts for 42.7% of these victims. The next most common is 24% which had unknown circumstances followed by 18.7% with "other" circumstances. The next most common group is "lovers' quarrel" which the FBI relabeled as "domestic violence" beginning in 2019. This group accounts for 9.4% of victims. Assault on law enforcement officers is the next most common group at 2.8% of victims. All other groups are less common than 2% of victims. 
@@ -856,6 +1169,13 @@ Figure \@ref(fig:victimResidenceStatusPolice) shows the residence status for law
 <p class="caption">(\#fig:victimResidenceStatusPolice)The distribution of residence status for all Law Enforcement Officer victims.</p>
 </div>
 
+
+
+<div class="figure" style="text-align: center">
+<img src="15_nibrs_victim_files/figure-html/nibrsVictimResidentStatus-1.png" alt="The share of victims by resident status in the reporting agency's jurisdiction, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsVictimResidentStatus)The share of victims by resident status in the reporting agency's jurisdiction, 1991-2022.</p>
+</div>
+
 ### Age
 
 This variable is the age of the victim when the crime occurred, regardless of when they reported the crime. Age is given as how many years old the victim is, with a few exceptions. Victims older than 98 are grouped together as "over 98 years old" while victims younger than 1 years old are broken down into "under 24 hours (neonate)", "1-6 days old", and "7-364 days old". About 1.4% of victim ages are unknown. 
@@ -867,6 +1187,16 @@ Figure \@ref(fig:victimAge) shows the percent of victims at each age available. 
 <p class="caption">(\#fig:victimAge)The age of all victims reported in the 2022 NIBRS data.</p>
 </div>
 
+<div class="figure" style="text-align: center">
+<img src="15_nibrs_victim_files/figure-html/nibrsVictimAge-1.png" alt="The mean and median age of victims, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsVictimAge)The mean and median age of victims, 1991-2022.</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<img src="15_nibrs_victim_files/figure-html/nibrsVictimAgeMissing-1.png" alt="The percent of victim's age that is unknown, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsVictimAgeMissing)The percent of victim's age that is unknown, 1991-2022.</p>
+</div>
+
 ### Sex
 
 As with the Offender and the Arrestee Segments, we know the sex of the victim. The only choices are female, male, and unknown sex. There is no option for transgender or any other identify. Since the victim can tell the police their sex, and the police can see them clearly in most cases (though this may not be true if the victim reports a crime over the phone by calling 911 but then doesn't stay to be interviewed) so is more reliable than in the Offender Segment which may include guesses about the offender. The most common victim sex is female at 50.8% of victims, followed closely by male at 48.4%. Only about 0.8% of victims have an unknown sex. It's interesting that female victims are so common since most criminology research finds that male victims are so common. I think this is likely due to criminologists primarily focusing on murder and index violent crimes as their measure of crime, which ignores many other crimes.^[Murder and other violent crimes are mainly men hurting/killing other men, except in domestic violence which is primarily men hurting/killing women.]  
@@ -874,6 +1204,11 @@ As with the Offender and the Arrestee Segments, we know the sex of the victim. T
 <div class="figure" style="text-align: center">
 <img src="15_nibrs_victim_files/figure-html/victimSex-1.png" alt="The sex of all victims reported in the 2022 NIBRS data." width="90%" />
 <p class="caption">(\#fig:victimSex)The sex of all victims reported in the 2022 NIBRS data.</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<img src="15_nibrs_victim_files/figure-html/nibrsVictimSex-1.png" alt="The share of victims by sex, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsVictimSex)The share of victims by sex, 1991-2022.</p>
 </div>
 
 ### Race
@@ -885,6 +1220,11 @@ Figure \@ref(fig:victimRace) shows the breakdown in victims by race. Most victim
 <div class="figure" style="text-align: center">
 <img src="15_nibrs_victim_files/figure-html/victimRace-1.png" alt="The race of all victims reported in the 2022 NIBRS data." width="90%" />
 <p class="caption">(\#fig:victimRace)The race of all victims reported in the 2022 NIBRS data.</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<img src="15_nibrs_victim_files/figure-html/nibrsVictimRace-1.png" alt="The share of victims by race, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsVictimRace)The share of victims by race, 1991-2022.</p>
 </div>
 
 ### Ethnicity
@@ -901,4 +1241,7 @@ Figure \@ref(fig:victimEthnicity) shows the breakdown in arrests by victim ethni
 </div>
 
 
-
+<div class="figure" style="text-align: center">
+<img src="15_nibrs_victim_files/figure-html/nibrsVictimEthnicity-1.png" alt="The share of victims by ethnicity, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsVictimEthnicity)The share of victims by ethnicity, 1991-2022.</p>
+</div>

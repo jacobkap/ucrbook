@@ -12,6 +12,9 @@ knitr::opts_chunk$set(
 ```{r,  results='hide'}
 property        <- readRDS("data/nibrs_property_segment_2022.rds")
 window_property <- readRDS("data/nibrs_window_recovered_property_segment_2021.rds")
+nibrs_property_summary <- readRDS("data/nibrs_summary_stats/nibrs_property_summary_stats.rds")
+drug_first_year <- readRDS("data/nibrs_summary_stats/drug_first_year.rds")
+property_first_year <- readRDS("data/nibrs_summary_stats/property_first_year.rds")
 gc()
 ```
 
@@ -38,6 +41,20 @@ property$type_of_property_loss_temp[property$type_of_property_loss_temp == "Stol
 make_barplots(property, "type_of_property_loss_temp", count = FALSE, ylab = "% of Property")
 ```
 
+
+```{r nibrsPropertyAgenciesReporting, fig.cap="The annual number of agencies reporting data in the NIBRS Property Segment, 1991-2022."}
+nibrs_property_summary  %>%
+  ungroup() %>%
+  ggplot(aes(x = year, y = number_of_agencies)) +
+  geom_line(size = 1.05) +
+  xlab("Year") +
+  ylab("# of Agencies") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(color = "") +
+  expand_limits(y = 0)
+```
+
 ## Description of property
 
 There are 68 different categories of properties (including the catch-all "other" category for anything not explicitly in a different category) that NIBRS covers. This also includes "identity - intangible" which means that someone stole the victim's identity. Identity isn't property since it's not a physical thing but is nonetheless included here (items related to one's identity such as social security cards are included in a different category called "identity documents"). Each of these categories can appear in any of the seven different types of property loss discussed above. For simplicity of writing, and because Table \@ref(tab:propertyStolenDescription) covers items stolen, I'll be talking below about items lost by being stolen, though everything does apply to other types of loss too. 
@@ -54,7 +71,14 @@ temp <- make_frequency_table(property[property$type_of_property_loss %in% "stole
                              "property_description",
                              c("Property",
                                "# of Property Stolen",
-                               "% of Property Stolen"))
+                               "% of Property Stolen")) %>%
+  left_join(property_first_year %>% 
+              mutate(property_description = capitalize_words(property_description)) %>%
+              rename(`Property` = property_description)) %>%
+  select(`Property`,
+         `First Year` = year,
+         everything())
+temp$`First Year`[is.na(temp$`First Year`)] <- "-"
 kableExtra::kbl(temp, 
              #format = "html",
              digits = 2, 
@@ -145,6 +169,49 @@ ggplot(temp, aes(x = value_of_property_100, y = proportion)) +
   theme_crim()
 ```
 
+
+```{r}
+nibrs_property_summary %>%
+  select(year,
+         mean_value_stolen,
+         median_value_stolen,
+         max_value_stolen,
+         mean_value_recovered,
+         median_value_recovered,
+         max_value_recovered) %>%
+  mutate_if(is.numeric, round, 0) %>%
+  mutate_if(is.numeric, prettyNum, big.mark = ",") %>%
+  rename(Year = year,
+         `Mean Value Stolen` = mean_value_stolen,
+         `Median Value Stolen` = median_value_stolen,
+         `Max Value Stolen` = max_value_stolen,
+         `Mean Value Recovered` = mean_value_recovered,
+         `Median Value Recovered` = median_value_recovered,
+         `Max Value Recovered` = max_value_recovered,
+  ) %>%
+  kableExtra::kbl(# format = "html",
+    digits = 2, 
+    align = c("l", "r", "r"),
+    #booktabs = TRUE, 
+    longtable = TRUE,
+    escape = TRUE,
+    label = "nibrsPropertyStolenValue",
+    caption = "Annual mean, median, and maximum values (in dollars) of property stolen and recovered, 1991-2022.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+```
+
+```{r nibrsPropertyMaxValuePercent, fig.cap="Annual percent of the value of all property stolen that is made up of the value that is the maximum dollar amount reported in that year, 1991-2022."}
+nibrs_property_summary  %>%
+  ggplot(aes(x = year, y = percent_stolen_max_value)) +
+  geom_line(size = 1.05) + 
+  xlab("Year") +
+  ylab("% of Incidents") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(color = "") +
+  expand_limits(y = 0)
+```
+
 ## Date property was recovered
 
 This segment tells us both when the incident happened and, for stolen property, when the item was recovered. We can use this to look at how long it generally takes for property to be recovered (though most property stolen is never recovered). Figure \@ref(fig:propertyDaysUntilRecovered) shows the number of days it takes for property to be recovered. Though this data gives us the exact date, allowing for the precise number of days from property loss to recovery, this graph groups days greater than nine days to simplify the graph. The maximum number of days in the 2022 NIBRS data is 450 days so showing all days would be a rather unhelpful graph.   
@@ -183,11 +250,42 @@ ggplot(temp, aes(x = days_until_recovery, y = proportion)) +
 
 This segment also provides information about drugs seized by the police. This also includes cases where the police would have seized the drugs if the offender didn't destroy it somehow, such as flushing it down the toilet. For each drug seized there is information on what type of drug it was and how much of the drug was seized. There can be up to three drugs seized in an incident and data is available for each type of drug. The exception, however, is when there are more than three drugs seized in an incident. In that case, info on the third drug just says that there were more than three drugs involved. So you'd have info on the first two drugs but none on the third through however many (and it doesn't say how many) drugs. For the below table and figure I only look at the first drug seized, so the numbers shown are undercounts. 
 
+```{r nibrsPropertySeizures, fig.cap="The annual number of drug seizures reported, 1991-2022."}
+nibrs_property_summary  %>%
+  ungroup() %>%
+  ggplot(aes(x = year, y = number_of_seizures)) +
+  geom_line(size = 1.05) +
+  xlab("Year") +
+  ylab("# of Seizures") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(color = "") +
+  expand_limits(y = 0)
+```
+
 The ordering of drugs when there are multiple drugs is based on how much drugs were recovered and the seriousness of the drugs. For example, heroin is probably considered more serious than marijuana, but overall ranking of drugs is a subjective assessment depending on the department. Is heroin more serious than meth? That decision likely varies by the agency and their situation in regard to what drugs they often seize. 
 
 ### Suspected drug type
 
 The drugs in NIBRS are the "suspected drug types" which means that they are what the police believe the drugs to be, even if there is not definitive proof (such as a crime lab testing for what type of drug it is) that the drug is what they say it is. There are 15 possible drug types in NIBRS (16 when including "unknown drug type") and each is shown in Table \@ref(tab:propertyDrugs) along with how often they occur in the data. Some of these drug types are specific enough to only include a single drug while others are groups of drug types, such as hallucinogens or stimulants (and they include all of these types other than specifically stated drugs).
+
++ Amphetamines/Methamphetamines
++ Barbiturates
++ Cocaine (All Forms Except Crack)
++ Crack Cocaine
++ Hashish
++ Heroin
++ LSD
++ Marijuana
++ Morphine
++ Opium
++ Other Depressants: Glutethimide Or Doriden, Methaqualone Or Quaalude, Pentazocine Or Talwin, Etc.
++ Other Drugs: Antidepressants (Elavil, Triavil, Tofranil, Etc.), Aromatic Hydrocarbons, Propoxyphene Or Darvon, Tranquilizers (Chlordiazepoxide Or Librium, Diazepam Or Valium, Etc.), Etc.
++ Other Hallucinogrens: BMDA (White Acid), DMT, MDA, MDMA, Mescaline Or Peyote, Psilocybin, STP, Etc.
++ Other Narcotics: Codeine, Demerol, Dihydromorphinone Or Dilaudid, Hydrocodone Or Percodan, Methadone, Etc.
++ Other Stimulants: Adipex, Fastine And Ionamin (Derivatives of Phentermine), Benzedrine, Didrex, Methylphenidate Or Ritalin, Phenmetrazine Or Preludin, Tenuate, Etc.
++ PCP
++ Unknown Type Drug
 
 Not too surprising, marijuana is the most common drug seized at 47% - or 455k incidents with it seized - of the data. This is followed by amphetamines/methamphetamines (including what we'd normally just call meth) at 20.7% and then heroin at 8.5%. Interestingly, cocaine and crack cocaine (which are always separate categories) both occur in 5.09% of drugs seized. Given the large disparity in sentences for these types of drugs, and that "crack wars" were a major purported cause of violent crime in the 1980s and 1990s, I expected crack cocaine to be much more common than normal cocaine. The remaining drug types are all less than 5% of drugs seized each and has some groupings of drug types (e.g. stimulants) rather than specific drug types (though some of these categories, such as LSD, are specific drugs). 
 
@@ -196,7 +294,16 @@ temp <- make_frequency_table(property,
                              "suspected_drug_type_1",
                              c("Drug Type",
                                "\\# of Drugs",
-                               "\\% of Drugs"))
+                               "\\% of Drugs")) %>%
+  left_join(drug_first_year %>% 
+              filter(!is.na(suspected_drug_type_1)) %>%
+              mutate(suspected_drug_type_1 = capitalize_words(suspected_drug_type_1)) %>%
+              rename(`Drug Type` = suspected_drug_type_1)) %>%
+  select(`Drug Type`,
+         `First Year` = year,
+         everything())
+temp$`First Year`[is.na(temp$`First Year`)] <- "-"
+temp
 temp$`Drug Type` <- gsub("lsd",  "LSD",  temp$`Drug Type`, ignore.case = TRUE)
 temp$`Drug Type` <- gsub("bmda", "BMDA", temp$`Drug Type`, ignore.case = TRUE)
 temp$`Drug Type` <- gsub("dmt",  "DMT",  temp$`Drug Type`, ignore.case = TRUE)
@@ -204,6 +311,7 @@ temp$`Drug Type` <- gsub("mda",  "MDA",  temp$`Drug Type`, ignore.case = TRUE)
 temp$`Drug Type` <- gsub("mdma", "MDMA", temp$`Drug Type`, ignore.case = TRUE)
 temp$`Drug Type` <- gsub("stp",  "STP",  temp$`Drug Type`, ignore.case = TRUE)
 temp$`Drug Type` <- gsub("pcp",  "PCP",  temp$`Drug Type`, ignore.case = TRUE)
+temp$`Drug Type` <- gsub(":.*", "", temp$`Drug Type`)
 kableExtra::kbl(temp, 
           #   format = "html",
              digits = 2, 
@@ -216,6 +324,29 @@ kableExtra::kbl(temp,
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
+
+```{r nibrsPropertyDrugType, fig.cap="Annual percent of drug seizures by drug type, for the 1st drug reported, 1991-2022."}
+nibrs_property_summary  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = percent_marijuana_hashish, color = "Marijuana/Hashish"), size = 1.05) +
+  geom_line(aes(y = percent_cocaine_crack, color = "Cocaine/Crack"), size = 1.05) +
+  geom_line(aes(y = percent_meth , color = "Methamphetamine"), size = 1.05) +
+  geom_line(aes(y = percent_heroin_opium , color = "Heroin/Opium"), size = 1.05) +
+  geom_line(aes(y = percent_other_drug , color = "Other Drug"), size = 1.05) +
+  geom_line(aes(y = percent_unknown_drug , color = "Unknown Drug"), size = 1.05) +
+  xlab("Year") +
+  ylab("% of Incidents") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Marijuana/Hashish" = "black",
+                                "Cocaine/Crack" = "#d7191c",
+                                "Methamphetamine" = "#fdae61",
+                                "Heroin/Opium" = "#7570b3",
+                                "Other Drug" = "#abd9e9",
+                                "Unknown Drug" = "#2c7bb6"))
+```
 
 ### Amount of drugs
 

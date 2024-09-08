@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
 ```{r,  results='hide'}
 administrative <- readRDS("data/nibrs_administrative_segment_2022.rds")
 window_exceptional <- readRDS("data/nibrs_window_exceptional_clearance_segment_2021.rds")
-
+nibrs_administrative_summary_stats <- readRDS("data/nibrs_summary_stats/nibrs_administrative_summary_stats.rds")
 
 administrative$total_offender_segments_temp <- administrative$total_offender_segments
 administrative$total_arrestee_segments_temp <- administrative$total_arrestee_segments
@@ -23,6 +23,20 @@ gc()
 The Administrative Segment provides information about the incident itself, such as how many victims or offenders there were. In practice this means that it tells us how many other segments - offense, offender, victim, and arrestee segments - there are for this particular incident. It also has several important variables at the incident-level such as what hour of the day the incident occurred and whether the incident date variable is actually just the date the incident was reported. Finally, it tells us whether the case was cleared exceptionally and, if so, what type of exceptional clearance it was. This can tell us, for example, how many crimes were cleared because the offender died or the victim refused to cooperate. As the UCR data doesn't differentiate between normal clearances (i.e. arrest the offender) and exceptional clearances, this provides a far deeper understanding of case outcomes. 
 
 In addition to the variables detailed below, this segment has the traditional agency and incident identifiers: the ORI code, the agency state, the year of this data, and the incident number. 
+
+
+```{r nibrsAdministrativeAgenciesReporting, fig.cap="The annual number of agencies reporting data in the NIBRS Administrative Segment, 1991-2022."}
+nibrs_administrative_summary_stats  %>%
+  ungroup() %>%
+  ggplot(aes(x = year, y = number_of_agencies)) +
+  geom_line(size = 1.05) +
+  xlab("Year") +
+  ylab("# of Agencies") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(color = "") +
+  expand_limits(y = 0)
+```
 
 ## The incident and report date
 
@@ -146,6 +160,67 @@ ggplot2::ggplot(administrative, aes(x = hour)) +
   ylab("% of Crimes")
 ```
 
+```{r nibrsAdministrativeHours, fig.cap="Annual percent of incidents that occurred at midnight, noon, and at an unknown time, 1991-2022."}
+nibrs_administrative_summary_stats  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = percent_hour_midnight, color = "Midnight Hour"), size = 1.05) +
+  geom_line(aes(y = percent_hour_midnight, color = "Noon Hour"), size = 1.05) +
+  geom_line(aes(y = percent_hour_unknown , color = "Unknown Hour"), size = 1.05) +
+  xlab("Year") +
+  ylab("% of Incidents") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Midnight Hour" = "#1b9e77",
+                                "Noon Hour" = "#d95f02",
+                                "Unknown Hour" = "#7570b3"))
+```
+
+
+```{r}
+hour_cleanup <- c("^18:00-18:59$" = "6PM",
+                  "^17:00-17:59$" = "5PM",
+                  "^12:00-12:59$" = "Noon",
+                  "^00:00-00:59$" = "Midnight",
+                  "^05:00-05:59$" = "5AM")
+nibrs_administrative_summary_stats %>%
+  select(year,
+         most_common_hour,
+         least_common_hour,
+         most_common_hour_excluding_midnight,
+         most_common_hour_excluding_midnight_and_noon) %>%
+  mutate(most_common_hour = gsub("on or between", "", most_common_hour),
+         most_common_hour = gsub("midnight", "00:00", most_common_hour),
+         most_common_hour = gsub(" and ", "-", most_common_hour),
+         least_common_hour = gsub("on or between", "", least_common_hour),
+         least_common_hour = gsub(" and ", "-", least_common_hour),
+         most_common_hour_excluding_midnight = gsub("on or between", "", most_common_hour_excluding_midnight),
+         most_common_hour_excluding_midnight = gsub(" and ", "-", most_common_hour_excluding_midnight),
+         most_common_hour_excluding_midnight_and_noon = gsub("on or between", "", most_common_hour_excluding_midnight_and_noon),
+         most_common_hour_excluding_midnight_and_noon = gsub(" and ", "-", most_common_hour_excluding_midnight_and_noon),
+         most_common_hour = str_replace_all(trimws(most_common_hour), hour_cleanup),
+         least_common_hour = str_replace_all(trimws(least_common_hour), hour_cleanup),
+         most_common_hour_excluding_midnight = str_replace_all(trimws(most_common_hour_excluding_midnight), hour_cleanup),
+         most_common_hour_excluding_midnight_and_noon = str_replace_all(trimws(most_common_hour_excluding_midnight_and_noon), hour_cleanup)) %>%
+  rename(Year = year,
+         `Most Common` = most_common_hour,
+         `Least Common` = least_common_hour,
+         `Most Common, Exclude Midnight` = most_common_hour_excluding_midnight,
+         `Most Common, Exclude Midnight/Noon` = most_common_hour_excluding_midnight_and_noon) %>%
+kableExtra::kbl(# format = "html",
+                digits = 2, 
+                align = c("l", "r", "r"),
+                #booktabs = TRUE, 
+                longtable = TRUE,
+                escape = TRUE,
+                label = "nibrsAdministrativeCommonHours",
+                caption = "The most and least common incident hours, and the most common hours excluding midnight and noon.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+
+```
+
+
 ## Exceptional clearance
 
 When we speak of clearances we generally mean that a person was arrested for the crime.^[While a more expansive definition may include a conviction in a court for that crime (including pleading guilty), NIBRS data only extends to the arrest stage so we never know the judicial outcome of the case.] Cases may also be cleared "through exceptional means" which is also called an "exceptional clearance." An exceptional clearance means that the police have identified who the offender is (in cases with multiple offenders, they need to identify only one offender), have sufficient evidence and ability (e.g. know where they are) to arrest this offender but are unable to do so for some reason. Basically, if they could arrest them they would but for some reason they can't. NIBRS data tells us if the case is exceptionally cleared as well as the reason for the exceptional clearance. 
@@ -164,6 +239,22 @@ crimeutils::make_barplots("cleared_exceptionally", count = FALSE, ylab = "% of E
 
 ```
 
+```{r nibrsAdministrativeClearance, fig.cap="Percent of incidents with an arrest or exceptional clearance, 1991-2022."}
+nibrs_administrative_summary_stats  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = percent_with_arrest, color = "Arrest"), size = 1.05) +
+  geom_line(aes(y = percent_cleared_exceptionally , color = "Cleared Exceptionally"), size = 1.05) +
+  geom_line(aes(y = percent_with_arrest_or_cleared_exceptionally , color = "Arrest or Cleared Exceptionally"), size = 1.05) +
+  xlab("Year") +
+  ylab("% of Incidents") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Arrest" = "#1b9e77",
+                                "Cleared Exceptionally" = "#d95f02",
+                                "Arrest or Cleared Exceptionally" = "#7570b3"))
+```
 
 ## Number of other segments
 
@@ -191,6 +282,22 @@ ggplot2::ggplot(administrative, aes(x = total_offense_segments)) +
   ylab("% of Incidents")
 ```
 
+
+```{r nibrsAdministrativeNumberOffense, fig.cap="Annual mean and median number of Offense Segments, 1991-2022."}
+nibrs_administrative_summary_stats  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = mean_number_offense_segments, color = "Mean"), size = 1.05) +
+  geom_line(aes(y = median_number_offense_segments , color = "Median"), size = 1.05) +
+  xlab("Year") +
+  ylab("# of Offense Segments") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Mean" = "#1b9e77",
+                                "Median" = "#d95f02"))
+```
+
 ### Offender Segments
 
 The Administrative Segment tells you how many offenders are involved with an incident. This is, of course, an estimate because in some incidents the police don't know how many people are involved. If, for example, someone was robbed then they can tell the police how many robbers there were. But if someone comes home to find their home burglarized then they don't know how many burglars there were. If there's no video evidence (e.g. a home security camera) and neighbors didn't see anything then the police would not know how many offenders were involved in the incident. In these cases they put in a single offender and in the Offender Segment all of the information about the offender is "unknown." The remaining number of offenders are still estimates as the police may not know for sure how many offenders were involved, but this is more reliable than when there is only a single offender reported. With that major caveat in mind, Figure \@ref(fig:administrativeOffenderSegments) shows the distribution in how many offenders there were per incident. 
@@ -215,6 +322,22 @@ ggplot2::ggplot(administrative, aes(x = total_offender_segments)) +
   ylab("% of Incidents")
 ```
 
+
+```{r nibrsAdministrativeNumberOffender, fig.cap="Annual mean and median number of Offender Segments, 1991-2022."}
+nibrs_administrative_summary_stats  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = mean_number_offender_segments, color = "Mean"), size = 1.05) +
+  geom_line(aes(y = median_number_offender_segments , color = "Median"), size = 1.05) +
+  xlab("Year") +
+  ylab("# of Offender Segments") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Mean" = "#1b9e77",
+                                "Median" = "#d95f02"))
+```
+
 ### Victim Segments
 
 
@@ -236,6 +359,21 @@ ggplot2::ggplot(administrative, aes(x = total_victim_segments)) +
   ggplot2::scale_y_continuous(labels = scales::percent, 
                               expand = c(0, 0)) +
   ylab("% of Incidents")
+```
+
+```{r nibrsAdministrativeNumberVictim, fig.cap="Annual mean and median number of Victim Segments, 1991-2022."}
+nibrs_administrative_summary_stats  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = mean_number_victim_segments, color = "Mean"), size = 1.05) +
+  geom_line(aes(y = median_number_victim_segments , color = "Median"), size = 1.05) +
+  xlab("Year") +
+  ylab("# of Victim Segments") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Mean" = "#1b9e77",
+                                "Median" = "#d95f02"))
 ```
 
 ### Arrestee Segments
@@ -324,3 +462,18 @@ ggplot(percent_arrested, aes(x = total_offender_segments_temp, y = prop_arrested
                               expand = c(0, 0)) 
 ```
 
+
+```{r nibrsAdministrativeNumberArrestee, fig.cap="Annual mean and median number of Arrestee Segments, 1991-2022."}
+nibrs_administrative_summary_stats  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = mean_number_arrestee_segments, color = "Mean"), size = 1.05) +
+  geom_line(aes(y = median_number_arrestee_segments , color = "Median"), size = 1.05) +
+  xlab("Year") +
+  ylab("# of Arrestee Segments") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Mean" = "#1b9e77",
+                                "Median" = "#d95f02"))
+```

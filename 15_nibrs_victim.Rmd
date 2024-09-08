@@ -11,6 +11,9 @@ knitr::opts_chunk$set(
 
 ```{r,  results='hide'}
 victim <- readRDS("data/nibrs_victim_segment_2022.rds")
+nibrs_victim_summary <- readRDS("data/nibrs_summary_stats/nibrs_victim_summary_stats.rds")
+officer_victim_offense_first_year <- readRDS("data/nibrs_summary_stats/officer_victim_offense_first_year.rds")
+victim_type_first_year <- readRDS("data/nibrs_summary_stats/victim_type_first_year.rds")
 gc()
 ```
 
@@ -19,6 +22,22 @@ The Victim Segment provides data at the victim-level and includes information ab
 One highly interesting variable in this segment is the relationship between the victim and the offender (for up to 10 offenders). This includes, for example, if the victim was the offender's wife, their child, employee, or if the stranger was unknown to them, with 27 total possible relationship categories. You can use this to determine which incidents were crimes by strangers, identify domestic violence, or simply learn who tends to commit crimes against certain types of victims. This variable is only available when the victim is a police officer or an "individual." This makes some sense though there could actually be cases where non-human victims (e.g. businesses, religious organizations) do have a relationship with the offender such as an employee stealing from a store. Related to the victim-offender relationship, this segment provides a bit of information about the motive for the crime. For aggravated assaults and homicides, there is a variable with the "circumstance" of the offense which is essentially the reason why the crime occurred. For example, possible circumstances are arguments between people, hunting accidents, child playing with weapon, and domestic violence. 
 
 In addition to the variables detailed below this segment has the traditional agency and incident identifiers: the ORI code, the agency state, the year of this data, and the incident number. It also has a "victim sequence number" which is a number identifying the victim in an incident since some incidents have multiple victims. 
+
+
+
+```{r nibrsVictimAgenciesReporting, fig.cap="The annual number of agencies reporting data in the NIBRS Victim Segment, 1991-2022."}
+nibrs_victim_summary  %>%
+  ungroup() %>%
+  ggplot(aes(x = year, y = number_of_agencies)) +
+  geom_line(size = 1.05) +
+  xlab("Year") +
+  ylab("# of Agencies") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(color = "") +
+  expand_limits(y = 0)
+```
+
 
 ## Crime category
 
@@ -32,6 +51,9 @@ temp <- make_frequency_table(victim,
                              c("Crime Category",
                                "\\# of Victims",
                                "\\% of Victims"))
+
+
+
 kableExtra::kbl(temp, 
              #format = "html",
              digits = 2, 
@@ -40,23 +62,129 @@ kableExtra::kbl(temp,
              label = "victimCrimeCategory",
              longtable = TRUE,
              escape = TRUE,
-             caption = "The number and percent of crimes committed against each victim. For victims with multiple crimes committed against them, this shows the most serious crime.") %>%
+             caption = "The number and percent of crimes committed against each victim. For victims with multiple crimes committed against them, this shows the first crime reported.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+```
+
+
+```{r}
+officer_crime_2022 <- 
+  victim %>%
+  filter(type_of_victim %in% "law enforcement officer") %>%
+  count(ucr_offense_code_1) %>%
+  rename(`# of Victims in 2022` = n) %>%
+  rename(`Crime Category` = ucr_offense_code_1)
+officer_victim_offense_first_year <-
+  officer_victim_offense_first_year %>%
+  rename(`Crime Category` = ucr_offense_code_1,
+         `# of Victims in 1st Year` = number_of_victims,
+         `First Year` = year) %>%
+  left_join(officer_crime_2022) %>%
+  select(`Crime Category`,
+         `First Year`,
+         everything()) 
+officer_victim_offense_first_year$`Crime Category` <-
+  capitalize_words(officer_victim_offense_first_year$`Crime Category`)
+officer_victim_offense_first_year[is.na(officer_victim_offense_first_year)] <- 0
+officer_victim_offense_first_year
+
+kableExtra::kbl(officer_victim_offense_first_year, 
+                # format = "html",
+                digits = 2, 
+                align = c("l", "r", "r"),
+                #booktabs = TRUE, 
+                longtable = TRUE,
+                escape = TRUE,
+                label = "offenseOfficerCrimeCategories",
+                caption = "The number and percent of crimes reported for offenses where the victim type was 'law enforcement officer.'") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+
+```
+
+
+```{r nibrsFirstVsAllOffenses, fig.cap="The numbers of murders and sexual offenders when considering only the first offense or all offenses, 1991-2022."}
+nibrs_victim_summary  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = number_murders_first_offense, color = "Murder, 1st Offense"), size = 1.05) +
+  geom_line(aes(y = number_murders_all_offenses , color = "Murder, All Offenses"), size = 1.05) +
+  geom_line(aes(y = number_sex_offenses_first_offense, color = "Sex Offense, 1st Offense"), size = 1.05) +
+  geom_line(aes(y = number_sex_offenses_all_offenses , color = "Sex Offense, All Offenses"), size = 1.05) +
+  xlab("Year") +
+  ylab("# of Victims") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Murder, 1st Offense" = "#1b9e77",
+                                "Murder, All Offenses" = "#d95f02",
+                                "Sex Offense, 1st Offense" = "#7570b3",
+                                "Sex Offense, All Offenses" = "black"))
 ```
 
 ## Victim type
 
 I spoke above as if all victims are people who are victimized. This isn't entirely true. Some victims may be organizations, businesses, or other inanimate objects. NIBRS has nine different types of victims (including "unknown" type and "other" type) in the data and it tells us which type each victim is. 
 
-Figure \@ref(fig:victimType) shows each of the victim types and how commonly they appear in the data. Two key ones are "individual" at 69.4% of victims and law enforcement officer at 0.5% of victims. Law enforcement officers who are victimized are only classified as law enforcement officers when they are the victims of murder, aggravated or simple assault, or intimidation. Otherwise they're labeled as "individual" victims. So an individual is a person who is either not a law enforcement officer or who is an officer but isn't victimized by one of the approved crimes. These two are special types of victims as all other variables in this segment apply only to them. This is because non-humans cannot have demographic information, injuries (injury to property would be detailed in the Property Segment in Chapter \@ref(property)), or relationships.^[Businesses may have some form of demographic information if you think about demographics of the owners or managers. However, that information is not available. If the business was targeted due to the owner's demographics then that may be considered a hate crime and be reported in the Offense Segment.]
+Table \@ref(tab:victimType) shows each of the victim types and how commonly they appear in the data. Two key ones are "individual" at 69.4% of victims and law enforcement officer at 0.5% of victims. Law enforcement officers who are victimized are only classified as law enforcement officers when they are the victims of murder, aggravated or simple assault, or intimidation. Otherwise they're labeled as "individual" victims. So an individual is a person who is either not a law enforcement officer or who is an officer but isn't victimized by one of the approved crimes. These two are special types of victims as all other variables in this segment apply only to them. This is because non-humans cannot have demographic information, injuries (injury to property would be detailed in the Property Segment in Chapter \@ref(property)), or relationships.^[Businesses may have some form of demographic information if you think about demographics of the owners or managers. However, that information is not available. If the business was targeted due to the owner's demographics then that may be considered a hate crime and be reported in the Offense Segment.]
 
 The next most common type is business at 15.6% of victims, "society/public" at 12.9% of victims, and the government in 1% of victims. When the victim is society/public that means that the offense is a "victimless crime" or one where there is no specific victim. This includes drug offenses, animal cruelty (animals cannon be victims in this data), prostitution-related offenses (purchasing, promoting, and being a prostitute), pornography/obscene materials, and weapon offenses. The remaining categories - financial institution, other victim type, unknown victim type, and religion organization - are each under 0.25% of victims. 
 
-```{r victimType, fig.cap = "The distribution of the type of victim. Victim types are mutually exclusive."}
-victim %>%
-  mutate(type_of_victim = capitalize_words(type_of_victim)) %>%
-  crimeutils::make_barplots("type_of_victim", count = FALSE, ylab = "% of victims") +
-  ggplot2::scale_y_continuous(labels = scales::percent)
+```{r}
+temp <- make_frequency_table(victim,
+                             "type_of_victim",
+                             c("Type of Victim",
+                               "\\# of Victims",
+                               "\\% of Victims")) %>%
+  left_join(victim_type_first_year %>% 
+              mutate(type_of_victim = capitalize_words(type_of_victim)) %>%
+              rename(`Type of Victim` = type_of_victim)) %>%
+  select(`Type of Victim`,
+         `First Year` = year,
+         everything())
+temp$`First Year`[is.na(temp$`First Year`)] <- "-"
+temp
+
+
+kableExtra::kbl(temp, 
+                # format = "html",
+                digits = 2, 
+                align = c("l", "r", "r"),
+                #booktabs = TRUE, 
+                longtable = TRUE,
+                escape = TRUE,
+                label = "victimType",
+                caption = "The distribution of the type of victim. Victim types are mutually exclusive.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+```
+
+
+```{r nibrsVictimNumberOfficer, fig.cap="The annual number of law enforcement officer victims, 1991-2022."}
+nibrs_victim_summary  %>%
+  ggplot(aes(x = year, y = number_victim_officer)) +
+  geom_line(size = 1.05) + 
+  xlab("Year") +
+  ylab("# of Victims") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(color = "") +
+  expand_limits(y = 0) 
+```
+
+```{r nibrsVictimPercentIndividualOfficer, fig.cap="Percent of victimizations whose victim type of 'law enforcement officer,' 'business,' or 'invidual,' 1991-2022."}
+nibrs_victim_summary  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = percent_victim_officer, color = "Law Enforcement Officer"), size = 1.05) +
+  geom_line(aes(y = percent_victim_individual , color = "Individual"), size = 1.05) +
+  geom_line(aes(y = percent_victim_business , color = "Business"), size = 1.05) +
+  xlab("Year") +
+  ylab("% of Victims") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Law Enforcement Officer" = "#1b9e77",
+                                "Individual" = "#d95f02",
+                                "Business" = "#7570b3"))
 ```
 
 ## Injury
@@ -100,6 +228,23 @@ victim %>%
   mutate(type_of_injury_1 = capitalize_words(type_of_injury_1)) %>%
   crimeutils::make_barplots("type_of_injury_1", count = FALSE, ylab = "% of victims") +
   ggplot2::scale_y_continuous(labels = scales::percent)
+```
+
+```{r nibrsVictimAssaultInjury, fig.cap="Victim injury for assault offenses, by injury severity, 1991-2022."}
+nibrs_victim_summary  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = percent_assault_no_injury, color = "No Injury"), size = 1.05) +
+  geom_line(aes(y = percent_assault_minor_injury , color = "Minor Injury"), size = 1.05) +
+  geom_line(aes(y = percent_assault_major_injury, color = "Major Injury"), size = 1.05) +
+  xlab("Year") +
+  ylab("% of Victims") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("No Injury" = "#1b9e77",
+                                "Minor Injury" = "#d95f02",
+                                "Major Injury" = "#7570b3"))
 ```
 
 ## Relationship to offender
@@ -148,6 +293,19 @@ kableExtra::kbl(temp,
              escape = TRUE,
              caption = "The distribution of the relationship between the victim and the offender for law enforcement officer victims.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+```
+
+
+```{r nibrsVictimAssaultSpouse, fig.cap="The annual percent of assault victims whose perpetrator is their spouse, 1991-2022."}
+nibrs_victim_summary  %>%
+  ggplot(aes(x = year, y = percent_assault_spouse)) +
+  geom_line(size = 1.05) + 
+  xlab("Year") +
+  ylab("% of Victims") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(color = "") +
+  expand_limits(y = 0) 
 ```
 
 ## Aggravated assault and homicide circumstances
@@ -243,6 +401,25 @@ victim %>%
   ggplot2::scale_y_continuous(labels = scales::percent)
 ```
 
+
+
+```{r nibrsVictimResidentStatus, fig.cap="The share of victims by resident status in the reporting agency's jurisdiction, 1991-2022."}
+nibrs_victim_summary  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = percent_resident_status_resident, color = "Resident"), size = 1.05) +
+  geom_line(aes(y = percent_resident_status_nonresident , color = "Nonresident"), size = 1.05) +
+  geom_line(aes(y = percent_resident_status_unknown, color = "Unknown resident"), size = 1.05) +
+  xlab("Year") +
+  ylab("% of Victims") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Resident" = "#1b9e77",
+                                "Nonresident" = "#d95f02",
+                                "Unknown resident" = "#7570b3"))
+```
+
 ### Age
 
 This variable is the age of the victim when the crime occurred, regardless of when they reported the crime. Age is given as how many years old the victim is, with a few exceptions. Victims older than 98 are grouped together as "over 98 years old" while victims younger than 1 years old are broken down into "under 24 hours (neonate)", "1-6 days old", and "7-364 days old". About 1.4% of victim ages are unknown. 
@@ -262,6 +439,32 @@ victim %>%
 
 ```
 
+```{r nibrsVictimAge, fig.cap="The mean and median age of victims, 1991-2022."}
+nibrs_victim_summary  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = mean_age, color = "Mean Age"), size = 1.05) +
+  geom_line(aes(y = median_age , color = "Median Age"), size = 1.05) +
+xlab("Year") +
+  ylab("Victim Age") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Mean Age" = "#1b9e77",
+                                "Median Age" = "#d95f02"))
+```
+
+```{r nibrsVictimAgeMissing, fig.cap="The percent of victim's age that is unknown, 1991-2022."}
+nibrs_victim_summary  %>%
+  ggplot(aes(x = year, y = percent_unknown_age )) +
+  xlab("Year") +
+  ylab("% of Victim Age Unknown") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(color = "") +
+  expand_limits(y = 0) 
+```
+
 ### Sex
 
 As with the Offender and the Arrestee Segments, we know the sex of the victim. The only choices are female, male, and unknown sex. There is no option for transgender or any other identify. Since the victim can tell the police their sex, and the police can see them clearly in most cases (though this may not be true if the victim reports a crime over the phone by calling 911 but then doesn't stay to be interviewed) so is more reliable than in the Offender Segment which may include guesses about the offender. The most common victim sex is female at 50.8% of victims, followed closely by male at 48.4%. Only about 0.8% of victims have an unknown sex. It's interesting that female victims are so common since most criminology research finds that male victims are so common. I think this is likely due to criminologists primarily focusing on murder and index violent crimes as their measure of crime, which ignores many other crimes.^[Murder and other violent crimes are mainly men hurting/killing other men, except in domestic violence which is primarily men hurting/killing women.]  
@@ -273,6 +476,23 @@ victim %>%
   mutate(sex_of_victim = capitalize_words(sex_of_victim)) %>%
   crimeutils::make_barplots("sex_of_victim", count = FALSE, ylab = "% of victims") +
   ggplot2::scale_y_continuous(labels = scales::percent)
+```
+
+```{r nibrsVictimSex, fig.cap="The share of victims by sex, 1991-2022."}
+nibrs_victim_summary  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = percent_male, color = "Male"), size = 1.05) +
+  geom_line(aes(y = percent_female , color = "Female"), size = 1.05) +
+  geom_line(aes(y = percent_unknown_sex, color = "Unknown"), size = 1.05) +
+  xlab("Year") +
+  ylab("% of Victims") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Male" = "#1b9e77",
+                                "Female" = "#d95f02",
+                                "Unknown" = "#7570b3"))
 ```
 
 ### Race
@@ -290,6 +510,29 @@ victim %>%
   mutate(race_of_victim = capitalize_words(race_of_victim)) %>%
   crimeutils::make_barplots("race_of_victim", count = FALSE, ylab = "% of victims") +
   ggplot2::scale_y_continuous(labels = scales::percent)
+```
+
+```{r nibrsVictimRace, fig.cap="The share of victims by race, 1991-2022."}
+nibrs_victim_summary  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = percent_asian, color = "Asian"), size = 1.05) +
+  geom_line(aes(y = percent_black , color = "Black"), size = 1.05) +
+  geom_line(aes(y = percent_american_indian, color = "American Indian"), size = 1.05) +
+  geom_line(aes(y = percent_white , color = "White"), size = 1.05) +
+  geom_line(aes(y = percent_native_hawaiian, color = "Native Hawaiian"), size = 1.05) +
+  geom_line(aes(y = percent_unknown_race, color = "Unknown"), size = 1.05) +
+  xlab("Year") +
+  ylab("% of Victims") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Asian" = "#d7191c",
+                                "Black" = "#fdae61",
+                                "American Indian" = "#7b3294",
+                                "White" = "#abd9e9",
+                                "Native Hawaiian" = "#2c7bb6",
+                                "Unknown" = "black"))
 ```
 
 ### Ethnicity
@@ -310,4 +553,19 @@ victim %>%
 ```
 
 
-
+```{r nibrsVictimEthnicity, fig.cap="The share of victims by ethnicity, 1991-2022."}
+nibrs_victim_summary  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = percent_hispanic, color = "Hispanic"), size = 1.05) +
+  geom_line(aes(y = percent_not_hispanic , color = "Not Hispanic"), size = 1.05) +
+  geom_line(aes(y = percent_ethnicity_unknown, color = "Unknown"), size = 1.05) +
+  xlab("Year") +
+  ylab("% of Victims") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Hispanic" = "#1b9e77",
+                                "Not Hispanic" = "#d95f02",
+                                "Unknown" = "#7570b3"))
+```

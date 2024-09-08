@@ -108,8 +108,8 @@ kableExtra::kbl(months_table,
              label = "countyMonthsReportedDefinitions",
              escape = TRUE,
              caption = "The number of months reported to the 2017 Offenses Known and Clearances by Arrest data using two definitions of months reported. The 'Last Month' definition is the preferred measure of months reported by both the FBI and researchers, though this overcounts months.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header")) %>%
-  column_spec(column = 1:ncol(months_table), width = "1in")
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header")) #%>%
+#  column_spec(column = 1:ncol(months_table), width = "1in")
 
 ```
 

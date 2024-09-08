@@ -8,6 +8,12 @@ The Administrative Segment provides information about the incident itself, such 
 
 In addition to the variables detailed below, this segment has the traditional agency and incident identifiers: the ORI code, the agency state, the year of this data, and the incident number. 
 
+
+<div class="figure" style="text-align: center">
+<img src="12_nibrs_administrative_files/figure-html/nibrsAdministrativeAgenciesReporting-1.png" alt="The annual number of agencies reporting data in the NIBRS Administrative Segment, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsAdministrativeAgenciesReporting)The annual number of agencies reporting data in the NIBRS Administrative Segment, 1991-2022.</p>
+</div>
+
 ## The incident and report date
 
 An important variable, especially for policy analyses, is when the crime happened. NIBRS tells you both the date and the hour of the day for when the crime occurred. We'll start with the date. We can convert the date a few different ways, such as daily, weekly, monthly, quarterly. We could use this precise date to do regression discontinuity studies where we look at days just before and just after some policy change or natural experiment. In this chapter we'll look simply at the percent of crimes each month and each day of the month (overall, not within each month).
@@ -46,6 +52,254 @@ The second key trend is the large spike at midnight-12:59am and at noon-12:59pm.
 <p class="caption">(\#fig:administrativeHours)The percent of crimes that are reported each hour for all agencies reporting to NIBRS in 2022.</p>
 </div>
 
+<div class="figure" style="text-align: center">
+<img src="12_nibrs_administrative_files/figure-html/nibrsAdministrativeHours-1.png" alt="Annual percent of incidents that occurred at midnight, noon, and at an unknown time, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsAdministrativeHours)Annual percent of incidents that occurred at midnight, noon, and at an unknown time, 1991-2022.</p>
+</div>
+
+
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:nibrsAdministrativeCommonHours)The most and least common incident hours, and the most common hours excluding midnight and noon.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Year </th>
+   <th style="text-align:right;"> Most Common </th>
+   <th style="text-align:right;"> Least Common </th>
+   <th style="text-align:left;"> Most Common, Exclude Midnight </th>
+   <th style="text-align:right;"> Most Common, Exclude Midnight/Noon </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 6PM </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> 6PM </td>
+   <td style="text-align:right;"> 6PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1992 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> 6PM </td>
+   <td style="text-align:right;"> 6PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1993 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> 6PM </td>
+   <td style="text-align:right;"> 6PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1994 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> 6PM </td>
+   <td style="text-align:right;"> 6PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1995 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> 6PM </td>
+   <td style="text-align:right;"> 6PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1996 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> 6PM </td>
+   <td style="text-align:right;"> 6PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1997 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> 6PM </td>
+   <td style="text-align:right;"> 6PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1998 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> 6PM </td>
+   <td style="text-align:right;"> 6PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1999 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> 5PM </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2000 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> 5PM </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2001 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> 5PM </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2002 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> 5PM </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2003 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> 5PM </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2004 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> 5PM </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2005 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> 5PM </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2006 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> 5PM </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2007 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> 5PM </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2008 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> 5PM </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> Noon </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2010 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> Noon </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2011 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> Noon </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> Noon </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2013 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> Noon </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2014 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> Noon </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2015 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> Noon </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2016 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> Noon </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2017 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> Noon </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2018 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> Noon </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2019 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> Noon </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2020 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> Noon </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2021 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> Noon </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2022 </td>
+   <td style="text-align:right;"> Midnight </td>
+   <td style="text-align:right;"> 5AM </td>
+   <td style="text-align:left;"> Noon </td>
+   <td style="text-align:right;"> 5PM </td>
+  </tr>
+</tbody>
+</table>
+
+
+
+
 ## Exceptional clearance
 
 When we speak of clearances we generally mean that a person was arrested for the crime.^[While a more expansive definition may include a conviction in a court for that crime (including pleading guilty), NIBRS data only extends to the arrest stage so we never know the judicial outcome of the case.] Cases may also be cleared "through exceptional means" which is also called an "exceptional clearance." An exceptional clearance means that the police have identified who the offender is (in cases with multiple offenders, they need to identify only one offender), have sufficient evidence and ability (e.g. know where they are) to arrest this offender but are unable to do so for some reason. Basically, if they could arrest them they would but for some reason they can't. NIBRS data tells us if the case is exceptionally cleared as well as the reason for the exceptional clearance. 
@@ -59,6 +313,10 @@ The next most common group is when the offender is a juvenile and the police cho
 <p class="caption">(\#fig:administrativeExceptionalClearances)The distribution of exceptional clearances for all exceptional clearances reported to NIBRS in 2022.</p>
 </div>
 
+<div class="figure" style="text-align: center">
+<img src="12_nibrs_administrative_files/figure-html/nibrsAdministrativeClearance-1.png" alt="Percent of incidents with an arrest or exceptional clearance, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsAdministrativeClearance)Percent of incidents with an arrest or exceptional clearance, 1991-2022.</p>
+</div>
 
 ## Number of other segments
 
@@ -73,6 +331,12 @@ This variable indicates how many offense segments there are associated with this
 <p class="caption">(\#fig:administrativeOffenseSegments)The distribution for the number of Offender Segments per incident, for all incidents in NIBRS 2022.</p>
 </div>
 
+
+<div class="figure" style="text-align: center">
+<img src="12_nibrs_administrative_files/figure-html/nibrsAdministrativeNumberOffense-1.png" alt="Annual mean and median number of Offense Segments, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsAdministrativeNumberOffense)Annual mean and median number of Offense Segments, 1991-2022.</p>
+</div>
+
 ### Offender Segments
 
 The Administrative Segment tells you how many offenders are involved with an incident. This is, of course, an estimate because in some incidents the police don't know how many people are involved. If, for example, someone was robbed then they can tell the police how many robbers there were. But if someone comes home to find their home burglarized then they don't know how many burglars there were. If there's no video evidence (e.g. a home security camera) and neighbors didn't see anything then the police would not know how many offenders were involved in the incident. In these cases they put in a single offender and in the Offender Segment all of the information about the offender is "unknown." The remaining number of offenders are still estimates as the police may not know for sure how many offenders were involved, but this is more reliable than when there is only a single offender reported. With that major caveat in mind, Figure \@ref(fig:administrativeOffenderSegments) shows the distribution in how many offenders there were per incident. 
@@ -84,6 +348,12 @@ The vast majority of incidents have only one (or potentially an unknown number) 
 <p class="caption">(\#fig:administrativeOffenderSegments)The distribution for the number of Offender Segments per incident, for all incidents in NIBRS 2022.</p>
 </div>
 
+
+<div class="figure" style="text-align: center">
+<img src="12_nibrs_administrative_files/figure-html/nibrsAdministrativeNumberOffender-1.png" alt="Annual mean and median number of Offender Segments, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsAdministrativeNumberOffender)Annual mean and median number of Offender Segments, 1991-2022.</p>
+</div>
+
 ### Victim Segments
 
 
@@ -92,6 +362,11 @@ In cases where the offense is a "victimless crime" (or at least one where there'
 <div class="figure" style="text-align: center">
 <img src="12_nibrs_administrative_files/figure-html/administrativeVictimSegments-1.png" alt="The distribution for the number of Victim Segments per incident, for all incidents in NIBRS 2022." width="90%" />
 <p class="caption">(\#fig:administrativeVictimSegments)The distribution for the number of Victim Segments per incident, for all incidents in NIBRS 2022.</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<img src="12_nibrs_administrative_files/figure-html/nibrsAdministrativeNumberVictim-1.png" alt="Annual mean and median number of Victim Segments, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsAdministrativeNumberVictim)Annual mean and median number of Victim Segments, 1991-2022.</p>
 </div>
 
 ### Arrestee Segments
@@ -120,3 +395,8 @@ Figure \@ref(fig:administrativeArrestsAny) shows this analysis by giving the per
 <p class="caption">(\#fig:administrativeArrestsAny)The percent of incidents by number of offenders where at least one offender is arrested.</p>
 </div>
 
+
+<div class="figure" style="text-align: center">
+<img src="12_nibrs_administrative_files/figure-html/nibrsAdministrativeNumberArrestee-1.png" alt="Annual mean and median number of Arrestee Segments, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsAdministrativeNumberArrestee)Annual mean and median number of Arrestee Segments, 1991-2022.</p>
+</div>

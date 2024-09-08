@@ -116,9 +116,41 @@ for (file in offense_files) {
   offense_final$percent_burglary_force[offense_final$year %in% unique(offense_temp$year)] <- mean(offense_temp$method_of_entry[offense_temp$ucr_offense_code %in% "burglary/breaking and entering"] %in% "force")
   offense_final$percent_burglary_no_force[offense_final$year %in% unique(offense_temp$year)] <- mean(offense_temp$method_of_entry[offense_temp$ucr_offense_code %in% "burglary/breaking and entering"] %in% "no force")
   offense_final$percent_with_bias[offense_final$year %in% unique(offense_temp$year)] <-
-    mean(!offense_temp$bias_motivation %in% c(
-      "no bias motivation",
-      "unknown bias motivation"
+    mean(offense_temp$bias_motivation %in% c(
+      c("anti-lesbian, gay, bisexual, or transgender (mixed group)",
+        "anti-other christian",
+        "anti-white",
+        "anti-multi-racial group",
+        "anti-other race/ethnicity/national origin",
+        "anti-physical disability",
+        "anti-gay (male)",
+        "anti-black",
+        "anti-mormon",
+        "anti-native hawaiian or other pacific islander",
+        "anti-transgender",
+        "anti-sikh",
+        "anti-protestant",
+        "anti-multi-religious group",
+        "anti-buddhist",
+        "anti-gender non-conforming",
+        "anti-heterosexual",
+        "anti-bisexual",
+        "anti-eastern orthodox (greek, russian, etc.)",
+        "anti-mental disability",
+        "anti-hispanic",
+        "anti-arab",
+        "anti-islamic (muslim)",
+        "anti-female",
+        "anti-jewish",
+        "anti-american indian or alaskan native",
+        "anti-asian",
+        "anti-lesbian (female)",
+        "anti-other religion",
+        "anti-catholic",
+        "anti-male",
+        "anti-jehovahs witness",
+        "anti-hindu",
+        "anti-atheism/agnosticism")  
     ))
   offense_final$percent_at_home[offense_final$year %in% unique(offense_temp$year)] <-
     mean(offense_temp$location_type %in% "residence/home")
@@ -267,37 +299,55 @@ for (file in victim_files) {
   victim_final$number_of_agencies[victim_final$year %in% unique(victim_temp$year)] <- length(unique(victim_temp$ori))
 
   # Age
-  victim_final$median_age[victim_final$year %in% unique(victim_temp$year)] <- median(victim_temp$age_of_victim, na.rm = TRUE)
-  victim_final$mean_age[victim_final$year %in% unique(victim_temp$year)] <- mean(victim_temp$age_of_victim, na.rm = TRUE)
-  victim_final$percent_unknown_age[victim_final$year %in% unique(victim_temp$year)] <- mean(is.na(victim_temp$age_of_victim))
+  victim_final$median_age[victim_final$year %in% unique(victim_temp$year)] <- 
+    median(victim_temp$age_of_victim[victim_temp$type_of_victim %in% c("individual", "law enforcement officer")], na.rm = TRUE)
+  victim_final$mean_age[victim_final$year %in% unique(victim_temp$year)] <-
+    mean(victim_temp$age_of_victim[victim_temp$type_of_victim %in% c("individual", "law enforcement officer")], na.rm = TRUE)
+  victim_final$percent_unknown_age[victim_final$year %in% unique(victim_temp$year)] <- 
+    mean(is.na(victim_temp$age_of_victim[victim_temp$type_of_victim %in% c("individual", "law enforcement officer")]))
   # Sex
-  victim_final$percent_male[victim_final$year %in% unique(victim_temp$year)] <- mean(victim_temp$sex_of_victim %in% "male")
-  victim_final$percent_female[victim_final$year %in% unique(victim_temp$year)] <- mean(victim_temp$sex_of_victim %in% "female")
-  victim_final$percent_unknown_sex[victim_final$year %in% unique(victim_temp$year)] <- mean(victim_temp$sex_of_victim %in% "unknown")
+  victim_final$percent_male[victim_final$year %in% unique(victim_temp$year)] <-
+    mean(victim_temp$sex_of_victim[victim_temp$type_of_victim %in% c("individual", "law enforcement officer")] %in% "male")
+  victim_final$percent_female[victim_final$year %in% unique(victim_temp$year)] <-
+    mean(victim_temp$sex_of_victim[victim_temp$type_of_victim %in% c("individual", "law enforcement officer")] %in% "female")
+  victim_final$percent_unknown_sex[victim_final$year %in% unique(victim_temp$year)] <-
+    mean(victim_temp$sex_of_victim[victim_temp$type_of_victim %in% c("individual", "law enforcement officer")] %in% "unknown")
   # Race
-  victim_final$percent_unknown_race[victim_final$year %in% unique(victim_temp$year)] <- mean(victim_temp$race_of_victim %in% "unknown")
-  victim_final$percent_asian[victim_final$year %in% unique(victim_temp$year)] <- mean(victim_temp$race_of_victim %in% "asian")
-  victim_final$percent_black[victim_final$year %in% unique(victim_temp$year)] <- mean(victim_temp$race_of_victim %in% "black")
-  victim_final$percent_american_indian[victim_final$year %in% unique(victim_temp$year)] <- mean(victim_temp$race_of_victim %in% "american indian/alaskan native")
-  victim_final$percent_white[victim_final$year %in% unique(victim_temp$year)] <- mean(victim_temp$race_of_victim %in% "white")
-  victim_final$percent_native_hawaiian[victim_final$year %in% unique(victim_temp$year)] <- mean(victim_temp$race_of_victim %in% "native hawaiian or other pacific islander")
+  victim_final$percent_unknown_race[victim_final$year %in% unique(victim_temp$year)] <- 
+    mean(victim_temp$race_of_victim[victim_temp$type_of_victim %in% c("individual", "law enforcement officer")] %in% "unknown")
+  victim_final$percent_asian[victim_final$year %in% unique(victim_temp$year)] <- 
+    mean(victim_temp$race_of_victim[victim_temp$type_of_victim %in% c("individual", "law enforcement officer")] %in% "asian")
+  victim_final$percent_black[victim_final$year %in% unique(victim_temp$year)] <-
+    mean(victim_temp$race_of_victim[victim_temp$type_of_victim %in% c("individual", "law enforcement officer")] %in% "black")
+  victim_final$percent_american_indian[victim_final$year %in% unique(victim_temp$year)] <-
+    mean(victim_temp$race_of_victim[victim_temp$type_of_victim %in% c("individual", "law enforcement officer")] %in% "american indian/alaskan native")
+  victim_final$percent_white[victim_final$year %in% unique(victim_temp$year)] <- 
+    mean(victim_temp$race_of_victim[victim_temp$type_of_victim %in% c("individual", "law enforcement officer")] %in% "white")
+  victim_final$percent_native_hawaiian[victim_final$year %in% unique(victim_temp$year)] <-
+    mean(victim_temp$race_of_victim[victim_temp$type_of_victim %in% c("individual", "law enforcement officer")] %in% "native hawaiian or other pacific islander")
   # Ethnicity
-  victim_final$percent_hispanic[victim_final$year %in% unique(victim_temp$year)] <- mean(victim_temp$ethnicity_of_victim %in% "hispanic origin")
-  victim_final$percent_not_hispanic[victim_final$year %in% unique(victim_temp$year)] <- mean(victim_temp$ethnicity_of_victim %in% "not of hispanic origin")
-  victim_final$percent_ethnicity_unknown[victim_final$year %in% unique(victim_temp$year)] <- mean(victim_temp$ethnicity_of_victim %in% "unknown")
+  victim_final$percent_hispanic[victim_final$year %in% unique(victim_temp$year)] <-
+    mean(victim_temp$ethnicity_of_victim[victim_temp$type_of_victim %in% c("individual", "law enforcement officer")] %in% "hispanic origin")
+  victim_final$percent_not_hispanic[victim_final$year %in% unique(victim_temp$year)] <-
+    mean(victim_temp$ethnicity_of_victim[victim_temp$type_of_victim %in% c("individual", "law enforcement officer")] %in% "not of hispanic origin")
+  victim_final$percent_ethnicity_unknown[victim_final$year %in% unique(victim_temp$year)] <-
+    mean(victim_temp$ethnicity_of_victim[victim_temp$type_of_victim %in% c("individual", "law enforcement officer")] %in% "unknown")
   # Victim type
-  victim_final$percent_victim_officer[victim_final$year %in% unique(victim_temp$year)] <- mean(victim_temp$type_of_victim %in% "law enforcement officer")
-  victim_final$number_victim_officer[victim_final$year %in% unique(victim_temp$year)] <- sum(victim_temp$type_of_victim %in% "law enforcement officer")
-  victim_final$percent_victim_individual[victim_final$year %in% unique(victim_temp$year)] <- mean(victim_temp$type_of_victim %in% "individual")
-  victim_final$percent_victim_business[victim_final$year %in% unique(victim_temp$year)] <- mean(victim_temp$type_of_victim %in% "business")
+  victim_final$percent_victim_officer[victim_final$year %in% unique(victim_temp$year)] <-
+    mean(victim_temp$type_of_victim %in% "law enforcement officer")
+  victim_final$number_victim_officer[victim_final$year %in% unique(victim_temp$year)] <- 
+    sum(victim_temp$type_of_victim %in% "law enforcement officer")
+  victim_final$percent_victim_individual[victim_final$year %in% unique(victim_temp$year)] <- 
+    mean(victim_temp$type_of_victim %in% "individual")
+  victim_final$percent_victim_business[victim_final$year %in% unique(victim_temp$year)] <- 
+    mean(victim_temp$type_of_victim %in% "business")
   # Resident status
   victim_final$percent_resident_status_resident[victim_final$year %in% unique(victim_temp$year)] <-
-    mean(victim_temp$resident_status_of_victim %in% "resident")
+    mean(victim_temp$resident_status_of_victim[victim_temp$type_of_victim %in% c("individual", "law enforcement officer")] %in% "resident")
   victim_final$percent_resident_status_nonresident[victim_final$year %in% unique(victim_temp$year)] <-
-    mean(victim_temp$resident_status_of_victim %in% "nonresident")
+    mean(victim_temp$resident_status_of_victim[victim_temp$type_of_victim %in% c("individual", "law enforcement officer")] %in% "nonresident")
   victim_final$percent_resident_status_unknown[victim_final$year %in% unique(victim_temp$year)] <-
-    mean(victim_temp$resident_status_of_victim %in% "unknown")
-
+    mean(victim_temp$resident_status_of_victim[victim_temp$type_of_victim %in% c("individual", "law enforcement officer")] %in% "unknown")
   # Assault injury
   victim_final$percent_assault_no_injury[victim_final$year %in% unique(victim_temp$year)] <-
     mean(victim_temp$type_of_injury_1[victim_temp$ucr_offense_code_1 %in%
@@ -477,9 +527,8 @@ administrative_final <- data.frame(
   most_common_hour_excluding_midnight = NA,
   most_common_hour_excluding_midnight_and_noon = NA,
   least_common_hour = NA,
-  mean_hour = NA,
-  mean_hour_excluding_midnight = NA,
   percent_hour_midnight = NA,
+  percent_hour_noon = NA,
   percent_hour_unknown = NA
 )
 for (file in administrative_files) {
@@ -562,6 +611,7 @@ for (file in administrative_files) {
   administrative_final$least_common_hour[administrative_final$year %in% unique(administrative_temp$year)] <- names(ordered_hours[1])
 
   administrative_final$percent_hour_midnight[administrative_final$year %in% unique(administrative_temp$year)] <- mean(administrative_temp$hour %in% 0)
+  administrative_final$percent_hour_midnight[administrative_final$year %in% unique(administrative_temp$year)] <- mean(administrative_temp$hour %in% 12)
   administrative_final$percent_hour_unknown[administrative_final$year %in% unique(administrative_temp$year)] <- mean(is.na(administrative_temp$hour))
 
 

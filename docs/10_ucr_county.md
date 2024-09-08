@@ -50,82 +50,82 @@ Ultimately the measures are quite similar though systematically overcount report
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;width: 1in; "> 0 </td>
-   <td style="text-align:right;width: 1in; "> 1,626 (8.35%) </td>
-   <td style="text-align:right;width: 1in; "> 1,626 (8.35%) </td>
-   <td style="text-align:right;width: 1in; "> +0.00 </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:right;"> 1,626 (8.35%) </td>
+   <td style="text-align:right;"> 1,626 (8.35%) </td>
+   <td style="text-align:right;"> +0.00 </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 1in; "> 1 </td>
-   <td style="text-align:right;width: 1in; "> 60 (0.31%) </td>
-   <td style="text-align:right;width: 1in; "> 113 (0.58%) </td>
-   <td style="text-align:right;width: 1in; "> +88.33 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 60 (0.31%) </td>
+   <td style="text-align:right;"> 113 (0.58%) </td>
+   <td style="text-align:right;"> +88.33 </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 1in; "> 2 </td>
-   <td style="text-align:right;width: 1in; "> 40 (0.21%) </td>
-   <td style="text-align:right;width: 1in; "> 75 (0.39%) </td>
-   <td style="text-align:right;width: 1in; "> +87.50 </td>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:right;"> 40 (0.21%) </td>
+   <td style="text-align:right;"> 75 (0.39%) </td>
+   <td style="text-align:right;"> +87.50 </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 1in; "> 3 </td>
-   <td style="text-align:right;width: 1in; "> 44 (0.23%) </td>
-   <td style="text-align:right;width: 1in; "> 159 (0.82%) </td>
-   <td style="text-align:right;width: 1in; "> +261.36 </td>
+   <td style="text-align:left;"> 3 </td>
+   <td style="text-align:right;"> 44 (0.23%) </td>
+   <td style="text-align:right;"> 159 (0.82%) </td>
+   <td style="text-align:right;"> +261.36 </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 1in; "> 4 </td>
-   <td style="text-align:right;width: 1in; "> 46 (0.24%) </td>
-   <td style="text-align:right;width: 1in; "> 71 (0.36%) </td>
-   <td style="text-align:right;width: 1in; "> +54.35 </td>
+   <td style="text-align:left;"> 4 </td>
+   <td style="text-align:right;"> 46 (0.24%) </td>
+   <td style="text-align:right;"> 71 (0.36%) </td>
+   <td style="text-align:right;"> +54.35 </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 1in; "> 5 </td>
-   <td style="text-align:right;width: 1in; "> 45 (0.23%) </td>
-   <td style="text-align:right;width: 1in; "> 85 (0.44%) </td>
-   <td style="text-align:right;width: 1in; "> +88.89 </td>
+   <td style="text-align:left;"> 5 </td>
+   <td style="text-align:right;"> 45 (0.23%) </td>
+   <td style="text-align:right;"> 85 (0.44%) </td>
+   <td style="text-align:right;"> +88.89 </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 1in; "> 6 </td>
-   <td style="text-align:right;width: 1in; "> 45 (0.23%) </td>
-   <td style="text-align:right;width: 1in; "> 76 (0.39%) </td>
-   <td style="text-align:right;width: 1in; "> +68.89 </td>
+   <td style="text-align:left;"> 6 </td>
+   <td style="text-align:right;"> 45 (0.23%) </td>
+   <td style="text-align:right;"> 76 (0.39%) </td>
+   <td style="text-align:right;"> +68.89 </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 1in; "> 7 </td>
-   <td style="text-align:right;width: 1in; "> 61 (0.31%) </td>
-   <td style="text-align:right;width: 1in; "> 90 (0.46%) </td>
-   <td style="text-align:right;width: 1in; "> +47.54 </td>
+   <td style="text-align:left;"> 7 </td>
+   <td style="text-align:right;"> 61 (0.31%) </td>
+   <td style="text-align:right;"> 90 (0.46%) </td>
+   <td style="text-align:right;"> +47.54 </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 1in; "> 8 </td>
-   <td style="text-align:right;width: 1in; "> 60 (0.31%) </td>
-   <td style="text-align:right;width: 1in; "> 94 (0.48%) </td>
-   <td style="text-align:right;width: 1in; "> +56.67 </td>
+   <td style="text-align:left;"> 8 </td>
+   <td style="text-align:right;"> 60 (0.31%) </td>
+   <td style="text-align:right;"> 94 (0.48%) </td>
+   <td style="text-align:right;"> +56.67 </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 1in; "> 9 </td>
-   <td style="text-align:right;width: 1in; "> 67 (0.34%) </td>
-   <td style="text-align:right;width: 1in; "> 114 (0.59%) </td>
-   <td style="text-align:right;width: 1in; "> +70.15 </td>
+   <td style="text-align:left;"> 9 </td>
+   <td style="text-align:right;"> 67 (0.34%) </td>
+   <td style="text-align:right;"> 114 (0.59%) </td>
+   <td style="text-align:right;"> +70.15 </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 1in; "> 10 </td>
-   <td style="text-align:right;width: 1in; "> 173 (0.89%) </td>
-   <td style="text-align:right;width: 1in; "> 273 (1.4%) </td>
-   <td style="text-align:right;width: 1in; "> +57.80 </td>
+   <td style="text-align:left;"> 10 </td>
+   <td style="text-align:right;"> 173 (0.89%) </td>
+   <td style="text-align:right;"> 273 (1.4%) </td>
+   <td style="text-align:right;"> +57.80 </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 1in; "> 11 </td>
-   <td style="text-align:right;width: 1in; "> 232 (1.19%) </td>
-   <td style="text-align:right;width: 1in; "> 474 (2.43%) </td>
-   <td style="text-align:right;width: 1in; "> +104.31 </td>
+   <td style="text-align:left;"> 11 </td>
+   <td style="text-align:right;"> 232 (1.19%) </td>
+   <td style="text-align:right;"> 474 (2.43%) </td>
+   <td style="text-align:right;"> +104.31 </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 1in; "> 12 </td>
-   <td style="text-align:right;width: 1in; "> 16,968 (87.16%) </td>
-   <td style="text-align:right;width: 1in; "> 16,217 (83.31%) </td>
-   <td style="text-align:right;width: 1in; "> -4.43 </td>
+   <td style="text-align:left;"> 12 </td>
+   <td style="text-align:right;"> 16,968 (87.16%) </td>
+   <td style="text-align:right;"> 16,217 (83.31%) </td>
+   <td style="text-align:right;"> -4.43 </td>
   </tr>
 </tbody>
 </table>

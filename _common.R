@@ -22,7 +22,8 @@ packages <- c(
  # "quantmod",
   "ggh4x",
   "sf",
-  "tigris"
+  "tigris",
+ "stringr"
 )
 
 groundhog.library(packages, "2024-08-27")

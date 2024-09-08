@@ -12,6 +12,7 @@ knitr::opts_chunk$set(
 ```{r,  results='hide'}
 
 offender <- readRDS("data/nibrs_offender_segment_2022.rds")
+nibrs_offender_summary <- readRDS("data/nibrs_summary_stats/nibrs_offender_summary_stats.rds")
 gc()
 ```
 
