@@ -1212,48 +1212,6 @@ The drugs in NIBRS are the "suspected drug types" which means that they are what
 
 Not too surprising, marijuana is the most common drug seized at 47% - or 455k incidents with it seized - of the data. This is followed by amphetamines/methamphetamines (including what we'd normally just call meth) at 20.7% and then heroin at 8.5%. Interestingly, cocaine and crack cocaine (which are always separate categories) both occur in 5.09% of drugs seized. Given the large disparity in sentences for these types of drugs, and that "crack wars" were a major purported cause of violent crime in the 1980s and 1990s, I expected crack cocaine to be much more common than normal cocaine. The remaining drug types are all less than 5% of drugs seized each and has some groupings of drug types (e.g. stimulants) rather than specific drug types (though some of these categories, such as LSD, are specific drugs). 
 
-
-```
-#>                                                                                                                                                                                     Drug Type
-#> 1                                                                                                                                                                                   Marijuana
-#> 2                                                                                                                                                               Amphetamines/Methamphetamines
-#> 3                                                                                  Other Narcotics: Codeine, Demerol, Dihydromorphinone Or Dilaudid, Hydrocodone Or Percodan, Methadone, Etc.
-#> 4                                                                                                                                                            Cocaine (All Forms Except Crack)
-#> 5                                                                                                                                                                                      Heroin
-#> 6                                                                                                                                                                               Crack Cocaine
-#> 7  Other Drugs: Antidepressants (Elavil, Triavil, Tofranil, Etc.), Aromatic Hydrocarbons, Propoxyphene Or Darvon, Tranquilizers (Chlordiazepoxide Or Librium, Diazepam Or Valium, Etc.), Etc.
-#> 8                                                                                                                                                                           Unknown Type Drug
-#> 9                                                                                                                                                                                       Opium
-#> 10                                                                                        Other Hallucinogrens: Bmda (White Acid), Dmt, Mda, Mdma, Mescaline Or Peyote, Psilocybin, Stp, Etc.
-#> 11                                                                                                                                                                                    Hashish
-#> 12                                                                                          Other Depressants: Glutethimide Or Doriden, Methaqualone Or Quaalude, Pentazocine Or Talwin, Etc.
-#> 13                       Other Stimulants: Adipex, Fastine And Ionamin (Derivatives of Phentermine), Benzedrine, Didrex, Methylphenidate Or Ritalin, Phenmetrazine Or Preludin, Tenuate, Etc.
-#> 14                                                                                                                                                                               Barbiturates
-#> 15                                                                                                                                                                                        Pcp
-#> 16                                                                                                                                                                                        Lsd
-#> 17                                                                                                                                                                                   Morphine
-#> 18                                                                                                                                                                                      Total
-#>    First Year \\# of Drugs \\% of Drugs
-#> 1        1991      557,044     44.09\\%
-#> 2        1991      301,759     23.88\\%
-#> 3        1991       78,941      6.25\\%
-#> 4        1991       73,157      5.79\\%
-#> 5        1991       68,859      5.45\\%
-#> 6        1991       64,853      5.13\\%
-#> 7        1991       47,748      3.78\\%
-#> 8        1991       26,787      2.12\\%
-#> 9        1992       11,881      0.94\\%
-#> 10       1991        8,799      0.70\\%
-#> 11       1991        6,963      0.55\\%
-#> 12       1991        6,825      0.54\\%
-#> 13       1991        3,996      0.32\\%
-#> 14       1991        1,582      0.13\\%
-#> 15       1993        1,510      0.12\\%
-#> 16       1991        1,461      0.12\\%
-#> 17       1992        1,271      0.10\\%
-#> 18          -    1,263,436       100\\%
-```
-
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>(\#tab:propertyDrugs)The number and percent of drugs seized by police by type of drug, for all drugs seized in 2022.</caption>
  <thead>

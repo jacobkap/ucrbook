@@ -91,14 +91,6 @@ nibrs_offender_summary  %>%
 
 The second offender demographic variable available is the offender's sex with male and female being the only available sexes. There is no option for transgender or any other identify. Other than arrestees, where police could (though we don't know if they do) use their identification (e.g. driver's license) to determine their sex, this is the perceived sex of the offender. Figure \@ref(fig:offenderSex) shows the distribution of offenders by sex. The most common sex is male, which is consistent with the literature on who commits crime. About 45% of all offenders were male. Female  offenders make up nearly 19% of offenders. Over a third - 35.9% - of offenders have an unknown sex. Considering that when nothing is known about offenders (including even how many offenders there are) this data includes a single row with "unknown" for all demographic variables, this is actually an undercount of offenders who have unknown sex. 
 
-```{r offenderSex, fig.cap = "The sex of all offenders reported in the 2022 NIBRS data."}
-offender$sex_of_offender[offender$sex_of_offender == "m"] <- "male"
-offender$sex_of_offender[is.na(offender$sex_of_offender)] <- "unknown"
-offender %>%
-  mutate(sex_of_offender = capitalize_words(sex_of_offender)) %>%
-crimeutils::make_barplots("sex_of_offender", count = FALSE, ylab = "% of Offenders") +
-  ggplot2::scale_y_continuous(labels = scales::percent)
-```
 
 ```{r nibrsOffenderSex, fig.cap="The share of offenders by sex, 1991-2022."}
 nibrs_offender_summary  %>%
@@ -125,15 +117,6 @@ Figure \@ref(fig:offenderRace) shows the breakdown in offender races for every o
 
 The next most common offender race is White at 38.7% followed by Black at 22.1%. The remaining races make up only a little over 1.5% of offenders, with American Indian/Alaskan Native at 0.77%, Asian at 0.63%, and Native Hawaiian/Other Pacific Islander at 0.24%.
 
-```{r offenderRace, fig.cap = "The race of all offenders reported in the 2022 NIBRS data."}
-offender$race_of_offender[offender$race_of_offender %in% "native hawaiian or other pacific islander"] <- "native hawaiian/other pacific islander"
-offender$race_of_offender[offender$race_of_offender %in% "asian/pacific islander"] <- "asian"
-offender$race_of_offender[is.na(offender$race_of_offender)] <- "unknown"
-offender %>%
-  mutate(race_of_offender = capitalize_words(race_of_offender)) %>%
-crimeutils::make_barplots("race_of_offender", count = FALSE, ylab = "% of Offenders") +
-  ggplot2::scale_y_continuous(labels = scales::percent)
-```
 
 ```{r nibrsOffenderRace, fig.cap="The share of offenders by race, 1991-2022."}
 nibrs_offender_summary  %>%

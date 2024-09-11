@@ -13,14 +13,14 @@ offenses_known_yearly$months_missing_full[offenses_known_yearly$number_of_months
 
 
 offense_12_months <-
-  offense %>%
+  offenses_known_yearly %>%
   group_by(year) %>%
   summarize(last_month_full = sum(last_month_full),
             months_missing_full = sum(months_missing_full)) %>%
   ungroup()
   
 
-offense %>%
+offenses_known_yearly %>%
   group_by(year) %>%
   summarize(last_month_any = sum(last_month_any),
             months_missing_any = sum(months_missing_any)) %>%

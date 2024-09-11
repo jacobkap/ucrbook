@@ -303,7 +303,8 @@ temp <- make_frequency_table(property,
          `First Year` = year,
          everything())
 temp$`First Year`[is.na(temp$`First Year`)] <- "-"
-temp
+
+
 temp$`Drug Type` <- gsub("lsd",  "LSD",  temp$`Drug Type`, ignore.case = TRUE)
 temp$`Drug Type` <- gsub("bmda", "BMDA", temp$`Drug Type`, ignore.case = TRUE)
 temp$`Drug Type` <- gsub("dmt",  "DMT",  temp$`Drug Type`, ignore.case = TRUE)

@@ -35,150 +35,6 @@ One interesting part of this segment is that while it's associated with Group A 
 
 Table \@ref(tab:arresteeCrime) shows the number and percent of arrests for all arrests associated with a Group A crime incident. Perhaps unsurprising, drug crimes are the most common arrest making up a quarter of all arrests (30% when including drug equipment crimes). Simple assault (assault without a weapon or without seriously injuring the victim) is the next most common at 19% of arrests, and aggravated assault is the 4th most common arrest crime at 6.3% of arrests. Theft, which NIBRS breaks into a number of subcategories of theft such as shoplifting and "all other larceny" is among the most common arrest crimes, making up ranks 3 and 6 of the top 6, as well as several other subcategories later on. The remaining crimes are all relatively rare, consisting of under 5% of arrests each. This is due to how the top crimes are broad categories (e.g. drug offenses ranges from simple possession to large scale sales but is all grouped into "drug/narcotic violations" here) while other crimes are specific (e.g. purse-snatching is a very specific form of theft).  
 
-
-```
-#>                                                         Crime Category
-#> 1                    Drug/Narcotic Offenses - Drug/Narcotic Violations
-#> 2                                    Assault Offenses - Simple Assault
-#> 3                                 Larceny/Theft Offenses - Shoplifting
-#> 4                                Assault Offenses - Aggravated Assault
-#> 5                   Drug/Narcotic Offenses - Drug Equipment Violations
-#> 6                        Weapon Law Violations - Weapon Law Violations
-#> 7                           Larceny/Theft Offenses - All Other Larceny
-#> 8                             Destruction/Damage/Vandalism of Property
-#> 9                                      Assault Offenses - Intimidation
-#> 10                                      Burglary/Breaking And Entering
-#> 11                                                  All Other Offenses
-#> 12                 Stolen Property Offenses (Receiving, Selling, Etc.)
-#> 13                                                 Motor Vehicle Theft
-#> 14                                                             Robbery
-#> 15            Fraud Offenses - False Pretenses/Swindle/Confidence Game
-#> 16                   Larceny/Theft Offenses - Theft From Motor Vehicle
-#> 17                                              Counterfeiting/Forgery
-#> 18                        Larceny/Theft Offenses - Theft From Building
-#> 19                                         Driving Under The Influence
-#> 20                                                  Disorderly Conduct
-#> 21                                                Kidnapping/Abduction
-#> 22                                      Fraud Offenses - Impersonation
-#> 23                                           Trespass of Real Property
-#> 24           Sex Offenses - Fondling (Incident Liberties/Child Molest)
-#> 25                                                 Sex Offenses - Rape
-#> 26                                    Murder/Nonnegligent Manslaughter
-#> 27                              Fraud Offenses - Credit Card/Atm Fraud
-#> 28                                                        Embezzlement
-#> 29                                     Fraud Offenses - Identity Theft
-#> 30                                                               Arson
-#> 31                                Prostitution Offenses - Prostitution
-#> 32   Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories
-#> 33                                        Pornography/Obscene Material
-#> 34                                               Liquor Law Violations
-#> 35                                                      Animal Cruelty
-#> 36                                         Family Offenses, Nonviolent
-#> 37                             Larceny/Theft Offenses - Pocket-Picking
-#> 38                                               Sex Offenses - Sodomy
-#> 39         Prostitution Offenses - Assisting Or Promoting Prostitution
-#> 40                                       Sex Offenses - Statutory Rape
-#> 41                     Prostitution Offenses - Purchasing Prostitution
-#> 42                                Curfew/Loitering/Vagrancy Violations
-#> 43                            Larceny/Theft Offenses - Purse-Snatching
-#> 44                        Sex Offenses - Sexual Assault With An Object
-#> 45                                              Negligent Manslaughter
-#> 46 Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device
-#> 47                                                 Extortion/Blackmail
-#> 48                             Human Trafficking - Commercial Sex Acts
-#> 49                                Gambling Offenses - Betting/Wagering
-#> 50                                         Fraud Offenses - Wire Fraud
-#> 51          Gambling Offenses - Operating/Promoting/Assisting Gambling
-#> 52                                               Sex Offenses - Incest
-#> 53                                                             Bribery
-#> 54                          Fraud Offenses - Hacking/Computer Invasion
-#> 55                                                   Failure To Appear
-#> 56                                      Fraud Offenses - Welfare Fraud
-#> 57                   Gambling Offenses - Gambling Equipment Violations
-#> 58                           Human Trafficking - Involuntary Servitude
-#> 59                                                             Runaway
-#> 60                     Fugitive Offenses - Flight To Avoid Prosecution
-#> 61                Sex Offenses - Failure To Register As A Sex Offender
-#> 62                       Commerce Violations - Federal Liquor Offenses
-#> 63                                Gambling Offenses - Sports Tampering
-#> 64       Immigration Violations - Illegal Entry Into The United States
-#> 65                                  Weapon Law Violations - Explosives
-#> 66       Fugitive Offenses - Harboring Escappee/Concealing From Arrest
-#> 67                                                             Perjury
-#> 68                                         Federal Resource Violations
-#> 69                                                               Total
-#>    First Year \\# of Offenses \\% of Offenses
-#> 1        1991         651,593        22.44\\%
-#> 2        1991         625,914        21.55\\%
-#> 3        1991         262,281         9.03\\%
-#> 4        1991         217,608         7.49\\%
-#> 5        1991         142,720         4.91\\%
-#> 6        1991         123,203         4.24\\%
-#> 7        1991         121,677         4.19\\%
-#> 8        1991         113,049         3.89\\%
-#> 9        1991          85,136         2.93\\%
-#> 10       1991          82,832         2.85\\%
-#> 11       1991          71,084         2.45\\%
-#> 12       1991          57,907         1.99\\%
-#> 13       1991          52,882         1.82\\%
-#> 14       1991          38,048         1.31\\%
-#> 15       1991          31,922         1.10\\%
-#> 16       1991          23,673         0.82\\%
-#> 17       1991          20,107         0.69\\%
-#> 18       1991          18,030         0.62\\%
-#> 19       1991          16,410         0.57\\%
-#> 20       1991          13,700         0.47\\%
-#> 21       1991          12,869         0.44\\%
-#> 22       1991          11,225         0.39\\%
-#> 23       1991          10,687         0.37\\%
-#> 24       1991          10,298         0.35\\%
-#> 25       1991           8,956         0.31\\%
-#> 26       1991           8,284         0.29\\%
-#> 27       1991           7,281         0.25\\%
-#> 28       1991           6,689         0.23\\%
-#> 29       2015           6,414         0.22\\%
-#> 30       1991           6,338         0.22\\%
-#> 31       1991           5,843         0.20\\%
-#> 32       1991           5,621         0.19\\%
-#> 33       1991           5,187         0.18\\%
-#> 34       1991           4,142         0.14\\%
-#> 35       2015           3,904         0.13\\%
-#> 36       1991           3,629         0.12\\%
-#> 37       1991           3,323         0.11\\%
-#> 38       1991           2,081         0.07\\%
-#> 39       1991           1,559         0.05\\%
-#> 40       1991           1,472         0.05\\%
-#> 41       2013           1,274         0.04\\%
-#> 42       1991           1,191         0.04\\%
-#> 43       1991             959         0.03\\%
-#> 44       1991             912         0.03\\%
-#> 45       1991             858         0.03\\%
-#> 46       1991             500         0.02\\%
-#> 47       1991             458         0.02\\%
-#> 48       2013             374         0.01\\%
-#> 49       1991             365         0.01\\%
-#> 50       1991             360         0.01\\%
-#> 51       1991             279         0.01\\%
-#> 52       1991             207         0.01\\%
-#> 53       1991             200         0.01\\%
-#> 54       2015             125         0.00\\%
-#> 55       2020             119         0.00\\%
-#> 56       1991             112         0.00\\%
-#> 57       1991             102         0.00\\%
-#> 58       2014              80         0.00\\%
-#> 59       1991              42         0.00\\%
-#> 60       2021              24         0.00\\%
-#> 61       2021              11         0.00\\%
-#> 62       2020               9         0.00\\%
-#> 63       1992               3         0.00\\%
-#> 64       2022               1         0.00\\%
-#> 65       2022               1         0.00\\%
-#> 66       2021               1         0.00\\%
-#> 67       2022               1         0.00\\%
-#> 68       2021               1         0.00\\%
-#> 69          -       2,904,147          100\\%
-```
-
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>(\#tab:arresteeCrime)The number and percent of arrests for Group A crimes for all arrests reported to NIBRS in 2022.</caption>
  <thead>
@@ -615,36 +471,6 @@ Table \@ref(tab:GroupBarresteeCrime) shows the number and percent of arrests for
 
 Trespassing makes up 5.7% of arrests and this is unlawfully entering someone's property, including a building. The difference between this and burglary is that this is entering without any intent to commit theft or a felony. Disorderly conduct is a broad category ranging from indecent exposure (which should be its own sex offense but isn't for some reason) to "profanity" and noise violations, and it makes up 6.2% of arrests. So be cautious with this offense as it ranges from very minor to quite serious and there's no distinguishing what actually happened. Drunkenness and liquor law violations make up 6% and 3.6% of arrests, respectively. The difference is that drunkenness is when someone is seriously drunk in public (to the point where they can't control their own body) and liquor law violations are about illegal making or selling of liquor. So basically bootlegging, selling alcohol without a license (or to people not allowed to drink, like minors), or avoiding paying tax on alcohol sales. "Family Offenses, Nonviolent" is also a rather vague category and includes "nonviolent abuse" (which I guess means emotional abusive) as well as neglecting the child in a few different ways like not paying alimony and deserting the child. Since these are arrests, the actions have to reach the level of criminal behavior, simply being an awful parent (or even leaving the child, as long as they have another adult to watch them) is not this offense. Runaways is an offense that only applies to people under age 18. The remaining categories are all rare and none are more than 1% of arrests.
 
-
-```
-#>                          Crime Category First Year \\# of Offenses
-#> 1                    All Other Offenses       1991       1,470,699
-#> 2           Driving Under The Influence       1991         565,429
-#> 3             Trespass of Real Property       1991         177,586
-#> 4                    Disorderly Conduct       1991         176,937
-#> 5                 Liquor Law Violations       1991          72,044
-#> 6           Family Offenses, Nonviolent       1991          33,545
-#> 7  Curfew/Loitering/Vagrancy Violations       1991          16,266
-#> 8                     Failure To Appear       2020           1,816
-#> 9                               Runaway       1991           1,629
-#> 10          Federal Resource Violations       2021              15
-#> 11                              Perjury       2022               1
-#> 12                                Total          -       2,515,967
-#>    \\% of Offenses
-#> 1         58.45\\%
-#> 2         22.47\\%
-#> 3          7.06\\%
-#> 4          7.03\\%
-#> 5          2.86\\%
-#> 6          1.33\\%
-#> 7          0.65\\%
-#> 8          0.07\\%
-#> 9          0.06\\%
-#> 10         0.00\\%
-#> 11         0.00\\%
-#> 12          100\\%
-```
-
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>(\#tab:GroupBarresteeCrime)The number and percent of arrests for Group B crimes for all arrests reported to NIBRS in 2022.</caption>
  <thead>
@@ -757,21 +583,18 @@ In the Offense Segment we get info on what weapon (if any) was used during the c
 
 Figure \@ref(fig:arresteeWeapon) shows the breakdown in the weapon carried by the arrestee during the arrest. In 94% of arrests, the arrestee was not carrying any weapon. Since this graph shows arrests for all crimes, it makes a good deal of sense. Most crimes are non-violent so we'd expect those people to not carry a weapon. Since so few arrestees have weapons, we'll look at the breakdown among those who were carrying a weapon in Figure \@ref(fig:arresteeWeaponArmed). 
 
-<div class="figure" style="text-align: center">
-<img src="16_nibrs_arrestee_files/figure-html/arresteeWeapon-1.png" alt="The weapon found on the arrestee for all arrestees reported in 2022." width="90%" />
-<p class="caption">(\#fig:arresteeWeapon)The weapon found on the arrestee for all arrestees reported in 2022.</p>
-</div>
-
 To see the weapons carried when the arrestee had a weapon, Figure \@ref(fig:arresteeWeaponArmed) shows the breakdown in which weapon they carried. About 43.8% of people arrested who had a weapon were carrying a handgun followed by 30% with some kind of "lethal cutting instrument" like a knife. While rifles, and especially "assault rifles", are what people (and especially politicians and the media) focus on when talking about violent crime, handguns are actually the most common gun to be used in a crime so it makes sense that handguns are the most frequently found weapon. "Firearm (type not stated)"  basically means that the type of firearm used is unknown so can belong in one of the firearm categories and makes up 9% of weapons. Blunt instruments (including bats, clubs, and brass knuckles) follow at 6.9% of weapons. And the remaining weapons included are "other firearm" (so any other than ones specified) at 5.8%, rifle at 2.3%, and shotgun at 2%. 
 
-<div class="figure" style="text-align: center">
-<img src="16_nibrs_arrestee_files/figure-html/arresteeWeaponArmed-1.png" alt="The distribution of weapon usage for all arrestees in 2022 who were arrested with a weapon (i.e. excludes unarmed arrestees)." width="90%" />
-<p class="caption">(\#fig:arresteeWeaponArmed)The distribution of weapon usage for all arrestees in 2022 who were arrested with a weapon (i.e. excludes unarmed arrestees).</p>
-</div>
 
 <div class="figure" style="text-align: center">
 <img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeMurderWeapon-1.png" alt="The share of murder and nonnegligent manslaughter arrestees by weapon carried at arrest, 1991-2022." width="90%" />
 <p class="caption">(\#fig:nibrsArresteeMurderWeapon)The share of murder and nonnegligent manslaughter arrestees by weapon carried at arrest, 1991-2022.</p>
+</div>
+
+
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/arresteeWeaponArmed-1.png" alt="The distribution of weapon usage for all arrestees in 2022 who were arrested with a weapon (i.e. excludes unarmed arrestees)." width="90%" />
+<p class="caption">(\#fig:arresteeWeaponArmed)The distribution of weapon usage for all arrestees in 2022 who were arrested with a weapon (i.e. excludes unarmed arrestees).</p>
 </div>
 
 ## Automatic weapons
@@ -791,15 +614,14 @@ The next type of arrest is a "warrant/previous incident report" and this makes u
 
 Finally, people can get a "summoned/cited" arrest which isn't really an arrest at all. This is when they are given a subpoena that says that must go to court to be tried for a crime, but they are not formally arrested and taken into police custody (i.e. they are never handcuffed, taken to a police precinct or to jail). About 22.2% of arrests are this form of arrest.
 
-<div class="figure" style="text-align: center">
-<img src="16_nibrs_arrestee_files/figure-html/arresteeTypeOfArrest-1.png" alt="The distribution of arrests by type of arrest. Previous Incident Report includes cases where an individual was arrested for a separate crime and are then reported as also arrested for this incident." width="90%" />
-<p class="caption">(\#fig:arresteeTypeOfArrest)The distribution of arrests by type of arrest. Previous Incident Report includes cases where an individual was arrested for a separate crime and are then reported as also arrested for this incident.</p>
-</div>
+THEYRE
 
 <div class="figure" style="text-align: center">
-<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeArrestType-1.png" alt="Annual arrest type for all arrestees, 1991-2022." width="90%" />
-<p class="caption">(\#fig:nibrsArresteeArrestType)Annual arrest type for all arrestees, 1991-2022.</p>
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeArrestType-1.png" alt="Annual arrest type for all arrestees, 1991-2022. Previous Incident Report includes cases where an individual was arrested for a separate crime and are then reported as also arrested for this incident." width="90%" />
+<p class="caption">(\#fig:nibrsArresteeArrestType)Annual arrest type for all arrestees, 1991-2022. Previous Incident Report includes cases where an individual was arrested for a separate crime and are then reported as also arrested for this incident.</p>
 </div>
+
+
 
 <div class="figure" style="text-align: center">
 <img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeDUIArrestType-1.png" alt="Annual arrest type for DUI arrestees, 1991-2022." width="90%" />
@@ -808,10 +630,7 @@ Finally, people can get a "summoned/cited" arrest which isn't really an arrest a
 
 
 
-<div class="figure" style="text-align: center">
-<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeMurderArrestType-1.png" alt="Annual arrest type for murder and nonngeligent manslaughter arrestees, 1991-2022." width="90%" />
-<p class="caption">(\#fig:nibrsArresteeMurderArrestType)Annual arrest type for murder and nonngeligent manslaughter arrestees, 1991-2022.</p>
-</div>
+
 
 ## Disposition for juvenile arrestees
 
@@ -834,10 +653,7 @@ One thing to be cautious about is that residence status may be an imprecise meas
 
 Figure \@ref(fig:arresteeResidenceStatus) shows the percent of arrestees in 2022 who were residents or not (or whose status was unknown) of the jurisdiction that arrested them. Most people were arrested near where they live, with 56.9% of arrestees being residents, compared with 23.3% not being residents. However, about one-fifth of arrestees had an unknown residence status so the percents of resident and non-resident may change dramatically if we didn't have any unknowns. 
 
-<div class="figure" style="text-align: center">
-<img src="16_nibrs_arrestee_files/figure-html/arresteeResidenceStatus-1.png" alt="The distribution of residence status for all arrestees reported to NIBRS in 2022. Residence status is residence in the arresting agency's jurisdiction (e.g. do you live in the city you were arrested in?). It is unrelated to citizenship or immigration status." width="90%" />
-<p class="caption">(\#fig:arresteeResidenceStatus)The distribution of residence status for all arrestees reported to NIBRS in 2022. Residence status is residence in the arresting agency's jurisdiction (e.g. do you live in the city you were arrested in?). It is unrelated to citizenship or immigration status.</p>
-</div>
+
 
 <div class="figure" style="text-align: center">
 <img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeResidentStatus-1.png" alt="Annual resident status (i.e. if they live in the arresting jurisdiction) of arrestees, 1991-2022." width="90%" />
@@ -870,10 +686,7 @@ Figure \@ref(fig:arresteeAge) shows the percent of arrestees at every age availa
 
 We also know the sex of the arrestee. The only options for this variable are male and female and there is never missing data so the police always choose one of these two choices. There is no option for transgender or any other identity. Figure \@ref(fig:arresteeSex) shows the distribution of arrestees by sex. The vast majority, 70.5% of arrestees are male and the remaining 29.5% are female. This is a higher rate of female arrestees than you might expect - past research has found that crime is largely a male-phenomenon, even greater than found here (though "crime" in most criminology research is only murder or violent index crimes) - and that's because there are differences in sex involvement by type of crime. For rape, as an example, 97.8% of arrestees in 2022 were male. Shoplifting was an even 50% split between female and male arrestees.
 
-<div class="figure" style="text-align: center">
-<img src="16_nibrs_arrestee_files/figure-html/arresteeSex-1.png" alt="The sex of all arrestees reported in the 2022 NIBRS data." width="90%" />
-<p class="caption">(\#fig:arresteeSex)The sex of all arrestees reported in the 2022 NIBRS data.</p>
-</div>
+
 
 <div class="figure" style="text-align: center">
 <img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeSex-1.png" alt="The share of arrestees by sex, 1991-2022." width="90%" />
@@ -886,10 +699,7 @@ For each arrestee we know their race, with possible races being White, Black, Am
 
 Figure \@ref(fig:arresteeRace) shows the breakdown for the races of each arrestee. White arrestees are most common at 64.2% of arrestees, following by Black arrestees at 29.8%. Only 3.1% of arrestees have an unknown race. The remaining small share of arrestees is made up of American Indian/Alaskan Native at 1.6%, Asian at 1%, and Native Hawaiian/Pacific Islander at 0.3% of arrestees.
 
-<div class="figure" style="text-align: center">
-<img src="16_nibrs_arrestee_files/figure-html/arresteeRace-1.png" alt="The race of all arrestees reported in the 2022 NIBRS data." width="90%" />
-<p class="caption">(\#fig:arresteeRace)The race of all arrestees reported in the 2022 NIBRS data.</p>
-</div>
+
 
 <div class="figure" style="text-align: center">
 <img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeRace-1.png" alt="The share of arrestees by race, 1991-2022." width="90%" />
@@ -904,10 +714,6 @@ Ethnicity is an optional variable so agencies are never required to report it. T
 
 Figure \@ref(fig:arresteeEthnicity) shows the breakdown in arrests by arrestee ethnicity. Most arrestees - 72.5% - are not Hispanic. Only 10% are reported to be Hispanic but an even higher percent of arrestees - 16.8% - have an unknown ethnicity so the true percent or Hispanic or non-Hispanic arrestee may be different than shown here. 
 
-<div class="figure" style="text-align: center">
-<img src="16_nibrs_arrestee_files/figure-html/arresteeEthnicity-1.png" alt="The ethnicity of all arrestees reported in the 2022 NIBRS data." width="90%" />
-<p class="caption">(\#fig:arresteeEthnicity)The ethnicity of all arrestees reported in the 2022 NIBRS data.</p>
-</div>
 
 
 <div class="figure" style="text-align: center">

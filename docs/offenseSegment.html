@@ -23,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2024-09-10" />
+<meta name="date" content="2024-09-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -469,149 +469,11 @@ div.csl-indent {
 Figure 13.1: The annual number of agencies reporting data in the NIBRS Offense Segment, 1991-2022.
 </p>
 </div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsOffenseOffensesReported"></span>
-<img src="13_nibrs_offense_files/figure-html/nibrsOffenseOffensesReported-1.png" alt="The annual number of offenses reported, 1991-2022." width="90%" />
-<p class="caption">
-Figure 13.2: The annual number of offenses reported, 1991-2022.
-</p>
-</div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsOffenseMurdersReported"></span>
-<img src="13_nibrs_offense_files/figure-html/nibrsOffenseMurdersReported-1.png" alt="The annual number of murders and nonnegligent homicides reported, 1991-2022." width="90%" />
-<p class="caption">
-Figure 13.3: The annual number of murders and nonnegligent homicides reported, 1991-2022.
-</p>
-</div>
 <div id="crime-category" class="section level2 hasAnchor" number="13.1">
 <h2><span class="header-section-number">13.1</span> Crime category<a href="offenseSegment.html#crime-category" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The first important variable in the Offense Segment is figuring out exactly what offense was committed. This tells you what crime occurred in the incident. There can be multiple crimes in a single incident so this provides info about each crime that occurred. To figure out which offenses belong together, just look at the incident number and the ORI. Within ORI, each incident number is a unique identifier for an incident. Each crime is mutually exclusive and crimes which are elements of another crime are counted only as the crime they are elements of. For example, robberies are basically theft plus assault/intimidation - it is the use of force or threat of force (assault or intimidation) to take property (theft). A case of robbery in this data would only count as robbery, not as robbery and theft and assault/intimidation. If there are these crimes together in an incident that’s because that crime <em>also</em> occurred separately. For example, if someone is robbed and after the robbery is over (i.e. they hand over their belongings) they are then punched repeatedly, that could potentially be classified as a robbery and an assault.</p>
 <p>Table <a href="offenseSegment.html#tab:offenseCrimeCategories">13.1</a> shows each possible crime in the data and how common it was in 2019. It’s sorted by frequency instead of alphabetically so it’s easier to see which crimes are most common. There were about 7.4 million crimes reported to NIBRS in 2019. The most common crime is simple assault - which is an assault that didn’t use a weapon and didn’t result in serious injury - at 12.7% of crimes, or about 944k crimes. If you think this is odd because property crimes are more common than violent crimes, you’d be right. NIBRS data is pretty specific in its crime categories so it splits up certain crimes into a number of different categories. Theft is the most common crime committed in the United States. In NIBRS it’s broken into several different types of theft so you need to combine them together to actually measure theft in its entirety. Of the top 6 most common crimes, theft crimes make up ranks 3, 5, and 6 (all other larceny, theft from motor vehicle, and shoplifting).</p>
 <p>Though each agency is supposed to report the same crimes - using the exact same definition of the crimes so the data is consistent - that isn’t always true in practice. For example, animal cruelty became a NIBRS crime in 2018 (before that it wasn’t an option so agencies could not report it) and likely most agencies in the US have had at least one animal abuse crime since then. In 2018, however, reporting was concentrated in a small number of states, meaning that not all agencies reported that offense. The concentration in certain states suggests that this low reporting is due to agencies in certain states deciding (or not being able to, such as if having older reporting systems which don’t have animal cruelty as an option) not to report that offense at all. Reporting has increased in 2019 (though still remains highly concentrated), suggesting that over time more agencies begin reporting crimes as they are added. Therefore, I strongly suggest examining your data over time and across geographic areas to see if there are any biases before using it.</p>
-<pre><code>#&gt;                                                         Crime Category
-#&gt; 1                                    Assault Offenses - Simple Assault
-#&gt; 2                             Destruction/Damage/Vandalism of Property
-#&gt; 3                           Larceny/Theft Offenses - All Other Larceny
-#&gt; 4                    Drug/Narcotic Offenses - Drug/Narcotic Violations
-#&gt; 5                    Larceny/Theft Offenses - Theft From Motor Vehicle
-#&gt; 6                                 Larceny/Theft Offenses - Shoplifting
-#&gt; 7                                                  Motor Vehicle Theft
-#&gt; 8                                       Burglary/Breaking And Entering
-#&gt; 9                                Assault Offenses - Aggravated Assault
-#&gt; 10                                     Assault Offenses - Intimidation
-#&gt; 11                  Drug/Narcotic Offenses - Drug Equipment Violations
-#&gt; 12   Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories
-#&gt; 13            Fraud Offenses - False Pretenses/Swindle/Confidence Game
-#&gt; 14                       Weapon Law Violations - Weapon Law Violations
-#&gt; 15                        Larceny/Theft Offenses - Theft From Building
-#&gt; 16                              Fraud Offenses - Credit Card/Atm Fraud
-#&gt; 17                                     Fraud Offenses - Identity Theft
-#&gt; 18                                                             Robbery
-#&gt; 19                                              Counterfeiting/Forgery
-#&gt; 20                 Stolen Property Offenses (Receiving, Selling, Etc.)
-#&gt; 21           Sex Offenses - Fondling (Incident Liberties/Child Molest)
-#&gt; 22                                      Fraud Offenses - Impersonation
-#&gt; 23                                                 Sex Offenses - Rape
-#&gt; 24                                        Pornography/Obscene Material
-#&gt; 25                                                Kidnapping/Abduction
-#&gt; 26                                         Fraud Offenses - Wire Fraud
-#&gt; 27                                                        Embezzlement
-#&gt; 28                                                               Arson
-#&gt; 29                             Larceny/Theft Offenses - Pocket-Picking
-#&gt; 30                                                      Animal Cruelty
-#&gt; 31                                                 Extortion/Blackmail
-#&gt; 32                                               Sex Offenses - Sodomy
-#&gt; 33                                    Murder/Nonnegligent Manslaughter
-#&gt; 34                            Larceny/Theft Offenses - Purse-Snatching
-#&gt; 35                          Fraud Offenses - Hacking/Computer Invasion
-#&gt; 36                        Sex Offenses - Sexual Assault With An Object
-#&gt; 37                                       Sex Offenses - Statutory Rape
-#&gt; 38                                Prostitution Offenses - Prostitution
-#&gt; 39 Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device
-#&gt; 40                                      Fraud Offenses - Welfare Fraud
-#&gt; 41         Prostitution Offenses - Assisting Or Promoting Prostitution
-#&gt; 42                     Prostitution Offenses - Purchasing Prostitution
-#&gt; 43                             Human Trafficking - Commercial Sex Acts
-#&gt; 44                                              Negligent Manslaughter
-#&gt; 45                                               Sex Offenses - Incest
-#&gt; 46          Gambling Offenses - Operating/Promoting/Assisting Gambling
-#&gt; 47                                                             Bribery
-#&gt; 48                                Gambling Offenses - Betting/Wagering
-#&gt; 49                                  Justifiable Homicide - Not A Crime
-#&gt; 50                   Gambling Offenses - Gambling Equipment Violations
-#&gt; 51                           Human Trafficking - Involuntary Servitude
-#&gt; 52                       Commerce Violations - Federal Liquor Offenses
-#&gt; 53                     Fugitive Offenses - Flight To Avoid Prosecution
-#&gt; 54                Sex Offenses - Failure To Register As A Sex Offender
-#&gt; 55                                   Fraud Offenses - Money Laundering
-#&gt; 56                                  Weapon Law Violations - Explosives
-#&gt; 57       Fugitive Offenses - Harboring Escappee/Concealing From Arrest
-#&gt; 58       Immigration Violations - Illegal Entry Into The United States
-#&gt; 59                                Gambling Offenses - Sports Tampering
-#&gt; 60                     Fugitive Offenses - Flight To Avoid Deportation
-#&gt; 61   Weapon Law Violations - Violation of National Firearm Act of 1934
-#&gt; 62                                                               Total
-#&gt;    First Year \\# of Offenses \\% of Offenses
-#&gt; 1        1991       1,725,221        13.57\\%
-#&gt; 2        1991       1,499,936        11.80\\%
-#&gt; 3        1991       1,341,444        10.55\\%
-#&gt; 4        1991         993,308         7.81\\%
-#&gt; 5        1991         851,640         6.70\\%
-#&gt; 6        1991         733,952         5.77\\%
-#&gt; 7        1991         721,788         5.68\\%
-#&gt; 8        1991         673,144         5.30\\%
-#&gt; 9        1991         540,892         4.25\\%
-#&gt; 10       1991         474,517         3.73\\%
-#&gt; 11       1991         467,075         3.67\\%
-#&gt; 12       1991         378,447         2.98\\%
-#&gt; 13       1991         337,056         2.65\\%
-#&gt; 14       1991         326,104         2.57\\%
-#&gt; 15       1991         279,349         2.20\\%
-#&gt; 16       1991         190,962         1.50\\%
-#&gt; 17       2015         186,144         1.46\\%
-#&gt; 18       1991         149,999         1.18\\%
-#&gt; 19       1991         147,991         1.16\\%
-#&gt; 20       1991         115,472         0.91\\%
-#&gt; 21       1991          80,711         0.63\\%
-#&gt; 22       1991          79,049         0.62\\%
-#&gt; 23       1991          76,495         0.60\\%
-#&gt; 24       1991          39,885         0.31\\%
-#&gt; 25       1991          39,148         0.31\\%
-#&gt; 26       1991          38,373         0.30\\%
-#&gt; 27       1991          32,487         0.26\\%
-#&gt; 28       1991          30,178         0.24\\%
-#&gt; 29       1991          21,078         0.17\\%
-#&gt; 30       2015          20,527         0.16\\%
-#&gt; 31       1991          20,305         0.16\\%
-#&gt; 32       1991          18,353         0.14\\%
-#&gt; 33       1991          14,994         0.12\\%
-#&gt; 34       1991          11,278         0.09\\%
-#&gt; 35       2015           8,151         0.06\\%
-#&gt; 36       1991           7,871         0.06\\%
-#&gt; 37       1991           7,752         0.06\\%
-#&gt; 38       1991           7,670         0.06\\%
-#&gt; 39       1991           5,500         0.04\\%
-#&gt; 40       1991           4,580         0.04\\%
-#&gt; 41       1991           2,961         0.02\\%
-#&gt; 42       2013           2,380         0.02\\%
-#&gt; 43       2013           1,818         0.01\\%
-#&gt; 44       1991           1,588         0.01\\%
-#&gt; 45       1991           1,175         0.01\\%
-#&gt; 46       1991             909         0.01\\%
-#&gt; 47       1991             652         0.01\\%
-#&gt; 48       1991             649         0.01\\%
-#&gt; 49       1991             617         0.00\\%
-#&gt; 50       1991             560         0.00\\%
-#&gt; 51       2014             416         0.00\\%
-#&gt; 52       2020             145         0.00\\%
-#&gt; 53       2021              68         0.00\\%
-#&gt; 54       2021              27         0.00\\%
-#&gt; 55       2022               7         0.00\\%
-#&gt; 56       2021               4         0.00\\%
-#&gt; 57       2021               3         0.00\\%
-#&gt; 58       2020               3         0.00\\%
-#&gt; 59       1994               3         0.00\\%
-#&gt; 60       2021               1         0.00\\%
-#&gt; 61       2021               1         0.00\\%
-#&gt; 62          -      12,712,813          100\\%</code></pre>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:offenseCrimeCategories">Table 13.1: </span>The number and percent of crimes reported from all agencies in 2022, by crime category.
@@ -1827,6 +1689,160 @@ Crime Category
 <tbody>
 <tr>
 <td style="text-align:left;">
+Drug/Narcotic Offenses - Drug Equipment Violations
+</td>
+<td style="text-align:right;">
+99.81 %
+</td>
+<td style="text-align:right;">
+0.19 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Drug/Narcotic Offenses - Drug/Narcotic Violations
+</td>
+<td style="text-align:right;">
+99.63 %
+</td>
+<td style="text-align:right;">
+0.37 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Destruction/Damage/Vandalism of Property
+</td>
+<td style="text-align:right;">
+99.43 %
+</td>
+<td style="text-align:right;">
+0.57 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Larceny/Theft Offenses - Theft From Building
+</td>
+<td style="text-align:right;">
+99.27 %
+</td>
+<td style="text-align:right;">
+0.73 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Larceny/Theft Offenses - Pocket-Picking
+</td>
+<td style="text-align:right;">
+98.83 %
+</td>
+<td style="text-align:right;">
+1.17 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Weapon Law Violations - Weapon Law Violations
+</td>
+<td style="text-align:right;">
+98.81 %
+</td>
+<td style="text-align:right;">
+1.19 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Larceny/Theft Offenses - All Other Larceny
+</td>
+<td style="text-align:right;">
+98.8 %
+</td>
+<td style="text-align:right;">
+1.2 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Embezzlement
+</td>
+<td style="text-align:right;">
+98.73 %
+</td>
+<td style="text-align:right;">
+1.27 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Stolen Property Offenses (Receiving, Selling, Etc.)
+</td>
+<td style="text-align:right;">
+98.73 %
+</td>
+<td style="text-align:right;">
+1.27 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Larceny/Theft Offenses - Shoplifting
+</td>
+<td style="text-align:right;">
+98.68 %
+</td>
+<td style="text-align:right;">
+1.32 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Larceny/Theft Offenses - Purse-Snatching
+</td>
+<td style="text-align:right;">
+98.19 %
+</td>
+<td style="text-align:right;">
+1.81 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories
+</td>
+<td style="text-align:right;">
+97.81 %
+</td>
+<td style="text-align:right;">
+2.19 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sex Offenses - Sexual Assault With An Object
+</td>
+<td style="text-align:right;">
+97.33 %
+</td>
+<td style="text-align:right;">
+2.67 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sex Offenses - Statutory Rape
+</td>
+<td style="text-align:right;">
+97.3 %
+</td>
+<td style="text-align:right;">
+2.7 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 Animal Cruelty
 </td>
 <td style="text-align:right;">
@@ -1838,6 +1854,94 @@ Animal Cruelty
 </tr>
 <tr>
 <td style="text-align:left;">
+Pornography/Obscene Material
+</td>
+<td style="text-align:right;">
+97.17 %
+</td>
+<td style="text-align:right;">
+2.83 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sex Offenses - Sodomy
+</td>
+<td style="text-align:right;">
+97.16 %
+</td>
+<td style="text-align:right;">
+2.84 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sex Offenses - Fondling (Incident Liberties/Child Molest)
+</td>
+<td style="text-align:right;">
+97.12 %
+</td>
+<td style="text-align:right;">
+2.88 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sex Offenses - Rape
+</td>
+<td style="text-align:right;">
+96.7 %
+</td>
+<td style="text-align:right;">
+3.3 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sex Offenses - Incest
+</td>
+<td style="text-align:right;">
+96.43 %
+</td>
+<td style="text-align:right;">
+3.57 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Counterfeiting/Forgery
+</td>
+<td style="text-align:right;">
+95.72 %
+</td>
+<td style="text-align:right;">
+4.28 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Prostitution Offenses - Prostitution
+</td>
+<td style="text-align:right;">
+95.62 %
+</td>
+<td style="text-align:right;">
+4.38 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fraud Offenses - Identity Theft
+</td>
+<td style="text-align:right;">
+95.33 %
+</td>
+<td style="text-align:right;">
+4.67 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 Arson
 </td>
 <td style="text-align:right;">
@@ -1845,6 +1949,281 @@ Arson
 </td>
 <td style="text-align:right;">
 4.9 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Prostitution Offenses - Assisting Or Promoting Prostitution
+</td>
+<td style="text-align:right;">
+94.97 %
+</td>
+<td style="text-align:right;">
+5.03 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Kidnapping/Abduction
+</td>
+<td style="text-align:right;">
+94.82 %
+</td>
+<td style="text-align:right;">
+5.18 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Motor Vehicle Theft
+</td>
+<td style="text-align:right;">
+94.69 %
+</td>
+<td style="text-align:right;">
+5.31 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fraud Offenses - Credit Card/Atm Fraud
+</td>
+<td style="text-align:right;">
+94.19 %
+</td>
+<td style="text-align:right;">
+5.81 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burglary/Breaking And Entering
+</td>
+<td style="text-align:right;">
+93.55 %
+</td>
+<td style="text-align:right;">
+6.45 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Larceny/Theft Offenses - Theft From Motor Vehicle
+</td>
+<td style="text-align:right;">
+92.84 %
+</td>
+<td style="text-align:right;">
+7.16 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fraud Offenses - Impersonation
+</td>
+<td style="text-align:right;">
+92.43 %
+</td>
+<td style="text-align:right;">
+7.57 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fraud Offenses - False Pretenses/Swindle/Confidence Game
+</td>
+<td style="text-align:right;">
+92.36 %
+</td>
+<td style="text-align:right;">
+7.64 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fraud Offenses - Wire Fraud
+</td>
+<td style="text-align:right;">
+92.04 %
+</td>
+<td style="text-align:right;">
+7.96 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gambling Offenses - Gambling Equipment Violations
+</td>
+<td style="text-align:right;">
+91.43 %
+</td>
+<td style="text-align:right;">
+8.57 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Human Trafficking - Involuntary Servitude
+</td>
+<td style="text-align:right;">
+91.11 %
+</td>
+<td style="text-align:right;">
+8.89 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Human Trafficking - Commercial Sex Acts
+</td>
+<td style="text-align:right;">
+91.09 %
+</td>
+<td style="text-align:right;">
+8.91 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Prostitution Offenses - Purchasing Prostitution
+</td>
+<td style="text-align:right;">
+90.29 %
+</td>
+<td style="text-align:right;">
+9.71 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Robbery
+</td>
+<td style="text-align:right;">
+90.17 %
+</td>
+<td style="text-align:right;">
+9.83 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fraud Offenses - Welfare Fraud
+</td>
+<td style="text-align:right;">
+90.15 %
+</td>
+<td style="text-align:right;">
+9.85 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device
+</td>
+<td style="text-align:right;">
+89.76 %
+</td>
+<td style="text-align:right;">
+10.24 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fraud Offenses - Hacking/Computer Invasion
+</td>
+<td style="text-align:right;">
+89.18 %
+</td>
+<td style="text-align:right;">
+10.82 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fraud Offenses - Money Laundering
+</td>
+<td style="text-align:right;">
+85.71 %
+</td>
+<td style="text-align:right;">
+14.29 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gambling Offenses - Operating/Promoting/Assisting Gambling
+</td>
+<td style="text-align:right;">
+85.7 %
+</td>
+<td style="text-align:right;">
+14.3 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bribery
+</td>
+<td style="text-align:right;">
+83.9 %
+</td>
+<td style="text-align:right;">
+16.1 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gambling Offenses - Betting/Wagering
+</td>
+<td style="text-align:right;">
+83.36 %
+</td>
+<td style="text-align:right;">
+16.64 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gambling Offenses - Sports Tampering
+</td>
+<td style="text-align:right;">
+66.67 %
+</td>
+<td style="text-align:right;">
+33.33 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Commerce Violations - Federal Liquor Offenses
+</td>
+<td style="text-align:right;">
+64.83 %
+</td>
+<td style="text-align:right;">
+35.17 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Extortion/Blackmail
+</td>
+<td style="text-align:right;">
+60.81 %
+</td>
+<td style="text-align:right;">
+39.19 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fugitive Offenses - Flight To Avoid Prosecution
+</td>
+<td style="text-align:right;">
+30.88 %
+</td>
+<td style="text-align:right;">
+69.12 %
 </td>
 </tr>
 <tr>
@@ -1882,204 +2261,6 @@ Assault Offenses - Simple Assault
 </tr>
 <tr>
 <td style="text-align:left;">
-Bribery
-</td>
-<td style="text-align:right;">
-83.9 %
-</td>
-<td style="text-align:right;">
-16.1 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Burglary/Breaking And Entering
-</td>
-<td style="text-align:right;">
-93.55 %
-</td>
-<td style="text-align:right;">
-6.45 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Commerce Violations - Federal Liquor Offenses
-</td>
-<td style="text-align:right;">
-64.83 %
-</td>
-<td style="text-align:right;">
-35.17 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Counterfeiting/Forgery
-</td>
-<td style="text-align:right;">
-95.72 %
-</td>
-<td style="text-align:right;">
-4.28 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Destruction/Damage/Vandalism of Property
-</td>
-<td style="text-align:right;">
-99.43 %
-</td>
-<td style="text-align:right;">
-0.57 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Drug/Narcotic Offenses - Drug Equipment Violations
-</td>
-<td style="text-align:right;">
-99.81 %
-</td>
-<td style="text-align:right;">
-0.19 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Drug/Narcotic Offenses - Drug/Narcotic Violations
-</td>
-<td style="text-align:right;">
-99.63 %
-</td>
-<td style="text-align:right;">
-0.37 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Embezzlement
-</td>
-<td style="text-align:right;">
-98.73 %
-</td>
-<td style="text-align:right;">
-1.27 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Extortion/Blackmail
-</td>
-<td style="text-align:right;">
-60.81 %
-</td>
-<td style="text-align:right;">
-39.19 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Credit Card/Atm Fraud
-</td>
-<td style="text-align:right;">
-94.19 %
-</td>
-<td style="text-align:right;">
-5.81 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - False Pretenses/Swindle/Confidence Game
-</td>
-<td style="text-align:right;">
-92.36 %
-</td>
-<td style="text-align:right;">
-7.64 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Hacking/Computer Invasion
-</td>
-<td style="text-align:right;">
-89.18 %
-</td>
-<td style="text-align:right;">
-10.82 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Identity Theft
-</td>
-<td style="text-align:right;">
-95.33 %
-</td>
-<td style="text-align:right;">
-4.67 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Impersonation
-</td>
-<td style="text-align:right;">
-92.43 %
-</td>
-<td style="text-align:right;">
-7.57 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Money Laundering
-</td>
-<td style="text-align:right;">
-85.71 %
-</td>
-<td style="text-align:right;">
-14.29 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Welfare Fraud
-</td>
-<td style="text-align:right;">
-90.15 %
-</td>
-<td style="text-align:right;">
-9.85 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Fraud Offenses - Wire Fraud
-</td>
-<td style="text-align:right;">
-92.04 %
-</td>
-<td style="text-align:right;">
-7.96 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Fugitive Offenses - Flight To Avoid Prosecution
-</td>
-<td style="text-align:right;">
-30.88 %
-</td>
-<td style="text-align:right;">
-69.12 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 Fugitive Offenses - Harboring Escappee/Concealing From Arrest
 </td>
 <td style="text-align:right;">
@@ -2087,72 +2268,6 @@ Fugitive Offenses - Harboring Escappee/Concealing From Arrest
 </td>
 <td style="text-align:right;">
 0 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Gambling Offenses - Betting/Wagering
-</td>
-<td style="text-align:right;">
-83.36 %
-</td>
-<td style="text-align:right;">
-16.64 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Gambling Offenses - Gambling Equipment Violations
-</td>
-<td style="text-align:right;">
-91.43 %
-</td>
-<td style="text-align:right;">
-8.57 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Gambling Offenses - Operating/Promoting/Assisting Gambling
-</td>
-<td style="text-align:right;">
-85.7 %
-</td>
-<td style="text-align:right;">
-14.3 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Gambling Offenses - Sports Tampering
-</td>
-<td style="text-align:right;">
-66.67 %
-</td>
-<td style="text-align:right;">
-33.33 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Human Trafficking - Commercial Sex Acts
-</td>
-<td style="text-align:right;">
-91.09 %
-</td>
-<td style="text-align:right;">
-8.91 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Human Trafficking - Involuntary Servitude
-</td>
-<td style="text-align:right;">
-91.11 %
-</td>
-<td style="text-align:right;">
-8.89 %
 </td>
 </tr>
 <tr>
@@ -2179,116 +2294,6 @@ Justifiable Homicide - Not A Crime
 </tr>
 <tr>
 <td style="text-align:left;">
-Kidnapping/Abduction
-</td>
-<td style="text-align:right;">
-94.82 %
-</td>
-<td style="text-align:right;">
-5.18 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - All Other Larceny
-</td>
-<td style="text-align:right;">
-98.8 %
-</td>
-<td style="text-align:right;">
-1.2 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Pocket-Picking
-</td>
-<td style="text-align:right;">
-98.83 %
-</td>
-<td style="text-align:right;">
-1.17 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Purse-Snatching
-</td>
-<td style="text-align:right;">
-98.19 %
-</td>
-<td style="text-align:right;">
-1.81 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Shoplifting
-</td>
-<td style="text-align:right;">
-98.68 %
-</td>
-<td style="text-align:right;">
-1.32 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Theft From Building
-</td>
-<td style="text-align:right;">
-99.27 %
-</td>
-<td style="text-align:right;">
-0.73 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device
-</td>
-<td style="text-align:right;">
-89.76 %
-</td>
-<td style="text-align:right;">
-10.24 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Theft From Motor Vehicle
-</td>
-<td style="text-align:right;">
-92.84 %
-</td>
-<td style="text-align:right;">
-7.16 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories
-</td>
-<td style="text-align:right;">
-97.81 %
-</td>
-<td style="text-align:right;">
-2.19 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Motor Vehicle Theft
-</td>
-<td style="text-align:right;">
-94.69 %
-</td>
-<td style="text-align:right;">
-5.31 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 Murder/Nonnegligent Manslaughter
 </td>
 <td style="text-align:right;">
@@ -2311,61 +2316,6 @@ Negligent Manslaughter
 </tr>
 <tr>
 <td style="text-align:left;">
-Pornography/Obscene Material
-</td>
-<td style="text-align:right;">
-97.17 %
-</td>
-<td style="text-align:right;">
-2.83 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Prostitution Offenses - Assisting Or Promoting Prostitution
-</td>
-<td style="text-align:right;">
-94.97 %
-</td>
-<td style="text-align:right;">
-5.03 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Prostitution Offenses - Prostitution
-</td>
-<td style="text-align:right;">
-95.62 %
-</td>
-<td style="text-align:right;">
-4.38 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Prostitution Offenses - Purchasing Prostitution
-</td>
-<td style="text-align:right;">
-90.29 %
-</td>
-<td style="text-align:right;">
-9.71 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Robbery
-</td>
-<td style="text-align:right;">
-90.17 %
-</td>
-<td style="text-align:right;">
-9.83 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 Sex Offenses - Failure To Register As A Sex Offender
 </td>
 <td style="text-align:right;">
@@ -2373,83 +2323,6 @@ Sex Offenses - Failure To Register As A Sex Offender
 </td>
 <td style="text-align:right;">
 0 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Fondling (Incident Liberties/Child Molest)
-</td>
-<td style="text-align:right;">
-97.12 %
-</td>
-<td style="text-align:right;">
-2.88 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Incest
-</td>
-<td style="text-align:right;">
-96.43 %
-</td>
-<td style="text-align:right;">
-3.57 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Rape
-</td>
-<td style="text-align:right;">
-96.7 %
-</td>
-<td style="text-align:right;">
-3.3 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Sexual Assault With An Object
-</td>
-<td style="text-align:right;">
-97.33 %
-</td>
-<td style="text-align:right;">
-2.67 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Sodomy
-</td>
-<td style="text-align:right;">
-97.16 %
-</td>
-<td style="text-align:right;">
-2.84 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Sex Offenses - Statutory Rape
-</td>
-<td style="text-align:right;">
-97.3 %
-</td>
-<td style="text-align:right;">
-2.7 %
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Stolen Property Offenses (Receiving, Selling, Etc.)
-</td>
-<td style="text-align:right;">
-98.73 %
-</td>
-<td style="text-align:right;">
-1.27 %
 </td>
 </tr>
 <tr>
@@ -2463,41 +2336,30 @@ Weapon Law Violations - Violation of National Firearm Act of 1934
 0 %
 </td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Weapon Law Violations - Weapon Law Violations
-</td>
-<td style="text-align:right;">
-98.81 %
-</td>
-<td style="text-align:right;">
-1.19 %
-</td>
-</tr>
 </tbody>
 </table>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsOffenseCompleted"></span>
 <img src="13_nibrs_offense_files/figure-html/nibrsOffenseCompleted-1.png" alt="The annual percent of offenses reported as completed, 1991-2022." width="90%" />
 <p class="caption">
-Figure 13.4: The annual percent of offenses reported as completed, 1991-2022.
+Figure 13.2: The annual percent of offenses reported as completed, 1991-2022.
 </p>
 </div>
 </div>
 <div id="drug-alcohol-or-computer-use" class="section level2 hasAnchor" number="13.4">
 <h2><span class="header-section-number">13.4</span> Drug, alcohol, or computer use<a href="offenseSegment.html#drug-alcohol-or-computer-use" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Intoxication, mainly by alcohol, is known to be a major correlate (and cause) of crime. Drunk people commit a lot of crime (even though most drunk people never commit crime). Drunk people are also better targets for crime so are chosen by certain offenders who want an easy victim. NIBRS tries to capture this by telling us if the offender is <em>suspected of using</em> drugs (just “drugs” as we don’t know which drug was involved, though we could look in the Property Segment to see what drug [if any] was seized by the police), alcohol, or “computer equipment” which also includes cell phones. Computer equipment is more relevant for certain crimes such as fraud or pornography/obscene materials. For each offense there are three variables about usage of any of these so potentially the offender could have used all three. The data doesn’t get any more specific than if the offender is <em>suspected of using</em> these items. So we don’t know how intoxicated they are or what they used the computer equipment for. Just that they’re suspected of using it. And suspected is key. We don’t know for sure if they used it. If, for example, a victim says that their mugger was drunk, NIBRS will say they’re suspected of using alcohol, even though there’s no definitive proof such as a blood test or breathalyzer. Unlike some past variables like offense subtype where it applies to only a subset of crimes, this variable is available for every crime.</p>
-<p>Figure <a href="offenseSegment.html#fig:offenseDrugAlcoholComputer">13.5</a> shows the distribution is suspected usage for all offenses in 2019 NIBRS. This is just from the first suspected use variable for simplicity of the graph, even though there are three variables on this topic. The most common outcome is “Not Applicable” at 87.6% of offenses. Not Applicable actually just means that the offender was not suspected of using drugs, alcohol, or computer equipment. I’m not sure why it’s called that but that’s how NIBRS calls “none of the above”. Since Not Applicable is so common, Figure <a href="offenseSegment.html#fig:offenseDrugAlcoholComputerAny">13.6</a> shows the distribution when excluding that option.</p>
+<p>Figure <a href="offenseSegment.html#fig:offenseDrugAlcoholComputer">13.3</a> shows the distribution is suspected usage for all offenses in 2019 NIBRS. This is just from the first suspected use variable for simplicity of the graph, even though there are three variables on this topic. The most common outcome is “Not Applicable” at 87.6% of offenses. Not Applicable actually just means that the offender was not suspected of using drugs, alcohol, or computer equipment. I’m not sure why it’s called that but that’s how NIBRS calls “none of the above”. Since Not Applicable is so common, Figure <a href="offenseSegment.html#fig:offenseDrugAlcoholComputerAny">13.4</a> shows the distribution when excluding that option.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:offenseDrugAlcoholComputer"></span>
 <img src="13_nibrs_offense_files/figure-html/offenseDrugAlcoholComputer-1.png" alt="The distribution of drug, alcohol, or computer use for all offenses in 2022" width="90%" />
 <p class="caption">
-Figure 13.5: The distribution of drug, alcohol, or computer use for all offenses in 2022
+Figure 13.3: The distribution of drug, alcohol, or computer use for all offenses in 2022
 </p>
 </div>
 <p>Drug usage is the most common thing offenders are suspected of using. In about 66% of offenses where the offender is suspected of using something (of the drugs, alcohol, or “computer equipment” choices), that something is drugs. Again, we don’t know what type of drug was used, only that it wasn’t alcohol. Alcohol follows at 28% while computer equipment is only 6.1%.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:offenseDrugAlcoholComputerAny"></span>
 <img src="13_nibrs_offense_files/figure-html/offenseDrugAlcoholComputerAny-1.png" alt="The distribution of drug, alcohol, or computer use for offenses where there was usage of one of these items. For easier viewing of how this variable is distributed, this figure excludes all offenses where there was no drug, alcohol, or computer use or the variable was NA." width="90%" />
 <p class="caption">
-Figure 13.6: The distribution of drug, alcohol, or computer use for offenses where there was usage of one of these items. For easier viewing of how this variable is distributed, this figure excludes all offenses where there was no drug, alcohol, or computer use or the variable was NA.
+Figure 13.4: The distribution of drug, alcohol, or computer use for offenses where there was usage of one of these items. For easier viewing of how this variable is distributed, this figure excludes all offenses where there was no drug, alcohol, or computer use or the variable was NA.
 </p>
 </div>
 </div>
@@ -2505,102 +2367,6 @@ Figure 13.6: The distribution of drug, alcohol, or computer use for offenses whe
 <h2><span class="header-section-number">13.5</span> Crime location<a href="offenseSegment.html#crime-location" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>NIBRS tells us where each crime happened, giving more of a type of location rather than the precise location (e.g. coordinates) where it happened. Table <a href="offenseSegment.html#tab:offenseLocation">13.6</a> shows the 46 different location types where each offense could occur, sorted by most common to least common location. The most common place for a crime to occur is in someone’s own home, at 40.4% of crimes. This makes a bit of sense as people spend a lot of time at home and certain crimes, such as burglary and domestic violence, happen a lot of the victim’s own home. Crimes happening on a road or alley make up the second most common location at 16% and parking lot or garage follows at 8.6%. The remaining locations only make up 5% or fewer of offense locations.</p>
 <p>But keep in mind that some locations may be an overly specific location that fits well into a broader category that you’re interested in. For example, if you care about crimes that happen in stores you’d look at “Bank/Savings and Loan”, “Restaurant”, “Bar/Nightclub” among other locations, which combined have a lot more offenses than any one individually. This is a recurring theme of NIBRS data - you have a lot of data and some of it is so specific that you need to do extra work to aggregate data into units you want.</p>
-<pre><code>#&gt;                         Crime Location First Year \\# of Offenses
-#&gt; 1                       Residence/Home       1991       4,782,593
-#&gt; 2                   Highway/Road/Alley       1991       2,159,647
-#&gt; 3                   Parking Lot/Garage       1991       1,245,424
-#&gt; 4                        Other/Unknown       1991         614,236
-#&gt; 5            Department/Discount Store       1991         495,673
-#&gt; 6           Commercial/Office Building       1991         293,432
-#&gt; 7      Specialty Store (Tv, Fur, Etc.)       1991         285,175
-#&gt; 8                    Convenience Store       1991         282,025
-#&gt; 9                  Grocery/Supermarket       1991         263,737
-#&gt; 10                    Hotel/Motel/Etc.       1991         226,396
-#&gt; 11       School - Elementary/Secondary       2009         222,077
-#&gt; 12                          Restaurant       1991         203,154
-#&gt; 13                 Service/Gas Station       1991         190,517
-#&gt; 14  Drug Store/Doctors Office/Hospital       1991         138,569
-#&gt; 15                          Cyberspace       2015         127,061
-#&gt; 16               Bank/Savings And Loan       1991         121,775
-#&gt; 17                     Park/Playground       2010         112,826
-#&gt; 18                       Bar/Nightclub       1991          87,592
-#&gt; 19          Government/Public Building       1991          87,227
-#&gt; 20             Rental Storage Facility       1991          82,479
-#&gt; 21                   Construction Site       1991          72,579
-#&gt; 22         School - College/University       2009          65,940
-#&gt; 23                         Jail/Prison       1991          65,250
-#&gt; 24              Air/Bus/Train Terminal       1991          58,884
-#&gt; 25                       Shopping Mall       2009          57,199
-#&gt; 26                         Field/Woods       1991          54,266
-#&gt; 27             Church/Synagogue/Temple       1991          42,293
-#&gt; 28            Auto Dealership New/Used       2009          42,120
-#&gt; 29 Gambling Facility/Casino/Race Track       2009          32,557
-#&gt; 30                      School/College       1991          30,474
-#&gt; 31                        Liquor Store       1991          28,907
-#&gt; 32                     Industrial Site       2009          22,938
-#&gt; 33                    Community Center       2012          14,362
-#&gt; 34                     Camp/Campground       2009          12,287
-#&gt; 35          Shelter - Mission/Homeless       2010          11,573
-#&gt; 36                       Lake/Waterway       1991          11,237
-#&gt; 37                       Farm Facility       2009          10,580
-#&gt; 38  Arena/Stadium/Fairgrounds/Coliseum       2009           9,586
-#&gt; 39              Atm Separate From Bank       2009           9,214
-#&gt; 40       Abandoned/Condemned Structure       2010           8,757
-#&gt; 41                      Amusement Park       2010           7,275
-#&gt; 42                    Daycare Facility       2009           7,268
-#&gt; 43   Dock/Wharf/Freight/Model Terminal       2009           6,469
-#&gt; 44                        Tribal Lands       2011           5,372
-#&gt; 45                           Rest Area       2009           3,216
-#&gt; 46               Military Installation       2010             595
-#&gt; 47                               Total          -      12,712,813
-#&gt;    \\% of Offenses
-#&gt; 1         37.62\\%
-#&gt; 2         16.99\\%
-#&gt; 3          9.80\\%
-#&gt; 4          4.83\\%
-#&gt; 5          3.90\\%
-#&gt; 6          2.31\\%
-#&gt; 7          2.24\\%
-#&gt; 8          2.22\\%
-#&gt; 9          2.07\\%
-#&gt; 10         1.78\\%
-#&gt; 11         1.75\\%
-#&gt; 12         1.60\\%
-#&gt; 13         1.50\\%
-#&gt; 14         1.09\\%
-#&gt; 15         1.00\\%
-#&gt; 16         0.96\\%
-#&gt; 17         0.89\\%
-#&gt; 18         0.69\\%
-#&gt; 19         0.69\\%
-#&gt; 20         0.65\\%
-#&gt; 21         0.57\\%
-#&gt; 22         0.52\\%
-#&gt; 23         0.51\\%
-#&gt; 24         0.46\\%
-#&gt; 25         0.45\\%
-#&gt; 26         0.43\\%
-#&gt; 27         0.33\\%
-#&gt; 28         0.33\\%
-#&gt; 29         0.26\\%
-#&gt; 30         0.24\\%
-#&gt; 31         0.23\\%
-#&gt; 32         0.18\\%
-#&gt; 33         0.11\\%
-#&gt; 34         0.10\\%
-#&gt; 35         0.09\\%
-#&gt; 36         0.09\\%
-#&gt; 37         0.08\\%
-#&gt; 38         0.08\\%
-#&gt; 39         0.07\\%
-#&gt; 40         0.07\\%
-#&gt; 41         0.06\\%
-#&gt; 42         0.06\\%
-#&gt; 43         0.05\\%
-#&gt; 44         0.04\\%
-#&gt; 45         0.03\\%
-#&gt; 46         0.00\\%
-#&gt; 47          100\\%</code></pre>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:offenseLocation">Table 13.6: </span>The location of crimes for all offenses reported in 2022.
@@ -3286,7 +3052,7 @@ Total
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsOffenseHome"></span>
 <img src="13_nibrs_offense_files/figure-html/nibrsOffenseHome-1.png" alt="The annual percent of offenses reported as occuring at the victim's home, 1991-2022." width="90%" />
 <p class="caption">
-Figure 13.7: The annual percent of offenses reported as occuring at the victim’s home, 1991-2022.
+Figure 13.5: The annual percent of offenses reported as occuring at the victim’s home, 1991-2022.
 </p>
 </div>
 </div>
@@ -3520,32 +3286,10 @@ Poison (Include Gas)
 </tr>
 <tr>
 <td style="text-align:left;">
-16
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-17
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0.00%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 Total
 </td>
 <td style="text-align:right;">
-3,004,537
+3,004,535
 </td>
 <td style="text-align:right;">
 100%
@@ -3556,41 +3300,35 @@ Total
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsMurdersWeapon"></span>
 <img src="13_nibrs_offense_files/figure-html/nibrsMurdersWeapon-1.png" alt="The annual percent of murders and nonnegligent homicides, by offender weapon, 1991-2022." width="90%" />
 <p class="caption">
-Figure 13.8: The annual percent of murders and nonnegligent homicides, by offender weapon, 1991-2022.
+Figure 13.6: The annual percent of murders and nonnegligent homicides, by offender weapon, 1991-2022.
 </p>
 </div>
 </div>
 <div id="automatic-weapons" class="section level2 hasAnchor" number="13.7">
 <h2><span class="header-section-number">13.7</span> Automatic weapons<a href="offenseSegment.html#automatic-weapons" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>When the weapon involved was a firearm there is a variable which indicates that the firearm was fully automatic. To be clear, this means that when you pull the trigger once the gun will fire multiple bullets. Semi-automatic firearms are <strong>not</strong> automatic firearms. Of course, saying a gun is fully automatic requires either the policing seizing the gun or the gun being fired (and for witnesses to accurately determine that it is fully automatic). Since most crimes are never solved (and even those that lead to an arrest may not lead to the gun being seized - though some guns are seized even without an arrest, such as if the gun is left at the crime scene) and most gun crimes don’t actually involve the gun being fired, this variable is likely very imprecise. Still, Figure <a href="offenseSegment.html#fig:offenseAutomaticWeapon">13.9</a> shows the percent of firearms used in offenses in 2019 that are reported to be fully automatic. Even though there can be up to three weapons used in an offense, this figure only looks at the first weapon. The most common guns to be automatic are rifles and handguns, both with about 4.5% of all uses being of an automatic weapon. The remaining categories are all under 3% of uses.</p>
+<p>When the weapon involved was a firearm there is a variable which indicates that the firearm was fully automatic. To be clear, this means that when you pull the trigger once the gun will fire multiple bullets. Semi-automatic firearms are <strong>not</strong> automatic firearms. Of course, saying a gun is fully automatic requires either the policing seizing the gun or the gun being fired (and for witnesses to accurately determine that it is fully automatic). Since most crimes are never solved (and even those that lead to an arrest may not lead to the gun being seized - though some guns are seized even without an arrest, such as if the gun is left at the crime scene) and most gun crimes don’t actually involve the gun being fired, this variable is likely very imprecise. Still, Figure <a href="offenseSegment.html#fig:offenseAutomaticWeapon">13.7</a> shows the percent of firearms used in offenses in 2019 that are reported to be fully automatic. Even though there can be up to three weapons used in an offense, this figure only looks at the first weapon. The most common guns to be automatic are rifles and handguns, both with about 4.5% of all uses being of an automatic weapon. The remaining categories are all under 3% of uses.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:offenseAutomaticWeapon"></span>
 <img src="13_nibrs_offense_files/figure-html/offenseAutomaticWeapon-1.png" alt="The percent of firearms used that were fully automatic, for all offenses in 2022." width="90%" />
 <p class="caption">
-Figure 13.9: The percent of firearms used that were fully automatic, for all offenses in 2022.
+Figure 13.7: The percent of firearms used that were fully automatic, for all offenses in 2022.
 </p>
 </div>
 </div>
 <div id="burglary-info" class="section level2 hasAnchor" number="13.8">
 <h2><span class="header-section-number">13.8</span> Burglary info<a href="offenseSegment.html#burglary-info" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For burglary offenses specifically there are two variables that provide a little more information on the offense. The first variable is the number of “premises” that the burglar entered. This is only available when the location for the offense is either hotel/motel or a rental storage facility. So the “premise” can really be thought of as a room in the building, not that they break into multiple hotels. Figure <a href="offenseSegment.html#fig:offensePremisesEntered">13.10</a> shows the breakdown in the number of premises entered during a burglary incident. The graph is capped at 10 or more but in 2019 the highest number was 99 buildings entered, which is the maximum value the police can enter, so in reality it may have been higher. The vast majority of hotel/motel and storage facility burglaries only have one room entered, with 85% of these burglaries only being on a single room. This declines enormously to 4.7% burglarizing two rooms and then nearly halves to 2.5% burglarizing three rooms. This trend continues as the number of rooms increase.</p>
+<p>For burglary offenses specifically there are two variables that provide a little more information on the offense. The first variable is the number of “premises” that the burglar entered. This is only available when the location for the offense is either hotel/motel or a rental storage facility. So the “premise” can really be thought of as a room in the building, not that they break into multiple hotels. Figure <a href="offenseSegment.html#fig:offensePremisesEntered">13.8</a> shows the breakdown in the number of premises entered during a burglary incident. The graph is capped at 10 or more but in 2019 the highest number was 99 buildings entered, which is the maximum value the police can enter, so in reality it may have been higher. The vast majority of hotel/motel and storage facility burglaries only have one room entered, with 85% of these burglaries only being on a single room. This declines enormously to 4.7% burglarizing two rooms and then nearly halves to 2.5% burglarizing three rooms. This trend continues as the number of rooms increase.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:offensePremisesEntered"></span>
 <img src="13_nibrs_offense_files/figure-html/offensePremisesEntered-1.png" alt="The distribution in the number of premises entered during burglaries. This info is only available for burglaries in a hotel/motel or rental storage facilities." width="90%" />
 <p class="caption">
-Figure 13.10: The distribution in the number of premises entered during burglaries. This info is only available for burglaries in a hotel/motel or rental storage facilities.
+Figure 13.8: The distribution in the number of premises entered during burglaries. This info is only available for burglaries in a hotel/motel or rental storage facilities.
 </p>
 </div>
 <p>The second variable, and one where there is data from every burglary reported regardless of location, says whether the burglar entered the building forcibly or not. A burglary without force is one when the burglary <em>only</em> enters through unlocked doors or windows. The <em>only</em> means that if they entered through an unlocked door or window and then forced open another door or window, the entire burglary is classified as forcible entry. Forcible entry is any when the burglar has to access a locked door or window <em>through any means of entering</em>. This is very broad and includes actions ranging from breaking the window - which people generally think of when it comes to forcible entry - to less obvious uses of force like picking the lock or even using a passcard (e.g. a hotel room card) to unlock the door. The FBI also includes when a burglar enters a building legally and then stays past their allowed time (e.g. walk into a store and hide somewhere until past closing time).</p>
-<p>Figure <a href="offenseSegment.html#fig:offensesTypeOfEntry">13.11</a> shows the breakdown in burglaries by type of entry. The majority of burglaries, 57.6%, use force at some point in the burglary. 42.4% don’t use force at all. There’s no option for “unknown” if force was used so my guess is that when in doubt - that is, when there’s no evidence of force - the police report that no force is used.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:offensesTypeOfEntry"></span>
-<img src="13_nibrs_offense_files/figure-html/offensesTypeOfEntry-1.png" alt="The percent of burglaries reported in 2022 where the burglary entered the structure forcibly or non-forcibly." width="90%" />
-<p class="caption">
-Figure 13.11: The percent of burglaries reported in 2022 where the burglary entered the structure forcibly or non-forcibly.
-</p>
-</div>
+<p>Figure <a href="#fig:offensesTypeOfEntry"><strong>??</strong></a> shows the breakdown in burglaries by type of entry. The majority of burglaries, 57.6%, use force at some point in the burglary. 42.4% don’t use force at all. There’s no option for “unknown” if force was used so my guess is that when in doubt - that is, when there’s no evidence of force - the police report that no force is used.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsBurglaryForce"></span>
 <img src="13_nibrs_offense_files/figure-html/nibrsBurglaryForce-1.png" alt="The annual percent of burglaries, by whether entry used force, 1991-2022." width="90%" />
 <p class="caption">
-Figure 13.12: The annual percent of burglaries, by whether entry used force, 1991-2022.
+Figure 13.9: The annual percent of burglaries, by whether entry used force, 1991-2022.
 </p>
 </div>
 </div>
@@ -3603,7 +3341,7 @@ Figure 13.12: The annual percent of burglaries, by whether entry used force, 199
 <p>Table <a href="offenseSegment.html#tab:offenseBiasMotivation">13.8</a> shows the percent of all offenses in 2019 that were classified with or without a bias motivation. Nearly all offenses - 99.14% - are without a bias motivation meaning that they are not considered hate crimes. This still leaves a 63,876 offenses classified as hate crimes.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:offenseBiasMotivation">Table 13.8: </span>The number and percent of offenders that had a bias motivation or not for all offenses reported in 2022.
+<span id="tab:offenseBiasMotivation">Table 13.8: </span>The number and percent of incidents that had a bias motivation for all incidents reported in 2022.
 </caption>
 <thead>
 <tr>
@@ -3624,10 +3362,10 @@ Bias Motivation
 No Bias Motivation
 </td>
 <td style="text-align:right;">
-12,610,154
+11,116,085
 </td>
 <td style="text-align:right;">
-99.19%
+99.18%
 </td>
 </tr>
 <tr>
@@ -3635,10 +3373,10 @@ No Bias Motivation
 Bias Motivation
 </td>
 <td style="text-align:right;">
-102,659
+91,549
 </td>
 <td style="text-align:right;">
-0.81%
+0.82%
 </td>
 </tr>
 <tr>
@@ -3646,7 +3384,7 @@ Bias Motivation
 Total
 </td>
 <td style="text-align:right;">
-12,712,813
+11,207,634
 </td>
 <td style="text-align:right;">
 100%
@@ -3658,7 +3396,7 @@ Total
 <p>Some of these groups are also subsets of larger groups. For example, anti-Muslim, anti-Arab, and anti-Sikh (while Sikhs are not Muslim or Arabic, some Sikhs have been targeted by people who incorrectly believe that they are) are probably all the same bias motivation. Likewise, attacks on LGBT people are in multiple categories, which allows for a more detailed understanding of these hate crimes but requires aggregation to look at them as a group. While this aggregation is easy enough to do, accidentally missing any of the subcategories could vastly undercount offenses against the larger category.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:offenseBiasMotivationBiases">Table 13.9: </span>The bias motivation (i.e. if hate crime or not and what type of hate crime) for all offenses reported in 2022 that were classified as hate crimes. For easier viewing of how hate crimes are broken down, this excludes all offenses where there was no bias motivation.
+<span id="tab:offenseBiasMotivationBiases">Table 13.9: </span>The bias motivation (i.e. if it was a hate crime and what type of hate crime) for all incidents reported in 2022 that were classified as hate crimes. For easier viewing of how hate crimes are broken down, this excludes all offenses where there was no bias motivation.
 </caption>
 <thead>
 <tr>
@@ -3679,10 +3417,10 @@ Bias Motivation
 Anti-Black
 </td>
 <td style="text-align:right;">
-2,806
+2,623
 </td>
 <td style="text-align:right;">
-31.43%
+31.69%
 </td>
 </tr>
 <tr>
@@ -3690,10 +3428,10 @@ Anti-Black
 Anti-White
 </td>
 <td style="text-align:right;">
-890
+837
 </td>
 <td style="text-align:right;">
-9.97%
+10.11%
 </td>
 </tr>
 <tr>
@@ -3701,10 +3439,10 @@ Anti-White
 Anti-Gay (Male)
 </td>
 <td style="text-align:right;">
-752
+719
 </td>
 <td style="text-align:right;">
-8.42%
+8.69%
 </td>
 </tr>
 <tr>
@@ -3712,10 +3450,10 @@ Anti-Gay (Male)
 Anti-Jewish
 </td>
 <td style="text-align:right;">
-577
+554
 </td>
 <td style="text-align:right;">
-6.46%
+6.69%
 </td>
 </tr>
 <tr>
@@ -3723,10 +3461,10 @@ Anti-Jewish
 Anti-Lesbian, Gay, Bisexual, Or Transgender (Mixed Group)
 </td>
 <td style="text-align:right;">
-571
+523
 </td>
 <td style="text-align:right;">
-6.39%
+6.32%
 </td>
 </tr>
 <tr>
@@ -3734,21 +3472,10 @@ Anti-Lesbian, Gay, Bisexual, Or Transgender (Mixed Group)
 Anti-Hispanic
 </td>
 <td style="text-align:right;">
-561
+506
 </td>
 <td style="text-align:right;">
-6.28%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Anti-Asian
-</td>
-<td style="text-align:right;">
-304
-</td>
-<td style="text-align:right;">
-3.40%
+6.11%
 </td>
 </tr>
 <tr>
@@ -3756,10 +3483,21 @@ Anti-Asian
 Anti-Other Race/Ethnicity/National Origin
 </td>
 <td style="text-align:right;">
-300
+287
 </td>
 <td style="text-align:right;">
-3.36%
+3.47%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Anti-Asian
+</td>
+<td style="text-align:right;">
+277
+</td>
+<td style="text-align:right;">
+3.35%
 </td>
 </tr>
 <tr>
@@ -3767,10 +3505,10 @@ Anti-Other Race/Ethnicity/National Origin
 Anti-Transgender
 </td>
 <td style="text-align:right;">
-262
+250
 </td>
 <td style="text-align:right;">
-2.93%
+3.02%
 </td>
 </tr>
 <tr>
@@ -3778,10 +3516,10 @@ Anti-Transgender
 Anti-Multi-Racial Group
 </td>
 <td style="text-align:right;">
-215
+202
 </td>
 <td style="text-align:right;">
-2.41%
+2.44%
 </td>
 </tr>
 <tr>
@@ -3789,10 +3527,10 @@ Anti-Multi-Racial Group
 Anti-American Indian Or Alaskan Native
 </td>
 <td style="text-align:right;">
-187
+152
 </td>
 <td style="text-align:right;">
-2.09%
+1.84%
 </td>
 </tr>
 <tr>
@@ -3800,10 +3538,10 @@ Anti-American Indian Or Alaskan Native
 Anti-Sikh
 </td>
 <td style="text-align:right;">
-178
+151
 </td>
 <td style="text-align:right;">
-1.99%
+1.82%
 </td>
 </tr>
 <tr>
@@ -3811,21 +3549,10 @@ Anti-Sikh
 Anti-Lesbian (Female)
 </td>
 <td style="text-align:right;">
-149
+143
 </td>
 <td style="text-align:right;">
-1.67%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Anti-Islamic (Muslim)
-</td>
-<td style="text-align:right;">
-121
-</td>
-<td style="text-align:right;">
-1.36%
+1.73%
 </td>
 </tr>
 <tr>
@@ -3833,7 +3560,18 @@ Anti-Islamic (Muslim)
 Anti-Gender Non-Conforming
 </td>
 <td style="text-align:right;">
-118
+110
+</td>
+<td style="text-align:right;">
+1.33%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Anti-Islamic (Muslim)
+</td>
+<td style="text-align:right;">
+109
 </td>
 <td style="text-align:right;">
 1.32%
@@ -3841,10 +3579,10 @@ Anti-Gender Non-Conforming
 </tr>
 <tr>
 <td style="text-align:left;">
-Anti-Other Christian
+Anti-Mental Disability
 </td>
 <td style="text-align:right;">
-94
+87
 </td>
 <td style="text-align:right;">
 1.05%
@@ -3852,13 +3590,13 @@ Anti-Other Christian
 </tr>
 <tr>
 <td style="text-align:left;">
-Anti-Mental Disability
+Anti-Other Christian
 </td>
 <td style="text-align:right;">
-93
+82
 </td>
 <td style="text-align:right;">
-1.04%
+0.99%
 </td>
 </tr>
 <tr>
@@ -3866,10 +3604,10 @@ Anti-Mental Disability
 Anti-Other Religion
 </td>
 <td style="text-align:right;">
-84
+73
 </td>
 <td style="text-align:right;">
-0.94%
+0.88%
 </td>
 </tr>
 <tr>
@@ -3877,7 +3615,7 @@ Anti-Other Religion
 Anti-Physical Disability
 </td>
 <td style="text-align:right;">
-76
+70
 </td>
 <td style="text-align:right;">
 0.85%
@@ -3888,7 +3626,7 @@ Anti-Physical Disability
 Anti-Arab
 </td>
 <td style="text-align:right;">
-76
+70
 </td>
 <td style="text-align:right;">
 0.85%
@@ -3899,10 +3637,10 @@ Anti-Arab
 Anti-Catholic
 </td>
 <td style="text-align:right;">
-76
+68
 </td>
 <td style="text-align:right;">
-0.85%
+0.82%
 </td>
 </tr>
 <tr>
@@ -3910,10 +3648,10 @@ Anti-Catholic
 Anti-Eastern Orthodox (Greek, Russian, Etc.)
 </td>
 <td style="text-align:right;">
-75
+65
 </td>
 <td style="text-align:right;">
-0.84%
+0.79%
 </td>
 </tr>
 <tr>
@@ -3921,10 +3659,10 @@ Anti-Eastern Orthodox (Greek, Russian, Etc.)
 Anti-Female
 </td>
 <td style="text-align:right;">
-71
+64
 </td>
 <td style="text-align:right;">
-0.80%
+0.77%
 </td>
 </tr>
 <tr>
@@ -3932,10 +3670,10 @@ Anti-Female
 Anti-Protestant
 </td>
 <td style="text-align:right;">
-56
+48
 </td>
 <td style="text-align:right;">
-0.63%
+0.58%
 </td>
 </tr>
 <tr>
@@ -3943,10 +3681,10 @@ Anti-Protestant
 Anti-Multi-Religious Group
 </td>
 <td style="text-align:right;">
-42
+36
 </td>
 <td style="text-align:right;">
-0.47%
+0.43%
 </td>
 </tr>
 <tr>
@@ -3954,10 +3692,10 @@ Anti-Multi-Religious Group
 Anti-Bisexual
 </td>
 <td style="text-align:right;">
-34
+32
 </td>
 <td style="text-align:right;">
-0.38%
+0.39%
 </td>
 </tr>
 <tr>
@@ -3965,10 +3703,10 @@ Anti-Bisexual
 Anti-Mormon
 </td>
 <td style="text-align:right;">
-32
+26
 </td>
 <td style="text-align:right;">
-0.36%
+0.31%
 </td>
 </tr>
 <tr>
@@ -3976,7 +3714,7 @@ Anti-Mormon
 Anti-Native Hawaiian Or Other Pacific Islander
 </td>
 <td style="text-align:right;">
-26
+24
 </td>
 <td style="text-align:right;">
 0.29%
@@ -3987,10 +3725,10 @@ Anti-Native Hawaiian Or Other Pacific Islander
 Anti-Heterosexual
 </td>
 <td style="text-align:right;">
-21
+18
 </td>
 <td style="text-align:right;">
-0.24%
+0.22%
 </td>
 </tr>
 <tr>
@@ -3998,7 +3736,7 @@ Anti-Heterosexual
 Anti-Hindu
 </td>
 <td style="text-align:right;">
-20
+18
 </td>
 <td style="text-align:right;">
 0.22%
@@ -4009,7 +3747,7 @@ Anti-Hindu
 Anti-Buddhist
 </td>
 <td style="text-align:right;">
-19
+17
 </td>
 <td style="text-align:right;">
 0.21%
@@ -4020,10 +3758,10 @@ Anti-Buddhist
 Anti-Male
 </td>
 <td style="text-align:right;">
-18
+15
 </td>
 <td style="text-align:right;">
-0.20%
+0.18%
 </td>
 </tr>
 <tr>
@@ -4031,10 +3769,10 @@ Anti-Male
 Anti-Atheism/Agnosticism
 </td>
 <td style="text-align:right;">
-14
+12
 </td>
 <td style="text-align:right;">
-0.16%
+0.14%
 </td>
 </tr>
 <tr>
@@ -4042,7 +3780,7 @@ Anti-Atheism/Agnosticism
 Anti-Jehovahs Witness
 </td>
 <td style="text-align:right;">
-11
+10
 </td>
 <td style="text-align:right;">
 0.12%
@@ -4053,7 +3791,7 @@ Anti-Jehovahs Witness
 Total
 </td>
 <td style="text-align:right;">
-8,929
+8,278
 </td>
 <td style="text-align:right;">
 100%
@@ -4064,7 +3802,7 @@ Total
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsOffenseBias"></span>
 <img src="13_nibrs_offense_files/figure-html/nibrsOffenseBias-1.png" alt="The annual percent of offenses reported as having a bias motivation (i.e. hate crime), 1993-2022." width="90%" />
 <p class="caption">
-Figure 13.13: The annual percent of offenses reported as having a bias motivation (i.e. hate crime), 1993-2022.
+Figure 13.10: The annual percent of offenses reported as having a bias motivation (i.e. hate crime), 1993-2022.
 </p>
 </div>
 

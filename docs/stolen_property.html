@@ -23,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2024-09-10" />
+<meta name="date" content="2024-09-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -579,64 +579,98 @@ Figure 4.7: The percent of agencies that report 12 months of data to both the th
 <p>Though this data starts in 1960, not all variables are available then. 1963 and 1964 saw many new variables added - the values in these variables are reported as 0 in previous years - and in 1974 and 1975 even more variables are added. In 1963 the value of burglaries where the time of the burglary was known, thefts broken down into categories based on the value of property taken, thefts of car parts, theft from cars, shoplifting, and “other” thefts was added to the data. In the following year this data began including the value of property stolen from burglaries where the time of the burglary was unknown was added as well as thefts of bicycles, from “coin operated machines” (i.e. vending machines), purse snatching, and pick pocketing. The value of property stolen during rapes and murders was first reported in 1974. Finally, 1975 was the last year with new variables, with this year including consumable goods, stolen guns, household goods, livestock, office equipment and electronics, and sound and picture equipment.</p>
 <p>The value of the property stolen is broken into two overlapping categories: by crime type, and by type of property that was stolen. These are the exact same categories as covered in Section <a href="stolen_property.html#propertycount">4.2.1</a> but now is the dollar amount of the items stolen from those types of crimes. The second group is what type of items, based on several discrete categories, was stolen. Please note that multiple items can be stolen in each category - i.e. there is no Hierarchy Rule used here<a href="#fn41" class="footnote-ref" id="fnref41"><sup>41</sup></a>. And it counts the property stolen for each crime type <em>as well as</em> for each item type. So if you sum up all of the crime variables and all of the item type variables together you’ll over-count the value of property stolen. Each of the categories and their definitions are detailed below.</p>
 <p>Some of these will overlap with the list in the previous section, though for completeness I’ll repeat them.</p>
-<p>Here are the subsets of crimes:
-* Burglary
-+ Home/residence during the day (6:00am - 5:59pm)
-+ Home/residence during the night (6:00pm - 5:59am)
-+ Home residence at unknown time
-+ Non-residence (i.e. all buildings other than victim’s home) during the day (6:00am - 5:59pm)
-+ Non-residence (i.e. all buildings other than victim’s home) during the night (6:00pm - 5:59am)
-+ Non-residence (i.e. all buildings other than victim’s home) at unknown time
-* Theft/larceny (excluding of a motor vehicle)
-+ &lt;$50
-+ $50-$199
-+ $200 and up
-+ Pick pocket
-+ Purse snatching
-+ Shoplifting
-+ Stealing from a car (but not stealing the car itself)
-+ Stealing parts of a car, such as the car battery or the tires
-+ Stealing a bicycle
-+ Stealing from a building where the offender is allowed to be in (and is not counted already as shoplifting)
-+ Stealing from a “coin operated machine” which is mainly vending machines
-+ All other thefts
-* Robbery
-+ Highway - This is an old term to say a place is outside and in generally accessible and visible areas. This includes robberies on public streets and alleys.
-+ Commercial building - This is robberies in a business other than ones stated below. Includes restaurants, stores, hotels, bars.
-+ Gas station
-+ Chain/convenience store - a neighborhood store that generally is open late and sells food
-+ Home/residence
-+ Bank
-+ Miscellaneous/other - This is all other robberies not already covered.
-* Motor vehicle theft
-+ Stolen in current agency’s jurisdiction and found by that agency
-+ Stolen in current agency’s jurisdiction and found by another agency
-+ Stolen in another agency’s jurisdiction and recovered by current agency
-* Murder
-* Rape</p>
-<p>And here are the items stolen:
-* Currency
-+ This includes all money and signed documents that can be exchanged for money (e.g. checks). Blank checks and credit and debit cards are not included (they are in the Miscellaneous/other category)
-* Jewelry and “precious metals”
-+ Only metals that are considered high value are included here. Metals that are generally worth little are counted in the Miscellaneous/other category.
-* Clothing and fur
-+ This also includes items that you take with you when leaving the house (except for your phone): wallet, shoes, purse, backpacks.
-* Motor vehicle stolen in current agency’s jurisdiction
-+ This includes only vehicles than can be driven on wheels so excludes trains and anything on water or that can fly.
-* Office equipment and electronics
-+ This includes “typewriters” and “magnetic tapes” but is essentially any kind of equipment needed to run a business. So printers, computers, cash registers, computer equipment like a monitor or a mouse, and computer software. These items do not have to be stolen from a commercial building to be included in this category.
-* Sound and picture equipment
-+ This is a kind of odd category that is a product of its time. Anything that produces noise or pictures (including the fancy motion pictures) is included. This includes TVs, cameras, projectors, radios, MP3 players (but not phones that can play music) and (since again, this is a very old dataset) VHS cassettes.
-* Guns
-+ This includes all types of firearms other than toys or BB/pellet/paintball guns.
-* Home furniture
-+ This includes all of the “big things” in a house: begs, chairs, AC units, washer/dryer units, etc. However, items that are in the “Office equipment and electronics” category do not apply.
-* Consumable goods
-+ This is anything that can be consumed such as food, drinks, and drugs, or anything you use in the bathroom.
-* Livestock
-+ This is all animals other than ones that you would consider a pet
-* Miscellaneous/other
-+ Anything that is not part of the above categories would fall in here. Cell phones and credit cards are included.</p>
+<p>Here are the subsets of crimes:</p>
+<ul>
+<li>Burglary
+<ul>
+<li>Home/residence during the day (6:00am - 5:59pm)</li>
+<li>Home/residence during the night (6:00pm - 5:59am)</li>
+<li>Home residence at unknown time</li>
+<li>Non-residence (i.e. all buildings other than victim’s home) during the day (6:00am - 5:59pm)</li>
+<li>Non-residence (i.e. all buildings other than victim’s home) during the night (6:00pm - 5:59am)</li>
+<li>Non-residence (i.e. all buildings other than victim’s home) at unknown time</li>
+</ul></li>
+<li>Theft/larceny (excluding of a motor vehicle)
+<ul>
+<li>&lt;$50</li>
+<li>$50-$199</li>
+<li>$200 and up</li>
+<li>Pick pocket</li>
+<li>Purse snatching</li>
+<li>Shoplifting</li>
+<li>Stealing from a car (but not stealing the car itself)</li>
+<li>Stealing parts of a car, such as the car battery or the tires</li>
+<li>Stealing a bicycle</li>
+<li>Stealing from a building where the offender is allowed to be in (and is not counted already as shoplifting)</li>
+<li>Stealing from a “coin operated machine” which is mainly vending machines</li>
+<li>All other thefts</li>
+</ul></li>
+<li>Robbery
+<ul>
+<li>Highway - This is an old term to say a place is outside and in generally accessible and visible areas. This includes robberies on public streets and alleys.</li>
+<li>Commercial building - This is robberies in a business other than ones stated below. Includes restaurants, stores, hotels, bars.</li>
+<li>Gas station</li>
+<li>Chain/convenience store - a neighborhood store that generally is open late and sells food</li>
+<li>Home/residence</li>
+<li>Bank</li>
+<li>Miscellaneous/other - This is all other robberies not already covered.</li>
+</ul></li>
+<li>Motor vehicle theft
+<ul>
+<li>Stolen in current agency’s jurisdiction and found by that agency</li>
+<li>Stolen in current agency’s jurisdiction and found by another agency</li>
+<li>Stolen in another agency’s jurisdiction and recovered by current agency</li>
+</ul></li>
+<li>Murder</li>
+<li>Rape</li>
+</ul>
+<p>And here are the items stolen:</p>
+<ul>
+<li>Currency
+<ul>
+<li>This includes all money and signed documents that can be exchanged for money (e.g. checks). Blank checks and credit and debit cards are not included (they are in the Miscellaneous/other category)</li>
+</ul></li>
+<li>Jewelry and “precious metals”
+<ul>
+<li>Only metals that are considered high value are included here. Metals that are generally worth little are counted in the Miscellaneous/other category.</li>
+</ul></li>
+<li>Clothing and fur
+<ul>
+<li>This also includes items that you take with you when leaving the house (except for your phone): wallet, shoes, purse, backpacks.</li>
+</ul></li>
+<li>Motor vehicle stolen in current agency’s jurisdiction
+<ul>
+<li>This includes only vehicles than can be driven on wheels so excludes trains and anything on water or that can fly.</li>
+</ul></li>
+<li>Office equipment and electronics
+<ul>
+<li>This includes “typewriters” and “magnetic tapes” but is essentially any kind of equipment needed to run a business. So printers, computers, cash registers, computer equipment like a monitor or a mouse, and computer software. These items do not have to be stolen from a commercial building to be included in this category.</li>
+</ul></li>
+<li>Sound and picture equipment
+<ul>
+<li>This is a kind of odd category that is a product of its time. Anything that produces noise or pictures (including the fancy motion pictures) is included. This includes TVs, cameras, projectors, radios, MP3 players (but not phones that can play music) and (since again, this is a very old dataset) VHS cassettes.</li>
+</ul></li>
+<li>Guns
+<ul>
+<li>This includes all types of firearms other than toys or BB/pellet/paintball guns.</li>
+</ul></li>
+<li>Home furniture
+<ul>
+<li>This includes all of the “big things” in a house: begs, chairs, AC units, washer/dryer units, etc. However, items that are in the “Office equipment and electronics” category do not apply.</li>
+</ul></li>
+<li>Consumable goods
+<ul>
+<li>This is anything that can be consumed such as food, drinks, and drugs, or anything you use in the bathroom.</li>
+</ul></li>
+<li>Livestock
+<ul>
+<li>This is all animals other than ones that you would consider a pet</li>
+</ul></li>
+<li>Miscellaneous/other
+<ul>
+<li>Anything that is not part of the above categories would fall in here. Cell phones and credit cards are included.</li>
+</ul></li>
+</ul>
 </div>
 <div id="value-of-recovered-property-by-type-of-item-stolen" class="section level3 hasAnchor" number="4.2.3">
 <h3><span class="header-section-number">4.2.3</span> Value of recovered property by type of item stolen<a href="stolen_property.html#value-of-recovered-property-by-type-of-item-stolen" class="anchor-section" aria-label="Anchor link to header"></a></h3>

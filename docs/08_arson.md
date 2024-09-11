@@ -33,11 +33,11 @@ Similar to the Offenses Known and Clearances by Arrest data, this data shows the
 
 ### Types of arsons {#arsonType}
 
-For each of the outcome categories detailed below, this dataset has information for ten different *types* of arson. Some arsons can burn down multiple types or structures or cars - fire, after all, tends to spread. This data defines the arson based on where the fire originated, regardless of what burns after that. This is true even if the damage is more severe for a type other than where the fire started. For example, a [recent fire in California][https://www.nbcnews.com/news/us-news/man-pushing-burning-car-ravine-started-park-fire-burning-45000-acres-c-rcna163697] was started by a man "pushing a burning car into a ravine." That fire, known as the  Park Fire is still burning as of this writing (summer, 2024) and has burned over 429,000 acres and over 600 buildings. This fire would be classified as a motor vehicle arson because the fire started in a vehicle. 
+For each of the outcome categories detailed below, this dataset has information for ten different *types* of arson. Some arsons can burn down multiple types or structures or cars - fire, after all, tends to spread. This data defines the arson based on where the fire originated, regardless of what burns after that. This is true even if the damage is more severe for a type other than where the fire started. For example, a [recent fire in California](https://www.nbcnews.com/news/us-news/man-pushing-burning-car-ravine-started-park-fire-burning-45000-acres-c-rcna163697) was started by a man "pushing a burning car into a ravine." That fire, known as the  Park Fire is still burning as of this writing (summer, 2024) and has burned over 429,000 acres and over 600 buildings. This fire would be classified as a motor vehicle arson because the fire started in a vehicle. 
 
 There are seven arsons types for buildings, two for vehicles, and one as an "other" category that includes arsons of outdoor areas like parks or forests (though this group does not have any subcategories so all you know is the arson is neither of a building or a vehicle). For both the buildings and the vehicle arson types there is also a "total buildings" and "total vehicles" category that is just the sum of each subcategory; there is also a "grant total" variable that sums all building, vehicle, and other arsons. For each of the building arsons we also have variables that say how many of the arsons were of uninhabited buildings.
 
-1. Total structures (buildings)
+* Total structures (buildings)
   + Single occupancy (e.g. single family homes)
   + Other residential (e.g. hotel, apartment)
   + Storage (warehouses, storage facilities)
@@ -45,11 +45,11 @@ There are seven arsons types for buildings, two for vehicles, and one as an "oth
   + Other commercial (e.g. restaurant, office building, car dealership)
   + Community/public (e.g. government buildings, hospitals, community centers, places of worship)
   + All other structures (all buildings that don't fit in another category')
-2. Total mobile vehicles (vehicles)
+* Total mobile vehicles (vehicles)
   + Motor vehicles (a car that runs on a road such as a SUV, sedan, motorcycle)
   + Other mobile vehicles (other mobile objects such as airplanes and boats)
-3. Other (everything that does not fit in a previous category)
-4. Grand total (all arsons of any category)
+* Other (everything that does not fit in a previous category)
+* Grand total (all arsons of any category)
 
 Some arsons can burn down multiple types or structures or cars - fire, after all, tends to spread. This data defines the arson based on where the fire originated, regardless of what burns after that. This is true even if the damage is more severe for a type other than where the fire started. For example, a (recent fire in California)[https://www.nbcnews.com/news/us-news/man-pushing-burning-car-ravine-started-park-fire-burning-45000-acres-c-rcna163697] was started by a man "pushing a burning car into a ravine." That fire, known as the  Park Fire is still burning as of this writing (summer, 2024) and has burned over 429,000 acres and over 600 buildings. This fire would be classified as a motor vehicle arson because the fire started in a vehicle. 
 

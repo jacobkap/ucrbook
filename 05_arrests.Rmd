@@ -36,7 +36,7 @@ all_crimes %>%
   rename(n_12_month = n) %>%
   ggplot(aes(x = year, y = n_12_month)) +
   geom_line(size = 1.05, aes(color = "12 Months")) +
-  geom_line(data = arrests_any_month_reporting, aes(y = n, color = "At Least 1 Month")) +
+  geom_line(data = arrests_any_month_reporting, size = 1.05, aes(y = n, color = "At Least 1 Month")) +
   xlab("Year") +
   ylab("# of Agencies Reporting") +
   theme_crim() +
@@ -176,7 +176,7 @@ For each crime the data provides the number of people of each sex by age, with s
     
 One way to use this data is to look at the age-crime curve of offending. The age-crime curve is a criminological finding that crime trends to grow in the early teenage years to peaking around age 18 before declining sharply. So essentially people commit crime as teenagers and then tend to fizzle out as they get older. Figure \@ref(fig:phillyRapeAge) shows this trend for male arrestees of rape in Philadelphia from 1974-2022, which is every year of data we have available. A major problem with this figure is that some of the ages are for single years and some are for age categories. In the graph there were 793 arrests for rape for people aged 24. The next age is the category of aged 25-29 and there were 3,604 arrests for this age group. One way to address this is to assume that each age in the category has the same number of arrests, so dividing 3,604 by 5 gives us about 721 arrests per age. Assuming equal arrests by age, however, is not consistent with either the literature on the age-crime curve or the findings in this figure for previous ages, as the number of arrests by age is, overall, going down since age 18. So instead of assuming equality, would we assume that older ages have fewer arrests than younger ages (maybe taking the percent change from the previous years where we do have individual ages available)? This is a tricky question to answer and it makes these kinds of analyses really hard to do - and very imprecise since all of your assumptions will be wrong, though hopefully not *too* wrong. 
 
-```{r phillyRapeAge, fig.cap = "The total number of rapes by male arrestees reported by arrestee age in Philadelphia, 1974-2022.", fig.height=14}
+```{r phillyRapeAge, fig.cap = "The total number of rapes by male arrestees reported by arrestee age in Philadelphia, 1974-2022.", fig.height=15}
 
 male_rapes <- index[index$ori %in% "PAPEP00", grep("rape_male|year", names(index))]
 male_rapes$year <- NULL

@@ -38,32 +38,6 @@ nibrs_offense_summary_stats  %>%
 
 
 
-```{r nibrsOffenseOffensesReported, fig.cap="The annual number of offenses reported, 1991-2022."}
-nibrs_offense_summary_stats  %>%
-  ungroup() %>%
-  ggplot(aes(x = year, y = number_of_offenses )) +
-  geom_line(size = 1.05) +
-  xlab("Year") +
-  ylab("# of Offenses") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
-  labs(color = "") +
-  expand_limits(y = 0)
-```
-
-
-```{r nibrsOffenseMurdersReported, fig.cap="The annual number of murders and nonnegligent homicides reported, 1991-2022."}
-nibrs_offense_summary_stats  %>%
-  ungroup() %>%
-  ggplot(aes(x = year, y = number_murders  )) +
-  geom_line(size = 1.05) +
-  xlab("Year") +
-  ylab("# of Murders") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
-  labs(color = "") +
-  expand_limits(y = 0)
-```
 
 ## Crime category
 
@@ -87,18 +61,17 @@ temp <- make_frequency_table(offense,
          `First Year` = year,
          everything())
 temp$`First Year`[is.na(temp$`First Year`)] <- "-"
-temp
 
 
 kableExtra::kbl(temp, 
-            # format = "html",
-             digits = 2, 
-             align = c("l", "r", "r"),
-             #booktabs = TRUE, 
-             longtable = TRUE,
-             escape = TRUE,
-             label = "offenseCrimeCategories",
-             caption = "The number and percent of crimes reported from all agencies in 2022, by crime category.") %>%
+                # format = "html",
+                digits = 2, 
+                align = c("l", "r", "r"),
+                #booktabs = TRUE, 
+                longtable = TRUE,
+                escape = TRUE,
+                label = "offenseCrimeCategories",
+                caption = "The number and percent of crimes reported from all agencies in 2022, by crime category.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
@@ -138,14 +111,14 @@ temp <- make_frequency_table(offense,
                                "\\# of Offenses",
                                "\\% of Offenses"))
 kableExtra::kbl(temp, 
-           #  format = "html",
-             digits = 2, 
-             align = c("l", "r", "r"),
-             #booktabs = TRUE, 
-             longtable = TRUE,
-             escape = TRUE,
-             label = "offenseCrimeSubcategories",
-             caption = "The number and percent of crime subtypes. This breakdown is only available for a subset of offenses.") %>%
+                #  format = "html",
+                digits = 2, 
+                align = c("l", "r", "r"),
+                #booktabs = TRUE, 
+                longtable = TRUE,
+                escape = TRUE,
+                label = "offenseCrimeSubcategories",
+                caption = "The number and percent of crime subtypes. This breakdown is only available for a subset of offenses.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
@@ -159,13 +132,13 @@ temp <- make_frequency_table(offense[offense$ucr_offense_code %in% "animal cruel
                                "\\# of Offenses",
                                "\\% of Offenses"))
 kableExtra::kbl(temp, 
-             format = "markdown",
-             digits = 2, 
-             align = c("l", "r", "r"),
-             #booktabs = TRUE, 
-             longtable = TRUE,
-             escape = TRUE,
-             caption = "The number and percent of crime subtypes for animal abuse.") %>%
+                format = "markdown",
+                digits = 2, 
+                align = c("l", "r", "r"),
+                #booktabs = TRUE, 
+                longtable = TRUE,
+                escape = TRUE,
+                caption = "The number and percent of crime subtypes for animal abuse.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
@@ -196,19 +169,20 @@ final <- completed %>%
          completed = paste(completed, "\\%"),
          attempted = paste(attempted, "\\%"),
          ucr_offense_code = capitalize_words(ucr_offense_code)) %>%
-  select(-total)
+  select(-total) %>%
+  arrange(desc(completed))
 
 names(final) <- c("Crime Category", "\\% Completed", "% Attempted")
 
 kableExtra::kbl(final, 
-             #format = "html",
-             digits = 2, 
-             align = c("l", "r", "r"),
-             #booktabs = TRUE, 
-             longtable = TRUE,
-             label = "offensesCompleted",
-             escape = TRUE,
-             caption = "The percent of crimes completed or attempted, by crime category.") %>%
+                #format = "html",
+                digits = 2, 
+                align = c("l", "r", "r"),
+                #booktabs = TRUE, 
+                longtable = TRUE,
+                label = "offensesCompleted",
+                escape = TRUE,
+                caption = "The percent of crimes completed or attempted, by crime category.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
@@ -236,7 +210,7 @@ Figure \@ref(fig:offenseDrugAlcoholComputer) shows the distribution is suspected
 ```{r offenseDrugAlcoholComputer, fig.cap = "The distribution of drug, alcohol, or computer use for all offenses in 2022"}
 offense %>%
   mutate(offender_suspected_of_using_1 = capitalize_words(offender_suspected_of_using_1)) %>%
-crimeutils::make_barplots("offender_suspected_of_using_1", count = FALSE, ylab = "% of Offenses") +
+  crimeutils::make_barplots("offender_suspected_of_using_1", count = FALSE, ylab = "% of Offenses") +
   ggplot2::scale_y_continuous(labels = scales::percent)
 ```
 
@@ -246,7 +220,7 @@ Drug usage is the most common thing offenders are suspected of using. In about 6
 offense %>%
   filter(offender_suspected_of_using_1 != "not applicable") %>%
   mutate(offender_suspected_of_using_1 = capitalize_words(offender_suspected_of_using_1)) %>%
-crimeutils::make_barplots("offender_suspected_of_using_1", count = FALSE, ylab = "% of Offenses") +
+  crimeutils::make_barplots("offender_suspected_of_using_1", count = FALSE, ylab = "% of Offenses") +
   ggplot2::scale_y_continuous(labels = scales::percent)
 ```
 
@@ -270,16 +244,16 @@ temp <- make_frequency_table(offense,
          `First Year` = year,
          everything())
 temp$`First Year`[is.na(temp$`First Year`)] <- "-"
-temp
+
 kableExtra::kbl(temp, 
-          #   format = "html",
-             digits = 2, 
-             align = c("l", "r", "r"),
-             #booktabs = TRUE, 
-             longtable = TRUE,
-          label = "offenseLocation",
-             escape = TRUE,
-             caption = "The location of crimes for all offenses reported in 2022.") %>%
+                #   format = "html",
+                digits = 2, 
+                align = c("l", "r", "r"),
+                #booktabs = TRUE, 
+                longtable = TRUE,
+                label = "offenseLocation",
+                escape = TRUE,
+                caption = "The location of crimes for all offenses reported in 2022.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
@@ -326,20 +300,21 @@ Table \@ref(tab:offenseWeapon) shows the breakdown in the weapons used in the ab
 
 ```{r }
 
-temp <- make_frequency_table(offense,
+temp <- make_frequency_table(offense %>% filter(!type_weapon_force_involved_1 %in% 16:17),
                              "type_weapon_force_involved_1",
                              c("Weapon Used",
                                "\\# of Offenses",
-                               "\\% of Offenses"))
+                               "\\% of Offenses")) 
+
 kableExtra::kbl(temp, 
-            # format = "html",
-             digits = 2, 
-             align = c("l", "r", "r"),
-             #booktabs = TRUE, 
-             longtable = TRUE,
-             label = "offenseWeapon",
-             escape = TRUE,
-             caption = "The weapon used by an offender in the crime for all offenses reported in 2019. The use means that it was part of the crime though may not have been physically discharged. For example, pointing a gun at someone even without firing the gun is still using it.") %>%
+                # format = "html",
+                digits = 2, 
+                align = c("l", "r", "r"),
+                #booktabs = TRUE, 
+                longtable = TRUE,
+                label = "offenseWeapon",
+                escape = TRUE,
+                caption = "The weapon used by an offender in the crime for all offenses reported in 2019. The use means that it was part of the crime though may not have been physically discharged. For example, pointing a gun at someone even without firing the gun is still using it.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
@@ -349,7 +324,7 @@ nibrs_offense_summary_stats  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_murders_gun, color = "Gun"), size = 1.05) +
   geom_line(aes(y = percent_murders_knife, color = "Knife"), size = 1.05) +
-  geom_line(aes(y = percent_murders_other_weapon, color = "Other Weapon"), size = 1.05) +
+  geom_line(aes(y = percent_murders_other_weapon, color = "Other"), size = 1.05) +
   geom_line(aes(y = percent_murders_unarmed, color = "Unarmed"), size = 1.05) +
   geom_line(aes(y = percent_murders_handgun, color = "Handgun"), size = 1.05) +
   xlab("Year") +
@@ -360,7 +335,7 @@ nibrs_offense_summary_stats  %>%
   expand_limits(y = 0) +
   scale_color_manual(values = c("Gun" = "#a6cee3",
                                 "Knife" = "#1f78b4",
-                                "Other Weapon" = "#b2df8a",
+                                "Other" = "#b2df8a",
                                 "Unarmed" = "#33a02c",
                                 "Handgun" = "black"))
 ```
@@ -409,7 +384,7 @@ For burglary offenses specifically there are two variables that provide a little
 
 offense$number_of_premises_entered[offense$number_of_premises_entered >= 10] <- "10 or more"
 offense$number_of_premises_entered <- factor(offense$number_of_premises_entered, 
-                                                levels = rev(c(1:9, "10 or more")))
+                                             levels = rev(c(1:9, "10 or more")))
 
 offense %>%
   filter(ucr_offense_code %in% "burglary/breaking and entering",
@@ -428,22 +403,6 @@ The second variable, and one where there is data from every burglary reported re
 
 Figure \@ref(fig:offensesTypeOfEntry) shows the breakdown in burglaries by type of entry. The majority of burglaries, 57.6%, use force at some point in the burglary. 42.4% don't use force at all. There's no option for "unknown" if force was used so my guess is that when in doubt - that is, when there's no evidence of force - the police report that no force is used.  
 
-```{r offensesTypeOfEntry, fig.cap = "The percent of burglaries reported in 2022 where the burglary entered the structure forcibly or non-forcibly."}
-
-temp <- offense %>%
-  filter(ucr_offense_code %in% "burglary/breaking and entering")
-temp$method_of_entry <- factor(temp$method_of_entry, levels = c("no force", "force"))
-temp %>%
-  mutate(method_of_entry = capitalize_words(method_of_entry)) %>%
-ggplot2::ggplot(aes(x = method_of_entry)) + 
-  ggplot2::coord_flip() +
-  ggplot2::xlab("Type of Entry") +
-  ggplot2::geom_bar(ggplot2::aes_string(y = "(..count..)/sum(..count..)")) + 
-  crimeutils::theme_crim() +
-  ggplot2::scale_y_continuous(labels = scales::percent, 
-                              expand = c(0, 0)) +
-  ylab("% of Burglaries")
-```
 
 
 ```{r nibrsBurglaryForce, fig.cap="The annual percent of burglaries, by whether entry used force, 1991-2022."}
@@ -475,6 +434,9 @@ Table \@ref(tab:offenseBiasMotivation) shows the percent of all offenses in 2019
 
 ```{r }
 temp <- offense
+temp <- 
+  temp %>%
+  distinct(unique_incident_id, .keep_all = TRUE)
 temp$bias_motivation_binary <- "bias motivation"
 temp$bias_motivation_binary[temp$bias_motivation %in% "no bias motivation"] <- "no bias motivation"
 temp <- make_frequency_table(temp,
@@ -483,14 +445,14 @@ temp <- make_frequency_table(temp,
                                "\\# of Offenses",
                                "\\% of Offenses"))
 kableExtra::kbl(temp, 
-           #  format = "html",
-             digits = 2, 
-             align = c("l", "r", "r"),
-             #booktabs = TRUE, 
-             longtable = TRUE,
-             escape = TRUE,
-             label = "offenseBiasMotivation",
-             caption = "The number and percent of offenders that had a bias motivation or not for all offenses reported in 2022.") %>%
+                #  format = "html",
+                digits = 2, 
+                align = c("l", "r", "r"),
+                #booktabs = TRUE, 
+                longtable = TRUE,
+                escape = TRUE,
+                label = "offenseBiasMotivation",
+                caption = "The number and percent of incidents that had a bias motivation for all incidents reported in 2022.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
@@ -499,22 +461,25 @@ Table \@ref(tab:offenseBiasMotivationBiases) shows the breakdown in the bias mot
 Some of these groups are also subsets of larger groups. For example, anti-Muslim, anti-Arab, and anti-Sikh (while Sikhs are not Muslim or Arabic, some Sikhs have been targeted by people who incorrectly believe that they are) are probably all the same bias motivation. Likewise, attacks on LGBT people are in multiple categories, which allows for a more detailed understanding of these hate crimes but requires aggregation to look at them as a group. While this aggregation is easy enough to do, accidentally missing any of the subcategories could vastly undercount offenses against the larger category.  
 
 ```{r }
-
-temp <- make_frequency_table(offense[!offense$bias_motivation %in% c("no bias motivation",
-                                                                     "unknown bias motivation"),],
+temp <- offense
+temp <- 
+  temp %>%
+  distinct(unique_incident_id, .keep_all = TRUE)
+temp <- make_frequency_table(temp[!temp$bias_motivation %in% c("no bias motivation",
+                                                               "unknown bias motivation"),],
                              "bias_motivation",
                              c("Bias Motivation",
                                "\\# of Offenses",
                                "\\% of Offenses"))
 kableExtra::kbl(temp, 
-           #  format = "html",
-             digits = 2, 
-             align = c("l", "r", "r"),
-             #booktabs = TRUE, 
-             longtable = TRUE,
-             label = "offenseBiasMotivationBiases",
-             escape = TRUE,
-             caption = "The bias motivation (i.e. if hate crime or not and what type of hate crime) for all offenses reported in 2022 that were classified as hate crimes. For easier viewing of how hate crimes are broken down, this excludes all offenses where there was no bias motivation.") %>%
+                #  format = "html",
+                digits = 2, 
+                align = c("l", "r", "r"),
+                #booktabs = TRUE, 
+                longtable = TRUE,
+                label = "offenseBiasMotivationBiases",
+                escape = TRUE,
+                caption = "The bias motivation (i.e. if it was a hate crime and what type of hate crime) for all incidents reported in 2022 that were classified as hate crimes. For easier viewing of how hate crimes are broken down, this excludes all offenses where there was no bias motivation.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 

@@ -126,6 +126,7 @@ The value of the property stolen is broken into two overlapping categories: by c
 Some of these will overlap with the list in the previous section, though for completeness I'll repeat them. 
 
 Here are the subsets of crimes:
+
 * Burglary
     + Home/residence during the day (6:00am - 5:59pm)
     + Home/residence during the night (6:00pm - 5:59am)
@@ -162,6 +163,7 @@ Here are the subsets of crimes:
 * Rape
 
 And here are the items stolen:
+
 * Currency 
     + This includes all money and signed documents that can be exchanged for money (e.g. checks). Blank checks and credit and debit cards are not included (they are in the Miscellaneous/other  category)
 * Jewelry and "precious metals"

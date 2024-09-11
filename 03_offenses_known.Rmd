@@ -173,7 +173,7 @@ sf %>%
   labs(color = "Crime") +
   theme_crim() +
   theme(legend.position = "bottom") +
-  scale_color_manual(values = c("#1b9e77", "#d95f02", "#7570b3")) +
+  scale_color_manual(values = c("Total Index" = "#1b9e77", "Theft" = "#d95f02", "Violent Index" ="#7570b3")) +
   scale_y_continuous(labels = scales::comma)
 ```
 
@@ -207,7 +207,7 @@ As an example of this last point, Figure \@ref(fig:simpleIndex) shows the number
 ```{r simpleIndex, fig.cap="Reported crimes in Houston, Texas, from 1960 to 2018. Violent index crimes are aggravated assault, rape, robbery, and murder."}
 houston <- offenses_known_yearly[offenses_known_yearly$ori %in% "TXHPD00",]
 
-ggplot(houston, aes(x = year, y = actual_index_violent, color = "Violent Index Crimes")) +
+ggplot(houston, aes(x = year, y = actual_index_violent, color = "Violent Index")) +
   geom_line(size = 1.05) +
   geom_line(aes(y = actual_assault_simple, color = "Simple Assault"), size = 1.05) +
   geom_line(aes(y = actual_assault_aggravated, color = "Aggravated Assault"), size = 1.05) +
@@ -216,7 +216,7 @@ ggplot(houston, aes(x = year, y = actual_index_violent, color = "Violent Index C
   labs(color = "") +
   theme_crim() +
   theme(legend.position = "bottom") +
-  scale_color_manual(values = c("#1b9e77", "#d95f02", "#7570b3")) +
+  scale_color_manual(values = c("Violent Index" = "#1b9e77", "Simple Assault" = "#d95f02", "Aggravated Assault" = "#7570b3")) +
   scale_y_continuous(labels = scales::comma)
 ```
 
@@ -259,17 +259,17 @@ offenses_known_yearly %>%
             months_missing_any = sum(months_missing_any)) %>%
   ungroup() %>%
   ggplot(aes(x = year, y = last_month_any)) +
-  geom_line(aes(color = "Last Reported; >= 1 month"), size = 1.05) +
-  geom_line(aes(y = months_missing_any, color = "Months Missing; >=1 month"), size = 1.05) +
-  geom_line(data = offense_12_months, aes(y = last_month_full, color = "Last Reported; 12 months"), size = 1.05) +
-  geom_line(data = offense_12_months, aes(y = months_missing_full, color = "Months Missing; 12 months"), size = 1.05) +
+  geom_line(aes(color = "Reported; >= 1 month"), size = 1.05) +
+  geom_line(aes(y = months_missing_any, color = "Missing; >=1 month"), size = 1.05) +
+  geom_line(data = offense_12_months, aes(y = last_month_full, color = "Reported; 12 months"), size = 1.05) +
+  geom_line(data = offense_12_months, aes(y = months_missing_full, color = "Missing; 12 months"), size = 1.05) +
   xlab("Year") +
   ylab("# of Agencies") +
   theme_crim() +
-  scale_color_manual(values = c("Last Reported; >= 1 month" = "#1b9e77",
-                                "Months Missing; >=1 month" = "#d95f02",
-                                "Last Reported; 12 months" = "#7570b3",
-                                "Months Missing; 12 months" = "black")) +
+  scale_color_manual(values = c("Reported; >= 1 month" = "#1b9e77",
+                                "Missing; >=1 month" = "#d95f02",
+                                "Reported; 12 months" = "#7570b3",
+                                "Missing; 12 months" = "black")) +
   scale_y_continuous(labels = scales::comma) +
   labs(color = "") +
   expand_limits(y = 0)

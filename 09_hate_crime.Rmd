@@ -229,7 +229,7 @@ hate_crimes %>%
 
 We can also look at which day of the month is most common, as shown in Figure \@ref(fig:hateCrimesByMonthDay). There's no pattern that I can see other than the the 1st of the most has the most hate crimes and the end of the month has the fewest. Not all months have more than 28 days so it makes sense that the 29th, 30th, and 31st are the least common day. Is the 1st of the month really the most dangerous? I think this is likely just a quirk of the data, and is something we also see in NIBRS data. When an agency doesn't report an actual date they may use the 1st of the month as a placeholder which then looks to us like the 1st is an especially prolific day for hate crimes. 
 
-```{r hateCrimesByMonthDay, fig.cap = "The day of the month that hate crimes occurred on, 1991-2022", fig.height = 12}
+```{r hateCrimesByMonthDay, fig.cap = "The day of the month that hate crimes occurred on, 1991-2022", fig.height = 15}
 hate_crimes$mday <- mday(hate_crimes$incident_date)
 hate_crimes$mday <- factor(hate_crimes$mday, levels = 31:1)
 hate_crimes %>%

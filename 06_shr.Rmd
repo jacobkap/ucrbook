@@ -27,7 +27,7 @@ Figure \@ref(fig:shrVsOffenses) shows the annual number of homicide victims (inc
 
 For the SHR data, in every year the numbers are fairly similar and the trends are the same over time, but the number of homicides is never equal. The numbers have actually gotten worse over time with the difference between the datasets increasing and the Offenses Known data having consistently more murders reported than the SHR data since the late 1990s. Compared to the CDC data, however, both SHR datasets - and in particular the SHR data - undercount the number of homicides. While trends are the same, SHR data reports thousands fewer murders per year than the CDC data, indicating how much of an issue underreporting is in this data.
 
-```{r shrVsOffenses, fig.cap = "The annual number of murders from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset. Numbers differ because agencies voluntarily report and may not report to both datasets."}
+```{r shrVsOffenses, fig.cap = "The annual number of murders from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset. Numbers differ because agencies voluntarily report and may not report to both datasets.", fig.height=15}
 
 cdc_homicides <- read_table2("data/cdc_wonder_homicide.txt") %>%
   rename_all(janitor::make_clean_names)
@@ -72,7 +72,7 @@ ggplot(shr_offenses_known_murders, aes(x = year)) +
 
 Let's look at Chicago for another example of the differences in reporting from the SHR and the Offenses Known data. Figure \@ref(fig:chicagoSHRvsOffensesKnown) shows the annual number of homicide victims from both datasets. In most years they are pretty similar, excluding a few really odd years in the 1980s and in 1990. But what's also strange is that most years have more SHR victims than Offenses Known victims. So nationally SHR has fewer homicides than Offenses Known but that pattern is reversed in Chicago? This is one of the many quirks of SHR data. And is a warning against treating national trends as local trends; what is true nationally isn't always true in your community. So when you use this data, check everything closely. And once you've done that, check it again. 
 
-```{r chicagoSHRvsOffensesKnown, fig.cap = "The annual number of homicide victims in Chicago, SHR and Offeksnes Known, 1976-2022."}
+```{r chicagoSHRvsOffensesKnown, fig.cap = "The annual number of homicide victims in Chicago, SHR and Offeksnes Known, 1976-2022.", fig.height=15}
 chicago_homicides <- shr %>%
   filter(ori %in% "ILCPD00") %>%
   mutate(victim_count = additional_victim_count + 1) %>%

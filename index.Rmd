@@ -149,7 +149,6 @@ census_state_final <-
   ungroup() %>%
   mutate(state = tolower(state))
 
-head(batch_header_all_years)
 batch_header_percent_pop <-
   batch_header_all_years %>%
   filter(number_of_months_reported %in% 1:12,
