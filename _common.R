@@ -23,7 +23,8 @@ packages <- c(
   "ggh4x",
   "sf",
   "tigris",
- "stringr"
+ "stringr",
+ "tidycensus"
 )
 
 groundhog.library(packages, "2024-08-27")

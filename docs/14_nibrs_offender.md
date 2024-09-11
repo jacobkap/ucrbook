@@ -8,6 +8,11 @@ As might be expected, the Offender Segment provides information about who the of
 
 The Offender Segment is the sparsest of the available segments, and provides only three new variables that are about the offender's demographics. It also includes the standard set of variables: the agency ORI, the incident number, the state the agency is in, and the incident date (though we'd need to check the Administrative Segment to see if this is actually the incident date or the report date).
 
+<div class="figure" style="text-align: center">
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderAgenciesReporting-1.png" alt="The annual number of agencies reporting data in the NIBRS Offender Segment, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsOffenderAgenciesReporting)The annual number of agencies reporting data in the NIBRS Offender Segment, 1991-2022.</p>
+</div>
+
 ## Demographics
 
 There are three demographics variables included in this data: the offenders' age, sex, and race. Please note that what we have here are not unique offenders as someone may be involved in multiple crimes. There's no offender ID variable that is consistent across incidents so we can't tell when an offender is involved with different incidents (except in cases where they are arrested, see Chapter \@ref(arrestee) for more).So be cautious when trying to compare this with some base rate such as percent of people of each age/sex/race in a population.  
@@ -27,6 +32,17 @@ The spike you see at the very end of the data is due to the data maxing out poss
 
 Another indicator of guesses about age is that three of the five most common ages are 25, 30, and 20 years old. People tend to like multiples of five when making estimates, so these indicate that someone (the victim or the officer) probably didn't know the exact age and so guessed the age. 
 
+<div class="figure" style="text-align: center">
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderAge-1.png" alt="The mean and median age of offenders, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsOffenderAge)The mean and median age of offenders, 1991-2022.</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderAgeMissing-1.png" alt="The percent of offender's age that is unknown, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsOffenderAgeMissing)The percent of offender's age that is unknown, 1991-2022.</p>
+</div>
+
+
 ### Sex
 
 The second offender demographic variable available is the offender's sex with male and female being the only available sexes. There is no option for transgender or any other identify. Other than arrestees, where police could (though we don't know if they do) use their identification (e.g. driver's license) to determine their sex, this is the perceived sex of the offender. Figure \@ref(fig:offenderSex) shows the distribution of offenders by sex. The most common sex is male, which is consistent with the literature on who commits crime. About 45% of all offenders were male. Female  offenders make up nearly 19% of offenders. Over a third - 35.9% - of offenders have an unknown sex. Considering that when nothing is known about offenders (including even how many offenders there are) this data includes a single row with "unknown" for all demographic variables, this is actually an undercount of offenders who have unknown sex. 
@@ -34,6 +50,11 @@ The second offender demographic variable available is the offender's sex with ma
 <div class="figure" style="text-align: center">
 <img src="14_nibrs_offender_files/figure-html/offenderSex-1.png" alt="The sex of all offenders reported in the 2022 NIBRS data." width="90%" />
 <p class="caption">(\#fig:offenderSex)The sex of all offenders reported in the 2022 NIBRS data.</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderSex-1.png" alt="The share of offenders by sex, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsOffenderSex)The share of offenders by sex, 1991-2022.</p>
 </div>
 
 ### Race
@@ -49,3 +70,15 @@ The next most common offender race is White at 38.7% followed by Black at 22.1%.
 <p class="caption">(\#fig:offenderRace)The race of all offenders reported in the 2022 NIBRS data.</p>
 </div>
 
+<div class="figure" style="text-align: center">
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderRace-1.png" alt="The share of offenders by race, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsOffenderRace)The share of offenders by race, 1991-2022.</p>
+</div>
+
+
+### Ethnicity
+
+<div class="figure" style="text-align: center">
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderEthnicity-1.png" alt="The share of offenders by ethnicity, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsOffenderEthnicity)The share of offenders by ethnicity, 1991-2022.</p>
+</div>

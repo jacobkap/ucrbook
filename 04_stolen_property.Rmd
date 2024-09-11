@@ -109,34 +109,27 @@ ggplot(temp, aes(x = year, y = inflation_cost_per_burglary)) +
 
 We'll start by looking at which agencies report. The data is available from 1960 through 2022 though the columns about the value of the property only begin in 1964. Figure \@ref(fig:propertyAgencies) show the number of agencies each year that reported at least one month during that year. In the first several years of data barely any agencies reported data and then it spiked around 1966 to over 6,000 agencies per year then grew quickly until over 12,000 agencies reported data in the late 1970s. From here it actually gradually declined until fewer than 12,000 agencies in the late 1990s before reversing course again and growing to about 15,000 agencies by 2019 - down several hundred agencies from the peak a few years earlier. We see the now-typical drop in 2021 as a result of the FBI's death of SRS and then the partial recovery in 2022 when SRS is reborn.
 
-```{r propertyAgencies, fig.cap = "The annual number of police agencies that report at least month of data that year."}
+```{r propertyAgencies, fig.cap = "The annual number of police agencies that report at least month of data and 12 months of data that year."}
+property_any_month_reporting <-
+  ucr_property_stolen_recovered_yearly %>%
+  dplyr::filter(number_of_months_reported != 0) %>%
+  count(year)
+
 ucr_property_stolen_recovered_yearly %>%
-  dplyr::filter(number_of_months_reported > 0) %>%
-  dplyr::distinct(ori, year, .keep_all = TRUE) %>%
+  dplyr::filter(number_of_months_reported %in% 12) %>%
   count(year) %>%
+  ungroup() %>%
   ggplot(aes(x = year, y = n)) +
-  geom_line(size = 1.05) +
+  geom_line(size = 1.05, aes(color = "12 Months")) +
+  geom_line(data = property_any_month_reporting, size = 1.05, aes(y = n, color = "At Least 1 Month")) +
   xlab("Year") +
-  ylab("# of Agencies") +
+  ylab("# of Agencies Reporting") +
   theme_crim() +
   scale_y_continuous(labels = scales::comma) +
-  expand_limits(y = 0)
-```
-
-Trends are fairly similar when looking at agencies that report 12 months of data, as shown in Figure \@ref(fig:propertyAgencies12Month) with a few thousand fewer agencies reporting each year. However, starting in the late 2010s then is a large and sustained drop in the number of agencies reporting, with a deeper decline than among agencies reporting at least one month. 
-
-```{r propertyAgencies12Month, fig.cap = "The annual number of police agencies that report 12 months of data that year."}
-ucr_property_stolen_recovered_yearly %>%
-  dplyr::filter(number_of_months_reported == 12) %>%
-  dplyr::distinct(ori, year, .keep_all = TRUE) %>%
-  count(year) %>%
-  ggplot(aes(x = year, y = n)) +
-  geom_line(size = 1.05) +
-  xlab("Year") +
-  ylab("# of Agencies") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
-  expand_limits(y = 0)
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("12 Months" = "#1b9e77",
+                                "At Least 1 Month" = "#d95f02"))
 ```
 
 Since this data is called the "Supplement to Return A" we would expect that the agencies that report here are the same as the ones that report to the Offenses Known and Clearances by Arrest data, which is also called the Return A dataset. Figure \@ref(fig:agenciesInBoth) shows the percent of agencies in this dataset that are report at least one month of Return A data. Except for the first several years of data in the 1960s, we can see that most years have nearly all agencies reporting to both, though this has declined in recent years. Since the late 1970s over 90% of agencies that report to the Offenses Known data also report to this dataset. 

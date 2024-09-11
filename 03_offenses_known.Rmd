@@ -228,17 +228,9 @@ Figure \@ref(fig:offensesAgenciesReporting) shows the annual number of police ag
 
 There are actually two lines throughout this entire figure, though they are nearly identical until 2018. That is because there are two ways of measuring how many months an agency reports data. The primary one - and the one the FBI itself uses - is through a variable in the data called the "last_month_reported." This is, as it sounds, the last month the agency sent data in. So if an agency reports data in December the variable will have "December" as the last month. If that agency only reported it December the variable will still say "December." Most people use this as the number of months that the agency reported. So a December value is 12 months reported, even though in our example it was the only month with data. 
 
-In the data there are 12 columns - one for each month - that says whether the agency reported data in that month. That's what I use in the green line to measure how many months of data that agency reported. I refer to this in the figure and in the data I have released as the "number of months missing." When looking at agencies reporting only a single month the lines are nearly identical, though the last month reported measure is nearly always larger. This changes in 2018 as a result of the data changing, meaning I needed to use different columns to check starting in that year. That means that post-2018 data may not be comparable to 2018 and earlier using this variable. 
+In the data there are 12 columns - one for each month - that says whether the agency reported data in that month. That's what I use in the green line to measure how many months of data that agency reported. I refer to this in the figure and in the data I have released as the "number of months missing." When looking at agencies reporting only a single month the lines are nearly identical, though the last month reported measure is nearly always larger. This changes in 2018 as a result of the data changing, meaning I needed to use different columns to check starting in that year. That means that post-2018 data may not be comparable to 2018 and earlier using this variable.
 
-## Negative numbers
-
-One of the most common questions people have about this data is why there are negative numbers, and if they are a mistake. Negative numbers are not a mistake. The SRS data is monthly so police agencies report the number of monthly crimes that are known to them - either reported to them or discovered by the police. In some cases the police will determine that a crime reported to them didn't actually occur - which they called an "unfounded crime." An example that the FBI gives for this is a person reports their wallet stolen (a theft) and then later finds it, so a crime was initially reported but no crime actually occurred. 
-
-How this works when the police input the data is that an unfounded crime is reported both as an unfounded crime and as a negative actual crime - the negative is used to zero out the erroneous report of the actual crime. So the report would look like  1 actual theft (the crime being reported), -1 theft (the crime being discovered as not have happened), and 1 unfounded theft. If both incidents occurred in the same month then this would simply be a single unfounded theft occurring, with no actual theft - literally a value of 1 + -1 = 0 thefts. 
-
-Negative values occur when the unfounding happens in a later month than the crime report. In the theft case, let's say the theft occurred in January and the discovery of the wallet happens in August. Assuming no other crimes occurred, January would have 1 theft, and August would have -1 thefts and 1 unfounded theft. There is no way of determining in which month (or even which year) an unfounded crime was initially reported in. When averaging over the long term, there shouldn't be any negative numbers as the actual and unfounded reports will cancel themselves out. However, when looking at monthly crimes - particularly for rare crimes - you'll still see negative numbers for this reason. Since crimes can be unfounded for reports in previous years, you can actually see entire year's crime counts be negative, though this is much rarer than monthly values.^[From 1960-2022, there were 39 agency-years with a negative count of murders.] 
-
-```{r offensesAgenciesReporting, fig.cap="The annual number of agencies reporting at least one month of data, 1960-2022."}
+```{r offensesAgenciesReporting, fig.cap="The annual number of agencies reporting at least one month of data and a full 12 months of data, 1960-2022."}
 offenses_known_yearly$last_month_any <- 0
 offenses_known_yearly$last_month_any[!offenses_known_yearly$last_month_reported %in% "no months reported"] <- 1
 
@@ -252,45 +244,50 @@ offenses_known_yearly$last_month_full[offenses_known_yearly$last_month_reported 
 offenses_known_yearly$months_missing_full <- 0
 offenses_known_yearly$months_missing_full[offenses_known_yearly$number_of_months_missing %in% 0] <- 1
 
+
+offense_12_months <-
+  offenses_known_yearly %>%
+  group_by(year) %>%
+  summarize(last_month_full = sum(last_month_full),
+            months_missing_full = sum(months_missing_full)) %>%
+  ungroup()
+  
+
 offenses_known_yearly %>%
   group_by(year) %>%
   summarize(last_month_any = sum(last_month_any),
             months_missing_any = sum(months_missing_any)) %>%
   ungroup() %>%
   ggplot(aes(x = year, y = last_month_any)) +
-  geom_line(aes(color = "Last Month Reported"), size = 1.05) +
-  geom_line(aes(y = months_missing_any, color = "# of Months Missing"), size = 1.05) +
+  geom_line(aes(color = "Last Reported; >= 1 month"), size = 1.05) +
+  geom_line(aes(y = months_missing_any, color = "Months Missing; >=1 month"), size = 1.05) +
+  geom_line(data = offense_12_months, aes(y = last_month_full, color = "Last Reported; 12 months"), size = 1.05) +
+  geom_line(data = offense_12_months, aes(y = months_missing_full, color = "Months Missing; 12 months"), size = 1.05) +
   xlab("Year") +
   ylab("# of Agencies") +
   theme_crim() +
-  scale_color_manual(values = c("Last Month Reported" = "#1b9e77",
-                                "# of Months Missing" = "#d95f02")) +
+  scale_color_manual(values = c("Last Reported; >= 1 month" = "#1b9e77",
+                                "Months Missing; >=1 month" = "#d95f02",
+                                "Last Reported; 12 months" = "#7570b3",
+                                "Months Missing; 12 months" = "black")) +
   scale_y_continuous(labels = scales::comma) +
   labs(color = "") +
   expand_limits(y = 0)
+
 ```
 
 Usually when you are looking at crime data you want annual data, so having agencies report a full year's of data is more important than them submitting just partial data. This is especially important when comparing an agency over time or two different agencies to each other. Obviously, an agency with 6 month of data will have fewer crimes reported than one with 12 months reported, all else being equal. But this is something easy to overlook as it's an easy assumption that agencies will report a full years-worth of data. Unfortunately, this is always true. Some agencies don't report any data and others report only part of the year - though if an agency reports one month they usually do report all 12. Figure \@ref(fig:offensesAgenciesReportingFull) repeats Figure \@ref(fig:offensesAgenciesReporting) but now showing only agencies reporting 12 months of data, using both of our measures. Since 1960 every year has had fewer agencies reporting full data using the "number of months missing" method than the "last month reported" method. 
 
-```{r offensesAgenciesReportingFull, fig.cap="The annual number of agencies reporting a full year of data, 1960-2022."}
 
-offenses_known_yearly %>%
-  group_by(year) %>%
-  summarize(last_month_full = sum(last_month_full),
-            months_missing_full = sum(months_missing_full)) %>%
-  ungroup() %>%
-  ggplot(aes(x = year, y = last_month_full)) +
-  geom_line(aes(color = "Last Month Reported"), size = 1.05) +
-  geom_line(aes(y = months_missing_full, color = "# of Months Missing"), size = 1.05) +
-  xlab("Year") +
-  ylab("# of Agencies") +
-  theme_crim() +
-  scale_color_manual(values = c("Last Month Reported" = "#1b9e77",
-                                "# of Months Missing" = "#d95f02")) +
-  scale_y_continuous(labels = scales::comma) +
-  labs(color = "") +
-  expand_limits(y = 0)
-```
+
+## Negative numbers
+
+One of the most common questions people have about this data is why there are negative numbers, and if they are a mistake. Negative numbers are not a mistake. The SRS data is monthly so police agencies report the number of monthly crimes that are known to them - either reported to them or discovered by the police. In some cases the police will determine that a crime reported to them didn't actually occur - which they called an "unfounded crime." An example that the FBI gives for this is a person reports their wallet stolen (a theft) and then later finds it, so a crime was initially reported but no crime actually occurred. 
+
+How this works when the police input the data is that an unfounded crime is reported both as an unfounded crime and as a negative actual crime - the negative is used to zero out the erroneous report of the actual crime. So the report would look like  1 actual theft (the crime being reported), -1 theft (the crime being discovered as not have happened), and 1 unfounded theft. If both incidents occurred in the same month then this would simply be a single unfounded theft occurring, with no actual theft - literally a value of 1 + -1 = 0 thefts. 
+
+Negative values occur when the unfounding happens in a later month than the crime report. In the theft case, let's say the theft occurred in January and the discovery of the wallet happens in August. Assuming no other crimes occurred, January would have 1 theft, and August would have -1 thefts and 1 unfounded theft. There is no way of determining in which month (or even which year) an unfounded crime was initially reported in. When averaging over the long term, there shouldn't be any negative numbers as the actual and unfounded reports will cancel themselves out. However, when looking at monthly crimes - particularly for rare crimes - you'll still see negative numbers for this reason. Since crimes can be unfounded for reports in previous years, you can actually see entire year's crime counts be negative, though this is much rarer than monthly values.^[From 1960-2022, there were 39 agency-years with a negative count of murders.] 
+
 
 So using the far more common last month reported method will overestimate how many agencies report a full year of data. In practice, though, this affects very little data. At least when aggregating nationally - which I generally advise against since local crime matters a lot more than national averages. Still, let's look the increase in the total number of crimes reported by 12-month reporting agencies increases from the "number of months missing" measure to the "last month reported" measure, shown in Figure \@ref(fig:murdersBothMeasures). The answer is an extremely small increase, averaging (mean = 0.93, mean = 1.55) about a one percent point increase each year. The differences in measuring how many months are reported can matter a great deal at the agency-level, but does very little when aggregating nationally.
 

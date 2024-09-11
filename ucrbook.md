@@ -1,7 +1,7 @@
 --- 
 title: "Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data"
 author: "Jacob Kaplan, Ph.D."
-date: "2024-09-07"
+date: "2024-09-10"
 bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
@@ -41,13 +41,290 @@ UCR data is important for three reasons:
 
 More than many other datasets, there will be times when using UCR data that you'll think "that's weird". This book will cover this weirdness and when we think the weirdness is just an odd - but acceptable - quirk of the data, and when it is a sign of a big problem in the data or in that particular variable and that we should avoid using it. For most of this book we'll be discussing the caveats of the above reasons - or, more directly, why these assumptions are wrong - but these are the reasons why the data is so influential. 
 
+<div class="figure" style="text-align: center">
+<img src="index_files/figure-html/nibrsAnnualPercentPopulationIndex-1.png" alt="The annual percent of the United States population that is covered by an agency reporting data to NIBRS." width="90%" />
+<p class="caption">(\#fig:nibrsAnnualPercentPopulationIndex)The annual percent of the United States population that is covered by an agency reporting data to NIBRS.</p>
+</div>
+
+
+
+```
+#>  [1] "Alabama"              "Alaska"              
+#>  [3] "Arizona"              "Arkansas"            
+#>  [5] "California"           "Colorado"            
+#>  [7] "Connecticut"          "Delaware"            
+#>  [9] "District of Columbia" "Florida"             
+#> [11] "Georgia"              "Hawaii"              
+#> [13] "Idaho"                "Illinois"            
+#> [15] "Indiana"              "Iowa"                
+#> [17] "Kansas"               "Kentucky"            
+#> [19] "Louisiana"            "Maine"               
+#> [21] "Maryland"             "Massachusetts"       
+#> [23] "Michigan"             "Minnesota"           
+#> [25] "Mississippi"          "Missouri"            
+#> [27] "Montana"              "Nebraska"            
+#> [29] "Nevada"               "New Hampshire"       
+#> [31] "New Jersey"           "New Mexico"          
+#> [33] "New York"             "North Carolina"      
+#> [35] "North Dakota"         "Ohio"                
+#> [37] "Oklahoma"             "Oregon"              
+#> [39] "Pennsylvania"         "Rhode Island"        
+#> [41] "South Carolina"       "South Dakota"        
+#> [43] "Tennessee"            "Texas"               
+#> [45] "Utah"                 "Vermont"             
+#> [47] "Virginia"             "Washington"          
+#> [49] "West Virginia"        "Wisconsin"           
+#> [51] "Wyoming"              "Puerto Rico"
+#>         ori year   state population date_ori_was_added
+#> 1 alast0000 1991 alabama          0           19910430
+#> 2 al0010000 1991 alabama     142446           19930225
+#> 3 al0010100 1991 alabama      33898           19910513
+#> 4 al0010200 1991 alabama     269313           19920326
+#> 5 al0010300 1991 alabama      20047           19910513
+#> 6 al0010400 1991 alabama      12346           19910513
+#>   date_ori_went_nibrs      city_name state_abbreviation
+#> 1                <NA>     montgomery                 al
+#> 2            19910101     birmingham                 al
+#> 3            19910101       bessemer                 al
+#> 4            19910101     birmingham                 al
+#> 5            19910101 mountain brook                 al
+#> 6            19910101      fairfield                 al
+#>              population_group   country_division country_region
+#> 1 non-msa county under 10,000 east south central          south
+#> 2         msa-county 100,000+ east south central          south
+#> 3     city 25,000 thru 49,999 east south central          south
+#> 4   city 250,000 thru 499,999 east south central          south
+#> 5     city 10,000 thru 24,999 east south central          south
+#> 6     city 10,000 thru 24,999 east south central          south
+#>   agency_indicator core_city covered_by_ori fbi_field_office
+#> 1           county         n           <NA>             3490
+#> 2           county         n           <NA>             3070
+#> 3             city         n           <NA>             3070
+#> 4             city         y           <NA>             3070
+#> 5             city         n           <NA>             3070
+#> 6             city         n           <NA>             3070
+#>   judicial_district agency_nibrs_flag agency_inactive_date
+#> 1              <NA>              <NA>                 <NA>
+#> 2              010n                 a                 <NA>
+#> 3              010n                 a                 <NA>
+#> 4              010n                 a                 <NA>
+#> 5              010n                 a                 <NA>
+#> 6              010n                 a                 <NA>
+#>   current_population_1 ucr_county_code_1 msa_code_1
+#> 1                    0              <NA>       <NA>
+#> 2               142446                37         98
+#> 3                33898                37         98
+#> 4               269313                37         98
+#> 5                20047                37         98
+#> 6                12346                37         98
+#>   last_population_1 current_population_2 ucr_county_code_2
+#> 1                 0                    0              <NA>
+#> 2            142446                    0              <NA>
+#> 3             33898                    0              <NA>
+#> 4            269313                    0              <NA>
+#> 5             20047                    0              <NA>
+#> 6             12346                    0              <NA>
+#>   msa_code_2 last_population_2 current_population_3
+#> 1       <NA>                 0                    0
+#> 2       <NA>                 0                    0
+#> 3       <NA>                 0                    0
+#> 4       <NA>                 0                    0
+#> 5       <NA>                 0                    0
+#> 6       <NA>                 0                    0
+#>   ucr_county_code_3 msa_code_3 last_population_3
+#> 1              <NA>       <NA>                 0
+#> 2              <NA>       <NA>                 0
+#> 3              <NA>       <NA>                 0
+#> 4              <NA>       <NA>                 0
+#> 5              <NA>       <NA>                 0
+#> 6              <NA>       <NA>                 0
+#>   current_population_4 ucr_county_code_4 msa_code_4
+#> 1                    0              <NA>       <NA>
+#> 2                    0              <NA>       <NA>
+#> 3                    0              <NA>       <NA>
+#> 4                    0              <NA>       <NA>
+#> 5                    0              <NA>       <NA>
+#> 6                    0              <NA>       <NA>
+#>   last_population_4 current_population_5 ucr_county_code_5
+#> 1                 0                    0              <NA>
+#> 2                 0                    0              <NA>
+#> 3                 0                    0              <NA>
+#> 4                 0                    0              <NA>
+#> 5                 0                    0              <NA>
+#> 6                 0                    0              <NA>
+#>   msa_code_5 last_population_5 X01_06_12_indicator
+#> 1       <NA>                 0                <NA>
+#> 2       <NA>                 0                  12
+#> 3       <NA>                 0                  12
+#> 4       <NA>                 0                  12
+#> 5       <NA>                 0                  12
+#> 6       <NA>                 0                  12
+#>   number_of_months_reported master_file_year
+#> 1                         0             1991
+#> 2                        12             1991
+#> 3                        12             1991
+#> 4                        12             1991
+#> 5                        12             1991
+#> 6                        12             1991
+#>   january_zero_report_submitted january_group_a_b_submitted
+#> 1                          <NA>                        <NA>
+#> 2                          <NA>  group a or b was submitted
+#> 3                          <NA>  group a or b was submitted
+#> 4                          <NA>  group a or b was submitted
+#> 5                          <NA>  group a or b was submitted
+#> 6                          <NA>  group a or b was submitted
+#>   january_window_record_submitted february_zero_report_submitted
+#> 1                            <NA>                           <NA>
+#> 2     window record was submitted                           <NA>
+#> 3                            <NA>                           <NA>
+#> 4                            <NA>                           <NA>
+#> 5                            <NA>                           <NA>
+#> 6                            <NA>                           <NA>
+#>   february_group_a_b_submitted february_window_record_submitted
+#> 1                         <NA>                             <NA>
+#> 2   group a or b was submitted                             <NA>
+#> 3   group a or b was submitted                             <NA>
+#> 4   group a or b was submitted                             <NA>
+#> 5   group a or b was submitted                             <NA>
+#> 6   group a or b was submitted                             <NA>
+#>   march_zero_report_submitted  march_group_a_b_submitted
+#> 1                        <NA>                       <NA>
+#> 2                        <NA> group a or b was submitted
+#> 3                        <NA> group a or b was submitted
+#> 4                        <NA> group a or b was submitted
+#> 5                        <NA> group a or b was submitted
+#> 6                        <NA> group a or b was submitted
+#>   march_window_record_submitted april_zero_report_submitted
+#> 1                          <NA>                        <NA>
+#> 2                          <NA>                        <NA>
+#> 3                          <NA>                        <NA>
+#> 4                          <NA>                        <NA>
+#> 5                          <NA>                        <NA>
+#> 6                          <NA>                        <NA>
+#>    april_group_a_b_submitted april_window_record_submitted
+#> 1                       <NA>                          <NA>
+#> 2 group a or b was submitted   window record was submitted
+#> 3 group a or b was submitted                          <NA>
+#> 4 group a or b was submitted                          <NA>
+#> 5 group a or b was submitted                          <NA>
+#> 6 group a or b was submitted                          <NA>
+#>   may_zero_report_submitted    may_group_a_b_submitted
+#> 1                      <NA>                       <NA>
+#> 2                      <NA> group a or b was submitted
+#> 3                      <NA> group a or b was submitted
+#> 4                      <NA> group a or b was submitted
+#> 5                      <NA> group a or b was submitted
+#> 6                      <NA> group a or b was submitted
+#>   may_window_record_submitted june_zero_report_submitted
+#> 1                        <NA>                       <NA>
+#> 2                        <NA>                       <NA>
+#> 3                        <NA>                       <NA>
+#> 4                        <NA>                       <NA>
+#> 5                        <NA>                       <NA>
+#> 6                        <NA>                       <NA>
+#>     june_group_a_b_submitted june_window_record_submitted
+#> 1                       <NA>                         <NA>
+#> 2 group a or b was submitted                         <NA>
+#> 3 group a or b was submitted                         <NA>
+#> 4 group a or b was submitted                         <NA>
+#> 5 group a or b was submitted  window record was submitted
+#> 6 group a or b was submitted                         <NA>
+#>   july_zero_report_submitted   july_group_a_b_submitted
+#> 1                       <NA>                       <NA>
+#> 2                       <NA> group a or b was submitted
+#> 3                       <NA> group a or b was submitted
+#> 4                       <NA> group a or b was submitted
+#> 5                       <NA> group a or b was submitted
+#> 6                       <NA> group a or b was submitted
+#>   july_window_record_submitted august_zero_report_submitted
+#> 1                         <NA>                         <NA>
+#> 2                         <NA>                         <NA>
+#> 3                         <NA>                         <NA>
+#> 4                         <NA>                         <NA>
+#> 5                         <NA>                         <NA>
+#> 6                         <NA>                         <NA>
+#>   august_group_a_b_submitted august_window_record_submitted
+#> 1                       <NA>                           <NA>
+#> 2 group a or b was submitted                           <NA>
+#> 3 group a or b was submitted                           <NA>
+#> 4 group a or b was submitted                           <NA>
+#> 5 group a or b was submitted                           <NA>
+#> 6 group a or b was submitted                           <NA>
+#>   september_zero_report_submitted september_group_a_b_submitted
+#> 1                            <NA>                          <NA>
+#> 2                            <NA>    group a or b was submitted
+#> 3                            <NA>    group a or b was submitted
+#> 4                            <NA>    group a or b was submitted
+#> 5                            <NA>    group a or b was submitted
+#> 6                            <NA>    group a or b was submitted
+#>   september_window_record_submitte october_zero_report_submitted
+#> 1                             <NA>                          <NA>
+#> 2                             <NA>                          <NA>
+#> 3                             <NA>                          <NA>
+#> 4                             <NA>                          <NA>
+#> 5                             <NA>                          <NA>
+#> 6                             <NA>                          <NA>
+#>   october_group_a_b_submitted october_window_record_submitted
+#> 1                        <NA>                            <NA>
+#> 2  group a or b was submitted                            <NA>
+#> 3  group a or b was submitted                            <NA>
+#> 4  group a or b was submitted                            <NA>
+#> 5  group a or b was submitted                            <NA>
+#> 6  group a or b was submitted                            <NA>
+#>   november_zero_report_submitted november_group_a_b_submitted
+#> 1                           <NA>                         <NA>
+#> 2                           <NA>   group a or b was submitted
+#> 3                           <NA>   group a or b was submitted
+#> 4                           <NA>   group a or b was submitted
+#> 5                           <NA>   group a or b was submitted
+#> 6                           <NA>   group a or b was submitted
+#>   november_window_record_submitted
+#> 1                             <NA>
+#> 2                             <NA>
+#> 3                             <NA>
+#> 4                             <NA>
+#> 5                             <NA>
+#> 6                             <NA>
+#>   december_zero_report_submitted december_group_a_b_submitted
+#> 1                           <NA>                         <NA>
+#> 2                           <NA>   group a or b was submitted
+#> 3                           <NA>   group a or b was submitted
+#> 4                           <NA>   group a or b was submitted
+#> 5                           <NA>   group a or b was submitted
+#> 6                           <NA>   group a or b was submitted
+#>   december_window_record_submitted x01_06_12_indicator
+#> 1                             <NA>                <NA>
+#> 2                             <NA>                <NA>
+#> 3                             <NA>                <NA>
+#> 4                             <NA>                <NA>
+#> 5                             <NA>                <NA>
+#> 6                             <NA>                <NA>
+#>   fips_county_code_1 fips_county_code_2 fips_county_code_3
+#> 1               <NA>               <NA>               <NA>
+#> 2               <NA>               <NA>               <NA>
+#> 3               <NA>               <NA>               <NA>
+#> 4               <NA>               <NA>               <NA>
+#> 5               <NA>               <NA>               <NA>
+#> 6               <NA>               <NA>               <NA>
+#>   fips_county_code_4 fips_county_code_5
+#> 1               <NA>               <NA>
+#> 2               <NA>               <NA>
+#> 3               <NA>               <NA>
+#> 4               <NA>               <NA>
+#> 5               <NA>               <NA>
+#> 6               <NA>               <NA>
+```
+
+<div class="figure" style="text-align: center">
+<img src="index_files/figure-html/nibrsStateParticipation2020Index-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022." width="90%" />
+<p class="caption">(\#fig:nibrsStateParticipation2020Index)The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022.</p>
+</div>
+
 ## Goal of the book
 
 By the end of each chapter you should have a firm grasp on the dataset that is covered and how to use it properly. However, this book can't possibly cover every potential use case for the data so make sure to carefully examine the data yourself for your own particular use. 
 
 I get a lot of emails from people asking questions about this data so my own goal is to create a single place that answers as many questions as I can about the data. Again, this is among the most commonly used crime datasets and there are still many current papers published with incorrect information about the data (including such simple aspects like what geographic unit data is in and what time unit it is in). So hopefully this book will decrease the number of misconceptions about this data, increasing overall research quality.
-
-Since manuals are boring, I'll try to include graphs and images to try to alleviate the boredom. That said, I don't think it's possible to make it too fun so sorry in advanced. This book is a mix of facts about the data, such as how many years are available, and my opinions about it, such as whether it is reliable. In cases of facts I'll just say a statement - e.g. "the offenses data is available since 1960". In cases of opinion I'll temper the statement by saying something like "in my opinion..." or "I think". 
 
 ## Structure of the book
 
@@ -57,15 +334,15 @@ This book will be divided into ten chapters: this chapter, an intro chapter brie
 
 If this data was useful in your research, please cite it. To cite this book, please use the below citation: 
 
-Kaplan J (2021). *Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide to FBI Data*. https://ucrbook.com/. 
+Kaplan J (2024). *Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data*. https://ucrbook.com/. 
 
 BibTeX format:
 
 ```bibtex
 @Manual{ucrbook,
-  title = {Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide to FBI Data},
+  title = {Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data},
   author = {{Jacob Kaplan}},
-  year = {2021},
+  year = {2024},
   url = {https://ucrbook.com/},
 }
 ```
@@ -103,7 +380,7 @@ It's worth mentioning a final source of UCR information. This is the annual Crim
 
 ## Recommended reading
 
-While this book is designed to help researchers use this data, the FBI has an excellent manual on this data designed to help police agencies submit their data. That manual, called the "Summary Reporting System (SRS) User Manual" provides excellent definitions and examples of many variables included in the data. In this book when I quote the FBI, such as defining a crime, I quote from this manual. The manual is available to download as a PDF on the FBI's site and I've also posted it on my GitHub page [here](https://github.com/jacobkap/ucrbook/blob/main/FBI%20Uniform%20Crime%20Reporting%20(UCR)%20Program%20User%20Manual.pdf) for convenienceq. I highly recommend that you read this manual before using the data. That manual, alongside this book which tries to explain when and how the agencies don't follow the manual, will provide a solid foundation for your understanding of UCR data.
+While this book is designed to help researchers use this data, the FBI has an excellent manual on this data designed to help police agencies submit their data. That manual, called the "Summary Reporting System (SRS) User Manual" provides excellent definitions and examples of many variables included in the data. In this book when I quote the FBI, such as defining a crime, I quote from this manual. The manual is available to download as a PDF on the FBI's site and I've also posted it on my GitHub page [here](https://github.com/jacobkap/ucrbook/blob/main/FBI%20Uniform%20Crime%20Reporting%20(UCR)%20Program%20User%20Manual.pdf) for convenience. I highly recommend that you read this manual before using the data. That manual, alongside this book which tries to explain when and how the agencies don't follow the manual, will provide a solid foundation for your understanding of UCR data.
 
 ## How to contribute to this book
 
@@ -120,7 +397,7 @@ Please only use the above two methods to contribute or make suggestions about th
 
 ## How to identify a particular agency (ORI codes) {#ori}
 
-In NIBRS and other FBI data sets, agencies are identified using **OR**iginating Agency **I**dentifiers or an ORI. An ORI is a unique ID code used to identify an agency.^[This is referred to as an "ORI", "ORI code", and "ORI number", all of which mean the same thing.] If we used the agency's name we'd end up with some duplicates since there can be multiple agencies in the country (and in a state, those this is very rare) with the same name. For example, if you looked for the Philadelphia Police Department using the agency name, you'd find both the "Philadelphia Police Department" in Pennsylvania and the one in Mississippi. Each ORI is a 9-digit value starting with the state abbreviation (for some reason the FBI incorrectly puts the abbreviation for Nebraska as NB instead of NE) followed by 7 numbers. In the UCR data (another FBI data set) the ORI uses only a 7-digit code - with only the 5 numbers following the state abbreviation instead of 7. So the NIBRS ORI codes are sometimes called ORI9. For nearly all agencies, the only difference between the UCR ORI and the NIBRS ORI is that the NIBRS ORI has "00" at the end so it is technically 9 characters long but isn't any more specific than the 7-character UCR ORI code. 
+In NIBRS and other FBI data sets, agencies are identified using **OR**iginating Agency **I**dentifiers or an ORI. An ORI is a unique ID code used to identify an agency.^[This is referred to as an "ORI", "ORI code", and "ORI number", all of which mean the same thing.] If we used the agency's name we'd end up with some duplicates since there can be multiple agencies in the country (and in a state, those this is very rare) with the same name. For example, if you looked for the Philadelphia Police Department using the agency name, you'd find both the "Philadelphia Police Department" in Pennsylvania and the one in Mississippi. Each ORI is a 9-digit value starting with the state abbreviation^[The abbreviation for Nebraska is "NB" rather than the more commonly used "NE."] followed by 7 numbers. In the UCR data (another FBI data set) the ORI uses only a 7-digit code - with only the 5 numbers following the state abbreviation instead of 7. So the NIBRS ORI codes are sometimes called ORI9. For nearly all agencies, the only difference between the UCR ORI and the NIBRS ORI is that the NIBRS ORI has "00" at the end so it is technically 9 characters long but isn't any more specific than the 7-character UCR ORI code. 
 
 When dealing with specific agencies, make sure to use the ORI rather than the agency name to avoid any mistakes. For an easy way to find the ORI number of an agency, use [this page](https://crimedatatool.com/crosswalk.html) on my site. Type an agency name or an ORI code into the search section and it will return everything that is a match.
 
@@ -479,7 +756,16 @@ Figure \@ref(fig:offensesAgenciesReporting) shows the annual number of police ag
 
 There are actually two lines throughout this entire figure, though they are nearly identical until 2018. That is because there are two ways of measuring how many months an agency reports data. The primary one - and the one the FBI itself uses - is through a variable in the data called the "last_month_reported." This is, as it sounds, the last month the agency sent data in. So if an agency reports data in December the variable will have "December" as the last month. If that agency only reported it December the variable will still say "December." Most people use this as the number of months that the agency reported. So a December value is 12 months reported, even though in our example it was the only month with data. 
 
-In the data there are 12 columns - one for each month - that says whether the agency reported data in that month. That's what I use in the green line to measure how many months of data that agency reported. I refer to this in the figure and in the data I have released as the "number of months missing." When looking at agencies reporting only a single month the lines are nearly identical, though the last month reported measure is nearly always larger. This changes in 2018 as a result of the data changing, meaning I needed to use different columns to check starting in that year. That means that post-2018 data may not be comparable to 2018 and earlier using this variable. 
+In the data there are 12 columns - one for each month - that says whether the agency reported data in that month. That's what I use in the green line to measure how many months of data that agency reported. I refer to this in the figure and in the data I have released as the "number of months missing." When looking at agencies reporting only a single month the lines are nearly identical, though the last month reported measure is nearly always larger. This changes in 2018 as a result of the data changing, meaning I needed to use different columns to check starting in that year. That means that post-2018 data may not be comparable to 2018 and earlier using this variable.
+
+<div class="figure" style="text-align: center">
+<img src="03_offenses_known_files/figure-html/offensesAgenciesReporting-1.png" alt="The annual number of agencies reporting at least one month of data and a full 12 months of data, 1960-2022." width="90%" />
+<p class="caption">(\#fig:offensesAgenciesReporting)The annual number of agencies reporting at least one month of data and a full 12 months of data, 1960-2022.</p>
+</div>
+
+Usually when you are looking at crime data you want annual data, so having agencies report a full year's of data is more important than them submitting just partial data. This is especially important when comparing an agency over time or two different agencies to each other. Obviously, an agency with 6 month of data will have fewer crimes reported than one with 12 months reported, all else being equal. But this is something easy to overlook as it's an easy assumption that agencies will report a full years-worth of data. Unfortunately, this is always true. Some agencies don't report any data and others report only part of the year - though if an agency reports one month they usually do report all 12. Figure \@ref(fig:offensesAgenciesReportingFull) repeats Figure \@ref(fig:offensesAgenciesReporting) but now showing only agencies reporting 12 months of data, using both of our measures. Since 1960 every year has had fewer agencies reporting full data using the "number of months missing" method than the "last month reported" method. 
+
+
 
 ## Negative numbers
 
@@ -489,17 +775,6 @@ How this works when the police input the data is that an unfounded crime is repo
 
 Negative values occur when the unfounding happens in a later month than the crime report. In the theft case, let's say the theft occurred in January and the discovery of the wallet happens in August. Assuming no other crimes occurred, January would have 1 theft, and August would have -1 thefts and 1 unfounded theft. There is no way of determining in which month (or even which year) an unfounded crime was initially reported in. When averaging over the long term, there shouldn't be any negative numbers as the actual and unfounded reports will cancel themselves out. However, when looking at monthly crimes - particularly for rare crimes - you'll still see negative numbers for this reason. Since crimes can be unfounded for reports in previous years, you can actually see entire year's crime counts be negative, though this is much rarer than monthly values.^[From 1960-2022, there were 39 agency-years with a negative count of murders.] 
 
-<div class="figure" style="text-align: center">
-<img src="03_offenses_known_files/figure-html/offensesAgenciesReporting-1.png" alt="The annual number of agencies reporting at least one month of data, 1960-2022." width="90%" />
-<p class="caption">(\#fig:offensesAgenciesReporting)The annual number of agencies reporting at least one month of data, 1960-2022.</p>
-</div>
-
-Usually when you are looking at crime data you want annual data, so having agencies report a full year's of data is more important than them submitting just partial data. This is especially important when comparing an agency over time or two different agencies to each other. Obviously, an agency with 6 month of data will have fewer crimes reported than one with 12 months reported, all else being equal. But this is something easy to overlook as it's an easy assumption that agencies will report a full years-worth of data. Unfortunately, this is always true. Some agencies don't report any data and others report only part of the year - though if an agency reports one month they usually do report all 12. Figure \@ref(fig:offensesAgenciesReportingFull) repeats Figure \@ref(fig:offensesAgenciesReporting) but now showing only agencies reporting 12 months of data, using both of our measures. Since 1960 every year has had fewer agencies reporting full data using the "number of months missing" method than the "last month reported" method. 
-
-<div class="figure" style="text-align: center">
-<img src="03_offenses_known_files/figure-html/offensesAgenciesReportingFull-1.png" alt="The annual number of agencies reporting a full year of data, 1960-2022." width="90%" />
-<p class="caption">(\#fig:offensesAgenciesReportingFull)The annual number of agencies reporting a full year of data, 1960-2022.</p>
-</div>
 
 So using the far more common last month reported method will overestimate how many agencies report a full year of data. In practice, though, this affects very little data. At least when aggregating nationally - which I generally advise against since local crime matters a lot more than national averages. Still, let's look the increase in the total number of crimes reported by 12-month reporting agencies increases from the "number of months missing" measure to the "last month reported" measure, shown in Figure \@ref(fig:murdersBothMeasures). The answer is an extremely small increase, averaging (mean = 0.93, mean = 1.55) about a one percent point increase each year. The differences in measuring how many months are reported can matter a great deal at the agency-level, but does very little when aggregating nationally.
 
@@ -695,15 +970,8 @@ Part of this - and part of the long-term increase seen in Figure \@ref(fig:Phill
 We'll start by looking at which agencies report. The data is available from 1960 through 2022 though the columns about the value of the property only begin in 1964. Figure \@ref(fig:propertyAgencies) show the number of agencies each year that reported at least one month during that year. In the first several years of data barely any agencies reported data and then it spiked around 1966 to over 6,000 agencies per year then grew quickly until over 12,000 agencies reported data in the late 1970s. From here it actually gradually declined until fewer than 12,000 agencies in the late 1990s before reversing course again and growing to about 15,000 agencies by 2019 - down several hundred agencies from the peak a few years earlier. We see the now-typical drop in 2021 as a result of the FBI's death of SRS and then the partial recovery in 2022 when SRS is reborn.
 
 <div class="figure" style="text-align: center">
-<img src="04_stolen_property_files/figure-html/propertyAgencies-1.png" alt="The annual number of police agencies that report at least month of data that year." width="90%" />
-<p class="caption">(\#fig:propertyAgencies)The annual number of police agencies that report at least month of data that year.</p>
-</div>
-
-Trends are fairly similar when looking at agencies that report 12 months of data, as shown in Figure \@ref(fig:propertyAgencies12Month) with a few thousand fewer agencies reporting each year. However, starting in the late 2010s then is a large and sustained drop in the number of agencies reporting, with a deeper decline than among agencies reporting at least one month. 
-
-<div class="figure" style="text-align: center">
-<img src="04_stolen_property_files/figure-html/propertyAgencies12Month-1.png" alt="The annual number of police agencies that report 12 months of data that year." width="90%" />
-<p class="caption">(\#fig:propertyAgencies12Month)The annual number of police agencies that report 12 months of data that year.</p>
+<img src="04_stolen_property_files/figure-html/propertyAgencies-1.png" alt="The annual number of police agencies that report at least month of data and 12 months of data that year." width="90%" />
+<p class="caption">(\#fig:propertyAgencies)The annual number of police agencies that report at least month of data and 12 months of data that year.</p>
 </div>
 
 Since this data is called the "Supplement to Return A" we would expect that the agencies that report here are the same as the ones that report to the Offenses Known and Clearances by Arrest data, which is also called the Return A dataset. Figure \@ref(fig:agenciesInBoth) shows the percent of agencies in this dataset that are report at least one month of Return A data. Except for the first several years of data in the 1960s, we can see that most years have nearly all agencies reporting to both, though this has declined in recent years. Since the late 1970s over 90% of agencies that report to the Offenses Known data also report to this dataset. 
@@ -920,15 +1188,8 @@ For each crime it says the number of arrests for each gender-age group with youn
 This data is available from 1974 through 2022 though after 2020 the measure for how many months of data an agency reported changed so post-2020 data is difficult to compare to 2020 and earlier.^[Post-2020 years do have considerably fewer agencies reporting than in previous years.] Figure \@ref(fig:arrestsAgenciesReporting) shows how many agencies reported at least one month of the year for 1974-2020. I'm not sure why there's a dip in 1980. Since it immediately reverses itself in the next year I think it's just a data issue, not a real decrease in the number of agencies that report. The first year of data has about 9,000 agencies reporting and that increases strongly to a little over 13,000 in 1979. Following the odd blip in 1980, the number of agencies remain steady for nearly a decade before declining to a local low of about 11,000 in 1998 before again increasing steadily until the end of the 2010s where nearly 15,000 agencies report. This 15,000, however, still remains under the estimated 18,000 police agencies in the United States and below the reporting rates of UCR data such as the Offenses Known and Clearances by Arrest data. This data is also missing some important cities such as New York City which hasn't reported even a single month since 2002 and Chicago which tends to only report a single month if at all.   
 
 <div class="figure" style="text-align: center">
-<img src="05_arrests_files/figure-html/arrestsAgenciesReporting-1.png" alt="The annual number of agencies reporting at least one month of data in that year." width="90%" />
-<p class="caption">(\#fig:arrestsAgenciesReporting)The annual number of agencies reporting at least one month of data in that year.</p>
-</div>
-
-If we look at agencies that report all 12 months of the year, as seen in Figure \@ref(fig:arrestsAgenciesReporting12Months), now far fewer agencies report. In almost every year about 45-55% of agencies that report at all report all 12 months. This means that we're missing at least some data for about half of agencies. When an agency reports at all, they tend to report more months than fewer. For example, there are about twice as many agency-years with 11 months reported than with only 1 month reported. So having only about half of agencies report all 12 months of the year doesn't mean that we're missing a ton of data from the remaining half of agencies - but does merit close attention to which agencies you use in your research and how much missingness there is for those agencies. 
-
-<div class="figure" style="text-align: center">
-<img src="05_arrests_files/figure-html/arrestsAgenciesReporting12Months-1.png" alt="The annual number of agencies reporting 12 months of data in that year, 1974-2020." width="90%" />
-<p class="caption">(\#fig:arrestsAgenciesReporting12Months)The annual number of agencies reporting 12 months of data in that year, 1974-2020.</p>
+<img src="05_arrests_files/figure-html/arrestsAgenciesReporting-1.png" alt="The annual number of agencies reporting at least one month of data and 12 months of data in that year." width="90%" />
+<p class="caption">(\#fig:arrestsAgenciesReporting)The annual number of agencies reporting at least one month of data and 12 months of data in that year.</p>
 </div>
 
 Another issue is that agencies can report only some crimes. So, for example, they may report how many people were arrested for theft but not for murder, and it's unclear when that means that truly zero people were arrested for murder and when the agency just didn't report. This isn't in the original data but in my version of this data (available [here](https://www.openicpsr.org/openicpsr/project/102263/version/V15/view)), I added variables for the number of months reported (based on the agency reporting at least arrest for that crime in that year) for each crime category.^[As I noted before, post-2020 data changed the way they reported this variable so the number of months reported is always set to 0, even if they actually did report data.] Again, please note that when there are fewer than 12 months reported in that year for that variable, that could simply mean that there were no arrests for that crime that year (The FBI does tell agencies not to even submit a report in these cases) - but we don't know that for sure. 
@@ -1980,8 +2241,8 @@ Part of the decline we see in Figure \@ref(fig:leokaAgencies) is because startin
 I mentioned that LEOKA has two purposes: employee information and assaults on officers information. You should really think about this data as two separate datasets as agencies can report one, both, or neither part. In practice, more agencies report data on the number of employees they have than they do for assaults on officers. In Figure \@ref(fig:leokaAgenciesAssaults) we can see that in most years of data fewer than 6,000 (out of ~18k agencies in the country) report having at least one officer assaulted. The year with the most agencies reporting >1 assault was 2022 with 6,397 agencies. Most years average about 5,000 agencies reporting at least one assault on an officer. Though there is variation over time, the trend is much more settled than in the previous figures without any sharp decline in recent years. Assaults on officers is *relatively* rare, at least considering how many officer-civilian interactions occur. And many agencies are small with relatively little crime. So agencies that say they had zero assaults on officers may in fact truly have zero assaults. However, there are agencies that likely do have assaults on officers - such as large, high crime agencies which report assaults in other years - which report zero assaults in some months or years. So you'll need to be careful when determining if a zero report is a true zero rather than an agency submitting incomplete data.
 
 <div class="figure" style="text-align: center">
-<img src="07_leoka_files/figure-html/leokaAgenciesAssaults-1.png" alt="The annual number of police agencies that report having at least one employee, 1960-2022" width="90%" />
-<p class="caption">(\#fig:leokaAgenciesAssaults)The annual number of police agencies that report having at least one employee, 1960-2022</p>
+<img src="07_leoka_files/figure-html/leokaAgenciesAssaults-1.png" alt="The annual number of police agencies that report having at least one assault against a police officer, 1960-2022" width="90%" />
+<p class="caption">(\#fig:leokaAgenciesAssaults)The annual number of police agencies that report having at least one assault against a police officer, 1960-2022</p>
 </div>
 
 ## Important variables
@@ -2185,16 +2446,12 @@ In Figure \@ref(fig:arsonAgencies) we can see the annual number of agencies that
 
 
 <div class="figure" style="text-align: center">
-<img src="08_arson_files/figure-html/arsonAgencies-1.png" alt="The annual number of police agencies that report at least month of data that year, 1979-2022." width="90%" />
-<p class="caption">(\#fig:arsonAgencies)The annual number of police agencies that report at least month of data that year, 1979-2022.</p>
+<img src="08_arson_files/figure-html/arsonAgencies-1.png" alt="The annual number of police agencies that report at least month of data and all 12 months of data that year, 1979-2022." width="90%" />
+<p class="caption">(\#fig:arsonAgencies)The annual number of police agencies that report at least month of data and all 12 months of data that year, 1979-2022.</p>
 </div>
 
 In Figure \@ref(fig:arsonAgencies12Months) we can see the same graph as before but now for agencies reporting 12 months of data that year. The trends in both measures are the same, at least until 2018, with the last month reported measure always being a bit higher than the number of months missing measure. Which measure is better to use? In general I'd say my own measure but obviously that doesn't work starting in 2018. In practice both measures are quite similar so the decision on which to use depends on your own use-case such as if you are looking at data after 2017. 
 
-<div class="figure" style="text-align: center">
-<img src="08_arson_files/figure-html/arsonAgencies12Months-1.png" alt="The annual number of police agencies that report 12 months of data that year, 1979-2022." width="90%" />
-<p class="caption">(\#fig:arsonAgencies12Months)The annual number of police agencies that report 12 months of data that year, 1979-2022.</p>
-</div>
 
 ## Important variables
 
@@ -4437,6 +4694,11 @@ NIBRS data provides detailed information on every crime reported to the police, 
 
 However, there is a major limitation to this data: most agencies don't use it. [According to the FBI](https://www.fbi.gov/news/pressrel/press-releases/fbi-releases-2019-nibrs-crime-data) only about 8,500 police agencies, covering about 45% of the US population, reported NIBRS data in 2019 (the latest year currently available). This is fewer than half of the about 18,000 police agencies in the United States. This is an even larger problem than it seems as the agencies that do report - especially in earlier years of the data - are disproportionately small and rural. So we're missing out of data from most major cities. A number of states don't have any agencies reporting, making this data relatively biased at least in terms of geography and city size. **Even so, the FBI has said that they are moving entirely to NIBRS data starting in 2021, and will no longer even collect UCR data.** While NIBRS can be converted to UCR data, meaning we can have consistent statistics over time, for agencies that don't report to NIBRS, we have no information on their crimes. In effect, unless the majority of agencies suddenly switch to NIBRS - which, given that the high level of detail relative to UCR data makes moving to NIBRS a costly and timely switch - we will be flying blind for most crime in the country. 
 
+<div class="figure" style="text-align: center">
+<img src="11_nibrs_general_files/figure-html/nibrsSegmentsAgencies-1.png" alt="The number of agencies reporting data for each of the NIBRS Segments, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsSegmentsAgencies)The number of agencies reporting data for each of the NIBRS Segments, 1991-2022.</p>
+</div>
+
 ## Problems with NIBRS
 
 There are three major problems with NIBRS data, with the first two related to the lack of reporting. First, we are potentially looking at a massive loss of data when UCR data ends in 2020 - it takes over a year for data to be released so even though I'm writing this in Spring 2021, 2019 UCR and NIBRS data are the latest years available. 2020 data won't be released by the FBI until September or October of this year. Considering the huge crime changes during 2020 - and the latest evidence suggests that the violent crime increase is continuing (and in places even accelerating) in 2021 - losing standardized crime data for most cities (and especially the largest cities) is a very bad thing. Moving the majority of agencies over to NIBRS so quickly may also risk the integrity of the data.^["Quickly" is a bit of a misnomer as agencies were free to report to NIBRS since it began in 1991 and the FBI had announced many years ago that they'd only collect NIBRS in 2021. Still, given that the majority of agencies don't report to NIBRS and 2020 had a plague, the switch is likely to introduce issues and should be delayed.] As they rush to comply with the FBI's order that they only will accept NIBRS data, there will likely be more mistakes made and erroneous data included in NIBRS data. This will likely include both knowledge problems with agencies not understanding how to properly report data and the simply issue of typos leading to wrong info being entered. Though the FBI does do quality assurance checks, no check is foolproof - and their checks in UCR data have still allowed clearly impossible data to be entered (e.g. millions of arsons reported in a month in a small town). So while I always urge caution when using any data - caution that should be accompanied by a thorough examination of your data before using it - NIBRS data from 2020 and beyond merits extra attention.
@@ -4452,157 +4714,6 @@ A major benefit of UCR data is that you have very limited choices. If you wanted
 If you're interested in measuring rape you could do so in several different ways, each of which addresses a different part of crime measurement and will lead to different answers to your questions: the number of crime incidents, the number of victims, the number of offenders, and the number of crimes. Let's use an incident where four men rape a single woman as an example. Even if we somehow solve the issue of victims not reporting their rapes, we still have a few different ways of even measuring rape.  First, we can follow the old UCR measure of incident-level and say that this is one rape since only one crime incident occurred (even though there were multiple offenders). Second, we could look at the victim-level, which again is one rape as there was only one victim. Or at the offender-level, which now has four rapes since each offender would be responsible the rape. Finally we could look at the offense-level. Even though the four men were involved in the rape incident, potentially not all of them would have actually committed the rape (and would have the offense in NIBRS data as something else such as assault or attempted rape if they didn't complete the act). Some could have acted as, for example, lookouts so would be involved with the incident but not the rape. So through this measure we'd have between one and four rapes, depending on the exact circumstances. Each way of measuring could lead to substantially different understandings of rape, and this is the kind of complexity that we'll have to wrangle with when using NIBRS data.
 
 Since this data includes multiple crimes in each criminal incident, unlike the UCR which includes only the most serious crime per incident, we can also measure crime in its relationship to other crimes. In the above example we're interested in rapes. The UCR method would measure it as the number of rapes in incidents where rape is the most serious charge ("most serious" is based on the FBI's hierarchy of offenses, following what they call the Hierarchy Rule) but this undercounts crimes where rape happened alongside another, more serious, offense.^[Based on the Hierarchy Rule, only murder is more serious.] So we can also look at incidents where any offense that occurred was a rape. Using this method we can examine how often rape - or any crime we're interested in - co-occurs with other offenses, which provides more information on how crime happens that looking at one crime alone. For example, we could see how often burglary-rapes occur, a crime which is far different than spousal-rape, and in UCR data we'd have no way of differentiating the two. In most cases, however, only one offense occurs per criminal incident (at least as reported in the data), so the opportunity to explore co-occurrence is relatively limited.
-
-## Crimes included in NIBRS
-
-NIBRS data contains far more crime categories than in the UCR data, particularly far more than [UCR crime data](https://ucrbook.com/ucrGeneral.html#crimes-in-the-offenses-known-and-clearances-by-arrest-dataset) which contained only eight crimes (and their subcategories of crimes). It also includes several more crime categories than in the [UCR arrest data](https://ucrbook.com/ucrGeneral.html#crimes-in-the-arrests-by-age-sex-and-race-dataset) which is far more expansive than the UCR crime dataset. Compared to UCR data, however, there are occasionally more steps you must take to get the same crime category. For example, UCR crime data has the number of gun assaults each month. NIBRS data has the number of aggravated assaults only, but has a variable indicating what weapon the offender used. So you can find out how many aggravated assaults used a gun, giving you the same data as in the UCR, but you need to take extra steps to get there. 
-
-Likewise the UCR arrest data has the number of people arrested for selling drugs (broken down into a few different categories of drugs). NIBRS data has if the crime type was a "drug/narcotic violation" which means any crime having to deal with drugs possession, sale, or manufacturing, and excluding drug equipment crimes. We then have to look first at the subcategory of offenses to see if the arrest was for possession, for sale, for manufacturing, or some other kind of drug crime. The final step to be comparable to UCR data is to look at the type of drug involved in the crime. You'll often have to do steps like this during NIBRS research. NIBRS data is available in multiple files that all (for the most part) correspond with each other so you'll tend to have to combine them together to get the complete data you want. 
-
-The crimes included in NIBRS are broken into two categories: Group A and Group B crimes.
-
-### Group A crimes
-
-The first set of crimes included are Group A crimes and these are really the main crimes included in NIBRS. For each of these crimes we have full data on the victim, the offender, the offense, any property stolen or damaged (or for drug crimes, seized by the police), and info about the arrestee (if any). Of course, not all of this data may be available (e.g. information on the offender is unknown) so there can be significant amounts of missing data, but each crime incident does have corresponding files with this information.
-
-The complete list of Group A crimes is below. I've bolded the Index Crimes which are a flawed, but ubiquitous measure of crime used in the UCR crime data as the main measure of crime in the United States. The Index Crimes are murder, rape (sexual assault with an object and sodomy are only considered rape using the FBI new definition that began in 2013), aggravated assault, robbery (these four are the "Violent Index Crimes"), burglary, motor vehicle theft, and theft (these are the "Property Index Crimes". Theft here is broken down into several types of theft like purse-snatching and shoplifting. In the UCR crime dataset it is only "theft".). Arson is also technically an Index Crime (arson is considered a property crime) but is generally excluded. Using Index Crimes as your measure of crime is a bad idea (see [here for more on this](https://www.propublica.org/article/the-secret-irs-files-trove-of-never-before-seen-records-reveal-how-the-wealthiest-avoid-income-tax)) but it's good that all of the Index Crimes are available in NIBRS so we have continuity of data from when agencies move from UCR to NIBRS.
-
-* __Aggravated Assault__                                 
-* __All Other Larceny__                                  
-* Animal Cruelty                                     
-* Arson                                              
-* Assisting Or Promoting Prostitution                
-* Betting/Wagering                                   
-* Bribery                                            
-* __Burglary/Breaking And Entering__                     
-* Counterfeiting/Forgery                             
-* Credit Card/ATM Fraud                              
-* Destruction/Damage/Vandalism of Property           
-* Drug Equipment Violations                          
-* Drug/Narcotic Violations                           
-* Embezzlement                                       
-* Extortion/Blackmail                                
-* False Pretenses/Swindle/Confidence Game            
-* Fondling (Incident Liberties/Child Molest)         
-* Gambling Equipment Violations                      
-* Hacking/Computer Invasion                          
-* Human Trafficking - Commercial Sex Acts            
-* Human Trafficking - Involuntary Servitude          
-* Identity Theft                                     
-* Impersonation                                      
-* Incest                                             
-* Intimidation                                       
-* Justifiable Homicide                               
-* Kidnapping/Abduction                               
-* __Motor Vehicle Theft__                                
-* __Murder/Non-negligent Manslaughter__                   
-* __Negligent Manslaughter__                             
-* Operating/Promoting/Assisting Gambling             
-* Pocket-Picking                                     
-* Pornography/Obscene Material                       
-* Prostitution                                       
-* Purchasing Prostitution                            
-* __Purse-Snatching__                                    
-* __Rape__                                               
-* __Robbery__                                            
-* __Sexual Assault With An Object__                      
-* __Shoplifting__                                        
-* __Simple Assault__                                     
-* __Sodomy__                                             
-* Sports Tampering                                   
-* Statutory Rape                                     
-* Stolen Property Offenses (Receiving, Selling, Etc.)
-* __Theft From Building__                                
-* __Theft From Coin-Operated Machine Or Device__         
-* __Theft From Motor Vehicle__                           
-* __Theft of Motor Vehicle Parts/Accessories__           
-* Weapon Law Violations                              
-* Welfare Fraud                                      
-* Wire Fraud 
-
-### Group B crimes
-
-The other set of crimes included in NIBRS are called Group B crimes. For these crimes, only the arrestee segment is available, meaning that we have far more limited data on these incidents than for Group A crimes. Unlike Group A, we only have data here when a person was arrested for the crime, so we don't know how often they occur without an arrest made. These crimes are considered Group B rather than Group A, according to the FBI, because they are less serious or less common than Group A crimes. This isn't really true though. They are certainly less serious than the most serious Group A crimes but include offenses more serious than some Group A crimes. For example, DUIs can potentially lead to serious injury if they crash into someone (if they did then that would likely be considered a charge like manslaughter or assault, but DUIs still have the *potential* to cause great harm) and peeping toms are an invasion of privacy and can cause serious distress to their victims. Relative to crimes like shoplifting, Group B offenses can indeed be more serious. Group B crimes are also quite common, particularly the catch-all category All Other Offenses. 
-
-One way I like to think of Group B crimes is that they're mostly - excluding peeping tom - victim-less crimes, or more specifically crimes without a specific victim. For example, in DUIs there's no individual victim; public drunkenness may disturb certain people around the event but they aren't the victims of the drunkenness. There are Group A crimes where the same is true, such as drug offenses, but I think this is a helpful way of thinking about Group B crimes. 
-
-* All Other Offenses - excludes traffic violations
-* Bad Checks                          
-* Curfew/Loitering/Vagrancy Violations
-* Disorderly Conduct                  
-* Driving Under The Influence (DUI)
-* Drunkenness                         
-* Family Offenses, Nonviolent
-* Liquor Law Violations               
-* Peeping Tom
-* Runaway - only for minors (data ends in 2011)
-* Trespass of Real Property
-
-## Differences from UCR data
-
-While NIBRS data is a far more expansive and detailed dataset than the UCR data, in most cases you can convert NIBRS to UCR which allows for continuation of data over time. So the switch from UCR to NIBRS adds a lot of information but loses relatively little. That relatively little amount of difference, however, can impact the types of questions we can ask so they are detailed below.
-
-### NIBRS does not have unfounded crimes
-
-In UCR data, which provides monthly counts of crimes (as well as more detailed info on hate crimes and homicides, and monthly counts of arrests), there is a count of "unfounded" crimes in each month. An unfounded crime is just one which was previously reported and then new evidence finds out that it never actually occurred (or that it isn't for the crime that was reported). For example, if you misplace your wallet but think it is stolen you may call the police and report it stolen. This would be recorded in UCR data as a theft. If you then find your wallet and tell the police, then it would be changed to an unfounded crime since the reported theft never actually happened. NIBRS data does not include unfounded data at all so you don't know how many reported crimes turn out to not be true. In practice, this doesn't matter too much as unfounded crimes are rare, constituting generally under 2% of each crime type. The major exception is in rape, where some agencies report that over 10% of rapes in certain years are unfounded. For more on this issue with rape, please see this section of my UCR book [here](https://ucrbook.com/offensesKnown.html#unfounded-crimes). 
-Given that UCR data already has major issue with rape data, including both changes in the definition of rape in 2013 and evidence that the number of cleared rapes is greatly exaggerated (see [this report from ProPublica](https://www.propublica.org/article/when-it-comes-to-rape-just-because-a-case-is-cleared-does-not-mean-solved) for more info on this), losing unfounded rapes means losing a not insignificant number of likely real rapes. 
-
-Unfounded crimes are also a way that the UCR used to identify justifiable homicides and when police killed someone. But that way was not always used properly and NIBRS data already includes justifiable homicide as a crime category so this isn't a problem.
-
-#### NIBRS does not have negative numbers
-
-Negative numbers in UCR data are because when a crime is reported and then later unfounded, in the month that it is unfounded it is classified as -1 crimes. This is so over the long term (i.e. more than a single month) the positive (but incorrect, and therefore later unfounded) reports and the negative reports to deal with unfounding would equal out so you have the actual number of crimes. In practice though this tended to end up confusing users - though only users who didn't read the manual. Since NIBRS does not have unfounded data, and since it isn't aggregated beyond the incident-level anyways, there are no negative numbers in NIBRS data.
-
-
-## A summary of each segment file
-
-NIBRS data is often discussed - and is used - as if it were a single file with all of this information available. But it actually comes as multiple different files that each provide different information about a crime incident, including at different levels of analysis so users must clean each segment before merging them together. In this section we'll discuss each of the segments and how they are related to each other. First, keep in mind that NIBRS is at its core an incident-level dataset (hence the "Incident-Based" part of its name). Everything that we have stems from the incident, even though we can get more detailed and look at, for example, individual victims in an incident or even offenses within an incident. Figure \@ref(fig:segmentFlowchart) shows the seven main segments and how they relate to each other. There are also three segments called "window segments" - there is one for arrestees, one of exceptional clearances (i.e. police could have made an arrest but didn't for some reason but still consider the case closed), and one for property - that do not have an associated segment with them, they only have the information available in the given "window" segment. We'll talk about window segments more in Section \@ref(window) below.
-
-<div class="figure" style="text-align: center">
-<img src="images/segments_flowchart.png" alt="The association of each segment file in the NIBRS dataset." width="90%" />
-<p class="caption">(\#fig:segmentFlowchart)The association of each segment file in the NIBRS dataset.</p>
-</div>
-
-The first two boxes in Figure \@ref(fig:segmentFlowchart), colored in orange, are not part of NIBRS but are part of the data generating process. First, obviously, a crime has to occur. The police then have to learn about the crime. This can happen in two ways. First, they can discover it themselves while on patrol. This is common in crimes such as drug possession or sale as well as any crime that occurs outdoors, which is largely where police are able to observe behavior. The second way is that the victim or witness to a crime reports it. So if they call the police to report a crime, the police learn about it from that call. We don't actually know from the data how the police learned of a crime but it's important to think about this data generating process when using the data. 
-Alongside the crime being reported (or discovered) to the police, agencies must then report the crime to NIBRS. All crimes that occur in that agency's jurisdiction *should* be reported, but that's not always the case. Since reporting is voluntary (at least nationally, though some states do require agencies to report data), agencies are free to report as many or as few crimes as they wish. This often occurs when agencies report only parts of the year, excluding certain months, so you should ensure that the agency reported data for each month you're interested in.
-
-Once a crime occurs and is reported to the police, it can be recorded to NIBRS in two ways, depending on the type of crime that occurred. If it is one of the Group B crimes, then we only get a Group B Arrestee Segment which is the same as the normal arrestee segment which we discuss in more detail below as well as in Chapter \@ref(arrestee). In this segment we have useful variables including the type of arrest (e.g. arrested by a warrant), what crime was committed, demographics of the arrestee, and weapon use. However, we're missing a wealth of information that is available in the other segments. When the crime is one of the Group A crimes, we get all of this additional information.
-
-For Group A crimes, we get every other segment, starting with the Administrative Segment. The Administrative Segment is largely a meta-segment - it provides information about other segments. The Administrative Segment is the only incident-level segment of the collection and provides information that is consistent across every offense in the incident such as the incident date and time (in hours of the day). It also includes the type of exceptional clearance for the incident, if the incident was exceptionally cleared. The key part of this segment, however, is that it tells you how many of the Offense, Offender, Victim, and Property segments that are associated with this incident. There are always at least one of these segments per incident, but can potentially be multiple of each segment. These other segments do exactly what their name suggests, providing information about the offenses, offender, victims, and stolen or damaged property for each crime incident. Each of these segments, including the Administrative Segment, have the agency identifier code (the ORI code which is discussed on Section \@ref(ori)) and an incident number (which is just a randomly generated unique identifier for that incident) so you can merge the files together. Please note that the incident number of only unique *within* an agency. So there can - and are - incident numbers that are identical across different agencies but are for different incidents. To avoid this issue, make sure you match based on *both* the ORI code and the incident number (or make a new variable with just combines the ORI code and incident number together).
-
-At the bottom is the Arrestee Segment which is only available when a person was arrested for that incident. This provides a bit more detailed data than the Offender Segment for everyone who was arrested for the incident. Now, in reality arrestees aren't necessarily a subset of offenders as some people arrested may not be the ones included in the offender data. Consider, for example, a crime where police initially think two people committed it but end up arresting three people for the crime. The third person would be in the arrestee file but not the offender file. However, in this data there is never a case where there are more arrestees than offenders so it appears that if an offender is arrested who wasn't previously known to the police, they add a corresponding offender segment row for that arrestee.
-
-### Administrative Segment
-
-The Administrative Segment provides information about the incident itself, such as how many victims or offenders there were. In practice this means that it tells us how many other segments - offense, offender, victim, and arrestee segments - there are for this particular incident. It also has several important variables at the incident-level such as what hour of the day the incident occurred and whether the incident date variable is actually just the date the incident was reported. Finally, it tells us whether the case was cleared exceptionally and, if so, what type of exceptional clearance it was. This can tell us, for example, how many crimes were cleared because the offender died or the victim refused to cooperate. As the UCR data doesn't differentiate between normal clearances (i.e. arrest the offender) and exceptional clearances, this provides a far deeper understanding of case outcomes. 
-
-### Offense Segment
-
-This segment provides information about the offense that occurred, and each incident can have multiple offenses. This data tells you which offense occurred and for a subset of offenses it also provides a more detailed subcategory of offense, allowing a deeper dive into what exactly happened. For example, for animal abuse there are four subcategories of offenses: simple/gross neglect of an animal, intentional abuse or torture, animal sexual abuse (bestiality), and organized fighting of animals such as dog or cock fights. This segment also says what date the crime occurred on, where the crime occurred - in categories such as residence or sidewalk rather than exact coordinates in a city - whether the offender is suspected of using drugs, alcohol, or "computer equipment" (which includes cell phones) during the crime, and which weapon was used. In cases where the weapon was a firearm it says whether that weapon was fully automatic or not. It also provides information on if the crime was a hate crime by including a variable on the bias motivation (if any) of the offender. This is based on evidence that the crime was motivated, at least in part, by the victim's group (e.g. race, sexuality, religion, etc.). There are 34 possible bias motivations and while hate crimes could potentially be motivated by bias against multiple groups, this data only allows for a single bias motivation.
-
-### Offender Segment
-
-As might be expected, the Offender Segment provides information about who the offender is for each incident, though this is limited to only demographic variables. So we know the age, sex, and race of each offender but nothing else. This means that important variables such as criminal history, ethnicity, socioeconomic status, and motive are missing. In the Victim Segment we learn about the relationship between the victim and offender, and in the Offense Segment we learn which weapon (if any) the offender used. So there is some other data on the offender in other segments but it's quite limited. This data has one row per offender so incidents with multiple offenders have multiple rows. In cases where there is no information about the offender there will be a single row where all of the offender variables will be "unknown." In these cases having a single row for the offender is merely a placeholder and doesn't necessarily mean that there was only one offender for that incident. However, there's no indicator for when this is a placeholder and when there was actually one offender but whose demographic info is unknown.
-
-### Victim Segment
-
-The Victim Segment provides data at the victim-level and includes information about who the victim is and their relationship to offenders. This data tells us what "type" of victim it is with the type meaning if they are a police officer, a civilian (called an "Individual" victim and basically any person who isn't a police officer), a business, the government, etc. It also includes the standard demographics variables in other segments - age, race, sex, ethnicity - as well as whether the victim is a resident (i.e. do they live there?) of the jurisdiction where they were victimized. We also learn from this data what types of injuries (if any) the victim suffered as a result of the crime. This is limited to physical injuries - excluding important outcomes such as mental duress or PTSD - but allows for a much better measure of harm from crime than simply assuming (or using past studies that tend to be old and only look at the cost of crime) what harm comes from certain offenses. There are seven possible injury types (including no injury at all) and victims can report up to five of these injuries so we have a fairly detailed measure of victim injury.
-
-One highly interesting variable in this segment is the relationship between the victim and the offender (for up to 10 offenders). This includes, for example, if the victim was the offender's wife, their child, employee, or if the stranger was unknown to them, with 27 total possible relationship categories. You can use this to determine which incidents were crimes by strangers, identify domestic violence, or simply learn about the victim-offender relationship for certain types of crimes. This variable is only available when the victim is a police officer or an "individual." This makes some sense though there could actually be cases where non-human victims (e.g. businesses, religious organizations) do have a relationship with the offender such as an employee stealing from a store. Related to the victim-offender relationship, this segment provides a bit of information about the motive for the crime. For aggravated assaults and homicides, there is a variable with the "circumstance" of the offense which is essentially the reason why the crime occurred. For example, possible circumstances include arguments between people, hunting accidents, child playing with weapon, and mercy killings. 
-
-### Arrestee and Group B Arrestee Segment
-
-The Arrestee Segment has information on the person arrested in an incident and has a number of variables that look at same as in previous segments but with subtle differences. This segment covers the arrestee's age, sex, and race, ethnicity, and residency status (of the city, not as a United States citizen). Age, sex, and race are also in the Offender Segment but can differ as not all offenders are arrested. It also says the crime the arrestee was arrested for (which in some cases is different than the crime committed in the offense since an arrest can clear multiple incidents), the weapon carried during the arrest (which may be different than the weapon used during the offense) and if this weapon (if it is a firearm) was an automatic weapon. There are a few completely new variables including the date of the arrest and the type of arrest. The type of arrest is simply whether the person was arrested by police who viewed the crime, if the arrest followed an arrest warrant or a previous arrest (i.e. arrested for a different crime and then police find out you also committed this one so they consider you arrested for this one too), and whether the person was cited by police and ordered to appear in court but not formally taken into custody. Finally, for juvenile arrestees it says whether arrestees were "handled within the department" which means they were released without formal sanctions or were "referred to other authorities" such as juvenile or criminal court, a welfare agency, or probation or parole department (for those on probation or parole). 
-
-### Property Segment
-
-The Property Segment provides a bit more info than would be expected from the name. For each item involved in the crime it tells you what category that items falls into, with 68 total categories of types of property (including "other") ranging from explosives and pets to money and alcohol. It also tells you the estimated value of that item. This data covers more than just items stolen during a crime. For each item it tells you what happened to that item such as if it was stolen, damaged, seized by police (such as illegal items like drugs), recovered by police, or burned during an arson.
-
-For drug offenses it includes the drugs seized by police. For these offenses, the data tells us the type of drug, with 16 different drug categories ranging from specific ones like marijuana or heroin to broader categories such as "other narcotics". There can be up to three different drugs included in this data - if the person has more than three types of drugs seized then the third drug category will simply indicate that there are more than three drugs, so we learn what the first two drugs are but not the third or greater drugs are in these cases. For each drug we also know exactly how much was seized with one variable saying the amount the police found and another saying the units we should we reading that amount as (e.g. pills, grams, plants). 
-
-### Window segments {#window}
-
-The final set of segments are the "Window" segments which are partial reports meaning that the incident doesn't have all of the other segment files associated with it. There are three window segments Window Arrestee, Window Property, and Window Exceptional Clearance. All three are very rare relative to non-window data and are generally no more than several thousand incidents per year (the non-window data is several million per year). Window files are here when the crime occurred before the agency started reporting to NIBRS and then the arrest happened after they switched to NIBRS. 
 
 ## Which agencies report data
 
@@ -4958,6 +5069,488 @@ For ease of reference, Table \@ref(tab:agenciesReportingTable) shows the number 
 </table>
 
 
+
+
+```
+#>       
+#>         FALSE   TRUE   <NA>
+#>   0     93649 402262      0
+#>   1       139   2496      0
+#>   2        49   1837      0
+#>   3        78   1717      0
+#>   4        63   1572      0
+#>   5        25   1708      0
+#>   6        20   1825      0
+#>   7        19   1728      0
+#>   8        21   2036      0
+#>   9        25   2483      0
+#>   10       76   3248      0
+#>   11       31   5997      0
+#>   12      425 139027      0
+#>   <NA>      1      7      0
+```
+
+<div class="figure" style="text-align: center">
+<img src="11_nibrs_general_files/figure-html/nibrsAnnualNumberAgencies-1.png" alt="The annual number of police agencies that report data to NIBRS." width="90%" />
+<p class="caption">(\#fig:nibrsAnnualNumberAgencies)The annual number of police agencies that report data to NIBRS.</p>
+</div>
+
+
+<div class="figure" style="text-align: center">
+<img src="11_nibrs_general_files/figure-html/nibrsAnnualPopulation-1.png" alt="The annual population in the United States that is covered by an agency reporting data to NIBRS." width="90%" />
+<p class="caption">(\#fig:nibrsAnnualPopulation)The annual population in the United States that is covered by an agency reporting data to NIBRS.</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<img src="11_nibrs_general_files/figure-html/nibrsAnnualPercentPopulation-1.png" alt="The annual percent of the United States population that is covered by an agency reporting data to NIBRS." width="90%" />
+<p class="caption">(\#fig:nibrsAnnualPercentPopulation)The annual percent of the United States population that is covered by an agency reporting data to NIBRS.</p>
+</div>
+
+
+
+```
+#>  [1] "Alabama"              "Alaska"               "Arizona"             
+#>  [4] "Arkansas"             "California"           "Colorado"            
+#>  [7] "Connecticut"          "Delaware"             "District of Columbia"
+#> [10] "Florida"              "Georgia"              "Hawaii"              
+#> [13] "Idaho"                "Illinois"             "Indiana"             
+#> [16] "Iowa"                 "Kansas"               "Kentucky"            
+#> [19] "Louisiana"            "Maine"                "Maryland"            
+#> [22] "Massachusetts"        "Michigan"             "Minnesota"           
+#> [25] "Mississippi"          "Missouri"             "Montana"             
+#> [28] "Nebraska"             "Nevada"               "New Hampshire"       
+#> [31] "New Jersey"           "New Mexico"           "New York"            
+#> [34] "North Carolina"       "North Dakota"         "Ohio"                
+#> [37] "Oklahoma"             "Oregon"               "Pennsylvania"        
+#> [40] "Rhode Island"         "South Carolina"       "South Dakota"        
+#> [43] "Tennessee"            "Texas"                "Utah"                
+#> [46] "Vermont"              "Virginia"             "Washington"          
+#> [49] "West Virginia"        "Wisconsin"            "Wyoming"             
+#> [52] "Puerto Rico"
+#>         ori year   state population date_ori_was_added date_ori_went_nibrs
+#> 1 alast0000 1991 alabama          0           19910430                <NA>
+#> 2 al0010000 1991 alabama     142446           19930225            19910101
+#> 3 al0010100 1991 alabama      33898           19910513            19910101
+#> 4 al0010200 1991 alabama     269313           19920326            19910101
+#> 5 al0010300 1991 alabama      20047           19910513            19910101
+#> 6 al0010400 1991 alabama      12346           19910513            19910101
+#>        city_name state_abbreviation            population_group
+#> 1     montgomery                 al non-msa county under 10,000
+#> 2     birmingham                 al         msa-county 100,000+
+#> 3       bessemer                 al     city 25,000 thru 49,999
+#> 4     birmingham                 al   city 250,000 thru 499,999
+#> 5 mountain brook                 al     city 10,000 thru 24,999
+#> 6      fairfield                 al     city 10,000 thru 24,999
+#>     country_division country_region agency_indicator core_city covered_by_ori
+#> 1 east south central          south           county         n           <NA>
+#> 2 east south central          south           county         n           <NA>
+#> 3 east south central          south             city         n           <NA>
+#> 4 east south central          south             city         y           <NA>
+#> 5 east south central          south             city         n           <NA>
+#> 6 east south central          south             city         n           <NA>
+#>   fbi_field_office judicial_district agency_nibrs_flag agency_inactive_date
+#> 1             3490              <NA>              <NA>                 <NA>
+#> 2             3070              010n                 a                 <NA>
+#> 3             3070              010n                 a                 <NA>
+#> 4             3070              010n                 a                 <NA>
+#> 5             3070              010n                 a                 <NA>
+#> 6             3070              010n                 a                 <NA>
+#>   current_population_1 ucr_county_code_1 msa_code_1 last_population_1
+#> 1                    0              <NA>       <NA>                 0
+#> 2               142446                37         98            142446
+#> 3                33898                37         98             33898
+#> 4               269313                37         98            269313
+#> 5                20047                37         98             20047
+#> 6                12346                37         98             12346
+#>   current_population_2 ucr_county_code_2 msa_code_2 last_population_2
+#> 1                    0              <NA>       <NA>                 0
+#> 2                    0              <NA>       <NA>                 0
+#> 3                    0              <NA>       <NA>                 0
+#> 4                    0              <NA>       <NA>                 0
+#> 5                    0              <NA>       <NA>                 0
+#> 6                    0              <NA>       <NA>                 0
+#>   current_population_3 ucr_county_code_3 msa_code_3 last_population_3
+#> 1                    0              <NA>       <NA>                 0
+#> 2                    0              <NA>       <NA>                 0
+#> 3                    0              <NA>       <NA>                 0
+#> 4                    0              <NA>       <NA>                 0
+#> 5                    0              <NA>       <NA>                 0
+#> 6                    0              <NA>       <NA>                 0
+#>   current_population_4 ucr_county_code_4 msa_code_4 last_population_4
+#> 1                    0              <NA>       <NA>                 0
+#> 2                    0              <NA>       <NA>                 0
+#> 3                    0              <NA>       <NA>                 0
+#> 4                    0              <NA>       <NA>                 0
+#> 5                    0              <NA>       <NA>                 0
+#> 6                    0              <NA>       <NA>                 0
+#>   current_population_5 ucr_county_code_5 msa_code_5 last_population_5
+#> 1                    0              <NA>       <NA>                 0
+#> 2                    0              <NA>       <NA>                 0
+#> 3                    0              <NA>       <NA>                 0
+#> 4                    0              <NA>       <NA>                 0
+#> 5                    0              <NA>       <NA>                 0
+#> 6                    0              <NA>       <NA>                 0
+#>   X01_06_12_indicator number_of_months_reported master_file_year
+#> 1                <NA>                         0             1991
+#> 2                  12                        12             1991
+#> 3                  12                        12             1991
+#> 4                  12                        12             1991
+#> 5                  12                        12             1991
+#> 6                  12                        12             1991
+#>   january_zero_report_submitted january_group_a_b_submitted
+#> 1                          <NA>                        <NA>
+#> 2                          <NA>  group a or b was submitted
+#> 3                          <NA>  group a or b was submitted
+#> 4                          <NA>  group a or b was submitted
+#> 5                          <NA>  group a or b was submitted
+#> 6                          <NA>  group a or b was submitted
+#>   january_window_record_submitted february_zero_report_submitted
+#> 1                            <NA>                           <NA>
+#> 2     window record was submitted                           <NA>
+#> 3                            <NA>                           <NA>
+#> 4                            <NA>                           <NA>
+#> 5                            <NA>                           <NA>
+#> 6                            <NA>                           <NA>
+#>   february_group_a_b_submitted february_window_record_submitted
+#> 1                         <NA>                             <NA>
+#> 2   group a or b was submitted                             <NA>
+#> 3   group a or b was submitted                             <NA>
+#> 4   group a or b was submitted                             <NA>
+#> 5   group a or b was submitted                             <NA>
+#> 6   group a or b was submitted                             <NA>
+#>   march_zero_report_submitted  march_group_a_b_submitted
+#> 1                        <NA>                       <NA>
+#> 2                        <NA> group a or b was submitted
+#> 3                        <NA> group a or b was submitted
+#> 4                        <NA> group a or b was submitted
+#> 5                        <NA> group a or b was submitted
+#> 6                        <NA> group a or b was submitted
+#>   march_window_record_submitted april_zero_report_submitted
+#> 1                          <NA>                        <NA>
+#> 2                          <NA>                        <NA>
+#> 3                          <NA>                        <NA>
+#> 4                          <NA>                        <NA>
+#> 5                          <NA>                        <NA>
+#> 6                          <NA>                        <NA>
+#>    april_group_a_b_submitted april_window_record_submitted
+#> 1                       <NA>                          <NA>
+#> 2 group a or b was submitted   window record was submitted
+#> 3 group a or b was submitted                          <NA>
+#> 4 group a or b was submitted                          <NA>
+#> 5 group a or b was submitted                          <NA>
+#> 6 group a or b was submitted                          <NA>
+#>   may_zero_report_submitted    may_group_a_b_submitted
+#> 1                      <NA>                       <NA>
+#> 2                      <NA> group a or b was submitted
+#> 3                      <NA> group a or b was submitted
+#> 4                      <NA> group a or b was submitted
+#> 5                      <NA> group a or b was submitted
+#> 6                      <NA> group a or b was submitted
+#>   may_window_record_submitted june_zero_report_submitted
+#> 1                        <NA>                       <NA>
+#> 2                        <NA>                       <NA>
+#> 3                        <NA>                       <NA>
+#> 4                        <NA>                       <NA>
+#> 5                        <NA>                       <NA>
+#> 6                        <NA>                       <NA>
+#>     june_group_a_b_submitted june_window_record_submitted
+#> 1                       <NA>                         <NA>
+#> 2 group a or b was submitted                         <NA>
+#> 3 group a or b was submitted                         <NA>
+#> 4 group a or b was submitted                         <NA>
+#> 5 group a or b was submitted  window record was submitted
+#> 6 group a or b was submitted                         <NA>
+#>   july_zero_report_submitted   july_group_a_b_submitted
+#> 1                       <NA>                       <NA>
+#> 2                       <NA> group a or b was submitted
+#> 3                       <NA> group a or b was submitted
+#> 4                       <NA> group a or b was submitted
+#> 5                       <NA> group a or b was submitted
+#> 6                       <NA> group a or b was submitted
+#>   july_window_record_submitted august_zero_report_submitted
+#> 1                         <NA>                         <NA>
+#> 2                         <NA>                         <NA>
+#> 3                         <NA>                         <NA>
+#> 4                         <NA>                         <NA>
+#> 5                         <NA>                         <NA>
+#> 6                         <NA>                         <NA>
+#>   august_group_a_b_submitted august_window_record_submitted
+#> 1                       <NA>                           <NA>
+#> 2 group a or b was submitted                           <NA>
+#> 3 group a or b was submitted                           <NA>
+#> 4 group a or b was submitted                           <NA>
+#> 5 group a or b was submitted                           <NA>
+#> 6 group a or b was submitted                           <NA>
+#>   september_zero_report_submitted september_group_a_b_submitted
+#> 1                            <NA>                          <NA>
+#> 2                            <NA>    group a or b was submitted
+#> 3                            <NA>    group a or b was submitted
+#> 4                            <NA>    group a or b was submitted
+#> 5                            <NA>    group a or b was submitted
+#> 6                            <NA>    group a or b was submitted
+#>   september_window_record_submitte october_zero_report_submitted
+#> 1                             <NA>                          <NA>
+#> 2                             <NA>                          <NA>
+#> 3                             <NA>                          <NA>
+#> 4                             <NA>                          <NA>
+#> 5                             <NA>                          <NA>
+#> 6                             <NA>                          <NA>
+#>   october_group_a_b_submitted october_window_record_submitted
+#> 1                        <NA>                            <NA>
+#> 2  group a or b was submitted                            <NA>
+#> 3  group a or b was submitted                            <NA>
+#> 4  group a or b was submitted                            <NA>
+#> 5  group a or b was submitted                            <NA>
+#> 6  group a or b was submitted                            <NA>
+#>   november_zero_report_submitted november_group_a_b_submitted
+#> 1                           <NA>                         <NA>
+#> 2                           <NA>   group a or b was submitted
+#> 3                           <NA>   group a or b was submitted
+#> 4                           <NA>   group a or b was submitted
+#> 5                           <NA>   group a or b was submitted
+#> 6                           <NA>   group a or b was submitted
+#>   november_window_record_submitted december_zero_report_submitted
+#> 1                             <NA>                           <NA>
+#> 2                             <NA>                           <NA>
+#> 3                             <NA>                           <NA>
+#> 4                             <NA>                           <NA>
+#> 5                             <NA>                           <NA>
+#> 6                             <NA>                           <NA>
+#>   december_group_a_b_submitted december_window_record_submitted
+#> 1                         <NA>                             <NA>
+#> 2   group a or b was submitted                             <NA>
+#> 3   group a or b was submitted                             <NA>
+#> 4   group a or b was submitted                             <NA>
+#> 5   group a or b was submitted                             <NA>
+#> 6   group a or b was submitted                             <NA>
+#>   x01_06_12_indicator fips_county_code_1 fips_county_code_2 fips_county_code_3
+#> 1                <NA>               <NA>               <NA>               <NA>
+#> 2                <NA>               <NA>               <NA>               <NA>
+#> 3                <NA>               <NA>               <NA>               <NA>
+#> 4                <NA>               <NA>               <NA>               <NA>
+#> 5                <NA>               <NA>               <NA>               <NA>
+#> 6                <NA>               <NA>               <NA>               <NA>
+#>   fips_county_code_4 fips_county_code_5
+#> 1               <NA>               <NA>
+#> 2               <NA>               <NA>
+#> 3               <NA>               <NA>
+#> 4               <NA>               <NA>
+#> 5               <NA>               <NA>
+#> 6               <NA>               <NA>
+```
+
+<div class="figure" style="text-align: center">
+<img src="11_nibrs_general_files/figure-html/nibrsStateParticipation2020-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022." width="90%" />
+<p class="caption">(\#fig:nibrsStateParticipation2020)The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022.</p>
+</div>
+
+
+
+
+```
+#>  [1] "Alabama"              "Alaska"               "Arizona"             
+#>  [4] "Arkansas"             "California"           "Colorado"            
+#>  [7] "Connecticut"          "Delaware"             "District of Columbia"
+#> [10] "Florida"              "Georgia"              "Hawaii"              
+#> [13] "Idaho"                "Illinois"             "Indiana"             
+#> [16] "Iowa"                 "Kansas"               "Kentucky"            
+#> [19] "Louisiana"            "Maine"                "Maryland"            
+#> [22] "Massachusetts"        "Michigan"             "Minnesota"           
+#> [25] "Mississippi"          "Missouri"             "Montana"             
+#> [28] "Nebraska"             "Nevada"               "New Hampshire"       
+#> [31] "New Jersey"           "New Mexico"           "New York"            
+#> [34] "North Carolina"       "North Dakota"         "Ohio"                
+#> [37] "Oklahoma"             "Oregon"               "Pennsylvania"        
+#> [40] "Rhode Island"         "South Carolina"       "South Dakota"        
+#> [43] "Tennessee"            "Texas"                "Utah"                
+#> [46] "Vermont"              "Virginia"             "Washington"          
+#> [49] "West Virginia"        "Wisconsin"            "Wyoming"             
+#> [52] "Puerto Rico"
+```
+
+<div class="figure" style="text-align: center">
+<img src="11_nibrs_general_files/figure-html/nibrsStateParticipation2000-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2000." width="90%" />
+<p class="caption">(\#fig:nibrsStateParticipation2000)The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2000.</p>
+</div>
+
+
+
+```
+#>  [1] "Alabama"              "Alaska"               "Arizona"             
+#>  [4] "Arkansas"             "California"           "Colorado"            
+#>  [7] "Connecticut"          "Delaware"             "District of Columbia"
+#> [10] "Florida"              "Georgia"              "Hawaii"              
+#> [13] "Idaho"                "Illinois"             "Indiana"             
+#> [16] "Iowa"                 "Kansas"               "Kentucky"            
+#> [19] "Louisiana"            "Maine"                "Maryland"            
+#> [22] "Massachusetts"        "Michigan"             "Minnesota"           
+#> [25] "Mississippi"          "Missouri"             "Montana"             
+#> [28] "Nebraska"             "Nevada"               "New Hampshire"       
+#> [31] "New Jersey"           "New Mexico"           "New York"            
+#> [34] "North Carolina"       "North Dakota"         "Ohio"                
+#> [37] "Oklahoma"             "Oregon"               "Pennsylvania"        
+#> [40] "Rhode Island"         "South Carolina"       "South Dakota"        
+#> [43] "Tennessee"            "Texas"                "Utah"                
+#> [46] "Vermont"              "Virginia"             "Washington"          
+#> [49] "West Virginia"        "Wisconsin"            "Wyoming"             
+#> [52] "Puerto Rico"
+```
+
+<div class="figure" style="text-align: center">
+<img src="11_nibrs_general_files/figure-html/nibrsStateParticipation2010-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2010." width="90%" />
+<p class="caption">(\#fig:nibrsStateParticipation2010)The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2010.</p>
+</div>
+
+
+## Crimes included in NIBRS
+
+NIBRS data contains far more crime categories than in the UCR data, particularly far more than [UCR crime data](https://ucrbook.com/ucrGeneral.html#crimes-in-the-offenses-known-and-clearances-by-arrest-dataset) which contained only eight crimes (and their subcategories of crimes). It also includes several more crime categories than in the [UCR arrest data](https://ucrbook.com/ucrGeneral.html#crimes-in-the-arrests-by-age-sex-and-race-dataset) which is far more expansive than the UCR crime dataset. Compared to UCR data, however, there are occasionally more steps you must take to get the same crime category. For example, UCR crime data has the number of gun assaults each month. NIBRS data has the number of aggravated assaults only, but has a variable indicating what weapon the offender used. So you can find out how many aggravated assaults used a gun, giving you the same data as in the UCR, but you need to take extra steps to get there. 
+
+Likewise the UCR arrest data has the number of people arrested for selling drugs (broken down into a few different categories of drugs). NIBRS data has if the crime type was a "drug/narcotic violation" which means any crime having to deal with drugs possession, sale, or manufacturing, and excluding drug equipment crimes. We then have to look first at the subcategory of offenses to see if the arrest was for possession, for sale, for manufacturing, or some other kind of drug crime. The final step to be comparable to UCR data is to look at the type of drug involved in the crime. You'll often have to do steps like this during NIBRS research. NIBRS data is available in multiple files that all (for the most part) correspond with each other so you'll tend to have to combine them together to get the complete data you want. 
+
+The crimes included in NIBRS are broken into two categories: Group A and Group B crimes.
+
+### Group A crimes
+
+The first set of crimes included are Group A crimes and these are really the main crimes included in NIBRS. For each of these crimes we have full data on the victim, the offender, the offense, any property stolen or damaged (or for drug crimes, seized by the police), and info about the arrestee (if any). Of course, not all of this data may be available (e.g. information on the offender is unknown) so there can be significant amounts of missing data, but each crime incident does have corresponding files with this information.
+
+The complete list of Group A crimes is below. I've bolded the Index Crimes which are a flawed, but ubiquitous measure of crime used in the UCR crime data as the main measure of crime in the United States. The Index Crimes are murder, rape (sexual assault with an object and sodomy are only considered rape using the FBI new definition that began in 2013), aggravated assault, robbery (these four are the "Violent Index Crimes"), burglary, motor vehicle theft, and theft (these are the "Property Index Crimes". Theft here is broken down into several types of theft like purse-snatching and shoplifting. In the UCR crime dataset it is only "theft".). Arson is also technically an Index Crime (arson is considered a property crime) but is generally excluded. Using Index Crimes as your measure of crime is a bad idea (see [here for more on this](https://www.propublica.org/article/the-secret-irs-files-trove-of-never-before-seen-records-reveal-how-the-wealthiest-avoid-income-tax)) but it's good that all of the Index Crimes are available in NIBRS so we have continuity of data from when agencies move from UCR to NIBRS.
+
+* __Aggravated Assault__                                 
+* __All Other Larceny__                                  
+* Animal Cruelty                                     
+* Arson                                              
+* Assisting Or Promoting Prostitution                
+* Betting/Wagering                                   
+* Bribery                                            
+* __Burglary/Breaking And Entering__                     
+* Counterfeiting/Forgery                             
+* Credit Card/ATM Fraud                              
+* Destruction/Damage/Vandalism of Property           
+* Drug Equipment Violations                          
+* Drug/Narcotic Violations                           
+* Embezzlement                                       
+* Extortion/Blackmail                                
+* False Pretenses/Swindle/Confidence Game            
+* Fondling (Incident Liberties/Child Molest)         
+* Gambling Equipment Violations                      
+* Hacking/Computer Invasion                          
+* Human Trafficking - Commercial Sex Acts            
+* Human Trafficking - Involuntary Servitude          
+* Identity Theft                                     
+* Impersonation                                      
+* Incest                                             
+* Intimidation                                       
+* Justifiable Homicide                               
+* Kidnapping/Abduction                               
+* __Motor Vehicle Theft__                                
+* __Murder/Non-negligent Manslaughter__                   
+* __Negligent Manslaughter__                             
+* Operating/Promoting/Assisting Gambling             
+* Pocket-Picking                                     
+* Pornography/Obscene Material                       
+* Prostitution                                       
+* Purchasing Prostitution                            
+* __Purse-Snatching__                                    
+* __Rape__                                               
+* __Robbery__                                            
+* __Sexual Assault With An Object__                      
+* __Shoplifting__                                        
+* __Simple Assault__                                     
+* __Sodomy__                                             
+* Sports Tampering                                   
+* Statutory Rape                                     
+* Stolen Property Offenses (Receiving, Selling, Etc.)
+* __Theft From Building__                                
+* __Theft From Coin-Operated Machine Or Device__         
+* __Theft From Motor Vehicle__                           
+* __Theft of Motor Vehicle Parts/Accessories__           
+* Weapon Law Violations                              
+* Welfare Fraud                                      
+* Wire Fraud 
+
+### Group B crimes
+
+The other set of crimes included in NIBRS are called Group B crimes. For these crimes, only the arrestee segment is available, meaning that we have far more limited data on these incidents than for Group A crimes. Unlike Group A, we only have data here when a person was arrested for the crime, so we don't know how often they occur without an arrest made. These crimes are considered Group B rather than Group A, according to the FBI, because they are less serious or less common than Group A crimes. This isn't really true though. They are certainly less serious than the most serious Group A crimes but include offenses more serious than some Group A crimes. For example, DUIs can potentially lead to serious injury if they crash into someone (if they did then that would likely be considered a charge like manslaughter or assault, but DUIs still have the *potential* to cause great harm) and peeping toms are an invasion of privacy and can cause serious distress to their victims. Relative to crimes like shoplifting, Group B offenses can indeed be more serious. Group B crimes are also quite common, particularly the catch-all category All Other Offenses. 
+
+One way I like to think of Group B crimes is that they're mostly - excluding peeping tom - victim-less crimes, or more specifically crimes without a specific victim. For example, in DUIs there's no individual victim; public drunkenness may disturb certain people around the event but they aren't the victims of the drunkenness. There are Group A crimes where the same is true, such as drug offenses, but I think this is a helpful way of thinking about Group B crimes. 
+
+* All Other Offenses - excludes traffic violations
+* Bad Checks                          
+* Curfew/Loitering/Vagrancy Violations
+* Disorderly Conduct                  
+* Driving Under The Influence (DUI)
+* Drunkenness                         
+* Family Offenses, Nonviolent
+* Liquor Law Violations               
+* Peeping Tom
+* Runaway - only for minors (data ends in 2011)
+* Trespass of Real Property
+
+## Differences from SRS data
+
+While NIBRS data is a far more expansive and detailed dataset than the SRS data, in most cases you can convert NIBRS to SRS which allows for continuation of data over time. So the switch from SRS to NIBRS adds a lot of information but loses relatively little. That relatively little amount of difference, however, can impact the types of questions we can ask so they are detailed below.
+
+### NIBRS does not have unfounded crimes
+
+In SRS data, which provides monthly counts of crimes (as well as more detailed info on hate crimes and homicides, and monthly counts of arrests), there is a count of "unfounded" crimes in each month. An unfounded crime is just one which was previously reported and then new evidence finds out that it never actually occurred (or that it isn't for the crime that was reported). For example, if you misplace your wallet but think it is stolen you may call the police and report it stolen. This would be recorded in SRS data as a theft. If you then find your wallet and tell the police, then it would be changed to an unfounded crime since the reported theft never actually happened. NIBRS data does not include unfounded data at all so you don't know how many reported crimes turn out to not be true. In practice, this doesn't matter too much as unfounded crimes are rare, constituting generally under 2% of each crime type. The major exception is in rape, where some agencies report that over 10% of rapes in certain years are unfounded. 
+
+Unfounded crimes are also a way that the SRS used to identify justifiable homicides and when police killed someone. But that way was not always used properly and NIBRS data already includes justifiable homicide as a crime category so this isn't a problem.
+
+#### NIBRS does not have negative numbers
+
+Negative numbers in SRS data are because when a crime is reported and then later unfounded, in the month that it is unfounded it is classified as -1 crimes. This is so over the long term (i.e. more than a single month) the positive (but incorrect, and therefore later unfounded) reports and the negative reports to deal with unfounding would equal out so you have the actual number of crimes. In practice though this tended to end up confusing users - though only users who didn't read the manual. Since NIBRS does not have unfounded data, and since it isn't aggregated beyond the incident-level anyways, there are no negative numbers in NIBRS data.
+
+
+## A summary of each segment file
+
+NIBRS data is often discussed - and is used - as if it were a single file with all of this information available. But it actually comes as multiple different files that each provide different information about a crime incident, including at different levels of analysis so users must clean each segment before merging them together. In this section we'll discuss each of the segments and how they are related to each other. First, keep in mind that NIBRS is at its core an incident-level dataset (hence the "Incident-Based" part of its name). Everything that we have stems from the incident, even though we can get more detailed and look at, for example, individual victims in an incident or even offenses within an incident. Figure \@ref(fig:segmentFlowchart) shows the seven main segments and how they relate to each other. There are also three segments called "window segments" - there is one for arrestees, one of exceptional clearances (i.e. police could have made an arrest but didn't for some reason but still consider the case closed), and one for property - that do not have an associated segment with them, they only have the information available in the given "window" segment. We'll talk about window segments more in Section \@ref(window) below.
+
+<div class="figure" style="text-align: center">
+<img src="images/segments_flowchart.png" alt="The association of each segment file in the NIBRS dataset." width="90%" />
+<p class="caption">(\#fig:segmentFlowchart)The association of each segment file in the NIBRS dataset.</p>
+</div>
+
+The first two boxes in Figure \@ref(fig:segmentFlowchart), colored in orange, are not part of NIBRS but are part of the data generating process. First, obviously, a crime has to occur. The police then have to learn about the crime. This can happen in two ways. First, they can discover it themselves while on patrol. This is common in crimes such as drug possession or sale as well as any crime that occurs outdoors, which is largely where police are able to observe behavior. The second way is that the victim or witness to a crime reports it. So if they call the police to report a crime, the police learn about it from that call. We don't actually know from the data how the police learned of a crime but it's important to think about this data generating process when using the data. 
+Alongside the crime being reported (or discovered) to the police, agencies must then report the crime to NIBRS. All crimes that occur in that agency's jurisdiction *should* be reported, but that's not always the case. Since reporting is voluntary (at least nationally, though some states do require agencies to report data), agencies are free to report as many or as few crimes as they wish. This often occurs when agencies report only parts of the year, excluding certain months, so you should ensure that the agency reported data for each month you're interested in.
+
+Once a crime occurs and is reported to the police, it can be recorded to NIBRS in two ways, depending on the type of crime that occurred. If it is one of the Group B crimes, then we only get a Group B Arrestee Segment which is the same as the normal arrestee segment which we discuss in more detail below as well as in Chapter \@ref(arrestee). In this segment we have useful variables including the type of arrest (e.g. arrested by a warrant), what crime was committed, demographics of the arrestee, and weapon use. However, we're missing a wealth of information that is available in the other segments. When the crime is one of the Group A crimes, we get all of this additional information.
+
+For Group A crimes, we get every other segment, starting with the Administrative Segment. The Administrative Segment is largely a meta-segment - it provides information about other segments. The Administrative Segment is the only incident-level segment of the collection and provides information that is consistent across every offense in the incident such as the incident date and time (in hours of the day). It also includes the type of exceptional clearance for the incident, if the incident was exceptionally cleared. The key part of this segment, however, is that it tells you how many of the Offense, Offender, Victim, and Property segments that are associated with this incident. There are always at least one of these segments per incident, but can potentially be multiple of each segment. These other segments do exactly what their name suggests, providing information about the offenses, offender, victims, and stolen or damaged property for each crime incident. Each of these segments, including the Administrative Segment, have the agency identifier code (the ORI code which is discussed on Section \@ref(ori)) and an incident number (which is just a randomly generated unique identifier for that incident) so you can merge the files together. Please note that the incident number of only unique *within* an agency. So there can - and are - incident numbers that are identical across different agencies but are for different incidents. To avoid this issue, make sure you match based on *both* the ORI code and the incident number (or make a new variable with just combines the ORI code and incident number together).
+
+At the bottom is the Arrestee Segment which is only available when a person was arrested for that incident. This provides a bit more detailed data than the Offender Segment for everyone who was arrested for the incident. Now, in reality arrestees aren't necessarily a subset of offenders as some people arrested may not be the ones included in the offender data. Consider, for example, a crime where police initially think two people committed it but end up arresting three people for the crime. The third person would be in the arrestee file but not the offender file. However, in this data there is never a case where there are more arrestees than offenders so it appears that if an offender is arrested who wasn't previously known to the police, they add a corresponding offender segment row for that arrestee.
+
+### Administrative Segment
+
+The Administrative Segment provides information about the incident itself, such as how many victims or offenders there were. In practice this means that it tells us how many other segments - offense, offender, victim, and arrestee segments - there are for this particular incident. It also has several important variables at the incident-level such as what hour of the day the incident occurred and whether the incident date variable is actually just the date the incident was reported. Finally, it tells us whether the case was cleared exceptionally and, if so, what type of exceptional clearance it was. This can tell us, for example, how many crimes were cleared because the offender died or the victim refused to cooperate. As the UCR data doesn't differentiate between normal clearances (i.e. arrest the offender) and exceptional clearances, this provides a far deeper understanding of case outcomes. 
+
+### Offense Segment
+
+This segment provides information about the offense that occurred, and each incident can have multiple offenses. This data tells you which offense occurred and for a subset of offenses it also provides a more detailed subcategory of offense, allowing a deeper dive into what exactly happened. For example, for animal abuse there are four subcategories of offenses: simple/gross neglect of an animal, intentional abuse or torture, animal sexual abuse (bestiality), and organized fighting of animals such as dog or cock fights. This segment also says what date the crime occurred on, where the crime occurred - in categories such as residence or sidewalk rather than exact coordinates in a city - whether the offender is suspected of using drugs, alcohol, or "computer equipment" (which includes cell phones) during the crime, and which weapon was used. In cases where the weapon was a firearm it says whether that weapon was fully automatic or not. It also provides information on if the crime was a hate crime by including a variable on the bias motivation (if any) of the offender. This is based on evidence that the crime was motivated, at least in part, by the victim's group (e.g. race, sexuality, religion, etc.). There are 34 possible bias motivations and while hate crimes could potentially be motivated by bias against multiple groups, this data only allows for a single bias motivation.
+
+### Offender Segment
+
+As might be expected, the Offender Segment provides information about who the offender is for each incident, though this is limited to only demographic variables. So we know the age, sex, and race of each offender but nothing else. This means that important variables such as criminal history, ethnicity, socioeconomic status, and motive are missing. In the Victim Segment we learn about the relationship between the victim and offender, and in the Offense Segment we learn which weapon (if any) the offender used. So there is some other data on the offender in other segments but it's quite limited. This data has one row per offender so incidents with multiple offenders have multiple rows. In cases where there is no information about the offender there will be a single row where all of the offender variables will be "unknown." In these cases having a single row for the offender is merely a placeholder and doesn't necessarily mean that there was only one offender for that incident. However, there's no indicator for when this is a placeholder and when there was actually one offender but whose demographic info is unknown.
+
+### Victim Segment
+
+The Victim Segment provides data at the victim-level and includes information about who the victim is and their relationship to offenders. This data tells us what "type" of victim it is with the type meaning if they are a police officer, a civilian (called an "Individual" victim and basically any person who isn't a police officer), a business, the government, etc. It also includes the standard demographics variables in other segments - age, race, sex, ethnicity - as well as whether the victim is a resident (i.e. do they live there?) of the jurisdiction where they were victimized. We also learn from this data what types of injuries (if any) the victim suffered as a result of the crime. This is limited to physical injuries - excluding important outcomes such as mental duress or PTSD - but allows for a much better measure of harm from crime than simply assuming (or using past studies that tend to be old and only look at the cost of crime) what harm comes from certain offenses. There are seven possible injury types (including no injury at all) and victims can report up to five of these injuries so we have a fairly detailed measure of victim injury.
+
+One highly interesting variable in this segment is the relationship between the victim and the offender (for up to 10 offenders). This includes, for example, if the victim was the offender's wife, their child, employee, or if the stranger was unknown to them, with 27 total possible relationship categories. You can use this to determine which incidents were crimes by strangers, identify domestic violence, or simply learn about the victim-offender relationship for certain types of crimes. This variable is only available when the victim is a police officer or an "individual." This makes some sense though there could actually be cases where non-human victims (e.g. businesses, religious organizations) do have a relationship with the offender such as an employee stealing from a store. Related to the victim-offender relationship, this segment provides a bit of information about the motive for the crime. For aggravated assaults and homicides, there is a variable with the "circumstance" of the offense which is essentially the reason why the crime occurred. For example, possible circumstances include arguments between people, hunting accidents, child playing with weapon, and mercy killings. 
+
+### Arrestee and Group B Arrestee Segment
+
+The Arrestee Segment has information on the person arrested in an incident and has a number of variables that look at same as in previous segments but with subtle differences. This segment covers the arrestee's age, sex, and race, ethnicity, and residency status (of the city, not as a United States citizen). Age, sex, and race are also in the Offender Segment but can differ as not all offenders are arrested. It also says the crime the arrestee was arrested for (which in some cases is different than the crime committed in the offense since an arrest can clear multiple incidents), the weapon carried during the arrest (which may be different than the weapon used during the offense) and if this weapon (if it is a firearm) was an automatic weapon. There are a few completely new variables including the date of the arrest and the type of arrest. The type of arrest is simply whether the person was arrested by police who viewed the crime, if the arrest followed an arrest warrant or a previous arrest (i.e. arrested for a different crime and then police find out you also committed this one so they consider you arrested for this one too), and whether the person was cited by police and ordered to appear in court but not formally taken into custody. Finally, for juvenile arrestees it says whether arrestees were "handled within the department" which means they were released without formal sanctions or were "referred to other authorities" such as juvenile or criminal court, a welfare agency, or probation or parole department (for those on probation or parole). 
+
+### Property Segment
+
+The Property Segment provides a bit more info than would be expected from the name. For each item involved in the crime it tells you what category that items falls into, with 68 total categories of types of property (including "other") ranging from explosives and pets to money and alcohol. It also tells you the estimated value of that item. This data covers more than just items stolen during a crime. For each item it tells you what happened to that item such as if it was stolen, damaged, seized by police (such as illegal items like drugs), recovered by police, or burned during an arson.
+
+For drug offenses it includes the drugs seized by police. For these offenses, the data tells us the type of drug, with 16 different drug categories ranging from specific ones like marijuana or heroin to broader categories such as "other narcotics". There can be up to three different drugs included in this data - if the person has more than three types of drugs seized then the third drug category will simply indicate that there are more than three drugs, so we learn what the first two drugs are but not the third or greater drugs are in these cases. For each drug we also know exactly how much was seized with one variable saying the amount the police found and another saying the units we should we reading that amount as (e.g. pills, grams, plants). 
+
+### Window segments {#window}
+
+The final set of segments are the "Window" segments which are partial reports meaning that the incident doesn't have all of the other segment files associated with it. There are three window segments Window Arrestee, Window Property, and Window Exceptional Clearance. All three are very rare relative to non-window data and are generally no more than several thousand incidents per year (the non-window data is several million per year). Window files are here when the crime occurred before the agency started reporting to NIBRS and then the arrest happened after they switched to NIBRS. 
 
 
 <!--chapter:end:11_nibrs_general.Rmd-->
@@ -7274,6 +7867,11 @@ As might be expected, the Offender Segment provides information about who the of
 
 The Offender Segment is the sparsest of the available segments, and provides only three new variables that are about the offender's demographics. It also includes the standard set of variables: the agency ORI, the incident number, the state the agency is in, and the incident date (though we'd need to check the Administrative Segment to see if this is actually the incident date or the report date).
 
+<div class="figure" style="text-align: center">
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderAgenciesReporting-1.png" alt="The annual number of agencies reporting data in the NIBRS Offender Segment, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsOffenderAgenciesReporting)The annual number of agencies reporting data in the NIBRS Offender Segment, 1991-2022.</p>
+</div>
+
 ## Demographics
 
 There are three demographics variables included in this data: the offenders' age, sex, and race. Please note that what we have here are not unique offenders as someone may be involved in multiple crimes. There's no offender ID variable that is consistent across incidents so we can't tell when an offender is involved with different incidents (except in cases where they are arrested, see Chapter \@ref(arrestee) for more).So be cautious when trying to compare this with some base rate such as percent of people of each age/sex/race in a population.  
@@ -7293,6 +7891,17 @@ The spike you see at the very end of the data is due to the data maxing out poss
 
 Another indicator of guesses about age is that three of the five most common ages are 25, 30, and 20 years old. People tend to like multiples of five when making estimates, so these indicate that someone (the victim or the officer) probably didn't know the exact age and so guessed the age. 
 
+<div class="figure" style="text-align: center">
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderAge-1.png" alt="The mean and median age of offenders, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsOffenderAge)The mean and median age of offenders, 1991-2022.</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderAgeMissing-1.png" alt="The percent of offender's age that is unknown, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsOffenderAgeMissing)The percent of offender's age that is unknown, 1991-2022.</p>
+</div>
+
+
 ### Sex
 
 The second offender demographic variable available is the offender's sex with male and female being the only available sexes. There is no option for transgender or any other identify. Other than arrestees, where police could (though we don't know if they do) use their identification (e.g. driver's license) to determine their sex, this is the perceived sex of the offender. Figure \@ref(fig:offenderSex) shows the distribution of offenders by sex. The most common sex is male, which is consistent with the literature on who commits crime. About 45% of all offenders were male. Female  offenders make up nearly 19% of offenders. Over a third - 35.9% - of offenders have an unknown sex. Considering that when nothing is known about offenders (including even how many offenders there are) this data includes a single row with "unknown" for all demographic variables, this is actually an undercount of offenders who have unknown sex. 
@@ -7300,6 +7909,11 @@ The second offender demographic variable available is the offender's sex with ma
 <div class="figure" style="text-align: center">
 <img src="14_nibrs_offender_files/figure-html/offenderSex-1.png" alt="The sex of all offenders reported in the 2022 NIBRS data." width="90%" />
 <p class="caption">(\#fig:offenderSex)The sex of all offenders reported in the 2022 NIBRS data.</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderSex-1.png" alt="The share of offenders by sex, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsOffenderSex)The share of offenders by sex, 1991-2022.</p>
 </div>
 
 ### Race
@@ -7315,6 +7929,18 @@ The next most common offender race is White at 38.7% followed by Black at 22.1%.
 <p class="caption">(\#fig:offenderRace)The race of all offenders reported in the 2022 NIBRS data.</p>
 </div>
 
+<div class="figure" style="text-align: center">
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderRace-1.png" alt="The share of offenders by race, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsOffenderRace)The share of offenders by race, 1991-2022.</p>
+</div>
+
+
+### Ethnicity
+
+<div class="figure" style="text-align: center">
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderEthnicity-1.png" alt="The share of offenders by ethnicity, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsOffenderEthnicity)The share of offenders by ethnicity, 1991-2022.</p>
+</div>
 
 <!--chapter:end:14_nibrs_offender.Rmd-->
 
@@ -8589,6 +9215,12 @@ For the rest of this chapter I'll be using examples from the Arrestee Segment an
 
 In addition to the variables detailed below this, segment has the traditional agency and incident identifiers: the ORI code, the agency state, the year of this data, and the incident number. It also has an "arrestee sequence number" which is an identifier for an arrestee in an incident since incidents can have multiple people arrested. This is just the number of each arrestee and to my knowledge is not associated with how involved the arrestee is. Being the 1st arrestee, for example, doesn't mean that individual played a greater role in the crime than the 2nd arrestee.
 
+
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeAgenciesReporting-1.png" alt="The annual number of agencies reporting data in the NIBRS Arrestee and Group B Arrestee Segments, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsArresteeAgenciesReporting)The annual number of agencies reporting data in the NIBRS Arrestee and Group B Arrestee Segments, 1991-2022.</p>
+</div>
+
 ## Crimes arrested for
 
 This segment tells us which offense the arrestee was arrested for. There are a couple of caveats with this data. First, there can be up to 10 crimes per incident but this segment only tells you the most serious offense (based on the agency's decision of which is most serious). This can be solved partially by merging this segment with the Offense Segment and getting all of the offenses related to the incident. It's only partially solved because the crime the person is arrested for may not necessarily be the crime involved in the incident. This is because a person can be arrested for a certain crime (e.g. shoplifting) and then the police find out that there are also responsible for a more serious crime (e.g. aggravated assault). Their arrest crime is shoplifting and they'll be associated with the incident for the aggravated assault.
@@ -8599,360 +9231,574 @@ One interesting part of this segment is that while it's associated with Group A 
 
 Table \@ref(tab:arresteeCrime) shows the number and percent of arrests for all arrests associated with a Group A crime incident. Perhaps unsurprising, drug crimes are the most common arrest making up a quarter of all arrests (30% when including drug equipment crimes). Simple assault (assault without a weapon or without seriously injuring the victim) is the next most common at 19% of arrests, and aggravated assault is the 4th most common arrest crime at 6.3% of arrests. Theft, which NIBRS breaks into a number of subcategories of theft such as shoplifting and "all other larceny" is among the most common arrest crimes, making up ranks 3 and 6 of the top 6, as well as several other subcategories later on. The remaining crimes are all relatively rare, consisting of under 5% of arrests each. This is due to how the top crimes are broad categories (e.g. drug offenses ranges from simple possession to large scale sales but is all grouped into "drug/narcotic violations" here) while other crimes are specific (e.g. purse-snatching is a very specific form of theft).  
 
+
+```
+#>                                                         Crime Category
+#> 1                    Drug/Narcotic Offenses - Drug/Narcotic Violations
+#> 2                                    Assault Offenses - Simple Assault
+#> 3                                 Larceny/Theft Offenses - Shoplifting
+#> 4                                Assault Offenses - Aggravated Assault
+#> 5                   Drug/Narcotic Offenses - Drug Equipment Violations
+#> 6                        Weapon Law Violations - Weapon Law Violations
+#> 7                           Larceny/Theft Offenses - All Other Larceny
+#> 8                             Destruction/Damage/Vandalism of Property
+#> 9                                      Assault Offenses - Intimidation
+#> 10                                      Burglary/Breaking And Entering
+#> 11                                                  All Other Offenses
+#> 12                 Stolen Property Offenses (Receiving, Selling, Etc.)
+#> 13                                                 Motor Vehicle Theft
+#> 14                                                             Robbery
+#> 15            Fraud Offenses - False Pretenses/Swindle/Confidence Game
+#> 16                   Larceny/Theft Offenses - Theft From Motor Vehicle
+#> 17                                              Counterfeiting/Forgery
+#> 18                        Larceny/Theft Offenses - Theft From Building
+#> 19                                         Driving Under The Influence
+#> 20                                                  Disorderly Conduct
+#> 21                                                Kidnapping/Abduction
+#> 22                                      Fraud Offenses - Impersonation
+#> 23                                           Trespass of Real Property
+#> 24           Sex Offenses - Fondling (Incident Liberties/Child Molest)
+#> 25                                                 Sex Offenses - Rape
+#> 26                                    Murder/Nonnegligent Manslaughter
+#> 27                              Fraud Offenses - Credit Card/Atm Fraud
+#> 28                                                        Embezzlement
+#> 29                                     Fraud Offenses - Identity Theft
+#> 30                                                               Arson
+#> 31                                Prostitution Offenses - Prostitution
+#> 32   Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories
+#> 33                                        Pornography/Obscene Material
+#> 34                                               Liquor Law Violations
+#> 35                                                      Animal Cruelty
+#> 36                                         Family Offenses, Nonviolent
+#> 37                             Larceny/Theft Offenses - Pocket-Picking
+#> 38                                               Sex Offenses - Sodomy
+#> 39         Prostitution Offenses - Assisting Or Promoting Prostitution
+#> 40                                       Sex Offenses - Statutory Rape
+#> 41                     Prostitution Offenses - Purchasing Prostitution
+#> 42                                Curfew/Loitering/Vagrancy Violations
+#> 43                            Larceny/Theft Offenses - Purse-Snatching
+#> 44                        Sex Offenses - Sexual Assault With An Object
+#> 45                                              Negligent Manslaughter
+#> 46 Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device
+#> 47                                                 Extortion/Blackmail
+#> 48                             Human Trafficking - Commercial Sex Acts
+#> 49                                Gambling Offenses - Betting/Wagering
+#> 50                                         Fraud Offenses - Wire Fraud
+#> 51          Gambling Offenses - Operating/Promoting/Assisting Gambling
+#> 52                                               Sex Offenses - Incest
+#> 53                                                             Bribery
+#> 54                          Fraud Offenses - Hacking/Computer Invasion
+#> 55                                                   Failure To Appear
+#> 56                                      Fraud Offenses - Welfare Fraud
+#> 57                   Gambling Offenses - Gambling Equipment Violations
+#> 58                           Human Trafficking - Involuntary Servitude
+#> 59                                                             Runaway
+#> 60                     Fugitive Offenses - Flight To Avoid Prosecution
+#> 61                Sex Offenses - Failure To Register As A Sex Offender
+#> 62                       Commerce Violations - Federal Liquor Offenses
+#> 63                                Gambling Offenses - Sports Tampering
+#> 64       Immigration Violations - Illegal Entry Into The United States
+#> 65                                  Weapon Law Violations - Explosives
+#> 66       Fugitive Offenses - Harboring Escappee/Concealing From Arrest
+#> 67                                                             Perjury
+#> 68                                         Federal Resource Violations
+#> 69                                                               Total
+#>    First Year \\# of Offenses \\% of Offenses
+#> 1        1991         651,593        22.44\\%
+#> 2        1991         625,914        21.55\\%
+#> 3        1991         262,281         9.03\\%
+#> 4        1991         217,608         7.49\\%
+#> 5        1991         142,720         4.91\\%
+#> 6        1991         123,203         4.24\\%
+#> 7        1991         121,677         4.19\\%
+#> 8        1991         113,049         3.89\\%
+#> 9        1991          85,136         2.93\\%
+#> 10       1991          82,832         2.85\\%
+#> 11       1991          71,084         2.45\\%
+#> 12       1991          57,907         1.99\\%
+#> 13       1991          52,882         1.82\\%
+#> 14       1991          38,048         1.31\\%
+#> 15       1991          31,922         1.10\\%
+#> 16       1991          23,673         0.82\\%
+#> 17       1991          20,107         0.69\\%
+#> 18       1991          18,030         0.62\\%
+#> 19       1991          16,410         0.57\\%
+#> 20       1991          13,700         0.47\\%
+#> 21       1991          12,869         0.44\\%
+#> 22       1991          11,225         0.39\\%
+#> 23       1991          10,687         0.37\\%
+#> 24       1991          10,298         0.35\\%
+#> 25       1991           8,956         0.31\\%
+#> 26       1991           8,284         0.29\\%
+#> 27       1991           7,281         0.25\\%
+#> 28       1991           6,689         0.23\\%
+#> 29       2015           6,414         0.22\\%
+#> 30       1991           6,338         0.22\\%
+#> 31       1991           5,843         0.20\\%
+#> 32       1991           5,621         0.19\\%
+#> 33       1991           5,187         0.18\\%
+#> 34       1991           4,142         0.14\\%
+#> 35       2015           3,904         0.13\\%
+#> 36       1991           3,629         0.12\\%
+#> 37       1991           3,323         0.11\\%
+#> 38       1991           2,081         0.07\\%
+#> 39       1991           1,559         0.05\\%
+#> 40       1991           1,472         0.05\\%
+#> 41       2013           1,274         0.04\\%
+#> 42       1991           1,191         0.04\\%
+#> 43       1991             959         0.03\\%
+#> 44       1991             912         0.03\\%
+#> 45       1991             858         0.03\\%
+#> 46       1991             500         0.02\\%
+#> 47       1991             458         0.02\\%
+#> 48       2013             374         0.01\\%
+#> 49       1991             365         0.01\\%
+#> 50       1991             360         0.01\\%
+#> 51       1991             279         0.01\\%
+#> 52       1991             207         0.01\\%
+#> 53       1991             200         0.01\\%
+#> 54       2015             125         0.00\\%
+#> 55       2020             119         0.00\\%
+#> 56       1991             112         0.00\\%
+#> 57       1991             102         0.00\\%
+#> 58       2014              80         0.00\\%
+#> 59       1991              42         0.00\\%
+#> 60       2021              24         0.00\\%
+#> 61       2021              11         0.00\\%
+#> 62       2020               9         0.00\\%
+#> 63       1992               3         0.00\\%
+#> 64       2022               1         0.00\\%
+#> 65       2022               1         0.00\\%
+#> 66       2021               1         0.00\\%
+#> 67       2022               1         0.00\\%
+#> 68       2021               1         0.00\\%
+#> 69          -       2,904,147          100\\%
+```
+
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>(\#tab:arresteeCrime)The number and percent of arrests for Group A crimes for all arrests reported to NIBRS in 2022.</caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Crime Category </th>
+   <th style="text-align:right;"> First Year </th>
    <th style="text-align:right;"> \# of Offenses </th>
-   <th style="text-align:right;"> \% of Offenses </th>
+   <th style="text-align:left;"> \% of Offenses </th>
   </tr>
  </thead>
 <tbody>
   <tr>
    <td style="text-align:left;"> Drug/Narcotic Offenses - Drug/Narcotic Violations </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 651,593 </td>
-   <td style="text-align:right;"> 22.44\% </td>
+   <td style="text-align:left;"> 22.44\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 625,914 </td>
-   <td style="text-align:right;"> 21.55\% </td>
+   <td style="text-align:left;"> 21.55\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Larceny/Theft Offenses - Shoplifting </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 262,281 </td>
-   <td style="text-align:right;"> 9.03\% </td>
+   <td style="text-align:left;"> 9.03\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 217,608 </td>
-   <td style="text-align:right;"> 7.49\% </td>
+   <td style="text-align:left;"> 7.49\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Drug/Narcotic Offenses - Drug Equipment Violations </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 142,720 </td>
-   <td style="text-align:right;"> 4.91\% </td>
+   <td style="text-align:left;"> 4.91\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Weapon Law Violations - Weapon Law Violations </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 123,203 </td>
-   <td style="text-align:right;"> 4.24\% </td>
+   <td style="text-align:left;"> 4.24\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 121,677 </td>
-   <td style="text-align:right;"> 4.19\% </td>
+   <td style="text-align:left;"> 4.19\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 113,049 </td>
-   <td style="text-align:right;"> 3.89\% </td>
+   <td style="text-align:left;"> 3.89\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 85,136 </td>
-   <td style="text-align:right;"> 2.93\% </td>
+   <td style="text-align:left;"> 2.93\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 82,832 </td>
-   <td style="text-align:right;"> 2.85\% </td>
+   <td style="text-align:left;"> 2.85\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> All Other Offenses </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 71,084 </td>
-   <td style="text-align:right;"> 2.45\% </td>
+   <td style="text-align:left;"> 2.45\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Stolen Property Offenses (Receiving, Selling, Etc.) </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 57,907 </td>
-   <td style="text-align:right;"> 1.99\% </td>
+   <td style="text-align:left;"> 1.99\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Motor Vehicle Theft </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 52,882 </td>
-   <td style="text-align:right;"> 1.82\% </td>
+   <td style="text-align:left;"> 1.82\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 38,048 </td>
-   <td style="text-align:right;"> 1.31\% </td>
+   <td style="text-align:left;"> 1.31\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Fraud Offenses - False Pretenses/Swindle/Confidence Game </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 31,922 </td>
-   <td style="text-align:right;"> 1.10\% </td>
+   <td style="text-align:left;"> 1.10\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Motor Vehicle </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 23,673 </td>
-   <td style="text-align:right;"> 0.82\% </td>
+   <td style="text-align:left;"> 0.82\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Counterfeiting/Forgery </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 20,107 </td>
-   <td style="text-align:right;"> 0.69\% </td>
+   <td style="text-align:left;"> 0.69\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Building </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 18,030 </td>
-   <td style="text-align:right;"> 0.62\% </td>
+   <td style="text-align:left;"> 0.62\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Driving Under The Influence </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 16,410 </td>
-   <td style="text-align:right;"> 0.57\% </td>
+   <td style="text-align:left;"> 0.57\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Disorderly Conduct </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 13,700 </td>
-   <td style="text-align:right;"> 0.47\% </td>
+   <td style="text-align:left;"> 0.47\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Kidnapping/Abduction </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 12,869 </td>
-   <td style="text-align:right;"> 0.44\% </td>
+   <td style="text-align:left;"> 0.44\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Fraud Offenses - Impersonation </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 11,225 </td>
-   <td style="text-align:right;"> 0.39\% </td>
+   <td style="text-align:left;"> 0.39\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Trespass of Real Property </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 10,687 </td>
-   <td style="text-align:right;"> 0.37\% </td>
+   <td style="text-align:left;"> 0.37\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sex Offenses - Fondling (Incident Liberties/Child Molest) </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 10,298 </td>
-   <td style="text-align:right;"> 0.35\% </td>
+   <td style="text-align:left;"> 0.35\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sex Offenses - Rape </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 8,956 </td>
-   <td style="text-align:right;"> 0.31\% </td>
+   <td style="text-align:left;"> 0.31\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Murder/Nonnegligent Manslaughter </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 8,284 </td>
-   <td style="text-align:right;"> 0.29\% </td>
+   <td style="text-align:left;"> 0.29\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Fraud Offenses - Credit Card/Atm Fraud </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 7,281 </td>
-   <td style="text-align:right;"> 0.25\% </td>
+   <td style="text-align:left;"> 0.25\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Embezzlement </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 6,689 </td>
-   <td style="text-align:right;"> 0.23\% </td>
+   <td style="text-align:left;"> 0.23\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Fraud Offenses - Identity Theft </td>
+   <td style="text-align:right;"> 2015 </td>
    <td style="text-align:right;"> 6,414 </td>
-   <td style="text-align:right;"> 0.22\% </td>
+   <td style="text-align:left;"> 0.22\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Arson </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 6,338 </td>
-   <td style="text-align:right;"> 0.22\% </td>
+   <td style="text-align:left;"> 0.22\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Prostitution Offenses - Prostitution </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 5,843 </td>
-   <td style="text-align:right;"> 0.20\% </td>
+   <td style="text-align:left;"> 0.20\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 5,621 </td>
-   <td style="text-align:right;"> 0.19\% </td>
+   <td style="text-align:left;"> 0.19\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Pornography/Obscene Material </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 5,187 </td>
-   <td style="text-align:right;"> 0.18\% </td>
+   <td style="text-align:left;"> 0.18\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Liquor Law Violations </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 4,142 </td>
-   <td style="text-align:right;"> 0.14\% </td>
+   <td style="text-align:left;"> 0.14\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Animal Cruelty </td>
+   <td style="text-align:right;"> 2015 </td>
    <td style="text-align:right;"> 3,904 </td>
-   <td style="text-align:right;"> 0.13\% </td>
+   <td style="text-align:left;"> 0.13\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Family Offenses, Nonviolent </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 3,629 </td>
-   <td style="text-align:right;"> 0.12\% </td>
+   <td style="text-align:left;"> 0.12\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Larceny/Theft Offenses - Pocket-Picking </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 3,323 </td>
-   <td style="text-align:right;"> 0.11\% </td>
+   <td style="text-align:left;"> 0.11\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sex Offenses - Sodomy </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 2,081 </td>
-   <td style="text-align:right;"> 0.07\% </td>
+   <td style="text-align:left;"> 0.07\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Prostitution Offenses - Assisting Or Promoting Prostitution </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 1,559 </td>
-   <td style="text-align:right;"> 0.05\% </td>
+   <td style="text-align:left;"> 0.05\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sex Offenses - Statutory Rape </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 1,472 </td>
-   <td style="text-align:right;"> 0.05\% </td>
+   <td style="text-align:left;"> 0.05\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Prostitution Offenses - Purchasing Prostitution </td>
+   <td style="text-align:right;"> 2013 </td>
    <td style="text-align:right;"> 1,274 </td>
-   <td style="text-align:right;"> 0.04\% </td>
+   <td style="text-align:left;"> 0.04\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Curfew/Loitering/Vagrancy Violations </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 1,191 </td>
-   <td style="text-align:right;"> 0.04\% </td>
+   <td style="text-align:left;"> 0.04\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Larceny/Theft Offenses - Purse-Snatching </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 959 </td>
-   <td style="text-align:right;"> 0.03\% </td>
+   <td style="text-align:left;"> 0.03\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sex Offenses - Sexual Assault With An Object </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 912 </td>
-   <td style="text-align:right;"> 0.03\% </td>
+   <td style="text-align:left;"> 0.03\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Negligent Manslaughter </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 858 </td>
-   <td style="text-align:right;"> 0.03\% </td>
+   <td style="text-align:left;"> 0.03\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 500 </td>
-   <td style="text-align:right;"> 0.02\% </td>
+   <td style="text-align:left;"> 0.02\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Extortion/Blackmail </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 458 </td>
-   <td style="text-align:right;"> 0.02\% </td>
+   <td style="text-align:left;"> 0.02\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Human Trafficking - Commercial Sex Acts </td>
+   <td style="text-align:right;"> 2013 </td>
    <td style="text-align:right;"> 374 </td>
-   <td style="text-align:right;"> 0.01\% </td>
+   <td style="text-align:left;"> 0.01\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Gambling Offenses - Betting/Wagering </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 365 </td>
-   <td style="text-align:right;"> 0.01\% </td>
+   <td style="text-align:left;"> 0.01\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Fraud Offenses - Wire Fraud </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 360 </td>
-   <td style="text-align:right;"> 0.01\% </td>
+   <td style="text-align:left;"> 0.01\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Gambling Offenses - Operating/Promoting/Assisting Gambling </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 279 </td>
-   <td style="text-align:right;"> 0.01\% </td>
+   <td style="text-align:left;"> 0.01\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sex Offenses - Incest </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 207 </td>
-   <td style="text-align:right;"> 0.01\% </td>
+   <td style="text-align:left;"> 0.01\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Bribery </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 200 </td>
-   <td style="text-align:right;"> 0.01\% </td>
+   <td style="text-align:left;"> 0.01\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Fraud Offenses - Hacking/Computer Invasion </td>
+   <td style="text-align:right;"> 2015 </td>
    <td style="text-align:right;"> 125 </td>
-   <td style="text-align:right;"> 0.00\% </td>
+   <td style="text-align:left;"> 0.00\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Failure To Appear </td>
+   <td style="text-align:right;"> 2020 </td>
    <td style="text-align:right;"> 119 </td>
-   <td style="text-align:right;"> 0.00\% </td>
+   <td style="text-align:left;"> 0.00\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Fraud Offenses - Welfare Fraud </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 112 </td>
-   <td style="text-align:right;"> 0.00\% </td>
+   <td style="text-align:left;"> 0.00\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Gambling Offenses - Gambling Equipment Violations </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 102 </td>
-   <td style="text-align:right;"> 0.00\% </td>
+   <td style="text-align:left;"> 0.00\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Human Trafficking - Involuntary Servitude </td>
+   <td style="text-align:right;"> 2014 </td>
    <td style="text-align:right;"> 80 </td>
-   <td style="text-align:right;"> 0.00\% </td>
+   <td style="text-align:left;"> 0.00\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Runaway </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 42 </td>
-   <td style="text-align:right;"> 0.00\% </td>
+   <td style="text-align:left;"> 0.00\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Fugitive Offenses - Flight To Avoid Prosecution </td>
+   <td style="text-align:right;"> 2021 </td>
    <td style="text-align:right;"> 24 </td>
-   <td style="text-align:right;"> 0.00\% </td>
+   <td style="text-align:left;"> 0.00\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sex Offenses - Failure To Register As A Sex Offender </td>
+   <td style="text-align:right;"> 2021 </td>
    <td style="text-align:right;"> 11 </td>
-   <td style="text-align:right;"> 0.00\% </td>
+   <td style="text-align:left;"> 0.00\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Commerce Violations - Federal Liquor Offenses </td>
+   <td style="text-align:right;"> 2020 </td>
    <td style="text-align:right;"> 9 </td>
-   <td style="text-align:right;"> 0.00\% </td>
+   <td style="text-align:left;"> 0.00\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Gambling Offenses - Sports Tampering </td>
+   <td style="text-align:right;"> 1992 </td>
    <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 0.00\% </td>
+   <td style="text-align:left;"> 0.00\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Immigration Violations - Illegal Entry Into The United States </td>
+   <td style="text-align:right;"> 2022 </td>
    <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0.00\% </td>
+   <td style="text-align:left;"> 0.00\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Weapon Law Violations - Explosives </td>
+   <td style="text-align:right;"> 2022 </td>
    <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0.00\% </td>
+   <td style="text-align:left;"> 0.00\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Fugitive Offenses - Harboring Escappee/Concealing From Arrest </td>
+   <td style="text-align:right;"> 2021 </td>
    <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0.00\% </td>
+   <td style="text-align:left;"> 0.00\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Perjury </td>
+   <td style="text-align:right;"> 2022 </td>
    <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0.00\% </td>
+   <td style="text-align:left;"> 0.00\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Federal Resource Violations </td>
+   <td style="text-align:right;"> 2021 </td>
    <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0.00\% </td>
+   <td style="text-align:left;"> 0.00\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> - </td>
    <td style="text-align:right;"> 2,904,147 </td>
-   <td style="text-align:right;"> 100\% </td>
+   <td style="text-align:left;"> 100\% </td>
   </tr>
 </tbody>
 </table>
@@ -8965,75 +9811,118 @@ Table \@ref(tab:GroupBarresteeCrime) shows the number and percent of arrests for
 
 Trespassing makes up 5.7% of arrests and this is unlawfully entering someone's property, including a building. The difference between this and burglary is that this is entering without any intent to commit theft or a felony. Disorderly conduct is a broad category ranging from indecent exposure (which should be its own sex offense but isn't for some reason) to "profanity" and noise violations, and it makes up 6.2% of arrests. So be cautious with this offense as it ranges from very minor to quite serious and there's no distinguishing what actually happened. Drunkenness and liquor law violations make up 6% and 3.6% of arrests, respectively. The difference is that drunkenness is when someone is seriously drunk in public (to the point where they can't control their own body) and liquor law violations are about illegal making or selling of liquor. So basically bootlegging, selling alcohol without a license (or to people not allowed to drink, like minors), or avoiding paying tax on alcohol sales. "Family Offenses, Nonviolent" is also a rather vague category and includes "nonviolent abuse" (which I guess means emotional abusive) as well as neglecting the child in a few different ways like not paying alimony and deserting the child. Since these are arrests, the actions have to reach the level of criminal behavior, simply being an awful parent (or even leaving the child, as long as they have another adult to watch them) is not this offense. Runaways is an offense that only applies to people under age 18. The remaining categories are all rare and none are more than 1% of arrests.
 
+
+```
+#>                          Crime Category First Year \\# of Offenses
+#> 1                    All Other Offenses       1991       1,470,699
+#> 2           Driving Under The Influence       1991         565,429
+#> 3             Trespass of Real Property       1991         177,586
+#> 4                    Disorderly Conduct       1991         176,937
+#> 5                 Liquor Law Violations       1991          72,044
+#> 6           Family Offenses, Nonviolent       1991          33,545
+#> 7  Curfew/Loitering/Vagrancy Violations       1991          16,266
+#> 8                     Failure To Appear       2020           1,816
+#> 9                               Runaway       1991           1,629
+#> 10          Federal Resource Violations       2021              15
+#> 11                              Perjury       2022               1
+#> 12                                Total          -       2,515,967
+#>    \\% of Offenses
+#> 1         58.45\\%
+#> 2         22.47\\%
+#> 3          7.06\\%
+#> 4          7.03\\%
+#> 5          2.86\\%
+#> 6          1.33\\%
+#> 7          0.65\\%
+#> 8          0.07\\%
+#> 9          0.06\\%
+#> 10         0.00\\%
+#> 11         0.00\\%
+#> 12          100\\%
+```
+
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>(\#tab:GroupBarresteeCrime)The number and percent of arrests for Group B crimes for all arrests reported to NIBRS in 2022.</caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Crime Category </th>
+   <th style="text-align:right;"> First Year </th>
    <th style="text-align:right;"> \# of Offenses </th>
-   <th style="text-align:right;"> \% of Offenses </th>
+   <th style="text-align:left;"> \% of Offenses </th>
   </tr>
  </thead>
 <tbody>
   <tr>
    <td style="text-align:left;"> All Other Offenses </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 1,470,699 </td>
-   <td style="text-align:right;"> 58.45\% </td>
+   <td style="text-align:left;"> 58.45\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Driving Under The Influence </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 565,429 </td>
-   <td style="text-align:right;"> 22.47\% </td>
+   <td style="text-align:left;"> 22.47\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Trespass of Real Property </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 177,586 </td>
-   <td style="text-align:right;"> 7.06\% </td>
+   <td style="text-align:left;"> 7.06\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Disorderly Conduct </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 176,937 </td>
-   <td style="text-align:right;"> 7.03\% </td>
+   <td style="text-align:left;"> 7.03\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Liquor Law Violations </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 72,044 </td>
-   <td style="text-align:right;"> 2.86\% </td>
+   <td style="text-align:left;"> 2.86\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Family Offenses, Nonviolent </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 33,545 </td>
-   <td style="text-align:right;"> 1.33\% </td>
+   <td style="text-align:left;"> 1.33\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Curfew/Loitering/Vagrancy Violations </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 16,266 </td>
-   <td style="text-align:right;"> 0.65\% </td>
+   <td style="text-align:left;"> 0.65\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Failure To Appear </td>
+   <td style="text-align:right;"> 2020 </td>
    <td style="text-align:right;"> 1,816 </td>
-   <td style="text-align:right;"> 0.07\% </td>
+   <td style="text-align:left;"> 0.07\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Runaway </td>
+   <td style="text-align:right;"> 1991 </td>
    <td style="text-align:right;"> 1,629 </td>
-   <td style="text-align:right;"> 0.06\% </td>
+   <td style="text-align:left;"> 0.06\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Federal Resource Violations </td>
+   <td style="text-align:right;"> 2021 </td>
    <td style="text-align:right;"> 15 </td>
-   <td style="text-align:right;"> 0.00\% </td>
+   <td style="text-align:left;"> 0.00\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Perjury </td>
+   <td style="text-align:right;"> 2022 </td>
    <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0.00\% </td>
+   <td style="text-align:left;"> 0.00\% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> - </td>
    <td style="text-align:right;"> 2,515,967 </td>
-   <td style="text-align:right;"> 100\% </td>
+   <td style="text-align:left;"> 100\% </td>
   </tr>
 </tbody>
 </table>
@@ -9076,6 +9965,11 @@ To see the weapons carried when the arrestee had a weapon, Figure \@ref(fig:arre
 <p class="caption">(\#fig:arresteeWeaponArmed)The distribution of weapon usage for all arrestees in 2022 who were arrested with a weapon (i.e. excludes unarmed arrestees).</p>
 </div>
 
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeMurderWeapon-1.png" alt="The share of murder and nonnegligent manslaughter arrestees by weapon carried at arrest, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsArresteeMurderWeapon)The share of murder and nonnegligent manslaughter arrestees by weapon carried at arrest, 1991-2022.</p>
+</div>
+
 ## Automatic weapons
 
 This variable tells you if the weapon the arrestee was carrying was a gun whether that gun was fully automatic. To be clear, this means that when you pull the trigger once the gun will fire multiple bullets. Semi-automatic firearms are not automatic firearms. The Offense Segment also has a variable indicating if the offender used an automatic weapon but there they didn't necessarily recover the gun so it's much less reliable than in this segment where the police have the gun and are able to test it.^[It's not clear whether they actually test it or simply go by the design of the gun, such as if the model allows for fully automatic firing.] The percent of guns that are fully automatic are fairly similar between the weapons seized at arrest, as shown in Figure \@ref(fig:arresteeAutomaticWeapon) and those used in the offense as shown in Figure \@ref(fig:offenseAutomaticWeapon) in Chapter \@ref(offenseSegment). Figure \@ref(fig:arresteeAutomaticWeapon) shows that about 5.6% of rifles seized by police during an arrest were fully automatic. About 4.9% of handguns are automatic while "firearm (type not stated) are automatic in 4.3% of cases. Shotguns and  "other firearm" category are the least likely to be automatic at about 2.5% and 1.1% of weapons, respectively. 
@@ -9096,6 +9990,23 @@ Finally, people can get a "summoned/cited" arrest which isn't really an arrest a
 <div class="figure" style="text-align: center">
 <img src="16_nibrs_arrestee_files/figure-html/arresteeTypeOfArrest-1.png" alt="The distribution of arrests by type of arrest. Previous Incident Report includes cases where an individual was arrested for a separate crime and are then reported as also arrested for this incident." width="90%" />
 <p class="caption">(\#fig:arresteeTypeOfArrest)The distribution of arrests by type of arrest. Previous Incident Report includes cases where an individual was arrested for a separate crime and are then reported as also arrested for this incident.</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeArrestType-1.png" alt="Annual arrest type for all arrestees, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsArresteeArrestType)Annual arrest type for all arrestees, 1991-2022.</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeDUIArrestType-1.png" alt="Annual arrest type for DUI arrestees, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsArresteeDUIArrestType)Annual arrest type for DUI arrestees, 1991-2022.</p>
+</div>
+
+
+
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeMurderArrestType-1.png" alt="Annual arrest type for murder and nonngeligent manslaughter arrestees, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsArresteeMurderArrestType)Annual arrest type for murder and nonngeligent manslaughter arrestees, 1991-2022.</p>
 </div>
 
 ## Disposition for juvenile arrestees
@@ -9124,6 +10035,11 @@ Figure \@ref(fig:arresteeResidenceStatus) shows the percent of arrestees in 2022
 <p class="caption">(\#fig:arresteeResidenceStatus)The distribution of residence status for all arrestees reported to NIBRS in 2022. Residence status is residence in the arresting agency's jurisdiction (e.g. do you live in the city you were arrested in?). It is unrelated to citizenship or immigration status.</p>
 </div>
 
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeResidentStatus-1.png" alt="Annual resident status (i.e. if they live in the arresting jurisdiction) of arrestees, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsArresteeResidentStatus)Annual resident status (i.e. if they live in the arresting jurisdiction) of arrestees, 1991-2022.</p>
+</div>
+
 ### Age
 
 This variable is the age at the arrest, which may be different than age during the crime. As in the Offender Segment we are given the exact age (in years) but agencies can input a range of possible ages with the FBI giving us the average of this range (rounding down, not to the nearest integer) in the data. In Figure \@ref(fig:offenderAge) in the Offense Segment, this can be seen in the sudden spikes in the percent of offenders of a certain age and that some of the most common ages are divisible by five (e.g. 20, 25, 30). There are also far fewer unknown ages in this data with only 0.1% of arrestees having a missing age. This is reasonable as a person arrested is present for the police to learn their age from something like a driver's license or past criminal records, or estimate the age by looking at the arrestee. Like in the Offender Segment, age as a specific year is cutoff at 98 with all older ages grouped simply as "over 98 years old".
@@ -9135,6 +10051,17 @@ Figure \@ref(fig:arresteeAge) shows the percent of arrestees at every age availa
 <p class="caption">(\#fig:arresteeAge)The age of all arrestees reported in the 2022 NIBRS data.</p>
 </div>
 
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeAge-1.png" alt="The mean and median age of arrestees, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsArresteeAge)The mean and median age of arrestees, 1991-2022.</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeAgeMissing-1.png" alt="The percent of arrestee's age that is unknown, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsArresteeAgeMissing)The percent of arrestee's age that is unknown, 1991-2022.</p>
+</div>
+
+
 ### Sex
 
 We also know the sex of the arrestee. The only options for this variable are male and female and there is never missing data so the police always choose one of these two choices. There is no option for transgender or any other identity. Figure \@ref(fig:arresteeSex) shows the distribution of arrestees by sex. The vast majority, 70.5% of arrestees are male and the remaining 29.5% are female. This is a higher rate of female arrestees than you might expect - past research has found that crime is largely a male-phenomenon, even greater than found here (though "crime" in most criminology research is only murder or violent index crimes) - and that's because there are differences in sex involvement by type of crime. For rape, as an example, 97.8% of arrestees in 2022 were male. Shoplifting was an even 50% split between female and male arrestees.
@@ -9142,6 +10069,11 @@ We also know the sex of the arrestee. The only options for this variable are mal
 <div class="figure" style="text-align: center">
 <img src="16_nibrs_arrestee_files/figure-html/arresteeSex-1.png" alt="The sex of all arrestees reported in the 2022 NIBRS data." width="90%" />
 <p class="caption">(\#fig:arresteeSex)The sex of all arrestees reported in the 2022 NIBRS data.</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeSex-1.png" alt="The share of arrestees by sex, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsArresteeSex)The share of arrestees by sex, 1991-2022.</p>
 </div>
 
 ### Race
@@ -9155,6 +10087,11 @@ Figure \@ref(fig:arresteeRace) shows the breakdown for the races of each arreste
 <p class="caption">(\#fig:arresteeRace)The race of all arrestees reported in the 2022 NIBRS data.</p>
 </div>
 
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeRace-1.png" alt="The share of arrestees by race, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsArresteeRace)The share of arrestees by race, 1991-2022.</p>
+</div>
+
 ### Ethnicity
 
 Finally, there is data on the race of the arrestee so we know if they are Hispanic or not. Ethnicity is so poorly used in the UCR data (e.g. UCR stopped collecting it for arrests for most years available and most agencies still don't report it) that I recommended in the [UCR book](https://ucrbook.com/) against ever using it. For NIBRS, there is far less data missing so it's not as much of a problem to use ethnicity as it is with UCR data. The issue remains as to what agencies are actually reporting this data or in which scenarios this variable is reported or not even in agencies that generally do report it. 
@@ -9166,6 +10103,12 @@ Figure \@ref(fig:arresteeEthnicity) shows the breakdown in arrests by arrestee e
 <div class="figure" style="text-align: center">
 <img src="16_nibrs_arrestee_files/figure-html/arresteeEthnicity-1.png" alt="The ethnicity of all arrestees reported in the 2022 NIBRS data." width="90%" />
 <p class="caption">(\#fig:arresteeEthnicity)The ethnicity of all arrestees reported in the 2022 NIBRS data.</p>
+</div>
+
+
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeEthnicity-1.png" alt="The share of arrestees by ethnicity, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsArresteeEthnicity)The share of arrestees by ethnicity, 1991-2022.</p>
 </div>
 
 <!--chapter:end:16_nibrs_arrestee.Rmd-->

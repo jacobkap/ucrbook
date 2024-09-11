@@ -23,32 +23,29 @@ For each crime it says the number of arrests for each gender-age group with youn
 
 This data is available from 1974 through 2022 though after 2020 the measure for how many months of data an agency reported changed so post-2020 data is difficult to compare to 2020 and earlier.^[Post-2020 years do have considerably fewer agencies reporting than in previous years.] Figure \@ref(fig:arrestsAgenciesReporting) shows how many agencies reported at least one month of the year for 1974-2020. I'm not sure why there's a dip in 1980. Since it immediately reverses itself in the next year I think it's just a data issue, not a real decrease in the number of agencies that report. The first year of data has about 9,000 agencies reporting and that increases strongly to a little over 13,000 in 1979. Following the odd blip in 1980, the number of agencies remain steady for nearly a decade before declining to a local low of about 11,000 in 1998 before again increasing steadily until the end of the 2010s where nearly 15,000 agencies report. This 15,000, however, still remains under the estimated 18,000 police agencies in the United States and below the reporting rates of UCR data such as the Offenses Known and Clearances by Arrest data. This data is also missing some important cities such as New York City which hasn't reported even a single month since 2002 and Chicago which tends to only report a single month if at all.   
 
-```{r arrestsAgenciesReporting, fig.cap="The annual number of agencies reporting at least one month of data in that year."}
-all_crimes %>%
+```{r arrestsAgenciesReporting, fig.cap="The annual number of agencies reporting at least one month of data and 12 months of data in that year."}
+arrests_any_month_reporting <-
+  all_crimes %>%
   dplyr::filter(number_of_months_reported != 0) %>%
-  count(year) %>%
-  ggplot(aes(x = year, y = n)) +
-  geom_line(size = 1.05) +
-  xlab("Year") +
-  ylab("# of Agencies Reporting") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
-  expand_limits(y = 0)
-```
+  count(year)
 
-If we look at agencies that report all 12 months of the year, as seen in Figure \@ref(fig:arrestsAgenciesReporting12Months), now far fewer agencies report. In almost every year about 45-55% of agencies that report at all report all 12 months. This means that we're missing at least some data for about half of agencies. When an agency reports at all, they tend to report more months than fewer. For example, there are about twice as many agency-years with 11 months reported than with only 1 month reported. So having only about half of agencies report all 12 months of the year doesn't mean that we're missing a ton of data from the remaining half of agencies - but does merit close attention to which agencies you use in your research and how much missingness there is for those agencies. 
-
-```{r arrestsAgenciesReporting12Months, fig.cap="The annual number of agencies reporting 12 months of data in that year, 1974-2020."}
 all_crimes %>%
-  dplyr::filter(number_of_months_reported == 12) %>%
+  dplyr::filter(number_of_months_reported %in% 12) %>%
   count(year) %>%
-  ggplot(aes(x = year, y = n)) +
-  geom_line(size = 1.05) +
+  ungroup() %>%
+  rename(n_12_month = n) %>%
+  ggplot(aes(x = year, y = n_12_month)) +
+  geom_line(size = 1.05, aes(color = "12 Months")) +
+  geom_line(data = arrests_any_month_reporting, aes(y = n, color = "At Least 1 Month")) +
   xlab("Year") +
   ylab("# of Agencies Reporting") +
   theme_crim() +
   scale_y_continuous(labels = scales::comma) +
-  expand_limits(y = 0)
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("12 Months" = "#1b9e77",
+                                "At Least 1 Month" = "#d95f02"))
+
 ```
 
 Another issue is that agencies can report only some crimes. So, for example, they may report how many people were arrested for theft but not for murder, and it's unclear when that means that truly zero people were arrested for murder and when the agency just didn't report. This isn't in the original data but in my version of this data (available [here](https://www.openicpsr.org/openicpsr/project/102263/version/V15/view)), I added variables for the number of months reported (based on the agency reporting at least arrest for that crime in that year) for each crime category.^[As I noted before, post-2020 data changed the way they reported this variable so the number of months reported is always set to 0, even if they actually did report data.] Again, please note that when there are fewer than 12 months reported in that year for that variable, that could simply mean that there were no arrests for that crime that year (The FBI does tell agencies not to even submit a report in these cases) - but we don't know that for sure. 

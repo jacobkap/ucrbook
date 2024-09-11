@@ -20,6 +20,19 @@ As might be expected, the Offender Segment provides information about who the of
 
 The Offender Segment is the sparsest of the available segments, and provides only three new variables that are about the offender's demographics. It also includes the standard set of variables: the agency ORI, the incident number, the state the agency is in, and the incident date (though we'd need to check the Administrative Segment to see if this is actually the incident date or the report date).
 
+```{r nibrsOffenderAgenciesReporting, fig.cap="The annual number of agencies reporting data in the NIBRS Offender Segment, 1991-2022."}
+nibrs_offender_summary  %>%
+  ungroup() %>%
+  ggplot(aes(x = year, y = number_of_agencies)) +
+  geom_line(size = 1.05) +
+  xlab("Year") +
+  ylab("# of Agencies") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(color = "") +
+  expand_limits(y = 0)
+```
+
 ## Demographics
 
 There are three demographics variables included in this data: the offenders' age, sex, and race. Please note that what we have here are not unique offenders as someone may be involved in multiple crimes. There's no offender ID variable that is consistent across incidents so we can't tell when an offender is involved with different incidents (except in cases where they are arrested, see Chapter \@ref(arrestee) for more).So be cautious when trying to compare this with some base rate such as percent of people of each age/sex/race in a population.  
@@ -46,6 +59,34 @@ The spike you see at the very end of the data is due to the data maxing out poss
 
 Another indicator of guesses about age is that three of the five most common ages are 25, 30, and 20 years old. People tend to like multiples of five when making estimates, so these indicate that someone (the victim or the officer) probably didn't know the exact age and so guessed the age. 
 
+```{r nibrsOffenderAge, fig.cap="The mean and median age of offenders, 1991-2022."}
+nibrs_offender_summary  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = mean_age, color = "Mean Age"), size = 1.05) +
+  geom_line(aes(y = median_age , color = "Median Age"), size = 1.05) +
+  xlab("Year") +
+  ylab("Victim Age") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Mean Age" = "#1b9e77",
+                                "Median Age" = "#d95f02"))
+```
+
+```{r nibrsOffenderAgeMissing, fig.cap="The percent of offender's age that is unknown, 1991-2022."}
+nibrs_offender_summary  %>%
+  ggplot(aes(x = year, y = percent_unknown_age)) +
+  geom_line(size = 1.05) + 
+  xlab("Year") +
+  ylab("% of Offender Age Unknown") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(color = "") +
+  expand_limits(y = 0) 
+```
+
+
 ### Sex
 
 The second offender demographic variable available is the offender's sex with male and female being the only available sexes. There is no option for transgender or any other identify. Other than arrestees, where police could (though we don't know if they do) use their identification (e.g. driver's license) to determine their sex, this is the perceived sex of the offender. Figure \@ref(fig:offenderSex) shows the distribution of offenders by sex. The most common sex is male, which is consistent with the literature on who commits crime. About 45% of all offenders were male. Female  offenders make up nearly 19% of offenders. Over a third - 35.9% - of offenders have an unknown sex. Considering that when nothing is known about offenders (including even how many offenders there are) this data includes a single row with "unknown" for all demographic variables, this is actually an undercount of offenders who have unknown sex. 
@@ -57,6 +98,23 @@ offender %>%
   mutate(sex_of_offender = capitalize_words(sex_of_offender)) %>%
 crimeutils::make_barplots("sex_of_offender", count = FALSE, ylab = "% of Offenders") +
   ggplot2::scale_y_continuous(labels = scales::percent)
+```
+
+```{r nibrsOffenderSex, fig.cap="The share of offenders by sex, 1991-2022."}
+nibrs_offender_summary  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = percent_male, color = "Male"), size = 1.05) +
+  geom_line(aes(y = percent_female , color = "Female"), size = 1.05) +
+  geom_line(aes(y = percent_unknown_sex, color = "Unknown"), size = 1.05) +
+  xlab("Year") +
+  ylab("% of Victims") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Male" = "#1b9e77",
+                                "Female" = "#d95f02",
+                                "Unknown" = "#7570b3"))
 ```
 
 ### Race
@@ -77,3 +135,45 @@ crimeutils::make_barplots("race_of_offender", count = FALSE, ylab = "% of Offend
   ggplot2::scale_y_continuous(labels = scales::percent)
 ```
 
+```{r nibrsOffenderRace, fig.cap="The share of offenders by race, 1991-2022."}
+nibrs_offender_summary  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = percent_asian, color = "Asian"), size = 1.05) +
+  geom_line(aes(y = percent_black , color = "Black"), size = 1.05) +
+  geom_line(aes(y = percent_american_indian, color = "American Indian"), size = 1.05) +
+  geom_line(aes(y = percent_white , color = "White"), size = 1.05) +
+  geom_line(aes(y = percent_native_hawaiian, color = "Native Hawaiian"), size = 1.05) +
+  geom_line(aes(y = percent_unknown_race, color = "Unknown"), size = 1.05) +
+  xlab("Year") +
+  ylab("% of Victims") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Asian" = "#d7191c",
+                                "Black" = "#fdae61",
+                                "American Indian" = "#7b3294",
+                                "White" = "#abd9e9",
+                                "Native Hawaiian" = "#2c7bb6",
+                                "Unknown" = "black"))
+```
+
+
+### Ethnicity
+
+```{r nibrsOffenderEthnicity, fig.cap="The share of offenders by ethnicity, 1991-2022."}
+nibrs_offender_summary  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = percent_hispanic, color = "Hispanic"), size = 1.05) +
+  geom_line(aes(y = percent_not_hispanic , color = "Not Hispanic"), size = 1.05) +
+  geom_line(aes(y = percent_ethnicity_unknown, color = "Unknown"), size = 1.05) +
+  xlab("Year") +
+  ylab("% of Offenders") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Hispanic" = "#1b9e77",
+                                "Not Hispanic" = "#d95f02",
+                                "Unknown" = "#7570b3"))
+```

@@ -46,15 +46,8 @@ Part of this - and part of the long-term increase seen in Figure \@ref(fig:Phill
 We'll start by looking at which agencies report. The data is available from 1960 through 2022 though the columns about the value of the property only begin in 1964. Figure \@ref(fig:propertyAgencies) show the number of agencies each year that reported at least one month during that year. In the first several years of data barely any agencies reported data and then it spiked around 1966 to over 6,000 agencies per year then grew quickly until over 12,000 agencies reported data in the late 1970s. From here it actually gradually declined until fewer than 12,000 agencies in the late 1990s before reversing course again and growing to about 15,000 agencies by 2019 - down several hundred agencies from the peak a few years earlier. We see the now-typical drop in 2021 as a result of the FBI's death of SRS and then the partial recovery in 2022 when SRS is reborn.
 
 <div class="figure" style="text-align: center">
-<img src="04_stolen_property_files/figure-html/propertyAgencies-1.png" alt="The annual number of police agencies that report at least month of data that year." width="90%" />
-<p class="caption">(\#fig:propertyAgencies)The annual number of police agencies that report at least month of data that year.</p>
-</div>
-
-Trends are fairly similar when looking at agencies that report 12 months of data, as shown in Figure \@ref(fig:propertyAgencies12Month) with a few thousand fewer agencies reporting each year. However, starting in the late 2010s then is a large and sustained drop in the number of agencies reporting, with a deeper decline than among agencies reporting at least one month. 
-
-<div class="figure" style="text-align: center">
-<img src="04_stolen_property_files/figure-html/propertyAgencies12Month-1.png" alt="The annual number of police agencies that report 12 months of data that year." width="90%" />
-<p class="caption">(\#fig:propertyAgencies12Month)The annual number of police agencies that report 12 months of data that year.</p>
+<img src="04_stolen_property_files/figure-html/propertyAgencies-1.png" alt="The annual number of police agencies that report at least month of data and 12 months of data that year." width="90%" />
+<p class="caption">(\#fig:propertyAgencies)The annual number of police agencies that report at least month of data and 12 months of data that year.</p>
 </div>
 
 Since this data is called the "Supplement to Return A" we would expect that the agencies that report here are the same as the ones that report to the Offenses Known and Clearances by Arrest data, which is also called the Return A dataset. Figure \@ref(fig:agenciesInBoth) shows the percent of agencies in this dataset that are report at least one month of Return A data. Except for the first several years of data in the 1960s, we can see that most years have nearly all agencies reporting to both, though this has declined in recent years. Since the late 1970s over 90% of agencies that report to the Offenses Known data also report to this dataset. 

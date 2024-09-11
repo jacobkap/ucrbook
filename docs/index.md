@@ -1,7 +1,7 @@
 --- 
 title: "Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data"
 author: "Jacob Kaplan, Ph.D."
-date: "2024-09-07"
+date: "2024-09-10"
 bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
@@ -41,13 +41,290 @@ UCR data is important for three reasons:
 
 More than many other datasets, there will be times when using UCR data that you'll think "that's weird". This book will cover this weirdness and when we think the weirdness is just an odd - but acceptable - quirk of the data, and when it is a sign of a big problem in the data or in that particular variable and that we should avoid using it. For most of this book we'll be discussing the caveats of the above reasons - or, more directly, why these assumptions are wrong - but these are the reasons why the data is so influential. 
 
+<div class="figure" style="text-align: center">
+<img src="index_files/figure-html/nibrsAnnualPercentPopulationIndex-1.png" alt="The annual percent of the United States population that is covered by an agency reporting data to NIBRS." width="90%" />
+<p class="caption">(\#fig:nibrsAnnualPercentPopulationIndex)The annual percent of the United States population that is covered by an agency reporting data to NIBRS.</p>
+</div>
+
+
+
+```
+#>  [1] "Alabama"              "Alaska"              
+#>  [3] "Arizona"              "Arkansas"            
+#>  [5] "California"           "Colorado"            
+#>  [7] "Connecticut"          "Delaware"            
+#>  [9] "District of Columbia" "Florida"             
+#> [11] "Georgia"              "Hawaii"              
+#> [13] "Idaho"                "Illinois"            
+#> [15] "Indiana"              "Iowa"                
+#> [17] "Kansas"               "Kentucky"            
+#> [19] "Louisiana"            "Maine"               
+#> [21] "Maryland"             "Massachusetts"       
+#> [23] "Michigan"             "Minnesota"           
+#> [25] "Mississippi"          "Missouri"            
+#> [27] "Montana"              "Nebraska"            
+#> [29] "Nevada"               "New Hampshire"       
+#> [31] "New Jersey"           "New Mexico"          
+#> [33] "New York"             "North Carolina"      
+#> [35] "North Dakota"         "Ohio"                
+#> [37] "Oklahoma"             "Oregon"              
+#> [39] "Pennsylvania"         "Rhode Island"        
+#> [41] "South Carolina"       "South Dakota"        
+#> [43] "Tennessee"            "Texas"               
+#> [45] "Utah"                 "Vermont"             
+#> [47] "Virginia"             "Washington"          
+#> [49] "West Virginia"        "Wisconsin"           
+#> [51] "Wyoming"              "Puerto Rico"
+#>         ori year   state population date_ori_was_added
+#> 1 alast0000 1991 alabama          0           19910430
+#> 2 al0010000 1991 alabama     142446           19930225
+#> 3 al0010100 1991 alabama      33898           19910513
+#> 4 al0010200 1991 alabama     269313           19920326
+#> 5 al0010300 1991 alabama      20047           19910513
+#> 6 al0010400 1991 alabama      12346           19910513
+#>   date_ori_went_nibrs      city_name state_abbreviation
+#> 1                <NA>     montgomery                 al
+#> 2            19910101     birmingham                 al
+#> 3            19910101       bessemer                 al
+#> 4            19910101     birmingham                 al
+#> 5            19910101 mountain brook                 al
+#> 6            19910101      fairfield                 al
+#>              population_group   country_division country_region
+#> 1 non-msa county under 10,000 east south central          south
+#> 2         msa-county 100,000+ east south central          south
+#> 3     city 25,000 thru 49,999 east south central          south
+#> 4   city 250,000 thru 499,999 east south central          south
+#> 5     city 10,000 thru 24,999 east south central          south
+#> 6     city 10,000 thru 24,999 east south central          south
+#>   agency_indicator core_city covered_by_ori fbi_field_office
+#> 1           county         n           <NA>             3490
+#> 2           county         n           <NA>             3070
+#> 3             city         n           <NA>             3070
+#> 4             city         y           <NA>             3070
+#> 5             city         n           <NA>             3070
+#> 6             city         n           <NA>             3070
+#>   judicial_district agency_nibrs_flag agency_inactive_date
+#> 1              <NA>              <NA>                 <NA>
+#> 2              010n                 a                 <NA>
+#> 3              010n                 a                 <NA>
+#> 4              010n                 a                 <NA>
+#> 5              010n                 a                 <NA>
+#> 6              010n                 a                 <NA>
+#>   current_population_1 ucr_county_code_1 msa_code_1
+#> 1                    0              <NA>       <NA>
+#> 2               142446                37         98
+#> 3                33898                37         98
+#> 4               269313                37         98
+#> 5                20047                37         98
+#> 6                12346                37         98
+#>   last_population_1 current_population_2 ucr_county_code_2
+#> 1                 0                    0              <NA>
+#> 2            142446                    0              <NA>
+#> 3             33898                    0              <NA>
+#> 4            269313                    0              <NA>
+#> 5             20047                    0              <NA>
+#> 6             12346                    0              <NA>
+#>   msa_code_2 last_population_2 current_population_3
+#> 1       <NA>                 0                    0
+#> 2       <NA>                 0                    0
+#> 3       <NA>                 0                    0
+#> 4       <NA>                 0                    0
+#> 5       <NA>                 0                    0
+#> 6       <NA>                 0                    0
+#>   ucr_county_code_3 msa_code_3 last_population_3
+#> 1              <NA>       <NA>                 0
+#> 2              <NA>       <NA>                 0
+#> 3              <NA>       <NA>                 0
+#> 4              <NA>       <NA>                 0
+#> 5              <NA>       <NA>                 0
+#> 6              <NA>       <NA>                 0
+#>   current_population_4 ucr_county_code_4 msa_code_4
+#> 1                    0              <NA>       <NA>
+#> 2                    0              <NA>       <NA>
+#> 3                    0              <NA>       <NA>
+#> 4                    0              <NA>       <NA>
+#> 5                    0              <NA>       <NA>
+#> 6                    0              <NA>       <NA>
+#>   last_population_4 current_population_5 ucr_county_code_5
+#> 1                 0                    0              <NA>
+#> 2                 0                    0              <NA>
+#> 3                 0                    0              <NA>
+#> 4                 0                    0              <NA>
+#> 5                 0                    0              <NA>
+#> 6                 0                    0              <NA>
+#>   msa_code_5 last_population_5 X01_06_12_indicator
+#> 1       <NA>                 0                <NA>
+#> 2       <NA>                 0                  12
+#> 3       <NA>                 0                  12
+#> 4       <NA>                 0                  12
+#> 5       <NA>                 0                  12
+#> 6       <NA>                 0                  12
+#>   number_of_months_reported master_file_year
+#> 1                         0             1991
+#> 2                        12             1991
+#> 3                        12             1991
+#> 4                        12             1991
+#> 5                        12             1991
+#> 6                        12             1991
+#>   january_zero_report_submitted january_group_a_b_submitted
+#> 1                          <NA>                        <NA>
+#> 2                          <NA>  group a or b was submitted
+#> 3                          <NA>  group a or b was submitted
+#> 4                          <NA>  group a or b was submitted
+#> 5                          <NA>  group a or b was submitted
+#> 6                          <NA>  group a or b was submitted
+#>   january_window_record_submitted february_zero_report_submitted
+#> 1                            <NA>                           <NA>
+#> 2     window record was submitted                           <NA>
+#> 3                            <NA>                           <NA>
+#> 4                            <NA>                           <NA>
+#> 5                            <NA>                           <NA>
+#> 6                            <NA>                           <NA>
+#>   february_group_a_b_submitted february_window_record_submitted
+#> 1                         <NA>                             <NA>
+#> 2   group a or b was submitted                             <NA>
+#> 3   group a or b was submitted                             <NA>
+#> 4   group a or b was submitted                             <NA>
+#> 5   group a or b was submitted                             <NA>
+#> 6   group a or b was submitted                             <NA>
+#>   march_zero_report_submitted  march_group_a_b_submitted
+#> 1                        <NA>                       <NA>
+#> 2                        <NA> group a or b was submitted
+#> 3                        <NA> group a or b was submitted
+#> 4                        <NA> group a or b was submitted
+#> 5                        <NA> group a or b was submitted
+#> 6                        <NA> group a or b was submitted
+#>   march_window_record_submitted april_zero_report_submitted
+#> 1                          <NA>                        <NA>
+#> 2                          <NA>                        <NA>
+#> 3                          <NA>                        <NA>
+#> 4                          <NA>                        <NA>
+#> 5                          <NA>                        <NA>
+#> 6                          <NA>                        <NA>
+#>    april_group_a_b_submitted april_window_record_submitted
+#> 1                       <NA>                          <NA>
+#> 2 group a or b was submitted   window record was submitted
+#> 3 group a or b was submitted                          <NA>
+#> 4 group a or b was submitted                          <NA>
+#> 5 group a or b was submitted                          <NA>
+#> 6 group a or b was submitted                          <NA>
+#>   may_zero_report_submitted    may_group_a_b_submitted
+#> 1                      <NA>                       <NA>
+#> 2                      <NA> group a or b was submitted
+#> 3                      <NA> group a or b was submitted
+#> 4                      <NA> group a or b was submitted
+#> 5                      <NA> group a or b was submitted
+#> 6                      <NA> group a or b was submitted
+#>   may_window_record_submitted june_zero_report_submitted
+#> 1                        <NA>                       <NA>
+#> 2                        <NA>                       <NA>
+#> 3                        <NA>                       <NA>
+#> 4                        <NA>                       <NA>
+#> 5                        <NA>                       <NA>
+#> 6                        <NA>                       <NA>
+#>     june_group_a_b_submitted june_window_record_submitted
+#> 1                       <NA>                         <NA>
+#> 2 group a or b was submitted                         <NA>
+#> 3 group a or b was submitted                         <NA>
+#> 4 group a or b was submitted                         <NA>
+#> 5 group a or b was submitted  window record was submitted
+#> 6 group a or b was submitted                         <NA>
+#>   july_zero_report_submitted   july_group_a_b_submitted
+#> 1                       <NA>                       <NA>
+#> 2                       <NA> group a or b was submitted
+#> 3                       <NA> group a or b was submitted
+#> 4                       <NA> group a or b was submitted
+#> 5                       <NA> group a or b was submitted
+#> 6                       <NA> group a or b was submitted
+#>   july_window_record_submitted august_zero_report_submitted
+#> 1                         <NA>                         <NA>
+#> 2                         <NA>                         <NA>
+#> 3                         <NA>                         <NA>
+#> 4                         <NA>                         <NA>
+#> 5                         <NA>                         <NA>
+#> 6                         <NA>                         <NA>
+#>   august_group_a_b_submitted august_window_record_submitted
+#> 1                       <NA>                           <NA>
+#> 2 group a or b was submitted                           <NA>
+#> 3 group a or b was submitted                           <NA>
+#> 4 group a or b was submitted                           <NA>
+#> 5 group a or b was submitted                           <NA>
+#> 6 group a or b was submitted                           <NA>
+#>   september_zero_report_submitted september_group_a_b_submitted
+#> 1                            <NA>                          <NA>
+#> 2                            <NA>    group a or b was submitted
+#> 3                            <NA>    group a or b was submitted
+#> 4                            <NA>    group a or b was submitted
+#> 5                            <NA>    group a or b was submitted
+#> 6                            <NA>    group a or b was submitted
+#>   september_window_record_submitte october_zero_report_submitted
+#> 1                             <NA>                          <NA>
+#> 2                             <NA>                          <NA>
+#> 3                             <NA>                          <NA>
+#> 4                             <NA>                          <NA>
+#> 5                             <NA>                          <NA>
+#> 6                             <NA>                          <NA>
+#>   october_group_a_b_submitted october_window_record_submitted
+#> 1                        <NA>                            <NA>
+#> 2  group a or b was submitted                            <NA>
+#> 3  group a or b was submitted                            <NA>
+#> 4  group a or b was submitted                            <NA>
+#> 5  group a or b was submitted                            <NA>
+#> 6  group a or b was submitted                            <NA>
+#>   november_zero_report_submitted november_group_a_b_submitted
+#> 1                           <NA>                         <NA>
+#> 2                           <NA>   group a or b was submitted
+#> 3                           <NA>   group a or b was submitted
+#> 4                           <NA>   group a or b was submitted
+#> 5                           <NA>   group a or b was submitted
+#> 6                           <NA>   group a or b was submitted
+#>   november_window_record_submitted
+#> 1                             <NA>
+#> 2                             <NA>
+#> 3                             <NA>
+#> 4                             <NA>
+#> 5                             <NA>
+#> 6                             <NA>
+#>   december_zero_report_submitted december_group_a_b_submitted
+#> 1                           <NA>                         <NA>
+#> 2                           <NA>   group a or b was submitted
+#> 3                           <NA>   group a or b was submitted
+#> 4                           <NA>   group a or b was submitted
+#> 5                           <NA>   group a or b was submitted
+#> 6                           <NA>   group a or b was submitted
+#>   december_window_record_submitted x01_06_12_indicator
+#> 1                             <NA>                <NA>
+#> 2                             <NA>                <NA>
+#> 3                             <NA>                <NA>
+#> 4                             <NA>                <NA>
+#> 5                             <NA>                <NA>
+#> 6                             <NA>                <NA>
+#>   fips_county_code_1 fips_county_code_2 fips_county_code_3
+#> 1               <NA>               <NA>               <NA>
+#> 2               <NA>               <NA>               <NA>
+#> 3               <NA>               <NA>               <NA>
+#> 4               <NA>               <NA>               <NA>
+#> 5               <NA>               <NA>               <NA>
+#> 6               <NA>               <NA>               <NA>
+#>   fips_county_code_4 fips_county_code_5
+#> 1               <NA>               <NA>
+#> 2               <NA>               <NA>
+#> 3               <NA>               <NA>
+#> 4               <NA>               <NA>
+#> 5               <NA>               <NA>
+#> 6               <NA>               <NA>
+```
+
+<div class="figure" style="text-align: center">
+<img src="index_files/figure-html/nibrsStateParticipation2020Index-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022." width="90%" />
+<p class="caption">(\#fig:nibrsStateParticipation2020Index)The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022.</p>
+</div>
+
 ## Goal of the book
 
 By the end of each chapter you should have a firm grasp on the dataset that is covered and how to use it properly. However, this book can't possibly cover every potential use case for the data so make sure to carefully examine the data yourself for your own particular use. 
 
 I get a lot of emails from people asking questions about this data so my own goal is to create a single place that answers as many questions as I can about the data. Again, this is among the most commonly used crime datasets and there are still many current papers published with incorrect information about the data (including such simple aspects like what geographic unit data is in and what time unit it is in). So hopefully this book will decrease the number of misconceptions about this data, increasing overall research quality.
-
-Since manuals are boring, I'll try to include graphs and images to try to alleviate the boredom. That said, I don't think it's possible to make it too fun so sorry in advanced. This book is a mix of facts about the data, such as how many years are available, and my opinions about it, such as whether it is reliable. In cases of facts I'll just say a statement - e.g. "the offenses data is available since 1960". In cases of opinion I'll temper the statement by saying something like "in my opinion..." or "I think". 
 
 ## Structure of the book
 
@@ -57,15 +334,15 @@ This book will be divided into ten chapters: this chapter, an intro chapter brie
 
 If this data was useful in your research, please cite it. To cite this book, please use the below citation: 
 
-Kaplan J (2021). *Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide to FBI Data*. https://ucrbook.com/. 
+Kaplan J (2024). *Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data*. https://ucrbook.com/. 
 
 BibTeX format:
 
 ```bibtex
 @Manual{ucrbook,
-  title = {Uniform Crime Reporting (UCR) Program Data: A Practitioner's Guide to FBI Data},
+  title = {Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data},
   author = {{Jacob Kaplan}},
-  year = {2021},
+  year = {2024},
   url = {https://ucrbook.com/},
 }
 ```
@@ -103,7 +380,7 @@ It's worth mentioning a final source of UCR information. This is the annual Crim
 
 ## Recommended reading
 
-While this book is designed to help researchers use this data, the FBI has an excellent manual on this data designed to help police agencies submit their data. That manual, called the "Summary Reporting System (SRS) User Manual" provides excellent definitions and examples of many variables included in the data. In this book when I quote the FBI, such as defining a crime, I quote from this manual. The manual is available to download as a PDF on the FBI's site and I've also posted it on my GitHub page [here](https://github.com/jacobkap/ucrbook/blob/main/FBI%20Uniform%20Crime%20Reporting%20(UCR)%20Program%20User%20Manual.pdf) for convenienceq. I highly recommend that you read this manual before using the data. That manual, alongside this book which tries to explain when and how the agencies don't follow the manual, will provide a solid foundation for your understanding of UCR data.
+While this book is designed to help researchers use this data, the FBI has an excellent manual on this data designed to help police agencies submit their data. That manual, called the "Summary Reporting System (SRS) User Manual" provides excellent definitions and examples of many variables included in the data. In this book when I quote the FBI, such as defining a crime, I quote from this manual. The manual is available to download as a PDF on the FBI's site and I've also posted it on my GitHub page [here](https://github.com/jacobkap/ucrbook/blob/main/FBI%20Uniform%20Crime%20Reporting%20(UCR)%20Program%20User%20Manual.pdf) for convenience. I highly recommend that you read this manual before using the data. That manual, alongside this book which tries to explain when and how the agencies don't follow the manual, will provide a solid foundation for your understanding of UCR data.
 
 ## How to contribute to this book
 
@@ -120,7 +397,7 @@ Please only use the above two methods to contribute or make suggestions about th
 
 ## How to identify a particular agency (ORI codes) {#ori}
 
-In NIBRS and other FBI data sets, agencies are identified using **OR**iginating Agency **I**dentifiers or an ORI. An ORI is a unique ID code used to identify an agency.^[This is referred to as an "ORI", "ORI code", and "ORI number", all of which mean the same thing.] If we used the agency's name we'd end up with some duplicates since there can be multiple agencies in the country (and in a state, those this is very rare) with the same name. For example, if you looked for the Philadelphia Police Department using the agency name, you'd find both the "Philadelphia Police Department" in Pennsylvania and the one in Mississippi. Each ORI is a 9-digit value starting with the state abbreviation (for some reason the FBI incorrectly puts the abbreviation for Nebraska as NB instead of NE) followed by 7 numbers. In the UCR data (another FBI data set) the ORI uses only a 7-digit code - with only the 5 numbers following the state abbreviation instead of 7. So the NIBRS ORI codes are sometimes called ORI9. For nearly all agencies, the only difference between the UCR ORI and the NIBRS ORI is that the NIBRS ORI has "00" at the end so it is technically 9 characters long but isn't any more specific than the 7-character UCR ORI code. 
+In NIBRS and other FBI data sets, agencies are identified using **OR**iginating Agency **I**dentifiers or an ORI. An ORI is a unique ID code used to identify an agency.^[This is referred to as an "ORI", "ORI code", and "ORI number", all of which mean the same thing.] If we used the agency's name we'd end up with some duplicates since there can be multiple agencies in the country (and in a state, those this is very rare) with the same name. For example, if you looked for the Philadelphia Police Department using the agency name, you'd find both the "Philadelphia Police Department" in Pennsylvania and the one in Mississippi. Each ORI is a 9-digit value starting with the state abbreviation^[The abbreviation for Nebraska is "NB" rather than the more commonly used "NE."] followed by 7 numbers. In the UCR data (another FBI data set) the ORI uses only a 7-digit code - with only the 5 numbers following the state abbreviation instead of 7. So the NIBRS ORI codes are sometimes called ORI9. For nearly all agencies, the only difference between the UCR ORI and the NIBRS ORI is that the NIBRS ORI has "00" at the end so it is technically 9 characters long but isn't any more specific than the 7-character UCR ORI code. 
 
 When dealing with specific agencies, make sure to use the ORI rather than the agency name to avoid any mistakes. For an easy way to find the ORI number of an agency, use [this page](https://crimedatatool.com/crosswalk.html) on my site. Type an agency name or an ORI code into the search section and it will return everything that is a match.
 

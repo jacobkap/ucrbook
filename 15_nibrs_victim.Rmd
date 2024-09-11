@@ -55,14 +55,14 @@ temp <- make_frequency_table(victim,
 
 
 kableExtra::kbl(temp, 
-             #format = "html",
-             digits = 2, 
-             align = c("l", "r", "r"),
-             #booktabs = TRUE, 
-             label = "victimCrimeCategory",
-             longtable = TRUE,
-             escape = TRUE,
-             caption = "The number and percent of crimes committed against each victim. For victims with multiple crimes committed against them, this shows the first crime reported.") %>%
+                #format = "html",
+                digits = 2, 
+                align = c("l", "r", "r"),
+                #booktabs = TRUE, 
+                label = "victimCrimeCategory",
+                longtable = TRUE,
+                escape = TRUE,
+                caption = "The number and percent of crimes committed against each victim. For victims with multiple crimes committed against them, this shows the first crime reported.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
@@ -262,14 +262,14 @@ temp <- make_frequency_table(victim,
                                "\\# of Victims",
                                "\\% of Victims"))
 kableExtra::kbl(temp, 
-            # format = "html",
-             digits = 2, 
-             align = c("l", "r", "r"),
-             #booktabs = TRUE, 
-             longtable = TRUE,
-             label = "victimRelationship",
-             escape = TRUE,
-             caption = "The distribution of the relationship between the victim and the offender. Only individual and law enforcement officer victims have this variable available.") %>%
+                # format = "html",
+                digits = 2, 
+                align = c("l", "r", "r"),
+                #booktabs = TRUE, 
+                longtable = TRUE,
+                label = "victimRelationship",
+                escape = TRUE,
+                caption = "The distribution of the relationship between the victim and the offender. Only individual and law enforcement officer victims have this variable available.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
@@ -284,14 +284,14 @@ temp <-
                          "\\# of Victims",
                          "\\% of Victims"))
 kableExtra::kbl(temp, 
-            # format = "html",
-             digits = 2, 
-             align = c("l", "r", "r"),
-             #booktabs = TRUE, 
-             longtable = TRUE,
-             label = "victimRelationshipPolice",
-             escape = TRUE,
-             caption = "The distribution of the relationship between the victim and the offender for law enforcement officer victims.") %>%
+                # format = "html",
+                digits = 2, 
+                align = c("l", "r", "r"),
+                #booktabs = TRUE, 
+                longtable = TRUE,
+                label = "victimRelationshipPolice",
+                escape = TRUE,
+                caption = "The distribution of the relationship between the victim and the offender for law enforcement officer victims.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
@@ -337,14 +337,14 @@ names(temp)[1] <- "Circumstance"
 names(temp)[2] <- "Crime Category"
 
 kableExtra::kbl(temp, 
-          #   format = "html",
-             digits = 2, 
-             align = c("l", "r", "r"),
-             #booktabs = TRUE, 
-             longtable = TRUE,
-             escape = TRUE,
-             label = "victimAggAssault",
-             caption = "The distribution of circumstances for aggravated assault and homicides.") %>%
+                #   format = "html",
+                digits = 2, 
+                align = c("l", "r", "r"),
+                #booktabs = TRUE, 
+                longtable = TRUE,
+                escape = TRUE,
+                label = "victimAggAssault",
+                caption = "The distribution of circumstances for aggravated assault and homicides.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
@@ -444,7 +444,7 @@ nibrs_victim_summary  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = mean_age, color = "Mean Age"), size = 1.05) +
   geom_line(aes(y = median_age , color = "Median Age"), size = 1.05) +
-xlab("Year") +
+  xlab("Year") +
   ylab("Victim Age") +
   theme_crim() +
   scale_y_continuous(labels = scales::comma) +
@@ -457,8 +457,8 @@ xlab("Year") +
 ```{r nibrsVictimAgeMissing, fig.cap="The percent of victim's age that is unknown, 1991-2022."}
 nibrs_victim_summary  %>%
   ggplot(aes(x = year, y = percent_unknown_age )) +
+  geom_line(size = 1.05) + 
   xlab("Year") +
-  ylab("% of Victim Age Unknown") +
   theme_crim() +
   scale_y_continuous(labels = scales::percent) +
   labs(color = "") +
