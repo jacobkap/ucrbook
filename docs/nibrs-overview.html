@@ -1264,244 +1264,16 @@ Wyoming
 Figure 11.5: The annual number of police agencies that report data to NIBRS.
 </p>
 </div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsAnnualPopulation"></span>
-<img src="11_nibrs_general_files/figure-html/nibrsAnnualPopulation-1.png" alt="The annual population in the United States that is covered by an agency reporting data to NIBRS." width="90%" />
-<p class="caption">
-Figure 11.6: The annual population in the United States that is covered by an agency reporting data to NIBRS.
-</p>
-</div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsAnnualPercentPopulation"></span>
 <img src="11_nibrs_general_files/figure-html/nibrsAnnualPercentPopulation-1.png" alt="The annual percent of the United States population that is covered by an agency reporting data to NIBRS." width="90%" />
 <p class="caption">
-Figure 11.7: The annual percent of the United States population that is covered by an agency reporting data to NIBRS.
+Figure 11.6: The annual percent of the United States population that is covered by an agency reporting data to NIBRS.
 </p>
 </div>
-<pre><code>#&gt;         ori year   state population date_ori_was_added date_ori_went_nibrs
-#&gt; 1 alast0000 1991 alabama          0           19910430                &lt;NA&gt;
-#&gt; 2 al0010000 1991 alabama     142446           19930225            19910101
-#&gt; 3 al0010100 1991 alabama      33898           19910513            19910101
-#&gt; 4 al0010200 1991 alabama     269313           19920326            19910101
-#&gt; 5 al0010300 1991 alabama      20047           19910513            19910101
-#&gt; 6 al0010400 1991 alabama      12346           19910513            19910101
-#&gt;        city_name state_abbreviation            population_group
-#&gt; 1     montgomery                 al non-msa county under 10,000
-#&gt; 2     birmingham                 al         msa-county 100,000+
-#&gt; 3       bessemer                 al     city 25,000 thru 49,999
-#&gt; 4     birmingham                 al   city 250,000 thru 499,999
-#&gt; 5 mountain brook                 al     city 10,000 thru 24,999
-#&gt; 6      fairfield                 al     city 10,000 thru 24,999
-#&gt;     country_division country_region agency_indicator core_city covered_by_ori
-#&gt; 1 east south central          south           county         n           &lt;NA&gt;
-#&gt; 2 east south central          south           county         n           &lt;NA&gt;
-#&gt; 3 east south central          south             city         n           &lt;NA&gt;
-#&gt; 4 east south central          south             city         y           &lt;NA&gt;
-#&gt; 5 east south central          south             city         n           &lt;NA&gt;
-#&gt; 6 east south central          south             city         n           &lt;NA&gt;
-#&gt;   fbi_field_office judicial_district agency_nibrs_flag agency_inactive_date
-#&gt; 1             3490              &lt;NA&gt;              &lt;NA&gt;                 &lt;NA&gt;
-#&gt; 2             3070              010n                 a                 &lt;NA&gt;
-#&gt; 3             3070              010n                 a                 &lt;NA&gt;
-#&gt; 4             3070              010n                 a                 &lt;NA&gt;
-#&gt; 5             3070              010n                 a                 &lt;NA&gt;
-#&gt; 6             3070              010n                 a                 &lt;NA&gt;
-#&gt;   current_population_1 ucr_county_code_1 msa_code_1 last_population_1
-#&gt; 1                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt; 2               142446                37         98            142446
-#&gt; 3                33898                37         98             33898
-#&gt; 4               269313                37         98            269313
-#&gt; 5                20047                37         98             20047
-#&gt; 6                12346                37         98             12346
-#&gt;   current_population_2 ucr_county_code_2 msa_code_2 last_population_2
-#&gt; 1                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt; 2                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt; 3                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt; 4                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt; 5                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt; 6                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt;   current_population_3 ucr_county_code_3 msa_code_3 last_population_3
-#&gt; 1                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt; 2                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt; 3                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt; 4                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt; 5                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt; 6                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt;   current_population_4 ucr_county_code_4 msa_code_4 last_population_4
-#&gt; 1                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt; 2                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt; 3                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt; 4                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt; 5                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt; 6                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt;   current_population_5 ucr_county_code_5 msa_code_5 last_population_5
-#&gt; 1                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt; 2                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt; 3                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt; 4                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt; 5                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt; 6                    0              &lt;NA&gt;       &lt;NA&gt;                 0
-#&gt;   X01_06_12_indicator number_of_months_reported master_file_year
-#&gt; 1                &lt;NA&gt;                         0             1991
-#&gt; 2                  12                        12             1991
-#&gt; 3                  12                        12             1991
-#&gt; 4                  12                        12             1991
-#&gt; 5                  12                        12             1991
-#&gt; 6                  12                        12             1991
-#&gt;   january_zero_report_submitted january_group_a_b_submitted
-#&gt; 1                          &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 2                          &lt;NA&gt;  group a or b was submitted
-#&gt; 3                          &lt;NA&gt;  group a or b was submitted
-#&gt; 4                          &lt;NA&gt;  group a or b was submitted
-#&gt; 5                          &lt;NA&gt;  group a or b was submitted
-#&gt; 6                          &lt;NA&gt;  group a or b was submitted
-#&gt;   january_window_record_submitted february_zero_report_submitted
-#&gt; 1                            &lt;NA&gt;                           &lt;NA&gt;
-#&gt; 2     window record was submitted                           &lt;NA&gt;
-#&gt; 3                            &lt;NA&gt;                           &lt;NA&gt;
-#&gt; 4                            &lt;NA&gt;                           &lt;NA&gt;
-#&gt; 5                            &lt;NA&gt;                           &lt;NA&gt;
-#&gt; 6                            &lt;NA&gt;                           &lt;NA&gt;
-#&gt;   february_group_a_b_submitted february_window_record_submitted
-#&gt; 1                         &lt;NA&gt;                             &lt;NA&gt;
-#&gt; 2   group a or b was submitted                             &lt;NA&gt;
-#&gt; 3   group a or b was submitted                             &lt;NA&gt;
-#&gt; 4   group a or b was submitted                             &lt;NA&gt;
-#&gt; 5   group a or b was submitted                             &lt;NA&gt;
-#&gt; 6   group a or b was submitted                             &lt;NA&gt;
-#&gt;   march_zero_report_submitted  march_group_a_b_submitted
-#&gt; 1                        &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 2                        &lt;NA&gt; group a or b was submitted
-#&gt; 3                        &lt;NA&gt; group a or b was submitted
-#&gt; 4                        &lt;NA&gt; group a or b was submitted
-#&gt; 5                        &lt;NA&gt; group a or b was submitted
-#&gt; 6                        &lt;NA&gt; group a or b was submitted
-#&gt;   march_window_record_submitted april_zero_report_submitted
-#&gt; 1                          &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 2                          &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 3                          &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 4                          &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 5                          &lt;NA&gt;                        &lt;NA&gt;
-#&gt; 6                          &lt;NA&gt;                        &lt;NA&gt;
-#&gt;    april_group_a_b_submitted april_window_record_submitted
-#&gt; 1                       &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 2 group a or b was submitted   window record was submitted
-#&gt; 3 group a or b was submitted                          &lt;NA&gt;
-#&gt; 4 group a or b was submitted                          &lt;NA&gt;
-#&gt; 5 group a or b was submitted                          &lt;NA&gt;
-#&gt; 6 group a or b was submitted                          &lt;NA&gt;
-#&gt;   may_zero_report_submitted    may_group_a_b_submitted
-#&gt; 1                      &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 2                      &lt;NA&gt; group a or b was submitted
-#&gt; 3                      &lt;NA&gt; group a or b was submitted
-#&gt; 4                      &lt;NA&gt; group a or b was submitted
-#&gt; 5                      &lt;NA&gt; group a or b was submitted
-#&gt; 6                      &lt;NA&gt; group a or b was submitted
-#&gt;   may_window_record_submitted june_zero_report_submitted
-#&gt; 1                        &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 2                        &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 3                        &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 4                        &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 5                        &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 6                        &lt;NA&gt;                       &lt;NA&gt;
-#&gt;     june_group_a_b_submitted june_window_record_submitted
-#&gt; 1                       &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 2 group a or b was submitted                         &lt;NA&gt;
-#&gt; 3 group a or b was submitted                         &lt;NA&gt;
-#&gt; 4 group a or b was submitted                         &lt;NA&gt;
-#&gt; 5 group a or b was submitted  window record was submitted
-#&gt; 6 group a or b was submitted                         &lt;NA&gt;
-#&gt;   july_zero_report_submitted   july_group_a_b_submitted
-#&gt; 1                       &lt;NA&gt;                       &lt;NA&gt;
-#&gt; 2                       &lt;NA&gt; group a or b was submitted
-#&gt; 3                       &lt;NA&gt; group a or b was submitted
-#&gt; 4                       &lt;NA&gt; group a or b was submitted
-#&gt; 5                       &lt;NA&gt; group a or b was submitted
-#&gt; 6                       &lt;NA&gt; group a or b was submitted
-#&gt;   july_window_record_submitted august_zero_report_submitted
-#&gt; 1                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 2                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 3                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 4                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 5                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 6                         &lt;NA&gt;                         &lt;NA&gt;
-#&gt;   august_group_a_b_submitted august_window_record_submitted
-#&gt; 1                       &lt;NA&gt;                           &lt;NA&gt;
-#&gt; 2 group a or b was submitted                           &lt;NA&gt;
-#&gt; 3 group a or b was submitted                           &lt;NA&gt;
-#&gt; 4 group a or b was submitted                           &lt;NA&gt;
-#&gt; 5 group a or b was submitted                           &lt;NA&gt;
-#&gt; 6 group a or b was submitted                           &lt;NA&gt;
-#&gt;   september_zero_report_submitted september_group_a_b_submitted
-#&gt; 1                            &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 2                            &lt;NA&gt;    group a or b was submitted
-#&gt; 3                            &lt;NA&gt;    group a or b was submitted
-#&gt; 4                            &lt;NA&gt;    group a or b was submitted
-#&gt; 5                            &lt;NA&gt;    group a or b was submitted
-#&gt; 6                            &lt;NA&gt;    group a or b was submitted
-#&gt;   september_window_record_submitte october_zero_report_submitted
-#&gt; 1                             &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 2                             &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 3                             &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 4                             &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 5                             &lt;NA&gt;                          &lt;NA&gt;
-#&gt; 6                             &lt;NA&gt;                          &lt;NA&gt;
-#&gt;   october_group_a_b_submitted october_window_record_submitted
-#&gt; 1                        &lt;NA&gt;                            &lt;NA&gt;
-#&gt; 2  group a or b was submitted                            &lt;NA&gt;
-#&gt; 3  group a or b was submitted                            &lt;NA&gt;
-#&gt; 4  group a or b was submitted                            &lt;NA&gt;
-#&gt; 5  group a or b was submitted                            &lt;NA&gt;
-#&gt; 6  group a or b was submitted                            &lt;NA&gt;
-#&gt;   november_zero_report_submitted november_group_a_b_submitted
-#&gt; 1                           &lt;NA&gt;                         &lt;NA&gt;
-#&gt; 2                           &lt;NA&gt;   group a or b was submitted
-#&gt; 3                           &lt;NA&gt;   group a or b was submitted
-#&gt; 4                           &lt;NA&gt;   group a or b was submitted
-#&gt; 5                           &lt;NA&gt;   group a or b was submitted
-#&gt; 6                           &lt;NA&gt;   group a or b was submitted
-#&gt;   november_window_record_submitted december_zero_report_submitted
-#&gt; 1                             &lt;NA&gt;                           &lt;NA&gt;
-#&gt; 2                             &lt;NA&gt;                           &lt;NA&gt;
-#&gt; 3                             &lt;NA&gt;                           &lt;NA&gt;
-#&gt; 4                             &lt;NA&gt;                           &lt;NA&gt;
-#&gt; 5                             &lt;NA&gt;                           &lt;NA&gt;
-#&gt; 6                             &lt;NA&gt;                           &lt;NA&gt;
-#&gt;   december_group_a_b_submitted december_window_record_submitted
-#&gt; 1                         &lt;NA&gt;                             &lt;NA&gt;
-#&gt; 2   group a or b was submitted                             &lt;NA&gt;
-#&gt; 3   group a or b was submitted                             &lt;NA&gt;
-#&gt; 4   group a or b was submitted                             &lt;NA&gt;
-#&gt; 5   group a or b was submitted                             &lt;NA&gt;
-#&gt; 6   group a or b was submitted                             &lt;NA&gt;
-#&gt;   x01_06_12_indicator fips_county_code_1 fips_county_code_2 fips_county_code_3
-#&gt; 1                &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;
-#&gt; 2                &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;
-#&gt; 3                &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;
-#&gt; 4                &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;
-#&gt; 5                &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;
-#&gt; 6                &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;               &lt;NA&gt;
-#&gt;   fips_county_code_4 fips_county_code_5
-#&gt; 1               &lt;NA&gt;               &lt;NA&gt;
-#&gt; 2               &lt;NA&gt;               &lt;NA&gt;
-#&gt; 3               &lt;NA&gt;               &lt;NA&gt;
-#&gt; 4               &lt;NA&gt;               &lt;NA&gt;
-#&gt; 5               &lt;NA&gt;               &lt;NA&gt;
-#&gt; 6               &lt;NA&gt;               &lt;NA&gt;</code></pre>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsStateParticipation2020"></span>
-<img src="11_nibrs_general_files/figure-html/nibrsStateParticipation2020-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022." width="90%" />
+<img src="11_nibrs_general_files/figure-html/nibrsStateParticipation2020-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS." width="90%" />
 <p class="caption">
-Figure 11.8: The percent of each state’s population that is covered by police agencies reporting at least one month of data to NIBRS, 2022.
-</p>
-</div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsStateParticipation2000"></span>
-<img src="11_nibrs_general_files/figure-html/nibrsStateParticipation2000-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2000." width="90%" />
-<p class="caption">
-Figure 11.9: The percent of each state’s population that is covered by police agencies reporting at least one month of data to NIBRS, 2000.
-</p>
-</div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsStateParticipation2010"></span>
-<img src="11_nibrs_general_files/figure-html/nibrsStateParticipation2010-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2010." width="90%" />
-<p class="caption">
-Figure 11.10: The percent of each state’s population that is covered by police agencies reporting at least one month of data to NIBRS, 2010.
+Figure 11.7: The percent of each state’s population that is covered by police agencies reporting at least one month of data to NIBRS.
 </p>
 </div>
 </div>
@@ -1657,14 +1429,14 @@ Figure 11.10: The percent of each state’s population that is covered by police
 </div>
 <div id="a-summary-of-each-segment-file" class="section level2 hasAnchor" number="11.5">
 <h2><span class="header-section-number">11.5</span> A summary of each segment file<a href="nibrs-overview.html#a-summary-of-each-segment-file" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>NIBRS data is often discussed - and is used - as if it were a single file with all of this information available. But it actually comes as multiple different files that each provide different information about a crime incident, including at different levels of analysis so users must clean each segment before merging them together. In this section we’ll discuss each of the segments and how they are related to each other. First, keep in mind that NIBRS is at its core an incident-level dataset (hence the “Incident-Based” part of its name). Everything that we have stems from the incident, even though we can get more detailed and look at, for example, individual victims in an incident or even offenses within an incident. Figure <a href="nibrs-overview.html#fig:segmentFlowchart">11.11</a> shows the seven main segments and how they relate to each other. There are also three segments called “window segments” - there is one for arrestees, one of exceptional clearances (i.e. police could have made an arrest but didn’t for some reason but still consider the case closed), and one for property - that do not have an associated segment with them, they only have the information available in the given “window” segment. We’ll talk about window segments more in Section <a href="nibrs-overview.html#window">11.5.7</a> below.</p>
+<p>NIBRS data is often discussed - and is used - as if it were a single file with all of this information available. But it actually comes as multiple different files that each provide different information about a crime incident, including at different levels of analysis so users must clean each segment before merging them together. In this section we’ll discuss each of the segments and how they are related to each other. First, keep in mind that NIBRS is at its core an incident-level dataset (hence the “Incident-Based” part of its name). Everything that we have stems from the incident, even though we can get more detailed and look at, for example, individual victims in an incident or even offenses within an incident. Figure <a href="nibrs-overview.html#fig:segmentFlowchart">11.8</a> shows the seven main segments and how they relate to each other. There are also three segments called “window segments” - there is one for arrestees, one of exceptional clearances (i.e. police could have made an arrest but didn’t for some reason but still consider the case closed), and one for property - that do not have an associated segment with them, they only have the information available in the given “window” segment. We’ll talk about window segments more in Section <a href="nibrs-overview.html#window">11.5.7</a> below.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:segmentFlowchart"></span>
 <img src="images/segments_flowchart.png" alt="The association of each segment file in the NIBRS dataset." width="90%" />
 <p class="caption">
-Figure 11.11: The association of each segment file in the NIBRS dataset.
+Figure 11.8: The association of each segment file in the NIBRS dataset.
 </p>
 </div>
-<p>The first two boxes in Figure <a href="nibrs-overview.html#fig:segmentFlowchart">11.11</a>, colored in orange, are not part of NIBRS but are part of the data generating process. First, obviously, a crime has to occur. The police then have to learn about the crime. This can happen in two ways. First, they can discover it themselves while on patrol. This is common in crimes such as drug possession or sale as well as any crime that occurs outdoors, which is largely where police are able to observe behavior. The second way is that the victim or witness to a crime reports it. So if they call the police to report a crime, the police learn about it from that call. We don’t actually know from the data how the police learned of a crime but it’s important to think about this data generating process when using the data.
+<p>The first two boxes in Figure <a href="nibrs-overview.html#fig:segmentFlowchart">11.8</a>, colored in orange, are not part of NIBRS but are part of the data generating process. First, obviously, a crime has to occur. The police then have to learn about the crime. This can happen in two ways. First, they can discover it themselves while on patrol. This is common in crimes such as drug possession or sale as well as any crime that occurs outdoors, which is largely where police are able to observe behavior. The second way is that the victim or witness to a crime reports it. So if they call the police to report a crime, the police learn about it from that call. We don’t actually know from the data how the police learned of a crime but it’s important to think about this data generating process when using the data.
 Alongside the crime being reported (or discovered) to the police, agencies must then report the crime to NIBRS. All crimes that occur in that agency’s jurisdiction <em>should</em> be reported, but that’s not always the case. Since reporting is voluntary (at least nationally, though some states do require agencies to report data), agencies are free to report as many or as few crimes as they wish. This often occurs when agencies report only parts of the year, excluding certain months, so you should ensure that the agency reported data for each month you’re interested in.</p>
 <p>Once a crime occurs and is reported to the police, it can be recorded to NIBRS in two ways, depending on the type of crime that occurred. If it is one of the Group B crimes, then we only get a Group B Arrestee Segment which is the same as the normal arrestee segment which we discuss in more detail below as well as in Chapter <a href="arrestee.html#arrestee">16</a>. In this segment we have useful variables including the type of arrest (e.g. arrested by a warrant), what crime was committed, demographics of the arrestee, and weapon use. However, we’re missing a wealth of information that is available in the other segments. When the crime is one of the Group A crimes, we get all of this additional information.</p>
 <p>For Group A crimes, we get every other segment, starting with the Administrative Segment. The Administrative Segment is largely a meta-segment - it provides information about other segments. The Administrative Segment is the only incident-level segment of the collection and provides information that is consistent across every offense in the incident such as the incident date and time (in hours of the day). It also includes the type of exceptional clearance for the incident, if the incident was exceptionally cleared. The key part of this segment, however, is that it tells you how many of the Offense, Offender, Victim, and Property segments that are associated with this incident. There are always at least one of these segments per incident, but can potentially be multiple of each segment. These other segments do exactly what their name suggests, providing information about the offenses, offender, victims, and stolen or damaged property for each crime incident. Each of these segments, including the Administrative Segment, have the agency identifier code (the ORI code which is discussed on Section <a href="index.html#ori">1.7</a>) and an incident number (which is just a randomly generated unique identifier for that incident) so you can merge the files together. Please note that the incident number of only unique <em>within</em> an agency. So there can - and are - incident numbers that are identical across different agencies but are for different incidents. To avoid this issue, make sure you match based on <em>both</em> the ORI code and the incident number (or make a new variable with just combines the ORI code and incident number together).</p>

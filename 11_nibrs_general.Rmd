@@ -207,28 +207,7 @@ batch_header_all_years %>%
 ```
 
 
-```{r nibrsAnnualPopulation, fig.cap = "The annual population in the United States that is covered by an agency reporting data to NIBRS."}
 
-batch_header_all_years %>%
-  filter(number_of_months_reported %in% 12) %>%
-  group_by(year) %>%
-  summarize(population = sum(population)) %>%
-  ungroup() %>%
-  left_join(batch_header_any_months) %>%
-  ggplot(aes(x = year,
-             y = population,
-             color = "12 Months")) +
-  geom_line(size = 1.05) +
-  geom_line(size = 1.05, aes(y = any_months_population, color = "At Least 1 Month")) +
-  xlab("Year") +
-  ylab("Population") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
-  labs(color = "") +
-  expand_limits(y = 0) +
-    scale_color_manual(values = c("12 Months" = "#1b9e77",
-                                  "At Least 1 Month" = "#d95f02"))
-```
 
 ```{r nibrsAnnualPercentPopulation, fig.cap = "The annual percent of the United States population that is covered by an agency reporting data to NIBRS."}
 us_population <- read_csv("data/resident_population_usafacts.csv")
@@ -267,7 +246,7 @@ batch_header_all_years %>%
 ```
 
 
-```{r nibrsStateParticipation2020, fig.cap = "The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022."}
+```{r nibrsStateParticipation2020, fig.cap = "The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS.", fig.height=25}
 fips_state_codes <- c(
   "01", "02", "04", "05", "06", "08", "09", "10", "11", "12",
   "13", "15", "16", "17", "18", "19", "20", "21", "22", "23",
@@ -302,7 +281,6 @@ census_state_final <-
   ungroup() %>%
   mutate(state = tolower(state))
 
-head(batch_header_all_years)
 batch_header_percent_pop <-
   batch_header_all_years %>%
   filter(number_of_months_reported %in% 1:12,
@@ -312,8 +290,9 @@ batch_header_percent_pop <-
   summarize(nibrs_population = sum(population)) %>%
   left_join(census_state_final) %>%
   mutate(n = nibrs_population / population * 100) 
-batch_header_percent_pop %>%
-ggplot2::ggplot(aes(map_id = state)) + 
+nibrs_state_pop_percent_2022 <-
+  batch_header_percent_pop %>%
+  ggplot2::ggplot(aes(map_id = state)) + 
   ggplot2::geom_map(aes(fill = n), map = fifty_states, color = "black") + 
   expand_limits(x = fifty_states$long, y = fifty_states$lat) +
   coord_map() +
@@ -322,14 +301,11 @@ ggplot2::ggplot(aes(map_id = state)) +
   labs(x = "", y = "", fill = "% of Population Covered") +
   theme(panel.background = element_blank()) +
   fifty_states_inset_boxes() +
-  scale_fill_gradient(low = "white", high = "red") 
-
-
-```
+  scale_fill_gradient(low = "white", high = "red") +
+  ggtitle("2022")
 
 
 
-```{r nibrsStateParticipation2000, fig.cap = "The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2000."}
 
 
 # census_state_final_2000 <- data.frame()
@@ -370,9 +346,9 @@ batch_header_percent_pop_missing <-
                unique(batch_header_all_years$state[!batch_header_all_years$state %in% 
                                                      batch_header_percent_pop$state]),
              n = 0)
-batch_header_percent_pop %>%
+nibrs_state_pop_percent_2000 <- batch_header_percent_pop %>%
   bind_rows(batch_header_percent_pop_missing) %>%
-ggplot2::ggplot(aes(map_id = state)) + 
+  ggplot2::ggplot(aes(map_id = state)) + 
   ggplot2::geom_map(aes(fill = n), map = fifty_states, color = "black") + 
   expand_limits(x = fifty_states$long, y = fifty_states$lat) +
   coord_map() +
@@ -381,12 +357,26 @@ ggplot2::ggplot(aes(map_id = state)) +
   labs(x = "", y = "", fill = "% of Population Covered") +
   theme(panel.background = element_blank()) +
   fifty_states_inset_boxes() +
-  scale_fill_gradient(low = "white", high = "red") 
+  scale_fill_gradient(low = "white", high = "red")  +
+  ggtitle("2000")
 
-```
+
+# census_state_final_2010 <- data.frame()
+# for (state_code in fips_state_codes) {
+# 
+#   temp <- get_decennial(geography = "block group",
+#                   variables = "P001001",
+#                   year = 2010,
+#                   geometry = FALSE,
+#                   state = state_code)
+#   census_state_final_2010 <-
+#     census_state_final_2010 %>%
+#     bind_rows(temp)
+#   message(state_code)
+# }
+# saveRDS(census_state_final_2010, "data/census_state_final_2010.rds")
 
 
-```{r nibrsStateParticipation2010,  fig.cap = "The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2010."}
 census_state_final_2010 <- readRDS("data/census_state_final_2010.rds")
 
 census_state_final_2010$state <- gsub(".*, |.*; ", "", census_state_final_2010$NAME)
@@ -411,9 +401,10 @@ batch_header_percent_pop_missing <-
                unique(batch_header_all_years$state[!batch_header_all_years$state %in% 
                                                      batch_header_percent_pop$state]),
              n = 0)
-batch_header_percent_pop %>%
+nibrs_state_pop_percent_2010 <-
+  batch_header_percent_pop %>%
   bind_rows(batch_header_percent_pop_missing) %>%
-ggplot2::ggplot(aes(map_id = state)) + 
+  ggplot2::ggplot(aes(map_id = state)) + 
   ggplot2::geom_map(aes(fill = n), map = fifty_states, color = "black") + 
   expand_limits(x = fifty_states$long, y = fifty_states$lat) +
   coord_map() +
@@ -422,10 +413,19 @@ ggplot2::ggplot(aes(map_id = state)) +
   labs(x = "", y = "", fill = "% of Population Covered") +
   theme(panel.background = element_blank()) +
   fifty_states_inset_boxes() +
-  scale_fill_gradient(low = "white", high = "red") 
+  scale_fill_gradient(low = "white", high = "red") +
+  ggtitle("2010")
+
+
+
+nibrs_state_pop_percent_2000 / nibrs_state_pop_percent_2010 / nibrs_state_pop_percent_2022
 
 
 ```
+
+
+
+
 
 
 ## Crimes included in NIBRS

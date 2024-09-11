@@ -295,7 +295,7 @@ ggplot(assault_type %>% filter(type != "Total Assaults"),
   scale_x_continuous(labels = scales::comma) +
   facet_wrap(~category, scales = "free", ncol = 2) +
   facetted_pos_scales(
-    y = list(COL == 2 ~ scale_y_discrete(guide = 'none'))
+    y = list(COL == 1 ~ scale_y_discrete(guide = 'none'))
   )
 
 

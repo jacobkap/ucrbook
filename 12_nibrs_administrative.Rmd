@@ -244,7 +244,7 @@ nibrs_administrative_summary_stats  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_with_arrest, color = "Arrest"), size = 1.05) +
   geom_line(aes(y = percent_cleared_exceptionally , color = "Cleared Exceptionally"), size = 1.05) +
-  geom_line(aes(y = percent_with_arrest_or_cleared_exceptionally , color = "Arrest or Cleared Exceptionally"), size = 1.05) +
+  geom_line(aes(y = percent_with_arrest_or_cleared_exceptionally , color = "Arrest/Cleared Exceptionally"), size = 1.05) +
   xlab("Year") +
   ylab("% of Incidents") +
   theme_crim() +
@@ -253,7 +253,7 @@ nibrs_administrative_summary_stats  %>%
   expand_limits(y = 0) +
   scale_color_manual(values = c("Arrest" = "#1b9e77",
                                 "Cleared Exceptionally" = "#d95f02",
-                                "Arrest or Cleared Exceptionally" = "#7570b3"))
+                                "Arrest/Cleared Exceptionally" = "#7570b3"))
 ```
 
 ## Number of other segments

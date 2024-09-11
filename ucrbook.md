@@ -339,7 +339,7 @@ The Offenses Known and Clearances by Arrest dataset - often called Return A, "Of
 
 The Offenses Known data has been **the** crime data of record for nearly a century, and will likely still be for the next couple of decades at least. And that's due to its simplicity. This data is (with some exceptions we'll get into) just the monthly number of crimes reported or otherwise known (e.g. discovered while on patrol) to a police agency for a small number of crimes. If you want to know, for example, how many murders or burglaries happened in your city last year, this is the dataset to turn to. This simplicity allows a much wider group of people to use the data; since it is monthly counts of crimes (with no breakdown by location, race, age, injury, etc.) you don't need much programming or analytic skills to use it. 
 
-I argued earlier in this book that NIBRS is a far superior dataset than anything in SRS, and I stand by that. NIBRS is superior in nearly every way. But for most people - the general public, reporters, many academics, etc. - what is important is ease of use and very basic descriptive statistics such as how many crimes happened in my city last year^[Even many academic papers are little more than a difference between two or more cities over time and can be very good research even if the data isn't that complex.], and is it getting more dangerous than it used to be? The Offenses Known data answers that, at least to a point. You can answer more complex questions using NIBRS but most people don't need those questions answered. They're content with what can be answered using the Offenses Known data. And for good reason. "Is crime increasing in my city" is really the first and most important question about crime that people have. 
+I argued earlier in this book that NIBRS is a far superior dataset than anything in SRS, and I stand by that. NIBRS is superior in nearly every way. But for most people - the general public, reporters, many academics, etc. - what is important is ease of use and very basic descriptive statistics such as how many crimes happened in my city last year^[Even some academic papers are little more than a difference between two or more cities over time and can be very good research even if the data isn't that complex.], and is it getting more dangerous than it used to be? The Offenses Known data answers that, at least to a point. You can answer more complex questions using NIBRS but most people don't need those questions answered. They're content with what can be answered using the Offenses Known data. And for good reason. "Is crime increasing in my city" is really the first and most important question about crime that people have. 
 
 Part of the superiority of NIBRS is that while it can answer much more complex questions than SRS datasets, it can also answer the same questions that the SRS can. That's because, by design, NIBRS collects the same information as SRS and can be converted to SRS data. Many agencies that submit NIBRS data don't submit SRS data at all, and the FBI converts the NIBRS data to its SRS counterpart for release to the public. This is an almost perfect comparison but not all of the same variables are collected, which will cause some issues that we'll discuss in this chapter. 
 
@@ -541,7 +541,7 @@ A crime is cleared when an offender is arrested or when the case is considered c
 
 Even though this dataset is formally named "Offenses Known and Clearances by Arrest" it does include clearances where no one is arrested, which are called "exceptional clearances" or "clearances by exceptional means." For exceptional clearances, police must have identified the offender, have sufficient evidence to arrest that offender, know where they are (so they can actually be apprehended) and only then be unable to make the arrest. Exceptional clearances include cases where the offender dies before an arrest (by any means, including suicide, accidental, illness, killed by someone including a police officer) or when the police are unable to arrest the person since they are already in custody by another jurisdiction (including out of the country or in custody of another agency) and extradition is denied. Two other potential causes of exceptional clearance are when prosecution of the case cannot go forward because the district attorney refuses to prosecute the case, for reasons other than lack of evidence, or when a victim refuses to assist the prosecution in the case. 
 
-Unfortunately, this data does not differentiate between clearances by arrest or by exceptional means so there's no way to determine how many clearances mean the offender is actually arrested - and even more problematic, how many clearances have all of the offenders arrested. NIBRS data does differentiate these types of clearances, another advantage of using it. There is also some evidence that at least some police agencies report classify large numbers of clearances as clearances through exception means (again, we have no way to tell which is which using this data) even though exceptional clearances should be rare given that times where the offender is known but cannot be arrested are likely far less common than when they are arrested. For an investigation into this issue, see the @yeung2018comes article available on ProPublica's website [here](https://www.propublica.org/article/when-it-comes-to-rape-just-because-a-case-is-cleared-does-not-mean-solved)
+Unfortunately, this data does not differentiate between clearances by arrest or by exceptional means so there's no way to determine how many clearances mean the offender is actually arrested - and even more problematic, how many clearances have all of the offenders arrested. NIBRS data does differentiate these types of clearances, another advantage of using it. There is also some evidence that at least some police agencies report classify large numbers of clearances as clearances through exception means (again, we have no way to tell which is which using this data) even though exceptional clearances should be rare given that times where the offender is known but cannot be arrested are likely far less common than when they are arrested. For an investigation into this issue, see the @yeung2018comes article available on ProPublica's website [here](https://www.propublica.org/article/when-it-comes-to-rape-just-because-a-case-is-cleared-does-not-mean-solved).
 
 Clearances are reported in the month that they occur, regardless of when the crime they are clearing occurred. In practice, however, most crimes are cleared in the month that they occur. According to the 2019 NIBRS, it takes on average 7 days between the incident and the arrest (median = 0 days) date when averaging across all crimes - for individual crimes these values will be different. This means that most of the clearances will be for the same month as the initial crime - though this will be less common for crimes that happen at the end of a month. Of course, police agencies can solve older cases - and even target cold cases to be solved - so this is still a degree of uncertainty for which month these clearances are for. 
 
@@ -4810,10 +4810,7 @@ For ease of reference, Table \@ref(tab:agenciesReportingTable) shows the number 
 </div>
 
 
-<div class="figure" style="text-align: center">
-<img src="11_nibrs_general_files/figure-html/nibrsAnnualPopulation-1.png" alt="The annual population in the United States that is covered by an agency reporting data to NIBRS." width="90%" />
-<p class="caption">(\#fig:nibrsAnnualPopulation)The annual population in the United States that is covered by an agency reporting data to NIBRS.</p>
-</div>
+
 
 <div class="figure" style="text-align: center">
 <img src="11_nibrs_general_files/figure-html/nibrsAnnualPercentPopulation-1.png" alt="The annual percent of the United States population that is covered by an agency reporting data to NIBRS." width="90%" />
@@ -4821,237 +4818,14 @@ For ease of reference, Table \@ref(tab:agenciesReportingTable) shows the number 
 </div>
 
 
-
-```
-#>         ori year   state population date_ori_was_added date_ori_went_nibrs
-#> 1 alast0000 1991 alabama          0           19910430                <NA>
-#> 2 al0010000 1991 alabama     142446           19930225            19910101
-#> 3 al0010100 1991 alabama      33898           19910513            19910101
-#> 4 al0010200 1991 alabama     269313           19920326            19910101
-#> 5 al0010300 1991 alabama      20047           19910513            19910101
-#> 6 al0010400 1991 alabama      12346           19910513            19910101
-#>        city_name state_abbreviation            population_group
-#> 1     montgomery                 al non-msa county under 10,000
-#> 2     birmingham                 al         msa-county 100,000+
-#> 3       bessemer                 al     city 25,000 thru 49,999
-#> 4     birmingham                 al   city 250,000 thru 499,999
-#> 5 mountain brook                 al     city 10,000 thru 24,999
-#> 6      fairfield                 al     city 10,000 thru 24,999
-#>     country_division country_region agency_indicator core_city covered_by_ori
-#> 1 east south central          south           county         n           <NA>
-#> 2 east south central          south           county         n           <NA>
-#> 3 east south central          south             city         n           <NA>
-#> 4 east south central          south             city         y           <NA>
-#> 5 east south central          south             city         n           <NA>
-#> 6 east south central          south             city         n           <NA>
-#>   fbi_field_office judicial_district agency_nibrs_flag agency_inactive_date
-#> 1             3490              <NA>              <NA>                 <NA>
-#> 2             3070              010n                 a                 <NA>
-#> 3             3070              010n                 a                 <NA>
-#> 4             3070              010n                 a                 <NA>
-#> 5             3070              010n                 a                 <NA>
-#> 6             3070              010n                 a                 <NA>
-#>   current_population_1 ucr_county_code_1 msa_code_1 last_population_1
-#> 1                    0              <NA>       <NA>                 0
-#> 2               142446                37         98            142446
-#> 3                33898                37         98             33898
-#> 4               269313                37         98            269313
-#> 5                20047                37         98             20047
-#> 6                12346                37         98             12346
-#>   current_population_2 ucr_county_code_2 msa_code_2 last_population_2
-#> 1                    0              <NA>       <NA>                 0
-#> 2                    0              <NA>       <NA>                 0
-#> 3                    0              <NA>       <NA>                 0
-#> 4                    0              <NA>       <NA>                 0
-#> 5                    0              <NA>       <NA>                 0
-#> 6                    0              <NA>       <NA>                 0
-#>   current_population_3 ucr_county_code_3 msa_code_3 last_population_3
-#> 1                    0              <NA>       <NA>                 0
-#> 2                    0              <NA>       <NA>                 0
-#> 3                    0              <NA>       <NA>                 0
-#> 4                    0              <NA>       <NA>                 0
-#> 5                    0              <NA>       <NA>                 0
-#> 6                    0              <NA>       <NA>                 0
-#>   current_population_4 ucr_county_code_4 msa_code_4 last_population_4
-#> 1                    0              <NA>       <NA>                 0
-#> 2                    0              <NA>       <NA>                 0
-#> 3                    0              <NA>       <NA>                 0
-#> 4                    0              <NA>       <NA>                 0
-#> 5                    0              <NA>       <NA>                 0
-#> 6                    0              <NA>       <NA>                 0
-#>   current_population_5 ucr_county_code_5 msa_code_5 last_population_5
-#> 1                    0              <NA>       <NA>                 0
-#> 2                    0              <NA>       <NA>                 0
-#> 3                    0              <NA>       <NA>                 0
-#> 4                    0              <NA>       <NA>                 0
-#> 5                    0              <NA>       <NA>                 0
-#> 6                    0              <NA>       <NA>                 0
-#>   X01_06_12_indicator number_of_months_reported master_file_year
-#> 1                <NA>                         0             1991
-#> 2                  12                        12             1991
-#> 3                  12                        12             1991
-#> 4                  12                        12             1991
-#> 5                  12                        12             1991
-#> 6                  12                        12             1991
-#>   january_zero_report_submitted january_group_a_b_submitted
-#> 1                          <NA>                        <NA>
-#> 2                          <NA>  group a or b was submitted
-#> 3                          <NA>  group a or b was submitted
-#> 4                          <NA>  group a or b was submitted
-#> 5                          <NA>  group a or b was submitted
-#> 6                          <NA>  group a or b was submitted
-#>   january_window_record_submitted february_zero_report_submitted
-#> 1                            <NA>                           <NA>
-#> 2     window record was submitted                           <NA>
-#> 3                            <NA>                           <NA>
-#> 4                            <NA>                           <NA>
-#> 5                            <NA>                           <NA>
-#> 6                            <NA>                           <NA>
-#>   february_group_a_b_submitted february_window_record_submitted
-#> 1                         <NA>                             <NA>
-#> 2   group a or b was submitted                             <NA>
-#> 3   group a or b was submitted                             <NA>
-#> 4   group a or b was submitted                             <NA>
-#> 5   group a or b was submitted                             <NA>
-#> 6   group a or b was submitted                             <NA>
-#>   march_zero_report_submitted  march_group_a_b_submitted
-#> 1                        <NA>                       <NA>
-#> 2                        <NA> group a or b was submitted
-#> 3                        <NA> group a or b was submitted
-#> 4                        <NA> group a or b was submitted
-#> 5                        <NA> group a or b was submitted
-#> 6                        <NA> group a or b was submitted
-#>   march_window_record_submitted april_zero_report_submitted
-#> 1                          <NA>                        <NA>
-#> 2                          <NA>                        <NA>
-#> 3                          <NA>                        <NA>
-#> 4                          <NA>                        <NA>
-#> 5                          <NA>                        <NA>
-#> 6                          <NA>                        <NA>
-#>    april_group_a_b_submitted april_window_record_submitted
-#> 1                       <NA>                          <NA>
-#> 2 group a or b was submitted   window record was submitted
-#> 3 group a or b was submitted                          <NA>
-#> 4 group a or b was submitted                          <NA>
-#> 5 group a or b was submitted                          <NA>
-#> 6 group a or b was submitted                          <NA>
-#>   may_zero_report_submitted    may_group_a_b_submitted
-#> 1                      <NA>                       <NA>
-#> 2                      <NA> group a or b was submitted
-#> 3                      <NA> group a or b was submitted
-#> 4                      <NA> group a or b was submitted
-#> 5                      <NA> group a or b was submitted
-#> 6                      <NA> group a or b was submitted
-#>   may_window_record_submitted june_zero_report_submitted
-#> 1                        <NA>                       <NA>
-#> 2                        <NA>                       <NA>
-#> 3                        <NA>                       <NA>
-#> 4                        <NA>                       <NA>
-#> 5                        <NA>                       <NA>
-#> 6                        <NA>                       <NA>
-#>     june_group_a_b_submitted june_window_record_submitted
-#> 1                       <NA>                         <NA>
-#> 2 group a or b was submitted                         <NA>
-#> 3 group a or b was submitted                         <NA>
-#> 4 group a or b was submitted                         <NA>
-#> 5 group a or b was submitted  window record was submitted
-#> 6 group a or b was submitted                         <NA>
-#>   july_zero_report_submitted   july_group_a_b_submitted
-#> 1                       <NA>                       <NA>
-#> 2                       <NA> group a or b was submitted
-#> 3                       <NA> group a or b was submitted
-#> 4                       <NA> group a or b was submitted
-#> 5                       <NA> group a or b was submitted
-#> 6                       <NA> group a or b was submitted
-#>   july_window_record_submitted august_zero_report_submitted
-#> 1                         <NA>                         <NA>
-#> 2                         <NA>                         <NA>
-#> 3                         <NA>                         <NA>
-#> 4                         <NA>                         <NA>
-#> 5                         <NA>                         <NA>
-#> 6                         <NA>                         <NA>
-#>   august_group_a_b_submitted august_window_record_submitted
-#> 1                       <NA>                           <NA>
-#> 2 group a or b was submitted                           <NA>
-#> 3 group a or b was submitted                           <NA>
-#> 4 group a or b was submitted                           <NA>
-#> 5 group a or b was submitted                           <NA>
-#> 6 group a or b was submitted                           <NA>
-#>   september_zero_report_submitted september_group_a_b_submitted
-#> 1                            <NA>                          <NA>
-#> 2                            <NA>    group a or b was submitted
-#> 3                            <NA>    group a or b was submitted
-#> 4                            <NA>    group a or b was submitted
-#> 5                            <NA>    group a or b was submitted
-#> 6                            <NA>    group a or b was submitted
-#>   september_window_record_submitte october_zero_report_submitted
-#> 1                             <NA>                          <NA>
-#> 2                             <NA>                          <NA>
-#> 3                             <NA>                          <NA>
-#> 4                             <NA>                          <NA>
-#> 5                             <NA>                          <NA>
-#> 6                             <NA>                          <NA>
-#>   october_group_a_b_submitted october_window_record_submitted
-#> 1                        <NA>                            <NA>
-#> 2  group a or b was submitted                            <NA>
-#> 3  group a or b was submitted                            <NA>
-#> 4  group a or b was submitted                            <NA>
-#> 5  group a or b was submitted                            <NA>
-#> 6  group a or b was submitted                            <NA>
-#>   november_zero_report_submitted november_group_a_b_submitted
-#> 1                           <NA>                         <NA>
-#> 2                           <NA>   group a or b was submitted
-#> 3                           <NA>   group a or b was submitted
-#> 4                           <NA>   group a or b was submitted
-#> 5                           <NA>   group a or b was submitted
-#> 6                           <NA>   group a or b was submitted
-#>   november_window_record_submitted december_zero_report_submitted
-#> 1                             <NA>                           <NA>
-#> 2                             <NA>                           <NA>
-#> 3                             <NA>                           <NA>
-#> 4                             <NA>                           <NA>
-#> 5                             <NA>                           <NA>
-#> 6                             <NA>                           <NA>
-#>   december_group_a_b_submitted december_window_record_submitted
-#> 1                         <NA>                             <NA>
-#> 2   group a or b was submitted                             <NA>
-#> 3   group a or b was submitted                             <NA>
-#> 4   group a or b was submitted                             <NA>
-#> 5   group a or b was submitted                             <NA>
-#> 6   group a or b was submitted                             <NA>
-#>   x01_06_12_indicator fips_county_code_1 fips_county_code_2 fips_county_code_3
-#> 1                <NA>               <NA>               <NA>               <NA>
-#> 2                <NA>               <NA>               <NA>               <NA>
-#> 3                <NA>               <NA>               <NA>               <NA>
-#> 4                <NA>               <NA>               <NA>               <NA>
-#> 5                <NA>               <NA>               <NA>               <NA>
-#> 6                <NA>               <NA>               <NA>               <NA>
-#>   fips_county_code_4 fips_county_code_5
-#> 1               <NA>               <NA>
-#> 2               <NA>               <NA>
-#> 3               <NA>               <NA>
-#> 4               <NA>               <NA>
-#> 5               <NA>               <NA>
-#> 6               <NA>               <NA>
-```
-
 <div class="figure" style="text-align: center">
-<img src="11_nibrs_general_files/figure-html/nibrsStateParticipation2020-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022." width="90%" />
-<p class="caption">(\#fig:nibrsStateParticipation2020)The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022.</p>
+<img src="11_nibrs_general_files/figure-html/nibrsStateParticipation2020-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS." width="90%" />
+<p class="caption">(\#fig:nibrsStateParticipation2020)The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS.</p>
 </div>
 
 
 
-<div class="figure" style="text-align: center">
-<img src="11_nibrs_general_files/figure-html/nibrsStateParticipation2000-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2000." width="90%" />
-<p class="caption">(\#fig:nibrsStateParticipation2000)The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2000.</p>
-</div>
 
-
-<div class="figure" style="text-align: center">
-<img src="11_nibrs_general_files/figure-html/nibrsStateParticipation2010-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2010." width="90%" />
-<p class="caption">(\#fig:nibrsStateParticipation2010)The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2010.</p>
-</div>
 
 
 ## Crimes included in NIBRS
