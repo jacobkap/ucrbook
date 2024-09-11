@@ -69,7 +69,7 @@ UCR data is important for three reasons:
 
 More than many other datasets, there will be times when using UCR data that you'll think "that's weird". This book will cover this weirdness and when we think the weirdness is just an odd - but acceptable - quirk of the data, and when it is a sign of a big problem in the data or in that particular variable and that we should avoid using it. For most of this book we'll be discussing the caveats of the above reasons - or, more directly, why these assumptions are wrong - but these are the reasons why the data is so influential. 
 
-```{r nibrsAnnualPercentPopulationIndex, fig.cap = "The annual percent of the United States population that is covered by an agency reporting data to NIBRS."}
+```{r nibrsAnnualPercentPopulationIndex, fig.cap = "The annual percent of the United States population that is covered by an agency reporting data to NIBRS.", fig.height=15}
 us_population <- read_csv("data/resident_population_usafacts.csv")
 us_population <- us_population[1,]
 us_population <- data.frame(t(us_population))
@@ -80,12 +80,14 @@ rownames(us_population) <- 1:nrow(us_population)
 us_population$year <- as.numeric(us_population$year)
 us_population$us_population <- as.numeric(us_population$us_population)
 
+batch_header_all_years$number_of_months_reported <- 
+  as.numeric(batch_header_all_years$number_of_months_reported)
 batch_header_any_months <-
   batch_header_all_years %>%
   filter(number_of_months_reported > 0) %>%
   group_by(year) %>%
   summarize(any_months_number_agencies = length(unique(ori)),
-         any_months_population = sum(population))
+            any_months_population = sum(population, na.rm = TRUE))
 
 
 batch_header_all_years %>%
@@ -96,8 +98,7 @@ batch_header_all_years %>%
   left_join(us_population) %>%
   left_join(batch_header_any_months) %>%
   mutate(population_prop = population / us_population,
-         any_months_population_prop = any_months_population / us_population,
-  ) %>%
+         any_months_population_prop = any_months_population / us_population) %>%
   ggplot(aes(x = year,
              y = population_prop,
              color = "12 Months")) +
@@ -141,7 +142,6 @@ fips_state_codes <- c(
 census_state_final <- readRDS("data/census_state_final.rds")
 
 census_state_final$state <- gsub(".*, |.*; ", "", census_state_final$NAME)
-unique(census_state_final$state)
 census_state_final <-
   census_state_final %>%
   group_by(state) %>%

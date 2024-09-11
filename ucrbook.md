@@ -47,36 +47,6 @@ More than many other datasets, there will be times when using UCR data that you'
 </div>
 
 
-
-```
-#>  [1] "Alabama"              "Alaska"              
-#>  [3] "Arizona"              "Arkansas"            
-#>  [5] "California"           "Colorado"            
-#>  [7] "Connecticut"          "Delaware"            
-#>  [9] "District of Columbia" "Florida"             
-#> [11] "Georgia"              "Hawaii"              
-#> [13] "Idaho"                "Illinois"            
-#> [15] "Indiana"              "Iowa"                
-#> [17] "Kansas"               "Kentucky"            
-#> [19] "Louisiana"            "Maine"               
-#> [21] "Maryland"             "Massachusetts"       
-#> [23] "Michigan"             "Minnesota"           
-#> [25] "Mississippi"          "Missouri"            
-#> [27] "Montana"              "Nebraska"            
-#> [29] "Nevada"               "New Hampshire"       
-#> [31] "New Jersey"           "New Mexico"          
-#> [33] "New York"             "North Carolina"      
-#> [35] "North Dakota"         "Ohio"                
-#> [37] "Oklahoma"             "Oregon"              
-#> [39] "Pennsylvania"         "Rhode Island"        
-#> [41] "South Carolina"       "South Dakota"        
-#> [43] "Tennessee"            "Texas"               
-#> [45] "Utah"                 "Vermont"             
-#> [47] "Virginia"             "Washington"          
-#> [49] "West Virginia"        "Wisconsin"           
-#> [51] "Wyoming"              "Puerto Rico"
-```
-
 <div class="figure" style="text-align: center">
 <img src="index_files/figure-html/nibrsStateParticipation2020Index-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022." width="90%" />
 <p class="caption">(\#fig:nibrsStateParticipation2020Index)The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022.</p>
@@ -4834,26 +4804,6 @@ For ease of reference, Table \@ref(tab:agenciesReportingTable) shows the number 
 
 
 
-
-```
-#>       
-#>         FALSE   TRUE   <NA>
-#>   0     93649 402262      0
-#>   1       139   2496      0
-#>   2        49   1837      0
-#>   3        78   1717      0
-#>   4        63   1572      0
-#>   5        25   1708      0
-#>   6        20   1825      0
-#>   7        19   1728      0
-#>   8        21   2036      0
-#>   9        25   2483      0
-#>   10       76   3248      0
-#>   11       31   5997      0
-#>   12      425 139027      0
-#>   <NA>      1      7      0
-```
-
 <div class="figure" style="text-align: center">
 <img src="11_nibrs_general_files/figure-html/nibrsAnnualNumberAgencies-1.png" alt="The annual number of police agencies that report data to NIBRS." width="90%" />
 <p class="caption">(\#fig:nibrsAnnualNumberAgencies)The annual number of police agencies that report data to NIBRS.</p>
@@ -4873,24 +4823,6 @@ For ease of reference, Table \@ref(tab:agenciesReportingTable) shows the number 
 
 
 ```
-#>  [1] "Alabama"              "Alaska"               "Arizona"             
-#>  [4] "Arkansas"             "California"           "Colorado"            
-#>  [7] "Connecticut"          "Delaware"             "District of Columbia"
-#> [10] "Florida"              "Georgia"              "Hawaii"              
-#> [13] "Idaho"                "Illinois"             "Indiana"             
-#> [16] "Iowa"                 "Kansas"               "Kentucky"            
-#> [19] "Louisiana"            "Maine"                "Maryland"            
-#> [22] "Massachusetts"        "Michigan"             "Minnesota"           
-#> [25] "Mississippi"          "Missouri"             "Montana"             
-#> [28] "Nebraska"             "Nevada"               "New Hampshire"       
-#> [31] "New Jersey"           "New Mexico"           "New York"            
-#> [34] "North Carolina"       "North Dakota"         "Ohio"                
-#> [37] "Oklahoma"             "Oregon"               "Pennsylvania"        
-#> [40] "Rhode Island"         "South Carolina"       "South Dakota"        
-#> [43] "Tennessee"            "Texas"                "Utah"                
-#> [46] "Vermont"              "Virginia"             "Washington"          
-#> [49] "West Virginia"        "Wisconsin"            "Wyoming"             
-#> [52] "Puerto Rico"
 #>         ori year   state population date_ori_was_added date_ori_went_nibrs
 #> 1 alast0000 1991 alabama          0           19910430                <NA>
 #> 2 al0010000 1991 alabama     142446           19930225            19910101
@@ -5110,55 +5042,11 @@ For ease of reference, Table \@ref(tab:agenciesReportingTable) shows the number 
 
 
 
-
-```
-#>  [1] "Alabama"              "Alaska"               "Arizona"             
-#>  [4] "Arkansas"             "California"           "Colorado"            
-#>  [7] "Connecticut"          "Delaware"             "District of Columbia"
-#> [10] "Florida"              "Georgia"              "Hawaii"              
-#> [13] "Idaho"                "Illinois"             "Indiana"             
-#> [16] "Iowa"                 "Kansas"               "Kentucky"            
-#> [19] "Louisiana"            "Maine"                "Maryland"            
-#> [22] "Massachusetts"        "Michigan"             "Minnesota"           
-#> [25] "Mississippi"          "Missouri"             "Montana"             
-#> [28] "Nebraska"             "Nevada"               "New Hampshire"       
-#> [31] "New Jersey"           "New Mexico"           "New York"            
-#> [34] "North Carolina"       "North Dakota"         "Ohio"                
-#> [37] "Oklahoma"             "Oregon"               "Pennsylvania"        
-#> [40] "Rhode Island"         "South Carolina"       "South Dakota"        
-#> [43] "Tennessee"            "Texas"                "Utah"                
-#> [46] "Vermont"              "Virginia"             "Washington"          
-#> [49] "West Virginia"        "Wisconsin"            "Wyoming"             
-#> [52] "Puerto Rico"
-```
-
 <div class="figure" style="text-align: center">
 <img src="11_nibrs_general_files/figure-html/nibrsStateParticipation2000-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2000." width="90%" />
 <p class="caption">(\#fig:nibrsStateParticipation2000)The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2000.</p>
 </div>
 
-
-
-```
-#>  [1] "Alabama"              "Alaska"               "Arizona"             
-#>  [4] "Arkansas"             "California"           "Colorado"            
-#>  [7] "Connecticut"          "Delaware"             "District of Columbia"
-#> [10] "Florida"              "Georgia"              "Hawaii"              
-#> [13] "Idaho"                "Illinois"             "Indiana"             
-#> [16] "Iowa"                 "Kansas"               "Kentucky"            
-#> [19] "Louisiana"            "Maine"                "Maryland"            
-#> [22] "Massachusetts"        "Michigan"             "Minnesota"           
-#> [25] "Mississippi"          "Missouri"             "Montana"             
-#> [28] "Nebraska"             "Nevada"               "New Hampshire"       
-#> [31] "New Jersey"           "New Mexico"           "New York"            
-#> [34] "North Carolina"       "North Dakota"         "Ohio"                
-#> [37] "Oklahoma"             "Oregon"               "Pennsylvania"        
-#> [40] "Rhode Island"         "South Carolina"       "South Dakota"        
-#> [43] "Tennessee"            "Texas"                "Utah"                
-#> [46] "Vermont"              "Virginia"             "Washington"          
-#> [49] "West Virginia"        "Wisconsin"            "Wyoming"             
-#> [52] "Puerto Rico"
-```
 
 <div class="figure" style="text-align: center">
 <img src="11_nibrs_general_files/figure-html/nibrsStateParticipation2010-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2010." width="90%" />

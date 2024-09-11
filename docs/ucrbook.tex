@@ -228,7 +228,7 @@
 \title{Uniform Crime Reporting (UCR) Program Data: An
 Opinionated Guide to FBI Data}
 \author{Jacob Kaplan, Ph.D.}
-\date{2024-09-03}
+\date{2024-09-11}
 
 \begin{document}
 \maketitle
@@ -316,6 +316,53 @@ above reasons - or, more directly, why these assumptions are
 wrong - but these are the reasons why the data is so
 influential.
 
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{index_files/figure-latex/nibrsAnnualPercentPopulationIndex-1} 
+
+}
+
+\caption{The annual percent of the United States population that is covered by an agency reporting data to NIBRS.}\label{fig:nibrsAnnualPercentPopulationIndex}
+\end{figure}
+
+\begin{verbatim}
+#>  [1] "Alabama"              "Alaska"              
+#>  [3] "Arizona"              "Arkansas"            
+#>  [5] "California"           "Colorado"            
+#>  [7] "Connecticut"          "Delaware"            
+#>  [9] "District of Columbia" "Florida"             
+#> [11] "Georgia"              "Hawaii"              
+#> [13] "Idaho"                "Illinois"            
+#> [15] "Indiana"              "Iowa"                
+#> [17] "Kansas"               "Kentucky"            
+#> [19] "Louisiana"            "Maine"               
+#> [21] "Maryland"             "Massachusetts"       
+#> [23] "Michigan"             "Minnesota"           
+#> [25] "Mississippi"          "Missouri"            
+#> [27] "Montana"              "Nebraska"            
+#> [29] "Nevada"               "New Hampshire"       
+#> [31] "New Jersey"           "New Mexico"          
+#> [33] "New York"             "North Carolina"      
+#> [35] "North Dakota"         "Ohio"                
+#> [37] "Oklahoma"             "Oregon"              
+#> [39] "Pennsylvania"         "Rhode Island"        
+#> [41] "South Carolina"       "South Dakota"        
+#> [43] "Tennessee"            "Texas"               
+#> [45] "Utah"                 "Vermont"             
+#> [47] "Virginia"             "Washington"          
+#> [49] "West Virginia"        "Wisconsin"           
+#> [51] "Wyoming"              "Puerto Rico"
+\end{verbatim}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{index_files/figure-latex/nibrsStateParticipation2020Index-1} 
+
+}
+
+\caption{The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022.}\label{fig:nibrsStateParticipation2020Index}
+\end{figure}
+
 \section{Goal of the book}\label{goal-of-the-book}
 
 By the end of each chapter you should have a firm grasp on
@@ -334,17 +381,6 @@ like what geographic unit data is in and what time unit it
 is in). So hopefully this book will decrease the number of
 misconceptions about this data, increasing overall research
 quality.
-
-Since manuals are boring, I'll try to include graphs and
-images to try to alleviate the boredom. That said, I don't
-think it's possible to make it too fun so sorry in advanced.
-This book is a mix of facts about the data, such as how many
-years are available, and my opinions about it, such as
-whether it is reliable. In cases of facts I'll just say a
-statement - e.g.~``the offenses data is available since
-1960''. In cases of opinion I'll temper the statement by
-saying something like ``in my opinion\ldots{}'' or ``I
-think''.
 
 \section{Structure of the book}\label{structure-of-the-book}
 
@@ -369,8 +405,8 @@ chapter.
 If this data was useful in your research, please cite it. To
 cite this book, please use the below citation:
 
-Kaplan J (2021). \emph{Uniform Crime Reporting (UCR) Program
-Data: A Practitioner's Guide to FBI Data}.
+Kaplan J (2024). \emph{Uniform Crime Reporting (UCR) Program
+Data: An Opinionated Guide to FBI Data}.
 \url{https://ucrbook.com/}.
 
 BibTeX format:
@@ -378,9 +414,9 @@ BibTeX format:
 \begin{Shaded}
 \begin{Highlighting}[]
 \VariableTok{@Manual}\NormalTok{\{}\OtherTok{ucrbook}\NormalTok{,}
-  \DataTypeTok{title}\NormalTok{ = \{Uniform Crime Reporting (UCR) Program Data: A Practitioner\textquotesingle{}s Guide to FBI Data\},}
+  \DataTypeTok{title}\NormalTok{ = \{Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data\},}
   \DataTypeTok{author}\NormalTok{ = \{\{Jacob Kaplan\}\},}
-  \DataTypeTok{year}\NormalTok{ = \{2021\},}
+  \DataTypeTok{year}\NormalTok{ = \{2024\},}
   \DataTypeTok{url}\NormalTok{ = \{https://ucrbook.com/\},}
 \NormalTok{\}}
 \end{Highlighting}
@@ -470,7 +506,7 @@ the FBI, such as defining a crime, I quote from this manual.
 The manual is available to download as a PDF on the FBI's
 site and I've also posted it on my GitHub page
 \href{https://github.com/jacobkap/ucrbook/blob/main/FBI\%20Uniform\%20Crime\%20Reporting\%20(UCR)\%20Program\%20User\%20Manual.pdf}{here}
-for convenienceq. I highly recommend that you read this
+for convenience. I highly recommend that you read this
 manual before using the data. That manual, alongside this
 book which tries to explain when and how the agencies don't
 follow the manual, will provide a solid foundation for your
@@ -535,12 +571,12 @@ same name. For example, if you looked for the Philadelphia
 Police Department using the agency name, you'd find both the
 ``Philadelphia Police Department'' in Pennsylvania and the
 one in Mississippi. Each ORI is a 9-digit value starting
-with the state abbreviation (for some reason the FBI
-incorrectly puts the abbreviation for Nebraska as NB instead
-of NE) followed by 7 numbers. In the UCR data (another FBI
-data set) the ORI uses only a 7-digit code - with only the 5
-numbers following the state abbreviation instead of 7. So
-the NIBRS ORI codes are sometimes called ORI9. For nearly
+with the state abbreviation\footnote{The abbreviation for
+  Nebraska is ``NB'' rather than the more commonly used
+  ``NE.''} followed by 7 numbers. In the UCR data (another
+FBI data set) the ORI uses only a 7-digit code - with only
+the 5 numbers following the state abbreviation instead of 7.
+So the NIBRS ORI codes are sometimes called ORI9. For nearly
 all agencies, the only difference between the UCR ORI and
 the NIBRS ORI is that the NIBRS ORI has ``00'' at the end so
 it is technically 9 characters long but isn't any more
@@ -1914,6 +1950,35 @@ use different columns to check starting in that year. That
 means that post-2018 data may not be comparable to 2018 and
 earlier using this variable.
 
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{03_offenses_known_files/figure-latex/offensesAgenciesReporting-1} 
+
+}
+
+\caption{The annual number of agencies reporting at least one month of data and a full 12 months of data, 1960-2022.}\label{fig:offensesAgenciesReporting}
+\end{figure}
+
+Usually when you are looking at crime data you want annual
+data, so having agencies report a full year's of data is
+more important than them submitting just partial data. This
+is especially important when comparing an agency over time
+or two different agencies to each other. Obviously, an
+agency with 6 month of data will have fewer crimes reported
+than one with 12 months reported, all else being equal. But
+this is something easy to overlook as it's an easy
+assumption that agencies will report a full years-worth of
+data. Unfortunately, this is always true. Some agencies
+don't report any data and others report only part of the
+year - though if an agency reports one month they usually do
+report all 12. Figure
+\ref{fig:offensesAgenciesReportingFull} repeats Figure
+\ref{fig:offensesAgenciesReporting} but now showing only
+agencies reporting 12 months of data, using both of our
+measures. Since 1960 every year has had fewer agencies
+reporting full data using the ``number of months missing''
+method than the ``last month reported'' method.
+
 \section{Negative numbers}\label{negative-numbers}
 
 One of the most common questions people have about this data
@@ -1956,44 +2021,6 @@ can actually see entire year's crime counts be negative,
 though this is much rarer than monthly values.\footnote{From
   1960-2022, there were 39 agency-years with a negative
   count of murders.}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{03_offenses_known_files/figure-latex/offensesAgenciesReporting-1} 
-
-}
-
-\caption{The annual number of agencies reporting at least one month of data, 1960-2022.}\label{fig:offensesAgenciesReporting}
-\end{figure}
-
-Usually when you are looking at crime data you want annual
-data, so having agencies report a full year's of data is
-more important than them submitting just partial data. This
-is especially important when comparing an agency over time
-or two different agencies to each other. Obviously, an
-agency with 6 month of data will have fewer crimes reported
-than one with 12 months reported, all else being equal. But
-this is something easy to overlook as it's an easy
-assumption that agencies will report a full years-worth of
-data. Unfortunately, this is always true. Some agencies
-don't report any data and others report only part of the
-year - though if an agency reports one month they usually do
-report all 12. Figure
-\ref{fig:offensesAgenciesReportingFull} repeats Figure
-\ref{fig:offensesAgenciesReporting} but now showing only
-agencies reporting 12 months of data, using both of our
-measures. Since 1960 every year has had fewer agencies
-reporting full data using the ``number of months missing''
-method than the ``last month reported'' method.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{03_offenses_known_files/figure-latex/offensesAgenciesReportingFull-1} 
-
-}
-
-\caption{The annual number of agencies reporting a full year of data, 1960-2022.}\label{fig:offensesAgenciesReportingFull}
-\end{figure}
 
 So using the far more common last month reported method will
 overestimate how many agencies report a full year of data.
@@ -2710,24 +2737,7 @@ reborn.
 
 }
 
-\caption{The annual number of police agencies that report at least month of data that year.}\label{fig:propertyAgencies}
-\end{figure}
-
-Trends are fairly similar when looking at agencies that
-report 12 months of data, as shown in Figure
-\ref{fig:propertyAgencies12Month} with a few thousand fewer
-agencies reporting each year. However, starting in the late
-2010s then is a large and sustained drop in the number of
-agencies reporting, with a deeper decline than among
-agencies reporting at least one month.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{04_stolen_property_files/figure-latex/propertyAgencies12Month-1} 
-
-}
-
-\caption{The annual number of police agencies that report 12 months of data that year.}\label{fig:propertyAgencies12Month}
+\caption{The annual number of police agencies that report at least month of data and 12 months of data that year.}\label{fig:propertyAgencies}
 \end{figure}
 
 Since this data is called the ``Supplement to Return A'' we
@@ -3003,73 +3013,231 @@ definitions are detailed below.
 Some of these will overlap with the list in the previous
 section, though for completeness I'll repeat them.
 
-Here are the subsets of crimes: * Burglary + Home/residence
-during the day (6:00am - 5:59pm) + Home/residence during the
-night (6:00pm - 5:59am) + Home residence at unknown time +
-Non-residence (i.e.~all buildings other than victim's home)
-during the day (6:00am - 5:59pm) + Non-residence (i.e.~all
-buildings other than victim's home) during the night (6:00pm
-- 5:59am) + Non-residence (i.e.~all buildings other than
-victim's home) at unknown time * Theft/larceny (excluding of
-a motor vehicle) + \textless\$50 + \$50-\$199 + \$200 and up
-+ Pick pocket + Purse snatching + Shoplifting + Stealing
-from a car (but not stealing the car itself) + Stealing
-parts of a car, such as the car battery or the tires +
-Stealing a bicycle + Stealing from a building where the
-offender is allowed to be in (and is not counted already as
-shoplifting) + Stealing from a ``coin operated machine''
-which is mainly vending machines + All other thefts *
-Robbery + Highway - This is an old term to say a place is
-outside and in generally accessible and visible areas. This
-includes robberies on public streets and alleys. +
-Commercial building - This is robberies in a business other
-than ones stated below. Includes restaurants, stores,
-hotels, bars. + Gas station + Chain/convenience store - a
-neighborhood store that generally is open late and sells
-food + Home/residence + Bank + Miscellaneous/other - This is
-all other robberies not already covered. * Motor vehicle
-theft + Stolen in current agency's jurisdiction and found by
-that agency + Stolen in current agency's jurisdiction and
-found by another agency + Stolen in another agency's
-jurisdiction and recovered by current agency * Murder * Rape
+Here are the subsets of crimes:
 
-And here are the items stolen: * Currency + This includes
-all money and signed documents that can be exchanged for
-money (e.g.~checks). Blank checks and credit and debit cards
-are not included (they are in the Miscellaneous/other
-category) * Jewelry and ``precious metals'' + Only metals
-that are considered high value are included here. Metals
-that are generally worth little are counted in the
-Miscellaneous/other category. * Clothing and fur + This also
-includes items that you take with you when leaving the house
-(except for your phone): wallet, shoes, purse, backpacks. *
-Motor vehicle stolen in current agency's jurisdiction + This
-includes only vehicles than can be driven on wheels so
-excludes trains and anything on water or that can fly. *
-Office equipment and electronics + This includes
-``typewriters'' and ``magnetic tapes'' but is essentially
-any kind of equipment needed to run a business. So printers,
-computers, cash registers, computer equipment like a monitor
-or a mouse, and computer software. These items do not have
-to be stolen from a commercial building to be included in
-this category. * Sound and picture equipment + This is a
-kind of odd category that is a product of its time. Anything
-that produces noise or pictures (including the fancy motion
-pictures) is included. This includes TVs, cameras,
-projectors, radios, MP3 players (but not phones that can
-play music) and (since again, this is a very old dataset)
-VHS cassettes. * Guns + This includes all types of firearms
-other than toys or BB/pellet/paintball guns. * Home
-furniture + This includes all of the ``big things'' in a
-house: begs, chairs, AC units, washer/dryer units, etc.
-However, items that are in the ``Office equipment and
-electronics'' category do not apply. * Consumable goods +
-This is anything that can be consumed such as food, drinks,
-and drugs, or anything you use in the bathroom. * Livestock
-+ This is all animals other than ones that you would
-consider a pet * Miscellaneous/other + Anything that is not
-part of the above categories would fall in here. Cell phones
-and credit cards are included.
+\begin{itemize}
+\tightlist
+\item
+  Burglary
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Home/residence during the day (6:00am - 5:59pm)
+  \item
+    Home/residence during the night (6:00pm - 5:59am)
+  \item
+    Home residence at unknown time
+  \item
+    Non-residence (i.e.~all buildings other than victim's
+    home) during the day (6:00am - 5:59pm)
+  \item
+    Non-residence (i.e.~all buildings other than victim's
+    home) during the night (6:00pm - 5:59am)
+  \item
+    Non-residence (i.e.~all buildings other than victim's
+    home) at unknown time
+  \end{itemize}
+\item
+  Theft/larceny (excluding of a motor vehicle)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textless\$50
+  \item
+    \$50-\$199
+  \item
+    \$200 and up
+  \item
+    Pick pocket
+  \item
+    Purse snatching
+  \item
+    Shoplifting
+  \item
+    Stealing from a car (but not stealing the car itself)
+  \item
+    Stealing parts of a car, such as the car battery or the
+    tires
+  \item
+    Stealing a bicycle
+  \item
+    Stealing from a building where the offender is allowed
+    to be in (and is not counted already as shoplifting)
+  \item
+    Stealing from a ``coin operated machine'' which is
+    mainly vending machines
+  \item
+    All other thefts
+  \end{itemize}
+\item
+  Robbery
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Highway - This is an old term to say a place is outside
+    and in generally accessible and visible areas. This
+    includes robberies on public streets and alleys.
+  \item
+    Commercial building - This is robberies in a business
+    other than ones stated below. Includes restaurants,
+    stores, hotels, bars.
+  \item
+    Gas station
+  \item
+    Chain/convenience store - a neighborhood store that
+    generally is open late and sells food
+  \item
+    Home/residence
+  \item
+    Bank
+  \item
+    Miscellaneous/other - This is all other robberies not
+    already covered.
+  \end{itemize}
+\item
+  Motor vehicle theft
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Stolen in current agency's jurisdiction and found by
+    that agency
+  \item
+    Stolen in current agency's jurisdiction and found by
+    another agency
+  \item
+    Stolen in another agency's jurisdiction and recovered by
+    current agency
+  \end{itemize}
+\item
+  Murder
+\item
+  Rape
+\end{itemize}
+
+And here are the items stolen:
+
+\begin{itemize}
+\tightlist
+\item
+  Currency
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This includes all money and signed documents that can be
+    exchanged for money (e.g.~checks). Blank checks and
+    credit and debit cards are not included (they are in the
+    Miscellaneous/other category)
+  \end{itemize}
+\item
+  Jewelry and ``precious metals''
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Only metals that are considered high value are included
+    here. Metals that are generally worth little are counted
+    in the Miscellaneous/other category.
+  \end{itemize}
+\item
+  Clothing and fur
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This also includes items that you take with you when
+    leaving the house (except for your phone): wallet,
+    shoes, purse, backpacks.
+  \end{itemize}
+\item
+  Motor vehicle stolen in current agency's jurisdiction
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This includes only vehicles than can be driven on wheels
+    so excludes trains and anything on water or that can
+    fly.
+  \end{itemize}
+\item
+  Office equipment and electronics
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This includes ``typewriters'' and ``magnetic tapes'' but
+    is essentially any kind of equipment needed to run a
+    business. So printers, computers, cash registers,
+    computer equipment like a monitor or a mouse, and
+    computer software. These items do not have to be stolen
+    from a commercial building to be included in this
+    category.
+  \end{itemize}
+\item
+  Sound and picture equipment
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This is a kind of odd category that is a product of its
+    time. Anything that produces noise or pictures
+    (including the fancy motion pictures) is included. This
+    includes TVs, cameras, projectors, radios, MP3 players
+    (but not phones that can play music) and (since again,
+    this is a very old dataset) VHS cassettes.
+  \end{itemize}
+\item
+  Guns
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This includes all types of firearms other than toys or
+    BB/pellet/paintball guns.
+  \end{itemize}
+\item
+  Home furniture
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This includes all of the ``big things'' in a house:
+    begs, chairs, AC units, washer/dryer units, etc.
+    However, items that are in the ``Office equipment and
+    electronics'' category do not apply.
+  \end{itemize}
+\item
+  Consumable goods
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This is anything that can be consumed such as food,
+    drinks, and drugs, or anything you use in the bathroom.
+  \end{itemize}
+\item
+  Livestock
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This is all animals other than ones that you would
+    consider a pet
+  \end{itemize}
+\item
+  Miscellaneous/other
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Anything that is not part of the above categories would
+    fall in here. Cell phones and credit cards are included.
+  \end{itemize}
+\end{itemize}
 
 \subsection{Value of recovered property by type of item
 stolen}\label{value-of-recovered-property-by-type-of-item-stolen}
@@ -3363,32 +3531,7 @@ all.
 
 }
 
-\caption{The annual number of agencies reporting at least one month of data in that year.}\label{fig:arrestsAgenciesReporting}
-\end{figure}
-
-If we look at agencies that report all 12 months of the
-year, as seen in Figure
-\ref{fig:arrestsAgenciesReporting12Months}, now far fewer
-agencies report. In almost every year about 45-55\% of
-agencies that report at all report all 12 months. This means
-that we're missing at least some data for about half of
-agencies. When an agency reports at all, they tend to report
-more months than fewer. For example, there are about twice
-as many agency-years with 11 months reported than with only
-1 month reported. So having only about half of agencies
-report all 12 months of the year doesn't mean that we're
-missing a ton of data from the remaining half of agencies -
-but does merit close attention to which agencies you use in
-your research and how much missingness there is for those
-agencies.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{05_arrests_files/figure-latex/arrestsAgenciesReporting12Months-1} 
-
-}
-
-\caption{The annual number of agencies reporting 12 months of data in that year, 1974-2020.}\label{fig:arrestsAgenciesReporting12Months}
+\caption{The annual number of agencies reporting at least one month of data and 12 months of data in that year.}\label{fig:arrestsAgenciesReporting}
 \end{figure}
 
 Another issue is that agencies can report only some crimes.
@@ -5217,7 +5360,7 @@ rather than an agency submitting incomplete data.
 
 }
 
-\caption{The annual number of police agencies that report having at least one employee, 1960-2022}\label{fig:leokaAgenciesAssaults}
+\caption{The annual number of police agencies that report having at least one assault against a police officer, 1960-2022}\label{fig:leokaAgenciesAssaults}
 \end{figure}
 
 \section{Important variables}\label{important-variables-4}
@@ -5922,7 +6065,7 @@ other than the 18k we normal think about.
 
 }
 
-\caption{The annual number of police agencies that report at least month of data that year, 1979-2022.}\label{fig:arsonAgencies}
+\caption{The annual number of police agencies that report at least month of data and all 12 months of data that year, 1979-2022.}\label{fig:arsonAgencies}
 \end{figure}
 
 In Figure \ref{fig:arsonAgencies12Months} we can see the
@@ -5935,15 +6078,6 @@ I'd say my own measure but obviously that doesn't work
 starting in 2018. In practice both measures are quite
 similar so the decision on which to use depends on your own
 use-case such as if you are looking at data after 2017.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{08_arson_files/figure-latex/arsonAgencies12Months-1} 
-
-}
-
-\caption{The annual number of police agencies that report 12 months of data that year, 1979-2022.}\label{fig:arsonAgencies12Months}
-\end{figure}
 
 \section{Important variables}\label{important-variables-5}
 
@@ -5973,14 +6107,14 @@ structures or cars - fire, after all, tends to spread. This
 data defines the arson based on where the fire originated,
 regardless of what burns after that. This is true even if
 the damage is more severe for a type other than where the
-fire started. For example, a {[}recent fire in
-California{]}{[}\url{https://www.nbcnews.com/news/us-news/man-pushing-burning-car-ravine-started-park-fire-burning-45000-acres-c-rcna163697}{]}
-was started by a man ``pushing a burning car into a
-ravine.'' That fire, known as the Park Fire is still burning
-as of this writing (summer, 2024) and has burned over
-429,000 acres and over 600 buildings. This fire would be
-classified as a motor vehicle arson because the fire started
-in a vehicle.
+fire started. For example, a
+\href{https://www.nbcnews.com/news/us-news/man-pushing-burning-car-ravine-started-park-fire-burning-45000-acres-c-rcna163697}{recent
+fire in California} was started by a man ``pushing a burning
+car into a ravine.'' That fire, known as the Park Fire is
+still burning as of this writing (summer, 2024) and has
+burned over 429,000 acres and over 600 buildings. This fire
+would be classified as a motor vehicle arson because the
+fire started in a vehicle.
 
 There are seven arsons types for buildings, two for
 vehicles, and one as an ``other'' category that includes
@@ -5995,62 +6129,49 @@ arsons. For each of the building arsons we also have
 variables that say how many of the arsons were of
 uninhabited buildings.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\begin{itemize}
 \tightlist
 \item
   Total structures (buildings)
-\end{enumerate}
 
-\begin{itemize}
-\tightlist
-\item
-  Single occupancy (e.g.~single family homes)
-\item
-  Other residential (e.g.~hotel, apartment)
-\item
-  Storage (warehouses, storage facilities)
-\item
-  Industrial
-\item
-  Other commercial (e.g.~restaurant, office building, car
-  dealership)
-\item
-  Community/public (e.g.~government buildings, hospitals,
-  community centers, places of worship)
-\item
-  All other structures (all buildings that don't fit in
-  another category')
-\end{itemize}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\tightlist
+  \begin{itemize}
+  \tightlist
+  \item
+    Single occupancy (e.g.~single family homes)
+  \item
+    Other residential (e.g.~hotel, apartment)
+  \item
+    Storage (warehouses, storage facilities)
+  \item
+    Industrial
+  \item
+    Other commercial (e.g.~restaurant, office building, car
+    dealership)
+  \item
+    Community/public (e.g.~government buildings, hospitals,
+    community centers, places of worship)
+  \item
+    All other structures (all buildings that don't fit in
+    another category')
+  \end{itemize}
 \item
   Total mobile vehicles (vehicles)
-\end{enumerate}
 
-\begin{itemize}
-\tightlist
-\item
-  Motor vehicles (a car that runs on a road such as a SUV,
-  sedan, motorcycle)
-\item
-  Other mobile vehicles (other mobile objects such as
-  airplanes and boats)
-\end{itemize}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{2}
-\tightlist
+  \begin{itemize}
+  \tightlist
+  \item
+    Motor vehicles (a car that runs on a road such as a SUV,
+    sedan, motorcycle)
+  \item
+    Other mobile vehicles (other mobile objects such as
+    airplanes and boats)
+  \end{itemize}
 \item
   Other (everything that does not fit in a previous
   category)
 \item
   Grand total (all arsons of any category)
-\end{enumerate}
+\end{itemize}
 
 Some arsons can burn down multiple types or structures or
 cars - fire, after all, tends to spread. This data defines
@@ -7408,7 +7529,7 @@ Most months have only about 50 agencies in the 1st method
 and about 70 in the 2nd, so the actual difference is not
 that large.
 
-\begin{longtable}[t]{>{\raggedright\arraybackslash}p{1in}|>{\raggedleft\arraybackslash}p{1in}|>{\raggedleft\arraybackslash}p{1in}|>{\raggedleft\arraybackslash}p{1in}}
+\begin{longtable}[t]{l|r|r|r}
 \caption{\label{tab:countyMonthsReportedDefinitions}The number of months reported to the 2017 Offenses Known and Clearances by Arrest data using two definitions of months reported. The 'Last Month' definition is the preferred measure of months reported by both the FBI and researchers, though this overcounts months.}\\
 \hline
 Months Reported & Last Month Definition & Months Not Missing Definition & Percent Difference\\
@@ -7597,7 +7718,7 @@ imputing the worst (as far as its effect on results) months
 you can report murder as either 4.27\% lower than it is or
 3.5\% higher than it is.
 
-\begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}}
+\begin{longtable}[t]{l|r|r|r|r}
 \caption{\label{tab:CountyPhillyMurders}The imputed number of murders in Philadelphia in 2022 when missing a single month. This shows how different the imputed value is to the real value for each month missing.}\\
 \hline
 Month & Murders That Month & Actual Annual Murders & Imputed Annual Murders & Percent Change\\
@@ -7649,7 +7770,7 @@ change never increases above an absolute value of 1.62 and
 changes by an average of 0.77\%. In cases like this, the
 imputation method is less of a problem.
 
-\begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}}
+\begin{longtable}[t]{l|r|r|r|r}
 \caption{\label{tab:countyPhillyThefts}The imputed number of thefts in Philadelphia in 2022 when missing a single month. This shows how different the imputed value is to the real value for each month missing.}\\
 \hline
 Month & Thefts That Month & Actual Annual Thefts & Imputed Annual Thefts & Percent Change\\
@@ -7701,7 +7822,7 @@ now is 7.3\% and this ranges from a -15.68\% difference to a
 that having even a single month missing can vastly overcount
 or undercount the real values.
 
-\begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}}
+\begin{longtable}[t]{l|r|r|r|r}
 \caption{\label{tab:countyDanvilleVehicle}The imputed number of motor vehicle thefts in Danville, California, in 2022 when missing a single month. This shows how different the imputed value is to the real value for each month missing.}\\
 \hline
 Month & Vehicle Thefts That Month & Actual Annual Vehicle Thefts & Imputed Annual Vehicle Thefts & Percent Change\\
@@ -7778,7 +7899,7 @@ increases the quality of the imputation decreases. The
 minimum is further and further below the actual value while
 the maximum is further and further above the actual value.
 
-\begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}}
+\begin{longtable}[t]{l|r|r|r|r}
 \caption{\label{tab:countyPhillyMurderMonthsMissing}A simulation showing how the imputed values of murders in Philadelphia in 2022 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run removing and imputing those months of data.}\\
 \hline
 \# of Months Missing & Mean Imputed Value & Median Imputed Value & Minimum Imputed Value & Maximum Imputed Value\\
@@ -7855,7 +7976,7 @@ Full data & 27.00 & 27.00 & 27.00 & 27.00\\
 \hline
 \end{longtable}
 
-\begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}}
+\begin{longtable}[t]{l|r|r|r|r}
 \caption{\label{tab:countyMurderMonthsMissing}A simulation showing how the imputed values of murder in Danville, California, in 2019 changes as the number of months to impute changes. For each number of months missing (and thus, imputed) 10,000 simulations are run for removing and imputing those months of data.}\\
 \hline
 \# of Months Missing & Mean Imputed Value & Median Imputed Value & Minimum Imputed Value & Maximum Imputed Value\\
@@ -7988,7 +8109,7 @@ cases (but soon we'll see an instance where there's an
 exception) provide substantially different values than the
 real (but unknown) values.
 
-\begin{longtable}[t]{>{\raggedright\arraybackslash}p{1.6in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedright\arraybackslash}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}}
+\begin{longtable}[t]{l|r|r|r|r|l}
 \caption{\label{tab:countyPopulationGroupStatsNational}The mean, median, minimum, and maximum agency-level murder count nationwide for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.}\\
 \hline
 Population Group & Mean Murder & Median Murder & 90th Percentile Murder & Minimum Murder & Max Murder\\
@@ -8019,7 +8140,7 @@ Non-MSA Counties and Non-MSA State Police & 0 & 0 & 1 & 0 & 29\\
 \hline
 \end{longtable}
 
-\begin{longtable}[t]{>{\raggedright\arraybackslash}p{1.6in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedright\arraybackslash}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}}
+\begin{longtable}[t]{l|r|r|r|r|l}
 \caption{\label{tab:countyPopulationGroupStats}The mean, median, minimum, 90th percentile, and maximum agency-level murder count nationwide for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.}\\
 \hline
 Population Group & Mean Murder & Median Murder & 90th Percentile Murder & Minimum Murder & Max Murder\\
@@ -8065,7 +8186,7 @@ substantially smaller than using all agencies in the
 country, the basic findings of a wide range of values -
 especially at larger population groups - is the same.
 
-\begin{longtable}[t]{>{\raggedright\arraybackslash}p{1.6in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedright\arraybackslash}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}}
+\begin{longtable}[t]{l|r|r|r|r|l}
 \caption{\label{tab:countyPopulationGroupStatsTexas}The mean, median, minimum, 90th percentile, and maximum agency-level murder count in Texas for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.}\\
 \hline
 Population Group & Mean Murder & Median Murder & 90th Percentile Murder & Minimum Murder & Max Murder\\
@@ -8108,7 +8229,7 @@ and population size are consistent across the state (which
 is generally caused by everywhere having low crime), this
 imputation process can work well.
 
-\begin{longtable}[t]{>{\raggedright\arraybackslash}p{1.6in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{\raggedleft\arraybackslash}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}|>{}p{0.65in}}
+\begin{longtable}[t]{l|r|r|r|r|r}
 \caption{\label{tab:countyPopulationGroupStatsMaine}The mean, median, minimum, 90th percentile, and maximum agency-level murder count in Maine for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.}\\
 \hline
 Population Group & Mean Murder & Median Murder & 90th Percentile Murder & Minimum Murder & Max Murder\\
@@ -8212,6 +8333,15 @@ switch to NIBRS - which, given that the high level of detail
 relative to UCR data makes moving to NIBRS a costly and
 timely switch - we will be flying blind for most crime in
 the country.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/nibrsSegmentsAgencies-1} 
+
+}
+
+\caption{The number of agencies reporting data for each of the NIBRS Segments, 1991-2022.}\label{fig:nibrsSegmentsAgencies}
+\end{figure}
 
 \section{Problems with NIBRS}\label{problems-with-nibrs}
 
@@ -8364,6 +8494,579 @@ no way of differentiating the two. In most cases, however,
 only one offense occurs per criminal incident (at least as
 reported in the data), so the opportunity to explore
 co-occurrence is relatively limited.
+
+\section{Which agencies report
+data}\label{which-agencies-report-data}
+
+So if this data has the same info (other than unfounded and
+negative crimes) as UCR data, but is also far more detailed,
+why do people ever use UCR data? Besides NIBRS being more
+complicated to use, far fewer agencies report NIBRS data
+than do UCR data. Nearly all agencies report crime data for
+UCR, though fewer do so for some of the UCR datasets such as
+arrests or arsons - for more, please see my
+\href{https://ucrbook.com/}{UCR book}. In comparison, fewer
+than half of agencies report to NIBRS, and these agencies
+are disproportionately smaller and more rural. Starting with
+2021 data, the FBI has stopped collecting UCR data, instead
+only collecting NIBRS data. So if - and this is a very large
+if - many more agencies move to NIBRS in 2021, we'll start
+having much more detail from a very representative sample of
+agencies. Even so, most research - especially policy
+analyses - requires many years of data so it'll take many
+years before the full potential of NIBRS data can be
+realized.
+
+We'll look here at how many agencies report at least one
+crime each year between 1991 - the first year of data - and
+2019 - the latest year of data - as well as compare NIBRS
+reporting to UCR reporting. Figure
+\ref{fig:agenciesReporting} shows the number of agencies
+each year that reported at least one incident. Keep in mind
+that there are about 18,000 police agencies in the United
+States. Only a little over 600 agencies reported in 1991.
+This has grown pretty linearly, adding a few hundred
+agencies each year though that trend accelerated in recent
+years. In 2019, nearly 8,200 agencies reported at least some
+data to NIBRS. Compared to the estimated 18,000 police
+agencies in the United States, however, this is still fewer
+than half of agencies. The data shown here is potentially an
+overcount, however, as it includes agencies reporting any
+crime that year, even if they don't report every month.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/agenciesReporting-1} 
+
+}
+
+\caption{The annual number of agencies reporting at least one incident in that year.}\label{fig:agenciesReporting}
+\end{figure}
+
+Another way to look at reporting is comparing it to
+reporting to UCR. Figure \ref{fig:agenciesReportingMap}
+shows the number of agencies in each state that report NIBRS
+data in 2019. Since 2019 is the year with the most
+participation, this does overstate reporting for previous
+years. This map pretty closely follows a population map of
+the US. Texas had the most agencies, followed by Michigan
+and Ohio. The southern states have more agencies reporting
+than the lightly populated northern states. The issue here
+is that a number of states are in white, indicating that
+very few agencies reported. Indeed, four of the most
+populated states - California, New York, Florida, and New
+Jersey - don't have any agencies at all that report NIBRS
+data.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/agenciesReportingMap-1} 
+
+}
+
+\caption{The number of agencies in each state that reported at least one crime in 2022 to NIBRS.}\label{fig:agenciesReportingMap}
+\end{figure}
+
+Since the number of agencies in a state is partially just a
+factor of population, Figure
+\ref{fig:agenciesReportingMapPercent} shows each state as a
+percent of agencies in that state that report to NIBRS that
+also reported to the UCR Offenses Known and Clearances by
+Arrest (the ``crime'' dataset) in 2019.\footnote{This is the
+  UCR dataset which has the highest reporting rate.} Not all
+agencies in the US reported to UCR in 2019 - and a small
+number reported to NIBRS but not UCR in 2019 - but this is a
+fairly good measure of reporting rates. Here the story looks
+a bit different than in the previous figure. Now we can tell
+that among north-western states and states along the
+Appalachian Mountains, nearly all agencies report. In total,
+18 states have 90\% or more of agencies that reported to UCR
+in 2019 also reporting to NIBRS. Thirteen agencies have
+fewer than 10\% of agencies reporting to NIBRS that also
+reported to UCR, with 5 of these having 0\% of agencies
+reporting. The remaining states average about 56\% of
+agencies reporting. So when using NIBRS data, keep in mind
+that you have very good coverage of certain states, and very
+poor coverage of other states. And the low - or zero -
+reporting states are systematically high population states.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/agenciesReportingMapPercent-1} 
+
+}
+
+\caption{Agencies in each state reporting at least one crime to NIBRS in 2022 as a percent of agencies that reported UCR Offenses Known and Clearances by Arrests data in 2022.}\label{fig:agenciesReportingMapPercent}
+\end{figure}
+
+For ease of reference, Table
+\ref{tab:agenciesReportingTable} shows the number of
+agencies in each state reporting to NIBRS and to UCR in
+2019, and the percent shown in Figure
+\ref{fig:agenciesReportingMapPercent}.
+
+\begin{longtable}[t]{l|r|r|r}
+\caption{\label{tab:agenciesReportingTable}The number of agencies in each state reporting to NIBRS and to UCR in 2019. Also shows NIBRS reporting in each state as a percent of UCR reporting.}\\
+\hline
+State & NIBRS Agencies & UCR Agencies & \textbackslash{}\% of UCR Agencies\\
+\hline
+\endfirsthead
+\caption[]{\label{tab:agenciesReportingTable}The number of agencies in each state reporting to NIBRS and to UCR in 2019. Also shows NIBRS reporting in each state as a percent of UCR reporting. \textit{(continued)}}\\
+\hline
+State & NIBRS Agencies & UCR Agencies & \textbackslash{}\% of UCR Agencies\\
+\hline
+\endhead
+Alabama & 393 & 414 & 94.93\textbackslash{}\%\\
+\hline
+Alaska & 32 & 33 & 96.97\textbackslash{}\%\\
+\hline
+Arizona & 88 & 108 & 81.48\textbackslash{}\%\\
+\hline
+Arkansas & 292 & 294 & 99.32\textbackslash{}\%\\
+\hline
+California & 530 & 665 & 79.7\textbackslash{}\%\\
+\hline
+Colorado & 225 & 233 & 96.57\textbackslash{}\%\\
+\hline
+Connecticut & 104 & 107 & 97.2\textbackslash{}\%\\
+\hline
+Delaware & 62 & 63 & 98.41\textbackslash{}\%\\
+\hline
+District of Columbia & 2 & 2 & 100\textbackslash{}\%\\
+\hline
+Florida & 78 & 372 & 20.97\textbackslash{}\%\\
+\hline
+Georgia & 425 & 457 & 93\textbackslash{}\%\\
+\hline
+Guam & 1 & 1 & 100\textbackslash{}\%\\
+\hline
+Hawaii & 3 & 3 & 100\textbackslash{}\%\\
+\hline
+Idaho & 111 & 110 & 100.91\textbackslash{}\%\\
+\hline
+Illinois & 497 & 522 & 95.21\textbackslash{}\%\\
+\hline
+Indiana & 205 & 212 & 96.7\textbackslash{}\%\\
+\hline
+Iowa & 225 & 228 & 98.68\textbackslash{}\%\\
+\hline
+Kansas & 320 & 327 & 97.86\textbackslash{}\%\\
+\hline
+Kentucky & 394 & 432 & 91.2\textbackslash{}\%\\
+\hline
+Louisiana & 137 & 151 & 90.73\textbackslash{}\%\\
+\hline
+Maine & 129 & 131 & 98.47\textbackslash{}\%\\
+\hline
+Maryland & 77 & 150 & 51.33\textbackslash{}\%\\
+\hline
+Massachusetts & 378 & 384 & 98.44\textbackslash{}\%\\
+\hline
+Michigan & 595 & 603 & 98.67\textbackslash{}\%\\
+\hline
+Minnesota & 398 & 411 & 96.84\textbackslash{}\%\\
+\hline
+Mississippi & 150 & 152 & 98.68\textbackslash{}\%\\
+\hline
+Missouri & 471 & 498 & 94.58\textbackslash{}\%\\
+\hline
+Montana & 106 & 110 & 96.36\textbackslash{}\%\\
+\hline
+Nebraska & 238 & 263 & 90.49\textbackslash{}\%\\
+\hline
+Nevada & 52 & 54 & 96.3\textbackslash{}\%\\
+\hline
+New Hampshire & 208 & 213 & 97.65\textbackslash{}\%\\
+\hline
+New Jersey & 307 & 543 & 56.54\textbackslash{}\%\\
+\hline
+New Mexico & 93 & 96 & 96.88\textbackslash{}\%\\
+\hline
+New York & 149 & 560 & 26.61\textbackslash{}\%\\
+\hline
+North Carolina & 395 & 407 & 97.05\textbackslash{}\%\\
+\hline
+North Dakota & 111 & 111 & 100\textbackslash{}\%\\
+\hline
+Ohio & 629 & 638 & 98.59\textbackslash{}\%\\
+\hline
+Oklahoma & 443 & 457 & 96.94\textbackslash{}\%\\
+\hline
+Oregon & 181 & 212 & 85.38\textbackslash{}\%\\
+\hline
+Pennsylvania & 130 & 1123 & 11.58\textbackslash{}\%\\
+\hline
+Rhode Island & 47 & 49 & 95.92\textbackslash{}\%\\
+\hline
+South Carolina & 351 & 472 & 74.36\textbackslash{}\%\\
+\hline
+South Dakota & 102 & 107 & 95.33\textbackslash{}\%\\
+\hline
+Tennessee & 397 & 399 & 99.5\textbackslash{}\%\\
+\hline
+Texas & 1041 & 1064 & 97.84\textbackslash{}\%\\
+\hline
+Utah & 133 & 135 & 98.52\textbackslash{}\%\\
+\hline
+Vermont & 85 & 88 & 96.59\textbackslash{}\%\\
+\hline
+Virginia & 405 & 410 & 98.78\textbackslash{}\%\\
+\hline
+Washington & 240 & 246 & 97.56\textbackslash{}\%\\
+\hline
+West Virginia & 201 & 214 & 93.93\textbackslash{}\%\\
+\hline
+Wisconsin & 361 & 403 & 89.58\textbackslash{}\%\\
+\hline
+Wyoming & 49 & 50 & 98\textbackslash{}\%\\
+\hline
+\end{longtable}
+
+\begin{verbatim}
+#>       
+#>         FALSE   TRUE   <NA>
+#>   0     93649 402262      0
+#>   1       139   2496      0
+#>   2        49   1837      0
+#>   3        78   1717      0
+#>   4        63   1572      0
+#>   5        25   1708      0
+#>   6        20   1825      0
+#>   7        19   1728      0
+#>   8        21   2036      0
+#>   9        25   2483      0
+#>   10       76   3248      0
+#>   11       31   5997      0
+#>   12      425 139027      0
+#>   <NA>      1      7      0
+\end{verbatim}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/nibrsAnnualNumberAgencies-1} 
+
+}
+
+\caption{The annual number of police agencies that report data to NIBRS.}\label{fig:nibrsAnnualNumberAgencies}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/nibrsAnnualPopulation-1} 
+
+}
+
+\caption{The annual population in the United States that is covered by an agency reporting data to NIBRS.}\label{fig:nibrsAnnualPopulation}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/nibrsAnnualPercentPopulation-1} 
+
+}
+
+\caption{The annual percent of the United States population that is covered by an agency reporting data to NIBRS.}\label{fig:nibrsAnnualPercentPopulation}
+\end{figure}
+
+\begin{verbatim}
+#>  [1] "Alabama"              "Alaska"               "Arizona"             
+#>  [4] "Arkansas"             "California"           "Colorado"            
+#>  [7] "Connecticut"          "Delaware"             "District of Columbia"
+#> [10] "Florida"              "Georgia"              "Hawaii"              
+#> [13] "Idaho"                "Illinois"             "Indiana"             
+#> [16] "Iowa"                 "Kansas"               "Kentucky"            
+#> [19] "Louisiana"            "Maine"                "Maryland"            
+#> [22] "Massachusetts"        "Michigan"             "Minnesota"           
+#> [25] "Mississippi"          "Missouri"             "Montana"             
+#> [28] "Nebraska"             "Nevada"               "New Hampshire"       
+#> [31] "New Jersey"           "New Mexico"           "New York"            
+#> [34] "North Carolina"       "North Dakota"         "Ohio"                
+#> [37] "Oklahoma"             "Oregon"               "Pennsylvania"        
+#> [40] "Rhode Island"         "South Carolina"       "South Dakota"        
+#> [43] "Tennessee"            "Texas"                "Utah"                
+#> [46] "Vermont"              "Virginia"             "Washington"          
+#> [49] "West Virginia"        "Wisconsin"            "Wyoming"             
+#> [52] "Puerto Rico"
+#>         ori year   state population date_ori_was_added date_ori_went_nibrs
+#> 1 alast0000 1991 alabama          0           19910430                <NA>
+#> 2 al0010000 1991 alabama     142446           19930225            19910101
+#> 3 al0010100 1991 alabama      33898           19910513            19910101
+#> 4 al0010200 1991 alabama     269313           19920326            19910101
+#> 5 al0010300 1991 alabama      20047           19910513            19910101
+#> 6 al0010400 1991 alabama      12346           19910513            19910101
+#>        city_name state_abbreviation            population_group
+#> 1     montgomery                 al non-msa county under 10,000
+#> 2     birmingham                 al         msa-county 100,000+
+#> 3       bessemer                 al     city 25,000 thru 49,999
+#> 4     birmingham                 al   city 250,000 thru 499,999
+#> 5 mountain brook                 al     city 10,000 thru 24,999
+#> 6      fairfield                 al     city 10,000 thru 24,999
+#>     country_division country_region agency_indicator core_city covered_by_ori
+#> 1 east south central          south           county         n           <NA>
+#> 2 east south central          south           county         n           <NA>
+#> 3 east south central          south             city         n           <NA>
+#> 4 east south central          south             city         y           <NA>
+#> 5 east south central          south             city         n           <NA>
+#> 6 east south central          south             city         n           <NA>
+#>   fbi_field_office judicial_district agency_nibrs_flag agency_inactive_date
+#> 1             3490              <NA>              <NA>                 <NA>
+#> 2             3070              010n                 a                 <NA>
+#> 3             3070              010n                 a                 <NA>
+#> 4             3070              010n                 a                 <NA>
+#> 5             3070              010n                 a                 <NA>
+#> 6             3070              010n                 a                 <NA>
+#>   current_population_1 ucr_county_code_1 msa_code_1 last_population_1
+#> 1                    0              <NA>       <NA>                 0
+#> 2               142446                37         98            142446
+#> 3                33898                37         98             33898
+#> 4               269313                37         98            269313
+#> 5                20047                37         98             20047
+#> 6                12346                37         98             12346
+#>   current_population_2 ucr_county_code_2 msa_code_2 last_population_2
+#> 1                    0              <NA>       <NA>                 0
+#> 2                    0              <NA>       <NA>                 0
+#> 3                    0              <NA>       <NA>                 0
+#> 4                    0              <NA>       <NA>                 0
+#> 5                    0              <NA>       <NA>                 0
+#> 6                    0              <NA>       <NA>                 0
+#>   current_population_3 ucr_county_code_3 msa_code_3 last_population_3
+#> 1                    0              <NA>       <NA>                 0
+#> 2                    0              <NA>       <NA>                 0
+#> 3                    0              <NA>       <NA>                 0
+#> 4                    0              <NA>       <NA>                 0
+#> 5                    0              <NA>       <NA>                 0
+#> 6                    0              <NA>       <NA>                 0
+#>   current_population_4 ucr_county_code_4 msa_code_4 last_population_4
+#> 1                    0              <NA>       <NA>                 0
+#> 2                    0              <NA>       <NA>                 0
+#> 3                    0              <NA>       <NA>                 0
+#> 4                    0              <NA>       <NA>                 0
+#> 5                    0              <NA>       <NA>                 0
+#> 6                    0              <NA>       <NA>                 0
+#>   current_population_5 ucr_county_code_5 msa_code_5 last_population_5
+#> 1                    0              <NA>       <NA>                 0
+#> 2                    0              <NA>       <NA>                 0
+#> 3                    0              <NA>       <NA>                 0
+#> 4                    0              <NA>       <NA>                 0
+#> 5                    0              <NA>       <NA>                 0
+#> 6                    0              <NA>       <NA>                 0
+#>   X01_06_12_indicator number_of_months_reported master_file_year
+#> 1                <NA>                         0             1991
+#> 2                  12                        12             1991
+#> 3                  12                        12             1991
+#> 4                  12                        12             1991
+#> 5                  12                        12             1991
+#> 6                  12                        12             1991
+#>   january_zero_report_submitted january_group_a_b_submitted
+#> 1                          <NA>                        <NA>
+#> 2                          <NA>  group a or b was submitted
+#> 3                          <NA>  group a or b was submitted
+#> 4                          <NA>  group a or b was submitted
+#> 5                          <NA>  group a or b was submitted
+#> 6                          <NA>  group a or b was submitted
+#>   january_window_record_submitted february_zero_report_submitted
+#> 1                            <NA>                           <NA>
+#> 2     window record was submitted                           <NA>
+#> 3                            <NA>                           <NA>
+#> 4                            <NA>                           <NA>
+#> 5                            <NA>                           <NA>
+#> 6                            <NA>                           <NA>
+#>   february_group_a_b_submitted february_window_record_submitted
+#> 1                         <NA>                             <NA>
+#> 2   group a or b was submitted                             <NA>
+#> 3   group a or b was submitted                             <NA>
+#> 4   group a or b was submitted                             <NA>
+#> 5   group a or b was submitted                             <NA>
+#> 6   group a or b was submitted                             <NA>
+#>   march_zero_report_submitted  march_group_a_b_submitted
+#> 1                        <NA>                       <NA>
+#> 2                        <NA> group a or b was submitted
+#> 3                        <NA> group a or b was submitted
+#> 4                        <NA> group a or b was submitted
+#> 5                        <NA> group a or b was submitted
+#> 6                        <NA> group a or b was submitted
+#>   march_window_record_submitted april_zero_report_submitted
+#> 1                          <NA>                        <NA>
+#> 2                          <NA>                        <NA>
+#> 3                          <NA>                        <NA>
+#> 4                          <NA>                        <NA>
+#> 5                          <NA>                        <NA>
+#> 6                          <NA>                        <NA>
+#>    april_group_a_b_submitted april_window_record_submitted
+#> 1                       <NA>                          <NA>
+#> 2 group a or b was submitted   window record was submitted
+#> 3 group a or b was submitted                          <NA>
+#> 4 group a or b was submitted                          <NA>
+#> 5 group a or b was submitted                          <NA>
+#> 6 group a or b was submitted                          <NA>
+#>   may_zero_report_submitted    may_group_a_b_submitted
+#> 1                      <NA>                       <NA>
+#> 2                      <NA> group a or b was submitted
+#> 3                      <NA> group a or b was submitted
+#> 4                      <NA> group a or b was submitted
+#> 5                      <NA> group a or b was submitted
+#> 6                      <NA> group a or b was submitted
+#>   may_window_record_submitted june_zero_report_submitted
+#> 1                        <NA>                       <NA>
+#> 2                        <NA>                       <NA>
+#> 3                        <NA>                       <NA>
+#> 4                        <NA>                       <NA>
+#> 5                        <NA>                       <NA>
+#> 6                        <NA>                       <NA>
+#>     june_group_a_b_submitted june_window_record_submitted
+#> 1                       <NA>                         <NA>
+#> 2 group a or b was submitted                         <NA>
+#> 3 group a or b was submitted                         <NA>
+#> 4 group a or b was submitted                         <NA>
+#> 5 group a or b was submitted  window record was submitted
+#> 6 group a or b was submitted                         <NA>
+#>   july_zero_report_submitted   july_group_a_b_submitted
+#> 1                       <NA>                       <NA>
+#> 2                       <NA> group a or b was submitted
+#> 3                       <NA> group a or b was submitted
+#> 4                       <NA> group a or b was submitted
+#> 5                       <NA> group a or b was submitted
+#> 6                       <NA> group a or b was submitted
+#>   july_window_record_submitted august_zero_report_submitted
+#> 1                         <NA>                         <NA>
+#> 2                         <NA>                         <NA>
+#> 3                         <NA>                         <NA>
+#> 4                         <NA>                         <NA>
+#> 5                         <NA>                         <NA>
+#> 6                         <NA>                         <NA>
+#>   august_group_a_b_submitted august_window_record_submitted
+#> 1                       <NA>                           <NA>
+#> 2 group a or b was submitted                           <NA>
+#> 3 group a or b was submitted                           <NA>
+#> 4 group a or b was submitted                           <NA>
+#> 5 group a or b was submitted                           <NA>
+#> 6 group a or b was submitted                           <NA>
+#>   september_zero_report_submitted september_group_a_b_submitted
+#> 1                            <NA>                          <NA>
+#> 2                            <NA>    group a or b was submitted
+#> 3                            <NA>    group a or b was submitted
+#> 4                            <NA>    group a or b was submitted
+#> 5                            <NA>    group a or b was submitted
+#> 6                            <NA>    group a or b was submitted
+#>   september_window_record_submitte october_zero_report_submitted
+#> 1                             <NA>                          <NA>
+#> 2                             <NA>                          <NA>
+#> 3                             <NA>                          <NA>
+#> 4                             <NA>                          <NA>
+#> 5                             <NA>                          <NA>
+#> 6                             <NA>                          <NA>
+#>   october_group_a_b_submitted october_window_record_submitted
+#> 1                        <NA>                            <NA>
+#> 2  group a or b was submitted                            <NA>
+#> 3  group a or b was submitted                            <NA>
+#> 4  group a or b was submitted                            <NA>
+#> 5  group a or b was submitted                            <NA>
+#> 6  group a or b was submitted                            <NA>
+#>   november_zero_report_submitted november_group_a_b_submitted
+#> 1                           <NA>                         <NA>
+#> 2                           <NA>   group a or b was submitted
+#> 3                           <NA>   group a or b was submitted
+#> 4                           <NA>   group a or b was submitted
+#> 5                           <NA>   group a or b was submitted
+#> 6                           <NA>   group a or b was submitted
+#>   november_window_record_submitted december_zero_report_submitted
+#> 1                             <NA>                           <NA>
+#> 2                             <NA>                           <NA>
+#> 3                             <NA>                           <NA>
+#> 4                             <NA>                           <NA>
+#> 5                             <NA>                           <NA>
+#> 6                             <NA>                           <NA>
+#>   december_group_a_b_submitted december_window_record_submitted
+#> 1                         <NA>                             <NA>
+#> 2   group a or b was submitted                             <NA>
+#> 3   group a or b was submitted                             <NA>
+#> 4   group a or b was submitted                             <NA>
+#> 5   group a or b was submitted                             <NA>
+#> 6   group a or b was submitted                             <NA>
+#>   x01_06_12_indicator fips_county_code_1 fips_county_code_2 fips_county_code_3
+#> 1                <NA>               <NA>               <NA>               <NA>
+#> 2                <NA>               <NA>               <NA>               <NA>
+#> 3                <NA>               <NA>               <NA>               <NA>
+#> 4                <NA>               <NA>               <NA>               <NA>
+#> 5                <NA>               <NA>               <NA>               <NA>
+#> 6                <NA>               <NA>               <NA>               <NA>
+#>   fips_county_code_4 fips_county_code_5
+#> 1               <NA>               <NA>
+#> 2               <NA>               <NA>
+#> 3               <NA>               <NA>
+#> 4               <NA>               <NA>
+#> 5               <NA>               <NA>
+#> 6               <NA>               <NA>
+\end{verbatim}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/nibrsStateParticipation2020-1} 
+
+}
+
+\caption{The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022.}\label{fig:nibrsStateParticipation2020}
+\end{figure}
+
+\begin{verbatim}
+#>  [1] "Alabama"              "Alaska"               "Arizona"             
+#>  [4] "Arkansas"             "California"           "Colorado"            
+#>  [7] "Connecticut"          "Delaware"             "District of Columbia"
+#> [10] "Florida"              "Georgia"              "Hawaii"              
+#> [13] "Idaho"                "Illinois"             "Indiana"             
+#> [16] "Iowa"                 "Kansas"               "Kentucky"            
+#> [19] "Louisiana"            "Maine"                "Maryland"            
+#> [22] "Massachusetts"        "Michigan"             "Minnesota"           
+#> [25] "Mississippi"          "Missouri"             "Montana"             
+#> [28] "Nebraska"             "Nevada"               "New Hampshire"       
+#> [31] "New Jersey"           "New Mexico"           "New York"            
+#> [34] "North Carolina"       "North Dakota"         "Ohio"                
+#> [37] "Oklahoma"             "Oregon"               "Pennsylvania"        
+#> [40] "Rhode Island"         "South Carolina"       "South Dakota"        
+#> [43] "Tennessee"            "Texas"                "Utah"                
+#> [46] "Vermont"              "Virginia"             "Washington"          
+#> [49] "West Virginia"        "Wisconsin"            "Wyoming"             
+#> [52] "Puerto Rico"
+\end{verbatim}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/nibrsStateParticipation2000-1} 
+
+}
+
+\caption{The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2000.}\label{fig:nibrsStateParticipation2000}
+\end{figure}
+
+\begin{verbatim}
+#>  [1] "Alabama"              "Alaska"               "Arizona"             
+#>  [4] "Arkansas"             "California"           "Colorado"            
+#>  [7] "Connecticut"          "Delaware"             "District of Columbia"
+#> [10] "Florida"              "Georgia"              "Hawaii"              
+#> [13] "Idaho"                "Illinois"             "Indiana"             
+#> [16] "Iowa"                 "Kansas"               "Kentucky"            
+#> [19] "Louisiana"            "Maine"                "Maryland"            
+#> [22] "Massachusetts"        "Michigan"             "Minnesota"           
+#> [25] "Mississippi"          "Missouri"             "Montana"             
+#> [28] "Nebraska"             "Nevada"               "New Hampshire"       
+#> [31] "New Jersey"           "New Mexico"           "New York"            
+#> [34] "North Carolina"       "North Dakota"         "Ohio"                
+#> [37] "Oklahoma"             "Oregon"               "Pennsylvania"        
+#> [40] "Rhode Island"         "South Carolina"       "South Dakota"        
+#> [43] "Tennessee"            "Texas"                "Utah"                
+#> [46] "Vermont"              "Virginia"             "Washington"          
+#> [49] "West Virginia"        "Wisconsin"            "Wyoming"             
+#> [52] "Puerto Rico"
+\end{verbatim}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/nibrsStateParticipation2010-1} 
+
+}
+
+\caption{The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2010.}\label{fig:nibrsStateParticipation2010}
+\end{figure}
 
 \section{Crimes included in
 NIBRS}\label{crimes-included-in-nibrs}
@@ -8603,13 +9306,13 @@ a helpful way of thinking about Group B crimes.
   Trespass of Real Property
 \end{itemize}
 
-\section{Differences from UCR
-data}\label{differences-from-ucr-data}
+\section{Differences from SRS
+data}\label{differences-from-srs-data}
 
 While NIBRS data is a far more expansive and detailed
-dataset than the UCR data, in most cases you can convert
-NIBRS to UCR which allows for continuation of data over
-time. So the switch from UCR to NIBRS adds a lot of
+dataset than the SRS data, in most cases you can convert
+NIBRS to SRS which allows for continuation of data over
+time. So the switch from SRS to NIBRS adds a lot of
 information but loses relatively little. That relatively
 little amount of difference, however, can impact the types
 of questions we can ask so they are detailed below.
@@ -8617,7 +9320,7 @@ of questions we can ask so they are detailed below.
 \subsection{NIBRS does not have unfounded
 crimes}\label{nibrs-does-not-have-unfounded-crimes}
 
-In UCR data, which provides monthly counts of crimes (as
+In SRS data, which provides monthly counts of crimes (as
 well as more detailed info on hate crimes and homicides, and
 monthly counts of arrests), there is a count of
 ``unfounded'' crimes in each month. An unfounded crime is
@@ -8625,7 +9328,7 @@ just one which was previously reported and then new evidence
 finds out that it never actually occurred (or that it isn't
 for the crime that was reported). For example, if you
 misplace your wallet but think it is stolen you may call the
-police and report it stolen. This would be recorded in UCR
+police and report it stolen. This would be recorded in SRS
 data as a theft. If you then find your wallet and tell the
 police, then it would be changed to an unfounded crime since
 the reported theft never actually happened. NIBRS data does
@@ -8634,20 +9337,9 @@ reported crimes turn out to not be true. In practice, this
 doesn't matter too much as unfounded crimes are rare,
 constituting generally under 2\% of each crime type. The
 major exception is in rape, where some agencies report that
-over 10\% of rapes in certain years are unfounded. For more
-on this issue with rape, please see this section of my UCR
-book
-\href{https://ucrbook.com/offensesKnown.html\#unfounded-crimes}{here}.
-Given that UCR data already has major issue with rape data,
-including both changes in the definition of rape in 2013 and
-evidence that the number of cleared rapes is greatly
-exaggerated (see
-\href{https://www.propublica.org/article/when-it-comes-to-rape-just-because-a-case-is-cleared-does-not-mean-solved}{this
-report from ProPublica} for more info on this), losing
-unfounded rapes means losing a not insignificant number of
-likely real rapes.
+over 10\% of rapes in certain years are unfounded.
 
-Unfounded crimes are also a way that the UCR used to
+Unfounded crimes are also a way that the SRS used to
 identify justifiable homicides and when police killed
 someone. But that way was not always used properly and NIBRS
 data already includes justifiable homicide as a crime
@@ -8656,7 +9348,7 @@ category so this isn't a problem.
 \subsubsection{NIBRS does not have negative
 numbers}\label{nibrs-does-not-have-negative-numbers}
 
-Negative numbers in UCR data are because when a crime is
+Negative numbers in SRS data are because when a crime is
 reported and then later unfounded, in the month that it is
 unfounded it is classified as -1 crimes. This is so over the
 long term (i.e.~more than a single month) the positive (but
@@ -8977,233 +9669,6 @@ several million per year). Window files are here when the
 crime occurred before the agency started reporting to NIBRS
 and then the arrest happened after they switched to NIBRS.
 
-\section{Which agencies report
-data}\label{which-agencies-report-data}
-
-So if this data has the same info (other than unfounded and
-negative crimes) as UCR data, but is also far more detailed,
-why do people ever use UCR data? Besides NIBRS being more
-complicated to use, far fewer agencies report NIBRS data
-than do UCR data. Nearly all agencies report crime data for
-UCR, though fewer do so for some of the UCR datasets such as
-arrests or arsons - for more, please see my
-\href{https://ucrbook.com/}{UCR book}. In comparison, fewer
-than half of agencies report to NIBRS, and these agencies
-are disproportionately smaller and more rural. Starting with
-2021 data, the FBI has stopped collecting UCR data, instead
-only collecting NIBRS data. So if - and this is a very large
-if - many more agencies move to NIBRS in 2021, we'll start
-having much more detail from a very representative sample of
-agencies. Even so, most research - especially policy
-analyses - requires many years of data so it'll take many
-years before the full potential of NIBRS data can be
-realized.
-
-We'll look here at how many agencies report at least one
-crime each year between 1991 - the first year of data - and
-2019 - the latest year of data - as well as compare NIBRS
-reporting to UCR reporting. Figure
-\ref{fig:agenciesReporting} shows the number of agencies
-each year that reported at least one incident. Keep in mind
-that there are about 18,000 police agencies in the United
-States. Only a little over 600 agencies reported in 1991.
-This has grown pretty linearly, adding a few hundred
-agencies each year though that trend accelerated in recent
-years. In 2019, nearly 8,200 agencies reported at least some
-data to NIBRS. Compared to the estimated 18,000 police
-agencies in the United States, however, this is still fewer
-than half of agencies. The data shown here is potentially an
-overcount, however, as it includes agencies reporting any
-crime that year, even if they don't report every month.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/agenciesReporting-1} 
-
-}
-
-\caption{The annual number of agencies reporting at least one incident in that year.}\label{fig:agenciesReporting}
-\end{figure}
-
-Another way to look at reporting is comparing it to
-reporting to UCR. Figure \ref{fig:agenciesReportingMap}
-shows the number of agencies in each state that report NIBRS
-data in 2019. Since 2019 is the year with the most
-participation, this does overstate reporting for previous
-years. This map pretty closely follows a population map of
-the US. Texas had the most agencies, followed by Michigan
-and Ohio. The southern states have more agencies reporting
-than the lightly populated northern states. The issue here
-is that a number of states are in white, indicating that
-very few agencies reported. Indeed, four of the most
-populated states - California, New York, Florida, and New
-Jersey - don't have any agencies at all that report NIBRS
-data.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/agenciesReportingMap-1} 
-
-}
-
-\caption{The number of agencies in each state that reported at least one crime in 2022 to NIBRS.}\label{fig:agenciesReportingMap}
-\end{figure}
-
-Since the number of agencies in a state is partially just a
-factor of population, Figure
-\ref{fig:agenciesReportingMapPercent} shows each state as a
-percent of agencies in that state that report to NIBRS that
-also reported to the UCR Offenses Known and Clearances by
-Arrest (the ``crime'' dataset) in 2019.\footnote{This is the
-  UCR dataset which has the highest reporting rate.} Not all
-agencies in the US reported to UCR in 2019 - and a small
-number reported to NIBRS but not UCR in 2019 - but this is a
-fairly good measure of reporting rates. Here the story looks
-a bit different than in the previous figure. Now we can tell
-that among north-western states and states along the
-Appalachian Mountains, nearly all agencies report. In total,
-18 states have 90\% or more of agencies that reported to UCR
-in 2019 also reporting to NIBRS. Thirteen agencies have
-fewer than 10\% of agencies reporting to NIBRS that also
-reported to UCR, with 5 of these having 0\% of agencies
-reporting. The remaining states average about 56\% of
-agencies reporting. So when using NIBRS data, keep in mind
-that you have very good coverage of certain states, and very
-poor coverage of other states. And the low - or zero -
-reporting states are systematically high population states.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/agenciesReportingMapPercent-1} 
-
-}
-
-\caption{Agencies in each state reporting at least one crime to NIBRS in 2022 as a percent of agencies that reported UCR Offenses Known and Clearances by Arrests data in 2022.}\label{fig:agenciesReportingMapPercent}
-\end{figure}
-
-For ease of reference, Table
-\ref{tab:agenciesReportingTable} shows the number of
-agencies in each state reporting to NIBRS and to UCR in
-2019, and the percent shown in Figure
-\ref{fig:agenciesReportingMapPercent}.
-
-\begin{longtable}[t]{l|r|r|r}
-\caption{\label{tab:agenciesReportingTable}The number of agencies in each state reporting to NIBRS and to UCR in 2019. Also shows NIBRS reporting in each state as a percent of UCR reporting.}\\
-\hline
-State & NIBRS Agencies & UCR Agencies & \textbackslash{}\% of UCR Agencies\\
-\hline
-\endfirsthead
-\caption[]{\label{tab:agenciesReportingTable}The number of agencies in each state reporting to NIBRS and to UCR in 2019. Also shows NIBRS reporting in each state as a percent of UCR reporting. \textit{(continued)}}\\
-\hline
-State & NIBRS Agencies & UCR Agencies & \textbackslash{}\% of UCR Agencies\\
-\hline
-\endhead
-Alabama & 393 & 414 & 94.93\textbackslash{}\%\\
-\hline
-Alaska & 32 & 33 & 96.97\textbackslash{}\%\\
-\hline
-Arizona & 88 & 108 & 81.48\textbackslash{}\%\\
-\hline
-Arkansas & 292 & 294 & 99.32\textbackslash{}\%\\
-\hline
-California & 530 & 665 & 79.7\textbackslash{}\%\\
-\hline
-Colorado & 225 & 233 & 96.57\textbackslash{}\%\\
-\hline
-Connecticut & 104 & 107 & 97.2\textbackslash{}\%\\
-\hline
-Delaware & 62 & 63 & 98.41\textbackslash{}\%\\
-\hline
-District of Columbia & 2 & 2 & 100\textbackslash{}\%\\
-\hline
-Florida & 78 & 372 & 20.97\textbackslash{}\%\\
-\hline
-Georgia & 425 & 457 & 93\textbackslash{}\%\\
-\hline
-Guam & 1 & 1 & 100\textbackslash{}\%\\
-\hline
-Hawaii & 3 & 3 & 100\textbackslash{}\%\\
-\hline
-Idaho & 111 & 110 & 100.91\textbackslash{}\%\\
-\hline
-Illinois & 497 & 522 & 95.21\textbackslash{}\%\\
-\hline
-Indiana & 205 & 212 & 96.7\textbackslash{}\%\\
-\hline
-Iowa & 225 & 228 & 98.68\textbackslash{}\%\\
-\hline
-Kansas & 320 & 327 & 97.86\textbackslash{}\%\\
-\hline
-Kentucky & 394 & 432 & 91.2\textbackslash{}\%\\
-\hline
-Louisiana & 137 & 151 & 90.73\textbackslash{}\%\\
-\hline
-Maine & 129 & 131 & 98.47\textbackslash{}\%\\
-\hline
-Maryland & 77 & 150 & 51.33\textbackslash{}\%\\
-\hline
-Massachusetts & 378 & 384 & 98.44\textbackslash{}\%\\
-\hline
-Michigan & 595 & 603 & 98.67\textbackslash{}\%\\
-\hline
-Minnesota & 398 & 411 & 96.84\textbackslash{}\%\\
-\hline
-Mississippi & 150 & 152 & 98.68\textbackslash{}\%\\
-\hline
-Missouri & 471 & 498 & 94.58\textbackslash{}\%\\
-\hline
-Montana & 106 & 110 & 96.36\textbackslash{}\%\\
-\hline
-Nebraska & 238 & 263 & 90.49\textbackslash{}\%\\
-\hline
-Nevada & 52 & 54 & 96.3\textbackslash{}\%\\
-\hline
-New Hampshire & 208 & 213 & 97.65\textbackslash{}\%\\
-\hline
-New Jersey & 307 & 543 & 56.54\textbackslash{}\%\\
-\hline
-New Mexico & 93 & 96 & 96.88\textbackslash{}\%\\
-\hline
-New York & 149 & 560 & 26.61\textbackslash{}\%\\
-\hline
-North Carolina & 395 & 407 & 97.05\textbackslash{}\%\\
-\hline
-North Dakota & 111 & 111 & 100\textbackslash{}\%\\
-\hline
-Ohio & 629 & 638 & 98.59\textbackslash{}\%\\
-\hline
-Oklahoma & 443 & 457 & 96.94\textbackslash{}\%\\
-\hline
-Oregon & 181 & 212 & 85.38\textbackslash{}\%\\
-\hline
-Pennsylvania & 130 & 1123 & 11.58\textbackslash{}\%\\
-\hline
-Rhode Island & 47 & 49 & 95.92\textbackslash{}\%\\
-\hline
-South Carolina & 351 & 472 & 74.36\textbackslash{}\%\\
-\hline
-South Dakota & 102 & 107 & 95.33\textbackslash{}\%\\
-\hline
-Tennessee & 397 & 399 & 99.5\textbackslash{}\%\\
-\hline
-Texas & 1041 & 1064 & 97.84\textbackslash{}\%\\
-\hline
-Utah & 133 & 135 & 98.52\textbackslash{}\%\\
-\hline
-Vermont & 85 & 88 & 96.59\textbackslash{}\%\\
-\hline
-Virginia & 405 & 410 & 98.78\textbackslash{}\%\\
-\hline
-Washington & 240 & 246 & 97.56\textbackslash{}\%\\
-\hline
-West Virginia & 201 & 214 & 93.93\textbackslash{}\%\\
-\hline
-Wisconsin & 361 & 403 & 89.58\textbackslash{}\%\\
-\hline
-Wyoming & 49 & 50 & 98\textbackslash{}\%\\
-\hline
-\end{longtable}
-
 \chapter{Administrative and Window Exceptional Clearance
 Segment}\label{administrative-and-window-exceptional-clearance-segment}
 
@@ -9228,6 +9693,15 @@ In addition to the variables detailed below, this segment
 has the traditional agency and incident identifiers: the ORI
 code, the agency state, the year of this data, and the
 incident number.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{12_nibrs_administrative_files/figure-latex/nibrsAdministrativeAgenciesReporting-1} 
+
+}
+
+\caption{The annual number of agencies reporting data in the NIBRS Administrative Segment, 1991-2022.}\label{fig:nibrsAdministrativeAgenciesReporting}
+\end{figure}
 
 \section{The incident and report
 date}\label{the-incident-and-report-date}
@@ -9382,6 +9856,92 @@ relevant.
 \caption{The percent of crimes that are reported each hour for all agencies reporting to NIBRS in 2022.}\label{fig:administrativeHours}
 \end{figure}
 
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{12_nibrs_administrative_files/figure-latex/nibrsAdministrativeHours-1} 
+
+}
+
+\caption{Annual percent of incidents that occurred at midnight, noon, and at an unknown time, 1991-2022.}\label{fig:nibrsAdministrativeHours}
+\end{figure}
+
+\begin{longtable}[t]{l|r|r|l|r}
+\caption{\label{tab:nibrsAdministrativeCommonHours}The most and least common incident hours, and the most common hours excluding midnight and noon.}\\
+\hline
+Year & Most Common & Least Common & Most Common, Exclude Midnight & Most Common, Exclude Midnight/Noon\\
+\hline
+\endfirsthead
+\caption[]{\label{tab:nibrsAdministrativeCommonHours}The most and least common incident hours, and the most common hours excluding midnight and noon. \textit{(continued)}}\\
+\hline
+Year & Most Common & Least Common & Most Common, Exclude Midnight & Most Common, Exclude Midnight/Noon\\
+\hline
+\endhead
+1991 & 6PM & 5AM & 6PM & 6PM\\
+\hline
+1992 & Midnight & 5AM & 6PM & 6PM\\
+\hline
+1993 & Midnight & 5AM & 6PM & 6PM\\
+\hline
+1994 & Midnight & 5AM & 6PM & 6PM\\
+\hline
+1995 & Midnight & 5AM & 6PM & 6PM\\
+\hline
+1996 & Midnight & 5AM & 6PM & 6PM\\
+\hline
+1997 & Midnight & 5AM & 6PM & 6PM\\
+\hline
+1998 & Midnight & 5AM & 6PM & 6PM\\
+\hline
+1999 & Midnight & 5AM & 5PM & 5PM\\
+\hline
+2000 & Midnight & 5AM & 5PM & 5PM\\
+\hline
+2001 & Midnight & 5AM & 5PM & 5PM\\
+\hline
+2002 & Midnight & 5AM & 5PM & 5PM\\
+\hline
+2003 & Midnight & 5AM & 5PM & 5PM\\
+\hline
+2004 & Midnight & 5AM & 5PM & 5PM\\
+\hline
+2005 & Midnight & 5AM & 5PM & 5PM\\
+\hline
+2006 & Midnight & 5AM & 5PM & 5PM\\
+\hline
+2007 & Midnight & 5AM & 5PM & 5PM\\
+\hline
+2008 & Midnight & 5AM & 5PM & 5PM\\
+\hline
+2009 & Midnight & 5AM & Noon & 5PM\\
+\hline
+2010 & Midnight & 5AM & Noon & 5PM\\
+\hline
+2011 & Midnight & 5AM & Noon & 5PM\\
+\hline
+2012 & Midnight & 5AM & Noon & 5PM\\
+\hline
+2013 & Midnight & 5AM & Noon & 5PM\\
+\hline
+2014 & Midnight & 5AM & Noon & 5PM\\
+\hline
+2015 & Midnight & 5AM & Noon & 5PM\\
+\hline
+2016 & Midnight & 5AM & Noon & 5PM\\
+\hline
+2017 & Midnight & 5AM & Noon & 5PM\\
+\hline
+2018 & Midnight & 5AM & Noon & 5PM\\
+\hline
+2019 & Midnight & 5AM & Noon & 5PM\\
+\hline
+2020 & Midnight & 5AM & Noon & 5PM\\
+\hline
+2021 & Midnight & 5AM & Noon & 5PM\\
+\hline
+2022 & Midnight & 5AM & Noon & 5PM\\
+\hline
+\end{longtable}
+
 \section{Exceptional clearance}\label{exceptional-clearance}
 
 When we speak of clearances we generally mean that a person
@@ -9447,6 +10007,15 @@ makes up about 0.9\% of exceptional clearances.
 \caption{The distribution of exceptional clearances for all exceptional clearances reported to NIBRS in 2022.}\label{fig:administrativeExceptionalClearances}
 \end{figure}
 
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{12_nibrs_administrative_files/figure-latex/nibrsAdministrativeClearance-1} 
+
+}
+
+\caption{Percent of incidents with an arrest or exceptional clearance, 1991-2022.}\label{fig:nibrsAdministrativeClearance}
+\end{figure}
+
 \section{Number of other
 segments}\label{number-of-other-segments}
 
@@ -9493,6 +10062,15 @@ incidents having four through nine offenses.
 \caption{The distribution for the number of Offender Segments per incident, for all incidents in NIBRS 2022.}\label{fig:administrativeOffenseSegments}
 \end{figure}
 
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{12_nibrs_administrative_files/figure-latex/nibrsAdministrativeNumberOffense-1} 
+
+}
+
+\caption{Annual mean and median number of Offense Segments, 1991-2022.}\label{fig:nibrsAdministrativeNumberOffense}
+\end{figure}
+
 \subsection{Offender Segments}\label{offender-segments}
 
 The Administrative Segment tells you how many offenders are
@@ -9537,6 +10115,15 @@ than a handful of offenders.
 \caption{The distribution for the number of Offender Segments per incident, for all incidents in NIBRS 2022.}\label{fig:administrativeOffenderSegments}
 \end{figure}
 
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{12_nibrs_administrative_files/figure-latex/nibrsAdministrativeNumberOffender-1} 
+
+}
+
+\caption{Annual mean and median number of Offender Segments, 1991-2022.}\label{fig:nibrsAdministrativeNumberOffender}
+\end{figure}
+
 \subsection{Victim Segments}\label{victim-segments}
 
 In cases where the offense is a ``victimless crime'' (or at
@@ -9564,6 +10151,15 @@ simplicity. The incident with the most victims in 2022 had
 }
 
 \caption{The distribution for the number of Victim Segments per incident, for all incidents in NIBRS 2022.}\label{fig:administrativeVictimSegments}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{12_nibrs_administrative_files/figure-latex/nibrsAdministrativeNumberVictim-1} 
+
+}
+
+\caption{Annual mean and median number of Victim Segments, 1991-2022.}\label{fig:nibrsAdministrativeNumberVictim}
 \end{figure}
 
 \subsection{Arrestee Segments}\label{arrestee-segments}
@@ -9656,6 +10252,15 @@ arrested.
 \caption{The percent of incidents by number of offenders where at least one offender is arrested.}\label{fig:administrativeArrestsAny}
 \end{figure}
 
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{12_nibrs_administrative_files/figure-latex/nibrsAdministrativeNumberArrestee-1} 
+
+}
+
+\caption{Annual mean and median number of Arrestee Segments, 1991-2022.}\label{fig:nibrsAdministrativeNumberArrestee}
+\end{figure}
+
 \chapter{Offense Segment}\label{offenseSegment}
 
 This segment provides information about the offense that
@@ -9692,6 +10297,15 @@ is also included in the Administrative Segment.\footnote{Potentially
   example, if an incident happened at 11:50pm and it had
   multiple crimes involved, some of them may occur the
   follow day, such as at 12:01am.}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{13_nibrs_offense_files/figure-latex/nibrsOffenseAgenciesReporting-1} 
+
+}
+
+\caption{The annual number of agencies reporting data in the NIBRS Offense Segment, 1991-2022.}\label{fig:nibrsOffenseAgenciesReporting}
+\end{figure}
 
 \section{Crime category}\label{crime-category}
 
@@ -9755,140 +10369,140 @@ Therefore, I strongly suggest examining your data over time
 and across geographic areas to see if there are any biases
 before using it.
 
-\begin{longtable}[t]{l|r|r}
+\begin{longtable}[t]{l|r|r|l}
 \caption{\label{tab:offenseCrimeCategories}The number and percent of crimes reported from all agencies in 2022, by crime category.}\\
 \hline
-Crime Category & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
+Crime Category & First Year & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
 \hline
 \endfirsthead
 \caption[]{\label{tab:offenseCrimeCategories}The number and percent of crimes reported from all agencies in 2022, by crime category. \textit{(continued)}}\\
 \hline
-Crime Category & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
+Crime Category & First Year & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
 \hline
 \endhead
-Assault Offenses - Simple Assault & 1,725,221 & 13.57\textbackslash{}\%\\
+Assault Offenses - Simple Assault & 1991 & 1,725,221 & 13.57\textbackslash{}\%\\
 \hline
-Destruction/Damage/Vandalism of Property & 1,499,936 & 11.80\textbackslash{}\%\\
+Destruction/Damage/Vandalism of Property & 1991 & 1,499,936 & 11.80\textbackslash{}\%\\
 \hline
-Larceny/Theft Offenses - All Other Larceny & 1,341,444 & 10.55\textbackslash{}\%\\
+Larceny/Theft Offenses - All Other Larceny & 1991 & 1,341,444 & 10.55\textbackslash{}\%\\
 \hline
-Drug/Narcotic Offenses - Drug/Narcotic Violations & 993,308 & 7.81\textbackslash{}\%\\
+Drug/Narcotic Offenses - Drug/Narcotic Violations & 1991 & 993,308 & 7.81\textbackslash{}\%\\
 \hline
-Larceny/Theft Offenses - Theft From Motor Vehicle & 851,640 & 6.70\textbackslash{}\%\\
+Larceny/Theft Offenses - Theft From Motor Vehicle & 1991 & 851,640 & 6.70\textbackslash{}\%\\
 \hline
-Larceny/Theft Offenses - Shoplifting & 733,952 & 5.77\textbackslash{}\%\\
+Larceny/Theft Offenses - Shoplifting & 1991 & 733,952 & 5.77\textbackslash{}\%\\
 \hline
-Motor Vehicle Theft & 721,788 & 5.68\textbackslash{}\%\\
+Motor Vehicle Theft & 1991 & 721,788 & 5.68\textbackslash{}\%\\
 \hline
-Burglary/Breaking And Entering & 673,144 & 5.30\textbackslash{}\%\\
+Burglary/Breaking And Entering & 1991 & 673,144 & 5.30\textbackslash{}\%\\
 \hline
-Assault Offenses - Aggravated Assault & 540,892 & 4.25\textbackslash{}\%\\
+Assault Offenses - Aggravated Assault & 1991 & 540,892 & 4.25\textbackslash{}\%\\
 \hline
-Assault Offenses - Intimidation & 474,517 & 3.73\textbackslash{}\%\\
+Assault Offenses - Intimidation & 1991 & 474,517 & 3.73\textbackslash{}\%\\
 \hline
-Drug/Narcotic Offenses - Drug Equipment Violations & 467,075 & 3.67\textbackslash{}\%\\
+Drug/Narcotic Offenses - Drug Equipment Violations & 1991 & 467,075 & 3.67\textbackslash{}\%\\
 \hline
-Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories & 378,447 & 2.98\textbackslash{}\%\\
+Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories & 1991 & 378,447 & 2.98\textbackslash{}\%\\
 \hline
-Fraud Offenses - False Pretenses/Swindle/Confidence Game & 337,056 & 2.65\textbackslash{}\%\\
+Fraud Offenses - False Pretenses/Swindle/Confidence Game & 1991 & 337,056 & 2.65\textbackslash{}\%\\
 \hline
-Weapon Law Violations - Weapon Law Violations & 326,104 & 2.57\textbackslash{}\%\\
+Weapon Law Violations - Weapon Law Violations & 1991 & 326,104 & 2.57\textbackslash{}\%\\
 \hline
-Larceny/Theft Offenses - Theft From Building & 279,349 & 2.20\textbackslash{}\%\\
+Larceny/Theft Offenses - Theft From Building & 1991 & 279,349 & 2.20\textbackslash{}\%\\
 \hline
-Fraud Offenses - Credit Card/Atm Fraud & 190,962 & 1.50\textbackslash{}\%\\
+Fraud Offenses - Credit Card/Atm Fraud & 1991 & 190,962 & 1.50\textbackslash{}\%\\
 \hline
-Fraud Offenses - Identity Theft & 186,144 & 1.46\textbackslash{}\%\\
+Fraud Offenses - Identity Theft & 2015 & 186,144 & 1.46\textbackslash{}\%\\
 \hline
-Robbery & 149,999 & 1.18\textbackslash{}\%\\
+Robbery & 1991 & 149,999 & 1.18\textbackslash{}\%\\
 \hline
-Counterfeiting/Forgery & 147,991 & 1.16\textbackslash{}\%\\
+Counterfeiting/Forgery & 1991 & 147,991 & 1.16\textbackslash{}\%\\
 \hline
-Stolen Property Offenses (Receiving, Selling, Etc.) & 115,472 & 0.91\textbackslash{}\%\\
+Stolen Property Offenses (Receiving, Selling, Etc.) & 1991 & 115,472 & 0.91\textbackslash{}\%\\
 \hline
-Sex Offenses - Fondling (Incident Liberties/Child Molest) & 80,711 & 0.63\textbackslash{}\%\\
+Sex Offenses - Fondling (Incident Liberties/Child Molest) & 1991 & 80,711 & 0.63\textbackslash{}\%\\
 \hline
-Fraud Offenses - Impersonation & 79,049 & 0.62\textbackslash{}\%\\
+Fraud Offenses - Impersonation & 1991 & 79,049 & 0.62\textbackslash{}\%\\
 \hline
-Sex Offenses - Rape & 76,495 & 0.60\textbackslash{}\%\\
+Sex Offenses - Rape & 1991 & 76,495 & 0.60\textbackslash{}\%\\
 \hline
-Pornography/Obscene Material & 39,885 & 0.31\textbackslash{}\%\\
+Pornography/Obscene Material & 1991 & 39,885 & 0.31\textbackslash{}\%\\
 \hline
-Kidnapping/Abduction & 39,148 & 0.31\textbackslash{}\%\\
+Kidnapping/Abduction & 1991 & 39,148 & 0.31\textbackslash{}\%\\
 \hline
-Fraud Offenses - Wire Fraud & 38,373 & 0.30\textbackslash{}\%\\
+Fraud Offenses - Wire Fraud & 1991 & 38,373 & 0.30\textbackslash{}\%\\
 \hline
-Embezzlement & 32,487 & 0.26\textbackslash{}\%\\
+Embezzlement & 1991 & 32,487 & 0.26\textbackslash{}\%\\
 \hline
-Arson & 30,178 & 0.24\textbackslash{}\%\\
+Arson & 1991 & 30,178 & 0.24\textbackslash{}\%\\
 \hline
-Larceny/Theft Offenses - Pocket-Picking & 21,078 & 0.17\textbackslash{}\%\\
+Larceny/Theft Offenses - Pocket-Picking & 1991 & 21,078 & 0.17\textbackslash{}\%\\
 \hline
-Animal Cruelty & 20,527 & 0.16\textbackslash{}\%\\
+Animal Cruelty & 2015 & 20,527 & 0.16\textbackslash{}\%\\
 \hline
-Extortion/Blackmail & 20,305 & 0.16\textbackslash{}\%\\
+Extortion/Blackmail & 1991 & 20,305 & 0.16\textbackslash{}\%\\
 \hline
-Sex Offenses - Sodomy & 18,353 & 0.14\textbackslash{}\%\\
+Sex Offenses - Sodomy & 1991 & 18,353 & 0.14\textbackslash{}\%\\
 \hline
-Murder/Nonnegligent Manslaughter & 14,994 & 0.12\textbackslash{}\%\\
+Murder/Nonnegligent Manslaughter & 1991 & 14,994 & 0.12\textbackslash{}\%\\
 \hline
-Larceny/Theft Offenses - Purse-Snatching & 11,278 & 0.09\textbackslash{}\%\\
+Larceny/Theft Offenses - Purse-Snatching & 1991 & 11,278 & 0.09\textbackslash{}\%\\
 \hline
-Fraud Offenses - Hacking/Computer Invasion & 8,151 & 0.06\textbackslash{}\%\\
+Fraud Offenses - Hacking/Computer Invasion & 2015 & 8,151 & 0.06\textbackslash{}\%\\
 \hline
-Sex Offenses - Sexual Assault With An Object & 7,871 & 0.06\textbackslash{}\%\\
+Sex Offenses - Sexual Assault With An Object & 1991 & 7,871 & 0.06\textbackslash{}\%\\
 \hline
-Sex Offenses - Statutory Rape & 7,752 & 0.06\textbackslash{}\%\\
+Sex Offenses - Statutory Rape & 1991 & 7,752 & 0.06\textbackslash{}\%\\
 \hline
-Prostitution Offenses - Prostitution & 7,670 & 0.06\textbackslash{}\%\\
+Prostitution Offenses - Prostitution & 1991 & 7,670 & 0.06\textbackslash{}\%\\
 \hline
-Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device & 5,500 & 0.04\textbackslash{}\%\\
+Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device & 1991 & 5,500 & 0.04\textbackslash{}\%\\
 \hline
-Fraud Offenses - Welfare Fraud & 4,580 & 0.04\textbackslash{}\%\\
+Fraud Offenses - Welfare Fraud & 1991 & 4,580 & 0.04\textbackslash{}\%\\
 \hline
-Prostitution Offenses - Assisting Or Promoting Prostitution & 2,961 & 0.02\textbackslash{}\%\\
+Prostitution Offenses - Assisting Or Promoting Prostitution & 1991 & 2,961 & 0.02\textbackslash{}\%\\
 \hline
-Prostitution Offenses - Purchasing Prostitution & 2,380 & 0.02\textbackslash{}\%\\
+Prostitution Offenses - Purchasing Prostitution & 2013 & 2,380 & 0.02\textbackslash{}\%\\
 \hline
-Human Trafficking - Commercial Sex Acts & 1,818 & 0.01\textbackslash{}\%\\
+Human Trafficking - Commercial Sex Acts & 2013 & 1,818 & 0.01\textbackslash{}\%\\
 \hline
-Negligent Manslaughter & 1,588 & 0.01\textbackslash{}\%\\
+Negligent Manslaughter & 1991 & 1,588 & 0.01\textbackslash{}\%\\
 \hline
-Sex Offenses - Incest & 1,175 & 0.01\textbackslash{}\%\\
+Sex Offenses - Incest & 1991 & 1,175 & 0.01\textbackslash{}\%\\
 \hline
-Gambling Offenses - Operating/Promoting/Assisting Gambling & 909 & 0.01\textbackslash{}\%\\
+Gambling Offenses - Operating/Promoting/Assisting Gambling & 1991 & 909 & 0.01\textbackslash{}\%\\
 \hline
-Bribery & 652 & 0.01\textbackslash{}\%\\
+Bribery & 1991 & 652 & 0.01\textbackslash{}\%\\
 \hline
-Gambling Offenses - Betting/Wagering & 649 & 0.01\textbackslash{}\%\\
+Gambling Offenses - Betting/Wagering & 1991 & 649 & 0.01\textbackslash{}\%\\
 \hline
-Justifiable Homicide - Not A Crime & 617 & 0.00\textbackslash{}\%\\
+Justifiable Homicide - Not A Crime & 1991 & 617 & 0.00\textbackslash{}\%\\
 \hline
-Gambling Offenses - Gambling Equipment Violations & 560 & 0.00\textbackslash{}\%\\
+Gambling Offenses - Gambling Equipment Violations & 1991 & 560 & 0.00\textbackslash{}\%\\
 \hline
-Human Trafficking - Involuntary Servitude & 416 & 0.00\textbackslash{}\%\\
+Human Trafficking - Involuntary Servitude & 2014 & 416 & 0.00\textbackslash{}\%\\
 \hline
-Commerce Violations - Federal Liquor Offenses & 145 & 0.00\textbackslash{}\%\\
+Commerce Violations - Federal Liquor Offenses & 2020 & 145 & 0.00\textbackslash{}\%\\
 \hline
-Fugitive Offenses - Flight To Avoid Prosecution & 68 & 0.00\textbackslash{}\%\\
+Fugitive Offenses - Flight To Avoid Prosecution & 2021 & 68 & 0.00\textbackslash{}\%\\
 \hline
-Sex Offenses - Failure To Register As A Sex Offender & 27 & 0.00\textbackslash{}\%\\
+Sex Offenses - Failure To Register As A Sex Offender & 2021 & 27 & 0.00\textbackslash{}\%\\
 \hline
-Fraud Offenses - Money Laundering & 7 & 0.00\textbackslash{}\%\\
+Fraud Offenses - Money Laundering & 2022 & 7 & 0.00\textbackslash{}\%\\
 \hline
-Weapon Law Violations - Explosives & 4 & 0.00\textbackslash{}\%\\
+Weapon Law Violations - Explosives & 2021 & 4 & 0.00\textbackslash{}\%\\
 \hline
-Fugitive Offenses - Harboring Escappee/Concealing From Arrest & 3 & 0.00\textbackslash{}\%\\
+Fugitive Offenses - Harboring Escappee/Concealing From Arrest & 2021 & 3 & 0.00\textbackslash{}\%\\
 \hline
-Immigration Violations - Illegal Entry Into The United States & 3 & 0.00\textbackslash{}\%\\
+Immigration Violations - Illegal Entry Into The United States & 2020 & 3 & 0.00\textbackslash{}\%\\
 \hline
-Gambling Offenses - Sports Tampering & 3 & 0.00\textbackslash{}\%\\
+Gambling Offenses - Sports Tampering & 1994 & 3 & 0.00\textbackslash{}\%\\
 \hline
-Fugitive Offenses - Flight To Avoid Deportation & 1 & 0.00\textbackslash{}\%\\
+Fugitive Offenses - Flight To Avoid Deportation & 2021 & 1 & 0.00\textbackslash{}\%\\
 \hline
-Weapon Law Violations - Violation of National Firearm Act of 1934 & 1 & 0.00\textbackslash{}\%\\
+Weapon Law Violations - Violation of National Firearm Act of 1934 & 2021 & 1 & 0.00\textbackslash{}\%\\
 \hline
-Total & 12,712,813 & 100\textbackslash{}\%\\
+Total & - & 12,712,813 & 100\textbackslash{}\%\\
 \hline
 \end{longtable}
 
@@ -10100,9 +10714,103 @@ Crime Category & \textbackslash{}\% Completed & \% Attempted\\
 Crime Category & \textbackslash{}\% Completed & \% Attempted\\
 \hline
 \endhead
+Drug/Narcotic Offenses - Drug Equipment Violations & 99.81 \textbackslash{}\% & 0.19 \textbackslash{}\%\\
+\hline
+Drug/Narcotic Offenses - Drug/Narcotic Violations & 99.63 \textbackslash{}\% & 0.37 \textbackslash{}\%\\
+\hline
+Destruction/Damage/Vandalism of Property & 99.43 \textbackslash{}\% & 0.57 \textbackslash{}\%\\
+\hline
+Larceny/Theft Offenses - Theft From Building & 99.27 \textbackslash{}\% & 0.73 \textbackslash{}\%\\
+\hline
+Larceny/Theft Offenses - Pocket-Picking & 98.83 \textbackslash{}\% & 1.17 \textbackslash{}\%\\
+\hline
+Weapon Law Violations - Weapon Law Violations & 98.81 \textbackslash{}\% & 1.19 \textbackslash{}\%\\
+\hline
+Larceny/Theft Offenses - All Other Larceny & 98.8 \textbackslash{}\% & 1.2 \textbackslash{}\%\\
+\hline
+Embezzlement & 98.73 \textbackslash{}\% & 1.27 \textbackslash{}\%\\
+\hline
+Stolen Property Offenses (Receiving, Selling, Etc.) & 98.73 \textbackslash{}\% & 1.27 \textbackslash{}\%\\
+\hline
+Larceny/Theft Offenses - Shoplifting & 98.68 \textbackslash{}\% & 1.32 \textbackslash{}\%\\
+\hline
+Larceny/Theft Offenses - Purse-Snatching & 98.19 \textbackslash{}\% & 1.81 \textbackslash{}\%\\
+\hline
+Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories & 97.81 \textbackslash{}\% & 2.19 \textbackslash{}\%\\
+\hline
+Sex Offenses - Sexual Assault With An Object & 97.33 \textbackslash{}\% & 2.67 \textbackslash{}\%\\
+\hline
+Sex Offenses - Statutory Rape & 97.3 \textbackslash{}\% & 2.7 \textbackslash{}\%\\
+\hline
 Animal Cruelty & 97.25 \textbackslash{}\% & 2.75 \textbackslash{}\%\\
 \hline
+Pornography/Obscene Material & 97.17 \textbackslash{}\% & 2.83 \textbackslash{}\%\\
+\hline
+Sex Offenses - Sodomy & 97.16 \textbackslash{}\% & 2.84 \textbackslash{}\%\\
+\hline
+Sex Offenses - Fondling (Incident Liberties/Child Molest) & 97.12 \textbackslash{}\% & 2.88 \textbackslash{}\%\\
+\hline
+Sex Offenses - Rape & 96.7 \textbackslash{}\% & 3.3 \textbackslash{}\%\\
+\hline
+Sex Offenses - Incest & 96.43 \textbackslash{}\% & 3.57 \textbackslash{}\%\\
+\hline
+Counterfeiting/Forgery & 95.72 \textbackslash{}\% & 4.28 \textbackslash{}\%\\
+\hline
+Prostitution Offenses - Prostitution & 95.62 \textbackslash{}\% & 4.38 \textbackslash{}\%\\
+\hline
+Fraud Offenses - Identity Theft & 95.33 \textbackslash{}\% & 4.67 \textbackslash{}\%\\
+\hline
 Arson & 95.1 \textbackslash{}\% & 4.9 \textbackslash{}\%\\
+\hline
+Prostitution Offenses - Assisting Or Promoting Prostitution & 94.97 \textbackslash{}\% & 5.03 \textbackslash{}\%\\
+\hline
+Kidnapping/Abduction & 94.82 \textbackslash{}\% & 5.18 \textbackslash{}\%\\
+\hline
+Motor Vehicle Theft & 94.69 \textbackslash{}\% & 5.31 \textbackslash{}\%\\
+\hline
+Fraud Offenses - Credit Card/Atm Fraud & 94.19 \textbackslash{}\% & 5.81 \textbackslash{}\%\\
+\hline
+Burglary/Breaking And Entering & 93.55 \textbackslash{}\% & 6.45 \textbackslash{}\%\\
+\hline
+Larceny/Theft Offenses - Theft From Motor Vehicle & 92.84 \textbackslash{}\% & 7.16 \textbackslash{}\%\\
+\hline
+Fraud Offenses - Impersonation & 92.43 \textbackslash{}\% & 7.57 \textbackslash{}\%\\
+\hline
+Fraud Offenses - False Pretenses/Swindle/Confidence Game & 92.36 \textbackslash{}\% & 7.64 \textbackslash{}\%\\
+\hline
+Fraud Offenses - Wire Fraud & 92.04 \textbackslash{}\% & 7.96 \textbackslash{}\%\\
+\hline
+Gambling Offenses - Gambling Equipment Violations & 91.43 \textbackslash{}\% & 8.57 \textbackslash{}\%\\
+\hline
+Human Trafficking - Involuntary Servitude & 91.11 \textbackslash{}\% & 8.89 \textbackslash{}\%\\
+\hline
+Human Trafficking - Commercial Sex Acts & 91.09 \textbackslash{}\% & 8.91 \textbackslash{}\%\\
+\hline
+Prostitution Offenses - Purchasing Prostitution & 90.29 \textbackslash{}\% & 9.71 \textbackslash{}\%\\
+\hline
+Robbery & 90.17 \textbackslash{}\% & 9.83 \textbackslash{}\%\\
+\hline
+Fraud Offenses - Welfare Fraud & 90.15 \textbackslash{}\% & 9.85 \textbackslash{}\%\\
+\hline
+Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device & 89.76 \textbackslash{}\% & 10.24 \textbackslash{}\%\\
+\hline
+Fraud Offenses - Hacking/Computer Invasion & 89.18 \textbackslash{}\% & 10.82 \textbackslash{}\%\\
+\hline
+Fraud Offenses - Money Laundering & 85.71 \textbackslash{}\% & 14.29 \textbackslash{}\%\\
+\hline
+Gambling Offenses - Operating/Promoting/Assisting Gambling & 85.7 \textbackslash{}\% & 14.3 \textbackslash{}\%\\
+\hline
+Bribery & 83.9 \textbackslash{}\% & 16.1 \textbackslash{}\%\\
+\hline
+Gambling Offenses - Betting/Wagering & 83.36 \textbackslash{}\% & 16.64 \textbackslash{}\%\\
+\hline
+Gambling Offenses - Sports Tampering & 66.67 \textbackslash{}\% & 33.33 \textbackslash{}\%\\
+\hline
+Commerce Violations - Federal Liquor Offenses & 64.83 \textbackslash{}\% & 35.17 \textbackslash{}\%\\
+\hline
+Extortion/Blackmail & 60.81 \textbackslash{}\% & 39.19 \textbackslash{}\%\\
+\hline
+Fugitive Offenses - Flight To Avoid Prosecution & 30.88 \textbackslash{}\% & 69.12 \textbackslash{}\%\\
 \hline
 Assault Offenses - Aggravated Assault & 100 \textbackslash{}\% & 0 \textbackslash{}\%\\
 \hline
@@ -10110,115 +10818,30 @@ Assault Offenses - Intimidation & 100 \textbackslash{}\% & 0 \textbackslash{}\%\
 \hline
 Assault Offenses - Simple Assault & 100 \textbackslash{}\% & 0 \textbackslash{}\%\\
 \hline
-Bribery & 83.9 \textbackslash{}\% & 16.1 \textbackslash{}\%\\
-\hline
-Burglary/Breaking And Entering & 93.55 \textbackslash{}\% & 6.45 \textbackslash{}\%\\
-\hline
-Commerce Violations - Federal Liquor Offenses & 64.83 \textbackslash{}\% & 35.17 \textbackslash{}\%\\
-\hline
-Counterfeiting/Forgery & 95.72 \textbackslash{}\% & 4.28 \textbackslash{}\%\\
-\hline
-Destruction/Damage/Vandalism of Property & 99.43 \textbackslash{}\% & 0.57 \textbackslash{}\%\\
-\hline
-Drug/Narcotic Offenses - Drug Equipment Violations & 99.81 \textbackslash{}\% & 0.19 \textbackslash{}\%\\
-\hline
-Drug/Narcotic Offenses - Drug/Narcotic Violations & 99.63 \textbackslash{}\% & 0.37 \textbackslash{}\%\\
-\hline
-Embezzlement & 98.73 \textbackslash{}\% & 1.27 \textbackslash{}\%\\
-\hline
-Extortion/Blackmail & 60.81 \textbackslash{}\% & 39.19 \textbackslash{}\%\\
-\hline
-Fraud Offenses - Credit Card/Atm Fraud & 94.19 \textbackslash{}\% & 5.81 \textbackslash{}\%\\
-\hline
-Fraud Offenses - False Pretenses/Swindle/Confidence Game & 92.36 \textbackslash{}\% & 7.64 \textbackslash{}\%\\
-\hline
-Fraud Offenses - Hacking/Computer Invasion & 89.18 \textbackslash{}\% & 10.82 \textbackslash{}\%\\
-\hline
-Fraud Offenses - Identity Theft & 95.33 \textbackslash{}\% & 4.67 \textbackslash{}\%\\
-\hline
-Fraud Offenses - Impersonation & 92.43 \textbackslash{}\% & 7.57 \textbackslash{}\%\\
-\hline
-Fraud Offenses - Money Laundering & 85.71 \textbackslash{}\% & 14.29 \textbackslash{}\%\\
-\hline
-Fraud Offenses - Welfare Fraud & 90.15 \textbackslash{}\% & 9.85 \textbackslash{}\%\\
-\hline
-Fraud Offenses - Wire Fraud & 92.04 \textbackslash{}\% & 7.96 \textbackslash{}\%\\
-\hline
-Fugitive Offenses - Flight To Avoid Prosecution & 30.88 \textbackslash{}\% & 69.12 \textbackslash{}\%\\
-\hline
 Fugitive Offenses - Harboring Escappee/Concealing From Arrest & 100 \textbackslash{}\% & 0 \textbackslash{}\%\\
-\hline
-Gambling Offenses - Betting/Wagering & 83.36 \textbackslash{}\% & 16.64 \textbackslash{}\%\\
-\hline
-Gambling Offenses - Gambling Equipment Violations & 91.43 \textbackslash{}\% & 8.57 \textbackslash{}\%\\
-\hline
-Gambling Offenses - Operating/Promoting/Assisting Gambling & 85.7 \textbackslash{}\% & 14.3 \textbackslash{}\%\\
-\hline
-Gambling Offenses - Sports Tampering & 66.67 \textbackslash{}\% & 33.33 \textbackslash{}\%\\
-\hline
-Human Trafficking - Commercial Sex Acts & 91.09 \textbackslash{}\% & 8.91 \textbackslash{}\%\\
-\hline
-Human Trafficking - Involuntary Servitude & 91.11 \textbackslash{}\% & 8.89 \textbackslash{}\%\\
 \hline
 Immigration Violations - Illegal Entry Into The United States & 100 \textbackslash{}\% & 0 \textbackslash{}\%\\
 \hline
 Justifiable Homicide - Not A Crime & 100 \textbackslash{}\% & 0 \textbackslash{}\%\\
 \hline
-Kidnapping/Abduction & 94.82 \textbackslash{}\% & 5.18 \textbackslash{}\%\\
-\hline
-Larceny/Theft Offenses - All Other Larceny & 98.8 \textbackslash{}\% & 1.2 \textbackslash{}\%\\
-\hline
-Larceny/Theft Offenses - Pocket-Picking & 98.83 \textbackslash{}\% & 1.17 \textbackslash{}\%\\
-\hline
-Larceny/Theft Offenses - Purse-Snatching & 98.19 \textbackslash{}\% & 1.81 \textbackslash{}\%\\
-\hline
-Larceny/Theft Offenses - Shoplifting & 98.68 \textbackslash{}\% & 1.32 \textbackslash{}\%\\
-\hline
-Larceny/Theft Offenses - Theft From Building & 99.27 \textbackslash{}\% & 0.73 \textbackslash{}\%\\
-\hline
-Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device & 89.76 \textbackslash{}\% & 10.24 \textbackslash{}\%\\
-\hline
-Larceny/Theft Offenses - Theft From Motor Vehicle & 92.84 \textbackslash{}\% & 7.16 \textbackslash{}\%\\
-\hline
-Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories & 97.81 \textbackslash{}\% & 2.19 \textbackslash{}\%\\
-\hline
-Motor Vehicle Theft & 94.69 \textbackslash{}\% & 5.31 \textbackslash{}\%\\
-\hline
 Murder/Nonnegligent Manslaughter & 100 \textbackslash{}\% & 0 \textbackslash{}\%\\
 \hline
 Negligent Manslaughter & 100 \textbackslash{}\% & 0 \textbackslash{}\%\\
 \hline
-Pornography/Obscene Material & 97.17 \textbackslash{}\% & 2.83 \textbackslash{}\%\\
-\hline
-Prostitution Offenses - Assisting Or Promoting Prostitution & 94.97 \textbackslash{}\% & 5.03 \textbackslash{}\%\\
-\hline
-Prostitution Offenses - Prostitution & 95.62 \textbackslash{}\% & 4.38 \textbackslash{}\%\\
-\hline
-Prostitution Offenses - Purchasing Prostitution & 90.29 \textbackslash{}\% & 9.71 \textbackslash{}\%\\
-\hline
-Robbery & 90.17 \textbackslash{}\% & 9.83 \textbackslash{}\%\\
-\hline
 Sex Offenses - Failure To Register As A Sex Offender & 100 \textbackslash{}\% & 0 \textbackslash{}\%\\
-\hline
-Sex Offenses - Fondling (Incident Liberties/Child Molest) & 97.12 \textbackslash{}\% & 2.88 \textbackslash{}\%\\
-\hline
-Sex Offenses - Incest & 96.43 \textbackslash{}\% & 3.57 \textbackslash{}\%\\
-\hline
-Sex Offenses - Rape & 96.7 \textbackslash{}\% & 3.3 \textbackslash{}\%\\
-\hline
-Sex Offenses - Sexual Assault With An Object & 97.33 \textbackslash{}\% & 2.67 \textbackslash{}\%\\
-\hline
-Sex Offenses - Sodomy & 97.16 \textbackslash{}\% & 2.84 \textbackslash{}\%\\
-\hline
-Sex Offenses - Statutory Rape & 97.3 \textbackslash{}\% & 2.7 \textbackslash{}\%\\
-\hline
-Stolen Property Offenses (Receiving, Selling, Etc.) & 98.73 \textbackslash{}\% & 1.27 \textbackslash{}\%\\
 \hline
 Weapon Law Violations - Violation of National Firearm Act of 1934 & 100 \textbackslash{}\% & 0 \textbackslash{}\%\\
 \hline
-Weapon Law Violations - Weapon Law Violations & 98.81 \textbackslash{}\% & 1.19 \textbackslash{}\%\\
-\hline
 \end{longtable}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{13_nibrs_offense_files/figure-latex/nibrsOffenseCompleted-1} 
+
+}
+
+\caption{The annual percent of offenses reported as completed, 1991-2022.}\label{fig:nibrsOffenseCompleted}
+\end{figure}
 
 \section{Drug, alcohol, or computer
 use}\label{drug-alcohol-or-computer-use}
@@ -10316,112 +10939,121 @@ you have a lot of data and some of it is so specific that
 you need to do extra work to aggregate data into units you
 want.
 
-\begin{longtable}[t]{l|r|r}
+\begin{longtable}[t]{l|r|r|l}
 \caption{\label{tab:offenseLocation}The location of crimes for all offenses reported in 2022.}\\
 \hline
-Crime Location & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
+Crime Location & First Year & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
 \hline
 \endfirsthead
 \caption[]{\label{tab:offenseLocation}The location of crimes for all offenses reported in 2022. \textit{(continued)}}\\
 \hline
-Crime Location & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
+Crime Location & First Year & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
 \hline
 \endhead
-Residence/Home & 4,782,593 & 37.62\textbackslash{}\%\\
+Residence/Home & 1991 & 4,782,593 & 37.62\textbackslash{}\%\\
 \hline
-Highway/Road/Alley & 2,159,647 & 16.99\textbackslash{}\%\\
+Highway/Road/Alley & 1991 & 2,159,647 & 16.99\textbackslash{}\%\\
 \hline
-Parking Lot/Garage & 1,245,424 & 9.80\textbackslash{}\%\\
+Parking Lot/Garage & 1991 & 1,245,424 & 9.80\textbackslash{}\%\\
 \hline
-Other/Unknown & 614,236 & 4.83\textbackslash{}\%\\
+Other/Unknown & 1991 & 614,236 & 4.83\textbackslash{}\%\\
 \hline
-Department/Discount Store & 495,673 & 3.90\textbackslash{}\%\\
+Department/Discount Store & 1991 & 495,673 & 3.90\textbackslash{}\%\\
 \hline
-Commercial/Office Building & 293,432 & 2.31\textbackslash{}\%\\
+Commercial/Office Building & 1991 & 293,432 & 2.31\textbackslash{}\%\\
 \hline
-Specialty Store (Tv, Fur, Etc.) & 285,175 & 2.24\textbackslash{}\%\\
+Specialty Store (Tv, Fur, Etc.) & 1991 & 285,175 & 2.24\textbackslash{}\%\\
 \hline
-Convenience Store & 282,025 & 2.22\textbackslash{}\%\\
+Convenience Store & 1991 & 282,025 & 2.22\textbackslash{}\%\\
 \hline
-Grocery/Supermarket & 263,737 & 2.07\textbackslash{}\%\\
+Grocery/Supermarket & 1991 & 263,737 & 2.07\textbackslash{}\%\\
 \hline
-Hotel/Motel/Etc. & 226,396 & 1.78\textbackslash{}\%\\
+Hotel/Motel/Etc. & 1991 & 226,396 & 1.78\textbackslash{}\%\\
 \hline
-School - Elementary/Secondary & 222,077 & 1.75\textbackslash{}\%\\
+School - Elementary/Secondary & 2009 & 222,077 & 1.75\textbackslash{}\%\\
 \hline
-Restaurant & 203,154 & 1.60\textbackslash{}\%\\
+Restaurant & 1991 & 203,154 & 1.60\textbackslash{}\%\\
 \hline
-Service/Gas Station & 190,517 & 1.50\textbackslash{}\%\\
+Service/Gas Station & 1991 & 190,517 & 1.50\textbackslash{}\%\\
 \hline
-Drug Store/Doctors Office/Hospital & 138,569 & 1.09\textbackslash{}\%\\
+Drug Store/Doctors Office/Hospital & 1991 & 138,569 & 1.09\textbackslash{}\%\\
 \hline
-Cyberspace & 127,061 & 1.00\textbackslash{}\%\\
+Cyberspace & 2015 & 127,061 & 1.00\textbackslash{}\%\\
 \hline
-Bank/Savings And Loan & 121,775 & 0.96\textbackslash{}\%\\
+Bank/Savings And Loan & 1991 & 121,775 & 0.96\textbackslash{}\%\\
 \hline
-Park/Playground & 112,826 & 0.89\textbackslash{}\%\\
+Park/Playground & 2010 & 112,826 & 0.89\textbackslash{}\%\\
 \hline
-Bar/Nightclub & 87,592 & 0.69\textbackslash{}\%\\
+Bar/Nightclub & 1991 & 87,592 & 0.69\textbackslash{}\%\\
 \hline
-Government/Public Building & 87,227 & 0.69\textbackslash{}\%\\
+Government/Public Building & 1991 & 87,227 & 0.69\textbackslash{}\%\\
 \hline
-Rental Storage Facility & 82,479 & 0.65\textbackslash{}\%\\
+Rental Storage Facility & 1991 & 82,479 & 0.65\textbackslash{}\%\\
 \hline
-Construction Site & 72,579 & 0.57\textbackslash{}\%\\
+Construction Site & 1991 & 72,579 & 0.57\textbackslash{}\%\\
 \hline
-School - College/University & 65,940 & 0.52\textbackslash{}\%\\
+School - College/University & 2009 & 65,940 & 0.52\textbackslash{}\%\\
 \hline
-Jail/Prison & 65,250 & 0.51\textbackslash{}\%\\
+Jail/Prison & 1991 & 65,250 & 0.51\textbackslash{}\%\\
 \hline
-Air/Bus/Train Terminal & 58,884 & 0.46\textbackslash{}\%\\
+Air/Bus/Train Terminal & 1991 & 58,884 & 0.46\textbackslash{}\%\\
 \hline
-Shopping Mall & 57,199 & 0.45\textbackslash{}\%\\
+Shopping Mall & 2009 & 57,199 & 0.45\textbackslash{}\%\\
 \hline
-Field/Woods & 54,266 & 0.43\textbackslash{}\%\\
+Field/Woods & 1991 & 54,266 & 0.43\textbackslash{}\%\\
 \hline
-Church/Synagogue/Temple & 42,293 & 0.33\textbackslash{}\%\\
+Church/Synagogue/Temple & 1991 & 42,293 & 0.33\textbackslash{}\%\\
 \hline
-Auto Dealership New/Used & 42,120 & 0.33\textbackslash{}\%\\
+Auto Dealership New/Used & 2009 & 42,120 & 0.33\textbackslash{}\%\\
 \hline
-Gambling Facility/Casino/Race Track & 32,557 & 0.26\textbackslash{}\%\\
+Gambling Facility/Casino/Race Track & 2009 & 32,557 & 0.26\textbackslash{}\%\\
 \hline
-School/College & 30,474 & 0.24\textbackslash{}\%\\
+School/College & 1991 & 30,474 & 0.24\textbackslash{}\%\\
 \hline
-Liquor Store & 28,907 & 0.23\textbackslash{}\%\\
+Liquor Store & 1991 & 28,907 & 0.23\textbackslash{}\%\\
 \hline
-Industrial Site & 22,938 & 0.18\textbackslash{}\%\\
+Industrial Site & 2009 & 22,938 & 0.18\textbackslash{}\%\\
 \hline
-Community Center & 14,362 & 0.11\textbackslash{}\%\\
+Community Center & 2012 & 14,362 & 0.11\textbackslash{}\%\\
 \hline
-Camp/Campground & 12,287 & 0.10\textbackslash{}\%\\
+Camp/Campground & 2009 & 12,287 & 0.10\textbackslash{}\%\\
 \hline
-Shelter - Mission/Homeless & 11,573 & 0.09\textbackslash{}\%\\
+Shelter - Mission/Homeless & 2010 & 11,573 & 0.09\textbackslash{}\%\\
 \hline
-Lake/Waterway & 11,237 & 0.09\textbackslash{}\%\\
+Lake/Waterway & 1991 & 11,237 & 0.09\textbackslash{}\%\\
 \hline
-Farm Facility & 10,580 & 0.08\textbackslash{}\%\\
+Farm Facility & 2009 & 10,580 & 0.08\textbackslash{}\%\\
 \hline
-Arena/Stadium/Fairgrounds/Coliseum & 9,586 & 0.08\textbackslash{}\%\\
+Arena/Stadium/Fairgrounds/Coliseum & 2009 & 9,586 & 0.08\textbackslash{}\%\\
 \hline
-Atm Separate From Bank & 9,214 & 0.07\textbackslash{}\%\\
+Atm Separate From Bank & 2009 & 9,214 & 0.07\textbackslash{}\%\\
 \hline
-Abandoned/Condemned Structure & 8,757 & 0.07\textbackslash{}\%\\
+Abandoned/Condemned Structure & 2010 & 8,757 & 0.07\textbackslash{}\%\\
 \hline
-Amusement Park & 7,275 & 0.06\textbackslash{}\%\\
+Amusement Park & 2010 & 7,275 & 0.06\textbackslash{}\%\\
 \hline
-Daycare Facility & 7,268 & 0.06\textbackslash{}\%\\
+Daycare Facility & 2009 & 7,268 & 0.06\textbackslash{}\%\\
 \hline
-Dock/Wharf/Freight/Model Terminal & 6,469 & 0.05\textbackslash{}\%\\
+Dock/Wharf/Freight/Model Terminal & 2009 & 6,469 & 0.05\textbackslash{}\%\\
 \hline
-Tribal Lands & 5,372 & 0.04\textbackslash{}\%\\
+Tribal Lands & 2011 & 5,372 & 0.04\textbackslash{}\%\\
 \hline
-Rest Area & 3,216 & 0.03\textbackslash{}\%\\
+Rest Area & 2009 & 3,216 & 0.03\textbackslash{}\%\\
 \hline
-Military Installation & 595 & 0.00\textbackslash{}\%\\
+Military Installation & 2010 & 595 & 0.00\textbackslash{}\%\\
 \hline
-Total & 12,712,813 & 100\textbackslash{}\%\\
+Total & - & 12,712,813 & 100\textbackslash{}\%\\
 \hline
 \end{longtable}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{13_nibrs_offense_files/figure-latex/nibrsOffenseHome-1} 
+
+}
+
+\caption{The annual percent of offenses reported as occuring at the victim's home, 1991-2022.}\label{fig:nibrsOffenseHome}
+\end{figure}
 
 \section{Weapons}\label{offenseWeapons}
 
@@ -10554,13 +11186,18 @@ Fire/Incendiary Device & 1,476 & 0.05\textbackslash{}\%\\
 \hline
 Poison (Include Gas) & 664 & 0.02\textbackslash{}\%\\
 \hline
-16 & 1 & 0.00\textbackslash{}\%\\
-\hline
-17 & 1 & 0.00\textbackslash{}\%\\
-\hline
-Total & 3,004,537 & 100\textbackslash{}\%\\
+Total & 3,004,535 & 100\textbackslash{}\%\\
 \hline
 \end{longtable}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{13_nibrs_offense_files/figure-latex/nibrsMurdersWeapon-1} 
+
+}
+
+\caption{The annual percent of murders and nonnegligent homicides, by offender weapon, 1991-2022.}\label{fig:nibrsMurdersWeapon}
+\end{figure}
 
 \section{Automatic weapons}\label{automatic-weapons}
 
@@ -10653,11 +11290,11 @@ no force is used.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.9\linewidth]{13_nibrs_offense_files/figure-latex/offensesTypeOfEntry-1} 
+{\centering \includegraphics[width=0.9\linewidth]{13_nibrs_offense_files/figure-latex/nibrsBurglaryForce-1} 
 
 }
 
-\caption{The percent of burglaries reported in 2022 where the burglary entered the structure forcibly or non-forcibly.}\label{fig:offensesTypeOfEntry}
+\caption{The annual percent of burglaries, by whether entry used force, 1991-2022.}\label{fig:nibrsBurglaryForce}
 \end{figure}
 
 \section{Hate crime indicator (bias
@@ -10733,21 +11370,21 @@ crimes. This still leaves a 63,876 offenses classified as
 hate crimes.
 
 \begin{longtable}[t]{l|r|r}
-\caption{\label{tab:offenseBiasMotivation}The number and percent of offenders that had a bias motivation or not for all offenses reported in 2022.}\\
+\caption{\label{tab:offenseBiasMotivation}The number and percent of incidents that had a bias motivation for all incidents reported in 2022.}\\
 \hline
 Bias Motivation & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
 \hline
 \endfirsthead
-\caption[]{\label{tab:offenseBiasMotivation}The number and percent of offenders that had a bias motivation or not for all offenses reported in 2022. \textit{(continued)}}\\
+\caption[]{\label{tab:offenseBiasMotivation}The number and percent of incidents that had a bias motivation for all incidents reported in 2022. \textit{(continued)}}\\
 \hline
 Bias Motivation & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
 \hline
 \endhead
-No Bias Motivation & 12,610,154 & 99.19\textbackslash{}\%\\
+No Bias Motivation & 11,116,085 & 99.18\textbackslash{}\%\\
 \hline
-Bias Motivation & 102,659 & 0.81\textbackslash{}\%\\
+Bias Motivation & 91,549 & 0.82\textbackslash{}\%\\
 \hline
-Total & 12,712,813 & 100\textbackslash{}\%\\
+Total & 11,207,634 & 100\textbackslash{}\%\\
 \hline
 \end{longtable}
 
@@ -10782,87 +11419,96 @@ of the subcategories could vastly undercount offenses
 against the larger category.
 
 \begin{longtable}[t]{l|r|r}
-\caption{\label{tab:offenseBiasMotivationBiases}The bias motivation (i.e. if hate crime or not and what type of hate crime) for all offenses reported in 2022 that were classified as hate crimes. For easier viewing of how hate crimes are broken down, this excludes all offenses where there was no bias motivation.}\\
+\caption{\label{tab:offenseBiasMotivationBiases}The bias motivation (i.e. if it was a hate crime and what type of hate crime) for all incidents reported in 2022 that were classified as hate crimes. For easier viewing of how hate crimes are broken down, this excludes all offenses where there was no bias motivation.}\\
 \hline
 Bias Motivation & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
 \hline
 \endfirsthead
-\caption[]{\label{tab:offenseBiasMotivationBiases}The bias motivation (i.e. if hate crime or not and what type of hate crime) for all offenses reported in 2022 that were classified as hate crimes. For easier viewing of how hate crimes are broken down, this excludes all offenses where there was no bias motivation. \textit{(continued)}}\\
+\caption[]{\label{tab:offenseBiasMotivationBiases}The bias motivation (i.e. if it was a hate crime and what type of hate crime) for all incidents reported in 2022 that were classified as hate crimes. For easier viewing of how hate crimes are broken down, this excludes all offenses where there was no bias motivation. \textit{(continued)}}\\
 \hline
 Bias Motivation & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
 \hline
 \endhead
-Anti-Black & 2,806 & 31.43\textbackslash{}\%\\
+Anti-Black & 2,623 & 31.69\textbackslash{}\%\\
 \hline
-Anti-White & 890 & 9.97\textbackslash{}\%\\
+Anti-White & 837 & 10.11\textbackslash{}\%\\
 \hline
-Anti-Gay (Male) & 752 & 8.42\textbackslash{}\%\\
+Anti-Gay (Male) & 719 & 8.69\textbackslash{}\%\\
 \hline
-Anti-Jewish & 577 & 6.46\textbackslash{}\%\\
+Anti-Jewish & 554 & 6.69\textbackslash{}\%\\
 \hline
-Anti-Lesbian, Gay, Bisexual, Or Transgender (Mixed Group) & 571 & 6.39\textbackslash{}\%\\
+Anti-Lesbian, Gay, Bisexual, Or Transgender (Mixed Group) & 523 & 6.32\textbackslash{}\%\\
 \hline
-Anti-Hispanic & 561 & 6.28\textbackslash{}\%\\
+Anti-Hispanic & 506 & 6.11\textbackslash{}\%\\
 \hline
-Anti-Asian & 304 & 3.40\textbackslash{}\%\\
+Anti-Other Race/Ethnicity/National Origin & 287 & 3.47\textbackslash{}\%\\
 \hline
-Anti-Other Race/Ethnicity/National Origin & 300 & 3.36\textbackslash{}\%\\
+Anti-Asian & 277 & 3.35\textbackslash{}\%\\
 \hline
-Anti-Transgender & 262 & 2.93\textbackslash{}\%\\
+Anti-Transgender & 250 & 3.02\textbackslash{}\%\\
 \hline
-Anti-Multi-Racial Group & 215 & 2.41\textbackslash{}\%\\
+Anti-Multi-Racial Group & 202 & 2.44\textbackslash{}\%\\
 \hline
-Anti-American Indian Or Alaskan Native & 187 & 2.09\textbackslash{}\%\\
+Anti-American Indian Or Alaskan Native & 152 & 1.84\textbackslash{}\%\\
 \hline
-Anti-Sikh & 178 & 1.99\textbackslash{}\%\\
+Anti-Sikh & 151 & 1.82\textbackslash{}\%\\
 \hline
-Anti-Lesbian (Female) & 149 & 1.67\textbackslash{}\%\\
+Anti-Lesbian (Female) & 143 & 1.73\textbackslash{}\%\\
 \hline
-Anti-Islamic (Muslim) & 121 & 1.36\textbackslash{}\%\\
+Anti-Gender Non-Conforming & 110 & 1.33\textbackslash{}\%\\
 \hline
-Anti-Gender Non-Conforming & 118 & 1.32\textbackslash{}\%\\
+Anti-Islamic (Muslim) & 109 & 1.32\textbackslash{}\%\\
 \hline
-Anti-Other Christian & 94 & 1.05\textbackslash{}\%\\
+Anti-Mental Disability & 87 & 1.05\textbackslash{}\%\\
 \hline
-Anti-Mental Disability & 93 & 1.04\textbackslash{}\%\\
+Anti-Other Christian & 82 & 0.99\textbackslash{}\%\\
 \hline
-Anti-Other Religion & 84 & 0.94\textbackslash{}\%\\
+Anti-Other Religion & 73 & 0.88\textbackslash{}\%\\
 \hline
-Anti-Physical Disability & 76 & 0.85\textbackslash{}\%\\
+Anti-Physical Disability & 70 & 0.85\textbackslash{}\%\\
 \hline
-Anti-Arab & 76 & 0.85\textbackslash{}\%\\
+Anti-Arab & 70 & 0.85\textbackslash{}\%\\
 \hline
-Anti-Catholic & 76 & 0.85\textbackslash{}\%\\
+Anti-Catholic & 68 & 0.82\textbackslash{}\%\\
 \hline
-Anti-Eastern Orthodox (Greek, Russian, Etc.) & 75 & 0.84\textbackslash{}\%\\
+Anti-Eastern Orthodox (Greek, Russian, Etc.) & 65 & 0.79\textbackslash{}\%\\
 \hline
-Anti-Female & 71 & 0.80\textbackslash{}\%\\
+Anti-Female & 64 & 0.77\textbackslash{}\%\\
 \hline
-Anti-Protestant & 56 & 0.63\textbackslash{}\%\\
+Anti-Protestant & 48 & 0.58\textbackslash{}\%\\
 \hline
-Anti-Multi-Religious Group & 42 & 0.47\textbackslash{}\%\\
+Anti-Multi-Religious Group & 36 & 0.43\textbackslash{}\%\\
 \hline
-Anti-Bisexual & 34 & 0.38\textbackslash{}\%\\
+Anti-Bisexual & 32 & 0.39\textbackslash{}\%\\
 \hline
-Anti-Mormon & 32 & 0.36\textbackslash{}\%\\
+Anti-Mormon & 26 & 0.31\textbackslash{}\%\\
 \hline
-Anti-Native Hawaiian Or Other Pacific Islander & 26 & 0.29\textbackslash{}\%\\
+Anti-Native Hawaiian Or Other Pacific Islander & 24 & 0.29\textbackslash{}\%\\
 \hline
-Anti-Heterosexual & 21 & 0.24\textbackslash{}\%\\
+Anti-Heterosexual & 18 & 0.22\textbackslash{}\%\\
 \hline
-Anti-Hindu & 20 & 0.22\textbackslash{}\%\\
+Anti-Hindu & 18 & 0.22\textbackslash{}\%\\
 \hline
-Anti-Buddhist & 19 & 0.21\textbackslash{}\%\\
+Anti-Buddhist & 17 & 0.21\textbackslash{}\%\\
 \hline
-Anti-Male & 18 & 0.20\textbackslash{}\%\\
+Anti-Male & 15 & 0.18\textbackslash{}\%\\
 \hline
-Anti-Atheism/Agnosticism & 14 & 0.16\textbackslash{}\%\\
+Anti-Atheism/Agnosticism & 12 & 0.14\textbackslash{}\%\\
 \hline
-Anti-Jehovahs Witness & 11 & 0.12\textbackslash{}\%\\
+Anti-Jehovahs Witness & 10 & 0.12\textbackslash{}\%\\
 \hline
-Total & 8,929 & 100\textbackslash{}\%\\
+Total & 8,278 & 100\textbackslash{}\%\\
 \hline
 \end{longtable}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{13_nibrs_offense_files/figure-latex/nibrsOffenseBias-1} 
+
+}
+
+\caption{The annual percent of offenses reported as having a bias motivation (i.e. hate crime), 1993-2022.}\label{fig:nibrsOffenseBias}
+\end{figure}
 
 \chapter{Offender Segment}\label{offender-segment-1}
 
@@ -10894,6 +11540,15 @@ standard set of variables: the agency ORI, the incident
 number, the state the agency is in, and the incident date
 (though we'd need to check the Administrative Segment to see
 if this is actually the incident date or the report date).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{14_nibrs_offender_files/figure-latex/nibrsOffenderAgenciesReporting-1} 
+
+}
+
+\caption{The annual number of agencies reporting data in the NIBRS Offender Segment, 1991-2022.}\label{fig:nibrsOffenderAgenciesReporting}
+\end{figure}
 
 \section{Demographics}\label{demographics-1}
 
@@ -10970,6 +11625,24 @@ tend to like multiples of five when making estimates, so
 these indicate that someone (the victim or the officer)
 probably didn't know the exact age and so guessed the age.
 
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{14_nibrs_offender_files/figure-latex/nibrsOffenderAge-1} 
+
+}
+
+\caption{The mean and median age of offenders, 1991-2022.}\label{fig:nibrsOffenderAge}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{14_nibrs_offender_files/figure-latex/nibrsOffenderAgeMissing-1} 
+
+}
+
+\caption{The percent of offender's age that is unknown, 1991-2022.}\label{fig:nibrsOffenderAgeMissing}
+\end{figure}
+
 \subsection{Sex}\label{sex-1}
 
 The second offender demographic variable available is the
@@ -10991,11 +11664,11 @@ actually an undercount of offenders who have unknown sex.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.9\linewidth]{14_nibrs_offender_files/figure-latex/offenderSex-1} 
+{\centering \includegraphics[width=0.9\linewidth]{14_nibrs_offender_files/figure-latex/nibrsOffenderSex-1} 
 
 }
 
-\caption{The sex of all offenders reported in the 2022 NIBRS data.}\label{fig:offenderSex}
+\caption{The share of offenders by sex, 1991-2022.}\label{fig:nibrsOffenderSex}
 \end{figure}
 
 \subsection{Race}\label{race-2}
@@ -11037,11 +11710,22 @@ Hawaiian/Other Pacific Islander at 0.24\%.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.9\linewidth]{14_nibrs_offender_files/figure-latex/offenderRace-1} 
+{\centering \includegraphics[width=0.9\linewidth]{14_nibrs_offender_files/figure-latex/nibrsOffenderRace-1} 
 
 }
 
-\caption{The race of all offenders reported in the 2022 NIBRS data.}\label{fig:offenderRace}
+\caption{The share of offenders by race, 1991-2022.}\label{fig:nibrsOffenderRace}
+\end{figure}
+
+\subsection{Ethnicity}\label{ethnicity-2}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{14_nibrs_offender_files/figure-latex/nibrsOffenderEthnicity-1} 
+
+}
+
+\caption{The share of offenders by ethnicity, 1991-2022.}\label{fig:nibrsOffenderEthnicity}
 \end{figure}
 
 \chapter{Victim Segment}\label{victim-segment-1}
@@ -11096,6 +11780,15 @@ incident number. It also has a ``victim sequence number''
 which is a number identifying the victim in an incident
 since some incidents have multiple victims.
 
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsVictimAgenciesReporting-1} 
+
+}
+
+\caption{The annual number of agencies reporting data in the NIBRS Victim Segment, 1991-2022.}\label{fig:nibrsVictimAgenciesReporting}
+\end{figure}
+
 \section{Crime category}\label{crime-category-1}
 
 The first variable we'll look at is the crime the victim
@@ -11132,12 +11825,12 @@ victimized by. And the only remaining crime that accounts
 for 5\% or more of offenses is burglary at 6.4\%.
 
 \begin{longtable}[t]{l|r|r}
-\caption{\label{tab:victimCrimeCategory}The number and percent of crimes committed against each victim. For victims with multiple crimes committed against them, this shows the most serious crime.}\\
+\caption{\label{tab:victimCrimeCategory}The number and percent of crimes committed against each victim. For victims with multiple crimes committed against them, this shows the first crime reported, 2022.}\\
 \hline
 Crime Category & \textbackslash{}\# of Victims & \textbackslash{}\% of Victims\\
 \hline
 \endfirsthead
-\caption[]{\label{tab:victimCrimeCategory}The number and percent of crimes committed against each victim. For victims with multiple crimes committed against them, this shows the most serious crime. \textit{(continued)}}\\
+\caption[]{\label{tab:victimCrimeCategory}The number and percent of crimes committed against each victim. For victims with multiple crimes committed against them, this shows the first crime reported, 2022. \textit{(continued)}}\\
 \hline
 Crime Category & \textbackslash{}\# of Victims & \textbackslash{}\% of Victims\\
 \hline
@@ -11268,6 +11961,79 @@ Total & 12,652,993 & 100\textbackslash{}\%\\
 \hline
 \end{longtable}
 
+\begin{longtable}[t]{l|r|r|l}
+\caption{\label{tab:offenseOfficerCrimeCategories}The number and percent of crimes reported for offenses where the victim type was 'law enforcement officer,' 2022.}\\
+\hline
+Crime Category & First Year & \# of Victims in 1st Year & \# of Victims in 2022\\
+\hline
+\endfirsthead
+\caption[]{\label{tab:offenseOfficerCrimeCategories}The number and percent of crimes reported for offenses where the victim type was 'law enforcement officer,' 2022. \textit{(continued)}}\\
+\hline
+Crime Category & First Year & \# of Victims in 1st Year & \# of Victims in 2022\\
+\hline
+\endhead
+Assault Offenses - Aggravated Assault & 2002 & 69 & 17616\\
+\hline
+Assault Offenses - Simple Assault & 2002 & 86 & 47190\\
+\hline
+Kidnapping/Abduction & 2002 & 1 & 8\\
+\hline
+Assault Offenses - Intimidation & 2003 & 4 & 8584\\
+\hline
+Burglary/Breaking And Entering & 2003 & 1 & 0\\
+\hline
+Destruction/Damage/Vandalism of Property & 2003 & 1 & 0\\
+\hline
+Murder/Nonnegligent Manslaughter & 2003 & 2 & 55\\
+\hline
+Stolen Property Offenses (Receiving, Selling, Etc.) & 2003 & 2 & 0\\
+\hline
+Bribery & 2004 & 1 & 0\\
+\hline
+Fraud Offenses - False Pretenses/Swindle/Confidence Game & 2004 & 2 & 0\\
+\hline
+Larceny/Theft Offenses - All Other Larceny & 2004 & 1 & 0\\
+\hline
+Larceny/Theft Offenses - Shoplifting & 2004 & 1 & 0\\
+\hline
+Motor Vehicle Theft & 2004 & 1 & 0\\
+\hline
+Fraud Offenses - Impersonation & 2006 & 1 & 0\\
+\hline
+Larceny/Theft Offenses - Theft From Motor Vehicle & 2008 & 1 & 0\\
+\hline
+Counterfeiting/Forgery & 2009 & 1 & 0\\
+\hline
+Arson & 2011 & 1 & 0\\
+\hline
+Larceny/Theft Offenses - Theft From Building & 2011 & 1 & 0\\
+\hline
+Sex Offenses - Fondling (Incident Liberties/Child Molest) & 2014 & 1 & 0\\
+\hline
+Larceny/Theft Offenses - Pocket-Picking & 2018 & 1 & 0\\
+\hline
+Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories & 2018 & 1 & 0\\
+\hline
+\end{longtable}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsFirstVsAllOffensesMurders-1} 
+
+}
+
+\caption{The numbers of murders when considering only the first offense or all offenses, 1991-2022.}\label{fig:nibrsFirstVsAllOffensesMurders}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsFirstVsAllOffensesSexOffenses-1} 
+
+}
+
+\caption{The numbers of sexual offenders when considering only the first offense or all offenses, 1991-2022.}\label{fig:nibrsFirstVsAllOffensesSexOffenses}
+\end{figure}
+
 \section{Victim type}\label{victim-type}
 
 I spoke above as if all victims are people who are
@@ -11277,7 +12043,7 @@ has nine different types of victims (including ``unknown''
 type and ``other'' type) in the data and it tells us which
 type each victim is.
 
-Figure \ref{fig:victimType} shows each of the victim types
+Table \ref{tab:victimType} shows each of the victim types
 and how commonly they appear in the data. Two key ones are
 ``individual'' at 69.4\% of victims and law enforcement
 officer at 0.5\% of victims. Law enforcement officers who
@@ -11311,13 +12077,55 @@ weapon offenses. The remaining categories - financial
 institution, other victim type, unknown victim type, and
 religion organization - are each under 0.25\% of victims.
 
+\begin{longtable}[t]{l|r|r|l}
+\caption{\label{tab:victimType}The distribution of the type of victim, 2022. Victim types are mutually exclusive.}\\
+\hline
+Type of Victim & First Year & \textbackslash{}\# of Victims & \textbackslash{}\% of Victims\\
+\hline
+\endfirsthead
+\caption[]{\label{tab:victimType}The distribution of the type of victim, 2022. Victim types are mutually exclusive. \textit{(continued)}}\\
+\hline
+Type of Victim & First Year & \textbackslash{}\# of Victims & \textbackslash{}\% of Victims\\
+\hline
+\endhead
+Individual & 1991 & 8,983,510 & 71.00\textbackslash{}\%\\
+\hline
+Business & 1991 & 1,897,966 & 15.00\textbackslash{}\%\\
+\hline
+Society/Public & 1991 & 1,466,005 & 11.59\textbackslash{}\%\\
+\hline
+Government & 1991 & 139,194 & 1.10\textbackslash{}\%\\
+\hline
+Law Enforcement Officer & 2002 & 73,453 & 0.58\textbackslash{}\%\\
+\hline
+Other & 1991 & 36,800 & 0.29\textbackslash{}\%\\
+\hline
+Financial Institution & 1991 & 21,144 & 0.17\textbackslash{}\%\\
+\hline
+Unknown & 1991 & 17,953 & 0.14\textbackslash{}\%\\
+\hline
+Religious Organization & 1991 & 16,968 & 0.13\textbackslash{}\%\\
+\hline
+Total & - & 12,652,993 & 100\textbackslash{}\%\\
+\hline
+\end{longtable}
+
 \begin{figure}
 
-{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/victimType-1} 
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsVictimNumberOfficer-1} 
 
 }
 
-\caption{The distribution of the type of victim. Victim types are mutually exclusive.}\label{fig:victimType}
+\caption{The annual number of law enforcement officer victims, 1991-2022.}\label{fig:nibrsVictimNumberOfficer}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsVictimPercentIndividualOfficer-1} 
+
+}
+
+\caption{Percent of victimizations whose victim type of 'law enforcement officer,' 'business,' or 'invidual,' 1991-2022.}\label{fig:nibrsVictimPercentIndividualOfficer}
 \end{figure}
 
 \section{Injury}\label{injury}
@@ -11402,7 +12210,7 @@ those who suffered a minor injury.
 
 }
 
-\caption{The distribution of the injury sustained by the victim. Only individual and law enforcement officer victims have this variable available.}\label{fig:victimInjury}
+\caption{The distribution of the injury sustained by the victim, 2022. Only individual and law enforcement officer victims have this variable availablem.}\label{fig:victimInjury}
 \end{figure}
 
 For the group who suffered one of the six more serious
@@ -11425,7 +12233,16 @@ enforcement officer victims.
 
 }
 
-\caption{The distribution of the injury sustained by the victim for those who had an injury other than 'none' or 'apparent minor injuries'.}\label{fig:victimInjuryExcludeNone}
+\caption{The distribution of the injury sustained by the victim for those who had an injury other than 'none' or 'apparent minor injuries,' 2022.}\label{fig:victimInjuryExcludeNone}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsVictimAssaultInjury-1} 
+
+}
+
+\caption{Victim injury for assault offenses, by injury severity, 1991-2022. Major injury is all injury types other than 'none' and 'apparent minor injuries' which are 'other major injury,' 'severe laceration,' possible internal injury,' apparent broken bones,' 'unconsciousness,' and 'loss of teeth.'}\label{fig:nibrsVictimAssaultInjury}
 \end{figure}
 
 \section{Relationship to
@@ -11465,12 +12282,12 @@ Report} data, this variable - and the two following
 variables - is also in that dataset.
 
 \begin{longtable}[t]{l|r|r}
-\caption{\label{tab:victimRelationship}The distribution of the relationship between the victim and the offender. Only individual and law enforcement officer victims have this variable available.}\\
+\caption{\label{tab:victimRelationship}The distribution of the relationship between the victim and the offender. Only individual and law enforcement officer victims have this variable available, 2022.}\\
 \hline
 Crime Category & \textbackslash{}\# of Victims & \textbackslash{}\% of Victims\\
 \hline
 \endfirsthead
-\caption[]{\label{tab:victimRelationship}The distribution of the relationship between the victim and the offender. Only individual and law enforcement officer victims have this variable available. \textit{(continued)}}\\
+\caption[]{\label{tab:victimRelationship}The distribution of the relationship between the victim and the offender. Only individual and law enforcement officer victims have this variable available, 2022. \textit{(continued)}}\\
 \hline
 Crime Category & \textbackslash{}\# of Victims & \textbackslash{}\% of Victims\\
 \hline
@@ -11548,12 +12365,12 @@ babysitter. These seem to be clear indications that there
 are some data errors with this variable.
 
 \begin{longtable}[t]{l|r|r}
-\caption{\label{tab:victimRelationshipPolice}The distribution of the relationship between the victim and the offender for law enforcement officer victims.}\\
+\caption{\label{tab:victimRelationshipPolice}The distribution of the relationship between the victim and the offender for law enforcement officer victims, 2022.}\\
 \hline
 Crime Category & \textbackslash{}\# of Victims & \textbackslash{}\% of Victims\\
 \hline
 \endfirsthead
-\caption[]{\label{tab:victimRelationshipPolice}The distribution of the relationship between the victim and the offender for law enforcement officer victims. \textit{(continued)}}\\
+\caption[]{\label{tab:victimRelationshipPolice}The distribution of the relationship between the victim and the offender for law enforcement officer victims, 2022. \textit{(continued)}}\\
 \hline
 Crime Category & \textbackslash{}\# of Victims & \textbackslash{}\% of Victims\\
 \hline
@@ -11612,6 +12429,15 @@ Total & 72,917 & 100\textbackslash{}\%\\
 \hline
 \end{longtable}
 
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsVictimAssaultSpouse-1} 
+
+}
+
+\caption{The annual percent of assault victims whose perpetrator is their spouse, 1991-2022.}\label{fig:nibrsVictimAssaultSpouse}
+\end{figure}
+
 \section{Aggravated assault and homicide
 circumstances}\label{aggravated-assault-and-homicide-circumstances}
 
@@ -11632,12 +12458,12 @@ most common group at 2.8\% of victims. All other groups are
 less common than 2\% of victims.
 
 \begin{longtable}[t]{l|r|r|l}
-\caption{\label{tab:victimAggAssault}The distribution of circumstances for aggravated assault and homicides.}\\
+\caption{\label{tab:victimAggAssault}The distribution of circumstances for aggravated assault and homicides, 2022.}\\
 \hline
 Circumstance & Crime Category & \textbackslash{}\# of Victims & \textbackslash{}\% of Victims\\
 \hline
 \endfirsthead
-\caption[]{\label{tab:victimAggAssault}The distribution of circumstances for aggravated assault and homicides. \textit{(continued)}}\\
+\caption[]{\label{tab:victimAggAssault}The distribution of circumstances for aggravated assault and homicides, 2022. \textit{(continued)}}\\
 \hline
 Circumstance & Crime Category & \textbackslash{}\# of Victims & \textbackslash{}\% of Victims\\
 \hline
@@ -11744,15 +12570,6 @@ of the jurisdiction where they were victimized while 12.5\%
 were not residents. 20.4\% of victims have an unknown
 resident status.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/victimResidenceStatus-1} 
-
-}
-
-\caption{The distribution of residence status for all victims reported to NIBRS in 2022. Residence status is residence in the police agency's jurisdiction (e.g. do you live in the city you were victimized in?). It is unrelated to citizenship or immigration status.}\label{fig:victimResidenceStatus}
-\end{figure}
-
 One proposed measure to improve policing is to require
 police officers (or at least newly hired officers) live in
 the city where they work. The idea here is that people will
@@ -11779,7 +12596,16 @@ unknown residence status.
 
 }
 
-\caption{The distribution of residence status for all Law Enforcement Officer victims.}\label{fig:victimResidenceStatusPolice}
+\caption{The distribution of residence status for all Law Enforcement Officer victims, 2022.}\label{fig:victimResidenceStatusPolice}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsVictimResidentStatus-1} 
+
+}
+
+\caption{The share of victims by resident status in the reporting agency's jurisdiction, 1991-2022.}\label{fig:nibrsVictimResidentStatus}
 \end{figure}
 
 \subsection{Age}\label{age-3}
@@ -11810,7 +12636,25 @@ looking at.
 
 }
 
-\caption{The age of all victims reported in the 2022 NIBRS data.}\label{fig:victimAge}
+\caption{The age of all victims, 2022.}\label{fig:victimAge}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsVictimAge-1} 
+
+}
+
+\caption{The mean and median age of victims, 1991-2022.}\label{fig:nibrsVictimAge}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsVictimAgeMissing-1} 
+
+}
+
+\caption{The percent of victim's age that is unknown, 1991-2022.}\label{fig:nibrsVictimAgeMissing}
 \end{figure}
 
 \subsection{Sex}\label{sex-2}
@@ -11837,11 +12681,11 @@ other crimes.\footnote{Murder and other violent crimes are
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/victimSex-1} 
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsVictimSex-1} 
 
 }
 
-\caption{The sex of all victims reported in the 2022 NIBRS data.}\label{fig:victimSex}
+\caption{The share of victims by sex, 1991-2022.}\label{fig:nibrsVictimSex}
 \end{figure}
 
 \subsection{Race}\label{race-3}
@@ -11866,14 +12710,14 @@ victims, 0,7\% American Indian/Alaskan Native victims, and
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/victimRace-1} 
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsVictimRace-1} 
 
 }
 
-\caption{The race of all victims reported in the 2022 NIBRS data.}\label{fig:victimRace}
+\caption{The share of victims by race, 1991-2022.}\label{fig:nibrsVictimRace}
 \end{figure}
 
-\subsection{Ethnicity}\label{ethnicity-2}
+\subsection{Ethnicity}\label{ethnicity-3}
 
 The final demographics variable for victims is their
 ethnicity, which is whether they are Hispanic or not.
@@ -11910,11 +12754,11 @@ data) have a much higher reporting rate.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/victimEthnicity-1} 
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsVictimEthnicity-1} 
 
 }
 
-\caption{The ethnicity of all victims reported in the 2022 NIBRS data.}\label{fig:victimEthnicity}
+\caption{The share of victims by ethnicity, 1991-2022.}\label{fig:nibrsVictimEthnicity}
 \end{figure}
 
 \chapter{Arrestee, Group B Arrestee, and Window Arrestee
@@ -11985,6 +12829,15 @@ associated with how involved the arrestee is. Being the 1st
 arrestee, for example, doesn't mean that individual played a
 greater role in the crime than the 2nd arrestee.
 
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/nibrsArresteeAgenciesReporting-1} 
+
+}
+
+\caption{The annual number of agencies reporting data in the NIBRS Arrestee and Group B Arrestee Segments, 1991-2022.}\label{fig:nibrsArresteeAgenciesReporting}
+\end{figure}
+
 \section{Crimes arrested for}\label{crimes-arrested-for}
 
 This segment tells us which offense the arrestee was
@@ -12040,154 +12893,154 @@ scale sales but is all grouped into ``drug/narcotic
 violations'' here) while other crimes are specific
 (e.g.~purse-snatching is a very specific form of theft).
 
-\begin{longtable}[t]{l|r|r}
+\begin{longtable}[t]{l|r|r|l}
 \caption{\label{tab:arresteeCrime}The number and percent of arrests for Group A crimes for all arrests reported to NIBRS in 2022.}\\
 \hline
-Crime Category & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
+Crime Category & First Year & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
 \hline
 \endfirsthead
 \caption[]{\label{tab:arresteeCrime}The number and percent of arrests for Group A crimes for all arrests reported to NIBRS in 2022. \textit{(continued)}}\\
 \hline
-Crime Category & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
+Crime Category & First Year & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
 \hline
 \endhead
-Drug/Narcotic Offenses - Drug/Narcotic Violations & 651,593 & 22.44\textbackslash{}\%\\
+Drug/Narcotic Offenses - Drug/Narcotic Violations & 1991 & 651,593 & 22.44\textbackslash{}\%\\
 \hline
-Assault Offenses - Simple Assault & 625,914 & 21.55\textbackslash{}\%\\
+Assault Offenses - Simple Assault & 1991 & 625,914 & 21.55\textbackslash{}\%\\
 \hline
-Larceny/Theft Offenses - Shoplifting & 262,281 & 9.03\textbackslash{}\%\\
+Larceny/Theft Offenses - Shoplifting & 1991 & 262,281 & 9.03\textbackslash{}\%\\
 \hline
-Assault Offenses - Aggravated Assault & 217,608 & 7.49\textbackslash{}\%\\
+Assault Offenses - Aggravated Assault & 1991 & 217,608 & 7.49\textbackslash{}\%\\
 \hline
-Drug/Narcotic Offenses - Drug Equipment Violations & 142,720 & 4.91\textbackslash{}\%\\
+Drug/Narcotic Offenses - Drug Equipment Violations & 1991 & 142,720 & 4.91\textbackslash{}\%\\
 \hline
-Weapon Law Violations - Weapon Law Violations & 123,203 & 4.24\textbackslash{}\%\\
+Weapon Law Violations - Weapon Law Violations & 1991 & 123,203 & 4.24\textbackslash{}\%\\
 \hline
-Larceny/Theft Offenses - All Other Larceny & 121,677 & 4.19\textbackslash{}\%\\
+Larceny/Theft Offenses - All Other Larceny & 1991 & 121,677 & 4.19\textbackslash{}\%\\
 \hline
-Destruction/Damage/Vandalism of Property & 113,049 & 3.89\textbackslash{}\%\\
+Destruction/Damage/Vandalism of Property & 1991 & 113,049 & 3.89\textbackslash{}\%\\
 \hline
-Assault Offenses - Intimidation & 85,136 & 2.93\textbackslash{}\%\\
+Assault Offenses - Intimidation & 1991 & 85,136 & 2.93\textbackslash{}\%\\
 \hline
-Burglary/Breaking And Entering & 82,832 & 2.85\textbackslash{}\%\\
+Burglary/Breaking And Entering & 1991 & 82,832 & 2.85\textbackslash{}\%\\
 \hline
-All Other Offenses & 71,084 & 2.45\textbackslash{}\%\\
+All Other Offenses & 1991 & 71,084 & 2.45\textbackslash{}\%\\
 \hline
-Stolen Property Offenses (Receiving, Selling, Etc.) & 57,907 & 1.99\textbackslash{}\%\\
+Stolen Property Offenses (Receiving, Selling, Etc.) & 1991 & 57,907 & 1.99\textbackslash{}\%\\
 \hline
-Motor Vehicle Theft & 52,882 & 1.82\textbackslash{}\%\\
+Motor Vehicle Theft & 1991 & 52,882 & 1.82\textbackslash{}\%\\
 \hline
-Robbery & 38,048 & 1.31\textbackslash{}\%\\
+Robbery & 1991 & 38,048 & 1.31\textbackslash{}\%\\
 \hline
-Fraud Offenses - False Pretenses/Swindle/Confidence Game & 31,922 & 1.10\textbackslash{}\%\\
+Fraud Offenses - False Pretenses/Swindle/Confidence Game & 1991 & 31,922 & 1.10\textbackslash{}\%\\
 \hline
-Larceny/Theft Offenses - Theft From Motor Vehicle & 23,673 & 0.82\textbackslash{}\%\\
+Larceny/Theft Offenses - Theft From Motor Vehicle & 1991 & 23,673 & 0.82\textbackslash{}\%\\
 \hline
-Counterfeiting/Forgery & 20,107 & 0.69\textbackslash{}\%\\
+Counterfeiting/Forgery & 1991 & 20,107 & 0.69\textbackslash{}\%\\
 \hline
-Larceny/Theft Offenses - Theft From Building & 18,030 & 0.62\textbackslash{}\%\\
+Larceny/Theft Offenses - Theft From Building & 1991 & 18,030 & 0.62\textbackslash{}\%\\
 \hline
-Driving Under The Influence & 16,410 & 0.57\textbackslash{}\%\\
+Driving Under The Influence & 1991 & 16,410 & 0.57\textbackslash{}\%\\
 \hline
-Disorderly Conduct & 13,700 & 0.47\textbackslash{}\%\\
+Disorderly Conduct & 1991 & 13,700 & 0.47\textbackslash{}\%\\
 \hline
-Kidnapping/Abduction & 12,869 & 0.44\textbackslash{}\%\\
+Kidnapping/Abduction & 1991 & 12,869 & 0.44\textbackslash{}\%\\
 \hline
-Fraud Offenses - Impersonation & 11,225 & 0.39\textbackslash{}\%\\
+Fraud Offenses - Impersonation & 1991 & 11,225 & 0.39\textbackslash{}\%\\
 \hline
-Trespass of Real Property & 10,687 & 0.37\textbackslash{}\%\\
+Trespass of Real Property & 1991 & 10,687 & 0.37\textbackslash{}\%\\
 \hline
-Sex Offenses - Fondling (Incident Liberties/Child Molest) & 10,298 & 0.35\textbackslash{}\%\\
+Sex Offenses - Fondling (Incident Liberties/Child Molest) & 1991 & 10,298 & 0.35\textbackslash{}\%\\
 \hline
-Sex Offenses - Rape & 8,956 & 0.31\textbackslash{}\%\\
+Sex Offenses - Rape & 1991 & 8,956 & 0.31\textbackslash{}\%\\
 \hline
-Murder/Nonnegligent Manslaughter & 8,284 & 0.29\textbackslash{}\%\\
+Murder/Nonnegligent Manslaughter & 1991 & 8,284 & 0.29\textbackslash{}\%\\
 \hline
-Fraud Offenses - Credit Card/Atm Fraud & 7,281 & 0.25\textbackslash{}\%\\
+Fraud Offenses - Credit Card/Atm Fraud & 1991 & 7,281 & 0.25\textbackslash{}\%\\
 \hline
-Embezzlement & 6,689 & 0.23\textbackslash{}\%\\
+Embezzlement & 1991 & 6,689 & 0.23\textbackslash{}\%\\
 \hline
-Fraud Offenses - Identity Theft & 6,414 & 0.22\textbackslash{}\%\\
+Fraud Offenses - Identity Theft & 2015 & 6,414 & 0.22\textbackslash{}\%\\
 \hline
-Arson & 6,338 & 0.22\textbackslash{}\%\\
+Arson & 1991 & 6,338 & 0.22\textbackslash{}\%\\
 \hline
-Prostitution Offenses - Prostitution & 5,843 & 0.20\textbackslash{}\%\\
+Prostitution Offenses - Prostitution & 1991 & 5,843 & 0.20\textbackslash{}\%\\
 \hline
-Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories & 5,621 & 0.19\textbackslash{}\%\\
+Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories & 1991 & 5,621 & 0.19\textbackslash{}\%\\
 \hline
-Pornography/Obscene Material & 5,187 & 0.18\textbackslash{}\%\\
+Pornography/Obscene Material & 1991 & 5,187 & 0.18\textbackslash{}\%\\
 \hline
-Liquor Law Violations & 4,142 & 0.14\textbackslash{}\%\\
+Liquor Law Violations & 1991 & 4,142 & 0.14\textbackslash{}\%\\
 \hline
-Animal Cruelty & 3,904 & 0.13\textbackslash{}\%\\
+Animal Cruelty & 2015 & 3,904 & 0.13\textbackslash{}\%\\
 \hline
-Family Offenses, Nonviolent & 3,629 & 0.12\textbackslash{}\%\\
+Family Offenses, Nonviolent & 1991 & 3,629 & 0.12\textbackslash{}\%\\
 \hline
-Larceny/Theft Offenses - Pocket-Picking & 3,323 & 0.11\textbackslash{}\%\\
+Larceny/Theft Offenses - Pocket-Picking & 1991 & 3,323 & 0.11\textbackslash{}\%\\
 \hline
-Sex Offenses - Sodomy & 2,081 & 0.07\textbackslash{}\%\\
+Sex Offenses - Sodomy & 1991 & 2,081 & 0.07\textbackslash{}\%\\
 \hline
-Prostitution Offenses - Assisting Or Promoting Prostitution & 1,559 & 0.05\textbackslash{}\%\\
+Prostitution Offenses - Assisting Or Promoting Prostitution & 1991 & 1,559 & 0.05\textbackslash{}\%\\
 \hline
-Sex Offenses - Statutory Rape & 1,472 & 0.05\textbackslash{}\%\\
+Sex Offenses - Statutory Rape & 1991 & 1,472 & 0.05\textbackslash{}\%\\
 \hline
-Prostitution Offenses - Purchasing Prostitution & 1,274 & 0.04\textbackslash{}\%\\
+Prostitution Offenses - Purchasing Prostitution & 2013 & 1,274 & 0.04\textbackslash{}\%\\
 \hline
-Curfew/Loitering/Vagrancy Violations & 1,191 & 0.04\textbackslash{}\%\\
+Curfew/Loitering/Vagrancy Violations & 1991 & 1,191 & 0.04\textbackslash{}\%\\
 \hline
-Larceny/Theft Offenses - Purse-Snatching & 959 & 0.03\textbackslash{}\%\\
+Larceny/Theft Offenses - Purse-Snatching & 1991 & 959 & 0.03\textbackslash{}\%\\
 \hline
-Sex Offenses - Sexual Assault With An Object & 912 & 0.03\textbackslash{}\%\\
+Sex Offenses - Sexual Assault With An Object & 1991 & 912 & 0.03\textbackslash{}\%\\
 \hline
-Negligent Manslaughter & 858 & 0.03\textbackslash{}\%\\
+Negligent Manslaughter & 1991 & 858 & 0.03\textbackslash{}\%\\
 \hline
-Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device & 500 & 0.02\textbackslash{}\%\\
+Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device & 1991 & 500 & 0.02\textbackslash{}\%\\
 \hline
-Extortion/Blackmail & 458 & 0.02\textbackslash{}\%\\
+Extortion/Blackmail & 1991 & 458 & 0.02\textbackslash{}\%\\
 \hline
-Human Trafficking - Commercial Sex Acts & 374 & 0.01\textbackslash{}\%\\
+Human Trafficking - Commercial Sex Acts & 2013 & 374 & 0.01\textbackslash{}\%\\
 \hline
-Gambling Offenses - Betting/Wagering & 365 & 0.01\textbackslash{}\%\\
+Gambling Offenses - Betting/Wagering & 1991 & 365 & 0.01\textbackslash{}\%\\
 \hline
-Fraud Offenses - Wire Fraud & 360 & 0.01\textbackslash{}\%\\
+Fraud Offenses - Wire Fraud & 1991 & 360 & 0.01\textbackslash{}\%\\
 \hline
-Gambling Offenses - Operating/Promoting/Assisting Gambling & 279 & 0.01\textbackslash{}\%\\
+Gambling Offenses - Operating/Promoting/Assisting Gambling & 1991 & 279 & 0.01\textbackslash{}\%\\
 \hline
-Sex Offenses - Incest & 207 & 0.01\textbackslash{}\%\\
+Sex Offenses - Incest & 1991 & 207 & 0.01\textbackslash{}\%\\
 \hline
-Bribery & 200 & 0.01\textbackslash{}\%\\
+Bribery & 1991 & 200 & 0.01\textbackslash{}\%\\
 \hline
-Fraud Offenses - Hacking/Computer Invasion & 125 & 0.00\textbackslash{}\%\\
+Fraud Offenses - Hacking/Computer Invasion & 2015 & 125 & 0.00\textbackslash{}\%\\
 \hline
-Failure To Appear & 119 & 0.00\textbackslash{}\%\\
+Failure To Appear & 2020 & 119 & 0.00\textbackslash{}\%\\
 \hline
-Fraud Offenses - Welfare Fraud & 112 & 0.00\textbackslash{}\%\\
+Fraud Offenses - Welfare Fraud & 1991 & 112 & 0.00\textbackslash{}\%\\
 \hline
-Gambling Offenses - Gambling Equipment Violations & 102 & 0.00\textbackslash{}\%\\
+Gambling Offenses - Gambling Equipment Violations & 1991 & 102 & 0.00\textbackslash{}\%\\
 \hline
-Human Trafficking - Involuntary Servitude & 80 & 0.00\textbackslash{}\%\\
+Human Trafficking - Involuntary Servitude & 2014 & 80 & 0.00\textbackslash{}\%\\
 \hline
-Runaway & 42 & 0.00\textbackslash{}\%\\
+Runaway & 1991 & 42 & 0.00\textbackslash{}\%\\
 \hline
-Fugitive Offenses - Flight To Avoid Prosecution & 24 & 0.00\textbackslash{}\%\\
+Fugitive Offenses - Flight To Avoid Prosecution & 2021 & 24 & 0.00\textbackslash{}\%\\
 \hline
-Sex Offenses - Failure To Register As A Sex Offender & 11 & 0.00\textbackslash{}\%\\
+Sex Offenses - Failure To Register As A Sex Offender & 2021 & 11 & 0.00\textbackslash{}\%\\
 \hline
-Commerce Violations - Federal Liquor Offenses & 9 & 0.00\textbackslash{}\%\\
+Commerce Violations - Federal Liquor Offenses & 2020 & 9 & 0.00\textbackslash{}\%\\
 \hline
-Gambling Offenses - Sports Tampering & 3 & 0.00\textbackslash{}\%\\
+Gambling Offenses - Sports Tampering & 1992 & 3 & 0.00\textbackslash{}\%\\
 \hline
-Immigration Violations - Illegal Entry Into The United States & 1 & 0.00\textbackslash{}\%\\
+Immigration Violations - Illegal Entry Into The United States & 2022 & 1 & 0.00\textbackslash{}\%\\
 \hline
-Weapon Law Violations - Explosives & 1 & 0.00\textbackslash{}\%\\
+Weapon Law Violations - Explosives & 2022 & 1 & 0.00\textbackslash{}\%\\
 \hline
-Fugitive Offenses - Harboring Escappee/Concealing From Arrest & 1 & 0.00\textbackslash{}\%\\
+Fugitive Offenses - Harboring Escappee/Concealing From Arrest & 2021 & 1 & 0.00\textbackslash{}\%\\
 \hline
-Perjury & 1 & 0.00\textbackslash{}\%\\
+Perjury & 2022 & 1 & 0.00\textbackslash{}\%\\
 \hline
-Federal Resource Violations & 1 & 0.00\textbackslash{}\%\\
+Federal Resource Violations & 2021 & 1 & 0.00\textbackslash{}\%\\
 \hline
-Total & 2,904,147 & 100\textbackslash{}\%\\
+Total & - & 2,904,147 & 100\textbackslash{}\%\\
 \hline
 \end{longtable}
 
@@ -12239,40 +13092,40 @@ offense. Runaways is an offense that only applies to people
 under age 18. The remaining categories are all rare and none
 are more than 1\% of arrests.
 
-\begin{longtable}[t]{l|r|r}
+\begin{longtable}[t]{l|r|r|l}
 \caption{\label{tab:GroupBarresteeCrime}The number and percent of arrests for Group B crimes for all arrests reported to NIBRS in 2022.}\\
 \hline
-Crime Category & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
+Crime Category & First Year & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
 \hline
 \endfirsthead
 \caption[]{\label{tab:GroupBarresteeCrime}The number and percent of arrests for Group B crimes for all arrests reported to NIBRS in 2022. \textit{(continued)}}\\
 \hline
-Crime Category & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
+Crime Category & First Year & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
 \hline
 \endhead
-All Other Offenses & 1,470,699 & 58.45\textbackslash{}\%\\
+All Other Offenses & 1991 & 1,470,699 & 58.45\textbackslash{}\%\\
 \hline
-Driving Under The Influence & 565,429 & 22.47\textbackslash{}\%\\
+Driving Under The Influence & 1991 & 565,429 & 22.47\textbackslash{}\%\\
 \hline
-Trespass of Real Property & 177,586 & 7.06\textbackslash{}\%\\
+Trespass of Real Property & 1991 & 177,586 & 7.06\textbackslash{}\%\\
 \hline
-Disorderly Conduct & 176,937 & 7.03\textbackslash{}\%\\
+Disorderly Conduct & 1991 & 176,937 & 7.03\textbackslash{}\%\\
 \hline
-Liquor Law Violations & 72,044 & 2.86\textbackslash{}\%\\
+Liquor Law Violations & 1991 & 72,044 & 2.86\textbackslash{}\%\\
 \hline
-Family Offenses, Nonviolent & 33,545 & 1.33\textbackslash{}\%\\
+Family Offenses, Nonviolent & 1991 & 33,545 & 1.33\textbackslash{}\%\\
 \hline
-Curfew/Loitering/Vagrancy Violations & 16,266 & 0.65\textbackslash{}\%\\
+Curfew/Loitering/Vagrancy Violations & 1991 & 16,266 & 0.65\textbackslash{}\%\\
 \hline
-Failure To Appear & 1,816 & 0.07\textbackslash{}\%\\
+Failure To Appear & 2020 & 1,816 & 0.07\textbackslash{}\%\\
 \hline
-Runaway & 1,629 & 0.06\textbackslash{}\%\\
+Runaway & 1991 & 1,629 & 0.06\textbackslash{}\%\\
 \hline
-Federal Resource Violations & 15 & 0.00\textbackslash{}\%\\
+Federal Resource Violations & 2021 & 15 & 0.00\textbackslash{}\%\\
 \hline
-Perjury & 1 & 0.00\textbackslash{}\%\\
+Perjury & 2022 & 1 & 0.00\textbackslash{}\%\\
 \hline
-Total & 2,515,967 & 100\textbackslash{}\%\\
+Total & - & 2,515,967 & 100\textbackslash{}\%\\
 \hline
 \end{longtable}
 
@@ -12362,15 +13215,6 @@ have weapons, we'll look at the breakdown among those who
 were carrying a weapon in Figure
 \ref{fig:arresteeWeaponArmed}.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/arresteeWeapon-1} 
-
-}
-
-\caption{The weapon found on the arrestee for all arrestees reported in 2022.}\label{fig:arresteeWeapon}
-\end{figure}
-
 To see the weapons carried when the arrestee had a weapon,
 Figure \ref{fig:arresteeWeaponArmed} shows the breakdown in
 which weapon they carried. About 43.8\% of people arrested
@@ -12388,6 +13232,15 @@ instruments (including bats, clubs, and brass knuckles)
 follow at 6.9\% of weapons. And the remaining weapons
 included are ``other firearm'' (so any other than ones
 specified) at 5.8\%, rifle at 2.3\%, and shotgun at 2\%.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/nibrsArresteeMurderWeapon-1} 
+
+}
+
+\caption{The share of murder and nonnegligent manslaughter arrestees by weapon carried at arrest, 1991-2022.}\label{fig:nibrsArresteeMurderWeapon}
+\end{figure}
 
 \begin{figure}
 
@@ -12472,13 +13325,24 @@ police custody (i.e.~they are never handcuffed, taken to a
 police precinct or to jail). About 22.2\% of arrests are
 this form of arrest.
 
+THEYRE
+
 \begin{figure}
 
-{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/arresteeTypeOfArrest-1} 
+{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/nibrsArresteeArrestType-1} 
 
 }
 
-\caption{The distribution of arrests by type of arrest. Previous Incident Report includes cases where an individual was arrested for a separate crime and are then reported as also arrested for this incident.}\label{fig:arresteeTypeOfArrest}
+\caption{Annual arrest type for all arrestees, 1991-2022. Previous Incident Report includes cases where an individual was arrested for a separate crime and are then reported as also arrested for this incident.}\label{fig:nibrsArresteeArrestType}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/nibrsArresteeDUIArrestType-1} 
+
+}
+
+\caption{Annual arrest type for DUI arrestees, 1991-2022.}\label{fig:nibrsArresteeDUIArrestType}
 \end{figure}
 
 \section{Disposition for juvenile
@@ -12582,11 +13446,11 @@ unknowns.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/arresteeResidenceStatus-1} 
+{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/nibrsArresteeResidentStatus-1} 
 
 }
 
-\caption{The distribution of residence status for all arrestees reported to NIBRS in 2022. Residence status is residence in the arresting agency's jurisdiction (e.g. do you live in the city you were arrested in?). It is unrelated to citizenship or immigration status.}\label{fig:arresteeResidenceStatus}
+\caption{Annual resident status (i.e. if they live in the arresting jurisdiction) of arrestees, 1991-2022.}\label{fig:nibrsArresteeResidentStatus}
 \end{figure}
 
 \subsection{Age}\label{age-4}
@@ -12630,6 +13494,24 @@ as the arrestee ages.
 \caption{The age of all arrestees reported in the 2022 NIBRS data.}\label{fig:arresteeAge}
 \end{figure}
 
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/nibrsArresteeAge-1} 
+
+}
+
+\caption{The mean and median age of arrestees, 1991-2022.}\label{fig:nibrsArresteeAge}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/nibrsArresteeAgeMissing-1} 
+
+}
+
+\caption{The percent of arrestee's age that is unknown, 1991-2022.}\label{fig:nibrsArresteeAgeMissing}
+\end{figure}
+
 \subsection{Sex}\label{sex-3}
 
 We also know the sex of the arrestee. The only options for
@@ -12650,11 +13532,11 @@ even 50\% split between female and male arrestees.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/arresteeSex-1} 
+{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/nibrsArresteeSex-1} 
 
 }
 
-\caption{The sex of all arrestees reported in the 2022 NIBRS data.}\label{fig:arresteeSex}
+\caption{The share of arrestees by sex, 1991-2022.}\label{fig:nibrsArresteeSex}
 \end{figure}
 
 \subsection{Race}\label{race-4}
@@ -12689,14 +13571,14 @@ Hawaiian/Pacific Islander at 0.3\% of arrestees.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/arresteeRace-1} 
+{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/nibrsArresteeRace-1} 
 
 }
 
-\caption{The race of all arrestees reported in the 2022 NIBRS data.}\label{fig:arresteeRace}
+\caption{The share of arrestees by race, 1991-2022.}\label{fig:nibrsArresteeRace}
 \end{figure}
 
-\subsection{Ethnicity}\label{ethnicity-3}
+\subsection{Ethnicity}\label{ethnicity-4}
 
 Finally, there is data on the race of the arrestee so we
 know if they are Hispanic or not. Ethnicity is so poorly
@@ -12734,11 +13616,11 @@ arrestee may be different than shown here.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/arresteeEthnicity-1} 
+{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/nibrsArresteeEthnicity-1} 
 
 }
 
-\caption{The ethnicity of all arrestees reported in the 2022 NIBRS data.}\label{fig:arresteeEthnicity}
+\caption{The share of arrestees by ethnicity, 1991-2022.}\label{fig:nibrsArresteeEthnicity}
 \end{figure}
 
 \chapter{Property and Window Property
@@ -12834,6 +13716,15 @@ arson) at 0.2\%, or when the type of loss is unknown at
 \caption{The type of loss or if the item is recovered.}\label{fig:propertyTypeLoss}
 \end{figure}
 
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{17_nibrs_property_files/figure-latex/nibrsPropertyAgenciesReporting-1} 
+
+}
+
+\caption{The annual number of agencies reporting data in the NIBRS Property Segment, 1991-2022.}\label{fig:nibrsPropertyAgenciesReporting}
+\end{figure}
+
 \section{Description of
 property}\label{description-of-property}
 
@@ -12904,154 +13795,154 @@ wouldn't be possible with a more narrow dataset (both in
 terms of how specific the items they include are, and the
 size of the data).
 
-\begin{longtable}[t]{l|r|r}
+\begin{longtable}[t]{l|r|r|l}
 \caption{\label{tab:propertyStolenDescription}The number and percent of property stolen (including forcibly taken such as during a robbery) in a crime, for all offenses in 2022. Each incident can have multiple items stolen.}\\
 \hline
-Property & \# of Property Stolen & \% of Property Stolen\\
+Property & First Year & \# of Property Stolen & \% of Property Stolen\\
 \hline
 \endfirsthead
 \caption[]{\label{tab:propertyStolenDescription}The number and percent of property stolen (including forcibly taken such as during a robbery) in a crime, for all offenses in 2022. Each incident can have multiple items stolen. \textit{(continued)}}\\
 \hline
-Property & \# of Property Stolen & \% of Property Stolen\\
+Property & First Year & \# of Property Stolen & \% of Property Stolen\\
 \hline
 \endhead
-Other & 1,149,292 & 15.09\textbackslash{}\%\\
+Other & 1991 & 1,149,292 & 15.09\textbackslash{}\%\\
 \hline
-Money & 824,234 & 10.82\textbackslash{}\%\\
+Money & 1991 & 824,234 & 10.82\textbackslash{}\%\\
 \hline
-Automobiles & 570,623 & 7.49\textbackslash{}\%\\
+Automobiles & 1991 & 570,623 & 7.49\textbackslash{}\%\\
 \hline
-Vehicle Parts/Accessories & 535,780 & 7.03\textbackslash{}\%\\
+Vehicle Parts/Accessories & 1991 & 535,780 & 7.03\textbackslash{}\%\\
 \hline
-Purses/Handbags/Wallets & 377,761 & 4.96\textbackslash{}\%\\
+Purses/Handbags/Wallets & 1991 & 377,761 & 4.96\textbackslash{}\%\\
 \hline
-Clothes/Furs & 348,984 & 4.58\textbackslash{}\%\\
+Clothes/Furs & 1991 & 348,984 & 4.58\textbackslash{}\%\\
 \hline
-Credit/Debit Cards & 313,888 & 4.12\textbackslash{}\%\\
+Credit/Debit Cards & 1991 & 313,888 & 4.12\textbackslash{}\%\\
 \hline
-Tools - Power/Hand & 309,668 & 4.07\textbackslash{}\%\\
+Tools - Power/Hand & 1991 & 309,668 & 4.07\textbackslash{}\%\\
 \hline
-Merchandise & 289,078 & 3.79\textbackslash{}\%\\
+Merchandise & 1991 & 289,078 & 3.79\textbackslash{}\%\\
 \hline
-Consumable Goods & 253,272 & 3.32\textbackslash{}\%\\
+Consumable Goods & 1991 & 253,272 & 3.32\textbackslash{}\%\\
 \hline
-Identity Documents & 252,837 & 3.32\textbackslash{}\%\\
+Identity Documents & 2009 & 252,837 & 3.32\textbackslash{}\%\\
 \hline
-Portible Electronic Communications & 244,450 & 3.21\textbackslash{}\%\\
+Portible Electronic Communications & 2009 & 244,450 & 3.21\textbackslash{}\%\\
 \hline
-Computer Hardware/Software & 201,441 & 2.64\textbackslash{}\%\\
+Computer Hardware/Software & 1991 & 201,441 & 2.64\textbackslash{}\%\\
 \hline
-Household Goods & 200,120 & 2.63\textbackslash{}\%\\
+Household Goods & 1991 & 200,120 & 2.63\textbackslash{}\%\\
 \hline
-Firearms & 170,635 & 2.24\textbackslash{}\%\\
+Firearms & 1991 & 170,635 & 2.24\textbackslash{}\%\\
 \hline
-Identity - Intangible & 162,824 & 2.14\textbackslash{}\%\\
+Identity - Intangible & 2009 & 162,824 & 2.14\textbackslash{}\%\\
 \hline
-Radios/Tvs/Vcrs & 144,002 & 1.89\textbackslash{}\%\\
+Radios/Tvs/Vcrs & 1991 & 144,002 & 1.89\textbackslash{}\%\\
 \hline
-Jewelry/Precious Metals & 141,635 & 1.86\textbackslash{}\%\\
+Jewelry/Precious Metals & 1991 & 141,635 & 1.86\textbackslash{}\%\\
 \hline
-Bicycles & 123,395 & 1.62\textbackslash{}\%\\
+Bicycles & 1991 & 123,395 & 1.62\textbackslash{}\%\\
 \hline
-Documents - Personal Or Business & 94,572 & 1.24\textbackslash{}\%\\
+Documents - Personal Or Business & 2009 & 94,572 & 1.24\textbackslash{}\%\\
 \hline
-Trucks & 93,364 & 1.23\textbackslash{}\%\\
+Trucks & 1991 & 93,364 & 1.23\textbackslash{}\%\\
 \hline
-Alcohol & 75,575 & 0.99\textbackslash{}\%\\
+Alcohol & 1991 & 75,575 & 0.99\textbackslash{}\%\\
 \hline
-Other Motor Vehicles & 59,593 & 0.78\textbackslash{}\%\\
+Other Motor Vehicles & 1991 & 59,593 & 0.78\textbackslash{}\%\\
 \hline
-Negotiable Instruments & 54,250 & 0.71\textbackslash{}\%\\
+Negotiable Instruments & 1991 & 54,250 & 0.71\textbackslash{}\%\\
 \hline
-Office-Type Equipment & 53,825 & 0.71\textbackslash{}\%\\
+Office-Type Equipment & 1991 & 53,825 & 0.71\textbackslash{}\%\\
 \hline
-Lawn/Yard/Garden Equipment & 47,867 & 0.63\textbackslash{}\%\\
+Lawn/Yard/Garden Equipment & 2009 & 47,867 & 0.63\textbackslash{}\%\\
 \hline
-Trailers & 45,526 & 0.60\textbackslash{}\%\\
+Trailers & 2009 & 45,526 & 0.60\textbackslash{}\%\\
 \hline
-Building Materials & 43,258 & 0.57\textbackslash{}\%\\
+Building Materials & 2009 & 43,258 & 0.57\textbackslash{}\%\\
 \hline
-Drugs/Narcotics & 42,540 & 0.56\textbackslash{}\%\\
+Drugs/Narcotics & 1991 & 42,540 & 0.56\textbackslash{}\%\\
 \hline
-Recreational/Sports Equipment & 40,414 & 0.53\textbackslash{}\%\\
+Recreational/Sports Equipment & 2009 & 40,414 & 0.53\textbackslash{}\%\\
 \hline
-Nonnegotiable Instruments & 31,060 & 0.41\textbackslash{}\%\\
+Nonnegotiable Instruments & 1991 & 31,060 & 0.41\textbackslash{}\%\\
 \hline
-Fuel & 30,233 & 0.40\textbackslash{}\%\\
+Fuel & 2009 & 30,233 & 0.40\textbackslash{}\%\\
 \hline
-Camping/Hunting/Fishing Equipment/Supplies & 28,371 & 0.37\textbackslash{}\%\\
+Camping/Hunting/Fishing Equipment/Supplies & 2009 & 28,371 & 0.37\textbackslash{}\%\\
 \hline
-Photographic/Optical Equipment & 27,502 & 0.36\textbackslash{}\%\\
+Photographic/Optical Equipment & 2009 & 27,502 & 0.36\textbackslash{}\%\\
 \hline
-Heavy Construction/Industrial Equipment & 24,878 & 0.33\textbackslash{}\%\\
+Heavy Construction/Industrial Equipment & 1991 & 24,878 & 0.33\textbackslash{}\%\\
 \hline
-Metals, Non-Precious & 18,589 & 0.24\textbackslash{}\%\\
+Metals, Non-Precious & 2009 & 18,589 & 0.24\textbackslash{}\%\\
 \hline
-Collections/Collectibles & 18,126 & 0.24\textbackslash{}\%\\
+Collections/Collectibles & 2009 & 18,126 & 0.24\textbackslash{}\%\\
 \hline
-Firearm Accessories & 18,115 & 0.24\textbackslash{}\%\\
+Firearm Accessories & 2009 & 18,115 & 0.24\textbackslash{}\%\\
 \hline
-Weapons - Other & 17,843 & 0.23\textbackslash{}\%\\
+Weapons - Other & 2009 & 17,843 & 0.23\textbackslash{}\%\\
 \hline
-Pending Inventory (Of Property) & 17,818 & 0.23\textbackslash{}\%\\
+Pending Inventory (Of Property) & 1991 & 17,818 & 0.23\textbackslash{}\%\\
 \hline
-Recordings - Audio/Visual & 17,146 & 0.23\textbackslash{}\%\\
+Recordings - Audio/Visual & 1991 & 17,146 & 0.23\textbackslash{}\%\\
 \hline
-Medical/Medical Lab Equipment & 13,153 & 0.17\textbackslash{}\%\\
+Medical/Medical Lab Equipment & 2009 & 13,153 & 0.17\textbackslash{}\%\\
 \hline
-Musical Instruments & 12,275 & 0.16\textbackslash{}\%\\
+Musical Instruments & 2009 & 12,275 & 0.16\textbackslash{}\%\\
 \hline
-Recreational Vehicles & 11,395 & 0.15\textbackslash{}\%\\
+Recreational Vehicles & 1991 & 11,395 & 0.15\textbackslash{}\%\\
 \hline
-Pets & 11,368 & 0.15\textbackslash{}\%\\
+Pets & 2009 & 11,368 & 0.15\textbackslash{}\%\\
 \hline
-Farm Equipment & 8,892 & 0.12\textbackslash{}\%\\
+Farm Equipment & 1991 & 8,892 & 0.12\textbackslash{}\%\\
 \hline
-Artistic Supplies/Accessories & 6,265 & 0.08\textbackslash{}\%\\
+Artistic Supplies/Accessories & 2009 & 6,265 & 0.08\textbackslash{}\%\\
 \hline
-Chemicals & 5,326 & 0.07\textbackslash{}\%\\
+Chemicals & 2009 & 5,326 & 0.07\textbackslash{}\%\\
 \hline
-Explosives & 4,542 & 0.06\textbackslash{}\%\\
+Explosives & 2010 & 4,542 & 0.06\textbackslash{}\%\\
 \hline
-Gambling Equipment & 4,482 & 0.06\textbackslash{}\%\\
+Gambling Equipment & 1991 & 4,482 & 0.06\textbackslash{}\%\\
 \hline
-Watercraft & 4,064 & 0.05\textbackslash{}\%\\
+Watercraft & 1991 & 4,064 & 0.05\textbackslash{}\%\\
 \hline
-Drug/Narcotic Equipment & 4,000 & 0.05\textbackslash{}\%\\
+Drug/Narcotic Equipment & 1991 & 4,000 & 0.05\textbackslash{}\%\\
 \hline
-Watercraft Equipment/Parts/Accessories & 3,186 & 0.04\textbackslash{}\%\\
+Watercraft Equipment/Parts/Accessories & 2009 & 3,186 & 0.04\textbackslash{}\%\\
 \hline
-Law Enforcement Equipment & 2,773 & 0.04\textbackslash{}\%\\
+Law Enforcement Equipment & 2009 & 2,773 & 0.04\textbackslash{}\%\\
 \hline
-Livestock & 2,242 & 0.03\textbackslash{}\%\\
+Livestock & 1991 & 2,242 & 0.03\textbackslash{}\%\\
 \hline
-Logging Equipment & 1,470 & 0.02\textbackslash{}\%\\
+Logging Equipment & 2009 & 1,470 & 0.02\textbackslash{}\%\\
 \hline
-Structures - Other & 1,311 & 0.02\textbackslash{}\%\\
+Structures - Other & 1991 & 1,311 & 0.02\textbackslash{}\%\\
 \hline
-Crops & 1,199 & 0.02\textbackslash{}\%\\
+Crops & 2010 & 1,199 & 0.02\textbackslash{}\%\\
 \hline
-Buses & 1,121 & 0.01\textbackslash{}\%\\
+Buses & 1991 & 1,121 & 0.01\textbackslash{}\%\\
 \hline
-Aircraft Parts/Accessories & 1,053 & 0.01\textbackslash{}\%\\
+Aircraft Parts/Accessories & 2009 & 1,053 & 0.01\textbackslash{}\%\\
 \hline
-Structures - Single Occupancy Dwellings & 624 & 0.01\textbackslash{}\%\\
+Structures - Single Occupancy Dwellings & 1991 & 624 & 0.01\textbackslash{}\%\\
 \hline
-Structures - Storage & 546 & 0.01\textbackslash{}\%\\
+Structures - Storage & 1991 & 546 & 0.01\textbackslash{}\%\\
 \hline
-Aircraft & 491 & 0.01\textbackslash{}\%\\
+Aircraft & 1991 & 491 & 0.01\textbackslash{}\%\\
 \hline
-Structures - Commercial/Business & 438 & 0.01\textbackslash{}\%\\
+Structures - Commercial/Business & 1991 & 438 & 0.01\textbackslash{}\%\\
 \hline
-Structures - Other Dwellings & 348 & 0.00\textbackslash{}\%\\
+Structures - Other Dwellings & 1991 & 348 & 0.00\textbackslash{}\%\\
 \hline
-Special Category & 281 & 0.00\textbackslash{}\%\\
+Special Category & 1991 & 281 & 0.00\textbackslash{}\%\\
 \hline
-Structures - Industrial Manufacturing & 224 & 0.00\textbackslash{}\%\\
+Structures - Industrial Manufacturing & 1991 & 224 & 0.00\textbackslash{}\%\\
 \hline
-Structures - Public/Community & 207 & 0.00\textbackslash{}\%\\
+Structures - Public/Community & 1991 & 207 & 0.00\textbackslash{}\%\\
 \hline
-Total & 7,617,660 & 100\textbackslash{}\%\\
+Total & - & 7,617,660 & 100\textbackslash{}\%\\
 \hline
 \end{longtable}
 
@@ -13296,6 +14187,92 @@ incident is \$4,731 (median = \$300).
 \caption{The incident-level distribution of the value of property stolen. As values are aggregated to the incident-level, these are higher than the above graph which shows each item individually. Values are capped at 1,000,000 and each value is rounded to the nearest 100. The x-axis is set on the log scale as this distribution is hugely right skewed.}\label{fig:propertyValueIncidentLevel}
 \end{figure}
 
+\begin{longtable}[t]{l|r|r|l|r|r|l}
+\caption{\label{tab:nibrsPropertyStolenValue}Annual mean, median, and maximum values (in dollars) of property stolen and recovered, 1991-2022.}\\
+\hline
+Year & Mean Value Stolen & Median Value Stolen & Max Value Stolen & Mean Value Recovered & Median Value Recovered & Max Value Recovered\\
+\hline
+\endfirsthead
+\caption[]{\label{tab:nibrsPropertyStolenValue}Annual mean, median, and maximum values (in dollars) of property stolen and recovered, 1991-2022. \textit{(continued)}}\\
+\hline
+Year & Mean Value Stolen & Median Value Stolen & Max Value Stolen & Mean Value Recovered & Median Value Recovered & Max Value Recovered\\
+\hline
+\endhead
+1,991 & 1,051 & 150 & 15,016,780 & 1,727 & 125 & 12,000,000\\
+\hline
+1,992 & 3,242 & 148 & 580,000,682 & 1,414 & 100 & 1,790,000\\
+\hline
+1,993 & 14,701 & 129 & 900,000,000 & 23,215 & 95 & 900,000,000\\
+\hline
+1,994 & 41,258 & 129 & 999,999,999 & 64,414 & 85 & 999,999,999\\
+\hline
+1,995 & 2,074 & 134 & 450,000,000 & 6,196 & 81 & 450,000,000\\
+\hline
+1,996 & 2,560 & 147 & 800,000,085 & 1,750 & 85 & 3,500,000\\
+\hline
+1,997 & 1,640 & 135 & 450,000,000 & 1,830 & 92 & 1,300,000\\
+\hline
+1,998 & 1,898 & 146 & 480,000,000 & 1,978 & 100 & 1,000,000\\
+\hline
+1,999 & 1,791 & 150 & 245,000,120 & 2,621 & 100 & 100,000,000\\
+\hline
+2,000 & 1,252 & 150 & 100,001,280 & 2,379 & 124 & 838,466\\
+\hline
+2,001 & 8,128 & 143 & 890,000,000 & 4,397 & 125 & 500,000,001\\
+\hline
+2,002 & 1,742 & 150 & 300,000,000 & 3,438 & 125 & 300,000,000\\
+\hline
+2,003 & 1,814 & 140 & 400,000,000 & 2,384 & 119 & 7,501,000\\
+\hline
+2,004 & 1,833 & 130 & 939,000,000 & 4,918 & 120 & 939,000,000\\
+\hline
+2,005 & 2,164 & 150 & 575,152,425 & 3,687 & 150 & 298,000,001\\
+\hline
+2,006 & 1,315 & 150 & 100,003,300 & 2,656 & 174 & 5,726,400\\
+\hline
+2,007 & 1,850 & 150 & 950,000,000 & 2,650 & 150 & 100,000,000\\
+\hline
+2,008 & 3,031 & 150 & 999,999,999 & 4,434 & 120 & 999,999,999\\
+\hline
+2,009 & 1,179 & 155 & 100,000,000 & 1,719 & 100 & 5,000,000\\
+\hline
+2,010 & 1,150 & 170 & 10,000,000 & 1,606 & 100 & 2,199,999\\
+\hline
+2,011 & 1,462 & 180 & 999,999,999 & 1,516 & 100 & 2,001,850\\
+\hline
+2,012 & 1,222 & 175 & 100,000,000 & 1,554 & 103 & 18,805,960\\
+\hline
+2,013 & 1,792 & 168 & 950,000,000 & 1,788 & 108 & 100,000,020\\
+\hline
+2,014 & 1,271 & 150 & 100,000,350 & 1,667 & 109 & 1,800,000\\
+\hline
+2,015 & 1,257 & 150 & 20,000,000 & 1,867 & 115 & 2,500,000\\
+\hline
+2,016 & 2,063 & 150 & 999,999,999 & 2,199 & 150 & 4,000,000\\
+\hline
+2,017 & 1,561 & 150 & 361,000,000 & 2,520 & 160 & 5,000,000\\
+\hline
+2,018 & 2,009 & 150 & 313,600,000 & 2,911 & 172 & 24,000,000\\
+\hline
+2,019 & 3,217 & 150 & 999,999,999 & 5,543 & 168 & 999,999,999\\
+\hline
+2,020 & 229,834 & 170 & 999,999,999 & 129,068 & 223 & 999,999,999\\
+\hline
+2,021 & 284,937 & 207 & 999,999,999 & 250,610 & 400 & 999,999,999\\
+\hline
+2,022 & 72,129 & 250 & 999,999,999 & 81,535 & 462 & 999,999,999\\
+\hline
+\end{longtable}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{17_nibrs_property_files/figure-latex/nibrsPropertyMaxValuePercent-1} 
+
+}
+
+\caption{Annual percent of the value of all property stolen that is made up of the value that is the maximum dollar amount reported in that year, 1991-2022.}\label{fig:nibrsPropertyMaxValuePercent}
+\end{figure}
+
 \section{Date property was
 recovered}\label{date-property-was-recovered}
 
@@ -13352,6 +14329,15 @@ say how many) drugs. For the below table and figure I only
 look at the first drug seized, so the numbers shown are
 undercounts.
 
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{17_nibrs_property_files/figure-latex/nibrsPropertySeizures-1} 
+
+}
+
+\caption{The annual number of drug seizures reported, 1991-2022.}\label{fig:nibrsPropertySeizures}
+\end{figure}
+
 The ordering of drugs when there are multiple drugs is based
 on how much drugs were recovered and the seriousness of the
 drugs. For example, heroin is probably considered more
@@ -13376,6 +14362,52 @@ of drug types, such as hallucinogens or stimulants (and they
 include all of these types other than specifically stated
 drugs).
 
+\begin{itemize}
+\tightlist
+\item
+  Amphetamines/Methamphetamines
+\item
+  Barbiturates
+\item
+  Cocaine (All Forms Except Crack)
+\item
+  Crack Cocaine
+\item
+  Hashish
+\item
+  Heroin
+\item
+  LSD
+\item
+  Marijuana
+\item
+  Morphine
+\item
+  Opium
+\item
+  Other Depressants: Glutethimide Or Doriden, Methaqualone
+  Or Quaalude, Pentazocine Or Talwin, Etc.
+\item
+  Other Drugs: Antidepressants (Elavil, Triavil, Tofranil,
+  Etc.), Aromatic Hydrocarbons, Propoxyphene Or Darvon,
+  Tranquilizers (Chlordiazepoxide Or Librium, Diazepam Or
+  Valium, Etc.), Etc.
+\item
+  Other Hallucinogrens: BMDA (White Acid), DMT, MDA, MDMA,
+  Mescaline Or Peyote, Psilocybin, STP, Etc.
+\item
+  Other Narcotics: Codeine, Demerol, Dihydromorphinone Or
+  Dilaudid, Hydrocodone Or Percodan, Methadone, Etc.
+\item
+  Other Stimulants: Adipex, Fastine And Ionamin (Derivatives
+  of Phentermine), Benzedrine, Didrex, Methylphenidate Or
+  Ritalin, Phenmetrazine Or Preludin, Tenuate, Etc.
+\item
+  PCP
+\item
+  Unknown Type Drug
+\end{itemize}
+
 Not too surprising, marijuana is the most common drug seized
 at 47\% - or 455k incidents with it seized - of the data.
 This is followed by amphetamines/methamphetamines (including
@@ -13391,54 +14423,63 @@ drugs seized each and has some groupings of drug types
 (e.g.~stimulants) rather than specific drug types (though
 some of these categories, such as LSD, are specific drugs).
 
-\begin{longtable}[t]{l|r|r}
+\begin{longtable}[t]{l|r|r|l}
 \caption{\label{tab:propertyDrugs}The number and percent of drugs seized by police by type of drug, for all drugs seized in 2022.}\\
 \hline
-Drug Type & \textbackslash{}\# of Drugs & \textbackslash{}\% of Drugs\\
+Drug Type & First Year & \textbackslash{}\# of Drugs & \textbackslash{}\% of Drugs\\
 \hline
 \endfirsthead
 \caption[]{\label{tab:propertyDrugs}The number and percent of drugs seized by police by type of drug, for all drugs seized in 2022. \textit{(continued)}}\\
 \hline
-Drug Type & \textbackslash{}\# of Drugs & \textbackslash{}\% of Drugs\\
+Drug Type & First Year & \textbackslash{}\# of Drugs & \textbackslash{}\% of Drugs\\
 \hline
 \endhead
-Marijuana & 557,044 & 44.09\textbackslash{}\%\\
+Marijuana & 1991 & 557,044 & 44.09\textbackslash{}\%\\
 \hline
-Amphetamines/Methamphetamines & 301,759 & 23.88\textbackslash{}\%\\
+Amphetamines/Methamphetamines & 1991 & 301,759 & 23.88\textbackslash{}\%\\
 \hline
-Other Narcotics: Codeine, Demerol, Dihydromorphinone Or Dilaudid, Hydrocodone Or Percodan, Methadone, Etc. & 78,941 & 6.25\textbackslash{}\%\\
+Other Narcotics & 1991 & 78,941 & 6.25\textbackslash{}\%\\
 \hline
-Cocaine (All Forms Except Crack) & 73,157 & 5.79\textbackslash{}\%\\
+Cocaine (All Forms Except Crack) & 1991 & 73,157 & 5.79\textbackslash{}\%\\
 \hline
-Heroin & 68,859 & 5.45\textbackslash{}\%\\
+Heroin & 1991 & 68,859 & 5.45\textbackslash{}\%\\
 \hline
-Crack Cocaine & 64,853 & 5.13\textbackslash{}\%\\
+Crack Cocaine & 1991 & 64,853 & 5.13\textbackslash{}\%\\
 \hline
-Other Drugs: Antidepressants (Elavil, Triavil, Tofranil, Etc.), Aromatic Hydrocarbons, Propoxyphene Or Darvon, Tranquilizers (Chlordiazepoxide Or Librium, Diazepam Or Valium, Etc.), Etc. & 47,748 & 3.78\textbackslash{}\%\\
+Other Drugs & 1991 & 47,748 & 3.78\textbackslash{}\%\\
 \hline
-Unknown Type Drug & 26,787 & 2.12\textbackslash{}\%\\
+Unknown Type Drug & 1991 & 26,787 & 2.12\textbackslash{}\%\\
 \hline
-Opium & 11,881 & 0.94\textbackslash{}\%\\
+Opium & 1992 & 11,881 & 0.94\textbackslash{}\%\\
 \hline
-Other Hallucinogrens: BMDA (White Acid), DMT, MDA, MDMA, Mescaline Or Peyote, Psilocybin, STP, Etc. & 8,799 & 0.70\textbackslash{}\%\\
+Other Hallucinogrens & 1991 & 8,799 & 0.70\textbackslash{}\%\\
 \hline
-Hashish & 6,963 & 0.55\textbackslash{}\%\\
+Hashish & 1991 & 6,963 & 0.55\textbackslash{}\%\\
 \hline
-Other Depressants: Glutethimide Or Doriden, Methaqualone Or Quaalude, Pentazocine Or Talwin, Etc. & 6,825 & 0.54\textbackslash{}\%\\
+Other Depressants & 1991 & 6,825 & 0.54\textbackslash{}\%\\
 \hline
-Other Stimulants: Adipex, Fastine And Ionamin (Derivatives of Phentermine), Benzedrine, Didrex, Methylphenidate Or Ritalin, Phenmetrazine Or Preludin, Tenuate, Etc. & 3,996 & 0.32\textbackslash{}\%\\
+Other Stimulants & 1991 & 3,996 & 0.32\textbackslash{}\%\\
 \hline
-Barbiturates & 1,582 & 0.13\textbackslash{}\%\\
+Barbiturates & 1991 & 1,582 & 0.13\textbackslash{}\%\\
 \hline
-PCP & 1,510 & 0.12\textbackslash{}\%\\
+PCP & 1993 & 1,510 & 0.12\textbackslash{}\%\\
 \hline
-LSD & 1,461 & 0.12\textbackslash{}\%\\
+LSD & 1991 & 1,461 & 0.12\textbackslash{}\%\\
 \hline
-Morphine & 1,271 & 0.10\textbackslash{}\%\\
+Morphine & 1992 & 1,271 & 0.10\textbackslash{}\%\\
 \hline
-Total & 1,263,436 & 100\textbackslash{}\%\\
+Total & - & 1,263,436 & 100\textbackslash{}\%\\
 \hline
 \end{longtable}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{17_nibrs_property_files/figure-latex/nibrsPropertyDrugType-1} 
+
+}
+
+\caption{Annual percent of drug seizures by drug type, for the 1st drug reported, 1991-2022.}\label{fig:nibrsPropertyDrugType}
+\end{figure}
 
 \subsection{Amount of drugs}\label{amount-of-drugs}
 

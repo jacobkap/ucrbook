@@ -173,9 +173,10 @@ kableExtra::kbl(admin_map,
 ```{r nibrsAnnualNumberAgencies, fig.cap = "The annual number of police agencies that report data to NIBRS."}
 batch_header_all_years$number_of_months_reported <-
   as.numeric(batch_header_all_years$number_of_months_reported)
-table(batch_header_all_years$number_of_months_reported,
-      is.na(batch_header_all_years$covered_by_ori),
-      useNA = "always")
+
+
+batch_header_all_years$number_of_months_reported <- 
+  as.numeric(batch_header_all_years$number_of_months_reported)
 batch_header_any_months <-
   batch_header_all_years %>%
   filter(number_of_months_reported > 0) %>%
@@ -293,7 +294,7 @@ fips_state_codes <- c(
 census_state_final <- readRDS("data/census_state_final.rds")
 
 census_state_final$state <- gsub(".*, |.*; ", "", census_state_final$NAME)
-unique(census_state_final$state)
+
 census_state_final <-
   census_state_final %>%
   group_by(state) %>%
@@ -348,7 +349,7 @@ ggplot2::ggplot(aes(map_id = state)) +
 census_state_final_2000 <- readRDS("data/census_state_final_2000.rds")
 
 census_state_final_2000$state <- gsub(".*, |.*; ", "", census_state_final_2000$NAME)
-unique(census_state_final_2000$state)
+
 census_state_final_2000 <-
   census_state_final_2000 %>%
   group_by(state) %>%
@@ -389,7 +390,7 @@ ggplot2::ggplot(aes(map_id = state)) +
 census_state_final_2010 <- readRDS("data/census_state_final_2010.rds")
 
 census_state_final_2010$state <- gsub(".*, |.*; ", "", census_state_final_2010$NAME)
-unique(census_state_final_2010$state)
+
 census_state_final_2010 <-
   census_state_final_2010 %>%
   group_by(state) %>%

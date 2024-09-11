@@ -47,36 +47,6 @@ More than many other datasets, there will be times when using UCR data that you'
 </div>
 
 
-
-```
-#>  [1] "Alabama"              "Alaska"              
-#>  [3] "Arizona"              "Arkansas"            
-#>  [5] "California"           "Colorado"            
-#>  [7] "Connecticut"          "Delaware"            
-#>  [9] "District of Columbia" "Florida"             
-#> [11] "Georgia"              "Hawaii"              
-#> [13] "Idaho"                "Illinois"            
-#> [15] "Indiana"              "Iowa"                
-#> [17] "Kansas"               "Kentucky"            
-#> [19] "Louisiana"            "Maine"               
-#> [21] "Maryland"             "Massachusetts"       
-#> [23] "Michigan"             "Minnesota"           
-#> [25] "Mississippi"          "Missouri"            
-#> [27] "Montana"              "Nebraska"            
-#> [29] "Nevada"               "New Hampshire"       
-#> [31] "New Jersey"           "New Mexico"          
-#> [33] "New York"             "North Carolina"      
-#> [35] "North Dakota"         "Ohio"                
-#> [37] "Oklahoma"             "Oregon"              
-#> [39] "Pennsylvania"         "Rhode Island"        
-#> [41] "South Carolina"       "South Dakota"        
-#> [43] "Tennessee"            "Texas"               
-#> [45] "Utah"                 "Vermont"             
-#> [47] "Virginia"             "Washington"          
-#> [49] "West Virginia"        "Wisconsin"           
-#> [51] "Wyoming"              "Puerto Rico"
-```
-
 <div class="figure" style="text-align: center">
 <img src="index_files/figure-html/nibrsStateParticipation2020Index-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022." width="90%" />
 <p class="caption">(\#fig:nibrsStateParticipation2020Index)The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022.</p>
