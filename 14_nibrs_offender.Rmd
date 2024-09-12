@@ -16,9 +16,9 @@ nibrs_offender_summary <- readRDS("data/nibrs_summary_stats/nibrs_offender_summa
 gc()
 ```
 
-As might be expected, the Offender Segment provides information about who the offender is for each incident, though this is limited to only demographic variables. In incidents with multiple offenders it provides information about each offender. From this data we know the age, sex, and race of each offender but nothing else. This means that important variables such as criminal history, socioeconomic status, and motive are missing. In the Victim Segment we learn about the relationship between the victim and offender, and in the Offense Segment we learn which weapon (if any) the offender used. So there is some other data on the offender in other segments, but it's limited. 
+As might be expected, the Offender Segment provides information about who the offender is for each incident, though this is limited to only four demographic variables: age, sex, race, and ethnicity. In incidents with multiple offenders it provides information about each offender. While important factors such as criminal history, socioeconomic status, and motive are missing in the Offender Segment, other segments provide some supplementary details. For example, the Victim Segment reveals the relationship between the offender and victim, and the Offense Segment tells us whether a weapon was used by the offender. These pieces of information allow for a more complete picture, although they remain fragmented across segments.
 
-In cases where there is no information about the offender there will be a single row where all of the offender variables will be "unknown." In these cases having a single row for the offender is merely a placeholder and doesn't necessarily mean that there was only one offender for that incident. However, there's no indicator for when this is a placeholder and when there was actually one offender but whose demographic info is unknown.
+In cases where there is no information about the offender there will be a single row where all of the offender variables will be "unknown." In these cases having a single row for the offender is merely a placeholder and doesn’t necessarily mean that there was only one offender for that incident. However, there’s no indicator for when this is a placeholder and when there was actually one offender but whose demographic info is unknown.
 
 The Offender Segment is the sparsest of the available segments, and provides only four new variables that are about the offender's demographics. It also includes the standard set of variables: the agency ORI, the incident number, the state the agency is in, and the incident date (though we'd need to check the Administrative Segment to see if this is actually the incident date or the report date).
 
@@ -45,7 +45,7 @@ There are four demographics variables included in this data: the offenders' age,
 
 The age variable is the suspected age of the offender. This is presented to us as how many years old the offender is, however, agencies can input an age range if they don't know the exact age (e.g. age 20-29) and the FBI will convert that to an exact number by averaging it for us. So if the police say the offender is aged 20-29 (since they don't know for sure), we only see that the offender is 24 years old since the FBI averages the range and then rounds down to make an integer. This value is top-coded to 99 years old with everyone 99 years or older being set as "over 98 years old." Figure \@ref(fig:offenderAge) shows the distribution of offender ages for all known offenders in the 2022 NIBRS data. About 14% of offenders have an unknown age and are excluded from the figure. 
 
-If you're familiar with research on the age-crime curve, which says that crimes peak in the late teens and then rapidly decrease, this essentially replicates those findings. There are some differences between this figure and past age-crime research as crime peaks later here, in the mid-20s (the most common age is 25), but the general trend of crime being largely a "young person" phenomenon holds consistent. The age distribution can differ depending on what offenses the offender's committed. To examine that you'll need to merge this segment with the Offense Segment and then subset the offender data by the offense you're interested in.
+The data largely replicates findings from the well-known age-crime curve, which shows that crime tends to peak in the late teens and then rapidly declines. However, the NIBRS data shows a slightly later peak, with the most common offender age being 25 years old. This shift may reflect differences in the types of offenses being reported or changes in offender patterns over time. The age distribution can differ depending on what offenses the offender's committed. To examine that you'll need to merge this segment with the Offense Segment and then subset the offender data by the offense you're interested in.
 
 
 ```{r offenderAge, fig.cap = "The age of all offenders reported in the 2022 NIBRS data. Approximately 44 percent of offenders have an unknown age are not shown in the figure."}
@@ -60,7 +60,7 @@ make_stat_count_plots(offender,
   xlab("Age")
 ```
 
-The spike you see at the very end of the data is due to the data maxing out possible individual ages at 98, so anyone older is grouped together. There's also a spike at age 1 - and other offenders at very young ages - which is the youngest possible age. Surely very young children aren't going around committing crime, so is this a data error? Mostly yes. But it could actually be partially real as there are very rare cases where children harm or kill someone while playing with a gun and are included in the data. These aren't crimes as we conventionally think of them - and the "offenders" won't be criminally charged - but are still included in the data. However, the bulk of this, especially for age one, is likely just a data error or the police entering age as one instead of saying that the age is unknown (which they have the option of doing) or simply entering the data incorrectly by mistake.
+The spike you see at the very end of the data is due to the data maxing out possible individual ages at 98, so anyone older is grouped together. Surely very young children aren’t committing crimes, so is this a data error? Mostly yes. These entries likely reflect either data entry mistakes or situations where officers mistakenly input the offender’s age as "1" rather than selecting "unknown." However, in rare cases, this could also include tragic incidents, such as accidental harm caused by a child handling a firearm, which are still recorded as criminal incidents despite no intent. However, the bulk of this, especially for age one, is likely just a data error or the police entering age as one instead of saying that the age is unknown (which they have the option of doing) or simply entering the data incorrectly by mistake.
 
 Another indicator of guesses about age is that three of the five most common ages are 25, 30, and 20 years old. People tend to like multiples of five when making estimates, so these indicate that someone (the victim or the officer) probably didn't know the exact age and so guessed the age or used an age range rather than the exact age. 
 
@@ -120,7 +120,7 @@ nibrs_offender_summary  %>%
 
 ### Race
 
-The next variable available is the race of the offender. The only possible races are White, Black, American Indian/Alaskan Native, Asian, and Native Hawaiian/Other Pacific Islander, which was first reported in 2012. These categories are mutually exclusive so people cannot be labeled as mixed race, they must be put into one of the categories. Like with other demographic variables this is the race as perceived by the officer and the quality of this perception depends on incident characteristics such as if an arrest was made and how well witnesses could see the offender.
+The next variable is the race of the offender, categorized as White, Black, American Indian/Alaskan Native, Asian, and Native Hawaiian/Other Pacific Islander. It's important to note that this is often the officer’s perception of race, which can introduce bias or inaccuracies, particularly in cases where there was no arrest or detailed witness account.
 
 Figure \@ref(fig:offenderRace) shows the breakdown in offender races for every offender in our data. The most common offender race in nearly every year is Unknown, with about 40% of offenders not having a known race. This is actually an undercount as in cases where the agency doesn't know anything about the offenders they'll put down a single offender with "unknown" for every demographics variable. So there could potentially be multiple offenders represented when there is a row with an unknown offender race. This is also dependent on the type of crimes committed and when they are committed. For example, a daytime robbery would likely have a known offender race as the victim can clearly see (complexities about identifying people's race aside) the race of the robber. A daytime burglary where no one is home would likely have an unknown offender race and there would be no witnesses. Likewise, a robbery at night could have an unknown offender race because the darkness makes it harder to identify people.
 
@@ -150,7 +150,6 @@ nibrs_offender_summary  %>%
                                 "Unknown" = "black"))
 ```
 
-
 ### Ethnicity
 
 The final variable, and one not really worth using is ethnicity. As we can see in Figure \@ref(fig:nibrsOffenderEthnicity) this variable is very rarely used and for most of the life of NIBRS it wasn't collected. Even when it was collected - which started in 2013, ended after 2016, and then returned in 2021 - the most common value is that the offender's ethnicity was unknown. 
@@ -171,3 +170,5 @@ nibrs_offender_summary  %>%
                                 "Not Hispanic" = "#d95f02",
                                 "Unknown" = "#7570b3"))
 ```
+
+Although the Offender Segment is limited in scope—capturing only basic demographics—this data is useful for understanding broader patterns in offender behavior. Researchers can use this information to track trends in who commits crimes over time, analyze shifts in demographics, and inform policy decisions aimed at addressing crime prevention and intervention. However, the gaps in this data, such as missing information on unknown offenders and the lack of deeper variables like criminal history, underscore the need for cautious interpretation.
