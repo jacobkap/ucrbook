@@ -16,7 +16,7 @@ rmd_files: [
 #  "03_offenses_known.Rmd",
 #  "04_stolen_property.Rmd",
 #  "05_arrests.Rmd",
- # "06_shr.Rmd",
+  "06_shr.Rmd",
 #  "07_leoka.Rmd",
 #  "08_arson.Rmd",
   "09_hate_crime.Rmd",

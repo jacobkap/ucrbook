@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Supplementary Homicide Reports (SHR) | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</title>
+  <title>Chapter 2 Supplementary Homicide Reports (SHR) | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Supplementary Homicide Reports (SHR) | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta property="og:title" content="Chapter 2 Supplementary Homicide Reports (SHR) | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="github-repo" content="jacobkap/ucrbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Supplementary Homicide Reports (SHR) | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta name="twitter:title" content="Chapter 2 Supplementary Homicide Reports (SHR) | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
   
   <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   
@@ -23,15 +23,15 @@
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2024-09-11" />
+<meta name="date" content="2024-09-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="arrests.html"/>
-<link rel="next" href="leoka.html"/>
+<link rel="prev" href="about-the-author.html"/>
+<link rel="next" href="hate_crimes.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -134,29 +134,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -204,244 +181,29 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
-<li class="part"><span><b>II Summary Reporting System (SRS)</b></span></li>
-<li class="chapter" data-level="2" data-path="SRSGeneral.html"><a href="SRSGeneral.html"><i class="fa fa-check"></i><b>2</b> SRS Overview</a>
+<li class="chapter" data-level="2" data-path="shr.html"><a href="shr.html"><i class="fa fa-check"></i><b>2</b> Supplementary Homicide Reports (SHR)</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#crimes-included-in-the-srs-datasets"><i class="fa fa-check"></i><b>2.1</b> Crimes included in the SRS datasets</a></li>
-<li class="chapter" data-level="2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#a-summary-of-each-srs-dataset"><i class="fa fa-check"></i><b>2.2</b> A summary of each SRS dataset</a>
+<li class="chapter" data-level="2.1" data-path="shr.html"><a href="shr.html#agencies-reporting"><i class="fa fa-check"></i><b>2.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="2.2" data-path="shr.html"><a href="shr.html#important-variables"><i class="fa fa-check"></i><b>2.2</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#offenses-known-and-clearances-by-arrest-1960---present"><i class="fa fa-check"></i><b>2.2.1</b> Offenses Known and Clearances by Arrest (1960 - present)</a></li>
-<li class="chapter" data-level="2.2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#arrests-by-age-sex-and-race-1974---present"><i class="fa fa-check"></i><b>2.2.2</b> Arrests by Age, Sex, and Race (1974 - present)</a></li>
-<li class="chapter" data-level="2.2.3" data-path="SRSGeneral.html"><a href="SRSGeneral.html#law-enforcement-officers-killed-and-assaulted-leoka-1960---present"><i class="fa fa-check"></i><b>2.2.3</b> Law Enforcement Officers Killed and Assaulted (LEOKA) (1960 - present)</a></li>
-<li class="chapter" data-level="2.2.4" data-path="SRSGeneral.html"><a href="SRSGeneral.html#supplementary-homicide-reports-shr"><i class="fa fa-check"></i><b>2.2.4</b> Supplementary Homicide Reports (SHR)</a></li>
-<li class="chapter" data-level="2.2.5" data-path="SRSGeneral.html"><a href="SRSGeneral.html#hate-crime-data-1991---present"><i class="fa fa-check"></i><b>2.2.5</b> Hate Crime Data (1991 - present)</a></li>
-<li class="chapter" data-level="2.2.6" data-path="SRSGeneral.html"><a href="SRSGeneral.html#property-stolen-and-recovered-supplement-to-return-a-1960---present"><i class="fa fa-check"></i><b>2.2.6</b> Property Stolen and Recovered (Supplement to Return A) (1960 - present)</a></li>
-<li class="chapter" data-level="2.2.7" data-path="SRSGeneral.html"><a href="SRSGeneral.html#arson-1979---present"><i class="fa fa-check"></i><b>2.2.7</b> Arson (1979 - present)</a></li>
+<li class="chapter" data-level="2.2.1" data-path="shr.html"><a href="shr.html#demographics"><i class="fa fa-check"></i><b>2.2.1</b> Demographics</a></li>
+<li class="chapter" data-level="2.2.2" data-path="shr.html"><a href="shr.html#case-characteristics"><i class="fa fa-check"></i><b>2.2.2</b> Case characteristics</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="offensesKnown.html"><a href="offensesKnown.html"><i class="fa fa-check"></i><b>3</b> Offenses Known and Clearances by Arrest</a>
+<li class="chapter" data-level="3" data-path="hate_crimes.html"><a href="hate_crimes.html"><i class="fa fa-check"></i><b>3</b> Hate Crime Data</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="offensesKnown.html"><a href="offensesKnown.html#indexCrimesOffensesKnown"><i class="fa fa-check"></i><b>3.1</b> Which crimes are included?</a>
+<li class="chapter" data-level="3.1" data-path="hate_crimes.html"><a href="hate_crimes.html#agencies-reporting-1"><i class="fa fa-check"></i><b>3.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="3.2" data-path="hate_crimes.html"><a href="hate_crimes.html#treeOfLife"><i class="fa fa-check"></i><b>3.2</b> Tree of Life synagogue shooting</a></li>
+<li class="chapter" data-level="3.3" data-path="hate_crimes.html"><a href="hate_crimes.html#important-variables-1"><i class="fa fa-check"></i><b>3.3</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="offensesKnown.html"><a href="offensesKnown.html#hierarchy"><i class="fa fa-check"></i><b>3.1.1</b> Hierarchy Rule</a></li>
-<li class="chapter" data-level="3.1.2" data-path="offensesKnown.html"><a href="offensesKnown.html#indexCrimes"><i class="fa fa-check"></i><b>3.1.2</b> Index (“Part 1”) crimes</a></li>
-</ul></li>
-<li class="chapter" data-level="3.2" data-path="offensesKnown.html"><a href="offensesKnown.html#offensesKnownReporting"><i class="fa fa-check"></i><b>3.2</b> Agencies reporting</a></li>
-<li class="chapter" data-level="3.3" data-path="offensesKnown.html"><a href="offensesKnown.html#negative-numbers"><i class="fa fa-check"></i><b>3.3</b> Negative numbers</a></li>
-<li class="chapter" data-level="3.4" data-path="offensesKnown.html"><a href="offensesKnown.html#important-variables"><i class="fa fa-check"></i><b>3.4</b> Important variables</a>
-<ul>
-<li class="chapter" data-level="3.4.1" data-path="offensesKnown.html"><a href="offensesKnown.html#actual"><i class="fa fa-check"></i><b>3.4.1</b> Actual crimes</a></li>
-<li class="chapter" data-level="3.4.2" data-path="offensesKnown.html"><a href="offensesKnown.html#clearedCrimes"><i class="fa fa-check"></i><b>3.4.2</b> Total cleared crimes</a></li>
-<li class="chapter" data-level="3.4.3" data-path="offensesKnown.html"><a href="offensesKnown.html#crimes-cleared-where-all-offenders-are-under-18-years-old"><i class="fa fa-check"></i><b>3.4.3</b> Crimes cleared where all offenders are under 18 years old</a></li>
-<li class="chapter" data-level="3.4.4" data-path="offensesKnown.html"><a href="offensesKnown.html#unfounded"><i class="fa fa-check"></i><b>3.4.4</b> Unfounded crimes</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="offensesKnown.html"><a href="offensesKnown.html#important-changes"><i class="fa fa-check"></i><b>3.5</b> Important changes</a>
-<ul>
-<li class="chapter" data-level="3.5.1" data-path="offensesKnown.html"><a href="offensesKnown.html#rape-definition-change"><i class="fa fa-check"></i><b>3.5.1</b> Rape definition change</a></li>
-<li class="chapter" data-level="3.5.2" data-path="offensesKnown.html"><a href="offensesKnown.html#the-decline-of-manslaughter"><i class="fa fa-check"></i><b>3.5.2</b> The decline of manslaughter</a></li>
+<li class="chapter" data-level="3.3.1" data-path="hate_crimes.html"><a href="hate_crimes.html#date-and-time"><i class="fa fa-check"></i><b>3.3.1</b> Date and time</a></li>
+<li class="chapter" data-level="3.3.2" data-path="hate_crimes.html"><a href="hate_crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>3.3.2</b> The bias motivation (who the hate is against)</a></li>
+<li class="chapter" data-level="3.3.3" data-path="hate_crimes.html"><a href="hate_crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>3.3.3</b> The crime that occurred</a></li>
+<li class="chapter" data-level="3.3.4" data-path="hate_crimes.html"><a href="hate_crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>3.3.4</b> The location of the crime</a></li>
+<li class="chapter" data-level="3.3.5" data-path="hate_crimes.html"><a href="hate_crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>3.3.5</b> Number and race of offenders</a></li>
+<li class="chapter" data-level="3.3.6" data-path="hate_crimes.html"><a href="hate_crimes.html#number-of-victims"><i class="fa fa-check"></i><b>3.3.6</b> Number of victims</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="stolen_property.html"><a href="stolen_property.html"><i class="fa fa-check"></i><b>4</b> Property Stolen and Recovered (Supplement to Return A)</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="stolen_property.html"><a href="stolen_property.html#agencies-reporting"><i class="fa fa-check"></i><b>4.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="4.2" data-path="stolen_property.html"><a href="stolen_property.html#important-variables-1"><i class="fa fa-check"></i><b>4.2</b> Important variables</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="stolen_property.html"><a href="stolen_property.html#propertycount"><i class="fa fa-check"></i><b>4.2.1</b> A more detailed breakdown of property (and robbery) crimes</a></li>
-<li class="chapter" data-level="4.2.2" data-path="stolen_property.html"><a href="stolen_property.html#the-value-of-property-stolen-in-property-and-robbery-crimes"><i class="fa fa-check"></i><b>4.2.2</b> The value of property stolen in property (and robbery) crimes</a></li>
-<li class="chapter" data-level="4.2.3" data-path="stolen_property.html"><a href="stolen_property.html#value-of-recovered-property-by-type-of-item-stolen"><i class="fa fa-check"></i><b>4.2.3</b> Value of recovered property by type of item stolen</a></li>
-</ul></li>
-<li class="chapter" data-level="4.3" data-path="stolen_property.html"><a href="stolen_property.html#data-errors"><i class="fa fa-check"></i><b>4.3</b> Data errors</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="arrests.html"><a href="arrests.html"><i class="fa fa-check"></i><b>5</b> Arrests by Age, Sex, and Race</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="arrests.html"><a href="arrests.html#agencies-reporting-1"><i class="fa fa-check"></i><b>5.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="5.2" data-path="arrests.html"><a href="arrests.html#what-is-an-arrest-what-unit-is-this-data-in"><i class="fa fa-check"></i><b>5.2</b> What is an arrest? (what unit is this data in?)</a>
-<ul>
-<li class="chapter" data-level="5.2.1" data-path="arrests.html"><a href="arrests.html#the-hierarchy-rule"><i class="fa fa-check"></i><b>5.2.1</b> The Hierarchy Rule</a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="arrests.html"><a href="arrests.html#arrestsCrimesIncluded"><i class="fa fa-check"></i><b>5.3</b> Crimes included</a></li>
-<li class="chapter" data-level="5.4" data-path="arrests.html"><a href="arrests.html#important-variables-2"><i class="fa fa-check"></i><b>5.4</b> Important variables</a>
-<ul>
-<li class="chapter" data-level="5.4.1" data-path="arrests.html"><a href="arrests.html#age"><i class="fa fa-check"></i><b>5.4.1</b> Age</a></li>
-<li class="chapter" data-level="5.4.2" data-path="arrests.html"><a href="arrests.html#race"><i class="fa fa-check"></i><b>5.4.2</b> Race</a></li>
-<li class="chapter" data-level="5.4.3" data-path="arrests.html"><a href="arrests.html#ethnicity"><i class="fa fa-check"></i><b>5.4.3</b> Ethnicity</a></li>
-<li class="chapter" data-level="5.4.4" data-path="arrests.html"><a href="arrests.html#juvenile-referrals"><i class="fa fa-check"></i><b>5.4.4</b> Juvenile referrals</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="shr.html"><a href="shr.html"><i class="fa fa-check"></i><b>6</b> Supplementary Homicide Reports (SHR)</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="shr.html"><a href="shr.html#agencies-reporting-2"><i class="fa fa-check"></i><b>6.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="6.2" data-path="shr.html"><a href="shr.html#important-variables-3"><i class="fa fa-check"></i><b>6.2</b> Important variables</a>
-<ul>
-<li class="chapter" data-level="6.2.1" data-path="shr.html"><a href="shr.html#demographics"><i class="fa fa-check"></i><b>6.2.1</b> Demographics</a></li>
-<li class="chapter" data-level="6.2.2" data-path="shr.html"><a href="shr.html#case-characteristics"><i class="fa fa-check"></i><b>6.2.2</b> Case characteristics</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="leoka.html"><a href="leoka.html"><i class="fa fa-check"></i><b>7</b> Law Enforcement Officers Killed and Assaulted (LEOKA)</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="leoka.html"><a href="leoka.html#agencies-reporting-3"><i class="fa fa-check"></i><b>7.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="7.2" data-path="leoka.html"><a href="leoka.html#important-variables-4"><i class="fa fa-check"></i><b>7.2</b> Important variables</a>
-<ul>
-<li class="chapter" data-level="7.2.1" data-path="leoka.html"><a href="leoka.html#number-of-employees"><i class="fa fa-check"></i><b>7.2.1</b> Number of employees</a></li>
-<li class="chapter" data-level="7.2.2" data-path="leoka.html"><a href="leoka.html#officers-killed"><i class="fa fa-check"></i><b>7.2.2</b> Officers killed</a></li>
-<li class="chapter" data-level="7.2.3" data-path="leoka.html"><a href="leoka.html#assaults-by-injury-and-weapon"><i class="fa fa-check"></i><b>7.2.3</b> Assaults by injury and weapon</a></li>
-<li class="chapter" data-level="7.2.4" data-path="leoka.html"><a href="leoka.html#assaults-by-call-type"><i class="fa fa-check"></i><b>7.2.4</b> Assaults by call type</a></li>
-<li class="chapter" data-level="7.2.5" data-path="leoka.html"><a href="leoka.html#assaults-by-time"><i class="fa fa-check"></i><b>7.2.5</b> Assaults by time</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="arsonChapter.html"><a href="arsonChapter.html"><i class="fa fa-check"></i><b>8</b> Arson</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="arsonChapter.html"><a href="arsonChapter.html#agencies-reporting-4"><i class="fa fa-check"></i><b>8.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="8.2" data-path="arsonChapter.html"><a href="arsonChapter.html#important-variables-5"><i class="fa fa-check"></i><b>8.2</b> Important variables</a>
-<ul>
-<li class="chapter" data-level="8.2.1" data-path="arsonChapter.html"><a href="arsonChapter.html#arsonType"><i class="fa fa-check"></i><b>8.2.1</b> Types of arsons</a></li>
-<li class="chapter" data-level="8.2.2" data-path="arsonChapter.html"><a href="arsonChapter.html#actual-arsons"><i class="fa fa-check"></i><b>8.2.2</b> Actual arsons</a></li>
-<li class="chapter" data-level="8.2.3" data-path="arsonChapter.html"><a href="arsonChapter.html#unfounded-arsons"><i class="fa fa-check"></i><b>8.2.3</b> Unfounded arsons</a></li>
-<li class="chapter" data-level="8.2.4" data-path="arsonChapter.html"><a href="arsonChapter.html#reported-arsons"><i class="fa fa-check"></i><b>8.2.4</b> Reported arsons</a></li>
-<li class="chapter" data-level="8.2.5" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-arsons"><i class="fa fa-check"></i><b>8.2.5</b> Cleared arsons</a></li>
-<li class="chapter" data-level="8.2.6" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-for-arsons-where-all-offenders-are-under-age-18"><i class="fa fa-check"></i><b>8.2.6</b> Cleared for arsons where all offenders are under age 18</a></li>
-<li class="chapter" data-level="8.2.7" data-path="arsonChapter.html"><a href="arsonChapter.html#uninhabited-building-arsons"><i class="fa fa-check"></i><b>8.2.7</b> Uninhabited building arsons</a></li>
-<li class="chapter" data-level="8.2.8" data-path="arsonChapter.html"><a href="arsonChapter.html#estimated-damage-cost"><i class="fa fa-check"></i><b>8.2.8</b> Estimated damage cost</a></li>
-</ul></li>
-<li class="chapter" data-level="8.3" data-path="arsonChapter.html"><a href="arsonChapter.html#data-errors-1"><i class="fa fa-check"></i><b>8.3</b> Data errors</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="hate_crimes.html"><a href="hate_crimes.html"><i class="fa fa-check"></i><b>9</b> Hate Crime Data</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="hate_crimes.html"><a href="hate_crimes.html#agencies-reporting-5"><i class="fa fa-check"></i><b>9.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="9.2" data-path="hate_crimes.html"><a href="hate_crimes.html#treeOfLife"><i class="fa fa-check"></i><b>9.2</b> Tree of Life synagogue shooting</a></li>
-<li class="chapter" data-level="9.3" data-path="hate_crimes.html"><a href="hate_crimes.html#important-variables-6"><i class="fa fa-check"></i><b>9.3</b> Important variables</a>
-<ul>
-<li class="chapter" data-level="9.3.1" data-path="hate_crimes.html"><a href="hate_crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>9.3.1</b> The bias motivation (who the hate is against)</a></li>
-<li class="chapter" data-level="9.3.2" data-path="hate_crimes.html"><a href="hate_crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>9.3.2</b> The crime that occurred</a></li>
-<li class="chapter" data-level="9.3.3" data-path="hate_crimes.html"><a href="hate_crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>9.3.3</b> The location of the crime</a></li>
-<li class="chapter" data-level="9.3.4" data-path="hate_crimes.html"><a href="hate_crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>9.3.4</b> Number and race of offenders</a></li>
-<li class="chapter" data-level="9.3.5" data-path="hate_crimes.html"><a href="hate_crimes.html#number-of-victims"><i class="fa fa-check"></i><b>9.3.5</b> Number of victims</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="county-level-data.html"><a href="county-level-data.html"><i class="fa fa-check"></i><b>10</b> County-Level Data</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="county-level-data.html"><a href="county-level-data.html#current-usage"><i class="fa fa-check"></i><b>10.1</b> Current usage</a></li>
-<li class="chapter" data-level="10.2" data-path="county-level-data.html"><a href="county-level-data.html#how-much-data-is-missing"><i class="fa fa-check"></i><b>10.2</b> How much data is missing</a></li>
-<li class="chapter" data-level="10.3" data-path="county-level-data.html"><a href="county-level-data.html#current-imputation-practices"><i class="fa fa-check"></i><b>10.3</b> Current imputation practices</a>
-<ul>
-<li class="chapter" data-level="10.3.1" data-path="county-level-data.html"><a href="county-level-data.html#months-missing"><i class="fa fa-check"></i><b>10.3.1</b> 1-9 months missing</a></li>
-<li class="chapter" data-level="10.3.2" data-path="county-level-data.html"><a href="county-level-data.html#months-missing-1"><i class="fa fa-check"></i><b>10.3.2</b> 10-12 months missing</a></li>
-</ul></li>
-</ul></li>
-<li class="part"><span><b>III National Incident-Based Reporting System (NIBRS)</b></span></li>
-<li class="chapter" data-level="11" data-path="nibrs-overview.html"><a href="nibrs-overview.html"><i class="fa fa-check"></i><b>11</b> NIBRS Overview</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#problems-with-nibrs"><i class="fa fa-check"></i><b>11.1</b> Problems with NIBRS</a>
-<ul>
-<li class="chapter" data-level="11.1.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#nibrs-allows-for-different-units-of-analysis"><i class="fa fa-check"></i><b>11.1.1</b> NIBRS allows for different units of analysis</a></li>
-</ul></li>
-<li class="chapter" data-level="11.2" data-path="nibrs-overview.html"><a href="nibrs-overview.html#which-agencies-report-data"><i class="fa fa-check"></i><b>11.2</b> Which agencies report data</a></li>
-<li class="chapter" data-level="11.3" data-path="nibrs-overview.html"><a href="nibrs-overview.html#crimes-included-in-nibrs"><i class="fa fa-check"></i><b>11.3</b> Crimes included in NIBRS</a>
-<ul>
-<li class="chapter" data-level="11.3.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#group-a-crimes"><i class="fa fa-check"></i><b>11.3.1</b> Group A crimes</a></li>
-<li class="chapter" data-level="11.3.2" data-path="nibrs-overview.html"><a href="nibrs-overview.html#group-b-crimes"><i class="fa fa-check"></i><b>11.3.2</b> Group B crimes</a></li>
-</ul></li>
-<li class="chapter" data-level="11.4" data-path="nibrs-overview.html"><a href="nibrs-overview.html#differences-from-srs-data"><i class="fa fa-check"></i><b>11.4</b> Differences from SRS data</a>
-<ul>
-<li class="chapter" data-level="11.4.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#nibrs-does-not-have-unfounded-crimes"><i class="fa fa-check"></i><b>11.4.1</b> NIBRS does not have unfounded crimes</a></li>
-</ul></li>
-<li class="chapter" data-level="11.5" data-path="nibrs-overview.html"><a href="nibrs-overview.html#a-summary-of-each-segment-file"><i class="fa fa-check"></i><b>11.5</b> A summary of each segment file</a>
-<ul>
-<li class="chapter" data-level="11.5.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#administrative-segment"><i class="fa fa-check"></i><b>11.5.1</b> Administrative Segment</a></li>
-<li class="chapter" data-level="11.5.2" data-path="nibrs-overview.html"><a href="nibrs-overview.html#offense-segment"><i class="fa fa-check"></i><b>11.5.2</b> Offense Segment</a></li>
-<li class="chapter" data-level="11.5.3" data-path="nibrs-overview.html"><a href="nibrs-overview.html#offender-segment"><i class="fa fa-check"></i><b>11.5.3</b> Offender Segment</a></li>
-<li class="chapter" data-level="11.5.4" data-path="nibrs-overview.html"><a href="nibrs-overview.html#victim-segment"><i class="fa fa-check"></i><b>11.5.4</b> Victim Segment</a></li>
-<li class="chapter" data-level="11.5.5" data-path="nibrs-overview.html"><a href="nibrs-overview.html#arrestee-and-group-b-arrestee-segment"><i class="fa fa-check"></i><b>11.5.5</b> Arrestee and Group B Arrestee Segment</a></li>
-<li class="chapter" data-level="11.5.6" data-path="nibrs-overview.html"><a href="nibrs-overview.html#property-segment"><i class="fa fa-check"></i><b>11.5.6</b> Property Segment</a></li>
-<li class="chapter" data-level="11.5.7" data-path="nibrs-overview.html"><a href="nibrs-overview.html#window"><i class="fa fa-check"></i><b>11.5.7</b> Window segments</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html"><i class="fa fa-check"></i><b>12</b> Administrative and Window Exceptional Clearance Segment</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#the-incident-and-report-date"><i class="fa fa-check"></i><b>12.1</b> The incident and report date</a></li>
-<li class="chapter" data-level="12.2" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#hour-of-incident"><i class="fa fa-check"></i><b>12.2</b> Hour of incident</a></li>
-<li class="chapter" data-level="12.3" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#exceptional-clearance"><i class="fa fa-check"></i><b>12.3</b> Exceptional clearance</a></li>
-<li class="chapter" data-level="12.4" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#number-of-other-segments"><i class="fa fa-check"></i><b>12.4</b> Number of other segments</a>
-<ul>
-<li class="chapter" data-level="12.4.1" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#offense-segments"><i class="fa fa-check"></i><b>12.4.1</b> Offense Segments</a></li>
-<li class="chapter" data-level="12.4.2" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#offender-segments"><i class="fa fa-check"></i><b>12.4.2</b> Offender Segments</a></li>
-<li class="chapter" data-level="12.4.3" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#victim-segments"><i class="fa fa-check"></i><b>12.4.3</b> Victim Segments</a></li>
-<li class="chapter" data-level="12.4.4" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#arrestee-segments"><i class="fa fa-check"></i><b>12.4.4</b> Arrestee Segments</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="offenseSegment.html"><a href="offenseSegment.html"><i class="fa fa-check"></i><b>13</b> Offense Segment</a>
-<ul>
-<li class="chapter" data-level="13.1" data-path="offenseSegment.html"><a href="offenseSegment.html#crime-category"><i class="fa fa-check"></i><b>13.1</b> Crime category</a></li>
-<li class="chapter" data-level="13.2" data-path="offenseSegment.html"><a href="offenseSegment.html#offense-subtype"><i class="fa fa-check"></i><b>13.2</b> Offense subtype</a></li>
-<li class="chapter" data-level="13.3" data-path="offenseSegment.html"><a href="offenseSegment.html#offense-completed"><i class="fa fa-check"></i><b>13.3</b> Offense completed</a></li>
-<li class="chapter" data-level="13.4" data-path="offenseSegment.html"><a href="offenseSegment.html#drug-alcohol-or-computer-use"><i class="fa fa-check"></i><b>13.4</b> Drug, alcohol, or computer use</a></li>
-<li class="chapter" data-level="13.5" data-path="offenseSegment.html"><a href="offenseSegment.html#crime-location"><i class="fa fa-check"></i><b>13.5</b> Crime location</a></li>
-<li class="chapter" data-level="13.6" data-path="offenseSegment.html"><a href="offenseSegment.html#offenseWeapons"><i class="fa fa-check"></i><b>13.6</b> Weapons</a></li>
-<li class="chapter" data-level="13.7" data-path="offenseSegment.html"><a href="offenseSegment.html#automatic-weapons"><i class="fa fa-check"></i><b>13.7</b> Automatic weapons</a></li>
-<li class="chapter" data-level="13.8" data-path="offenseSegment.html"><a href="offenseSegment.html#burglary-info"><i class="fa fa-check"></i><b>13.8</b> Burglary info</a></li>
-<li class="chapter" data-level="13.9" data-path="offenseSegment.html"><a href="offenseSegment.html#hate-crime-indicator-bias-motivation"><i class="fa fa-check"></i><b>13.9</b> Hate crime indicator (bias motivation)</a></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="offender-segment-1.html"><a href="offender-segment-1.html"><i class="fa fa-check"></i><b>14</b> Offender Segment</a>
-<ul>
-<li class="chapter" data-level="14.1" data-path="offender-segment-1.html"><a href="offender-segment-1.html#demographics-1"><i class="fa fa-check"></i><b>14.1</b> Demographics</a>
-<ul>
-<li class="chapter" data-level="14.1.1" data-path="offender-segment-1.html"><a href="offender-segment-1.html#age-2"><i class="fa fa-check"></i><b>14.1.1</b> Age</a></li>
-<li class="chapter" data-level="14.1.2" data-path="offender-segment-1.html"><a href="offender-segment-1.html#sex-1"><i class="fa fa-check"></i><b>14.1.2</b> Sex</a></li>
-<li class="chapter" data-level="14.1.3" data-path="offender-segment-1.html"><a href="offender-segment-1.html#race-2"><i class="fa fa-check"></i><b>14.1.3</b> Race</a></li>
-<li class="chapter" data-level="14.1.4" data-path="offender-segment-1.html"><a href="offender-segment-1.html#ethnicity-2"><i class="fa fa-check"></i><b>14.1.4</b> Ethnicity</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="15" data-path="victim-segment-1.html"><a href="victim-segment-1.html"><i class="fa fa-check"></i><b>15</b> Victim Segment</a>
-<ul>
-<li class="chapter" data-level="15.1" data-path="victim-segment-1.html"><a href="victim-segment-1.html#crime-category-1"><i class="fa fa-check"></i><b>15.1</b> Crime category</a></li>
-<li class="chapter" data-level="15.2" data-path="victim-segment-1.html"><a href="victim-segment-1.html#victim-type"><i class="fa fa-check"></i><b>15.2</b> Victim type</a></li>
-<li class="chapter" data-level="15.3" data-path="victim-segment-1.html"><a href="victim-segment-1.html#injury"><i class="fa fa-check"></i><b>15.3</b> Injury</a></li>
-<li class="chapter" data-level="15.4" data-path="victim-segment-1.html"><a href="victim-segment-1.html#relationship-to-offender"><i class="fa fa-check"></i><b>15.4</b> Relationship to offender</a></li>
-<li class="chapter" data-level="15.5" data-path="victim-segment-1.html"><a href="victim-segment-1.html#aggravated-assault-and-homicide-circumstances"><i class="fa fa-check"></i><b>15.5</b> Aggravated assault and homicide circumstances</a></li>
-<li class="chapter" data-level="15.6" data-path="victim-segment-1.html"><a href="victim-segment-1.html#justifiable-homicide-circumstance"><i class="fa fa-check"></i><b>15.6</b> Justifiable homicide circumstance</a></li>
-<li class="chapter" data-level="15.7" data-path="victim-segment-1.html"><a href="victim-segment-1.html#demographics-2"><i class="fa fa-check"></i><b>15.7</b> Demographics</a>
-<ul>
-<li class="chapter" data-level="15.7.1" data-path="victim-segment-1.html"><a href="victim-segment-1.html#residence-status"><i class="fa fa-check"></i><b>15.7.1</b> Residence status</a></li>
-<li class="chapter" data-level="15.7.2" data-path="victim-segment-1.html"><a href="victim-segment-1.html#age-3"><i class="fa fa-check"></i><b>15.7.2</b> Age</a></li>
-<li class="chapter" data-level="15.7.3" data-path="victim-segment-1.html"><a href="victim-segment-1.html#sex-2"><i class="fa fa-check"></i><b>15.7.3</b> Sex</a></li>
-<li class="chapter" data-level="15.7.4" data-path="victim-segment-1.html"><a href="victim-segment-1.html#race-3"><i class="fa fa-check"></i><b>15.7.4</b> Race</a></li>
-<li class="chapter" data-level="15.7.5" data-path="victim-segment-1.html"><a href="victim-segment-1.html#ethnicity-3"><i class="fa fa-check"></i><b>15.7.5</b> Ethnicity</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="16" data-path="arrestee.html"><a href="arrestee.html"><i class="fa fa-check"></i><b>16</b> Arrestee, Group B Arrestee, and Window Arrestee Segment</a>
-<ul>
-<li class="chapter" data-level="16.1" data-path="arrestee.html"><a href="arrestee.html#crimes-arrested-for"><i class="fa fa-check"></i><b>16.1</b> Crimes arrested for</a>
-<ul>
-<li class="chapter" data-level="16.1.1" data-path="arrestee.html"><a href="arrestee.html#arrestee-segment-arrest-crimes"><i class="fa fa-check"></i><b>16.1.1</b> Arrestee Segment arrest crimes</a></li>
-<li class="chapter" data-level="16.1.2" data-path="arrestee.html"><a href="arrestee.html#group-b-segment-arrest-crimes"><i class="fa fa-check"></i><b>16.1.2</b> Group B Segment arrest crimes</a></li>
-</ul></li>
-<li class="chapter" data-level="16.2" data-path="arrestee.html"><a href="arrestee.html#arrest-date"><i class="fa fa-check"></i><b>16.2</b> Arrest date</a></li>
-<li class="chapter" data-level="16.3" data-path="arrestee.html"><a href="arrestee.html#weapons"><i class="fa fa-check"></i><b>16.3</b> Weapons</a></li>
-<li class="chapter" data-level="16.4" data-path="arrestee.html"><a href="arrestee.html#automatic-weapons-1"><i class="fa fa-check"></i><b>16.4</b> Automatic weapons</a></li>
-<li class="chapter" data-level="16.5" data-path="arrestee.html"><a href="arrestee.html#type-of-arrest"><i class="fa fa-check"></i><b>16.5</b> Type of arrest</a></li>
-<li class="chapter" data-level="16.6" data-path="arrestee.html"><a href="arrestee.html#disposition-for-juvenile-arrestees"><i class="fa fa-check"></i><b>16.6</b> Disposition for juvenile arrestees</a></li>
-<li class="chapter" data-level="16.7" data-path="arrestee.html"><a href="arrestee.html#demographics-3"><i class="fa fa-check"></i><b>16.7</b> Demographics</a>
-<ul>
-<li class="chapter" data-level="16.7.1" data-path="arrestee.html"><a href="arrestee.html#residence-status-1"><i class="fa fa-check"></i><b>16.7.1</b> Residence status</a></li>
-<li class="chapter" data-level="16.7.2" data-path="arrestee.html"><a href="arrestee.html#age-4"><i class="fa fa-check"></i><b>16.7.2</b> Age</a></li>
-<li class="chapter" data-level="16.7.3" data-path="arrestee.html"><a href="arrestee.html#sex-3"><i class="fa fa-check"></i><b>16.7.3</b> Sex</a></li>
-<li class="chapter" data-level="16.7.4" data-path="arrestee.html"><a href="arrestee.html#race-4"><i class="fa fa-check"></i><b>16.7.4</b> Race</a></li>
-<li class="chapter" data-level="16.7.5" data-path="arrestee.html"><a href="arrestee.html#ethnicity-4"><i class="fa fa-check"></i><b>16.7.5</b> Ethnicity</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="property.html"><a href="property.html"><i class="fa fa-check"></i><b>17</b> Property and Window Property Segment</a>
-<ul>
-<li class="chapter" data-level="17.1" data-path="property.html"><a href="property.html#propertyLoss"><i class="fa fa-check"></i><b>17.1</b> Type of property loss</a></li>
-<li class="chapter" data-level="17.2" data-path="property.html"><a href="property.html#description-of-property"><i class="fa fa-check"></i><b>17.2</b> Description of property</a></li>
-<li class="chapter" data-level="17.3" data-path="property.html"><a href="property.html#value-of-stolen-property"><i class="fa fa-check"></i><b>17.3</b> Value of stolen property</a></li>
-<li class="chapter" data-level="17.4" data-path="property.html"><a href="property.html#date-property-was-recovered"><i class="fa fa-check"></i><b>17.4</b> Date property was recovered</a></li>
-<li class="chapter" data-level="17.5" data-path="property.html"><a href="property.html#drugs"><i class="fa fa-check"></i><b>17.5</b> Drugs</a>
-<ul>
-<li class="chapter" data-level="17.5.1" data-path="property.html"><a href="property.html#suspected-drug-type"><i class="fa fa-check"></i><b>17.5.1</b> Suspected drug type</a></li>
-<li class="chapter" data-level="17.5.2" data-path="property.html"><a href="property.html#amount-of-drugs"><i class="fa fa-check"></i><b>17.5.2</b> Amount of drugs</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
       </nav>
@@ -459,162 +221,162 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="shr" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Supplementary Homicide Reports (SHR)<a href="shr.html#shr" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="shr" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Supplementary Homicide Reports (SHR)<a href="shr.html#shr" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>The Supplementary Homicide Reports dataset - often abbreviated to SHR - is the most detailed of the SRS datasets and provides information about the circumstances and participants (victim and offender demographics and relationship status) for homicides. For each homicide incident it tells you the age, gender, race, and ethnicity of each victim and offender as well as the relationship between the first victim and each of the offenders (but not the other victims in cases where there are multiple victims). It also tells you the weapon used by each offender and the circumstance of the killing, such as a “lovers triangle” or a gang-related murder. As with other SRS data, it also tells you the agency it occurred in and the month and year when the crime happened.</p>
 <p>One important point of clarification: this is not the number of murders, though it does track that. This data also includes the number of homicides that are manslaughter by negligence (e.g. children playing with a gun, hunting accident) and justifiable homicides (i.e. not criminal). So be carefully when speaking about this data. It is murders but not only murders so you want to speak precisely.</p>
-<div id="agencies-reporting-2" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> Agencies reporting<a href="shr.html#agencies-reporting-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This data only has a report when the agency has a homicide that year and since homicides are relatively rare it is difficult to measure underreporting. One way we can look at reporting is to compare homicide in the SHR data with that of other datasets. We’ll look at two of them: the Offenses Known and Clearances by Arrest which is covered in detail in Chapter <a href="offensesKnown.html#offensesKnown">3</a>, and the Center for Disease Control and Prevention (CDC) data on national deaths from homicide.<a href="#fn56" class="footnote-ref" id="fnref56"><sup>56</sup></a> Both this dataset and the Offenses Known and Clearances by Arrest data are SHR datasets so you may think that the numbers of homicides from each dataset should be the same. That is a perfectly reasonable assumption, but since this is SHR data we’re talking about, you’d be wrong. Police agencies are free to report to either, both, or neither dataset so while the number of homicides are close for each dataset, they are never equal. CDC WONDER data aggregates mortality data (among other data) from state death certificates which reduces the issue of voluntary reporting that we have in SHR data.</p>
-<p>Figure <a href="shr.html#fig:shrVsOffenses">6.1</a> shows the annual number of homicide victims (including murders and manslaughters) from each of these datasets starting in 1976 for the SHR data and in 1999 for the CDC data.<a href="#fn57" class="footnote-ref" id="fnref57"><sup>57</sup></a></p>
+<div id="agencies-reporting" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Agencies reporting<a href="shr.html#agencies-reporting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This data only has a report when the agency has a homicide that year and since homicides are relatively rare it is difficult to measure underreporting. One way we can look at reporting is to compare homicide in the SHR data with that of other datasets. We’ll look at two of them: the Offenses Known and Clearances by Arrest which is covered in detail in Chapter <a href="#offensesKnown"><strong>??</strong></a>, and the Center for Disease Control and Prevention (CDC) data on national deaths from homicide.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> Both this dataset and the Offenses Known and Clearances by Arrest data are SHR datasets so you may think that the numbers of homicides from each dataset should be the same. That is a perfectly reasonable assumption, but since this is SHR data we’re talking about, you’d be wrong. Police agencies are free to report to either, both, or neither dataset so while the number of homicides are close for each dataset, they are never equal. CDC WONDER data aggregates mortality data (among other data) from state death certificates which reduces the issue of voluntary reporting that we have in SHR data.</p>
+<p>Figure <a href="shr.html#fig:shrVsOffenses">2.1</a> shows the annual number of homicide victims (including murders and manslaughters) from each of these datasets starting in 1976 for the SHR data and in 1999 for the CDC data.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a></p>
 <p>For the SHR data, in every year the numbers are fairly similar and the trends are the same over time, but the number of homicides is never equal. The numbers have actually gotten worse over time with the difference between the datasets increasing and the Offenses Known data having consistently more murders reported than the SHR data since the late 1990s. Compared to the CDC data, however, both SHR datasets - and in particular the SHR data - undercount the number of homicides. While trends are the same, SHR data reports thousands fewer murders per year than the CDC data, indicating how much of an issue underreporting is in this data.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrVsOffenses"></span>
 <img src="06_shr_files/figure-html/shrVsOffenses-1.png" alt="The annual number of murders from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset. Numbers differ because agencies voluntarily report and may not report to both datasets." width="90%" />
 <p class="caption">
-Figure 6.1: The annual number of murders from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset. Numbers differ because agencies voluntarily report and may not report to both datasets.
+Figure 2.1: The annual number of murders from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset. Numbers differ because agencies voluntarily report and may not report to both datasets.
 </p>
 </div>
-<p>Let’s look at Chicago for another example of the differences in reporting from the SHR and the Offenses Known data. Figure <a href="shr.html#fig:chicagoSHRvsOffensesKnown">6.2</a> shows the annual number of homicide victims from both datasets. In most years they are pretty similar, excluding a few really odd years in the 1980s and in 1990. But what’s also strange is that most years have more SHR victims than Offenses Known victims. So nationally SHR has fewer homicides than Offenses Known but that pattern is reversed in Chicago? This is one of the many quirks of SHR data. And is a warning against treating national trends as local trends; what is true nationally isn’t always true in your community. So when you use this data, check everything closely. And once you’ve done that, check it again.</p>
+<p>Let’s look at Chicago for another example of the differences in reporting from the SHR and the Offenses Known data. Figure <a href="shr.html#fig:chicagoSHRvsOffensesKnown">2.2</a> shows the annual number of homicide victims from both datasets. In most years they are pretty similar, excluding a few really odd years in the 1980s and in 1990. But what’s also strange is that most years have more SHR victims than Offenses Known victims. So nationally SHR has fewer homicides than Offenses Known but that pattern is reversed in Chicago? This is one of the many quirks of SHR data. And is a warning against treating national trends as local trends; what is true nationally isn’t always true in your community. So when you use this data, check everything closely. And once you’ve done that, check it again.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:chicagoSHRvsOffensesKnown"></span>
 <img src="06_shr_files/figure-html/chicagoSHRvsOffensesKnown-1.png" alt="The annual number of homicide victims in Chicago, SHR and Offeksnes Known, 1976-2022." width="90%" />
 <p class="caption">
-Figure 6.2: The annual number of homicide victims in Chicago, SHR and Offeksnes Known, 1976-2022.
+Figure 2.2: The annual number of homicide victims in Chicago, SHR and Offeksnes Known, 1976-2022.
 </p>
 </div>
-<p>Another way to visualize reporting is to see the total number of agencies that report at least one homicide, as depicted in Figure <a href="shr.html#fig:shrAnnualAgencies">6.3</a>. Here we can see that have about 3,000 agencies reporting. Given that most agencies are small and truly do have zero homicides in a year, that may be reasonable. Agencies that don’t have homicides don’t submit a report saying so, they just don’t submit any data. So that makes it hard to tell when an agency not reporting data is doing so because they choose to not report, or because they have nothing to report. This is most common in small agencies where many years truly have no homicides. But let’s look at our biggest agencies, and see how much of an impact it would make to have them not report data.</p>
+<p>Another way to visualize reporting is to see the total number of agencies that report at least one homicide, as depicted in Figure <a href="shr.html#fig:shrAnnualAgencies">2.3</a>. Here we can see that have about 3,000 agencies reporting. Given that most agencies are small and truly do have zero homicides in a year, that may be reasonable. Agencies that don’t have homicides don’t submit a report saying so, they just don’t submit any data. So that makes it hard to tell when an agency not reporting data is doing so because they choose to not report, or because they have nothing to report. This is most common in small agencies where many years truly have no homicides. But let’s look at our biggest agencies, and see how much of an impact it would make to have them not report data.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrAnnualAgencies"></span>
 <img src="06_shr_files/figure-html/shrAnnualAgencies-1.png" alt="The annual number of agencies that report at least one homicide." width="90%" />
 <p class="caption">
-Figure 6.3: The annual number of agencies that report at least one homicide.
+Figure 2.3: The annual number of agencies that report at least one homicide.
 </p>
 </div>
-<p>Figures <a href="shr.html#fig:shrTopAgenciesCount">6.4</a> and <a href="shr.html#fig:shrTopAgenciesCountPercent">6.5</a> attempt to get at this question by looking the number and percent of all incidents that the top 100, 50 and 10 agencies based on number of homicide incidents make up out of all homicide incidents in each year. These agencies are massively disproportionate in how many homicides they represent - though they are also generally the largest cities in the country so are a small number of agencies but a large share of this nation’s population. On average, the 10 agencies with the most homicide incidents each year - which may change every year - have over 4,000 homicide incidents and make up about 1/4 of all homicide incidents reported nationally. The top 50 have about 7,500 incidents a year, accounting for 46% of incidents. The top 100 agencies have a bit under 10,000 incidents a year and make up over 55% of all homicide incidents in the United States. So excluding the largest agencies in the country would certainly undercount homicides.</p>
+<p>Figures <a href="shr.html#fig:shrTopAgenciesCount">2.4</a> and <a href="shr.html#fig:shrTopAgenciesCountPercent">2.5</a> attempt to get at this question by looking the number and percent of all incidents that the top 100, 50 and 10 agencies based on number of homicide incidents make up out of all homicide incidents in each year. These agencies are massively disproportionate in how many homicides they represent - though they are also generally the largest cities in the country so are a small number of agencies but a large share of this nation’s population. On average, the 10 agencies with the most homicide incidents each year - which may change every year - have over 4,000 homicide incidents and make up about 1/4 of all homicide incidents reported nationally. The top 50 have about 7,500 incidents a year, accounting for 46% of incidents. The top 100 agencies have a bit under 10,000 incidents a year and make up over 55% of all homicide incidents in the United States. So excluding the largest agencies in the country would certainly undercount homicides.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrTopAgenciesCount"></span>
 <img src="06_shr_files/figure-html/shrTopAgenciesCount-1.png" alt="The annual number of homicide incidents, showing all agencies, the top 100 agencies (by number of homicide incidents), top 50, and top 10 agencies, 1976-2022." width="90%" />
 <p class="caption">
-Figure 6.4: The annual number of homicide incidents, showing all agencies, the top 100 agencies (by number of homicide incidents), top 50, and top 10 agencies, 1976-2022.
+Figure 2.4: The annual number of homicide incidents, showing all agencies, the top 100 agencies (by number of homicide incidents), top 50, and top 10 agencies, 1976-2022.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrTopAgenciesCountPercent"></span>
 <img src="06_shr_files/figure-html/shrTopAgenciesCountPercent-1.png" alt="The annual percent of homicide incidents by the top 100 agencies (by number of homicide incidents), top 50, and top 10 agencies, 1976-2022." width="90%" />
 <p class="caption">
-Figure 6.5: The annual percent of homicide incidents by the top 100 agencies (by number of homicide incidents), top 50, and top 10 agencies, 1976-2022.
+Figure 2.5: The annual percent of homicide incidents by the top 100 agencies (by number of homicide incidents), top 50, and top 10 agencies, 1976-2022.
 </p>
 </div>
 </div>
-<div id="important-variables-3" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Important variables<a href="shr.html#important-variables-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="important-variables" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Important variables<a href="shr.html#important-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The data has demographic information for up to 11 victims and 11 offenders, as well as the information on the weapon used by each offender, the relationship between the first victim and each offender, and the circumstance of the homicide. The data also has the traditional SHR set of variables about the agency: their ORI code, population, state, region and the month and year of this data. One key variable that is missing is the outcome of the homicide: there is no information on whether any of the offenders were arrested.</p>
 <p>While there is information on up to 11 victims and offenders, in most cases, there is only a single victim and a single offender in each incident. We can use the additional_victim_count and additional_offender_count columns to see how many additional victims/offenders there are. An additional victim/offender means in addition to the first one. Even though we have columns for up to 11 victims and offenders, in very rare instances the additional_[victim/offender]_count columns may say there are more than 11 victims/offenders.</p>
-<p>To see how the breakdown for the number of victims in each incident looks, Figure <a href="shr.html#fig:numberSHRVictims">6.6</a> shows the percent of incidents with each possible number of victims.<a href="#fn58" class="footnote-ref" id="fnref58"><sup>58</sup></a> In nearly all incidents - 96.0% - there was only a single victim. This drops to 3.3% of incidents for two victims, 0.5% for three victims, and only about 0.2% of incidents have four or more victims.</p>
+<p>To see how the breakdown for the number of victims in each incident looks, Figure <a href="shr.html#fig:numberSHRVictims">2.6</a> shows the percent of incidents with each possible number of victims.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> In nearly all incidents - 96.0% - there was only a single victim. This drops to 3.3% of incidents for two victims, 0.5% for three victims, and only about 0.2% of incidents have four or more victims.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:numberSHRVictims"></span>
 <img src="06_shr_files/figure-html/numberSHRVictims-1.png" alt="The percent of incidents that have 1-11 victims." width="90%" />
 <p class="caption">
-Figure 6.6: The percent of incidents that have 1-11 victims.
+Figure 2.6: The percent of incidents that have 1-11 victims.
 </p>
 </div>
-<p>Figure <a href="shr.html#fig:numberSHROffenders">6.7</a> shows the breakdown of the number of offenders per homicide incident.<a href="#fn59" class="footnote-ref" id="fnref59"><sup>59</sup></a> It’s a little less concentrated than with victims but the vast majority of homicides are committed by one offender - or at least the police only report one offender. About 87.6% of homicides have only one offender, 8.4% have two, 2.5% have three, and 1.5% have four. Fewer than 0.5% of homicides have more than four offenders. However, this is all a bit misleading. In cases where there is no information about the offender, including how many offenders there is, the data simply says that there is a single offender. So the number of homicides with a single offender is an over-count while the number with more offenders is an undercount.</p>
+<p>Figure <a href="shr.html#fig:numberSHROffenders">2.7</a> shows the breakdown of the number of offenders per homicide incident.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a> It’s a little less concentrated than with victims but the vast majority of homicides are committed by one offender - or at least the police only report one offender. About 87.6% of homicides have only one offender, 8.4% have two, 2.5% have three, and 1.5% have four. Fewer than 0.5% of homicides have more than four offenders. However, this is all a bit misleading. In cases where there is no information about the offender, including how many offenders there is, the data simply says that there is a single offender. So the number of homicides with a single offender is an over-count while the number with more offenders is an undercount.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:numberSHROffenders"></span>
 <img src="06_shr_files/figure-html/numberSHROffenders-1.png" alt="The percent of incidents that have 1-11 offenders." width="90%" />
 <p class="caption">
-Figure 6.7: The percent of incidents that have 1-11 offenders.
+Figure 2.7: The percent of incidents that have 1-11 offenders.
 </p>
 </div>
 <p>The variable “situation” says what type of victim-offender number combination the incident is - e.g. “multiple victims/single offender”, “single victim/multiple offenders”, etc. - and does indicate if the number of offenders is unknown (though curiously there are over 4,000 instances where the number of offenders is unknown but they still say there are two offenders) so you can use this variable to determine if the police don’t know how many offenders there is. You’re still limited, of course, in that the number of offenders is always what the police think there are, and they may be wrong. So use this variable - and anything that comes from it like the percent of offenders of a certain race - with caution.</p>
 <p>We’ll now look at a number of important variables individually. Since the data can potentially have 11 victims and 11 offenders - but in practice has only one each in the vast majority of cases - we’ll only look at the first victim/offender for each of these variables. Therefore, the results will not be entirely accurate, but will still give you a good overview of the data. The figures below will use data for all homicides from 1976 to 2022 so will cover all currently available years of data. Keep in mind that national trends aren’t the same as local trends so what is shown in these figures will probably not be the same as what is happening in your community. And that looking at all homicides means we are including murders, manslaughters, and justifiable homicides.</p>
-<div id="demographics" class="section level3 hasAnchor" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> Demographics<a href="shr.html#demographics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="demographics" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Demographics<a href="shr.html#demographics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are two broad categories of variables that we’ll cover: demographics of the victim and offenders, and characteristics of the case. We start with demographics.</p>
-<div id="age-1" class="section level4 hasAnchor" number="6.2.1.1">
-<h4><span class="header-section-number">6.2.1.1</span> Age<a href="shr.html#age-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="age" class="section level4 hasAnchor" number="2.2.1.1">
+<h4><span class="header-section-number">2.2.1.1</span> Age<a href="shr.html#age" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>This data includes the age (in years) for each victim and each offender. For those under one years old, it also breaks this down into those from birth to six days old “including abandoned infant” and those seven days old to 364 days old. So there’s a bit more info on homicides of babies. It also maxes out the age at 99 so for victims or offenders older than that we don’t get their exact age, just text that says “99 years or older” (which I turn to the number 99 in the figures below).</p>
-<p>Figure <a href="shr.html#fig:shrOffenderAge">6.8</a> shows the percent of homicides where the first offender in the case is of each age from 0-99. Offenders with unknown ages are excluded from this graph and make up about 27% of cases. The average (mean) age is 31.1 years old (shown in orange) which is due to a long right tail; the median age is 28 years old. If you look closely at the left side of the graph you can see that there are some very young offenders, with at least one offender for each year of age from 0 to 10 included in the data. It’s not clear from this alone that these ages are a data entry error. While a two-year-old certainly couldn’t kill someone, the data does include deaths caused by “children playing with gun” (homicide circumstances will be discussed in Section <a href="shr.html#circumstance">6.2.2.3</a>) so these ages could potentially be correct.</p>
+<p>Figure <a href="shr.html#fig:shrOffenderAge">2.8</a> shows the percent of homicides where the first offender in the case is of each age from 0-99. Offenders with unknown ages are excluded from this graph and make up about 27% of cases. The average (mean) age is 31.1 years old (shown in orange) which is due to a long right tail; the median age is 28 years old. If you look closely at the left side of the graph you can see that there are some very young offenders, with at least one offender for each year of age from 0 to 10 included in the data. It’s not clear from this alone that these ages are a data entry error. While a two-year-old certainly couldn’t kill someone, the data does include deaths caused by “children playing with gun” (homicide circumstances will be discussed in Section <a href="shr.html#circumstance">2.2.2.3</a>) so these ages could potentially be correct.</p>
 <p>If you’re familiar with the age-crime curve in criminology - which basically says crime peaks in late teen years then falls dramatically - this shows that exact curve, though is older and doesn’t decline as the offender ages as quickly as we see with less serious crimes.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrOffenderAge"></span>
 <img src="06_shr_files/figure-html/shrOffenderAge-1.png" alt="The age of homicide offenders, based on the first offender in any homicide incident. Offenders under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Offenders reported as '99 years or older' are considered 99 years old." width="90%" />
 <p class="caption">
-Figure 6.8: The age of homicide offenders, based on the first offender in any homicide incident. Offenders under age 1 (classified as ‘birth to 7 days old, including abandoned infant’ and ‘7 days to 364 days old’) and considered 0 years old. Offenders reported as ‘99 years or older’ are considered 99 years old.
+Figure 2.8: The age of homicide offenders, based on the first offender in any homicide incident. Offenders under age 1 (classified as ‘birth to 7 days old, including abandoned infant’ and ‘7 days to 364 days old’) and considered 0 years old. Offenders reported as ‘99 years or older’ are considered 99 years old.
 </p>
 </div>
-<p>Figure <a href="shr.html#fig:shrVictimAge">6.9</a> repeats Figure <a href="shr.html#fig:shrOffenderAge">6.8</a> but with victim age rather than offender age. The mean victim age (shown in orange) is 33 and the median age is 30. Though the average victim age is a bit younger than the average offender age, trends are relatively similar for teenagers and older where deaths spikes in the late teen years and then declines steadily. The major difference is the U-shape for younger victims - for victims under age 15, homicides peak at age 0 (i.e. younger than their first birthday) with ~1.4% of all homicides being this this age. They then decline until plateauing at around age 6 before increasing again in the early teen years.</p>
+<p>Figure <a href="shr.html#fig:shrVictimAge">2.9</a> repeats Figure <a href="shr.html#fig:shrOffenderAge">2.8</a> but with victim age rather than offender age. The mean victim age (shown in orange) is 33 and the median age is 30. Though the average victim age is a bit younger than the average offender age, trends are relatively similar for teenagers and older where deaths spikes in the late teen years and then declines steadily. The major difference is the U-shape for younger victims - for victims under age 15, homicides peak at age 0 (i.e. younger than their first birthday) with ~1.4% of all homicides being this this age. They then decline until plateauing at around age 6 before increasing again in the early teen years.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrVictimAge"></span>
 <img src="06_shr_files/figure-html/shrVictimAge-1.png" alt="The age of homicide victims, based on the first victims in any homicide incident. Victims under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Victims reported as '99 years or older' are considered 99 years old." width="90%" />
 <p class="caption">
-Figure 6.9: The age of homicide victims, based on the first victims in any homicide incident. Victims under age 1 (classified as ‘birth to 7 days old, including abandoned infant’ and ‘7 days to 364 days old’) and considered 0 years old. Victims reported as ‘99 years or older’ are considered 99 years old.
+Figure 2.9: The age of homicide victims, based on the first victims in any homicide incident. Victims under age 1 (classified as ‘birth to 7 days old, including abandoned infant’ and ‘7 days to 364 days old’) and considered 0 years old. Victims reported as ‘99 years or older’ are considered 99 years old.
 </p>
 </div>
 </div>
-<div id="sex" class="section level4 hasAnchor" number="6.2.1.2">
-<h4><span class="header-section-number">6.2.1.2</span> Sex<a href="shr.html#sex" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>We’ll next look at victim and offender sex, a simple variable since only male and female are included. About 62.2% of offenders, as seen in Figure <a href="shr.html#fig:shrOffenderSex">6.10</a>, are male and about 8.2% are female, indicating a large disparity in the sex of homicide offenders. The remaining 29.6% of offenders do not have sex data available because the police do not know the sex of this individual. For offenders who aren’t arrested, this variable may be inaccurate since it is perceived sex of the offender.<a href="#fn60" class="footnote-ref" id="fnref60"><sup>60</sup></a></p>
+<div id="sex" class="section level4 hasAnchor" number="2.2.1.2">
+<h4><span class="header-section-number">2.2.1.2</span> Sex<a href="shr.html#sex" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We’ll next look at victim and offender sex, a simple variable since only male and female are included. About 62.2% of offenders, as seen in Figure <a href="shr.html#fig:shrOffenderSex">2.10</a>, are male and about 8.2% are female, indicating a large disparity in the sex of homicide offenders. The remaining 29.6% of offenders do not have sex data available because the police do not know the sex of this individual. For offenders who aren’t arrested, this variable may be inaccurate since it is perceived sex of the offender.<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrOffenderSex"></span>
 <img src="06_shr_files/figure-html/shrOffenderSex-1.png" alt="The sex of offender \#1, 1976-2022." width="90%" />
 <p class="caption">
-Figure 6.10: The sex of offender #1, 1976-2022.
+Figure 2.10: The sex of offender #1, 1976-2022.
 </p>
 </div>
 <p>There is far less uncertainty for victim sex, with under 0.17% of victims having an unknown sex. Here again there is a large disparity between male and female with about 78.2% of victims being male and 21.6% being female.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrVictimSex"></span>
 <img src="06_shr_files/figure-html/shrVictimSex-1.png" alt="The sex of victim \#1, 1976-2022." width="90%" />
 <p class="caption">
-Figure 6.11: The sex of victim #1, 1976-2022.
+Figure 2.11: The sex of victim #1, 1976-2022.
 </p>
 </div>
 </div>
-<div id="race-1" class="section level4 hasAnchor" number="6.2.1.3">
-<h4><span class="header-section-number">6.2.1.3</span> Race<a href="shr.html#race-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="race" class="section level4 hasAnchor" number="2.2.1.3">
+<h4><span class="header-section-number">2.2.1.3</span> Race<a href="shr.html#race" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>This data also includes the race of the victims and offenders. This includes the following races: American Indian or Alaskan Native, Asian, Black, Native Hawaiian or Other Pacific Islander, and White. These are the only races included in the data; Hispanic is considered an ethnicity and is available as a separate, though flawed, variable. There is no category for bi- or multi-racial. As with other demographics info for offenders, in cases where no arrest is made (and we don’t know in this data if one is made), there’s no way to confirm the person’s race so these results may not be entirely accurate.</p>
-<p>Figure <a href="shr.html#fig:shrOffenderRace">6.12</a> shows the percent of homicides in the data by the race of offender #1. Black and White offenders are included are similar percentages, at 34.3% and 33.6% of victims, respectively. The next most common group is Unknown at about 30.6% of offenders. Given that so many offenders have an unknown race, the reliability of race measures is limited. The remaining races are Asian at 0.9% of offenders, American Indian or Alaskan Native at 0.6%, and Native Hawaiian or Other Pacific Islander at 0.02%.</p>
+<p>Figure <a href="shr.html#fig:shrOffenderRace">2.12</a> shows the percent of homicides in the data by the race of offender #1. Black and White offenders are included are similar percentages, at 34.3% and 33.6% of victims, respectively. The next most common group is Unknown at about 30.6% of offenders. Given that so many offenders have an unknown race, the reliability of race measures is limited. The remaining races are Asian at 0.9% of offenders, American Indian or Alaskan Native at 0.6%, and Native Hawaiian or Other Pacific Islander at 0.02%.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrOffenderRace"></span>
 <img src="06_shr_files/figure-html/shrOffenderRace-1.png" alt="The race of offender \#1, 1976-2022." width="90%" />
 <p class="caption">
-Figure 6.12: The race of offender #1, 1976-2022.
+Figure 2.12: The race of offender #1, 1976-2022.
 </p>
 </div>
-<p>For victim race, seen in Figure <a href="shr.html#fig:shrVictimRace">6.13</a>, only about 1% of victim #1 races are unknown. This means we can be a lot more confident in the race of the victims than in the race of the offender. Similar to offenders, White and Black victims are the two most common races, with 48.4% and 48.1% of victims, respectively. There is a greater share of Asian victims than Asian offenders at 1.5% of victims. American Indian or Alaskan Natives make up 0.8% of victims while Native Hawaiian or Pacific Islanders make up 0.02% of victims.</p>
+<p>For victim race, seen in Figure <a href="shr.html#fig:shrVictimRace">2.13</a>, only about 1% of victim #1 races are unknown. This means we can be a lot more confident in the race of the victims than in the race of the offender. Similar to offenders, White and Black victims are the two most common races, with 48.4% and 48.1% of victims, respectively. There is a greater share of Asian victims than Asian offenders at 1.5% of victims. American Indian or Alaskan Natives make up 0.8% of victims while Native Hawaiian or Pacific Islanders make up 0.02% of victims.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrVictimRace"></span>
 <img src="06_shr_files/figure-html/shrVictimRace-1.png" alt="The race of victim \#1, 1976-2022" width="90%" />
 <p class="caption">
-Figure 6.13: The race of victim #1, 1976-2022
+Figure 2.13: The race of victim #1, 1976-2022
 </p>
 </div>
 </div>
-<div id="ethnicity-1" class="section level4 hasAnchor" number="6.2.1.4">
-<h4><span class="header-section-number">6.2.1.4</span> Ethnicity<a href="shr.html#ethnicity-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>The final demographic variable is ethnicity which is whether the victim or offender is Hispanic or not Hispanic. The SHR data has a weird relationship with this variable (which is also in the Arrests by Age, Sex, and Race dataset, discussed in Chapter <a href="arrests.html#arrests">5</a>) where ethnicity is technically a variable in the data but very rarely collected. As such, this is an unreliable variable that if you really want to use needs careful attention to make sure it is being reported consistently by the agencies that you are looking at.</p>
+<div id="ethnicity" class="section level4 hasAnchor" number="2.2.1.4">
+<h4><span class="header-section-number">2.2.1.4</span> Ethnicity<a href="shr.html#ethnicity" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The final demographic variable is ethnicity which is whether the victim or offender is Hispanic or not Hispanic. The SHR data has a weird relationship with this variable (which is also in the Arrests by Age, Sex, and Race dataset, discussed in Chapter <a href="#arrests"><strong>??</strong></a>) where ethnicity is technically a variable in the data but very rarely collected. As such, this is an unreliable variable that if you really want to use needs careful attention to make sure it is being reported consistently by the agencies that you are looking at.</p>
 <p>The vast majority - 69.7% - of offenders have an unknown ethnicity while 23.4% are not Hispanic and 7.1% are Hispanic.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrOffenderEthnicity"></span>
 <img src="06_shr_files/figure-html/shrOffenderEthnicity-1.png" alt="The ethnicity of offender \#1, 1976-2022." width="90%" />
 <p class="caption">
-Figure 6.14: The ethnicity of offender #1, 1976-2022.
+Figure 2.14: The ethnicity of offender #1, 1976-2022.
 </p>
 </div>
 <p>Unlike the other demographic variables, there is still a huge amount of underreporting when it comes to victim ethnicity, though still less than for offender ethnicity. 55.6% of victims have an unknown ethnicity. Approximately 33.2% of victim #1 are reported as not Hispanic while 11.1% are reported as Hispanic.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrVictimEthnicity"></span>
 <img src="06_shr_files/figure-html/shrVictimEthnicity-1.png" alt="The ethnicity of victim \#1, 1976-2022." width="90%" />
 <p class="caption">
-Figure 6.15: The ethnicity of victim #1, 1976-2022.
+Figure 2.15: The ethnicity of victim #1, 1976-2022.
 </p>
 </div>
 <p>As an example of agencies under-reporting this variable, let’s look at the number of offender #1s in Albuquerque, New Mexico, a city which the <a href="https://www.census.gov/quickfacts/fact/table/albuquerquecitynewmexico,US/PST045222">US Census</a> says is about 50% Hispanic. Yet the Albuquerque police reported no ethnicity information for almost three decades of data.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ABQ"></span>
 <img src="06_shr_files/figure-html/ABQ-1.png" alt="Annual number of offender \#1 who is Hispanic in Albuquerque, New Mexico, 1976-2022." width="90%" />
 <p class="caption">
-Figure 6.16: Annual number of offender #1 who is Hispanic in Albuquerque, New Mexico, 1976-2022.
+Figure 2.16: Annual number of offender #1 who is Hispanic in Albuquerque, New Mexico, 1976-2022.
 </p>
 </div>
 </div>
 </div>
-<div id="case-characteristics" class="section level3 hasAnchor" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> Case characteristics<a href="shr.html#case-characteristics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="case-characteristics" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Case characteristics<a href="shr.html#case-characteristics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now we’ll move to facts about each case such as what weapon was used, how people involved knew each other, and what was the (rough) cause of the homicide.</p>
-<div id="weapon-used" class="section level4 hasAnchor" number="6.2.2.1">
-<h4><span class="header-section-number">6.2.2.1</span> Weapon used<a href="shr.html#weapon-used" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>The first variable we’ll look at is the weapon used by each offender. Table <a href="shr.html#tab:shrWeapon">6.1</a> shows the weapon used by the first offender in every incident from 1976 to 2022. Each offender can only be reported as having a single weapon, so this table essentially shows the number (and percent) of homicides caused by this weapon. This isn’t entirely true since in reality an offender could use multiple weapons and there can be multiple offenders. In these cases the police include what they believe is the “primary” weapon used by this offender.</p>
+<div id="weapon-used" class="section level4 hasAnchor" number="2.2.2.1">
+<h4><span class="header-section-number">2.2.2.1</span> Weapon used<a href="shr.html#weapon-used" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The first variable we’ll look at is the weapon used by each offender. Table <a href="shr.html#tab:shrWeapon">2.1</a> shows the weapon used by the first offender in every incident from 1976 to 2022. Each offender can only be reported as having a single weapon, so this table essentially shows the number (and percent) of homicides caused by this weapon. This isn’t entirely true since in reality an offender could use multiple weapons and there can be multiple offenders. In these cases the police include what they believe is the “primary” weapon used by this offender.</p>
 <p>The most commonly used weapon is a handgun, which is used in nearly half of homicides. This is followed by a knife or other sharp weapon used to cut at almost 15% of homicides, and then by “firearm, type not stated” which is just a firearm where we don’t know the exact type (it can include handguns) at 8.9% of homicides The fourth most common weapon is “personal weapons” at nearly 6% of homicides. “Personal weapons” is a weird term to mean that there was no weapon - the “weapon” was the offender who beat the victim to death. Shotguns are involved in almost 5% of homicides and all other weapons are involved in fewer than 5% of cases. In total there are 19 different weapons included though most are very uncommon.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:shrWeapon">Table 6.1: </span>The weapon used in a homicide incident, 1976-2022. In cases where there are multiple offenders, shows only the primary weapon for the first offender.
+<span id="tab:shrWeapon">Table 2.1: </span>The weapon used in a homicide incident, 1976-2022. In cases where there are multiple offenders, shows only the primary weapon for the first offender.
 </caption>
 <thead>
 <tr>
@@ -853,28 +615,28 @@ Total
 </tbody>
 </table>
 <p>You may have noticed from the table that AR-15 isn’t included. While AR-15 is the commonly discussed in the media and policy circles as a way to control gun violence, it isn’t in a category by itself. Instead it is combined with other rifles in the “rifle” weapon group, and makes up about 3.6% of the weapons used by offender #1 in the data.</p>
-<p>Let’s check if AR-15s, through our rough proxy of the “rifle” weapon group, is getting more common over time. Figure <a href="shr.html#fig:shrRifle">6.17</a> shows the number of homicide incidents (including manslaughters, so not necessarily all murders) where offender #1 used a rifle. Figure <a href="shr.html#fig:shrRiflePercent">6.18</a> shows the percent of all homicide incidents where the the weapon was a rifle. Using both of these measures we can see the rifles are getting less common, declining substantially since 1980 though increasing again starting in the mid-2010s.</p>
+<p>Let’s check if AR-15s, through our rough proxy of the “rifle” weapon group, is getting more common over time. Figure <a href="shr.html#fig:shrRifle">2.17</a> shows the number of homicide incidents (including manslaughters, so not necessarily all murders) where offender #1 used a rifle. Figure <a href="shr.html#fig:shrRiflePercent">2.18</a> shows the percent of all homicide incidents where the the weapon was a rifle. Using both of these measures we can see the rifles are getting less common, declining substantially since 1980 though increasing again starting in the mid-2010s.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrRifle"></span>
 <img src="06_shr_files/figure-html/shrRifle-1.png" alt="The annual number of homicide incidents where offender \#1's weapon was a rifle, 1976-2022." width="90%" />
 <p class="caption">
-Figure 6.17: The annual number of homicide incidents where offender #1’s weapon was a rifle, 1976-2022.
+Figure 2.17: The annual number of homicide incidents where offender #1’s weapon was a rifle, 1976-2022.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrRiflePercent"></span>
 <img src="06_shr_files/figure-html/shrRiflePercent-1.png" alt="The annual share of homicide incidents where offender \#1's weapon was a rifle, 1976-2022." width="90%" />
 <p class="caption">
-Figure 6.18: The annual share of homicide incidents where offender #1’s weapon was a rifle, 1976-2022.
+Figure 2.18: The annual share of homicide incidents where offender #1’s weapon was a rifle, 1976-2022.
 </p>
 </div>
 <p>Now, maybe this weapon is more commonly used in some types of crimes such as school shootings. You could get at that question using this data by seeing if times when a rifle is used that victims or offenders are younger or if the circumstance is something that suggests a school shooting. Unfortunately there is no offense location variable here, though there is in NIBRS and we can largely recreate this data through NIBRS. And of course you can’t tell if the weapon is actually an AR-15, only if it is a rifle.</p>
 </div>
-<div id="relationship-between-first-victim-and-offenders" class="section level4 hasAnchor" number="6.2.2.2">
-<h4><span class="header-section-number">6.2.2.2</span> Relationship between first victim and offenders<a href="shr.html#relationship-between-first-victim-and-offenders" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>An interesting and highly useful variable is the relationship between the first victim and each offender. To be clear, this is only for the first victim; we don’t have the relationship between other victims and offenders. However, as seen earlier, this isn’t <em>too much</em> of an issue since nearly all incidents only have a single victim. There are 29 possible relationship types (including “unknown” relationship) which are broken into three categories: legal family members, people known to the victim but who aren’t family, and people not known to the victim. Table <a href="shr.html#tab:shrRelationship">6.2</a> shows these relationships and the number and percent of homicides with these relationships.</p>
+<div id="relationship-between-first-victim-and-offenders" class="section level4 hasAnchor" number="2.2.2.2">
+<h4><span class="header-section-number">2.2.2.2</span> Relationship between first victim and offenders<a href="shr.html#relationship-between-first-victim-and-offenders" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>An interesting and highly useful variable is the relationship between the first victim and each offender. To be clear, this is only for the first victim; we don’t have the relationship between other victims and offenders. However, as seen earlier, this isn’t <em>too much</em> of an issue since nearly all incidents only have a single victim. There are 29 possible relationship types (including “unknown” relationship) which are broken into three categories: legal family members, people known to the victim but who aren’t family, and people not known to the victim. Table <a href="shr.html#tab:shrRelationship">2.2</a> shows these relationships and the number and percent of homicides with these relationships.</p>
 <p>The most common relationship, with about 28% of homicides, is that the police don’t know the relationship. So there is a good deal of uncertainty in the relationship between victims and offenders. Next is that the victim is the offender’s acquaintance at 19.7% or is a stranger at 15.3%. The next is “other - known to victim” which is similar to being an acquaintance at almost 5% of homicides. This is followed by the victim being the friend of the murderer at 3.6%. The 6th most common relationship, at 3.6% is that the victim is the wife of the offender, so she is murdered by her husband, and is the first familial relationship of this list. The remaining relationships all make up fewer than 3% of all homicides.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:shrRelationship">Table 6.2: </span>The relationship between the first victim and the first offender in a homicide incident, 1976-2022.
+<span id="tab:shrRelationship">Table 2.2: </span>The relationship between the first victim and the first offender in a homicide incident, 1976-2022.
 </caption>
 <thead>
 <tr>
@@ -1314,14 +1076,14 @@ Total
 </tbody>
 </table>
 </div>
-<div id="circumstance" class="section level4 hasAnchor" number="6.2.2.3">
-<h4><span class="header-section-number">6.2.2.3</span> Homicide circumstance<a href="shr.html#circumstance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>We also have information on the type of the homicide, which this data calls the “circumstance.” This comes as relatively broad categories that leave a lot to be desired in our understanding of what led to the homicide. Table <a href="shr.html#tab:shrCircumstance">6.3</a> shows the number and percent of each circumstance for the first victim of each homicide from 1976 to 2022. This data has 33 possible circumstances which it groups into four main categories: murders that coincide with committing another crime (“felony type” murders), murders that don’t coincide with another crime (“non-felony type” murders), justifiable homicides, and negligent manslaughter.</p>
+<div id="circumstance" class="section level4 hasAnchor" number="2.2.2.3">
+<h4><span class="header-section-number">2.2.2.3</span> Homicide circumstance<a href="shr.html#circumstance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We also have information on the type of the homicide, which this data calls the “circumstance.” This comes as relatively broad categories that leave a lot to be desired in our understanding of what led to the homicide. Table <a href="shr.html#tab:shrCircumstance">2.3</a> shows the number and percent of each circumstance for the first victim of each homicide from 1976 to 2022. This data has 33 possible circumstances which it groups into four main categories: murders that coincide with committing another crime (“felony type” murders), murders that don’t coincide with another crime (“non-felony type” murders), justifiable homicides, and negligent manslaughter.</p>
 <p>The felony type murders are simply ones where another crime occurred during the homicide. While this is called “felony type” it does include other crimes such as theft and gambling (which aren’t always a felony) so is a bit of a misnomer. The “non-felony type” are murders that happen without another crime. This includes gang killings (where, supposedly, only the murder occurred), children killed by babysitters, fights among intoxicated (both of alcohol and drugs) people, and “lover’s triangle” killings. Justifiable homicides are when a person (civilian or police officer) kill a person who is committing a crime. Negligent manslaughter includes accidental shootings such as when children find and shoot a gun, but excludes deaths from traffic accidents.</p>
 <p>The most common circumstances, accounting for 27.4%, 26.9%, and 12.5%, respectively, are “Unknown”, “Other Arguments”, and “Other Non-Felony Type - Not Specified.” Since the data includes “Argument Over Money Or Property” as one category, the “Other Arguments” mean that it’s an argument for a reason other than over money or property. The “Other Non-Felony Type” one does not mean that the murder did not occur alongside another crime, but also doesn’t fall into the non-felony categories included. Robbery is the only remaining circumstance with more than 5% of murders, at 7.4%.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:shrCircumstance">Table 6.3: </span>The circumstance of the homicide for the first offender in a homicide incident.
+<span id="tab:shrCircumstance">Table 2.3: </span>The circumstance of the homicide for the first offender in a homicide incident.
 </caption>
 <thead>
 <tr>
@@ -1843,13 +1605,13 @@ Total
 </tbody>
 </table>
 </div>
-<div id="homicide-subcircumstance" class="section level4 hasAnchor" number="6.2.2.4">
-<h4><span class="header-section-number">6.2.2.4</span> Homicide subcircumstance<a href="shr.html#homicide-subcircumstance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="homicide-subcircumstance" class="section level4 hasAnchor" number="2.2.2.4">
+<h4><span class="header-section-number">2.2.2.4</span> Homicide subcircumstance<a href="shr.html#homicide-subcircumstance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The “subcircumstance” just tells you more information about justifiable homicides. This includes the circumstance leading up to the “felon” - which is how the person killed is described, though technically they don’t need to have committed a felony - was killed. It includes if this person attacked an officer (the one who killed them), a different officer, a civilian, or was committing or fleeing a crime.</p>
 <p>This dataset is one source of information on how many people police kill each year. But it is a large undercount compared to other sources such as the Washington Post collection, so is not a very useful source of information on this topic.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:shrSubCircumstance">Table 6.4: </span>The circumstance for the first offender in a homicide incident in cases where the offender is killed. This includes incidents where the only person who dies in the offender.
+<span id="tab:shrSubCircumstance">Table 2.4: </span>The circumstance for the first offender in a homicide incident in cases where the offender is killed. This includes incidents where the only person who dies in the offender.
 </caption>
 <thead>
 <tr>
@@ -1962,12 +1724,12 @@ Total
 </div>
 <div class="footnotes">
 <hr />
-<ol start="56">
-<li id="fn56"><p>CDC WONDER data is available here: <a href="https://wonder.cdc.gov/" class="uri">https://wonder.cdc.gov/</a><a href="shr.html#fnref56" class="footnote-back">↩︎</a></p></li>
-<li id="fn57"><p>1975 is actually the first year that the Supplementary Homicide Reports data is available but that dataset only has info for a single victim and offender - all later years has info for up to 11 victims and offenders - so 1976 is often used as the first year of data<a href="shr.html#fnref57" class="footnote-back">↩︎</a></p></li>
-<li id="fn58"><p>There are five incident where there are more than 11 victims. For simplicity of the graph, these incident are excluded.<a href="shr.html#fnref58" class="footnote-back">↩︎</a></p></li>
-<li id="fn59"><p>There are seven incidents with more than 11 offenders. For simplicity of the graph, these incidents are excluded.<a href="shr.html#fnref59" class="footnote-back">↩︎</a></p></li>
-<li id="fn60"><p>If we ignore unknown sex, essentially saying that the unknown people will have their sex distributed exactly as the known sex people, 88% are male and 12% are female. However, this assumption is probably wrong since the unknown people may be materially different than the known people, as evidence by them likely not being arrested and committing the crime in a way where even their sex can’t be identified. <a href="shr.html#fnref60" class="footnote-back">↩︎</a></p></li>
+<ol start="12">
+<li id="fn12"><p>CDC WONDER data is available here: <a href="https://wonder.cdc.gov/" class="uri">https://wonder.cdc.gov/</a><a href="shr.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>1975 is actually the first year that the Supplementary Homicide Reports data is available but that dataset only has info for a single victim and offender - all later years has info for up to 11 victims and offenders - so 1976 is often used as the first year of data<a href="shr.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>There are five incident where there are more than 11 victims. For simplicity of the graph, these incident are excluded.<a href="shr.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p>There are seven incidents with more than 11 offenders. For simplicity of the graph, these incidents are excluded.<a href="shr.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<li id="fn16"><p>If we ignore unknown sex, essentially saying that the unknown people will have their sex distributed exactly as the known sex people, 88% are male and 12% are female. However, this assumption is probably wrong since the unknown people may be materially different than the known people, as evidence by them likely not being arrested and committing the crime in a way where even their sex can’t be identified. <a href="shr.html#fnref16" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -1975,8 +1737,8 @@ Total
           </div>
         </div>
       </div>
-<a href="arrests.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="leoka.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="about-the-author.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hate_crimes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
