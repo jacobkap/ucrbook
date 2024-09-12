@@ -12,10 +12,14 @@ In addition to the variables detailed below this segment has the traditional age
 
 
 
-<div class="figure" style="text-align: center">
-<img src="15_nibrs_victim_files/figure-html/nibrsVictimAgenciesReporting-1.png" alt="The annual number of agencies reporting data in the NIBRS Victim Segment, 1991-2022." width="90%" />
-<p class="caption">(\#fig:nibrsVictimAgenciesReporting)The annual number of agencies reporting data in the NIBRS Victim Segment, 1991-2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsVictimAgenciesReporting-1} 
+
+}
+
+\caption{The annual number of agencies reporting data in the NIBRS Victim Segment, 1991-2022.}(\#fig:nibrsVictimAgenciesReporting)
+\end{figure}
 
 
 ## Crime category
@@ -24,484 +28,223 @@ The first variable we'll look at is the crime the victim experienced. This is a 
 
 There are 52 possible offenses included in this segment and Table \@ref(tab:victimCrimeCategory) shows how frequent each offense is. Though there are 10 possible offenses per victim, this table only looks at the first offense. The most common offense is simple assault, affecting 12.7% of victims or 944k people. This is followed by damage, vandalism, or destruction of property for 11% of victims. About 9.6% of victims experience drugs/narcotic violations, and these victims are likely also the offenders in the case (all incidents must have a victim recorded so in drug crimes the victims are also the offenders in most cases). Theft crimes, broken into some subcategories like "all other larceny" and "theft from motor vehicle" make up the three of the top six crimes (ranks 3, 5, and 6) people are victimized by. And the only remaining crime that accounts for 5% or more of offenses is burglary at 6.4%.
 
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:victimCrimeCategory)The number and percent of crimes committed against each victim. For victims with multiple crimes committed against them, this shows the first crime reported, 2022.</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Crime Category </th>
-   <th style="text-align:right;"> \# of Victims </th>
-   <th style="text-align:right;"> \% of Victims </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
-   <td style="text-align:right;"> 1,963,108 </td>
-   <td style="text-align:right;"> 15.51\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
-   <td style="text-align:right;"> 1,349,448 </td>
-   <td style="text-align:right;"> 10.67\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
-   <td style="text-align:right;"> 1,204,569 </td>
-   <td style="text-align:right;"> 9.52\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug/Narcotic Violations </td>
-   <td style="text-align:right;"> 993,317 </td>
-   <td style="text-align:right;"> 7.85\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Motor Vehicle </td>
-   <td style="text-align:right;"> 959,554 </td>
-   <td style="text-align:right;"> 7.58\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
-   <td style="text-align:right;"> 757,933 </td>
-   <td style="text-align:right;"> 5.99\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Larceny/Theft Offenses - Shoplifting </td>
-   <td style="text-align:right;"> 747,655 </td>
-   <td style="text-align:right;"> 5.91\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Motor Vehicle Theft </td>
-   <td style="text-align:right;"> 703,215 </td>
-   <td style="text-align:right;"> 5.56\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
-   <td style="text-align:right;"> 669,067 </td>
-   <td style="text-align:right;"> 5.29\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
-   <td style="text-align:right;"> 537,389 </td>
-   <td style="text-align:right;"> 4.25\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories </td>
-   <td style="text-align:right;"> 387,566 </td>
-   <td style="text-align:right;"> 3.06\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fraud Offenses - False Pretenses/Swindle/Confidence Game </td>
-   <td style="text-align:right;"> 333,517 </td>
-   <td style="text-align:right;"> 2.64\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Building </td>
-   <td style="text-align:right;"> 276,139 </td>
-   <td style="text-align:right;"> 2.18\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Weapon Law Violations - Weapon Law Violations </td>
-   <td style="text-align:right;"> 240,037 </td>
-   <td style="text-align:right;"> 1.90\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Robbery </td>
-   <td style="text-align:right;"> 194,500 </td>
-   <td style="text-align:right;"> 1.54\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fraud Offenses - Identity Theft </td>
-   <td style="text-align:right;"> 177,323 </td>
-   <td style="text-align:right;"> 1.40\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fraud Offenses - Credit Card/Atm Fraud </td>
-   <td style="text-align:right;"> 159,970 </td>
-   <td style="text-align:right;"> 1.26\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug Equipment Violations </td>
-   <td style="text-align:right;"> 159,409 </td>
-   <td style="text-align:right;"> 1.26\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Counterfeiting/Forgery </td>
-   <td style="text-align:right;"> 143,052 </td>
-   <td style="text-align:right;"> 1.13\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Stolen Property Offenses (Receiving, Selling, Etc.) </td>
-   <td style="text-align:right;"> 111,630 </td>
-   <td style="text-align:right;"> 0.88\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sex Offenses - Fondling (Incident Liberties/Child Molest) </td>
-   <td style="text-align:right;"> 87,715 </td>
-   <td style="text-align:right;"> 0.69\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sex Offenses - Rape </td>
-   <td style="text-align:right;"> 76,759 </td>
-   <td style="text-align:right;"> 0.61\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fraud Offenses - Impersonation </td>
-   <td style="text-align:right;"> 75,089 </td>
-   <td style="text-align:right;"> 0.59\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Kidnapping/Abduction </td>
-   <td style="text-align:right;"> 43,094 </td>
-   <td style="text-align:right;"> 0.34\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Pornography/Obscene Material </td>
-   <td style="text-align:right;"> 39,629 </td>
-   <td style="text-align:right;"> 0.31\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fraud Offenses - Wire Fraud </td>
-   <td style="text-align:right;"> 36,975 </td>
-   <td style="text-align:right;"> 0.29\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Arson </td>
-   <td style="text-align:right;"> 35,241 </td>
-   <td style="text-align:right;"> 0.28\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Embezzlement </td>
-   <td style="text-align:right;"> 32,065 </td>
-   <td style="text-align:right;"> 0.25\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Larceny/Theft Offenses - Pocket-Picking </td>
-   <td style="text-align:right;"> 21,080 </td>
-   <td style="text-align:right;"> 0.17\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Animal Cruelty </td>
-   <td style="text-align:right;"> 20,100 </td>
-   <td style="text-align:right;"> 0.16\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Extortion/Blackmail </td>
-   <td style="text-align:right;"> 19,953 </td>
-   <td style="text-align:right;"> 0.16\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sex Offenses - Sodomy </td>
-   <td style="text-align:right;"> 17,447 </td>
-   <td style="text-align:right;"> 0.14\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Murder/Nonnegligent Manslaughter </td>
-   <td style="text-align:right;"> 16,414 </td>
-   <td style="text-align:right;"> 0.13\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Larceny/Theft Offenses - Purse-Snatching </td>
-   <td style="text-align:right;"> 11,048 </td>
-   <td style="text-align:right;"> 0.09\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sex Offenses - Statutory Rape </td>
-   <td style="text-align:right;"> 7,984 </td>
-   <td style="text-align:right;"> 0.06\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sex Offenses - Sexual Assault With An Object </td>
-   <td style="text-align:right;"> 7,425 </td>
-   <td style="text-align:right;"> 0.06\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Prostitution Offenses - Prostitution </td>
-   <td style="text-align:right;"> 7,113 </td>
-   <td style="text-align:right;"> 0.06\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fraud Offenses - Hacking/Computer Invasion </td>
-   <td style="text-align:right;"> 6,380 </td>
-   <td style="text-align:right;"> 0.05\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device </td>
-   <td style="text-align:right;"> 5,630 </td>
-   <td style="text-align:right;"> 0.04\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fraud Offenses - Welfare Fraud </td>
-   <td style="text-align:right;"> 4,415 </td>
-   <td style="text-align:right;"> 0.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Prostitution Offenses - Assisting Or Promoting Prostitution </td>
-   <td style="text-align:right;"> 2,378 </td>
-   <td style="text-align:right;"> 0.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Prostitution Offenses - Purchasing Prostitution </td>
-   <td style="text-align:right;"> 2,184 </td>
-   <td style="text-align:right;"> 0.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Negligent Manslaughter </td>
-   <td style="text-align:right;"> 1,750 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Human Trafficking - Commercial Sex Acts </td>
-   <td style="text-align:right;"> 1,749 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sex Offenses - Incest </td>
-   <td style="text-align:right;"> 1,277 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Gambling Offenses - Operating/Promoting/Assisting Gambling </td>
-   <td style="text-align:right;"> 822 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Justifiable Homicide - Not A Crime </td>
-   <td style="text-align:right;"> 634 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Gambling Offenses - Betting/Wagering </td>
-   <td style="text-align:right;"> 600 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Bribery </td>
-   <td style="text-align:right;"> 567 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Human Trafficking - Involuntary Servitude </td>
-   <td style="text-align:right;"> 506 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Gambling Offenses - Gambling Equipment Violations </td>
-   <td style="text-align:right;"> 313 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Commerce Violations - Federal Liquor Offenses </td>
-   <td style="text-align:right;"> 145 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fugitive Offenses - Flight To Avoid Prosecution </td>
-   <td style="text-align:right;"> 66 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sex Offenses - Failure To Register As A Sex Offender </td>
-   <td style="text-align:right;"> 27 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fraud Offenses - Money Laundering </td>
-   <td style="text-align:right;"> 7 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Weapon Law Violations - Explosives </td>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fugitive Offenses - Harboring Escappee/Concealing From Arrest </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Immigration Violations - Illegal Entry Into The United States </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Gambling Offenses - Sports Tampering </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fugitive Offenses - Flight To Avoid Deportation </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Weapon Law Violations - Violation of National Firearm Act of 1934 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:right;"> 12,652,993 </td>
-   <td style="text-align:right;"> 100\% </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{longtable}[t]{l|r|r}
+\caption{(\#tab:victimCrimeCategory)The number and percent of crimes committed against each victim. For victims with multiple crimes committed against them, this shows the first crime reported, 2022.}\\
+\hline
+Crime Category & \textbackslash{}\# of Victims & \textbackslash{}\% of Victims\\
+\hline
+\endfirsthead
+\caption[]{(\#tab:victimCrimeCategory)The number and percent of crimes committed against each victim. For victims with multiple crimes committed against them, this shows the first crime reported, 2022. \textit{(continued)}}\\
+\hline
+Crime Category & \textbackslash{}\# of Victims & \textbackslash{}\% of Victims\\
+\hline
+\endhead
+Assault Offenses - Simple Assault & 1,963,108 & 15.51\textbackslash{}\%\\
+\hline
+Larceny/Theft Offenses - All Other Larceny & 1,349,448 & 10.67\textbackslash{}\%\\
+\hline
+Destruction/Damage/Vandalism of Property & 1,204,569 & 9.52\textbackslash{}\%\\
+\hline
+Drug/Narcotic Offenses - Drug/Narcotic Violations & 993,317 & 7.85\textbackslash{}\%\\
+\hline
+Larceny/Theft Offenses - Theft From Motor Vehicle & 959,554 & 7.58\textbackslash{}\%\\
+\hline
+Burglary/Breaking And Entering & 757,933 & 5.99\textbackslash{}\%\\
+\hline
+Larceny/Theft Offenses - Shoplifting & 747,655 & 5.91\textbackslash{}\%\\
+\hline
+Motor Vehicle Theft & 703,215 & 5.56\textbackslash{}\%\\
+\hline
+Assault Offenses - Aggravated Assault & 669,067 & 5.29\textbackslash{}\%\\
+\hline
+Assault Offenses - Intimidation & 537,389 & 4.25\textbackslash{}\%\\
+\hline
+Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories & 387,566 & 3.06\textbackslash{}\%\\
+\hline
+Fraud Offenses - False Pretenses/Swindle/Confidence Game & 333,517 & 2.64\textbackslash{}\%\\
+\hline
+Larceny/Theft Offenses - Theft From Building & 276,139 & 2.18\textbackslash{}\%\\
+\hline
+Weapon Law Violations - Weapon Law Violations & 240,037 & 1.90\textbackslash{}\%\\
+\hline
+Robbery & 194,500 & 1.54\textbackslash{}\%\\
+\hline
+Fraud Offenses - Identity Theft & 177,323 & 1.40\textbackslash{}\%\\
+\hline
+Fraud Offenses - Credit Card/Atm Fraud & 159,970 & 1.26\textbackslash{}\%\\
+\hline
+Drug/Narcotic Offenses - Drug Equipment Violations & 159,409 & 1.26\textbackslash{}\%\\
+\hline
+Counterfeiting/Forgery & 143,052 & 1.13\textbackslash{}\%\\
+\hline
+Stolen Property Offenses (Receiving, Selling, Etc.) & 111,630 & 0.88\textbackslash{}\%\\
+\hline
+Sex Offenses - Fondling (Incident Liberties/Child Molest) & 87,715 & 0.69\textbackslash{}\%\\
+\hline
+Sex Offenses - Rape & 76,759 & 0.61\textbackslash{}\%\\
+\hline
+Fraud Offenses - Impersonation & 75,089 & 0.59\textbackslash{}\%\\
+\hline
+Kidnapping/Abduction & 43,094 & 0.34\textbackslash{}\%\\
+\hline
+Pornography/Obscene Material & 39,629 & 0.31\textbackslash{}\%\\
+\hline
+Fraud Offenses - Wire Fraud & 36,975 & 0.29\textbackslash{}\%\\
+\hline
+Arson & 35,241 & 0.28\textbackslash{}\%\\
+\hline
+Embezzlement & 32,065 & 0.25\textbackslash{}\%\\
+\hline
+Larceny/Theft Offenses - Pocket-Picking & 21,080 & 0.17\textbackslash{}\%\\
+\hline
+Animal Cruelty & 20,100 & 0.16\textbackslash{}\%\\
+\hline
+Extortion/Blackmail & 19,953 & 0.16\textbackslash{}\%\\
+\hline
+Sex Offenses - Sodomy & 17,447 & 0.14\textbackslash{}\%\\
+\hline
+Murder/Nonnegligent Manslaughter & 16,414 & 0.13\textbackslash{}\%\\
+\hline
+Larceny/Theft Offenses - Purse-Snatching & 11,048 & 0.09\textbackslash{}\%\\
+\hline
+Sex Offenses - Statutory Rape & 7,984 & 0.06\textbackslash{}\%\\
+\hline
+Sex Offenses - Sexual Assault With An Object & 7,425 & 0.06\textbackslash{}\%\\
+\hline
+Prostitution Offenses - Prostitution & 7,113 & 0.06\textbackslash{}\%\\
+\hline
+Fraud Offenses - Hacking/Computer Invasion & 6,380 & 0.05\textbackslash{}\%\\
+\hline
+Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device & 5,630 & 0.04\textbackslash{}\%\\
+\hline
+Fraud Offenses - Welfare Fraud & 4,415 & 0.03\textbackslash{}\%\\
+\hline
+Prostitution Offenses - Assisting Or Promoting Prostitution & 2,378 & 0.02\textbackslash{}\%\\
+\hline
+Prostitution Offenses - Purchasing Prostitution & 2,184 & 0.02\textbackslash{}\%\\
+\hline
+Negligent Manslaughter & 1,750 & 0.01\textbackslash{}\%\\
+\hline
+Human Trafficking - Commercial Sex Acts & 1,749 & 0.01\textbackslash{}\%\\
+\hline
+Sex Offenses - Incest & 1,277 & 0.01\textbackslash{}\%\\
+\hline
+Gambling Offenses - Operating/Promoting/Assisting Gambling & 822 & 0.01\textbackslash{}\%\\
+\hline
+Justifiable Homicide - Not A Crime & 634 & 0.01\textbackslash{}\%\\
+\hline
+Gambling Offenses - Betting/Wagering & 600 & 0.00\textbackslash{}\%\\
+\hline
+Bribery & 567 & 0.00\textbackslash{}\%\\
+\hline
+Human Trafficking - Involuntary Servitude & 506 & 0.00\textbackslash{}\%\\
+\hline
+Gambling Offenses - Gambling Equipment Violations & 313 & 0.00\textbackslash{}\%\\
+\hline
+Commerce Violations - Federal Liquor Offenses & 145 & 0.00\textbackslash{}\%\\
+\hline
+Fugitive Offenses - Flight To Avoid Prosecution & 66 & 0.00\textbackslash{}\%\\
+\hline
+Sex Offenses - Failure To Register As A Sex Offender & 27 & 0.00\textbackslash{}\%\\
+\hline
+Fraud Offenses - Money Laundering & 7 & 0.00\textbackslash{}\%\\
+\hline
+Weapon Law Violations - Explosives & 4 & 0.00\textbackslash{}\%\\
+\hline
+Fugitive Offenses - Harboring Escappee/Concealing From Arrest & 3 & 0.00\textbackslash{}\%\\
+\hline
+Immigration Violations - Illegal Entry Into The United States & 3 & 0.00\textbackslash{}\%\\
+\hline
+Gambling Offenses - Sports Tampering & 2 & 0.00\textbackslash{}\%\\
+\hline
+Fugitive Offenses - Flight To Avoid Deportation & 1 & 0.00\textbackslash{}\%\\
+\hline
+Weapon Law Violations - Violation of National Firearm Act of 1934 & 1 & 0.00\textbackslash{}\%\\
+\hline
+Total & 12,652,993 & 100\textbackslash{}\%\\
+\hline
+\end{longtable}
 
 
 
 
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:offenseOfficerCrimeCategories)The number and percent of crimes reported for offenses where the victim type was 'law enforcement officer,' 2022.</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Crime Category </th>
-   <th style="text-align:right;"> First Year </th>
-   <th style="text-align:right;"> # of Victims in 1st Year </th>
-   <th style="text-align:left;"> # of Victims in 2022 </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
-   <td style="text-align:right;"> 2002 </td>
-   <td style="text-align:right;"> 69 </td>
-   <td style="text-align:left;"> 17616 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
-   <td style="text-align:right;"> 2002 </td>
-   <td style="text-align:right;"> 86 </td>
-   <td style="text-align:left;"> 47190 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Kidnapping/Abduction </td>
-   <td style="text-align:right;"> 2002 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> 8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
-   <td style="text-align:right;"> 2003 </td>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:left;"> 8584 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
-   <td style="text-align:right;"> 2003 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
-   <td style="text-align:right;"> 2003 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Murder/Nonnegligent Manslaughter </td>
-   <td style="text-align:right;"> 2003 </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:left;"> 55 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Stolen Property Offenses (Receiving, Selling, Etc.) </td>
-   <td style="text-align:right;"> 2003 </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:left;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Bribery </td>
-   <td style="text-align:right;"> 2004 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fraud Offenses - False Pretenses/Swindle/Confidence Game </td>
-   <td style="text-align:right;"> 2004 </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:left;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
-   <td style="text-align:right;"> 2004 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Larceny/Theft Offenses - Shoplifting </td>
-   <td style="text-align:right;"> 2004 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Motor Vehicle Theft </td>
-   <td style="text-align:right;"> 2004 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fraud Offenses - Impersonation </td>
-   <td style="text-align:right;"> 2006 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Motor Vehicle </td>
-   <td style="text-align:right;"> 2008 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Counterfeiting/Forgery </td>
-   <td style="text-align:right;"> 2009 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Arson </td>
-   <td style="text-align:right;"> 2011 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Building </td>
-   <td style="text-align:right;"> 2011 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sex Offenses - Fondling (Incident Liberties/Child Molest) </td>
-   <td style="text-align:right;"> 2014 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Larceny/Theft Offenses - Pocket-Picking </td>
-   <td style="text-align:right;"> 2018 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories </td>
-   <td style="text-align:right;"> 2018 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> 0 </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{longtable}[t]{l|r|r|l}
+\caption{(\#tab:offenseOfficerCrimeCategories)The number and percent of crimes reported for offenses where the victim type was 'law enforcement officer,' 2022.}\\
+\hline
+Crime Category & First Year & \# of Victims in 1st Year & \# of Victims in 2022\\
+\hline
+\endfirsthead
+\caption[]{(\#tab:offenseOfficerCrimeCategories)The number and percent of crimes reported for offenses where the victim type was 'law enforcement officer,' 2022. \textit{(continued)}}\\
+\hline
+Crime Category & First Year & \# of Victims in 1st Year & \# of Victims in 2022\\
+\hline
+\endhead
+Assault Offenses - Aggravated Assault & 2002 & 69 & 17616\\
+\hline
+Assault Offenses - Simple Assault & 2002 & 86 & 47190\\
+\hline
+Kidnapping/Abduction & 2002 & 1 & 8\\
+\hline
+Assault Offenses - Intimidation & 2003 & 4 & 8584\\
+\hline
+Burglary/Breaking And Entering & 2003 & 1 & 0\\
+\hline
+Destruction/Damage/Vandalism of Property & 2003 & 1 & 0\\
+\hline
+Murder/Nonnegligent Manslaughter & 2003 & 2 & 55\\
+\hline
+Stolen Property Offenses (Receiving, Selling, Etc.) & 2003 & 2 & 0\\
+\hline
+Bribery & 2004 & 1 & 0\\
+\hline
+Fraud Offenses - False Pretenses/Swindle/Confidence Game & 2004 & 2 & 0\\
+\hline
+Larceny/Theft Offenses - All Other Larceny & 2004 & 1 & 0\\
+\hline
+Larceny/Theft Offenses - Shoplifting & 2004 & 1 & 0\\
+\hline
+Motor Vehicle Theft & 2004 & 1 & 0\\
+\hline
+Fraud Offenses - Impersonation & 2006 & 1 & 0\\
+\hline
+Larceny/Theft Offenses - Theft From Motor Vehicle & 2008 & 1 & 0\\
+\hline
+Counterfeiting/Forgery & 2009 & 1 & 0\\
+\hline
+Arson & 2011 & 1 & 0\\
+\hline
+Larceny/Theft Offenses - Theft From Building & 2011 & 1 & 0\\
+\hline
+Sex Offenses - Fondling (Incident Liberties/Child Molest) & 2014 & 1 & 0\\
+\hline
+Larceny/Theft Offenses - Pocket-Picking & 2018 & 1 & 0\\
+\hline
+Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories & 2018 & 1 & 0\\
+\hline
+\end{longtable}
 
 
 
 
-<div class="figure" style="text-align: center">
-<img src="15_nibrs_victim_files/figure-html/nibrsFirstVsAllOffensesMurders-1.png" alt="The numbers of murders when considering only the first offense or all offenses, 1991-2022." width="90%" />
-<p class="caption">(\#fig:nibrsFirstVsAllOffensesMurders)The numbers of murders when considering only the first offense or all offenses, 1991-2022.</p>
-</div>
+\begin{figure}
 
-<div class="figure" style="text-align: center">
-<img src="15_nibrs_victim_files/figure-html/nibrsFirstVsAllOffensesSexOffenses-1.png" alt="The numbers of sexual offenders when considering only the first offense or all offenses, 1991-2022." width="90%" />
-<p class="caption">(\#fig:nibrsFirstVsAllOffensesSexOffenses)The numbers of sexual offenders when considering only the first offense or all offenses, 1991-2022.</p>
-</div>
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsFirstVsAllOffensesMurders-1} 
+
+}
+
+\caption{The numbers of murders when considering only the first offense or all offenses, 1991-2022.}(\#fig:nibrsFirstVsAllOffensesMurders)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsFirstVsAllOffensesSexOffenses-1} 
+
+}
+
+\caption{The numbers of sexual offenders when considering only the first offense or all offenses, 1991-2022.}(\#fig:nibrsFirstVsAllOffensesSexOffenses)
+\end{figure}
 
 ## Victim type
 
@@ -511,92 +254,60 @@ Table \@ref(tab:victimType) shows each of the victim types and how commonly they
 
 The next most common type is business at 15.6% of victims, "society/public" at 12.9% of victims, and the government in 1% of victims. When the victim is society/public that means that the offense is a "victimless crime" or one where there is no specific victim. This includes drug offenses, animal cruelty (animals cannon be victims in this data), prostitution-related offenses (purchasing, promoting, and being a prostitute), pornography/obscene materials, and weapon offenses. The remaining categories - financial institution, other victim type, unknown victim type, and religion organization - are each under 0.25% of victims. 
 
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:victimType)The distribution of the type of victim, 2022. Victim types are mutually exclusive.</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Type of Victim </th>
-   <th style="text-align:right;"> First Year </th>
-   <th style="text-align:right;"> \# of Victims </th>
-   <th style="text-align:left;"> \% of Victims </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Individual </td>
-   <td style="text-align:right;"> 1991 </td>
-   <td style="text-align:right;"> 8,983,510 </td>
-   <td style="text-align:left;"> 71.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Business </td>
-   <td style="text-align:right;"> 1991 </td>
-   <td style="text-align:right;"> 1,897,966 </td>
-   <td style="text-align:left;"> 15.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Society/Public </td>
-   <td style="text-align:right;"> 1991 </td>
-   <td style="text-align:right;"> 1,466,005 </td>
-   <td style="text-align:left;"> 11.59\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Government </td>
-   <td style="text-align:right;"> 1991 </td>
-   <td style="text-align:right;"> 139,194 </td>
-   <td style="text-align:left;"> 1.10\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Law Enforcement Officer </td>
-   <td style="text-align:right;"> 2002 </td>
-   <td style="text-align:right;"> 73,453 </td>
-   <td style="text-align:left;"> 0.58\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other </td>
-   <td style="text-align:right;"> 1991 </td>
-   <td style="text-align:right;"> 36,800 </td>
-   <td style="text-align:left;"> 0.29\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Financial Institution </td>
-   <td style="text-align:right;"> 1991 </td>
-   <td style="text-align:right;"> 21,144 </td>
-   <td style="text-align:left;"> 0.17\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Unknown </td>
-   <td style="text-align:right;"> 1991 </td>
-   <td style="text-align:right;"> 17,953 </td>
-   <td style="text-align:left;"> 0.14\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Religious Organization </td>
-   <td style="text-align:right;"> 1991 </td>
-   <td style="text-align:right;"> 16,968 </td>
-   <td style="text-align:left;"> 0.13\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:right;"> - </td>
-   <td style="text-align:right;"> 12,652,993 </td>
-   <td style="text-align:left;"> 100\% </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{longtable}[t]{l|r|r|l}
+\caption{(\#tab:victimType)The distribution of the type of victim, 2022. Victim types are mutually exclusive.}\\
+\hline
+Type of Victim & First Year & \textbackslash{}\# of Victims & \textbackslash{}\% of Victims\\
+\hline
+\endfirsthead
+\caption[]{(\#tab:victimType)The distribution of the type of victim, 2022. Victim types are mutually exclusive. \textit{(continued)}}\\
+\hline
+Type of Victim & First Year & \textbackslash{}\# of Victims & \textbackslash{}\% of Victims\\
+\hline
+\endhead
+Individual & 1991 & 8,983,510 & 71.00\textbackslash{}\%\\
+\hline
+Business & 1991 & 1,897,966 & 15.00\textbackslash{}\%\\
+\hline
+Society/Public & 1991 & 1,466,005 & 11.59\textbackslash{}\%\\
+\hline
+Government & 1991 & 139,194 & 1.10\textbackslash{}\%\\
+\hline
+Law Enforcement Officer & 2002 & 73,453 & 0.58\textbackslash{}\%\\
+\hline
+Other & 1991 & 36,800 & 0.29\textbackslash{}\%\\
+\hline
+Financial Institution & 1991 & 21,144 & 0.17\textbackslash{}\%\\
+\hline
+Unknown & 1991 & 17,953 & 0.14\textbackslash{}\%\\
+\hline
+Religious Organization & 1991 & 16,968 & 0.13\textbackslash{}\%\\
+\hline
+Total & - & 12,652,993 & 100\textbackslash{}\%\\
+\hline
+\end{longtable}
 
 
 
 
-<div class="figure" style="text-align: center">
-<img src="15_nibrs_victim_files/figure-html/nibrsVictimNumberOfficer-1.png" alt="The annual number of law enforcement officer victims, 1991-2022." width="90%" />
-<p class="caption">(\#fig:nibrsVictimNumberOfficer)The annual number of law enforcement officer victims, 1991-2022.</p>
-</div>
+\begin{figure}
 
-<div class="figure" style="text-align: center">
-<img src="15_nibrs_victim_files/figure-html/nibrsVictimPercentIndividualOfficer-1.png" alt="Percent of victimizations whose victim type of 'law enforcement officer,' 'business,' or 'invidual,' 1991-2022." width="90%" />
-<p class="caption">(\#fig:nibrsVictimPercentIndividualOfficer)Percent of victimizations whose victim type of 'law enforcement officer,' 'business,' or 'invidual,' 1991-2022.</p>
-</div>
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsVictimNumberOfficer-1} 
+
+}
+
+\caption{The annual number of law enforcement officer victims, 1991-2022.}(\#fig:nibrsVictimNumberOfficer)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsVictimPercentIndividualOfficer-1} 
+
+}
+
+\caption{Percent of victimizations whose victim type of 'law enforcement officer,' 'business,' or 'invidual,' 1991-2022.}(\#fig:nibrsVictimPercentIndividualOfficer)
+\end{figure}
 
 ## Injury
 
@@ -620,24 +331,36 @@ Even though there are up to five victim injuries recorded, for the below graphs 
 
 Figure \@ref(fig:victimInjury) shows the eight injury categories and how common they are for all victims with this information reported. The most common type is "none" at 52.6% of injuries which means the victim didn't suffer any injuries at all. This is followed by 42.0% of victims suffering "apparent minor injuries." The six serious injuries are far lesson common and given that nearly a third of victims suffer none or minor injuries are hard to see on the graph. To make it easier to see, Figure \@ref(fig:victimInjuryExcludeNone) shows the breakdown in victim injury excluding those who didn't suffer an injury or those who suffered a minor injury. 
 
-<div class="figure" style="text-align: center">
-<img src="15_nibrs_victim_files/figure-html/victimInjury-1.png" alt="The distribution of the injury sustained by the victim, 2022. Only individual and law enforcement officer victims have this variable availablem." width="90%" />
-<p class="caption">(\#fig:victimInjury)The distribution of the injury sustained by the victim, 2022. Only individual and law enforcement officer victims have this variable availablem.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/victimInjury-1} 
+
+}
+
+\caption{The distribution of the injury sustained by the victim, 2022. Only individual and law enforcement officer victims have this variable availablem.}(\#fig:victimInjury)
+\end{figure}
 
 For the group who suffered one of the six more serious injury types, 32.1% suffered an "other major injury" which is a serious injury other than one of the other categories. This is followed by 25.8% having a serious laceration (a laceration is a cut), 21.6% having a possible internal injury, and 12.5% having an apparent broken bone. About 6.5% of these victims became unconscious at some point in the incident, and 1.5% lost at least one tooth. 
 
 Trends for law enforcement officer victims (not shown) are nearly identical for those with an injury but have more victims reporting no injury at all relative to non-law enforcement officer victims.
 
-<div class="figure" style="text-align: center">
-<img src="15_nibrs_victim_files/figure-html/victimInjuryExcludeNone-1.png" alt="The distribution of the injury sustained by the victim for those who had an injury other than 'none' or 'apparent minor injuries,' 2022." width="90%" />
-<p class="caption">(\#fig:victimInjuryExcludeNone)The distribution of the injury sustained by the victim for those who had an injury other than 'none' or 'apparent minor injuries,' 2022.</p>
-</div>
+\begin{figure}
 
-<div class="figure" style="text-align: center">
-<img src="15_nibrs_victim_files/figure-html/nibrsVictimAssaultInjury-1.png" alt="Victim injury for assault offenses, by injury severity, 1991-2022. Major injury is all injury types other than 'none' and 'apparent minor injuries' which are 'other major injury,' 'severe laceration,' possible internal injury,' apparent broken bones,' 'unconsciousness,' and 'loss of teeth.'" width="90%" />
-<p class="caption">(\#fig:nibrsVictimAssaultInjury)Victim injury for assault offenses, by injury severity, 1991-2022. Major injury is all injury types other than 'none' and 'apparent minor injuries' which are 'other major injury,' 'severe laceration,' possible internal injury,' apparent broken bones,' 'unconsciousness,' and 'loss of teeth.'</p>
-</div>
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/victimInjuryExcludeNone-1} 
+
+}
+
+\caption{The distribution of the injury sustained by the victim for those who had an injury other than 'none' or 'apparent minor injuries,' 2022.}(\#fig:victimInjuryExcludeNone)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsVictimAssaultInjury-1} 
+
+}
+
+\caption{Victim injury for assault offenses, by injury severity, 1991-2022. Major injury is all injury types other than 'none' and 'apparent minor injuries' which are 'other major injury,' 'severe laceration,' possible internal injury,' apparent broken bones,' 'unconsciousness,' and 'loss of teeth.'}(\#fig:nibrsVictimAssaultInjury)
+\end{figure}
 
 ## Relationship to offender
 
@@ -647,434 +370,209 @@ Table \@ref(tab:victimRelationship) shows each of the relationship categories an
 
 If you're familiar with the FBI's [Supplementary Homicide Report](https://ucrbook.com/shr.html) data, this variable  - and the two following variables - is also in that dataset. 
 
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:victimRelationship)The distribution of the relationship between the victim and the offender. Only individual and law enforcement officer victims have this variable available, 2022.</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Crime Category </th>
-   <th style="text-align:right;"> \# of Victims </th>
-   <th style="text-align:right;"> \% of Victims </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Relationship Unknown </td>
-   <td style="text-align:right;"> 1,117,979 </td>
-   <td style="text-align:right;"> 24.31\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Stranger </td>
-   <td style="text-align:right;"> 669,425 </td>
-   <td style="text-align:right;"> 14.56\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Boyfriend/Girlfriend </td>
-   <td style="text-align:right;"> 538,762 </td>
-   <td style="text-align:right;"> 11.72\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Acquaintance </td>
-   <td style="text-align:right;"> 505,720 </td>
-   <td style="text-align:right;"> 11.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Otherwise Known </td>
-   <td style="text-align:right;"> 384,883 </td>
-   <td style="text-align:right;"> 8.37\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Spouse </td>
-   <td style="text-align:right;"> 209,028 </td>
-   <td style="text-align:right;"> 4.55\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Ex-Relationship (Ex-Boyfriend/Ex-Girlfriend) </td>
-   <td style="text-align:right;"> 172,218 </td>
-   <td style="text-align:right;"> 3.75\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Parent </td>
-   <td style="text-align:right;"> 163,978 </td>
-   <td style="text-align:right;"> 3.57\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Child </td>
-   <td style="text-align:right;"> 128,085 </td>
-   <td style="text-align:right;"> 2.79\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Other Family Member </td>
-   <td style="text-align:right;"> 113,811 </td>
-   <td style="text-align:right;"> 2.48\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Sibling </td>
-   <td style="text-align:right;"> 102,790 </td>
-   <td style="text-align:right;"> 2.24\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Friend </td>
-   <td style="text-align:right;"> 100,191 </td>
-   <td style="text-align:right;"> 2.18\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Offender </td>
-   <td style="text-align:right;"> 93,715 </td>
-   <td style="text-align:right;"> 2.04\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Neighbor </td>
-   <td style="text-align:right;"> 86,725 </td>
-   <td style="text-align:right;"> 1.89\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Ex-Spouse </td>
-   <td style="text-align:right;"> 52,407 </td>
-   <td style="text-align:right;"> 1.14\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Common-Law Spouse </td>
-   <td style="text-align:right;"> 25,507 </td>
-   <td style="text-align:right;"> 0.55\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was In-Law </td>
-   <td style="text-align:right;"> 19,763 </td>
-   <td style="text-align:right;"> 0.43\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Step-Child </td>
-   <td style="text-align:right;"> 19,401 </td>
-   <td style="text-align:right;"> 0.42\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Grandparent </td>
-   <td style="text-align:right;"> 19,054 </td>
-   <td style="text-align:right;"> 0.41\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Step-Parent </td>
-   <td style="text-align:right;"> 15,982 </td>
-   <td style="text-align:right;"> 0.35\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Employee </td>
-   <td style="text-align:right;"> 14,920 </td>
-   <td style="text-align:right;"> 0.32\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Child of Boyfriend/Girlfriend </td>
-   <td style="text-align:right;"> 14,423 </td>
-   <td style="text-align:right;"> 0.31\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Employer </td>
-   <td style="text-align:right;"> 13,567 </td>
-   <td style="text-align:right;"> 0.30\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Grandchild </td>
-   <td style="text-align:right;"> 8,776 </td>
-   <td style="text-align:right;"> 0.19\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Step-Sibling </td>
-   <td style="text-align:right;"> 4,616 </td>
-   <td style="text-align:right;"> 0.10\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Babysittee (The Baby) </td>
-   <td style="text-align:right;"> 2,399 </td>
-   <td style="text-align:right;"> 0.05\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:right;"> 4,598,125 </td>
-   <td style="text-align:right;"> 100\% </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{longtable}[t]{l|r|r}
+\caption{(\#tab:victimRelationship)The distribution of the relationship between the victim and the offender. Only individual and law enforcement officer victims have this variable available, 2022.}\\
+\hline
+Crime Category & \textbackslash{}\# of Victims & \textbackslash{}\% of Victims\\
+\hline
+\endfirsthead
+\caption[]{(\#tab:victimRelationship)The distribution of the relationship between the victim and the offender. Only individual and law enforcement officer victims have this variable available, 2022. \textit{(continued)}}\\
+\hline
+Crime Category & \textbackslash{}\# of Victims & \textbackslash{}\% of Victims\\
+\hline
+\endhead
+Relationship Unknown & 1,117,979 & 24.31\textbackslash{}\%\\
+\hline
+Victim Was Stranger & 669,425 & 14.56\textbackslash{}\%\\
+\hline
+Victim Was Boyfriend/Girlfriend & 538,762 & 11.72\textbackslash{}\%\\
+\hline
+Victim Was Acquaintance & 505,720 & 11.00\textbackslash{}\%\\
+\hline
+Victim Was Otherwise Known & 384,883 & 8.37\textbackslash{}\%\\
+\hline
+Victim Was Spouse & 209,028 & 4.55\textbackslash{}\%\\
+\hline
+Victim Was Ex-Relationship (Ex-Boyfriend/Ex-Girlfriend) & 172,218 & 3.75\textbackslash{}\%\\
+\hline
+Victim Was Parent & 163,978 & 3.57\textbackslash{}\%\\
+\hline
+Victim Was Child & 128,085 & 2.79\textbackslash{}\%\\
+\hline
+Victim Was Other Family Member & 113,811 & 2.48\textbackslash{}\%\\
+\hline
+Victim Was Sibling & 102,790 & 2.24\textbackslash{}\%\\
+\hline
+Victim Was Friend & 100,191 & 2.18\textbackslash{}\%\\
+\hline
+Victim Was Offender & 93,715 & 2.04\textbackslash{}\%\\
+\hline
+Victim Was Neighbor & 86,725 & 1.89\textbackslash{}\%\\
+\hline
+Victim Was Ex-Spouse & 52,407 & 1.14\textbackslash{}\%\\
+\hline
+Victim Was Common-Law Spouse & 25,507 & 0.55\textbackslash{}\%\\
+\hline
+Victim Was In-Law & 19,763 & 0.43\textbackslash{}\%\\
+\hline
+Victim Was Step-Child & 19,401 & 0.42\textbackslash{}\%\\
+\hline
+Victim Was Grandparent & 19,054 & 0.41\textbackslash{}\%\\
+\hline
+Victim Was Step-Parent & 15,982 & 0.35\textbackslash{}\%\\
+\hline
+Victim Was Employee & 14,920 & 0.32\textbackslash{}\%\\
+\hline
+Victim Was Child of Boyfriend/Girlfriend & 14,423 & 0.31\textbackslash{}\%\\
+\hline
+Victim Was Employer & 13,567 & 0.30\textbackslash{}\%\\
+\hline
+Victim Was Grandchild & 8,776 & 0.19\textbackslash{}\%\\
+\hline
+Victim Was Step-Sibling & 4,616 & 0.10\textbackslash{}\%\\
+\hline
+Victim Was Babysittee (The Baby) & 2,399 & 0.05\textbackslash{}\%\\
+\hline
+Total & 4,598,125 & 100\textbackslash{}\%\\
+\hline
+\end{longtable}
 
 
 
 We also know the relationship between victim and offender when the victim is a law enforcement officer. As shown in Table \@ref(tab:victimRelationshipPolice), most of the time the officer didn't know the offender, with 58.9% of victimizations being this relationship type. This is followed by 18.7% where the officer knew the offender, including if they were familiar with the person by arresting or stopping them previously. In about 18.5% we don't know the relationship as it is unknown and in 3.2% the officer and the offender were acquaintances. There are also a number of unlikely (and some impossible) relationships like the three in which the officer was the offender's child and the one in which the officer was a baby who was abused by their babysitter. These seem to be clear indications that there are some data errors with this variable. 
 
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:victimRelationshipPolice)The distribution of the relationship between the victim and the offender for law enforcement officer victims, 2022.</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Crime Category </th>
-   <th style="text-align:right;"> \# of Victims </th>
-   <th style="text-align:right;"> \% of Victims </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Victim Was Stranger </td>
-   <td style="text-align:right;"> 40,978 </td>
-   <td style="text-align:right;"> 56.20\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Relationship Unknown </td>
-   <td style="text-align:right;"> 16,873 </td>
-   <td style="text-align:right;"> 23.14\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Otherwise Known </td>
-   <td style="text-align:right;"> 12,381 </td>
-   <td style="text-align:right;"> 16.98\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Acquaintance </td>
-   <td style="text-align:right;"> 2,151 </td>
-   <td style="text-align:right;"> 2.95\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Employee </td>
-   <td style="text-align:right;"> 158 </td>
-   <td style="text-align:right;"> 0.22\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Boyfriend/Girlfriend </td>
-   <td style="text-align:right;"> 110 </td>
-   <td style="text-align:right;"> 0.15\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Spouse </td>
-   <td style="text-align:right;"> 55 </td>
-   <td style="text-align:right;"> 0.08\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Other Family Member </td>
-   <td style="text-align:right;"> 31 </td>
-   <td style="text-align:right;"> 0.04\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was In-Law </td>
-   <td style="text-align:right;"> 27 </td>
-   <td style="text-align:right;"> 0.04\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Parent </td>
-   <td style="text-align:right;"> 26 </td>
-   <td style="text-align:right;"> 0.04\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Neighbor </td>
-   <td style="text-align:right;"> 19 </td>
-   <td style="text-align:right;"> 0.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Sibling </td>
-   <td style="text-align:right;"> 18 </td>
-   <td style="text-align:right;"> 0.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Friend </td>
-   <td style="text-align:right;"> 17 </td>
-   <td style="text-align:right;"> 0.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Step-Sibling </td>
-   <td style="text-align:right;"> 13 </td>
-   <td style="text-align:right;"> 0.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Ex-Relationship (Ex-Boyfriend/Ex-Girlfriend) </td>
-   <td style="text-align:right;"> 11 </td>
-   <td style="text-align:right;"> 0.02\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Employer </td>
-   <td style="text-align:right;"> 8 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Offender </td>
-   <td style="text-align:right;"> 8 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Ex-Spouse </td>
-   <td style="text-align:right;"> 8 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Common-Law Spouse </td>
-   <td style="text-align:right;"> 6 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Child </td>
-   <td style="text-align:right;"> 6 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Step-Child </td>
-   <td style="text-align:right;"> 5 </td>
-   <td style="text-align:right;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Babysittee (The Baby) </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Step-Parent </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Grandparent </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Victim Was Child of Boyfriend/Girlfriend </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:right;"> 72,917 </td>
-   <td style="text-align:right;"> 100\% </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{longtable}[t]{l|r|r}
+\caption{(\#tab:victimRelationshipPolice)The distribution of the relationship between the victim and the offender for law enforcement officer victims, 2022.}\\
+\hline
+Crime Category & \textbackslash{}\# of Victims & \textbackslash{}\% of Victims\\
+\hline
+\endfirsthead
+\caption[]{(\#tab:victimRelationshipPolice)The distribution of the relationship between the victim and the offender for law enforcement officer victims, 2022. \textit{(continued)}}\\
+\hline
+Crime Category & \textbackslash{}\# of Victims & \textbackslash{}\% of Victims\\
+\hline
+\endhead
+Victim Was Stranger & 40,978 & 56.20\textbackslash{}\%\\
+\hline
+Relationship Unknown & 16,873 & 23.14\textbackslash{}\%\\
+\hline
+Victim Was Otherwise Known & 12,381 & 16.98\textbackslash{}\%\\
+\hline
+Victim Was Acquaintance & 2,151 & 2.95\textbackslash{}\%\\
+\hline
+Victim Was Employee & 158 & 0.22\textbackslash{}\%\\
+\hline
+Victim Was Boyfriend/Girlfriend & 110 & 0.15\textbackslash{}\%\\
+\hline
+Victim Was Spouse & 55 & 0.08\textbackslash{}\%\\
+\hline
+Victim Was Other Family Member & 31 & 0.04\textbackslash{}\%\\
+\hline
+Victim Was In-Law & 27 & 0.04\textbackslash{}\%\\
+\hline
+Victim Was Parent & 26 & 0.04\textbackslash{}\%\\
+\hline
+Victim Was Neighbor & 19 & 0.03\textbackslash{}\%\\
+\hline
+Victim Was Sibling & 18 & 0.02\textbackslash{}\%\\
+\hline
+Victim Was Friend & 17 & 0.02\textbackslash{}\%\\
+\hline
+Victim Was Step-Sibling & 13 & 0.02\textbackslash{}\%\\
+\hline
+Victim Was Ex-Relationship (Ex-Boyfriend/Ex-Girlfriend) & 11 & 0.02\textbackslash{}\%\\
+\hline
+Victim Was Employer & 8 & 0.01\textbackslash{}\%\\
+\hline
+Victim Was Offender & 8 & 0.01\textbackslash{}\%\\
+\hline
+Victim Was Ex-Spouse & 8 & 0.01\textbackslash{}\%\\
+\hline
+Victim Was Common-Law Spouse & 6 & 0.01\textbackslash{}\%\\
+\hline
+Victim Was Child & 6 & 0.01\textbackslash{}\%\\
+\hline
+Victim Was Step-Child & 5 & 0.01\textbackslash{}\%\\
+\hline
+Victim Was Babysittee (The Baby) & 3 & 0.00\textbackslash{}\%\\
+\hline
+Victim Was Step-Parent & 3 & 0.00\textbackslash{}\%\\
+\hline
+Victim Was Grandparent & 1 & 0.00\textbackslash{}\%\\
+\hline
+Victim Was Child of Boyfriend/Girlfriend & 1 & 0.00\textbackslash{}\%\\
+\hline
+Total & 72,917 & 100\textbackslash{}\%\\
+\hline
+\end{longtable}
 
 
 
 
-<div class="figure" style="text-align: center">
-<img src="15_nibrs_victim_files/figure-html/nibrsVictimAssaultSpouse-1.png" alt="The annual percent of assault victims whose perpetrator is their spouse, 1991-2022." width="90%" />
-<p class="caption">(\#fig:nibrsVictimAssaultSpouse)The annual percent of assault victims whose perpetrator is their spouse, 1991-2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsVictimAssaultSpouse-1} 
+
+}
+
+\caption{The annual percent of assault victims whose perpetrator is their spouse, 1991-2022.}(\#fig:nibrsVictimAssaultSpouse)
+\end{figure}
 
 ## Aggravated assault and homicide circumstances
 
 In cases of aggravated assault or homicide we have some information about the motive of the offender. There can be up to two motives, what NIBRS calls circumstances, for each of these offenses. Table \@ref(tab:victimAggAssault) shows all of the possible circumstances in the data, and shows the frequency only of the first circumstance. The most common circumstance is that there was an argument, and this accounts for 42.7% of these victims. The next most common is 24% which had unknown circumstances followed by 18.7% with "other" circumstances. The next most common group is "lovers' quarrel" which the FBI relabeled as "domestic violence" beginning in 2019. This group accounts for 9.4% of victims. Assault on law enforcement officers is the next most common group at 2.8% of victims. All other groups are less common than 2% of victims. 
 
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:victimAggAssault)The distribution of circumstances for aggravated assault and homicides, 2022.</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Circumstance </th>
-   <th style="text-align:right;"> Crime Category </th>
-   <th style="text-align:right;"> \# of Victims </th>
-   <th style="text-align:left;"> \% of Victims </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Argument </td>
-   <td style="text-align:right;"> Aggravated Assault/Murder </td>
-   <td style="text-align:right;"> 263,394 </td>
-   <td style="text-align:left;"> 37.82\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Unknown Circumstances </td>
-   <td style="text-align:right;"> Aggravated Assault/Murder </td>
-   <td style="text-align:right;"> 176,578 </td>
-   <td style="text-align:left;"> 25.35\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other Circumstances </td>
-   <td style="text-align:right;"> Aggravated Assault/Murder </td>
-   <td style="text-align:right;"> 135,511 </td>
-   <td style="text-align:left;"> 19.46\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Domestic Violence </td>
-   <td style="text-align:right;"> Aggravated Assault/Murder </td>
-   <td style="text-align:right;"> 83,118 </td>
-   <td style="text-align:left;"> 11.93\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Assault On Law Enforcement Officer(S) </td>
-   <td style="text-align:right;"> Aggravated Assault/Murder </td>
-   <td style="text-align:right;"> 19,495 </td>
-   <td style="text-align:left;"> 2.80\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other Felony Involved </td>
-   <td style="text-align:right;"> Aggravated Assault/Murder </td>
-   <td style="text-align:right;"> 9,213 </td>
-   <td style="text-align:left;"> 1.32\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Gangland </td>
-   <td style="text-align:right;"> Aggravated Assault/Murder </td>
-   <td style="text-align:right;"> 2,938 </td>
-   <td style="text-align:left;"> 0.42\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Drug Dealing </td>
-   <td style="text-align:right;"> Aggravated Assault/Murder </td>
-   <td style="text-align:right;"> 2,326 </td>
-   <td style="text-align:left;"> 0.33\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Juvenile Gang </td>
-   <td style="text-align:right;"> Aggravated Assault/Murder </td>
-   <td style="text-align:right;"> 1,509 </td>
-   <td style="text-align:left;"> 0.22\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other Negligent Killings </td>
-   <td style="text-align:right;"> Negligent Manslaughter </td>
-   <td style="text-align:right;"> 1,433 </td>
-   <td style="text-align:left;"> 0.21\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Criminal Killed By Private Citizen </td>
-   <td style="text-align:right;"> Justifiable Homicide </td>
-   <td style="text-align:right;"> 409 </td>
-   <td style="text-align:left;"> 0.06\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Other Negligent Weapon Handling </td>
-   <td style="text-align:right;"> Negligent Manslaughter </td>
-   <td style="text-align:right;"> 270 </td>
-   <td style="text-align:left;"> 0.04\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Criminal Killed By Police Officer </td>
-   <td style="text-align:right;"> Justifiable Homicide </td>
-   <td style="text-align:right;"> 225 </td>
-   <td style="text-align:left;"> 0.03\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Mercy Killing </td>
-   <td style="text-align:right;"> Aggravated Assault/Murder </td>
-   <td style="text-align:right;"> 47 </td>
-   <td style="text-align:left;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Child Playing With Weapon </td>
-   <td style="text-align:right;"> Negligent Manslaughter </td>
-   <td style="text-align:right;"> 40 </td>
-   <td style="text-align:left;"> 0.01\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Gun-Cleaning Accident </td>
-   <td style="text-align:right;"> Negligent Manslaughter </td>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:left;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Hunting Accident </td>
-   <td style="text-align:right;"> Negligent Manslaughter </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:left;"> 0.00\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:right;"> Aggravated Assault/Murder </td>
-   <td style="text-align:right;"> 696,513 </td>
-   <td style="text-align:left;"> 100\% </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{longtable}[t]{l|r|r|l}
+\caption{(\#tab:victimAggAssault)The distribution of circumstances for aggravated assault and homicides, 2022.}\\
+\hline
+Circumstance & Crime Category & \textbackslash{}\# of Victims & \textbackslash{}\% of Victims\\
+\hline
+\endfirsthead
+\caption[]{(\#tab:victimAggAssault)The distribution of circumstances for aggravated assault and homicides, 2022. \textit{(continued)}}\\
+\hline
+Circumstance & Crime Category & \textbackslash{}\# of Victims & \textbackslash{}\% of Victims\\
+\hline
+\endhead
+Argument & Aggravated Assault/Murder & 263,394 & 37.82\textbackslash{}\%\\
+\hline
+Unknown Circumstances & Aggravated Assault/Murder & 176,578 & 25.35\textbackslash{}\%\\
+\hline
+Other Circumstances & Aggravated Assault/Murder & 135,511 & 19.46\textbackslash{}\%\\
+\hline
+Domestic Violence & Aggravated Assault/Murder & 83,118 & 11.93\textbackslash{}\%\\
+\hline
+Assault On Law Enforcement Officer(S) & Aggravated Assault/Murder & 19,495 & 2.80\textbackslash{}\%\\
+\hline
+Other Felony Involved & Aggravated Assault/Murder & 9,213 & 1.32\textbackslash{}\%\\
+\hline
+Gangland & Aggravated Assault/Murder & 2,938 & 0.42\textbackslash{}\%\\
+\hline
+Drug Dealing & Aggravated Assault/Murder & 2,326 & 0.33\textbackslash{}\%\\
+\hline
+Juvenile Gang & Aggravated Assault/Murder & 1,509 & 0.22\textbackslash{}\%\\
+\hline
+Other Negligent Killings & Negligent Manslaughter & 1,433 & 0.21\textbackslash{}\%\\
+\hline
+Criminal Killed By Private Citizen & Justifiable Homicide & 409 & 0.06\textbackslash{}\%\\
+\hline
+Other Negligent Weapon Handling & Negligent Manslaughter & 270 & 0.04\textbackslash{}\%\\
+\hline
+Criminal Killed By Police Officer & Justifiable Homicide & 225 & 0.03\textbackslash{}\%\\
+\hline
+Mercy Killing & Aggravated Assault/Murder & 47 & 0.01\textbackslash{}\%\\
+\hline
+Child Playing With Weapon & Negligent Manslaughter & 40 & 0.01\textbackslash{}\%\\
+\hline
+Gun-Cleaning Accident & Negligent Manslaughter & 4 & 0.00\textbackslash{}\%\\
+\hline
+Hunting Accident & Negligent Manslaughter & 3 & 0.00\textbackslash{}\%\\
+\hline
+Total & Aggravated Assault/Murder & 696,513 & 100\textbackslash{}\%\\
+\hline
+\end{longtable}
 
 
 
@@ -1082,10 +580,14 @@ In cases of aggravated assault or homicide we have some information about the mo
 
 We know a little bit more in cases of justifiable homicides. Here, we know the circumstances behind the homicide. Figure \@ref(fig:victimJustifiableHomicide) shows the circumstance breakdown for all 308 justifiable homicides reported in 2019. The most common reason, at 34.4% of justifiable homicides is because the offender attacked a civilian. In 21% of justifiable homicides the offender attacked a police officer and was killed by the same officer. In 6.5% the offender attacked a police officer and was killed by a different officer. This is followed by 28% being killed during the commission of a crime. In 4.9% of justifiable homicides, the circumstance is unknown. 3.6% had the offender killed while fleeing from a crime and 1% were killed while resisting arrest.
 
-<div class="figure" style="text-align: center">
-<img src="15_nibrs_victim_files/figure-html/victimJustifiableHomicide-1.png" alt="The distribution of circumstances for justifiable homicides (N = 308 in 2022 for all agencies reporting)." width="90%" />
-<p class="caption">(\#fig:victimJustifiableHomicide)The distribution of circumstances for justifiable homicides (N = 308 in 2022 for all agencies reporting).</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/victimJustifiableHomicide-1} 
+
+}
+
+\caption{The distribution of circumstances for justifiable homicides (N = 308 in 2022 for all agencies reporting).}(\#fig:victimJustifiableHomicide)
+\end{figure}
 
 ## Demographics
 
@@ -1101,17 +603,25 @@ One proposed measure to improve policing is to require police officers (or at le
 
 Figure \@ref(fig:victimResidenceStatusPolice) shows the residence status for law enforcement officer victims. Most law enforcement officer victims reside in their jurisdiction with being 53.2% residents and 13.3% being non-residents. However, there is a lot of uncertainty as 33.5% have an unknown residence status. 
 
-<div class="figure" style="text-align: center">
-<img src="15_nibrs_victim_files/figure-html/victimResidenceStatusPolice-1.png" alt="The distribution of residence status for all Law Enforcement Officer victims, 2022." width="90%" />
-<p class="caption">(\#fig:victimResidenceStatusPolice)The distribution of residence status for all Law Enforcement Officer victims, 2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/victimResidenceStatusPolice-1} 
+
+}
+
+\caption{The distribution of residence status for all Law Enforcement Officer victims, 2022.}(\#fig:victimResidenceStatusPolice)
+\end{figure}
 
 
 
-<div class="figure" style="text-align: center">
-<img src="15_nibrs_victim_files/figure-html/nibrsVictimResidentStatus-1.png" alt="The share of victims by resident status in the reporting agency's jurisdiction, 1991-2022." width="90%" />
-<p class="caption">(\#fig:nibrsVictimResidentStatus)The share of victims by resident status in the reporting agency's jurisdiction, 1991-2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsVictimResidentStatus-1} 
+
+}
+
+\caption{The share of victims by resident status in the reporting agency's jurisdiction, 1991-2022.}(\#fig:nibrsVictimResidentStatus)
+\end{figure}
 
 ### Age
 
@@ -1119,30 +629,46 @@ This variable is the age of the victim when the crime occurred, regardless of wh
 
 Figure \@ref(fig:victimAge) shows the percent of victims at each age available. This is pretty similar to the age of offenders shown in Figure \@ref(fig:offenderAge) with a peak in the mid to late 20s with a long decline after. The most common victim age is 27 followed by 28, 29, and 30. Relative to offender ages, there are far more young victims. About 2.8% of victims, or 145k victims, in 2019 were aged 14 or younger. However, remember that this is for all victims of any crime so age trends may differ by which crime you're looking at.
 
-<div class="figure" style="text-align: center">
-<img src="15_nibrs_victim_files/figure-html/victimAge-1.png" alt="The age of all victims, 2022." width="90%" />
-<p class="caption">(\#fig:victimAge)The age of all victims, 2022.</p>
-</div>
+\begin{figure}
 
-<div class="figure" style="text-align: center">
-<img src="15_nibrs_victim_files/figure-html/nibrsVictimAge-1.png" alt="The mean and median age of victims, 1991-2022." width="90%" />
-<p class="caption">(\#fig:nibrsVictimAge)The mean and median age of victims, 1991-2022.</p>
-</div>
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/victimAge-1} 
 
-<div class="figure" style="text-align: center">
-<img src="15_nibrs_victim_files/figure-html/nibrsVictimAgeMissing-1.png" alt="The percent of victim's age that is unknown, 1991-2022." width="90%" />
-<p class="caption">(\#fig:nibrsVictimAgeMissing)The percent of victim's age that is unknown, 1991-2022.</p>
-</div>
+}
+
+\caption{The age of all victims, 2022.}(\#fig:victimAge)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsVictimAge-1} 
+
+}
+
+\caption{The mean and median age of victims, 1991-2022.}(\#fig:nibrsVictimAge)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsVictimAgeMissing-1} 
+
+}
+
+\caption{The percent of victim's age that is unknown, 1991-2022.}(\#fig:nibrsVictimAgeMissing)
+\end{figure}
 
 ### Sex
 
 As with the Offender and the Arrestee Segments, we know the sex of the victim. The only choices are female, male, and unknown sex. There is no option for transgender or any other identify. Since the victim can tell the police their sex, and the police can see them clearly in most cases (though this may not be true if the victim reports a crime over the phone by calling 911 but then doesn't stay to be interviewed) so is more reliable than in the Offender Segment which may include guesses about the offender. The most common victim sex is female at 50.8% of victims, followed closely by male at 48.4%. Only about 0.8% of victims have an unknown sex. It's interesting that female victims are so common since most criminology research finds that male victims are so common. I think this is likely due to criminologists primarily focusing on murder and index violent crimes as their measure of crime, which ignores many other crimes.^[Murder and other violent crimes are mainly men hurting/killing other men, except in domestic violence which is primarily men hurting/killing women.]  
 
 
-<div class="figure" style="text-align: center">
-<img src="15_nibrs_victim_files/figure-html/nibrsVictimSex-1.png" alt="The share of victims by sex, 1991-2022." width="90%" />
-<p class="caption">(\#fig:nibrsVictimSex)The share of victims by sex, 1991-2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsVictimSex-1} 
+
+}
+
+\caption{The share of victims by sex, 1991-2022.}(\#fig:nibrsVictimSex)
+\end{figure}
 
 ### Race
 
@@ -1154,10 +680,14 @@ Figure \@ref(fig:victimRace) shows the breakdown in victims by race. Most victim
 
 
 
-<div class="figure" style="text-align: center">
-<img src="15_nibrs_victim_files/figure-html/nibrsVictimRace-1.png" alt="The share of victims by race, 1991-2022." width="90%" />
-<p class="caption">(\#fig:nibrsVictimRace)The share of victims by race, 1991-2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsVictimRace-1} 
+
+}
+
+\caption{The share of victims by race, 1991-2022.}(\#fig:nibrsVictimRace)
+\end{figure}
 
 ### Ethnicity
 
@@ -1168,7 +698,11 @@ There’s also the question of reliability of the ethnicity data. Someone being 
 Figure \@ref(fig:victimEthnicity) shows the breakdown in arrests by victim ethnicity for all victims in 2019. Most arrestees - 62.2% - are not Hispanic. Only 10.5% are reported to be Hispanic but a much higher percent of arrestees - 27.2% - have an unknown ethnicity. Given that over a quarter of victims don't have ethnicity data, if you'd like to use this variable I recommend that you carefully examine the data to ensure that the agencies you're looking at (if you don't use all agencies in the data) have a much higher reporting rate. 
 
 
-<div class="figure" style="text-align: center">
-<img src="15_nibrs_victim_files/figure-html/nibrsVictimEthnicity-1.png" alt="The share of victims by ethnicity, 1991-2022." width="90%" />
-<p class="caption">(\#fig:nibrsVictimEthnicity)The share of victims by ethnicity, 1991-2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{15_nibrs_victim_files/figure-latex/nibrsVictimEthnicity-1} 
+
+}
+
+\caption{The share of victims by ethnicity, 1991-2022.}(\#fig:nibrsVictimEthnicity)
+\end{figure}

@@ -325,35 +325,6 @@ influential.
 \caption{The annual percent of the United States population that is covered by an agency reporting data to NIBRS.}\label{fig:nibrsAnnualPercentPopulationIndex}
 \end{figure}
 
-\begin{verbatim}
-#>  [1] "Alabama"              "Alaska"              
-#>  [3] "Arizona"              "Arkansas"            
-#>  [5] "California"           "Colorado"            
-#>  [7] "Connecticut"          "Delaware"            
-#>  [9] "District of Columbia" "Florida"             
-#> [11] "Georgia"              "Hawaii"              
-#> [13] "Idaho"                "Illinois"            
-#> [15] "Indiana"              "Iowa"                
-#> [17] "Kansas"               "Kentucky"            
-#> [19] "Louisiana"            "Maine"               
-#> [21] "Maryland"             "Massachusetts"       
-#> [23] "Michigan"             "Minnesota"           
-#> [25] "Mississippi"          "Missouri"            
-#> [27] "Montana"              "Nebraska"            
-#> [29] "Nevada"               "New Hampshire"       
-#> [31] "New Jersey"           "New Mexico"          
-#> [33] "New York"             "North Carolina"      
-#> [35] "North Dakota"         "Ohio"                
-#> [37] "Oklahoma"             "Oregon"              
-#> [39] "Pennsylvania"         "Rhode Island"        
-#> [41] "South Carolina"       "South Dakota"        
-#> [43] "Tennessee"            "Texas"               
-#> [45] "Utah"                 "Vermont"             
-#> [47] "Virginia"             "Washington"          
-#> [49] "West Virginia"        "Wisconsin"           
-#> [51] "Wyoming"              "Puerto Rico"
-\end{verbatim}
-
 \begin{figure}
 
 {\centering \includegraphics[width=0.9\linewidth]{index_files/figure-latex/nibrsStateParticipation2020Index-1} 
@@ -1444,7 +1415,7 @@ superior in nearly every way. But for most people - the
 general public, reporters, many academics, etc. - what is
 important is ease of use and very basic descriptive
 statistics such as how many crimes happened in my city last
-year\footnote{Even many academic papers are little more than
+year\footnote{Even some academic papers are little more than
   a difference between two or more cities over time and can
   be very good research even if the data isn't that complex.},
 and is it getting more dangerous than it used to be? The
@@ -2165,7 +2136,7 @@ likely far less common than when they are arrested. For an
 investigation into this issue, see the
 \citet{yeung2018comes} article available on ProPublica's
 website
-\href{https://www.propublica.org/article/when-it-comes-to-rape-just-because-a-case-is-cleared-does-not-mean-solved}{here}
+\href{https://www.propublica.org/article/when-it-comes-to-rape-just-because-a-case-is-cleared-does-not-mean-solved}{here}.
 
 Clearances are reported in the month that they occur,
 regardless of when the crime they are clearing occurred. In
@@ -8722,25 +8693,6 @@ Wyoming & 49 & 50 & 98\textbackslash{}\%\\
 \hline
 \end{longtable}
 
-\begin{verbatim}
-#>       
-#>         FALSE   TRUE   <NA>
-#>   0     93649 402262      0
-#>   1       139   2496      0
-#>   2        49   1837      0
-#>   3        78   1717      0
-#>   4        63   1572      0
-#>   5        25   1708      0
-#>   6        20   1825      0
-#>   7        19   1728      0
-#>   8        21   2036      0
-#>   9        25   2483      0
-#>   10       76   3248      0
-#>   11       31   5997      0
-#>   12      425 139027      0
-#>   <NA>      1      7      0
-\end{verbatim}
-
 \begin{figure}
 
 {\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/nibrsAnnualNumberAgencies-1} 
@@ -8752,15 +8704,6 @@ Wyoming & 49 & 50 & 98\textbackslash{}\%\\
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/nibrsAnnualPopulation-1} 
-
-}
-
-\caption{The annual population in the United States that is covered by an agency reporting data to NIBRS.}\label{fig:nibrsAnnualPopulation}
-\end{figure}
-
-\begin{figure}
-
 {\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/nibrsAnnualPercentPopulation-1} 
 
 }
@@ -8768,304 +8711,13 @@ Wyoming & 49 & 50 & 98\textbackslash{}\%\\
 \caption{The annual percent of the United States population that is covered by an agency reporting data to NIBRS.}\label{fig:nibrsAnnualPercentPopulation}
 \end{figure}
 
-\begin{verbatim}
-#>  [1] "Alabama"              "Alaska"               "Arizona"             
-#>  [4] "Arkansas"             "California"           "Colorado"            
-#>  [7] "Connecticut"          "Delaware"             "District of Columbia"
-#> [10] "Florida"              "Georgia"              "Hawaii"              
-#> [13] "Idaho"                "Illinois"             "Indiana"             
-#> [16] "Iowa"                 "Kansas"               "Kentucky"            
-#> [19] "Louisiana"            "Maine"                "Maryland"            
-#> [22] "Massachusetts"        "Michigan"             "Minnesota"           
-#> [25] "Mississippi"          "Missouri"             "Montana"             
-#> [28] "Nebraska"             "Nevada"               "New Hampshire"       
-#> [31] "New Jersey"           "New Mexico"           "New York"            
-#> [34] "North Carolina"       "North Dakota"         "Ohio"                
-#> [37] "Oklahoma"             "Oregon"               "Pennsylvania"        
-#> [40] "Rhode Island"         "South Carolina"       "South Dakota"        
-#> [43] "Tennessee"            "Texas"                "Utah"                
-#> [46] "Vermont"              "Virginia"             "Washington"          
-#> [49] "West Virginia"        "Wisconsin"            "Wyoming"             
-#> [52] "Puerto Rico"
-#>         ori year   state population date_ori_was_added date_ori_went_nibrs
-#> 1 alast0000 1991 alabama          0           19910430                <NA>
-#> 2 al0010000 1991 alabama     142446           19930225            19910101
-#> 3 al0010100 1991 alabama      33898           19910513            19910101
-#> 4 al0010200 1991 alabama     269313           19920326            19910101
-#> 5 al0010300 1991 alabama      20047           19910513            19910101
-#> 6 al0010400 1991 alabama      12346           19910513            19910101
-#>        city_name state_abbreviation            population_group
-#> 1     montgomery                 al non-msa county under 10,000
-#> 2     birmingham                 al         msa-county 100,000+
-#> 3       bessemer                 al     city 25,000 thru 49,999
-#> 4     birmingham                 al   city 250,000 thru 499,999
-#> 5 mountain brook                 al     city 10,000 thru 24,999
-#> 6      fairfield                 al     city 10,000 thru 24,999
-#>     country_division country_region agency_indicator core_city covered_by_ori
-#> 1 east south central          south           county         n           <NA>
-#> 2 east south central          south           county         n           <NA>
-#> 3 east south central          south             city         n           <NA>
-#> 4 east south central          south             city         y           <NA>
-#> 5 east south central          south             city         n           <NA>
-#> 6 east south central          south             city         n           <NA>
-#>   fbi_field_office judicial_district agency_nibrs_flag agency_inactive_date
-#> 1             3490              <NA>              <NA>                 <NA>
-#> 2             3070              010n                 a                 <NA>
-#> 3             3070              010n                 a                 <NA>
-#> 4             3070              010n                 a                 <NA>
-#> 5             3070              010n                 a                 <NA>
-#> 6             3070              010n                 a                 <NA>
-#>   current_population_1 ucr_county_code_1 msa_code_1 last_population_1
-#> 1                    0              <NA>       <NA>                 0
-#> 2               142446                37         98            142446
-#> 3                33898                37         98             33898
-#> 4               269313                37         98            269313
-#> 5                20047                37         98             20047
-#> 6                12346                37         98             12346
-#>   current_population_2 ucr_county_code_2 msa_code_2 last_population_2
-#> 1                    0              <NA>       <NA>                 0
-#> 2                    0              <NA>       <NA>                 0
-#> 3                    0              <NA>       <NA>                 0
-#> 4                    0              <NA>       <NA>                 0
-#> 5                    0              <NA>       <NA>                 0
-#> 6                    0              <NA>       <NA>                 0
-#>   current_population_3 ucr_county_code_3 msa_code_3 last_population_3
-#> 1                    0              <NA>       <NA>                 0
-#> 2                    0              <NA>       <NA>                 0
-#> 3                    0              <NA>       <NA>                 0
-#> 4                    0              <NA>       <NA>                 0
-#> 5                    0              <NA>       <NA>                 0
-#> 6                    0              <NA>       <NA>                 0
-#>   current_population_4 ucr_county_code_4 msa_code_4 last_population_4
-#> 1                    0              <NA>       <NA>                 0
-#> 2                    0              <NA>       <NA>                 0
-#> 3                    0              <NA>       <NA>                 0
-#> 4                    0              <NA>       <NA>                 0
-#> 5                    0              <NA>       <NA>                 0
-#> 6                    0              <NA>       <NA>                 0
-#>   current_population_5 ucr_county_code_5 msa_code_5 last_population_5
-#> 1                    0              <NA>       <NA>                 0
-#> 2                    0              <NA>       <NA>                 0
-#> 3                    0              <NA>       <NA>                 0
-#> 4                    0              <NA>       <NA>                 0
-#> 5                    0              <NA>       <NA>                 0
-#> 6                    0              <NA>       <NA>                 0
-#>   X01_06_12_indicator number_of_months_reported master_file_year
-#> 1                <NA>                         0             1991
-#> 2                  12                        12             1991
-#> 3                  12                        12             1991
-#> 4                  12                        12             1991
-#> 5                  12                        12             1991
-#> 6                  12                        12             1991
-#>   january_zero_report_submitted january_group_a_b_submitted
-#> 1                          <NA>                        <NA>
-#> 2                          <NA>  group a or b was submitted
-#> 3                          <NA>  group a or b was submitted
-#> 4                          <NA>  group a or b was submitted
-#> 5                          <NA>  group a or b was submitted
-#> 6                          <NA>  group a or b was submitted
-#>   january_window_record_submitted february_zero_report_submitted
-#> 1                            <NA>                           <NA>
-#> 2     window record was submitted                           <NA>
-#> 3                            <NA>                           <NA>
-#> 4                            <NA>                           <NA>
-#> 5                            <NA>                           <NA>
-#> 6                            <NA>                           <NA>
-#>   february_group_a_b_submitted february_window_record_submitted
-#> 1                         <NA>                             <NA>
-#> 2   group a or b was submitted                             <NA>
-#> 3   group a or b was submitted                             <NA>
-#> 4   group a or b was submitted                             <NA>
-#> 5   group a or b was submitted                             <NA>
-#> 6   group a or b was submitted                             <NA>
-#>   march_zero_report_submitted  march_group_a_b_submitted
-#> 1                        <NA>                       <NA>
-#> 2                        <NA> group a or b was submitted
-#> 3                        <NA> group a or b was submitted
-#> 4                        <NA> group a or b was submitted
-#> 5                        <NA> group a or b was submitted
-#> 6                        <NA> group a or b was submitted
-#>   march_window_record_submitted april_zero_report_submitted
-#> 1                          <NA>                        <NA>
-#> 2                          <NA>                        <NA>
-#> 3                          <NA>                        <NA>
-#> 4                          <NA>                        <NA>
-#> 5                          <NA>                        <NA>
-#> 6                          <NA>                        <NA>
-#>    april_group_a_b_submitted april_window_record_submitted
-#> 1                       <NA>                          <NA>
-#> 2 group a or b was submitted   window record was submitted
-#> 3 group a or b was submitted                          <NA>
-#> 4 group a or b was submitted                          <NA>
-#> 5 group a or b was submitted                          <NA>
-#> 6 group a or b was submitted                          <NA>
-#>   may_zero_report_submitted    may_group_a_b_submitted
-#> 1                      <NA>                       <NA>
-#> 2                      <NA> group a or b was submitted
-#> 3                      <NA> group a or b was submitted
-#> 4                      <NA> group a or b was submitted
-#> 5                      <NA> group a or b was submitted
-#> 6                      <NA> group a or b was submitted
-#>   may_window_record_submitted june_zero_report_submitted
-#> 1                        <NA>                       <NA>
-#> 2                        <NA>                       <NA>
-#> 3                        <NA>                       <NA>
-#> 4                        <NA>                       <NA>
-#> 5                        <NA>                       <NA>
-#> 6                        <NA>                       <NA>
-#>     june_group_a_b_submitted june_window_record_submitted
-#> 1                       <NA>                         <NA>
-#> 2 group a or b was submitted                         <NA>
-#> 3 group a or b was submitted                         <NA>
-#> 4 group a or b was submitted                         <NA>
-#> 5 group a or b was submitted  window record was submitted
-#> 6 group a or b was submitted                         <NA>
-#>   july_zero_report_submitted   july_group_a_b_submitted
-#> 1                       <NA>                       <NA>
-#> 2                       <NA> group a or b was submitted
-#> 3                       <NA> group a or b was submitted
-#> 4                       <NA> group a or b was submitted
-#> 5                       <NA> group a or b was submitted
-#> 6                       <NA> group a or b was submitted
-#>   july_window_record_submitted august_zero_report_submitted
-#> 1                         <NA>                         <NA>
-#> 2                         <NA>                         <NA>
-#> 3                         <NA>                         <NA>
-#> 4                         <NA>                         <NA>
-#> 5                         <NA>                         <NA>
-#> 6                         <NA>                         <NA>
-#>   august_group_a_b_submitted august_window_record_submitted
-#> 1                       <NA>                           <NA>
-#> 2 group a or b was submitted                           <NA>
-#> 3 group a or b was submitted                           <NA>
-#> 4 group a or b was submitted                           <NA>
-#> 5 group a or b was submitted                           <NA>
-#> 6 group a or b was submitted                           <NA>
-#>   september_zero_report_submitted september_group_a_b_submitted
-#> 1                            <NA>                          <NA>
-#> 2                            <NA>    group a or b was submitted
-#> 3                            <NA>    group a or b was submitted
-#> 4                            <NA>    group a or b was submitted
-#> 5                            <NA>    group a or b was submitted
-#> 6                            <NA>    group a or b was submitted
-#>   september_window_record_submitte october_zero_report_submitted
-#> 1                             <NA>                          <NA>
-#> 2                             <NA>                          <NA>
-#> 3                             <NA>                          <NA>
-#> 4                             <NA>                          <NA>
-#> 5                             <NA>                          <NA>
-#> 6                             <NA>                          <NA>
-#>   october_group_a_b_submitted october_window_record_submitted
-#> 1                        <NA>                            <NA>
-#> 2  group a or b was submitted                            <NA>
-#> 3  group a or b was submitted                            <NA>
-#> 4  group a or b was submitted                            <NA>
-#> 5  group a or b was submitted                            <NA>
-#> 6  group a or b was submitted                            <NA>
-#>   november_zero_report_submitted november_group_a_b_submitted
-#> 1                           <NA>                         <NA>
-#> 2                           <NA>   group a or b was submitted
-#> 3                           <NA>   group a or b was submitted
-#> 4                           <NA>   group a or b was submitted
-#> 5                           <NA>   group a or b was submitted
-#> 6                           <NA>   group a or b was submitted
-#>   november_window_record_submitted december_zero_report_submitted
-#> 1                             <NA>                           <NA>
-#> 2                             <NA>                           <NA>
-#> 3                             <NA>                           <NA>
-#> 4                             <NA>                           <NA>
-#> 5                             <NA>                           <NA>
-#> 6                             <NA>                           <NA>
-#>   december_group_a_b_submitted december_window_record_submitted
-#> 1                         <NA>                             <NA>
-#> 2   group a or b was submitted                             <NA>
-#> 3   group a or b was submitted                             <NA>
-#> 4   group a or b was submitted                             <NA>
-#> 5   group a or b was submitted                             <NA>
-#> 6   group a or b was submitted                             <NA>
-#>   x01_06_12_indicator fips_county_code_1 fips_county_code_2 fips_county_code_3
-#> 1                <NA>               <NA>               <NA>               <NA>
-#> 2                <NA>               <NA>               <NA>               <NA>
-#> 3                <NA>               <NA>               <NA>               <NA>
-#> 4                <NA>               <NA>               <NA>               <NA>
-#> 5                <NA>               <NA>               <NA>               <NA>
-#> 6                <NA>               <NA>               <NA>               <NA>
-#>   fips_county_code_4 fips_county_code_5
-#> 1               <NA>               <NA>
-#> 2               <NA>               <NA>
-#> 3               <NA>               <NA>
-#> 4               <NA>               <NA>
-#> 5               <NA>               <NA>
-#> 6               <NA>               <NA>
-\end{verbatim}
-
 \begin{figure}
 
 {\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/nibrsStateParticipation2020-1} 
 
 }
 
-\caption{The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022.}\label{fig:nibrsStateParticipation2020}
-\end{figure}
-
-\begin{verbatim}
-#>  [1] "Alabama"              "Alaska"               "Arizona"             
-#>  [4] "Arkansas"             "California"           "Colorado"            
-#>  [7] "Connecticut"          "Delaware"             "District of Columbia"
-#> [10] "Florida"              "Georgia"              "Hawaii"              
-#> [13] "Idaho"                "Illinois"             "Indiana"             
-#> [16] "Iowa"                 "Kansas"               "Kentucky"            
-#> [19] "Louisiana"            "Maine"                "Maryland"            
-#> [22] "Massachusetts"        "Michigan"             "Minnesota"           
-#> [25] "Mississippi"          "Missouri"             "Montana"             
-#> [28] "Nebraska"             "Nevada"               "New Hampshire"       
-#> [31] "New Jersey"           "New Mexico"           "New York"            
-#> [34] "North Carolina"       "North Dakota"         "Ohio"                
-#> [37] "Oklahoma"             "Oregon"               "Pennsylvania"        
-#> [40] "Rhode Island"         "South Carolina"       "South Dakota"        
-#> [43] "Tennessee"            "Texas"                "Utah"                
-#> [46] "Vermont"              "Virginia"             "Washington"          
-#> [49] "West Virginia"        "Wisconsin"            "Wyoming"             
-#> [52] "Puerto Rico"
-\end{verbatim}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/nibrsStateParticipation2000-1} 
-
-}
-
-\caption{The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2000.}\label{fig:nibrsStateParticipation2000}
-\end{figure}
-
-\begin{verbatim}
-#>  [1] "Alabama"              "Alaska"               "Arizona"             
-#>  [4] "Arkansas"             "California"           "Colorado"            
-#>  [7] "Connecticut"          "Delaware"             "District of Columbia"
-#> [10] "Florida"              "Georgia"              "Hawaii"              
-#> [13] "Idaho"                "Illinois"             "Indiana"             
-#> [16] "Iowa"                 "Kansas"               "Kentucky"            
-#> [19] "Louisiana"            "Maine"                "Maryland"            
-#> [22] "Massachusetts"        "Michigan"             "Minnesota"           
-#> [25] "Mississippi"          "Missouri"             "Montana"             
-#> [28] "Nebraska"             "Nevada"               "New Hampshire"       
-#> [31] "New Jersey"           "New Mexico"           "New York"            
-#> [34] "North Carolina"       "North Dakota"         "Ohio"                
-#> [37] "Oklahoma"             "Oregon"               "Pennsylvania"        
-#> [40] "Rhode Island"         "South Carolina"       "South Dakota"        
-#> [43] "Tennessee"            "Texas"                "Utah"                
-#> [46] "Vermont"              "Virginia"             "Washington"          
-#> [49] "West Virginia"        "Wisconsin"            "Wyoming"             
-#> [52] "Puerto Rico"
-\end{verbatim}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/nibrsStateParticipation2010-1} 
-
-}
-
-\caption{The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2010.}\label{fig:nibrsStateParticipation2010}
+\caption{The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS.}\label{fig:nibrsStateParticipation2020}
 \end{figure}
 
 \section{Crimes included in

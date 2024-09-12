@@ -12,57 +12,85 @@ Before getting into the details of this data, let's look at one example of how t
 
 We'll look at home burglaries that occur during the day in Philadelphia. First, we can look at the number of these kinds of burglaries each month or year. Figure \@ref(fig:phillyHomeBurglaryCount) shows the annual number of daytime home burglaries and in recent years it has declined sharply into having the fewest on record in 2020 followed by a very low number of crimes in 2021 and 2022. So citywide, Philadelphia has never been safer (averaging across the last few years) when it comes to daytime home burglaries. As you should be aware by this point in the book, SRS data is optional and not all agencies report data every year. In this case 2019, 2020, and 2021 data are all partial, with only 9, 4, and 9 months, respectively, reported for each of these years. Every previous year other than 1974, 1975, 1988, and 1989^[1974 had11 months, 1975 had 9 months, 1988 had 10 months, and 1989 had 11 months of data.] had a full 12-months of data reported. So it makes sense the 2019-2021 had fewer crimes if they only submitted data for part of the year. This is something that's pretty obvious - you can't compare 12 months of data with <12 months of data - but it's a common mistake so you should check how many months are reported every time you compare multiple years. 
 
-<div class="figure" style="text-align: center">
-<img src="04_stolen_property_files/figure-html/phillyHomeBurglaryCount-1.png" alt="The annual number of daytime home burglaries reported in Philadelphia, PA, 1960-2022." width="90%" />
-<p class="caption">(\#fig:phillyHomeBurglaryCount)The annual number of daytime home burglaries reported in Philadelphia, PA, 1960-2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{04_stolen_property_files/figure-latex/phillyHomeBurglaryCount-1} 
+
+}
+
+\caption{The annual number of daytime home burglaries reported in Philadelphia, PA, 1960-2022.}(\#fig:phillyHomeBurglaryCount)
+\end{figure}
 When considering the cost of crime, we also want to know the actually monetary cost of that incident. This encompasses a lot of different values including physical and emotional harm to the victim (including harm to structures such as broken doors and windows) and changes in people's behavior (e.g. quit job to avoid going to a certain part of town), and spending on additional precautions such as a home security system to prevent future crimes. With this data we only have the value of the physical items stolen, so while it is still a cost of crime it's a rather shallow one.  
 
 Figure \@ref(fig:PhillyBurglaryCost) measures this cost of crime by showing the annual sum of the value of the property stolen for daytime home burglaries in Philadelphia. The years without 12 months of data are excluded from the figure. Like many variables in the SRS, there is no reported crime value until 1964 so the data shows a value of 0 from 1960-1963. The trend here is different than the previous graph which showed undulations in the number of burglaries but not major trend changes until the 2010s; here is a steady increase over the long term, though with varying speed of increase, until it peaked in the late 2000s/early 2010s before declining substantially in recent years. While the number of burglaries peaked in the early 1980s, the total value of burglaries didn't peak until the early 2010s, so the cost of this crime (even this very narrow measure of cost) can't be ascertained from knowing the number of burglaries alone. From this measure we can say that daytime home burglaries were worse in the early 2010s and are substantially better currently. At least this is true among burglaries reported to the police in Philly.  
 
-<div class="figure" style="text-align: center">
-<img src="04_stolen_property_files/figure-html/PhillyBurglaryCost-1.png" alt="The total annual cost of daytime home burglaries in Philadelphia." width="90%" />
-<p class="caption">(\#fig:PhillyBurglaryCost)The total annual cost of daytime home burglaries in Philadelphia.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{04_stolen_property_files/figure-latex/PhillyBurglaryCost-1} 
+
+}
+
+\caption{The total annual cost of daytime home burglaries in Philadelphia.}(\#fig:PhillyBurglaryCost)
+\end{figure}
 
 The final way we can measure daytime home burglaries is to put the previous variables together to look at the cost per burglary. This will give us the average amount of property stolen from each burglary victim. Figure \@ref(fig:phillyHomeCostPerBurglary) shows the cost average cost per burglary for each year of data available. Now we have a different story than the other graphs. Even though the number of daytime home burglaries declined substantially over the last decade and the total cost is around the level seen in the 1980s, the cost per burglary remains at record highs in recent years, though down from the peak in the mid-2010s. This suggests that while burglaries are down, the burden on each burglary victim has continued to grow.
 
 A perhaps obvious issue here is that we had no way to determining how much outliers are affecting results. If one year has, for example, a home burglary where $10 million worth of jewelry is stolen then that year's total value of property stolen would be much higher just due to a single burglary. There is, unfortunately, no way to handle this in this dataset, though the NIBRS' version of the data does let you check for outliers.^[Having an outlier, as long as it isn't just a data entry error, shouldn't necessarily mean you remove it. If we removed rare events after all we'd have to drop murders from our data as murders are very uncommon crimes.] 
 
-<div class="figure" style="text-align: center">
-<img src="04_stolen_property_files/figure-html/phillyHomeCostPerBurglary-1.png" alt="The annual number of burglaries and cost per burglary for daytime home burglaries in Philadelphia, 1960-2022." width="90%" />
-<p class="caption">(\#fig:phillyHomeCostPerBurglary)The annual number of burglaries and cost per burglary for daytime home burglaries in Philadelphia, 1960-2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{04_stolen_property_files/figure-latex/phillyHomeCostPerBurglary-1} 
+
+}
+
+\caption{The annual number of burglaries and cost per burglary for daytime home burglaries in Philadelphia, 1960-2022.}(\#fig:phillyHomeCostPerBurglary)
+\end{figure}
 
 Part of this - and part of the long-term increase seen in Figure \@ref(fig:PhillyBurglaryCost) - is simply due to inflation. \$1 in 1964, the first year we have data on the value of burglaries, is worth \$9.84 in 2023, according to the Bureau of Labor Statistics.^[Based on June of both years] The values in this data are *not* adjusted for inflation so you need to do that adjustment yourself before any analyses, otherwise your results will be quite a bit off. When we adjust all values to 2023 dollars, as shown in Figure \@ref(fig:phillyHomeCostPerBurglaryInflation), the trend becomes changes a bit. There's still a steady increase in cost per burglary over time but it is far more gradual than in Figure \@ref(fig:phillyHomeCostPerBurglary). And now the difference from the cost in early years and late years are far smaller. 
 
-<div class="figure" style="text-align: center">
-<img src="04_stolen_property_files/figure-html/phillyHomeCostPerBurglaryInflation-1.png" alt="The inflation-adjusted annual number of burglaries and cost per burglary for daytime home burglaries in Philadelphia (2023 dollars), 1960-2022." width="90%" />
-<p class="caption">(\#fig:phillyHomeCostPerBurglaryInflation)The inflation-adjusted annual number of burglaries and cost per burglary for daytime home burglaries in Philadelphia (2023 dollars), 1960-2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{04_stolen_property_files/figure-latex/phillyHomeCostPerBurglaryInflation-1} 
+
+}
+
+\caption{The inflation-adjusted annual number of burglaries and cost per burglary for daytime home burglaries in Philadelphia (2023 dollars), 1960-2022.}(\#fig:phillyHomeCostPerBurglaryInflation)
+\end{figure}
 
 ## Agencies reporting
 
 We'll start by looking at which agencies report. The data is available from 1960 through 2022 though the columns about the value of the property only begin in 1964. Figure \@ref(fig:propertyAgencies) show the number of agencies each year that reported at least one month during that year. In the first several years of data barely any agencies reported data and then it spiked around 1966 to over 6,000 agencies per year then grew quickly until over 12,000 agencies reported data in the late 1970s. From here it actually gradually declined until fewer than 12,000 agencies in the late 1990s before reversing course again and growing to about 15,000 agencies by 2019 - down several hundred agencies from the peak a few years earlier. We see the now-typical drop in 2021 as a result of the FBI's death of SRS and then the partial recovery in 2022 when SRS is reborn.
 
-<div class="figure" style="text-align: center">
-<img src="04_stolen_property_files/figure-html/propertyAgencies-1.png" alt="The annual number of police agencies that report at least month of data and 12 months of data that year." width="90%" />
-<p class="caption">(\#fig:propertyAgencies)The annual number of police agencies that report at least month of data and 12 months of data that year.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{04_stolen_property_files/figure-latex/propertyAgencies-1} 
+
+}
+
+\caption{The annual number of police agencies that report at least month of data and 12 months of data that year.}(\#fig:propertyAgencies)
+\end{figure}
 
 Since this data is called the "Supplement to Return A" we would expect that the agencies that report here are the same as the ones that report to the Offenses Known and Clearances by Arrest data, which is also called the Return A dataset. Figure \@ref(fig:agenciesInBoth) shows the percent of agencies in this dataset that are report at least one month of Return A data. Except for the first several years of data in the 1960s, we can see that most years have nearly all agencies reporting to both, though this has declined in recent years. Since the late 1970s over 90% of agencies that report to the Offenses Known data also report to this dataset. 
 
-<div class="figure" style="text-align: center">
-<img src="04_stolen_property_files/figure-html/agenciesInBoth-1.png" alt="The percent of agencies in the Supplement to Return A data that report at least one month of data and are also in the Offenses Known and Clearances by Arrest (Return A) data in that year, 1960-2022." width="90%" />
-<p class="caption">(\#fig:agenciesInBoth)The percent of agencies in the Supplement to Return A data that report at least one month of data and are also in the Offenses Known and Clearances by Arrest (Return A) data in that year, 1960-2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{04_stolen_property_files/figure-latex/agenciesInBoth-1} 
+
+}
+
+\caption{The percent of agencies in the Supplement to Return A data that report at least one month of data and are also in the Offenses Known and Clearances by Arrest (Return A) data in that year, 1960-2022.}(\#fig:agenciesInBoth)
+\end{figure}
 
 When filtering the data to agencies that report a full 12 months of both the Return A and the Supplement to Return A, shown in Figure \ref(fig:agenciesInBoth12Month), trends are quite similar to Figure \ref(fig:agenciesInBoth) though now the average percent is around 75% rather than 90%. This translates to around 11k agencies though it drops starting in 2018 until fewer than 8,500 agencies report full data to both datasets in 2022. 
 
-<div class="figure" style="text-align: center">
-<img src="04_stolen_property_files/figure-html/agenciesInBoth12Month-1.png" alt="The percent of agencies that report 12 months of data to both the the Supplement to Return A data and the Offenses Known and Clearances by Arrest (Return A) data in that year, 1960-2022." width="90%" />
-<p class="caption">(\#fig:agenciesInBoth12Month)The percent of agencies that report 12 months of data to both the the Supplement to Return A data and the Offenses Known and Clearances by Arrest (Return A) data in that year, 1960-2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{04_stolen_property_files/figure-latex/agenciesInBoth12Month-1} 
+
+}
+
+\caption{The percent of agencies that report 12 months of data to both the the Supplement to Return A data and the Offenses Known and Clearances by Arrest (Return A) data in that year, 1960-2022.}(\#fig:agenciesInBoth12Month)
+\end{figure}
 
 ## Important variables
 
@@ -215,10 +243,14 @@ This dataset comes with a considerable number of data errors - basically enormou
 
 First, we'll look at the value of livestock thefts in New York City. Livestock is one of the variables where we know the value stolen and recovered but not how many times it happened. Being a major urban city, we might expect that there are not many livestock animals in the city so the values should be low. Figure \@ref(fig:nycLivestock) shows the annual value of livestock thefts in NYC. There are two major issues here. First, in all but two years they report $0 in livestock thefts. This is likely wrong since even New York City has some livestock (even just the police horses and the horse carriages tourists like) that probably got stolen. The second issue is the massive spike of reported livestock theft value in 1993 with over \$15 million stolen (the only other year with reported thefts is 1975 with \$87,651 stolen). Clearly NYC didn't move from \$0 in thefts for decades to \$15 million in a year and then \$0 again so this is a blatant data error. 
 
-<div class="figure" style="text-align: center">
-<img src="04_stolen_property_files/figure-html/nycLivestock-1.png" alt="The annual value of stolen livestock in New York City, 1960-2022." width="90%" />
-<p class="caption">(\#fig:nycLivestock)The annual value of stolen livestock in New York City, 1960-2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{04_stolen_property_files/figure-latex/nycLivestock-1} 
+
+}
+
+\caption{The annual value of stolen livestock in New York City, 1960-2022.}(\#fig:nycLivestock)
+\end{figure}
 
 It gets harder to determine when a value is a mistake when it is simply a big spike - or drop - in reported value in a dataset that otherwise looks correct. Take, for example, the annual value of stolen clothing and fur in Philadelphia from 1960-2019, shown in Figure \@ref(fig:phillyFurValue). The annual value of these stolen items more than doubled in 1989 compared to the previous year and then declined rapidly in the following year. Is this real? Is it a data error? It's really hard to tell. Here we don't know how many clothing/fur thefts there were, only the value of the total thefts that month (which is aggregated annually here). It continues a multi-year trend of increasing value of thefts but it larger than previous increases in value. And while the spike is very large in percent terms, it's not so extraordinarily huge that we immediately think it's an error - though some outlier detection methods may think so if it's beyond the expected value for that year. 
 
@@ -226,17 +258,25 @@ Remember too that Philly had several years in this time period where only part o
 
 It's also important to have some understanding of what the data *should* look like when trying to figure out what data point may be incorrect. In this figure we see a huge spike in 1989. If we know, for example, that a ring of fur thieves were active this year, then that makes it far more likely that the data is real. This may be a rather odd example, but it is helpful to try to understand the context of the data to better understand when the "weird" data is an error and when it's just "weird but correct".
 
-<div class="figure" style="text-align: center">
-<img src="04_stolen_property_files/figure-html/phillyFurValue-1.png" alt="The annual value of stolen clothing and fur in Philadelphia, PA, 1960-2019" width="90%" />
-<p class="caption">(\#fig:phillyFurValue)The annual value of stolen clothing and fur in Philadelphia, PA, 1960-2019</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{04_stolen_property_files/figure-latex/phillyFurValue-1} 
+
+}
+
+\caption{The annual value of stolen clothing and fur in Philadelphia, PA, 1960-2019}(\#fig:phillyFurValue)
+\end{figure}
 
 Finally, some errors are so extreme that it is shocking they weren't captured during any of the review points from the police officer entering data in their agency's computer to the FBI releasing this data to the public. For example, Figure \@ref(fig:romeBicycles) shows Rome, New York, a city of about 32,000 people in central New York State. Here's what the reported value of bicycles stolen was for Rome in our data.^[For this example we won't worry about years where <12 months of data were reported.]
 
-<div class="figure" style="text-align: center">
-<img src="04_stolen_property_files/figure-html/romeBicycles-1.png" alt="The annual value of stolen bicycles in Rome, New York, 1960-2022." width="90%" />
-<p class="caption">(\#fig:romeBicycles)The annual value of stolen bicycles in Rome, New York, 1960-2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{04_stolen_property_files/figure-latex/romeBicycles-1} 
+
+}
+
+\caption{The annual value of stolen bicycles in Rome, New York, 1960-2022.}(\#fig:romeBicycles)
+\end{figure}
 
 2020 had a bit of a spike in their stolen bicycle value, from less than $10,000 is the previous few years to over \$5 billion. Yes, that is billion with a "b." 2021 followed by slightly under \$3 billion worth of bicycles stolen. In both years 19 bicycles were reported stolen. 
 
@@ -244,7 +284,11 @@ Bicycles weren't the only thing stolen in Rome. Consumable goods such as food an
 
 Now, obviously this isn't real. This is just an error with the police entering in the wrong price. But the issue is that through all the layers of checks that occurred - checks by the local police, by the state UCR system (though some agencies submit directly to the FBI) and the FBI themselves - failed to prevent this incorrect data from being published. This is an obvious, glaring error. If this slipped through the cracks, what less glaring issue did too? So you cannot just trust that this data is right. You need to check and recheck^[and check again.] everything before using it. This is the right approach for all data, and especially for this data. 
 
-<div class="figure" style="text-align: center">
-<img src="04_stolen_property_files/figure-html/romeConsumable-1.png" alt="The annual value of stolen consumable goods in Rome, New York, 1960-2022." width="90%" />
-<p class="caption">(\#fig:romeConsumable)The annual value of stolen consumable goods in Rome, New York, 1960-2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{04_stolen_property_files/figure-latex/romeConsumable-1} 
+
+}
+
+\caption{The annual value of stolen consumable goods in Rome, New York, 1960-2022.}(\#fig:romeConsumable)
+\end{figure}

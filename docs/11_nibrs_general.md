@@ -13,10 +13,14 @@ NIBRS data provides detailed information on every crime reported to the police, 
 
 However, there is a major limitation to this data: most agencies don't use it. [According to the FBI](https://www.fbi.gov/news/pressrel/press-releases/fbi-releases-2019-nibrs-crime-data) only about 8,500 police agencies, covering about 45% of the US population, reported NIBRS data in 2019 (the latest year currently available). This is fewer than half of the about 18,000 police agencies in the United States. This is an even larger problem than it seems as the agencies that do report - especially in earlier years of the data - are disproportionately small and rural. So we're missing out of data from most major cities. A number of states don't have any agencies reporting, making this data relatively biased at least in terms of geography and city size. **Even so, the FBI has said that they are moving entirely to NIBRS data starting in 2021, and will no longer even collect UCR data.** While NIBRS can be converted to UCR data, meaning we can have consistent statistics over time, for agencies that don't report to NIBRS, we have no information on their crimes. In effect, unless the majority of agencies suddenly switch to NIBRS - which, given that the high level of detail relative to UCR data makes moving to NIBRS a costly and timely switch - we will be flying blind for most crime in the country. 
 
-<div class="figure" style="text-align: center">
-<img src="11_nibrs_general_files/figure-html/nibrsSegmentsAgencies-1.png" alt="The number of agencies reporting data for each of the NIBRS Segments, 1991-2022." width="90%" />
-<p class="caption">(\#fig:nibrsSegmentsAgencies)The number of agencies reporting data for each of the NIBRS Segments, 1991-2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/nibrsSegmentsAgencies-1} 
+
+}
+
+\caption{The number of agencies reporting data for each of the NIBRS Segments, 1991-2022.}(\#fig:nibrsSegmentsAgencies)
+\end{figure}
 
 ## Problems with NIBRS
 
@@ -40,373 +44,189 @@ So if this data has the same info (other than unfounded and negative crimes) as 
 
 We'll look here at how many agencies report at least one crime each year between 1991 - the first year of data - and 2019 - the latest year of data - as well as compare NIBRS reporting to UCR reporting. Figure \@ref(fig:agenciesReporting) shows the number of agencies each year that reported at least one incident. Keep in mind that there are about 18,000 police agencies in the United States. Only a little over 600 agencies reported in 1991. This has grown pretty linearly, adding a few hundred agencies each year though that trend accelerated in recent years. In 2019, nearly 8,200 agencies reported at least some data to NIBRS. Compared to the estimated 18,000 police agencies in the United States, however, this is still fewer than half of agencies. The data shown here is potentially an overcount, however, as it includes agencies reporting any crime that year, even if they don't report every month. 
 
-<div class="figure" style="text-align: center">
-<img src="11_nibrs_general_files/figure-html/agenciesReporting-1.png" alt="The annual number of agencies reporting at least one incident in that year." width="90%" />
-<p class="caption">(\#fig:agenciesReporting)The annual number of agencies reporting at least one incident in that year.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/agenciesReporting-1} 
+
+}
+
+\caption{The annual number of agencies reporting at least one incident in that year.}(\#fig:agenciesReporting)
+\end{figure}
 
 Another way to look at reporting is comparing it to reporting to UCR. Figure \@ref(fig:agenciesReportingMap) shows the number of agencies in each state that report NIBRS data in 2019. Since 2019 is the year with the most participation, this does overstate reporting for previous years. This map pretty closely follows a population map of the US. Texas had the most agencies, followed by Michigan and Ohio. The southern states have more agencies reporting than the lightly populated northern states. The issue here is that a number of states are in white, indicating that very few agencies reported. Indeed, four of the most populated states - California, New York, Florida, and New Jersey - don't have any agencies at all that report NIBRS data.
 
-<div class="figure" style="text-align: center">
-<img src="11_nibrs_general_files/figure-html/agenciesReportingMap-1.png" alt="The number of agencies in each state that reported at least one crime in 2022 to NIBRS." width="90%" />
-<p class="caption">(\#fig:agenciesReportingMap)The number of agencies in each state that reported at least one crime in 2022 to NIBRS.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/agenciesReportingMap-1} 
+
+}
+
+\caption{The number of agencies in each state that reported at least one crime in 2022 to NIBRS.}(\#fig:agenciesReportingMap)
+\end{figure}
 
 Since the number of agencies in a state is partially just a factor of population, Figure \@ref(fig:agenciesReportingMapPercent) shows each state as a percent of agencies in that state that report to NIBRS that also reported to the UCR Offenses Known and Clearances by Arrest (the "crime" dataset) in 2019.^[This is the UCR dataset which has the highest reporting rate.] Not all agencies in the US reported to UCR in 2019 -  and a small number reported to NIBRS but not UCR in 2019 - but this is a fairly good measure of reporting rates. Here the story looks a bit different than in the previous figure. Now we can tell that among north-western states and states along the Appalachian Mountains, nearly all agencies report. In total, 18 states have 90% or more of agencies that reported to UCR in 2019 also reporting to NIBRS. Thirteen agencies have fewer than 10% of agencies reporting to NIBRS that also reported to UCR, with 5 of these having 0% of agencies reporting. The remaining states average about 56% of agencies reporting. So when using NIBRS data, keep in mind that you have very good coverage of certain states, and very poor coverage of other states. And the low - or zero - reporting states are systematically high population states.    
 
-<div class="figure" style="text-align: center">
-<img src="11_nibrs_general_files/figure-html/agenciesReportingMapPercent-1.png" alt="Agencies in each state reporting at least one crime to NIBRS in 2022 as a percent of agencies that reported UCR Offenses Known and Clearances by Arrests data in 2022." width="90%" />
-<p class="caption">(\#fig:agenciesReportingMapPercent)Agencies in each state reporting at least one crime to NIBRS in 2022 as a percent of agencies that reported UCR Offenses Known and Clearances by Arrests data in 2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/agenciesReportingMapPercent-1} 
+
+}
+
+\caption{Agencies in each state reporting at least one crime to NIBRS in 2022 as a percent of agencies that reported UCR Offenses Known and Clearances by Arrests data in 2022.}(\#fig:agenciesReportingMapPercent)
+\end{figure}
 
 For ease of reference, Table \@ref(tab:agenciesReportingTable) shows the number of agencies in each state reporting to NIBRS and to UCR in 2019, and the percent shown in Figure \@ref(fig:agenciesReportingMapPercent). 
 
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:agenciesReportingTable)The number of agencies in each state reporting to NIBRS and to UCR in 2019. Also shows NIBRS reporting in each state as a percent of UCR reporting.</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> State </th>
-   <th style="text-align:right;"> NIBRS Agencies </th>
-   <th style="text-align:right;"> UCR Agencies </th>
-   <th style="text-align:right;"> \% of UCR Agencies </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Alabama </td>
-   <td style="text-align:right;"> 393 </td>
-   <td style="text-align:right;"> 414 </td>
-   <td style="text-align:right;"> 94.93\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Alaska </td>
-   <td style="text-align:right;"> 32 </td>
-   <td style="text-align:right;"> 33 </td>
-   <td style="text-align:right;"> 96.97\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Arizona </td>
-   <td style="text-align:right;"> 88 </td>
-   <td style="text-align:right;"> 108 </td>
-   <td style="text-align:right;"> 81.48\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Arkansas </td>
-   <td style="text-align:right;"> 292 </td>
-   <td style="text-align:right;"> 294 </td>
-   <td style="text-align:right;"> 99.32\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> California </td>
-   <td style="text-align:right;"> 530 </td>
-   <td style="text-align:right;"> 665 </td>
-   <td style="text-align:right;"> 79.7\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Colorado </td>
-   <td style="text-align:right;"> 225 </td>
-   <td style="text-align:right;"> 233 </td>
-   <td style="text-align:right;"> 96.57\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Connecticut </td>
-   <td style="text-align:right;"> 104 </td>
-   <td style="text-align:right;"> 107 </td>
-   <td style="text-align:right;"> 97.2\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Delaware </td>
-   <td style="text-align:right;"> 62 </td>
-   <td style="text-align:right;"> 63 </td>
-   <td style="text-align:right;"> 98.41\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> District of Columbia </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 100\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Florida </td>
-   <td style="text-align:right;"> 78 </td>
-   <td style="text-align:right;"> 372 </td>
-   <td style="text-align:right;"> 20.97\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Georgia </td>
-   <td style="text-align:right;"> 425 </td>
-   <td style="text-align:right;"> 457 </td>
-   <td style="text-align:right;"> 93\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Guam </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 100\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Hawaii </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 100\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Idaho </td>
-   <td style="text-align:right;"> 111 </td>
-   <td style="text-align:right;"> 110 </td>
-   <td style="text-align:right;"> 100.91\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Illinois </td>
-   <td style="text-align:right;"> 497 </td>
-   <td style="text-align:right;"> 522 </td>
-   <td style="text-align:right;"> 95.21\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Indiana </td>
-   <td style="text-align:right;"> 205 </td>
-   <td style="text-align:right;"> 212 </td>
-   <td style="text-align:right;"> 96.7\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Iowa </td>
-   <td style="text-align:right;"> 225 </td>
-   <td style="text-align:right;"> 228 </td>
-   <td style="text-align:right;"> 98.68\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Kansas </td>
-   <td style="text-align:right;"> 320 </td>
-   <td style="text-align:right;"> 327 </td>
-   <td style="text-align:right;"> 97.86\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Kentucky </td>
-   <td style="text-align:right;"> 394 </td>
-   <td style="text-align:right;"> 432 </td>
-   <td style="text-align:right;"> 91.2\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Louisiana </td>
-   <td style="text-align:right;"> 137 </td>
-   <td style="text-align:right;"> 151 </td>
-   <td style="text-align:right;"> 90.73\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Maine </td>
-   <td style="text-align:right;"> 129 </td>
-   <td style="text-align:right;"> 131 </td>
-   <td style="text-align:right;"> 98.47\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Maryland </td>
-   <td style="text-align:right;"> 77 </td>
-   <td style="text-align:right;"> 150 </td>
-   <td style="text-align:right;"> 51.33\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Massachusetts </td>
-   <td style="text-align:right;"> 378 </td>
-   <td style="text-align:right;"> 384 </td>
-   <td style="text-align:right;"> 98.44\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Michigan </td>
-   <td style="text-align:right;"> 595 </td>
-   <td style="text-align:right;"> 603 </td>
-   <td style="text-align:right;"> 98.67\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Minnesota </td>
-   <td style="text-align:right;"> 398 </td>
-   <td style="text-align:right;"> 411 </td>
-   <td style="text-align:right;"> 96.84\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Mississippi </td>
-   <td style="text-align:right;"> 150 </td>
-   <td style="text-align:right;"> 152 </td>
-   <td style="text-align:right;"> 98.68\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Missouri </td>
-   <td style="text-align:right;"> 471 </td>
-   <td style="text-align:right;"> 498 </td>
-   <td style="text-align:right;"> 94.58\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Montana </td>
-   <td style="text-align:right;"> 106 </td>
-   <td style="text-align:right;"> 110 </td>
-   <td style="text-align:right;"> 96.36\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Nebraska </td>
-   <td style="text-align:right;"> 238 </td>
-   <td style="text-align:right;"> 263 </td>
-   <td style="text-align:right;"> 90.49\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Nevada </td>
-   <td style="text-align:right;"> 52 </td>
-   <td style="text-align:right;"> 54 </td>
-   <td style="text-align:right;"> 96.3\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> New Hampshire </td>
-   <td style="text-align:right;"> 208 </td>
-   <td style="text-align:right;"> 213 </td>
-   <td style="text-align:right;"> 97.65\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> New Jersey </td>
-   <td style="text-align:right;"> 307 </td>
-   <td style="text-align:right;"> 543 </td>
-   <td style="text-align:right;"> 56.54\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> New Mexico </td>
-   <td style="text-align:right;"> 93 </td>
-   <td style="text-align:right;"> 96 </td>
-   <td style="text-align:right;"> 96.88\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> New York </td>
-   <td style="text-align:right;"> 149 </td>
-   <td style="text-align:right;"> 560 </td>
-   <td style="text-align:right;"> 26.61\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> North Carolina </td>
-   <td style="text-align:right;"> 395 </td>
-   <td style="text-align:right;"> 407 </td>
-   <td style="text-align:right;"> 97.05\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> North Dakota </td>
-   <td style="text-align:right;"> 111 </td>
-   <td style="text-align:right;"> 111 </td>
-   <td style="text-align:right;"> 100\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Ohio </td>
-   <td style="text-align:right;"> 629 </td>
-   <td style="text-align:right;"> 638 </td>
-   <td style="text-align:right;"> 98.59\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Oklahoma </td>
-   <td style="text-align:right;"> 443 </td>
-   <td style="text-align:right;"> 457 </td>
-   <td style="text-align:right;"> 96.94\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Oregon </td>
-   <td style="text-align:right;"> 181 </td>
-   <td style="text-align:right;"> 212 </td>
-   <td style="text-align:right;"> 85.38\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Pennsylvania </td>
-   <td style="text-align:right;"> 130 </td>
-   <td style="text-align:right;"> 1123 </td>
-   <td style="text-align:right;"> 11.58\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Rhode Island </td>
-   <td style="text-align:right;"> 47 </td>
-   <td style="text-align:right;"> 49 </td>
-   <td style="text-align:right;"> 95.92\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> South Carolina </td>
-   <td style="text-align:right;"> 351 </td>
-   <td style="text-align:right;"> 472 </td>
-   <td style="text-align:right;"> 74.36\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> South Dakota </td>
-   <td style="text-align:right;"> 102 </td>
-   <td style="text-align:right;"> 107 </td>
-   <td style="text-align:right;"> 95.33\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Tennessee </td>
-   <td style="text-align:right;"> 397 </td>
-   <td style="text-align:right;"> 399 </td>
-   <td style="text-align:right;"> 99.5\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Texas </td>
-   <td style="text-align:right;"> 1041 </td>
-   <td style="text-align:right;"> 1064 </td>
-   <td style="text-align:right;"> 97.84\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Utah </td>
-   <td style="text-align:right;"> 133 </td>
-   <td style="text-align:right;"> 135 </td>
-   <td style="text-align:right;"> 98.52\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Vermont </td>
-   <td style="text-align:right;"> 85 </td>
-   <td style="text-align:right;"> 88 </td>
-   <td style="text-align:right;"> 96.59\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Virginia </td>
-   <td style="text-align:right;"> 405 </td>
-   <td style="text-align:right;"> 410 </td>
-   <td style="text-align:right;"> 98.78\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Washington </td>
-   <td style="text-align:right;"> 240 </td>
-   <td style="text-align:right;"> 246 </td>
-   <td style="text-align:right;"> 97.56\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> West Virginia </td>
-   <td style="text-align:right;"> 201 </td>
-   <td style="text-align:right;"> 214 </td>
-   <td style="text-align:right;"> 93.93\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Wisconsin </td>
-   <td style="text-align:right;"> 361 </td>
-   <td style="text-align:right;"> 403 </td>
-   <td style="text-align:right;"> 89.58\% </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Wyoming </td>
-   <td style="text-align:right;"> 49 </td>
-   <td style="text-align:right;"> 50 </td>
-   <td style="text-align:right;"> 98\% </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{longtable}[t]{l|r|r|r}
+\caption{(\#tab:agenciesReportingTable)The number of agencies in each state reporting to NIBRS and to UCR in 2019. Also shows NIBRS reporting in each state as a percent of UCR reporting.}\\
+\hline
+State & NIBRS Agencies & UCR Agencies & \textbackslash{}\% of UCR Agencies\\
+\hline
+\endfirsthead
+\caption[]{(\#tab:agenciesReportingTable)The number of agencies in each state reporting to NIBRS and to UCR in 2019. Also shows NIBRS reporting in each state as a percent of UCR reporting. \textit{(continued)}}\\
+\hline
+State & NIBRS Agencies & UCR Agencies & \textbackslash{}\% of UCR Agencies\\
+\hline
+\endhead
+Alabama & 393 & 414 & 94.93\textbackslash{}\%\\
+\hline
+Alaska & 32 & 33 & 96.97\textbackslash{}\%\\
+\hline
+Arizona & 88 & 108 & 81.48\textbackslash{}\%\\
+\hline
+Arkansas & 292 & 294 & 99.32\textbackslash{}\%\\
+\hline
+California & 530 & 665 & 79.7\textbackslash{}\%\\
+\hline
+Colorado & 225 & 233 & 96.57\textbackslash{}\%\\
+\hline
+Connecticut & 104 & 107 & 97.2\textbackslash{}\%\\
+\hline
+Delaware & 62 & 63 & 98.41\textbackslash{}\%\\
+\hline
+District of Columbia & 2 & 2 & 100\textbackslash{}\%\\
+\hline
+Florida & 78 & 372 & 20.97\textbackslash{}\%\\
+\hline
+Georgia & 425 & 457 & 93\textbackslash{}\%\\
+\hline
+Guam & 1 & 1 & 100\textbackslash{}\%\\
+\hline
+Hawaii & 3 & 3 & 100\textbackslash{}\%\\
+\hline
+Idaho & 111 & 110 & 100.91\textbackslash{}\%\\
+\hline
+Illinois & 497 & 522 & 95.21\textbackslash{}\%\\
+\hline
+Indiana & 205 & 212 & 96.7\textbackslash{}\%\\
+\hline
+Iowa & 225 & 228 & 98.68\textbackslash{}\%\\
+\hline
+Kansas & 320 & 327 & 97.86\textbackslash{}\%\\
+\hline
+Kentucky & 394 & 432 & 91.2\textbackslash{}\%\\
+\hline
+Louisiana & 137 & 151 & 90.73\textbackslash{}\%\\
+\hline
+Maine & 129 & 131 & 98.47\textbackslash{}\%\\
+\hline
+Maryland & 77 & 150 & 51.33\textbackslash{}\%\\
+\hline
+Massachusetts & 378 & 384 & 98.44\textbackslash{}\%\\
+\hline
+Michigan & 595 & 603 & 98.67\textbackslash{}\%\\
+\hline
+Minnesota & 398 & 411 & 96.84\textbackslash{}\%\\
+\hline
+Mississippi & 150 & 152 & 98.68\textbackslash{}\%\\
+\hline
+Missouri & 471 & 498 & 94.58\textbackslash{}\%\\
+\hline
+Montana & 106 & 110 & 96.36\textbackslash{}\%\\
+\hline
+Nebraska & 238 & 263 & 90.49\textbackslash{}\%\\
+\hline
+Nevada & 52 & 54 & 96.3\textbackslash{}\%\\
+\hline
+New Hampshire & 208 & 213 & 97.65\textbackslash{}\%\\
+\hline
+New Jersey & 307 & 543 & 56.54\textbackslash{}\%\\
+\hline
+New Mexico & 93 & 96 & 96.88\textbackslash{}\%\\
+\hline
+New York & 149 & 560 & 26.61\textbackslash{}\%\\
+\hline
+North Carolina & 395 & 407 & 97.05\textbackslash{}\%\\
+\hline
+North Dakota & 111 & 111 & 100\textbackslash{}\%\\
+\hline
+Ohio & 629 & 638 & 98.59\textbackslash{}\%\\
+\hline
+Oklahoma & 443 & 457 & 96.94\textbackslash{}\%\\
+\hline
+Oregon & 181 & 212 & 85.38\textbackslash{}\%\\
+\hline
+Pennsylvania & 130 & 1123 & 11.58\textbackslash{}\%\\
+\hline
+Rhode Island & 47 & 49 & 95.92\textbackslash{}\%\\
+\hline
+South Carolina & 351 & 472 & 74.36\textbackslash{}\%\\
+\hline
+South Dakota & 102 & 107 & 95.33\textbackslash{}\%\\
+\hline
+Tennessee & 397 & 399 & 99.5\textbackslash{}\%\\
+\hline
+Texas & 1041 & 1064 & 97.84\textbackslash{}\%\\
+\hline
+Utah & 133 & 135 & 98.52\textbackslash{}\%\\
+\hline
+Vermont & 85 & 88 & 96.59\textbackslash{}\%\\
+\hline
+Virginia & 405 & 410 & 98.78\textbackslash{}\%\\
+\hline
+Washington & 240 & 246 & 97.56\textbackslash{}\%\\
+\hline
+West Virginia & 201 & 214 & 93.93\textbackslash{}\%\\
+\hline
+Wisconsin & 361 & 403 & 89.58\textbackslash{}\%\\
+\hline
+Wyoming & 49 & 50 & 98\textbackslash{}\%\\
+\hline
+\end{longtable}
 
 
 
-<div class="figure" style="text-align: center">
-<img src="11_nibrs_general_files/figure-html/nibrsAnnualNumberAgencies-1.png" alt="The annual number of police agencies that report data to NIBRS." width="90%" />
-<p class="caption">(\#fig:nibrsAnnualNumberAgencies)The annual number of police agencies that report data to NIBRS.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/nibrsAnnualNumberAgencies-1} 
+
+}
+
+\caption{The annual number of police agencies that report data to NIBRS.}(\#fig:nibrsAnnualNumberAgencies)
+\end{figure}
 
 
 
 
-<div class="figure" style="text-align: center">
-<img src="11_nibrs_general_files/figure-html/nibrsAnnualPercentPopulation-1.png" alt="The annual percent of the United States population that is covered by an agency reporting data to NIBRS." width="90%" />
-<p class="caption">(\#fig:nibrsAnnualPercentPopulation)The annual percent of the United States population that is covered by an agency reporting data to NIBRS.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/nibrsAnnualPercentPopulation-1} 
+
+}
+
+\caption{The annual percent of the United States population that is covered by an agency reporting data to NIBRS.}(\#fig:nibrsAnnualPercentPopulation)
+\end{figure}
 
 
-<div class="figure" style="text-align: center">
-<img src="11_nibrs_general_files/figure-html/nibrsStateParticipation2020-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS." width="90%" />
-<p class="caption">(\#fig:nibrsStateParticipation2020)The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{11_nibrs_general_files/figure-latex/nibrsStateParticipation2020-1} 
+
+}
+
+\caption{The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS.}(\#fig:nibrsStateParticipation2020)
+\end{figure}
 
 
 
@@ -517,10 +337,14 @@ Negative numbers in SRS data are because when a crime is reported and then later
 
 NIBRS data is often discussed - and is used - as if it were a single file with all of this information available. But it actually comes as multiple different files that each provide different information about a crime incident, including at different levels of analysis so users must clean each segment before merging them together. In this section we'll discuss each of the segments and how they are related to each other. First, keep in mind that NIBRS is at its core an incident-level dataset (hence the "Incident-Based" part of its name). Everything that we have stems from the incident, even though we can get more detailed and look at, for example, individual victims in an incident or even offenses within an incident. Figure \@ref(fig:segmentFlowchart) shows the seven main segments and how they relate to each other. There are also three segments called "window segments" - there is one for arrestees, one of exceptional clearances (i.e. police could have made an arrest but didn't for some reason but still consider the case closed), and one for property - that do not have an associated segment with them, they only have the information available in the given "window" segment. We'll talk about window segments more in Section \@ref(window) below.
 
-<div class="figure" style="text-align: center">
-<img src="images/segments_flowchart.png" alt="The association of each segment file in the NIBRS dataset." width="90%" />
-<p class="caption">(\#fig:segmentFlowchart)The association of each segment file in the NIBRS dataset.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{images/segments_flowchart} 
+
+}
+
+\caption{The association of each segment file in the NIBRS dataset.}(\#fig:segmentFlowchart)
+\end{figure}
 
 The first two boxes in Figure \@ref(fig:segmentFlowchart), colored in orange, are not part of NIBRS but are part of the data generating process. First, obviously, a crime has to occur. The police then have to learn about the crime. This can happen in two ways. First, they can discover it themselves while on patrol. This is common in crimes such as drug possession or sale as well as any crime that occurs outdoors, which is largely where police are able to observe behavior. The second way is that the victim or witness to a crime reports it. So if they call the police to report a crime, the police learn about it from that call. We don't actually know from the data how the police learned of a crime but it's important to think about this data generating process when using the data. 
 Alongside the crime being reported (or discovered) to the police, agencies must then report the crime to NIBRS. All crimes that occur in that agency's jurisdiction *should* be reported, but that's not always the case. Since reporting is voluntary (at least nationally, though some states do require agencies to report data), agencies are free to report as many or as few crimes as they wish. This often occurs when agencies report only parts of the year, excluding certain months, so you should ensure that the agency reported data for each month you're interested in.
