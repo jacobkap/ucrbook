@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</title>
+  <title>Chapter 4 Offender Segment | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta property="og:title" content="Chapter 4 Offender Segment | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="github-repo" content="jacobkap/ucrbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta name="twitter:title" content="Chapter 4 Offender Segment | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
   
   <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   
@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
+<link rel="prev" href="hate_crimes.html"/>
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -231,18 +231,110 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="offender-segment" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Offender Segment<a href="offender-segment.html#offender-segment" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>As might be expected, the Offender Segment provides information about who the offender is for each incident, though this is limited to only demographic variables. In incidents with multiple offenders it provides information about each offender. From this data we know the age, sex, and race of each offender but nothing else. This means that important variables such as criminal history, socioeconomic status, and motive are missing. In the Victim Segment we learn about the relationship between the victim and offender, and in the Offense Segment we learn which weapon (if any) the offender used. So there is some other data on the offender in other segments but it’s quite limited. In cases where there is no information about the offender there will be a single row where all of the offender variables will be “unknown.” In these cases having a single row for the offender is merely a placeholder and doesn’t necessarily mean that there was only one offender for that incident. However, there’s no indicator for when this is a placeholder and when there was actually one offender but whose demographic info is unknown.</p>
+<p>The Offender Segment is the sparsest of the available segments, and provides only three new variables that are about the offender’s demographics. It also includes the standard set of variables: the agency ORI, the incident number, the state the agency is in, and the incident date (though we’d need to check the Administrative Segment to see if this is actually the incident date or the report date).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsOffenderAgenciesReporting"></span>
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderAgenciesReporting-1.png" alt="The annual number of agencies reporting data in the NIBRS Offender Segment, 1991-2022." width="90%" />
+<p class="caption">
+Figure 4.1: The annual number of agencies reporting data in the NIBRS Offender Segment, 1991-2022.
+</p>
 </div>
+<div id="demographics-1" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Demographics<a href="offender-segment.html#demographics-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are three demographics variables included in this data: the offenders’ age, sex, and race. Please note that what we have here are not unique offenders as someone may be involved in multiple crimes. There’s no offender ID variable that is consistent across incidents so we can’t tell when an offender is involved with different incidents (except in cases where they are arrested, see Chapter <a href="#arrestee"><strong>??</strong></a> for more).So be cautious when trying to compare this with some base rate such as percent of people of each age/sex/race in a population.</p>
+<div id="age-1" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Age<a href="offender-segment.html#age-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The age variable is the suspected age of the offender. This is presented to us as whole years though agencies can input an age range if they don’t know the exact age (e.g. age 20-29) and the FBI will convert that to an exact number by averaging it for us. So if the police say the offender is aged 20-29 (since they don’t know for sure), we only see that the offender is 24 years old since the FBI (for some reason) rounds down. This value is top-coded to 99 years old with everyone 99 years or older being set as “over 98 years old.” Figure <a href="offender-segment.html#fig:offenderAge">4.2</a> shows the distribution of offender ages for all known offenders in the 2019 NIBRS data. About 14% of offenders have an unknown age and are excluded from the figure.</p>
+<p>This figure shows the percent of offenders at each age that make up known offenders in the data (known here meaning that we have info on their age, not that their identity is known). If you’re familiar with research on the age-crime curve, which says that crimes peak in the late teens and then rapidly decrease, this essentially replicates those findings. There are some differences between this figure and past age-crime research as crime peaks later here, in the mid-20s (the most common age is 25), but the general trend of crime being largely a “young person” phenomenon holds consistent. This also depends on exactly which crime occurs as different crimes have different age-crime trends, so you’ll need to merge this segment with the Offense Segment to be able to subset by crime committed.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:offenderAge"></span>
+<img src="14_nibrs_offender_files/figure-html/offenderAge-1.png" alt="The age of all offenders reported in the 2022 NIBRS data. Approximately 44 percent of offenders have an unknown age are not shown in the figure." width="90%" />
+<p class="caption">
+Figure 4.2: The age of all offenders reported in the 2022 NIBRS data. Approximately 44 percent of offenders have an unknown age are not shown in the figure.
+</p>
+</div>
+<p>The spike you see at the very end of the data is due to the data maxing out possible individual ages at 98, so anyone older is grouped together. There’s also a spike at age 1 - and other offenders at very young ages - which is the youngest possible age. Surely very young children aren’t going around attacking people, so is this a data error? Yes. But it could actually be partially real as there are very rare cases where children harm or kill someone while playing with a gun and are included in the data. These aren’t crimes as we conventionally think of them - and the “offenders” won’t be criminally charged - but are still included in the data. However, the bulk of this, especially for age 1, is likely just a data error or the police entering age 1 instead of saying that the age is unknown (which they have the option of doing).</p>
+<p>Another indicator of guesses about age is that three of the five most common ages are 25, 30, and 20 years old. People tend to like multiples of five when making estimates, so these indicate that someone (the victim or the officer) probably didn’t know the exact age and so guessed the age.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsOffenderAge"></span>
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderAge-1.png" alt="The mean and median age of offenders, 1991-2022." width="90%" />
+<p class="caption">
+Figure 4.3: The mean and median age of offenders, 1991-2022.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsOffenderAgeMissing"></span>
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderAgeMissing-1.png" alt="The percent of offender's age that is unknown, 1991-2022." width="90%" />
+<p class="caption">
+Figure 4.4: The percent of offender’s age that is unknown, 1991-2022.
+</p>
+</div>
+</div>
+<div id="sex-1" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Sex<a href="offender-segment.html#sex-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The second offender demographic variable available is the offender’s sex with male and female being the only available sexes. There is no option for transgender or any other identify. Other than arrestees, where police could (though we don’t know if they do) use their identification (e.g. driver’s license) to determine their sex, this is the perceived sex of the offender. Figure <a href="#fig:offenderSex"><strong>??</strong></a> shows the distribution of offenders by sex. The most common sex is male, which is consistent with the literature on who commits crime. About 45% of all offenders were male. Female offenders make up nearly 19% of offenders. Over a third - 35.9% - of offenders have an unknown sex. Considering that when nothing is known about offenders (including even how many offenders there are) this data includes a single row with “unknown” for all demographic variables, this is actually an undercount of offenders who have unknown sex.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsOffenderSex"></span>
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderSex-1.png" alt="The share of offenders by sex, 1991-2022." width="90%" />
+<p class="caption">
+Figure 4.5: The share of offenders by sex, 1991-2022.
+</p>
+</div>
+</div>
+<div id="race-1" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Race<a href="offender-segment.html#race-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The final variable available is the race of the offender. The only possible races are White, Black, American Indian/Alaskan Native, Asian, and Native Hawaiian/Other Pacific Islander. These categories are mutually exclusive so people cannot be labeled as mixed race, they must be put into one of the categories. Other than offenders who were arrested, and thus police can clearly see them and potentially ask them what race they are, this variable is likely a rough estimate of a person’s race.</p>
+<p>Figure <a href="#fig:offenderRace"><strong>??</strong></a> shows the breakdown in offender races for every offender in the 2019 data. The most common offender race is Unknown, with about 38.5% of offenders not having a known race. This 38.5% of actually an undercount as in cases where the agency doesn’t know anything about the offenders they’ll put down a single offender with “unknown” for every demographics variable. So there could potentially be multiple offenders represented when there is a row with an unknown offender race. This is also dependent on the type of crimes committed and when they are committed. For example, a daytime robbery would likely have a known offender race as the victim can clearly see (complexities about identifying people’s race aside) the race of the robber. A daytime burglary where no one is home would likely have an unknown offender race and there’d be no witnesses. Likewise, a robbery at night could have an unknown offender race because the darkness makes it harder to identify people.</p>
+<p>The next most common offender race is White at 38.7% followed by Black at 22.1%. The remaining races make up only a little over 1.5% of offenders, with American Indian/Alaskan Native at 0.77%, Asian at 0.63%, and Native Hawaiian/Other Pacific Islander at 0.24%.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsOffenderRace"></span>
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderRace-1.png" alt="The share of offenders by race, 1991-2022." width="90%" />
+<p class="caption">
+Figure 4.6: The share of offenders by race, 1991-2022.
+</p>
+</div>
+</div>
+<div id="ethnicity-1" class="section level3 hasAnchor" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> Ethnicity<a href="offender-segment.html#ethnicity-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsOffenderEthnicity"></span>
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderEthnicity-1.png" alt="The share of offenders by ethnicity, 1991-2022." width="90%" />
+<p class="caption">
+Figure 4.7: The share of offenders by ethnicity, 1991-2022.
+</p>
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-
+<a href="hate_crimes.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
@@ -264,7 +356,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jacobkap/ucrbook/edit/main/%s",
+"link": "https://github.com/jacobkap/ucrbook/edit/main/14_nibrs_offender.Rmd",
 "text": "Edit"
 },
 "history": {

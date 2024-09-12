@@ -48,6 +48,13 @@ fig:hateCrimeOffenderRace
 fig:hateCrimeOffenderNumber
 fig:jewishIncidentVictim
 fig:blackIncidentVictim
+fig:nibrsOffenderAgenciesReporting
+fig:offenderAge
+fig:nibrsOffenderAge
+fig:nibrsOffenderAgeMissing
+fig:nibrsOffenderSex
+fig:nibrsOffenderRace
+fig:nibrsOffenderEthnicity
 preface
 goal-of-the-book
 structure-of-the-book
@@ -95,3 +102,9 @@ the-crime-that-occurred
 the-location-of-the-crime
 number-and-race-of-offenders
 number-of-victims
+offender-segment
+demographics-1
+age-1
+sex-1
+race-1
+ethnicity-1

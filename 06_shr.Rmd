@@ -27,7 +27,7 @@ Figure \@ref(fig:shrVsOffenses) shows the annual number of homicide victims (inc
 
 For the SHR data, in every year the numbers are fairly similar and the trends are the same over time, but the number of homicides is never equal. The numbers have actually gotten worse over time with the difference between the datasets increasing and the Offenses Known data having consistently more murders reported than the SHR data since the late 1990s. Compared to the CDC data, however, both SHR datasets - and in particular the SHR data - undercount the number of homicides. While trends are the same, SHR data reports thousands fewer murders per year than the CDC data, indicating how much of an issue underreporting is in this data.
 
-```{r shrVsOffenses, fig.cap = "The annual number of murders from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset. Numbers differ because agencies voluntarily report and may not report to both datasets.", fig.height=15}
+```{r shrVsOffenses, fig.cap = "The annual number of murders and nonngeligent manslaughters from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset, and homicides from the Center for Disease Control (CDC). Numbers differ because agencies voluntarily report and may not report to both datasets."}
 
 cdc_homicides <- read_table2("data/cdc_wonder_homicide.txt") %>%
   rename_all(janitor::make_clean_names)
@@ -72,7 +72,7 @@ ggplot(shr_offenses_known_murders, aes(x = year)) +
 
 Let's look at Chicago for another example of the differences in reporting from the SHR and the Offenses Known data. Figure \@ref(fig:chicagoSHRvsOffensesKnown) shows the annual number of homicide victims from both datasets. In most years they are pretty similar, excluding a few really odd years in the 1980s and in 1990. But what's also strange is that most years have more SHR victims than Offenses Known victims. So nationally SHR has fewer homicides than Offenses Known but that pattern is reversed in Chicago? This is one of the many quirks of SHR data. And is a warning against treating national trends as local trends; what is true nationally isn't always true in your community. So when you use this data, check everything closely. And once you've done that, check it again. 
 
-```{r chicagoSHRvsOffensesKnown, fig.cap = "The annual number of homicide victims in Chicago, SHR and Offeksnes Known, 1976-2022.", fig.height=15}
+```{r chicagoSHRvsOffensesKnown, fig.cap = "The annual number of homicide victims in Chicago, SHR and Offeksnes Known, 1976-2022."}
 chicago_homicides <- shr %>%
   filter(ori %in% "ILCPD00") %>%
   mutate(victim_count = additional_victim_count + 1) %>%
@@ -159,16 +159,16 @@ shr_annual_top_agencies$top_10_percent <-
 
 ggplot(shr_annual_top_agencies, aes(x = year)) +
   geom_line(aes(y = total_incidents, color = "All Agencies"), size = 1.02) +
-  geom_line(aes(y = top_100_incidents, color = "Top 100 Agencies"), size = 1.02) +
-  geom_line(aes(y = top_50_incidents, color = "Top 50 Agencies"), size = 1.02) +
-  geom_line(aes(y = top_10_incidents, color = "Top 10 Agencies"), size = 1.02) +
+  geom_line(aes(y = top_100_incidents, color = "Top 100"), size = 1.02) +
+  geom_line(aes(y = top_50_incidents, color = "Top 50"), size = 1.02) +
+  geom_line(aes(y = top_10_incidents, color = "Top 10"), size = 1.02) +
   xlab("Year") +
   ylab("# of Homicide Incidents") +
   theme_crim() +
   scale_color_manual(values = c("All Agencies" = "black",
-                                "Top 100 Agencies" = "#1b9e77",
-                                "Top 50 Agencies" = "#d95f02",
-                                "Top 10 Agencies" = "#7570b3")) +
+                                "Top 100" = "#1b9e77",
+                                "Top 50" = "#d95f02",
+                                "Top 10" = "#7570b3")) +
   scale_y_continuous(labels = scales::comma) +
   labs(color = "") +
   expand_limits(y = 0)
@@ -177,15 +177,15 @@ ggplot(shr_annual_top_agencies, aes(x = year)) +
 
 ```{r, shrTopAgenciesCountPercent, fig.cap = "The annual percent of homicide incidents by the top 100 agencies (by number of homicide incidents), top 50, and top 10 agencies, 1976-2022."}
 ggplot(shr_annual_top_agencies, aes(x = year)) +
-  geom_line(aes(y = top_100_percent, color = "Top 100 Agencies"), size = 1.02) +
-  geom_line(aes(y = top_50_percent, color = "Top 50 Agencies"), size = 1.02) +
-  geom_line(aes(y = top_10_percent, color = "Top 10 Agencies"), size = 1.02) +
+  geom_line(aes(y = top_100_percent, color = "Top 100"), size = 1.02) +
+  geom_line(aes(y = top_50_percent, color = "Top 50"), size = 1.02) +
+  geom_line(aes(y = top_10_percent, color = "Top 10"), size = 1.02) +
   xlab("Year") +
   ylab("% of Homicide Incidents") +
   theme_crim() +
-  scale_color_manual(values = c("Top 100 Agencies" = "#1b9e77",
-                                "Top 50 Agencies" = "#d95f02",
-                                "Top 10 Agencies" = "#7570b3")) +
+  scale_color_manual(values = c("Top 100" = "#1b9e77",
+                                "Top 50" = "#d95f02",
+                                "Top 10" = "#7570b3")) +
   scale_y_continuous(labels = scales::percent) +
   labs(color = "") +
   expand_limits(y = 0)

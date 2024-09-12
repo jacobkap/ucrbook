@@ -8,14 +8,10 @@ As might be expected, the Offender Segment provides information about who the of
 
 The Offender Segment is the sparsest of the available segments, and provides only three new variables that are about the offender's demographics. It also includes the standard set of variables: the agency ORI, the incident number, the state the agency is in, and the incident date (though we'd need to check the Administrative Segment to see if this is actually the incident date or the report date).
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{14_nibrs_offender_files/figure-latex/nibrsOffenderAgenciesReporting-1} 
-
-}
-
-\caption{The annual number of agencies reporting data in the NIBRS Offender Segment, 1991-2022.}(\#fig:nibrsOffenderAgenciesReporting)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderAgenciesReporting-1.png" alt="The annual number of agencies reporting data in the NIBRS Offender Segment, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsOffenderAgenciesReporting)The annual number of agencies reporting data in the NIBRS Offender Segment, 1991-2022.</p>
+</div>
 
 ## Demographics
 
@@ -27,36 +23,24 @@ The age variable is the suspected age of the offender. This is presented to us a
 
 This figure shows the percent of offenders at each age that make up known offenders in the data (known here meaning that we have info on their age, not that their identity is known). If you're familiar with research on the age-crime curve, which says that crimes peak in the late teens and then rapidly decrease, this essentially replicates those findings. There are some differences between this figure and past age-crime research as crime peaks later here, in the mid-20s (the most common age is 25), but the general trend of crime being largely a "young person" phenomenon holds consistent. This also depends on exactly which crime occurs as different crimes have different age-crime trends, so you'll need to merge this segment with the Offense Segment to be able to subset by crime committed. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{14_nibrs_offender_files/figure-latex/offenderAge-1} 
-
-}
-
-\caption{The age of all offenders reported in the 2022 NIBRS data. Approximately 44 percent of offenders have an unknown age are not shown in the figure.}(\#fig:offenderAge)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="14_nibrs_offender_files/figure-html/offenderAge-1.png" alt="The age of all offenders reported in the 2022 NIBRS data. Approximately 44 percent of offenders have an unknown age are not shown in the figure." width="90%" />
+<p class="caption">(\#fig:offenderAge)The age of all offenders reported in the 2022 NIBRS data. Approximately 44 percent of offenders have an unknown age are not shown in the figure.</p>
+</div>
 
 The spike you see at the very end of the data is due to the data maxing out possible individual ages at 98, so anyone older is grouped together. There's also a spike at age 1 - and other offenders at very young ages - which is the youngest possible age. Surely very young children aren't going around attacking people, so is this a data error? Yes. But it could actually be partially real as there are very rare cases where children harm or kill someone while playing with a gun and are included in the data. These aren't crimes as we conventionally think of them - and the "offenders" won't be criminally charged - but are still included in the data. However, the bulk of this, especially for age 1, is likely just a data error or the police entering age 1 instead of saying that the age is unknown (which they have the option of doing).    
 
 Another indicator of guesses about age is that three of the five most common ages are 25, 30, and 20 years old. People tend to like multiples of five when making estimates, so these indicate that someone (the victim or the officer) probably didn't know the exact age and so guessed the age. 
 
-\begin{figure}
+<div class="figure" style="text-align: center">
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderAge-1.png" alt="The mean and median age of offenders, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsOffenderAge)The mean and median age of offenders, 1991-2022.</p>
+</div>
 
-{\centering \includegraphics[width=0.9\linewidth]{14_nibrs_offender_files/figure-latex/nibrsOffenderAge-1} 
-
-}
-
-\caption{The mean and median age of offenders, 1991-2022.}(\#fig:nibrsOffenderAge)
-\end{figure}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{14_nibrs_offender_files/figure-latex/nibrsOffenderAgeMissing-1} 
-
-}
-
-\caption{The percent of offender's age that is unknown, 1991-2022.}(\#fig:nibrsOffenderAgeMissing)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderAgeMissing-1.png" alt="The percent of offender's age that is unknown, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsOffenderAgeMissing)The percent of offender's age that is unknown, 1991-2022.</p>
+</div>
 
 
 ### Sex
@@ -64,14 +48,10 @@ Another indicator of guesses about age is that three of the five most common age
 The second offender demographic variable available is the offender's sex with male and female being the only available sexes. There is no option for transgender or any other identify. Other than arrestees, where police could (though we don't know if they do) use their identification (e.g. driver's license) to determine their sex, this is the perceived sex of the offender. Figure \@ref(fig:offenderSex) shows the distribution of offenders by sex. The most common sex is male, which is consistent with the literature on who commits crime. About 45% of all offenders were male. Female  offenders make up nearly 19% of offenders. Over a third - 35.9% - of offenders have an unknown sex. Considering that when nothing is known about offenders (including even how many offenders there are) this data includes a single row with "unknown" for all demographic variables, this is actually an undercount of offenders who have unknown sex. 
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{14_nibrs_offender_files/figure-latex/nibrsOffenderSex-1} 
-
-}
-
-\caption{The share of offenders by sex, 1991-2022.}(\#fig:nibrsOffenderSex)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderSex-1.png" alt="The share of offenders by sex, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsOffenderSex)The share of offenders by sex, 1991-2022.</p>
+</div>
 
 ### Race
 
@@ -82,23 +62,15 @@ Figure \@ref(fig:offenderRace) shows the breakdown in offender races for every o
 The next most common offender race is White at 38.7% followed by Black at 22.1%. The remaining races make up only a little over 1.5% of offenders, with American Indian/Alaskan Native at 0.77%, Asian at 0.63%, and Native Hawaiian/Other Pacific Islander at 0.24%.
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{14_nibrs_offender_files/figure-latex/nibrsOffenderRace-1} 
-
-}
-
-\caption{The share of offenders by race, 1991-2022.}(\#fig:nibrsOffenderRace)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderRace-1.png" alt="The share of offenders by race, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsOffenderRace)The share of offenders by race, 1991-2022.</p>
+</div>
 
 
 ### Ethnicity
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{14_nibrs_offender_files/figure-latex/nibrsOffenderEthnicity-1} 
-
-}
-
-\caption{The share of offenders by ethnicity, 1991-2022.}(\#fig:nibrsOffenderEthnicity)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="14_nibrs_offender_files/figure-html/nibrsOffenderEthnicity-1.png" alt="The share of offenders by ethnicity, 1991-2022." width="90%" />
+<p class="caption">(\#fig:nibrsOffenderEthnicity)The share of offenders by ethnicity, 1991-2022.</p>
+</div>
