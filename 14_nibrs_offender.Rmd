@@ -20,7 +20,7 @@ As might be expected, the Offender Segment provides information about who the of
 
 In cases where there is no information about the offender there will be a single row where all of the offender variables will be "unknown." In these cases having a single row for the offender is merely a placeholder and doesn’t necessarily mean that there was only one offender for that incident. However, there’s no indicator for when this is a placeholder and when there was actually one offender but whose demographic info is unknown.
 
-The Offender Segment is the sparsest of the available segments, and provides only four new variables that are about the offender's demographics. It also includes the standard set of variables: the agency ORI, the incident number, the state the agency is in, and the incident date (though we'd need to check the Administrative Segment to see if this is actually the incident date or the report date).
+The Offender Segment is the sparsest of the available segments, and provides only four new variables that are about the offender's demographics. It also includes the standard set of variables: the agency ORI, the incident number, the state the agency is in, and the incident date (though we'd need to check the Administrative Segment to see if this is actually the incident date or the report date). 
 
 As seen with other segment files, the number of agencies reporting has increased steadily since 1991 and then increased much faster starting in 2016 when the FBI started their push for the transition to NIBRS.
 
@@ -45,7 +45,7 @@ There are four demographics variables included in this data: the offenders' age,
 
 The age variable is the suspected age of the offender. This is presented to us as how many years old the offender is, however, agencies can input an age range if they don't know the exact age (e.g. age 20-29) and the FBI will convert that to an exact number by averaging it for us. So if the police say the offender is aged 20-29 (since they don't know for sure), we only see that the offender is 24 years old since the FBI averages the range and then rounds down to make an integer. This value is top-coded to 99 years old with everyone 99 years or older being set as "over 98 years old." Figure \@ref(fig:offenderAge) shows the distribution of offender ages for all known offenders in the 2022 NIBRS data. About 14% of offenders have an unknown age and are excluded from the figure. 
 
-The data largely replicates findings from the well-known age-crime curve, which shows that crime tends to peak in the late teens and then rapidly declines. However, the NIBRS data shows a slightly later peak, with the most common offender age being 25 years old. This shift may reflect differences in the types of offenses being reported or changes in offender patterns over time. The age distribution can differ depending on what offenses the offender's committed. To examine that you'll need to merge this segment with the Offense Segment and then subset the offender data by the offense you're interested in.
+This data supports the widely observed age-crime curve, which shows that criminal activity tends to peak in the late teenage years and gradually declines as individuals age. Interestingly, in the NIBRS data, the most common offender age is 25, indicating a slightly later peak. This shift could reflect changes in the types of offenses reported or evolving offender patterns over time. The age distribution can differ depending on what offenses the offender's committed. To examine that you'll need to merge this segment with the Offense Segment and then subset the offender data by the offense you're interested in.
 
 
 ```{r offenderAge, fig.cap = "The age of all offenders reported in the 2022 NIBRS data. Approximately 44 percent of offenders have an unknown age are not shown in the figure."}
@@ -152,7 +152,7 @@ nibrs_offender_summary  %>%
 
 ### Ethnicity
 
-The final variable, and one not really worth using is ethnicity. As we can see in Figure \@ref(fig:nibrsOffenderEthnicity) this variable is very rarely used and for most of the life of NIBRS it wasn't collected. Even when it was collected - which started in 2013, ended after 2016, and then returned in 2021 - the most common value is that the offender's ethnicity was unknown. 
+Ethnicity data, collected sporadically starting in 2013, is rarely recorded, with the most common entry being "unknown." As we can see in Figure \@ref(fig:nibrsOffenderEthnicity) this variable is very rarely used and for most of the life of NIBRS it wasn't collected. Even when it was collected - which started in 2013, ended after 2016, and then returned in 2021 - the most common value is that the offender's ethnicity was unknown. 
 
 ```{r nibrsOffenderEthnicity, fig.cap="The share of offenders by ethnicity, 1991-2022."}
 nibrs_offender_summary  %>%
@@ -171,4 +171,4 @@ nibrs_offender_summary  %>%
                                 "Unknown" = "#7570b3"))
 ```
 
-Although the Offender Segment is limited in scope—capturing only basic demographics—this data is useful for understanding broader patterns in offender behavior. Researchers can use this information to track trends in who commits crimes over time, analyze shifts in demographics, and inform policy decisions aimed at addressing crime prevention and intervention. However, the gaps in this data, such as missing information on unknown offenders and the lack of deeper variables like criminal history, underscore the need for cautious interpretation.
+While the Offender Segment is limited to basic demographics, it remains a valuable resource for identifying broad patterns in offender behavior. By tracking trends over time, researchers can examine shifts in age, sex, and race among offenders, which may inform policy decisions on crime prevention and law enforcement strategies. However, gaps in the data - such as unknown offender details, new agencies reporting data each year, and the absence of critical variables like criminal history - highlight the need for cautious interpretation and cross-referencing with other data sources.

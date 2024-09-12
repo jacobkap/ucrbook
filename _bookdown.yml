@@ -23,7 +23,7 @@ rmd_files: [
  # "10_ucr_county.Rmd",
   # NIBRS
  # "11_nibrs_general.Rmd",
-#  "12_nibrs_administrative.Rmd",
+  "12_nibrs_administrative.Rmd",
 #  "13_nibrs_offense.Rmd",
   "14_nibrs_offender.Rmd",
 #  "15_nibrs_victim.Rmd",
