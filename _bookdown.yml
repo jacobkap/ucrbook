@@ -25,7 +25,7 @@ rmd_files: [
  # "11_nibrs_general.Rmd",
   "12_nibrs_administrative.Rmd",
 #  "13_nibrs_offense.Rmd",
-  "14_nibrs_offender.Rmd",
+#  "14_nibrs_offender.Rmd",
 #  "15_nibrs_victim.Rmd",
   "16_nibrs_arrestee.Rmd",
 #  "17_nibrs_property.Rmd",

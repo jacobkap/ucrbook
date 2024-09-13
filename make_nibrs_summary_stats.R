@@ -619,7 +619,7 @@ for (file in administrative_files) {
   administrative_final$least_common_hour[administrative_final$year %in% unique(administrative_temp$year)] <- names(ordered_hours[1])
   
   administrative_final$percent_hour_midnight[administrative_final$year %in% unique(administrative_temp$year)] <- mean(administrative_temp$hour %in% 0)
-  administrative_final$percent_hour_midnight[administrative_final$year %in% unique(administrative_temp$year)] <- mean(administrative_temp$hour %in% 12)
+  administrative_final$percent_hour_noon[administrative_final$year %in% unique(administrative_temp$year)] <- mean(administrative_temp$hour %in% 12)
   administrative_final$percent_hour_unknown[administrative_final$year %in% unique(administrative_temp$year)] <- mean(is.na(administrative_temp$hour))
   
   

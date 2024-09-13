@@ -22,21 +22,6 @@ In cases where there is no information about the offender there will be a single
 
 The Offender Segment is the sparsest of the available segments, and provides only four new variables that are about the offender's demographics. It also includes the standard set of variables: the agency ORI, the incident number, the state the agency is in, and the incident date (though we'd need to check the Administrative Segment to see if this is actually the incident date or the report date). 
 
-As seen with other segment files, the number of agencies reporting has increased steadily since 1991 and then increased much faster starting in 2016 when the FBI started their push for the transition to NIBRS.
-
-```{r nibrsOffenderAgenciesReporting, fig.cap="The annual number of agencies reporting data in the NIBRS Offender Segment, 1991-2022."}
-nibrs_offender_summary  %>%
-  ungroup() %>%
-  ggplot(aes(x = year, y = number_of_agencies)) +
-  geom_line(size = 1.05) +
-  xlab("Year") +
-  ylab("# of Agencies") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
-  labs(color = "") +
-  expand_limits(y = 0)
-```
-
 ## Demographics
 
 There are four demographics variables included in this data: the offenders' age, sex, race, ethnicity. Please note that what we have here are not unique offenders as the same person can be involved in multiple incidents and therefore be counted multiple times. There's no offender ID variable that is consistent across incidents so we can't tell when an offender is involved with different incidents. So be cautious when trying to compare this with some base rate such as percent of people of each age, sex, race, or ethnicity in a population.  

@@ -25,20 +25,6 @@ In addition to the variables detailed below this segment has the traditional age
 
 
 
-```{r nibrsVictimAgenciesReporting, fig.cap="The annual number of agencies reporting data in the NIBRS Victim Segment, 1991-2022."}
-nibrs_victim_summary  %>%
-  ungroup() %>%
-  ggplot(aes(x = year, y = number_of_agencies)) +
-  geom_line(size = 1.05) +
-  xlab("Year") +
-  ylab("# of Agencies") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
-  labs(color = "") +
-  expand_limits(y = 0)
-```
-
-
 ## Crime category
 
 The first variable we'll look at is the crime the victim experienced. This is a bit different than the offenses in the Offense Segment as not all victims in an incident are victimized by all of the crimes involved. For example, if a couple is assaulted and the woman is raped, the woman would experience rape and assault while the man only experiences assault. NIBRS allows for up to 10 offenses per victim and these are supposed to be ranked in order of seriousness. So the first variable has the most serious offense, the second has the second most serious offense, and so on. This is true is most cases but some have more minor crimes presented before more serious crimes. This seems to just be a data entry issue and nothing systematic but you should still check all offense variables if you're interested in finding the most serious crime per victim. 
