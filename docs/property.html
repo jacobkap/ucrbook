@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 17 Property and Window Property Segment | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</title>
+  <title>Chapter 7 Property Segment | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 17 Property and Window Property Segment | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta property="og:title" content="Chapter 7 Property Segment | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="github-repo" content="jacobkap/ucrbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 17 Property and Window Property Segment | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta name="twitter:title" content="Chapter 7 Property Segment | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
   
   <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2024-09-11" />
+<meta name="date" content="2024-09-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="arrestee.html"/>
-<link rel="next" href="references.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -134,29 +134,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -204,244 +181,91 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
-<li class="part"><span><b>II Summary Reporting System (SRS)</b></span></li>
-<li class="chapter" data-level="2" data-path="SRSGeneral.html"><a href="SRSGeneral.html"><i class="fa fa-check"></i><b>2</b> SRS Overview</a>
+<li class="chapter" data-level="2" data-path="shr.html"><a href="shr.html"><i class="fa fa-check"></i><b>2</b> Supplementary Homicide Reports (SHR)</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#crimes-included-in-the-srs-datasets"><i class="fa fa-check"></i><b>2.1</b> Crimes included in the SRS datasets</a></li>
-<li class="chapter" data-level="2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#a-summary-of-each-srs-dataset"><i class="fa fa-check"></i><b>2.2</b> A summary of each SRS dataset</a>
+<li class="chapter" data-level="2.1" data-path="shr.html"><a href="shr.html#agencies-reporting"><i class="fa fa-check"></i><b>2.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="2.2" data-path="shr.html"><a href="shr.html#important-variables"><i class="fa fa-check"></i><b>2.2</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#offenses-known-and-clearances-by-arrest-1960---present"><i class="fa fa-check"></i><b>2.2.1</b> Offenses Known and Clearances by Arrest (1960 - present)</a></li>
-<li class="chapter" data-level="2.2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#arrests-by-age-sex-and-race-1974---present"><i class="fa fa-check"></i><b>2.2.2</b> Arrests by Age, Sex, and Race (1974 - present)</a></li>
-<li class="chapter" data-level="2.2.3" data-path="SRSGeneral.html"><a href="SRSGeneral.html#law-enforcement-officers-killed-and-assaulted-leoka-1960---present"><i class="fa fa-check"></i><b>2.2.3</b> Law Enforcement Officers Killed and Assaulted (LEOKA) (1960 - present)</a></li>
-<li class="chapter" data-level="2.2.4" data-path="SRSGeneral.html"><a href="SRSGeneral.html#supplementary-homicide-reports-shr"><i class="fa fa-check"></i><b>2.2.4</b> Supplementary Homicide Reports (SHR)</a></li>
-<li class="chapter" data-level="2.2.5" data-path="SRSGeneral.html"><a href="SRSGeneral.html#hate-crime-data-1991---present"><i class="fa fa-check"></i><b>2.2.5</b> Hate Crime Data (1991 - present)</a></li>
-<li class="chapter" data-level="2.2.6" data-path="SRSGeneral.html"><a href="SRSGeneral.html#property-stolen-and-recovered-supplement-to-return-a-1960---present"><i class="fa fa-check"></i><b>2.2.6</b> Property Stolen and Recovered (Supplement to Return A) (1960 - present)</a></li>
-<li class="chapter" data-level="2.2.7" data-path="SRSGeneral.html"><a href="SRSGeneral.html#arson-1979---present"><i class="fa fa-check"></i><b>2.2.7</b> Arson (1979 - present)</a></li>
+<li class="chapter" data-level="2.2.1" data-path="shr.html"><a href="shr.html#demographics"><i class="fa fa-check"></i><b>2.2.1</b> Demographics</a></li>
+<li class="chapter" data-level="2.2.2" data-path="shr.html"><a href="shr.html#case-characteristics"><i class="fa fa-check"></i><b>2.2.2</b> Case characteristics</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="offensesKnown.html"><a href="offensesKnown.html"><i class="fa fa-check"></i><b>3</b> Offenses Known and Clearances by Arrest</a>
+<li class="chapter" data-level="3" data-path="arsonChapter.html"><a href="arsonChapter.html"><i class="fa fa-check"></i><b>3</b> Arson</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="offensesKnown.html"><a href="offensesKnown.html#indexCrimesOffensesKnown"><i class="fa fa-check"></i><b>3.1</b> Which crimes are included?</a>
+<li class="chapter" data-level="3.1" data-path="arsonChapter.html"><a href="arsonChapter.html#agencies-reporting-1"><i class="fa fa-check"></i><b>3.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="3.2" data-path="arsonChapter.html"><a href="arsonChapter.html#important-variables-1"><i class="fa fa-check"></i><b>3.2</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="offensesKnown.html"><a href="offensesKnown.html#hierarchy"><i class="fa fa-check"></i><b>3.1.1</b> Hierarchy Rule</a></li>
-<li class="chapter" data-level="3.1.2" data-path="offensesKnown.html"><a href="offensesKnown.html#indexCrimes"><i class="fa fa-check"></i><b>3.1.2</b> Index (“Part 1”) crimes</a></li>
+<li class="chapter" data-level="3.2.1" data-path="arsonChapter.html"><a href="arsonChapter.html#arsonType"><i class="fa fa-check"></i><b>3.2.1</b> Types of arsons</a></li>
+<li class="chapter" data-level="3.2.2" data-path="arsonChapter.html"><a href="arsonChapter.html#actual-arsons"><i class="fa fa-check"></i><b>3.2.2</b> Actual arsons</a></li>
+<li class="chapter" data-level="3.2.3" data-path="arsonChapter.html"><a href="arsonChapter.html#unfounded-arsons"><i class="fa fa-check"></i><b>3.2.3</b> Unfounded arsons</a></li>
+<li class="chapter" data-level="3.2.4" data-path="arsonChapter.html"><a href="arsonChapter.html#reported-arsons"><i class="fa fa-check"></i><b>3.2.4</b> Reported arsons</a></li>
+<li class="chapter" data-level="3.2.5" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-arsons"><i class="fa fa-check"></i><b>3.2.5</b> Cleared arsons</a></li>
+<li class="chapter" data-level="3.2.6" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-for-arsons-where-all-offenders-are-under-age-18"><i class="fa fa-check"></i><b>3.2.6</b> Cleared for arsons where all offenders are under age 18</a></li>
+<li class="chapter" data-level="3.2.7" data-path="arsonChapter.html"><a href="arsonChapter.html#uninhabited-building-arsons"><i class="fa fa-check"></i><b>3.2.7</b> Uninhabited building arsons</a></li>
+<li class="chapter" data-level="3.2.8" data-path="arsonChapter.html"><a href="arsonChapter.html#estimated-damage-cost"><i class="fa fa-check"></i><b>3.2.8</b> Estimated damage cost</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="offensesKnown.html"><a href="offensesKnown.html#offensesKnownReporting"><i class="fa fa-check"></i><b>3.2</b> Agencies reporting</a></li>
-<li class="chapter" data-level="3.3" data-path="offensesKnown.html"><a href="offensesKnown.html#negative-numbers"><i class="fa fa-check"></i><b>3.3</b> Negative numbers</a></li>
-<li class="chapter" data-level="3.4" data-path="offensesKnown.html"><a href="offensesKnown.html#important-variables"><i class="fa fa-check"></i><b>3.4</b> Important variables</a>
-<ul>
-<li class="chapter" data-level="3.4.1" data-path="offensesKnown.html"><a href="offensesKnown.html#actual"><i class="fa fa-check"></i><b>3.4.1</b> Actual crimes</a></li>
-<li class="chapter" data-level="3.4.2" data-path="offensesKnown.html"><a href="offensesKnown.html#clearedCrimes"><i class="fa fa-check"></i><b>3.4.2</b> Total cleared crimes</a></li>
-<li class="chapter" data-level="3.4.3" data-path="offensesKnown.html"><a href="offensesKnown.html#crimes-cleared-where-all-offenders-are-under-18-years-old"><i class="fa fa-check"></i><b>3.4.3</b> Crimes cleared where all offenders are under 18 years old</a></li>
-<li class="chapter" data-level="3.4.4" data-path="offensesKnown.html"><a href="offensesKnown.html#unfounded"><i class="fa fa-check"></i><b>3.4.4</b> Unfounded crimes</a></li>
+<li class="chapter" data-level="3.3" data-path="arsonChapter.html"><a href="arsonChapter.html#data-errors"><i class="fa fa-check"></i><b>3.3</b> Data errors</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="offensesKnown.html"><a href="offensesKnown.html#important-changes"><i class="fa fa-check"></i><b>3.5</b> Important changes</a>
+<li class="chapter" data-level="4" data-path="hate_crimes.html"><a href="hate_crimes.html"><i class="fa fa-check"></i><b>4</b> Hate Crime Data</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="offensesKnown.html"><a href="offensesKnown.html#rape-definition-change"><i class="fa fa-check"></i><b>3.5.1</b> Rape definition change</a></li>
-<li class="chapter" data-level="3.5.2" data-path="offensesKnown.html"><a href="offensesKnown.html#the-decline-of-manslaughter"><i class="fa fa-check"></i><b>3.5.2</b> The decline of manslaughter</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="stolen_property.html"><a href="stolen_property.html"><i class="fa fa-check"></i><b>4</b> Property Stolen and Recovered (Supplement to Return A)</a>
+<li class="chapter" data-level="4.1" data-path="hate_crimes.html"><a href="hate_crimes.html#agencies-reporting-2"><i class="fa fa-check"></i><b>4.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="4.2" data-path="hate_crimes.html"><a href="hate_crimes.html#treeOfLife"><i class="fa fa-check"></i><b>4.2</b> Tree of Life synagogue shooting</a></li>
+<li class="chapter" data-level="4.3" data-path="hate_crimes.html"><a href="hate_crimes.html#important-variables-2"><i class="fa fa-check"></i><b>4.3</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="stolen_property.html"><a href="stolen_property.html#agencies-reporting"><i class="fa fa-check"></i><b>4.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="4.2" data-path="stolen_property.html"><a href="stolen_property.html#important-variables-1"><i class="fa fa-check"></i><b>4.2</b> Important variables</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="stolen_property.html"><a href="stolen_property.html#propertycount"><i class="fa fa-check"></i><b>4.2.1</b> A more detailed breakdown of property (and robbery) crimes</a></li>
-<li class="chapter" data-level="4.2.2" data-path="stolen_property.html"><a href="stolen_property.html#the-value-of-property-stolen-in-property-and-robbery-crimes"><i class="fa fa-check"></i><b>4.2.2</b> The value of property stolen in property (and robbery) crimes</a></li>
-<li class="chapter" data-level="4.2.3" data-path="stolen_property.html"><a href="stolen_property.html#value-of-recovered-property-by-type-of-item-stolen"><i class="fa fa-check"></i><b>4.2.3</b> Value of recovered property by type of item stolen</a></li>
-</ul></li>
-<li class="chapter" data-level="4.3" data-path="stolen_property.html"><a href="stolen_property.html#data-errors"><i class="fa fa-check"></i><b>4.3</b> Data errors</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="arrests.html"><a href="arrests.html"><i class="fa fa-check"></i><b>5</b> Arrests by Age, Sex, and Race</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="arrests.html"><a href="arrests.html#agencies-reporting-1"><i class="fa fa-check"></i><b>5.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="5.2" data-path="arrests.html"><a href="arrests.html#what-is-an-arrest-what-unit-is-this-data-in"><i class="fa fa-check"></i><b>5.2</b> What is an arrest? (what unit is this data in?)</a>
-<ul>
-<li class="chapter" data-level="5.2.1" data-path="arrests.html"><a href="arrests.html#the-hierarchy-rule"><i class="fa fa-check"></i><b>5.2.1</b> The Hierarchy Rule</a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="arrests.html"><a href="arrests.html#arrestsCrimesIncluded"><i class="fa fa-check"></i><b>5.3</b> Crimes included</a></li>
-<li class="chapter" data-level="5.4" data-path="arrests.html"><a href="arrests.html#important-variables-2"><i class="fa fa-check"></i><b>5.4</b> Important variables</a>
-<ul>
-<li class="chapter" data-level="5.4.1" data-path="arrests.html"><a href="arrests.html#age"><i class="fa fa-check"></i><b>5.4.1</b> Age</a></li>
-<li class="chapter" data-level="5.4.2" data-path="arrests.html"><a href="arrests.html#race"><i class="fa fa-check"></i><b>5.4.2</b> Race</a></li>
-<li class="chapter" data-level="5.4.3" data-path="arrests.html"><a href="arrests.html#ethnicity"><i class="fa fa-check"></i><b>5.4.3</b> Ethnicity</a></li>
-<li class="chapter" data-level="5.4.4" data-path="arrests.html"><a href="arrests.html#juvenile-referrals"><i class="fa fa-check"></i><b>5.4.4</b> Juvenile referrals</a></li>
+<li class="chapter" data-level="4.3.1" data-path="hate_crimes.html"><a href="hate_crimes.html#date-and-time"><i class="fa fa-check"></i><b>4.3.1</b> Date and time</a></li>
+<li class="chapter" data-level="4.3.2" data-path="hate_crimes.html"><a href="hate_crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>4.3.2</b> The bias motivation (who the hate is against)</a></li>
+<li class="chapter" data-level="4.3.3" data-path="hate_crimes.html"><a href="hate_crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>4.3.3</b> The crime that occurred</a></li>
+<li class="chapter" data-level="4.3.4" data-path="hate_crimes.html"><a href="hate_crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>4.3.4</b> The location of the crime</a></li>
+<li class="chapter" data-level="4.3.5" data-path="hate_crimes.html"><a href="hate_crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>4.3.5</b> Number and race of offenders</a></li>
+<li class="chapter" data-level="4.3.6" data-path="hate_crimes.html"><a href="hate_crimes.html#number-of-victims"><i class="fa fa-check"></i><b>4.3.6</b> Number of victims</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="shr.html"><a href="shr.html"><i class="fa fa-check"></i><b>6</b> Supplementary Homicide Reports (SHR)</a>
+<li class="chapter" data-level="5" data-path="administrative-segment.html"><a href="administrative-segment.html"><i class="fa fa-check"></i><b>5</b> Administrative Segment</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="shr.html"><a href="shr.html#agencies-reporting-2"><i class="fa fa-check"></i><b>6.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="6.2" data-path="shr.html"><a href="shr.html#important-variables-3"><i class="fa fa-check"></i><b>6.2</b> Important variables</a>
+<li class="chapter" data-level="5.1" data-path="administrative-segment.html"><a href="administrative-segment.html#the-incident-and-report-date"><i class="fa fa-check"></i><b>5.1</b> The incident and report date</a></li>
+<li class="chapter" data-level="5.2" data-path="administrative-segment.html"><a href="administrative-segment.html#hour-of-incident"><i class="fa fa-check"></i><b>5.2</b> Hour of incident</a></li>
+<li class="chapter" data-level="5.3" data-path="administrative-segment.html"><a href="administrative-segment.html#exceptional-clearance"><i class="fa fa-check"></i><b>5.3</b> Exceptional clearance</a></li>
+<li class="chapter" data-level="5.4" data-path="administrative-segment.html"><a href="administrative-segment.html#number-of-other-segments"><i class="fa fa-check"></i><b>5.4</b> Number of other segments</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="shr.html"><a href="shr.html#demographics"><i class="fa fa-check"></i><b>6.2.1</b> Demographics</a></li>
-<li class="chapter" data-level="6.2.2" data-path="shr.html"><a href="shr.html#case-characteristics"><i class="fa fa-check"></i><b>6.2.2</b> Case characteristics</a></li>
+<li class="chapter" data-level="5.4.1" data-path="administrative-segment.html"><a href="administrative-segment.html#offense-segments"><i class="fa fa-check"></i><b>5.4.1</b> Offense Segments</a></li>
+<li class="chapter" data-level="5.4.2" data-path="administrative-segment.html"><a href="administrative-segment.html#offender-segments"><i class="fa fa-check"></i><b>5.4.2</b> Offender Segments</a></li>
+<li class="chapter" data-level="5.4.3" data-path="administrative-segment.html"><a href="administrative-segment.html#victim-segments"><i class="fa fa-check"></i><b>5.4.3</b> Victim Segments</a></li>
+<li class="chapter" data-level="5.4.4" data-path="administrative-segment.html"><a href="administrative-segment.html#arrestee-segments"><i class="fa fa-check"></i><b>5.4.4</b> Arrestee Segments</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="leoka.html"><a href="leoka.html"><i class="fa fa-check"></i><b>7</b> Law Enforcement Officers Killed and Assaulted (LEOKA)</a>
+<li class="chapter" data-level="6" data-path="arrestee.html"><a href="arrestee.html"><i class="fa fa-check"></i><b>6</b> Arrestee and Group B Arrestee</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="leoka.html"><a href="leoka.html#agencies-reporting-3"><i class="fa fa-check"></i><b>7.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="7.2" data-path="leoka.html"><a href="leoka.html#important-variables-4"><i class="fa fa-check"></i><b>7.2</b> Important variables</a>
+<li class="chapter" data-level="6.1" data-path="arrestee.html"><a href="arrestee.html#crimes-arrested-for"><i class="fa fa-check"></i><b>6.1</b> Crimes arrested for</a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="leoka.html"><a href="leoka.html#number-of-employees"><i class="fa fa-check"></i><b>7.2.1</b> Number of employees</a></li>
-<li class="chapter" data-level="7.2.2" data-path="leoka.html"><a href="leoka.html#officers-killed"><i class="fa fa-check"></i><b>7.2.2</b> Officers killed</a></li>
-<li class="chapter" data-level="7.2.3" data-path="leoka.html"><a href="leoka.html#assaults-by-injury-and-weapon"><i class="fa fa-check"></i><b>7.2.3</b> Assaults by injury and weapon</a></li>
-<li class="chapter" data-level="7.2.4" data-path="leoka.html"><a href="leoka.html#assaults-by-call-type"><i class="fa fa-check"></i><b>7.2.4</b> Assaults by call type</a></li>
-<li class="chapter" data-level="7.2.5" data-path="leoka.html"><a href="leoka.html#assaults-by-time"><i class="fa fa-check"></i><b>7.2.5</b> Assaults by time</a></li>
+<li class="chapter" data-level="6.1.1" data-path="arrestee.html"><a href="arrestee.html#arrestee-segment-arrest-crimes"><i class="fa fa-check"></i><b>6.1.1</b> Arrestee Segment arrest crimes</a></li>
+<li class="chapter" data-level="6.1.2" data-path="arrestee.html"><a href="arrestee.html#group-b-segment-arrest-crimes"><i class="fa fa-check"></i><b>6.1.2</b> Group B Segment arrest crimes</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="arrestee.html"><a href="arrestee.html#arrest-date"><i class="fa fa-check"></i><b>6.2</b> Arrest date</a></li>
+<li class="chapter" data-level="6.3" data-path="arrestee.html"><a href="arrestee.html#weapons"><i class="fa fa-check"></i><b>6.3</b> Weapons</a></li>
+<li class="chapter" data-level="6.4" data-path="arrestee.html"><a href="arrestee.html#automatic-weapons"><i class="fa fa-check"></i><b>6.4</b> Automatic weapons</a></li>
+<li class="chapter" data-level="6.5" data-path="arrestee.html"><a href="arrestee.html#type-of-arrest"><i class="fa fa-check"></i><b>6.5</b> Type of arrest</a></li>
+<li class="chapter" data-level="6.6" data-path="arrestee.html"><a href="arrestee.html#disposition-for-juvenile-arrestees"><i class="fa fa-check"></i><b>6.6</b> Disposition for juvenile arrestees</a></li>
+<li class="chapter" data-level="6.7" data-path="arrestee.html"><a href="arrestee.html#demographics-1"><i class="fa fa-check"></i><b>6.7</b> Demographics</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="arrestee.html"><a href="arrestee.html#residence-status"><i class="fa fa-check"></i><b>6.7.1</b> Residence status</a></li>
+<li class="chapter" data-level="6.7.2" data-path="arrestee.html"><a href="arrestee.html#age-1"><i class="fa fa-check"></i><b>6.7.2</b> Age</a></li>
+<li class="chapter" data-level="6.7.3" data-path="arrestee.html"><a href="arrestee.html#sex-1"><i class="fa fa-check"></i><b>6.7.3</b> Sex</a></li>
+<li class="chapter" data-level="6.7.4" data-path="arrestee.html"><a href="arrestee.html#race-1"><i class="fa fa-check"></i><b>6.7.4</b> Race</a></li>
+<li class="chapter" data-level="6.7.5" data-path="arrestee.html"><a href="arrestee.html#ethnicity-1"><i class="fa fa-check"></i><b>6.7.5</b> Ethnicity</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="arsonChapter.html"><a href="arsonChapter.html"><i class="fa fa-check"></i><b>8</b> Arson</a>
+<li class="chapter" data-level="7" data-path="property.html"><a href="property.html"><i class="fa fa-check"></i><b>7</b> Property Segment</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="arsonChapter.html"><a href="arsonChapter.html#agencies-reporting-4"><i class="fa fa-check"></i><b>8.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="8.2" data-path="arsonChapter.html"><a href="arsonChapter.html#important-variables-5"><i class="fa fa-check"></i><b>8.2</b> Important variables</a>
+<li class="chapter" data-level="7.1" data-path="property.html"><a href="property.html#propertyLoss"><i class="fa fa-check"></i><b>7.1</b> Type of property loss</a></li>
+<li class="chapter" data-level="7.2" data-path="property.html"><a href="property.html#description-of-property"><i class="fa fa-check"></i><b>7.2</b> Description of property</a></li>
+<li class="chapter" data-level="7.3" data-path="property.html"><a href="property.html#value-of-stolen-property"><i class="fa fa-check"></i><b>7.3</b> Value of stolen property</a></li>
+<li class="chapter" data-level="7.4" data-path="property.html"><a href="property.html#date-property-was-recovered"><i class="fa fa-check"></i><b>7.4</b> Date property was recovered</a></li>
+<li class="chapter" data-level="7.5" data-path="property.html"><a href="property.html#drugs"><i class="fa fa-check"></i><b>7.5</b> Drugs</a>
 <ul>
-<li class="chapter" data-level="8.2.1" data-path="arsonChapter.html"><a href="arsonChapter.html#arsonType"><i class="fa fa-check"></i><b>8.2.1</b> Types of arsons</a></li>
-<li class="chapter" data-level="8.2.2" data-path="arsonChapter.html"><a href="arsonChapter.html#actual-arsons"><i class="fa fa-check"></i><b>8.2.2</b> Actual arsons</a></li>
-<li class="chapter" data-level="8.2.3" data-path="arsonChapter.html"><a href="arsonChapter.html#unfounded-arsons"><i class="fa fa-check"></i><b>8.2.3</b> Unfounded arsons</a></li>
-<li class="chapter" data-level="8.2.4" data-path="arsonChapter.html"><a href="arsonChapter.html#reported-arsons"><i class="fa fa-check"></i><b>8.2.4</b> Reported arsons</a></li>
-<li class="chapter" data-level="8.2.5" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-arsons"><i class="fa fa-check"></i><b>8.2.5</b> Cleared arsons</a></li>
-<li class="chapter" data-level="8.2.6" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-for-arsons-where-all-offenders-are-under-age-18"><i class="fa fa-check"></i><b>8.2.6</b> Cleared for arsons where all offenders are under age 18</a></li>
-<li class="chapter" data-level="8.2.7" data-path="arsonChapter.html"><a href="arsonChapter.html#uninhabited-building-arsons"><i class="fa fa-check"></i><b>8.2.7</b> Uninhabited building arsons</a></li>
-<li class="chapter" data-level="8.2.8" data-path="arsonChapter.html"><a href="arsonChapter.html#estimated-damage-cost"><i class="fa fa-check"></i><b>8.2.8</b> Estimated damage cost</a></li>
-</ul></li>
-<li class="chapter" data-level="8.3" data-path="arsonChapter.html"><a href="arsonChapter.html#data-errors-1"><i class="fa fa-check"></i><b>8.3</b> Data errors</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="hate_crimes.html"><a href="hate_crimes.html"><i class="fa fa-check"></i><b>9</b> Hate Crime Data</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="hate_crimes.html"><a href="hate_crimes.html#agencies-reporting-5"><i class="fa fa-check"></i><b>9.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="9.2" data-path="hate_crimes.html"><a href="hate_crimes.html#treeOfLife"><i class="fa fa-check"></i><b>9.2</b> Tree of Life synagogue shooting</a></li>
-<li class="chapter" data-level="9.3" data-path="hate_crimes.html"><a href="hate_crimes.html#important-variables-6"><i class="fa fa-check"></i><b>9.3</b> Important variables</a>
-<ul>
-<li class="chapter" data-level="9.3.1" data-path="hate_crimes.html"><a href="hate_crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>9.3.1</b> The bias motivation (who the hate is against)</a></li>
-<li class="chapter" data-level="9.3.2" data-path="hate_crimes.html"><a href="hate_crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>9.3.2</b> The crime that occurred</a></li>
-<li class="chapter" data-level="9.3.3" data-path="hate_crimes.html"><a href="hate_crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>9.3.3</b> The location of the crime</a></li>
-<li class="chapter" data-level="9.3.4" data-path="hate_crimes.html"><a href="hate_crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>9.3.4</b> Number and race of offenders</a></li>
-<li class="chapter" data-level="9.3.5" data-path="hate_crimes.html"><a href="hate_crimes.html#number-of-victims"><i class="fa fa-check"></i><b>9.3.5</b> Number of victims</a></li>
+<li class="chapter" data-level="7.5.1" data-path="property.html"><a href="property.html#suspected-drug-type"><i class="fa fa-check"></i><b>7.5.1</b> Suspected drug type</a></li>
+<li class="chapter" data-level="7.5.2" data-path="property.html"><a href="property.html#amount-of-drugs"><i class="fa fa-check"></i><b>7.5.2</b> Amount of drugs</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="county-level-data.html"><a href="county-level-data.html"><i class="fa fa-check"></i><b>10</b> County-Level Data</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="county-level-data.html"><a href="county-level-data.html#current-usage"><i class="fa fa-check"></i><b>10.1</b> Current usage</a></li>
-<li class="chapter" data-level="10.2" data-path="county-level-data.html"><a href="county-level-data.html#how-much-data-is-missing"><i class="fa fa-check"></i><b>10.2</b> How much data is missing</a></li>
-<li class="chapter" data-level="10.3" data-path="county-level-data.html"><a href="county-level-data.html#current-imputation-practices"><i class="fa fa-check"></i><b>10.3</b> Current imputation practices</a>
-<ul>
-<li class="chapter" data-level="10.3.1" data-path="county-level-data.html"><a href="county-level-data.html#months-missing"><i class="fa fa-check"></i><b>10.3.1</b> 1-9 months missing</a></li>
-<li class="chapter" data-level="10.3.2" data-path="county-level-data.html"><a href="county-level-data.html#months-missing-1"><i class="fa fa-check"></i><b>10.3.2</b> 10-12 months missing</a></li>
-</ul></li>
-</ul></li>
-<li class="part"><span><b>III National Incident-Based Reporting System (NIBRS)</b></span></li>
-<li class="chapter" data-level="11" data-path="nibrs-overview.html"><a href="nibrs-overview.html"><i class="fa fa-check"></i><b>11</b> NIBRS Overview</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#problems-with-nibrs"><i class="fa fa-check"></i><b>11.1</b> Problems with NIBRS</a>
-<ul>
-<li class="chapter" data-level="11.1.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#nibrs-allows-for-different-units-of-analysis"><i class="fa fa-check"></i><b>11.1.1</b> NIBRS allows for different units of analysis</a></li>
-</ul></li>
-<li class="chapter" data-level="11.2" data-path="nibrs-overview.html"><a href="nibrs-overview.html#which-agencies-report-data"><i class="fa fa-check"></i><b>11.2</b> Which agencies report data</a></li>
-<li class="chapter" data-level="11.3" data-path="nibrs-overview.html"><a href="nibrs-overview.html#crimes-included-in-nibrs"><i class="fa fa-check"></i><b>11.3</b> Crimes included in NIBRS</a>
-<ul>
-<li class="chapter" data-level="11.3.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#group-a-crimes"><i class="fa fa-check"></i><b>11.3.1</b> Group A crimes</a></li>
-<li class="chapter" data-level="11.3.2" data-path="nibrs-overview.html"><a href="nibrs-overview.html#group-b-crimes"><i class="fa fa-check"></i><b>11.3.2</b> Group B crimes</a></li>
-</ul></li>
-<li class="chapter" data-level="11.4" data-path="nibrs-overview.html"><a href="nibrs-overview.html#differences-from-srs-data"><i class="fa fa-check"></i><b>11.4</b> Differences from SRS data</a>
-<ul>
-<li class="chapter" data-level="11.4.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#nibrs-does-not-have-unfounded-crimes"><i class="fa fa-check"></i><b>11.4.1</b> NIBRS does not have unfounded crimes</a></li>
-</ul></li>
-<li class="chapter" data-level="11.5" data-path="nibrs-overview.html"><a href="nibrs-overview.html#a-summary-of-each-segment-file"><i class="fa fa-check"></i><b>11.5</b> A summary of each segment file</a>
-<ul>
-<li class="chapter" data-level="11.5.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#administrative-segment"><i class="fa fa-check"></i><b>11.5.1</b> Administrative Segment</a></li>
-<li class="chapter" data-level="11.5.2" data-path="nibrs-overview.html"><a href="nibrs-overview.html#offense-segment"><i class="fa fa-check"></i><b>11.5.2</b> Offense Segment</a></li>
-<li class="chapter" data-level="11.5.3" data-path="nibrs-overview.html"><a href="nibrs-overview.html#offender-segment"><i class="fa fa-check"></i><b>11.5.3</b> Offender Segment</a></li>
-<li class="chapter" data-level="11.5.4" data-path="nibrs-overview.html"><a href="nibrs-overview.html#victim-segment"><i class="fa fa-check"></i><b>11.5.4</b> Victim Segment</a></li>
-<li class="chapter" data-level="11.5.5" data-path="nibrs-overview.html"><a href="nibrs-overview.html#arrestee-and-group-b-arrestee-segment"><i class="fa fa-check"></i><b>11.5.5</b> Arrestee and Group B Arrestee Segment</a></li>
-<li class="chapter" data-level="11.5.6" data-path="nibrs-overview.html"><a href="nibrs-overview.html#property-segment"><i class="fa fa-check"></i><b>11.5.6</b> Property Segment</a></li>
-<li class="chapter" data-level="11.5.7" data-path="nibrs-overview.html"><a href="nibrs-overview.html#window"><i class="fa fa-check"></i><b>11.5.7</b> Window segments</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html"><i class="fa fa-check"></i><b>12</b> Administrative and Window Exceptional Clearance Segment</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#the-incident-and-report-date"><i class="fa fa-check"></i><b>12.1</b> The incident and report date</a></li>
-<li class="chapter" data-level="12.2" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#hour-of-incident"><i class="fa fa-check"></i><b>12.2</b> Hour of incident</a></li>
-<li class="chapter" data-level="12.3" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#exceptional-clearance"><i class="fa fa-check"></i><b>12.3</b> Exceptional clearance</a></li>
-<li class="chapter" data-level="12.4" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#number-of-other-segments"><i class="fa fa-check"></i><b>12.4</b> Number of other segments</a>
-<ul>
-<li class="chapter" data-level="12.4.1" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#offense-segments"><i class="fa fa-check"></i><b>12.4.1</b> Offense Segments</a></li>
-<li class="chapter" data-level="12.4.2" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#offender-segments"><i class="fa fa-check"></i><b>12.4.2</b> Offender Segments</a></li>
-<li class="chapter" data-level="12.4.3" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#victim-segments"><i class="fa fa-check"></i><b>12.4.3</b> Victim Segments</a></li>
-<li class="chapter" data-level="12.4.4" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#arrestee-segments"><i class="fa fa-check"></i><b>12.4.4</b> Arrestee Segments</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="offenseSegment.html"><a href="offenseSegment.html"><i class="fa fa-check"></i><b>13</b> Offense Segment</a>
-<ul>
-<li class="chapter" data-level="13.1" data-path="offenseSegment.html"><a href="offenseSegment.html#crime-category"><i class="fa fa-check"></i><b>13.1</b> Crime category</a></li>
-<li class="chapter" data-level="13.2" data-path="offenseSegment.html"><a href="offenseSegment.html#offense-subtype"><i class="fa fa-check"></i><b>13.2</b> Offense subtype</a></li>
-<li class="chapter" data-level="13.3" data-path="offenseSegment.html"><a href="offenseSegment.html#offense-completed"><i class="fa fa-check"></i><b>13.3</b> Offense completed</a></li>
-<li class="chapter" data-level="13.4" data-path="offenseSegment.html"><a href="offenseSegment.html#drug-alcohol-or-computer-use"><i class="fa fa-check"></i><b>13.4</b> Drug, alcohol, or computer use</a></li>
-<li class="chapter" data-level="13.5" data-path="offenseSegment.html"><a href="offenseSegment.html#crime-location"><i class="fa fa-check"></i><b>13.5</b> Crime location</a></li>
-<li class="chapter" data-level="13.6" data-path="offenseSegment.html"><a href="offenseSegment.html#offenseWeapons"><i class="fa fa-check"></i><b>13.6</b> Weapons</a></li>
-<li class="chapter" data-level="13.7" data-path="offenseSegment.html"><a href="offenseSegment.html#automatic-weapons"><i class="fa fa-check"></i><b>13.7</b> Automatic weapons</a></li>
-<li class="chapter" data-level="13.8" data-path="offenseSegment.html"><a href="offenseSegment.html#burglary-info"><i class="fa fa-check"></i><b>13.8</b> Burglary info</a></li>
-<li class="chapter" data-level="13.9" data-path="offenseSegment.html"><a href="offenseSegment.html#hate-crime-indicator-bias-motivation"><i class="fa fa-check"></i><b>13.9</b> Hate crime indicator (bias motivation)</a></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="offender-segment-1.html"><a href="offender-segment-1.html"><i class="fa fa-check"></i><b>14</b> Offender Segment</a>
-<ul>
-<li class="chapter" data-level="14.1" data-path="offender-segment-1.html"><a href="offender-segment-1.html#demographics-1"><i class="fa fa-check"></i><b>14.1</b> Demographics</a>
-<ul>
-<li class="chapter" data-level="14.1.1" data-path="offender-segment-1.html"><a href="offender-segment-1.html#age-2"><i class="fa fa-check"></i><b>14.1.1</b> Age</a></li>
-<li class="chapter" data-level="14.1.2" data-path="offender-segment-1.html"><a href="offender-segment-1.html#sex-1"><i class="fa fa-check"></i><b>14.1.2</b> Sex</a></li>
-<li class="chapter" data-level="14.1.3" data-path="offender-segment-1.html"><a href="offender-segment-1.html#race-2"><i class="fa fa-check"></i><b>14.1.3</b> Race</a></li>
-<li class="chapter" data-level="14.1.4" data-path="offender-segment-1.html"><a href="offender-segment-1.html#ethnicity-2"><i class="fa fa-check"></i><b>14.1.4</b> Ethnicity</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="15" data-path="victim-segment-1.html"><a href="victim-segment-1.html"><i class="fa fa-check"></i><b>15</b> Victim Segment</a>
-<ul>
-<li class="chapter" data-level="15.1" data-path="victim-segment-1.html"><a href="victim-segment-1.html#crime-category-1"><i class="fa fa-check"></i><b>15.1</b> Crime category</a></li>
-<li class="chapter" data-level="15.2" data-path="victim-segment-1.html"><a href="victim-segment-1.html#victim-type"><i class="fa fa-check"></i><b>15.2</b> Victim type</a></li>
-<li class="chapter" data-level="15.3" data-path="victim-segment-1.html"><a href="victim-segment-1.html#injury"><i class="fa fa-check"></i><b>15.3</b> Injury</a></li>
-<li class="chapter" data-level="15.4" data-path="victim-segment-1.html"><a href="victim-segment-1.html#relationship-to-offender"><i class="fa fa-check"></i><b>15.4</b> Relationship to offender</a></li>
-<li class="chapter" data-level="15.5" data-path="victim-segment-1.html"><a href="victim-segment-1.html#aggravated-assault-and-homicide-circumstances"><i class="fa fa-check"></i><b>15.5</b> Aggravated assault and homicide circumstances</a></li>
-<li class="chapter" data-level="15.6" data-path="victim-segment-1.html"><a href="victim-segment-1.html#justifiable-homicide-circumstance"><i class="fa fa-check"></i><b>15.6</b> Justifiable homicide circumstance</a></li>
-<li class="chapter" data-level="15.7" data-path="victim-segment-1.html"><a href="victim-segment-1.html#demographics-2"><i class="fa fa-check"></i><b>15.7</b> Demographics</a>
-<ul>
-<li class="chapter" data-level="15.7.1" data-path="victim-segment-1.html"><a href="victim-segment-1.html#residence-status"><i class="fa fa-check"></i><b>15.7.1</b> Residence status</a></li>
-<li class="chapter" data-level="15.7.2" data-path="victim-segment-1.html"><a href="victim-segment-1.html#age-3"><i class="fa fa-check"></i><b>15.7.2</b> Age</a></li>
-<li class="chapter" data-level="15.7.3" data-path="victim-segment-1.html"><a href="victim-segment-1.html#sex-2"><i class="fa fa-check"></i><b>15.7.3</b> Sex</a></li>
-<li class="chapter" data-level="15.7.4" data-path="victim-segment-1.html"><a href="victim-segment-1.html#race-3"><i class="fa fa-check"></i><b>15.7.4</b> Race</a></li>
-<li class="chapter" data-level="15.7.5" data-path="victim-segment-1.html"><a href="victim-segment-1.html#ethnicity-3"><i class="fa fa-check"></i><b>15.7.5</b> Ethnicity</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="16" data-path="arrestee.html"><a href="arrestee.html"><i class="fa fa-check"></i><b>16</b> Arrestee, Group B Arrestee, and Window Arrestee Segment</a>
-<ul>
-<li class="chapter" data-level="16.1" data-path="arrestee.html"><a href="arrestee.html#crimes-arrested-for"><i class="fa fa-check"></i><b>16.1</b> Crimes arrested for</a>
-<ul>
-<li class="chapter" data-level="16.1.1" data-path="arrestee.html"><a href="arrestee.html#arrestee-segment-arrest-crimes"><i class="fa fa-check"></i><b>16.1.1</b> Arrestee Segment arrest crimes</a></li>
-<li class="chapter" data-level="16.1.2" data-path="arrestee.html"><a href="arrestee.html#group-b-segment-arrest-crimes"><i class="fa fa-check"></i><b>16.1.2</b> Group B Segment arrest crimes</a></li>
-</ul></li>
-<li class="chapter" data-level="16.2" data-path="arrestee.html"><a href="arrestee.html#arrest-date"><i class="fa fa-check"></i><b>16.2</b> Arrest date</a></li>
-<li class="chapter" data-level="16.3" data-path="arrestee.html"><a href="arrestee.html#weapons"><i class="fa fa-check"></i><b>16.3</b> Weapons</a></li>
-<li class="chapter" data-level="16.4" data-path="arrestee.html"><a href="arrestee.html#automatic-weapons-1"><i class="fa fa-check"></i><b>16.4</b> Automatic weapons</a></li>
-<li class="chapter" data-level="16.5" data-path="arrestee.html"><a href="arrestee.html#type-of-arrest"><i class="fa fa-check"></i><b>16.5</b> Type of arrest</a></li>
-<li class="chapter" data-level="16.6" data-path="arrestee.html"><a href="arrestee.html#disposition-for-juvenile-arrestees"><i class="fa fa-check"></i><b>16.6</b> Disposition for juvenile arrestees</a></li>
-<li class="chapter" data-level="16.7" data-path="arrestee.html"><a href="arrestee.html#demographics-3"><i class="fa fa-check"></i><b>16.7</b> Demographics</a>
-<ul>
-<li class="chapter" data-level="16.7.1" data-path="arrestee.html"><a href="arrestee.html#residence-status-1"><i class="fa fa-check"></i><b>16.7.1</b> Residence status</a></li>
-<li class="chapter" data-level="16.7.2" data-path="arrestee.html"><a href="arrestee.html#age-4"><i class="fa fa-check"></i><b>16.7.2</b> Age</a></li>
-<li class="chapter" data-level="16.7.3" data-path="arrestee.html"><a href="arrestee.html#sex-3"><i class="fa fa-check"></i><b>16.7.3</b> Sex</a></li>
-<li class="chapter" data-level="16.7.4" data-path="arrestee.html"><a href="arrestee.html#race-4"><i class="fa fa-check"></i><b>16.7.4</b> Race</a></li>
-<li class="chapter" data-level="16.7.5" data-path="arrestee.html"><a href="arrestee.html#ethnicity-4"><i class="fa fa-check"></i><b>16.7.5</b> Ethnicity</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="property.html"><a href="property.html"><i class="fa fa-check"></i><b>17</b> Property and Window Property Segment</a>
-<ul>
-<li class="chapter" data-level="17.1" data-path="property.html"><a href="property.html#propertyLoss"><i class="fa fa-check"></i><b>17.1</b> Type of property loss</a></li>
-<li class="chapter" data-level="17.2" data-path="property.html"><a href="property.html#description-of-property"><i class="fa fa-check"></i><b>17.2</b> Description of property</a></li>
-<li class="chapter" data-level="17.3" data-path="property.html"><a href="property.html#value-of-stolen-property"><i class="fa fa-check"></i><b>17.3</b> Value of stolen property</a></li>
-<li class="chapter" data-level="17.4" data-path="property.html"><a href="property.html#date-property-was-recovered"><i class="fa fa-check"></i><b>17.4</b> Date property was recovered</a></li>
-<li class="chapter" data-level="17.5" data-path="property.html"><a href="property.html#drugs"><i class="fa fa-check"></i><b>17.5</b> Drugs</a>
-<ul>
-<li class="chapter" data-level="17.5.1" data-path="property.html"><a href="property.html#suspected-drug-type"><i class="fa fa-check"></i><b>17.5.1</b> Suspected drug type</a></li>
-<li class="chapter" data-level="17.5.2" data-path="property.html"><a href="property.html#amount-of-drugs"><i class="fa fa-check"></i><b>17.5.2</b> Amount of drugs</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
       </nav>
@@ -459,39 +283,39 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="property" class="section level1 hasAnchor" number="17">
-<h1><span class="header-section-number">Chapter 17</span> Property and Window Property Segment<a href="property.html#property" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="property" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Property Segment<a href="property.html#property" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>The Property Segment provides a bit more info than would be expected from the name. For each item involved in the crime it tells you what category that items falls into, with 68 total categories (including “other”) ranging from explosives and pets to money and alcohol. It also tells you the estimated value of that item. This data covers more than just items stolen during a crime. For each item it tells you what happened to that item such as if it was stolen, damaged, seized by police (such as illegal items like drugs), recovered (from being stolen) by police, or burned during an arson.</p>
 <p>For drug offenses it includes the drugs seized by police. For these offenses, the data tells us the type of drug, with 16 different drug categories ranging from specific ones like marijuana or heroin to broader categories such as “other narcotics”. There can be up to three different drugs included in this data - if the person has more than three types of drugs seized then the third drug category will simply indicate that there are more than three drugs, so we learn what the first two drugs are but not the third or greater drugs are in these cases. For each drug we also know exactly how much was seized with one variable saying the amount the police found and another saying the units we should we reading that amount as (e.g. pills, grams, plants).</p>
 <p>In addition to the variables detailed below, this segment has the traditional agency and incident identifiers: the ORI code, the agency state, the year of this data, the incident number, and the incident date.</p>
 <p>The Window Property Segment has the same variables as the normal Property Segment but also has 10 variables on each of the offenses committed (up to 10 offenses) during the incident. This is really to try to provide a bit of information that you’d otherwise get from the other segments but don’t since this is a window segment. For the rest of this chapter I’ll be using examples from the Property Segment and not the Window Property.</p>
-<div id="propertyLoss" class="section level2 hasAnchor" number="17.1">
-<h2><span class="header-section-number">17.1</span> Type of property loss<a href="property.html#propertyLoss" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This segment contains information on all property involved in the incident, other than the weapon used by the offender. Property can be involved in multiple ways - such as being stolen, destroyed, or that the stolen property is recovered by the police - so NIBRS breaks this info into seven different categories (eight when including “unknown” type). Figure <a href="property.html#fig:propertyTypeLoss">17.1</a> shows each of these categories as how often they occur. The most common category, at 60.7% of the rows in this segment, is when the item is taken from the victim by the offender. This includes when the offender stole the item, took it by force in a robbery, tricked the victim (e.g. offender committed fraud), and any other way to illegal get the item (e.g. extortion, ransom, bribery). Though it includes all these types of ways to illegally take the item, it is often just called “stolen” property and I’ll refer to it as such in this chapter just for simplicity of writing.</p>
+<div id="propertyLoss" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Type of property loss<a href="property.html#propertyLoss" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This segment contains information on all property involved in the incident, other than the weapon used by the offender. Property can be involved in multiple ways - such as being stolen, destroyed, or that the stolen property is recovered by the police - so NIBRS breaks this info into seven different categories (eight when including “unknown” type). Figure <a href="property.html#fig:propertyTypeLoss">7.1</a> shows each of these categories as how often they occur. The most common category, at 60.7% of the rows in this segment, is when the item is taken from the victim by the offender. This includes when the offender stole the item, took it by force in a robbery, tricked the victim (e.g. offender committed fraud), and any other way to illegal get the item (e.g. extortion, ransom, bribery). Though it includes all these types of ways to illegally take the item, it is often just called “stolen” property and I will refer to it as such in this chapter just for simplicity of writing.</p>
 <p>The next most common group, at 13.3%, is when the item was seized by the police. This excludes items that were stolen and that the police recovered. It includes all types of property that the offender illegally had but is primary for drug crimes where the drug or drug equipment was seized. This segment also includes property damaged, destroyed, or vandalized by the offender and this type makes up 11.2% of the data. Following this, about 9% of rows are for recovered property which is when one of the previously stolen items is recovered by the police.</p>
-<p>Next is “none” which only means that no property was stolen or damaged but that it could have been. For example, if someone tries to grab a person’s purse but fails, that would be considered “none” since the purse wasn’t actually taken. The remaining types are when the item was a counterfeit/forgery, at 1.2%, was burned (such as during an arson) at 0.2%, or when the type of loss is unknown at 0.2%</p>
+<p>Next is “none” which only means that no property was stolen or damaged but that it could have been. For example, if someone tries to grab a person’s purse but fails, that would be considered “none” since the purse was not actually taken. The remaining types are when the item was a counterfeit/forgery, at 1.2%, was burned (such as during an arson) at 0.2%, or when the type of loss is unknown at 0.2%</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:propertyTypeLoss"></span>
 <img src="17_nibrs_property_files/figure-html/propertyTypeLoss-1.png" alt="The type of loss or if the item is recovered." width="90%" />
 <p class="caption">
-Figure 17.1: The type of loss or if the item is recovered.
+Figure 7.1: The type of loss or if the item is recovered.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsPropertyAgenciesReporting"></span>
 <img src="17_nibrs_property_files/figure-html/nibrsPropertyAgenciesReporting-1.png" alt="The annual number of agencies reporting data in the NIBRS Property Segment, 1991-2022." width="90%" />
 <p class="caption">
-Figure 17.2: The annual number of agencies reporting data in the NIBRS Property Segment, 1991-2022.
+Figure 7.2: The annual number of agencies reporting data in the NIBRS Property Segment, 1991-2022.
 </p>
 </div>
 </div>
-<div id="description-of-property" class="section level2 hasAnchor" number="17.2">
-<h2><span class="header-section-number">17.2</span> Description of property<a href="property.html#description-of-property" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>There are 68 different categories of properties (including the catch-all “other” category for anything not explicitly in a different category) that NIBRS covers. This also includes “identity - intangible” which means that someone stole the victim’s identity. Identity isn’t property since it’s not a physical thing but is nonetheless included here (items related to one’s identity such as social security cards are included in a different category called “identity documents”). Each of these categories can appear in any of the seven different types of property loss discussed above. For simplicity of writing, and because Table <a href="property.html#tab:propertyStolenDescription">17.1</a> covers items stolen, I’ll be talking below about items lost by being stolen, though everything does apply to other types of loss too.</p>
-<p>The property included in NIBRS can move from very broad categories like “merchandise” to more specific items such as livestock, aircraft, and pets. The property categories are mutually exclusive so a single item cannon be counted in different categories. If, for example, laptop is stolen that could potentially go in “computer hardware/software” or “office-type equipment” but it wouldn’t be in both, it would only be recorded in one of the two. In cases where multiple items of the same type are stolen - such as someone stealing multiple laptops in a single crime - we don’t actually know how many items were stolen. Just that at least one item of that category was stolen in the incident. We then know the total estimated value of the items stolen in that incident which we can use to estimate the number of items stolen (as long as the know the average value per item in that category) though this would be a very imprecise measure. The exception to this is for stolen vehicles where we know exactly how many were stolen and how many were recovered.</p>
-<p>Table <a href="property.html#tab:propertyStolenDescription">17.1</a> shows each of the 68 different types of property in NIBRS and shows the number of incidents where they were stolen for all incidents in the 2022 NIBRS data. Multiple different categories of property can be stolen in a single incident. The most common type of property stolen, at 14.3% of all property is “other” which isn’t really that helpful to us. We know it’s not one of the other 67 categories but not exactly what was stolen. Next, are money at 11.8% and then purses/handbags/wallets at 5.6%. This makes a lot of sense. People steal things for financial gain and the easiest way to get that gain is stealing money directly (or wallets and purses which often have money inside). Stealing property that you then have to sell or trade to get what you want (money or other property) is a lot harder, which is likely why it’s less common.</p>
-<p>There are about 4.8 million rows in the Property Segment where the item was stolen (the other 3.1 million rows are about property that was seized by police, recovered, damaged, or one of the other types of property loss detailed in Section <a href="property.html#propertyLoss">17.1</a>). As such, even items stolen very rarely can occur thousands or tens of thousands of times. For example, pets were the property stolen about 0.14% of the time and that tiny percent still accounts of 6,821 incidents with a pet stolen. Given the huge number of rows in this data - and as more agencies report to NIBRS this will grow quickly - it can be possible to study specific types of property, such as pets stolen, that wouldn’t be possible with a more narrow dataset (both in terms of how specific the items they include are, and the size of the data).</p>
+<div id="description-of-property" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Description of property<a href="property.html#description-of-property" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are 68 different categories of properties (including the catch-all “other” category for anything not explicitly in a different category) that NIBRS covers. This also includes “identity - intangible” which means that someone stole the victim’s identity. Identity is not property since it is not a physical thing but is nonetheless included here (items related to one’s identity such as social security cards are included in a different category called “identity documents”). Each of these categories can appear in any of the seven different types of property loss discussed above. For simplicity of writing, and because Table <a href="property.html#tab:propertyStolenDescription">7.1</a> covers items stolen, I will be talking below about items lost by being stolen, though everything does apply to other types of loss too.</p>
+<p>The property included in NIBRS can move from very broad categories like “merchandise” to more specific items such as livestock, aircraft, and pets. The property categories are mutually exclusive so a single item cannon be counted in different categories. If, for example, laptop is stolen that could potentially go in “computer hardware/software” or “office-type equipment” but it would not be in both, it would only be recorded in one of the two. In cases where multiple items of the same type are stolen - such as someone stealing multiple laptops in a single crime - we do not actually know how many items were stolen. Just that at least one item of that category was stolen in the incident. We then know the total estimated value of the items stolen in that incident which we can use to estimate the number of items stolen (as long as the know the average value per item in that category) though this would be a very imprecise measure. The exception to this is for stolen vehicles where we know exactly how many were stolen and how many were recovered.</p>
+<p>Table <a href="property.html#tab:propertyStolenDescription">7.1</a> shows each of the 68 different types of property in NIBRS and shows the number of incidents where they were stolen for all incidents in the 2022 NIBRS data. Multiple different categories of property can be stolen in a single incident. The most common type of property stolen, at 14.3% of all property is “other” which is not really that helpful to us. We know it is not one of the other 67 categories but not exactly what was stolen. Next, are money at 11.8% and then purses/handbags/wallets at 5.6%. This makes a lot of sense. People steal things for financial gain and the easiest way to get that gain is stealing money directly (or wallets and purses which often have money inside). Stealing property that you then have to sell or trade to get what you want (money or other property) is a lot harder, which is likely why it is less common.</p>
+<p>There are about 4.8 million rows in the Property Segment where the item was stolen (the other 3.1 million rows are about property that was seized by police, recovered, damaged, or one of the other types of property loss detailed in Section <a href="property.html#propertyLoss">7.1</a>). As such, even items stolen very rarely can occur thousands or tens of thousands of times. For example, pets were the property stolen about 0.14% of the time and that tiny percent still accounts of 6,821 incidents with a pet stolen. Given the huge number of rows in this data - and as more agencies report to NIBRS this will grow quickly - it can be possible to study specific types of property, such as pets stolen, that would not be possible with a more narrow dataset (both in terms of how specific the items they include are, and the size of the data).</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:propertyStolenDescription">Table 17.1: </span>The number and percent of property stolen (including forcibly taken such as during a robbery) in a crime, for all offenses in 2022. Each incident can have multiple items stolen.
+<span id="tab:propertyStolenDescription">Table 7.1: </span>The number and percent of property stolen (including forcibly taken such as during a robbery) in a crime, for all offenses in 2022. Each incident can have multiple items stolen.
 </caption>
 <thead>
 <tr>
@@ -1479,10 +1303,10 @@ Total
 </tbody>
 </table></li>
 </ul>
-<p>As seen in Table <a href="property.html#tab:propertySeizedDescription">17.2</a>, all of the 68 different types of properties available in NIBRS can and, in 2022, were seized by police during an incident at least once. This includes atypical property like building material, musical instruments, and pets (and leads me to think that at least some of this is incorrectly labeled as property seized by the police). The vast majority of property seized by police, however, is drugs. 63.2% of the property seized were drugs themselves while 27.3% were equipment related to the drugs. The remaining items were mostly “other” (i.e. anything not explicitly categorized here) at 2.6%, money at 2%, firearms at 0.9%, and then a bunch of very rarely seized items.</p>
+<p>As seen in Table <a href="property.html#tab:propertySeizedDescription">7.2</a>, all of the 68 different types of properties available in NIBRS can and, in 2022, were seized by police during an incident at least once. This includes atypical property like building material, musical instruments, and pets (and leads me to think that at least some of this is incorrectly labeled as property seized by the police). The vast majority of property seized by police, however, is drugs. 63.2% of the property seized were drugs themselves while 27.3% were equipment related to the drugs. The remaining items were mostly “other” (i.e. anything not explicitly categorized here) at 2.6%, money at 2%, firearms at 0.9%, and then a bunch of very rarely seized items.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:propertySeizedDescription">Table 17.2: </span>The number and percent of property seized by police (excludes recovering property that was stolen, for all offenses in 2022. Each incident can have multiple items seized.
+<span id="tab:propertySeizedDescription">Table 7.2: </span>The number and percent of property seized by police (excludes recovering property that was stolen, for all offenses in 2022. Each incident can have multiple items seized.
 </caption>
 <thead>
 <tr>
@@ -2260,27 +2084,27 @@ Total
 </tbody>
 </table>
 </div>
-<div id="value-of-stolen-property" class="section level2 hasAnchor" number="17.3">
-<h2><span class="header-section-number">17.3</span> Value of stolen property<a href="property.html#value-of-stolen-property" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For all types of property loss other than the property being seized by the police (and when the type is “unknown”) there is data on the estimated value of that property. This is estimates by the police but is supposed to be the current value of the item (e.g. a stolen car is what it currently sells for, not what the buyer bought it for) and is the cost it’ll take for the victim to replace the item. To be a bit more specific, this variable is the sum of items stolen in this category. For example, if someone burglarizes a house and steals three rings from the victim, this would not count as three thefts of a ring. It would be recorded as loss of jewelry and the value would be the total value of all three rings.</p>
-<p>The police can take the victim’s estimation into consideration but aren’t supposed to immediately accept it as victims may exaggerate values (especially for insurance purposes). When items are recovered, the police put in the value at the time of recovery which may be substantially different than at the time of the loss if the item is damaged or destroyed.</p>
-<p>We can use this variable to look at the value of items lost by the victim. Figure <a href="property.html#fig:propertyValuePropertyLevel">17.3</a> looks at the value per item stolen in a crime (if incidents have multiple items stolen, this counts them all separately). This includes items lost by theft, robbery, and burglary so is part of the “Stolen/Robbed/Etc.” category of types of property loss. It excludes items damaged or destroyed or burned (there is info about the value of property in these incidents but these are not shown in the figure). To make this graph a bit simpler I’ve rounded all values to the nearest $100 so items valued at $0 mean that they are worth between $1 and $50. I’ve also capped the largest value to $1,000,000 and set the x-axis on the log scale since the data skews very much to the right. The average item lost was worth $3,217 and the median was worth $150. Most items lost were relative cheap with 34.9% worth under $50 and 13.5% worth between $51 and $149. There is a sharp decline in the frequency of property stolen as the value increases. So while some extremely valuable items are lost during crimes, they are much less common than relatively low-value items.</p>
+<div id="value-of-stolen-property" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Value of stolen property<a href="property.html#value-of-stolen-property" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For all types of property loss other than the property being seized by the police (and when the type is “unknown”) there is data on the estimated value of that property. This is estimates by the police but is supposed to be the current value of the item (e.g. a stolen car is what it currently sells for, not what the buyer bought it for) and is the cost it will take for the victim to replace the item. To be a bit more specific, this variable is the sum of items stolen in this category. For example, if someone burglarizes a house and steals three rings from the victim, this would not count as three thefts of a ring. It would be recorded as loss of jewelry and the value would be the total value of all three rings.</p>
+<p>The police can take the victim’s estimation into consideration but are not supposed to immediately accept it as victims may exaggerate values (especially for insurance purposes). When items are recovered, the police put in the value at the time of recovery which may be substantially different than at the time of the loss if the item is damaged or destroyed.</p>
+<p>We can use this variable to look at the value of items lost by the victim. Figure <a href="property.html#fig:propertyValuePropertyLevel">7.3</a> looks at the value per item stolen in a crime (if incidents have multiple items stolen, this counts them all separately). This includes items lost by theft, robbery, and burglary so is part of the “Stolen/Robbed/Etc.” category of types of property loss. It excludes items damaged or destroyed or burned (there is info about the value of property in these incidents but these are not shown in the figure). To make this graph a bit simpler I have rounded all values to the nearest $100 so items valued at $0 mean that they are worth between $1 and $50. I have also capped the largest value to $1,000,000 and set the x-axis on the log scale since the data skews very much to the right. The average item lost was worth $3,217 and the median was worth $150. Most items lost were relative cheap with 34.9% worth under $50 and 13.5% worth between $51 and $149. There is a sharp decline in the frequency of property stolen as the value increases. So while some extremely valuable items are lost during crimes, they are much less common than relatively low-value items.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:propertyValuePropertyLevel"></span>
 <img src="17_nibrs_property_files/figure-html/propertyValuePropertyLevel-1.png" alt="The distribution of the value of property stolen. Values are capped at 1,000,000 and each value is rounded to the nearest 100. The x-axis is set on the log scale as this distribution is hugely right skewed." width="90%" />
 <p class="caption">
-Figure 17.3: The distribution of the value of property stolen. Values are capped at 1,000,000 and each value is rounded to the nearest 100. The x-axis is set on the log scale as this distribution is hugely right skewed.
+Figure 7.3: The distribution of the value of property stolen. Values are capped at 1,000,000 and each value is rounded to the nearest 100. The x-axis is set on the log scale as this distribution is hugely right skewed.
 </p>
 </div>
-<p>Since multiple items can be stolen in a single incident, to better understand the cost of crime for the victim we probably want to add up all of the property to the incident-level. Figure <a href="property.html#fig:propertyValuePropertyLevel">17.3</a> does this and shows the cost of property stolen per incident. The trend is nearly identical to Figure <a href="property.html#tab:propertySeizedDescription">17.2</a> but the value is a bit higher than before. Now fewer than a quarter of incidents result in a loss of &lt;$50 and the average cost per incident is $4,731 (median = $300).</p>
+<p>Since multiple items can be stolen in a single incident, to better understand the cost of crime for the victim we probably want to add up all of the property to the incident-level. Figure <a href="property.html#fig:propertyValuePropertyLevel">7.3</a> does this and shows the cost of property stolen per incident. The trend is nearly identical to Figure <a href="property.html#tab:propertySeizedDescription">7.2</a> but the value is a bit higher than before. Now fewer than a quarter of incidents result in a loss of &lt;$50 and the average cost per incident is $4,731 (median = $300).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:propertyValueIncidentLevel"></span>
 <img src="17_nibrs_property_files/figure-html/propertyValueIncidentLevel-1.png" alt="The incident-level distribution of the value of property stolen. As values are aggregated to the incident-level, these are higher than the above graph which shows each item individually. Values are capped at 1,000,000 and each value is rounded to the nearest 100. The x-axis is set on the log scale as this distribution is hugely right skewed." width="90%" />
 <p class="caption">
-Figure 17.4: The incident-level distribution of the value of property stolen. As values are aggregated to the incident-level, these are higher than the above graph which shows each item individually. Values are capped at 1,000,000 and each value is rounded to the nearest 100. The x-axis is set on the log scale as this distribution is hugely right skewed.
+Figure 7.4: The incident-level distribution of the value of property stolen. As values are aggregated to the incident-level, these are higher than the above graph which shows each item individually. Values are capped at 1,000,000 and each value is rounded to the nearest 100. The x-axis is set on the log scale as this distribution is hugely right skewed.
 </p>
 </div>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:nibrsPropertyStolenValue">Table 17.3: </span>Annual mean, median, and maximum values (in dollars) of property stolen and recovered, 1991-2022.
+<span id="tab:nibrsPropertyStolenValue">Table 7.3: </span>Annual mean, median, and maximum values (in dollars) of property stolen and recovered, 1991-2022.
 </caption>
 <thead>
 <tr>
@@ -3049,34 +2873,34 @@ Max Value Recovered
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsPropertyMaxValuePercent"></span>
 <img src="17_nibrs_property_files/figure-html/nibrsPropertyMaxValuePercent-1.png" alt="Annual percent of the value of all property stolen that is made up of the value that is the maximum dollar amount reported in that year, 1991-2022." width="90%" />
 <p class="caption">
-Figure 17.5: Annual percent of the value of all property stolen that is made up of the value that is the maximum dollar amount reported in that year, 1991-2022.
+Figure 7.5: Annual percent of the value of all property stolen that is made up of the value that is the maximum dollar amount reported in that year, 1991-2022.
 </p>
 </div>
 </div>
-<div id="date-property-was-recovered" class="section level2 hasAnchor" number="17.4">
-<h2><span class="header-section-number">17.4</span> Date property was recovered<a href="property.html#date-property-was-recovered" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This segment tells us both when the incident happened and, for stolen property, when the item was recovered. We can use this to look at how long it generally takes for property to be recovered (though most property stolen is never recovered). Figure <a href="property.html#fig:propertyDaysUntilRecovered">17.6</a> shows the number of days it takes for property to be recovered. Though this data gives us the exact date, allowing for the precise number of days from property loss to recovery, this graph groups days greater than nine days to simplify the graph. The maximum number of days in the 2022 NIBRS data is 450 days so showing all days would be a rather unhelpful graph.</p>
-<p>The majority - 60.8% - of property lost is recovered on the same day, which is shown as zero days. We saw in Figure <a href="arrestee.html#fig:arrestsDaysUntilArrest">16.2</a> that the vast majority of arrests happen on the same day as the incident so it makes sense the most property would too.<a href="#fn108" class="footnote-ref" id="fnref108"><sup>108</sup></a> A smaller and smaller share of property is recovered as the number of days from the incident increase, a trend also found in the time to arrest graph. The lesson here seems to be that if you’re a victim of a crime and had something taken, unless it’s recovered very quickly it’s unlikely to be recovered at all.</p>
+<div id="date-property-was-recovered" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Date property was recovered<a href="property.html#date-property-was-recovered" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This segment tells us both when the incident happened and, for stolen property, when the item was recovered. We can use this to look at how long it generally takes for property to be recovered (though most property stolen is never recovered). Figure <a href="property.html#fig:propertyDaysUntilRecovered">7.6</a> shows the number of days it takes for property to be recovered. Though this data gives us the exact date, allowing for the precise number of days from property loss to recovery, this graph groups days greater than nine days to simplify the graph. The maximum number of days in the 2022 NIBRS data is 450 days so showing all days would be a rather unhelpful graph.</p>
+<p>The majority - 60.8% - of property lost is recovered on the same day, which is shown as zero days. We saw in Figure <a href="arrestee.html#fig:arrestsDaysUntilArrest">6.1</a> that the vast majority of arrests happen on the same day as the incident so it makes sense the most property would too.<a href="#fn34" class="footnote-ref" id="fnref34"><sup>34</sup></a> A smaller and smaller share of property is recovered as the number of days from the incident increase, a trend also found in the time to arrest graph. The lesson here seems to be that if you are a victim of a crime and had something taken, unless it is recovered very quickly it is unlikely to be recovered at all.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:propertyDaysUntilRecovered"></span>
 <img src="17_nibrs_property_files/figure-html/propertyDaysUntilRecovered-1.png" alt="The distribution of the number of days from the incident to the property recovered date. In 2022 the maximum days from incident to arrest was 456 days. Zero days means that the arrest occurred on the same day as the incident. " width="90%" />
 <p class="caption">
-Figure 17.6: The distribution of the number of days from the incident to the property recovered date. In 2022 the maximum days from incident to arrest was 456 days. Zero days means that the arrest occurred on the same day as the incident.
+Figure 7.6: The distribution of the number of days from the incident to the property recovered date. In 2022 the maximum days from incident to arrest was 456 days. Zero days means that the arrest occurred on the same day as the incident.
 </p>
 </div>
 </div>
-<div id="drugs" class="section level2 hasAnchor" number="17.5">
-<h2><span class="header-section-number">17.5</span> Drugs<a href="property.html#drugs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This segment also provides information about drugs seized by the police. This also includes cases where the police would have seized the drugs if the offender didn’t destroy it somehow, such as flushing it down the toilet. For each drug seized there is information on what type of drug it was and how much of the drug was seized. There can be up to three drugs seized in an incident and data is available for each type of drug. The exception, however, is when there are more than three drugs seized in an incident. In that case, info on the third drug just says that there were more than three drugs involved. So you’d have info on the first two drugs but none on the third through however many (and it doesn’t say how many) drugs. For the below table and figure I only look at the first drug seized, so the numbers shown are undercounts.</p>
+<div id="drugs" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Drugs<a href="property.html#drugs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This segment also provides information about drugs seized by the police. This also includes cases where the police would have seized the drugs if the offender did not destroy it somehow, such as flushing it down the toilet. For each drug seized there is information on what type of drug it was and how much of the drug was seized. There can be up to three drugs seized in an incident and data is available for each type of drug. The exception, however, is when there are more than three drugs seized in an incident. In that case, info on the third drug just says that there were more than three drugs involved. So you would have info on the first two drugs but none on the third through however many (and it does not say how many) drugs. For the below table and figure I only look at the first drug seized, so the numbers shown are undercounts.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsPropertySeizures"></span>
 <img src="17_nibrs_property_files/figure-html/nibrsPropertySeizures-1.png" alt="The annual number of drug seizures reported, 1991-2022." width="90%" />
 <p class="caption">
-Figure 17.7: The annual number of drug seizures reported, 1991-2022.
+Figure 7.7: The annual number of drug seizures reported, 1991-2022.
 </p>
 </div>
 <p>The ordering of drugs when there are multiple drugs is based on how much drugs were recovered and the seriousness of the drugs. For example, heroin is probably considered more serious than marijuana, but overall ranking of drugs is a subjective assessment depending on the department. Is heroin more serious than meth? That decision likely varies by the agency and their situation in regard to what drugs they often seize.</p>
-<div id="suspected-drug-type" class="section level3 hasAnchor" number="17.5.1">
-<h3><span class="header-section-number">17.5.1</span> Suspected drug type<a href="property.html#suspected-drug-type" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The drugs in NIBRS are the “suspected drug types” which means that they are what the police believe the drugs to be, even if there is not definitive proof (such as a crime lab testing for what type of drug it is) that the drug is what they say it is. There are 15 possible drug types in NIBRS (16 when including “unknown drug type”) and each is shown in Table <a href="property.html#tab:propertyDrugs">17.4</a> along with how often they occur in the data. Some of these drug types are specific enough to only include a single drug while others are groups of drug types, such as hallucinogens or stimulants (and they include all of these types other than specifically stated drugs).</p>
+<div id="suspected-drug-type" class="section level3 hasAnchor" number="7.5.1">
+<h3><span class="header-section-number">7.5.1</span> Suspected drug type<a href="property.html#suspected-drug-type" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The drugs in NIBRS are the “suspected drug types” which means that they are what the police believe the drugs to be, even if there is not definitive proof (such as a crime lab testing for what type of drug it is) that the drug is what they say it is. There are 15 possible drug types in NIBRS (16 when including “unknown drug type”) and each is shown in Table <a href="property.html#tab:propertyDrugs">7.4</a> along with how often they occur in the data. Some of these drug types are specific enough to only include a single drug while others are groups of drug types, such as hallucinogens or stimulants (and they include all of these types other than specifically stated drugs).</p>
 <ul>
 <li>Amphetamines/Methamphetamines</li>
 <li>Barbiturates</li>
@@ -3099,7 +2923,7 @@ Figure 17.7: The annual number of drug seizures reported, 1991-2022.
 <p>Not too surprising, marijuana is the most common drug seized at 47% - or 455k incidents with it seized - of the data. This is followed by amphetamines/methamphetamines (including what we’d normally just call meth) at 20.7% and then heroin at 8.5%. Interestingly, cocaine and crack cocaine (which are always separate categories) both occur in 5.09% of drugs seized. Given the large disparity in sentences for these types of drugs, and that “crack wars” were a major purported cause of violent crime in the 1980s and 1990s, I expected crack cocaine to be much more common than normal cocaine. The remaining drug types are all less than 5% of drugs seized each and has some groupings of drug types (e.g. stimulants) rather than specific drug types (though some of these categories, such as LSD, are specific drugs).</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:propertyDrugs">Table 17.4: </span>The number and percent of drugs seized by police by type of drug, for all drugs seized in 2022.
+<span id="tab:propertyDrugs">Table 7.4: </span>The number and percent of drugs seized by police by type of drug, for all drugs seized in 2022.
 </caption>
 <thead>
 <tr>
@@ -3376,12 +3200,12 @@ Total
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsPropertyDrugType"></span>
 <img src="17_nibrs_property_files/figure-html/nibrsPropertyDrugType-1.png" alt="Annual percent of drug seizures by drug type, for the 1st drug reported, 1991-2022." width="90%" />
 <p class="caption">
-Figure 17.8: Annual percent of drug seizures by drug type, for the 1st drug reported, 1991-2022.
+Figure 7.8: Annual percent of drug seizures by drug type, for the 1st drug reported, 1991-2022.
 </p>
 </div>
 </div>
-<div id="amount-of-drugs" class="section level3 hasAnchor" number="17.5.2">
-<h3><span class="header-section-number">17.5.2</span> Amount of drugs<a href="property.html#amount-of-drugs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="amount-of-drugs" class="section level3 hasAnchor" number="7.5.2">
+<h3><span class="header-section-number">7.5.2</span> Amount of drugs<a href="property.html#amount-of-drugs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For each drug type we know exactly how much was seized (at least we do other than for the 6.7% where the amount is “not reported”). Since different drug types are measured in different ways, this data also tells us what units the amount seized is in. So you’ll need to look at both the amount and the units to understand how much drugs were actually seized. The possible units are listed below:</p>
 <ul>
 <li>Dosage Unit/Items (Pills, Etc.)</li>
@@ -3399,22 +3223,61 @@ Figure 17.8: Annual percent of drug seizures by drug type, for the 1st drug repo
 <li>Ounce</li>
 <li>Pound</li>
 </ul>
-<p>Once you know the units you can look at the amount of drugs seized. The amount is specific up to the thousandths place though the integer and the numbers after the decimal point are actually in different columns in the data. For example, if police seized 1.257 grams of heroin, the 1 gram and the 0.257 grams would be in separate columns. As an example, we’ll look at Figure <a href="property.html#fig:propertyMarijuanaGramMeasures">17.9</a> which shows the number of grams seized for marijuana. This is only looking at the column with the amount in integers, so parts of a gram are excluded (but are available in the data). This also excludes any case where the marijuana seized was measured in a unit other than gram, such as number of plants, ounces, or pounds. Even though the data shows the number of grams as actual integers, not grouped at all, I do group the larger values together to make the graph simpler.</p>
-<p>So with those caveats, we can see what amounts of marijuana, measured in grams, are most frequently seized. Generally, the amount of marijuana seized is in small amounts with 22.5% being 1-2 grams (since we don’t include the parts of a gram we can only say that it is 1 to 1.999 grams) and 18.6% being less than one gram. As the amount of drugs increase, the percent of seizures that involve this number of drugs decreases. It’s a bit curious that they include grams for values over 28 since 28.3495 grams is one ounce so it’d make sense to just start reporting in units of ounces instead of just increasingly large number of grams.</p>
+<p>Once you know the units you can look at the amount of drugs seized. The amount is specific up to the thousandths place though the integer and the numbers after the decimal point are actually in different columns in the data. For example, if police seized 1.257 grams of heroin, the 1 gram and the 0.257 grams would be in separate columns. As an example, we will look at Figure <a href="property.html#fig:propertyMarijuanaGramMeasures">7.9</a> which shows the number of grams seized for marijuana. This is only looking at the column with the amount in integers, so parts of a gram are excluded (but are available in the data). This also excludes any case where the marijuana seized was measured in a unit other than gram, such as number of plants, ounces, or pounds. Even though the data shows the number of grams as actual integers, not grouped at all, I do group the larger values together to make the graph simpler.</p>
+<p>So with those caveats, we can see what amounts of marijuana, measured in grams, are most frequently seized. Generally, the amount of marijuana seized is in small amounts with 22.5% being 1-2 grams (since we do not include the parts of a gram we can only say that it is 1 to 1.999 grams) and 18.6% being less than one gram. As the amount of drugs increase, the percent of seizures that involve this number of drugs decreases. It’s a bit curious that they include grams for values over 28 since 28.3495 grams is one ounce so it’d make sense to just start reporting in units of ounces instead of just increasingly large number of grams.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:propertyMarijuanaGramMeasures"></span>
 <img src="17_nibrs_property_files/figure-html/propertyMarijuanaGramMeasures-1.png" alt="For drugs seized that are measured in grams, this figure shows the distribution in the number of grams seized. Values over 10 grams are grouped together for easier interpretation of lower values of drugs seized." width="90%" />
 <p class="caption">
-Figure 17.9: For drugs seized that are measured in grams, this figure shows the distribution in the number of grams seized. Values over 10 grams are grouped together for easier interpretation of lower values of drugs seized.
+Figure 7.9: For drugs seized that are measured in grams, this figure shows the distribution in the number of grams seized. Values over 10 grams are grouped together for easier interpretation of lower values of drugs seized.
 </p>
 </div>
 
 </div>
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="footnotes">
 <hr />
-<ol start="108">
-<li id="fn108"><p>I’d expect most property to be recovered on the arrestee’s body.<a href="property.html#fnref108" class="footnote-back">↩︎</a></p></li>
+<ol start="34">
+<li id="fn34"><p>I would expect most property to be recovered on the arrestee’s body.<a href="property.html#fnref34" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -3422,8 +3285,8 @@ Figure 17.9: For drugs seized that are measured in grams, this figure shows the 
           </div>
         </div>
       </div>
-<a href="arrestee.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="arrestee.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,4 +1,4 @@
-# Property and Window Property Segment {#property}
+# Property Segment {#property}
 
 ```{r, echo=FALSE}
 knitr::opts_chunk$set(

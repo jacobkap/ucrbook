@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 8 Arson | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</title>
+  <title>Chapter 3 Arson | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 8 Arson | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta property="og:title" content="Chapter 3 Arson | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="github-repo" content="jacobkap/ucrbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 8 Arson | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta name="twitter:title" content="Chapter 3 Arson | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
   
   <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   
@@ -23,14 +23,14 @@
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2024-09-11" />
+<meta name="date" content="2024-09-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="leoka.html"/>
+<link rel="prev" href="shr.html"/>
 <link rel="next" href="hate_crimes.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -134,29 +134,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -204,244 +181,91 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
-<li class="part"><span><b>II Summary Reporting System (SRS)</b></span></li>
-<li class="chapter" data-level="2" data-path="SRSGeneral.html"><a href="SRSGeneral.html"><i class="fa fa-check"></i><b>2</b> SRS Overview</a>
+<li class="chapter" data-level="2" data-path="shr.html"><a href="shr.html"><i class="fa fa-check"></i><b>2</b> Supplementary Homicide Reports (SHR)</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#crimes-included-in-the-srs-datasets"><i class="fa fa-check"></i><b>2.1</b> Crimes included in the SRS datasets</a></li>
-<li class="chapter" data-level="2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#a-summary-of-each-srs-dataset"><i class="fa fa-check"></i><b>2.2</b> A summary of each SRS dataset</a>
+<li class="chapter" data-level="2.1" data-path="shr.html"><a href="shr.html#agencies-reporting"><i class="fa fa-check"></i><b>2.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="2.2" data-path="shr.html"><a href="shr.html#important-variables"><i class="fa fa-check"></i><b>2.2</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#offenses-known-and-clearances-by-arrest-1960---present"><i class="fa fa-check"></i><b>2.2.1</b> Offenses Known and Clearances by Arrest (1960 - present)</a></li>
-<li class="chapter" data-level="2.2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#arrests-by-age-sex-and-race-1974---present"><i class="fa fa-check"></i><b>2.2.2</b> Arrests by Age, Sex, and Race (1974 - present)</a></li>
-<li class="chapter" data-level="2.2.3" data-path="SRSGeneral.html"><a href="SRSGeneral.html#law-enforcement-officers-killed-and-assaulted-leoka-1960---present"><i class="fa fa-check"></i><b>2.2.3</b> Law Enforcement Officers Killed and Assaulted (LEOKA) (1960 - present)</a></li>
-<li class="chapter" data-level="2.2.4" data-path="SRSGeneral.html"><a href="SRSGeneral.html#supplementary-homicide-reports-shr"><i class="fa fa-check"></i><b>2.2.4</b> Supplementary Homicide Reports (SHR)</a></li>
-<li class="chapter" data-level="2.2.5" data-path="SRSGeneral.html"><a href="SRSGeneral.html#hate-crime-data-1991---present"><i class="fa fa-check"></i><b>2.2.5</b> Hate Crime Data (1991 - present)</a></li>
-<li class="chapter" data-level="2.2.6" data-path="SRSGeneral.html"><a href="SRSGeneral.html#property-stolen-and-recovered-supplement-to-return-a-1960---present"><i class="fa fa-check"></i><b>2.2.6</b> Property Stolen and Recovered (Supplement to Return A) (1960 - present)</a></li>
-<li class="chapter" data-level="2.2.7" data-path="SRSGeneral.html"><a href="SRSGeneral.html#arson-1979---present"><i class="fa fa-check"></i><b>2.2.7</b> Arson (1979 - present)</a></li>
+<li class="chapter" data-level="2.2.1" data-path="shr.html"><a href="shr.html#demographics"><i class="fa fa-check"></i><b>2.2.1</b> Demographics</a></li>
+<li class="chapter" data-level="2.2.2" data-path="shr.html"><a href="shr.html#case-characteristics"><i class="fa fa-check"></i><b>2.2.2</b> Case characteristics</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="offensesKnown.html"><a href="offensesKnown.html"><i class="fa fa-check"></i><b>3</b> Offenses Known and Clearances by Arrest</a>
+<li class="chapter" data-level="3" data-path="arsonChapter.html"><a href="arsonChapter.html"><i class="fa fa-check"></i><b>3</b> Arson</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="offensesKnown.html"><a href="offensesKnown.html#indexCrimesOffensesKnown"><i class="fa fa-check"></i><b>3.1</b> Which crimes are included?</a>
+<li class="chapter" data-level="3.1" data-path="arsonChapter.html"><a href="arsonChapter.html#agencies-reporting-1"><i class="fa fa-check"></i><b>3.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="3.2" data-path="arsonChapter.html"><a href="arsonChapter.html#important-variables-1"><i class="fa fa-check"></i><b>3.2</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="offensesKnown.html"><a href="offensesKnown.html#hierarchy"><i class="fa fa-check"></i><b>3.1.1</b> Hierarchy Rule</a></li>
-<li class="chapter" data-level="3.1.2" data-path="offensesKnown.html"><a href="offensesKnown.html#indexCrimes"><i class="fa fa-check"></i><b>3.1.2</b> Index (“Part 1”) crimes</a></li>
+<li class="chapter" data-level="3.2.1" data-path="arsonChapter.html"><a href="arsonChapter.html#arsonType"><i class="fa fa-check"></i><b>3.2.1</b> Types of arsons</a></li>
+<li class="chapter" data-level="3.2.2" data-path="arsonChapter.html"><a href="arsonChapter.html#actual-arsons"><i class="fa fa-check"></i><b>3.2.2</b> Actual arsons</a></li>
+<li class="chapter" data-level="3.2.3" data-path="arsonChapter.html"><a href="arsonChapter.html#unfounded-arsons"><i class="fa fa-check"></i><b>3.2.3</b> Unfounded arsons</a></li>
+<li class="chapter" data-level="3.2.4" data-path="arsonChapter.html"><a href="arsonChapter.html#reported-arsons"><i class="fa fa-check"></i><b>3.2.4</b> Reported arsons</a></li>
+<li class="chapter" data-level="3.2.5" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-arsons"><i class="fa fa-check"></i><b>3.2.5</b> Cleared arsons</a></li>
+<li class="chapter" data-level="3.2.6" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-for-arsons-where-all-offenders-are-under-age-18"><i class="fa fa-check"></i><b>3.2.6</b> Cleared for arsons where all offenders are under age 18</a></li>
+<li class="chapter" data-level="3.2.7" data-path="arsonChapter.html"><a href="arsonChapter.html#uninhabited-building-arsons"><i class="fa fa-check"></i><b>3.2.7</b> Uninhabited building arsons</a></li>
+<li class="chapter" data-level="3.2.8" data-path="arsonChapter.html"><a href="arsonChapter.html#estimated-damage-cost"><i class="fa fa-check"></i><b>3.2.8</b> Estimated damage cost</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="offensesKnown.html"><a href="offensesKnown.html#offensesKnownReporting"><i class="fa fa-check"></i><b>3.2</b> Agencies reporting</a></li>
-<li class="chapter" data-level="3.3" data-path="offensesKnown.html"><a href="offensesKnown.html#negative-numbers"><i class="fa fa-check"></i><b>3.3</b> Negative numbers</a></li>
-<li class="chapter" data-level="3.4" data-path="offensesKnown.html"><a href="offensesKnown.html#important-variables"><i class="fa fa-check"></i><b>3.4</b> Important variables</a>
-<ul>
-<li class="chapter" data-level="3.4.1" data-path="offensesKnown.html"><a href="offensesKnown.html#actual"><i class="fa fa-check"></i><b>3.4.1</b> Actual crimes</a></li>
-<li class="chapter" data-level="3.4.2" data-path="offensesKnown.html"><a href="offensesKnown.html#clearedCrimes"><i class="fa fa-check"></i><b>3.4.2</b> Total cleared crimes</a></li>
-<li class="chapter" data-level="3.4.3" data-path="offensesKnown.html"><a href="offensesKnown.html#crimes-cleared-where-all-offenders-are-under-18-years-old"><i class="fa fa-check"></i><b>3.4.3</b> Crimes cleared where all offenders are under 18 years old</a></li>
-<li class="chapter" data-level="3.4.4" data-path="offensesKnown.html"><a href="offensesKnown.html#unfounded"><i class="fa fa-check"></i><b>3.4.4</b> Unfounded crimes</a></li>
+<li class="chapter" data-level="3.3" data-path="arsonChapter.html"><a href="arsonChapter.html#data-errors"><i class="fa fa-check"></i><b>3.3</b> Data errors</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="offensesKnown.html"><a href="offensesKnown.html#important-changes"><i class="fa fa-check"></i><b>3.5</b> Important changes</a>
+<li class="chapter" data-level="4" data-path="hate_crimes.html"><a href="hate_crimes.html"><i class="fa fa-check"></i><b>4</b> Hate Crime Data</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="offensesKnown.html"><a href="offensesKnown.html#rape-definition-change"><i class="fa fa-check"></i><b>3.5.1</b> Rape definition change</a></li>
-<li class="chapter" data-level="3.5.2" data-path="offensesKnown.html"><a href="offensesKnown.html#the-decline-of-manslaughter"><i class="fa fa-check"></i><b>3.5.2</b> The decline of manslaughter</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="stolen_property.html"><a href="stolen_property.html"><i class="fa fa-check"></i><b>4</b> Property Stolen and Recovered (Supplement to Return A)</a>
+<li class="chapter" data-level="4.1" data-path="hate_crimes.html"><a href="hate_crimes.html#agencies-reporting-2"><i class="fa fa-check"></i><b>4.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="4.2" data-path="hate_crimes.html"><a href="hate_crimes.html#treeOfLife"><i class="fa fa-check"></i><b>4.2</b> Tree of Life synagogue shooting</a></li>
+<li class="chapter" data-level="4.3" data-path="hate_crimes.html"><a href="hate_crimes.html#important-variables-2"><i class="fa fa-check"></i><b>4.3</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="stolen_property.html"><a href="stolen_property.html#agencies-reporting"><i class="fa fa-check"></i><b>4.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="4.2" data-path="stolen_property.html"><a href="stolen_property.html#important-variables-1"><i class="fa fa-check"></i><b>4.2</b> Important variables</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="stolen_property.html"><a href="stolen_property.html#propertycount"><i class="fa fa-check"></i><b>4.2.1</b> A more detailed breakdown of property (and robbery) crimes</a></li>
-<li class="chapter" data-level="4.2.2" data-path="stolen_property.html"><a href="stolen_property.html#the-value-of-property-stolen-in-property-and-robbery-crimes"><i class="fa fa-check"></i><b>4.2.2</b> The value of property stolen in property (and robbery) crimes</a></li>
-<li class="chapter" data-level="4.2.3" data-path="stolen_property.html"><a href="stolen_property.html#value-of-recovered-property-by-type-of-item-stolen"><i class="fa fa-check"></i><b>4.2.3</b> Value of recovered property by type of item stolen</a></li>
-</ul></li>
-<li class="chapter" data-level="4.3" data-path="stolen_property.html"><a href="stolen_property.html#data-errors"><i class="fa fa-check"></i><b>4.3</b> Data errors</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="arrests.html"><a href="arrests.html"><i class="fa fa-check"></i><b>5</b> Arrests by Age, Sex, and Race</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="arrests.html"><a href="arrests.html#agencies-reporting-1"><i class="fa fa-check"></i><b>5.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="5.2" data-path="arrests.html"><a href="arrests.html#what-is-an-arrest-what-unit-is-this-data-in"><i class="fa fa-check"></i><b>5.2</b> What is an arrest? (what unit is this data in?)</a>
-<ul>
-<li class="chapter" data-level="5.2.1" data-path="arrests.html"><a href="arrests.html#the-hierarchy-rule"><i class="fa fa-check"></i><b>5.2.1</b> The Hierarchy Rule</a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="arrests.html"><a href="arrests.html#arrestsCrimesIncluded"><i class="fa fa-check"></i><b>5.3</b> Crimes included</a></li>
-<li class="chapter" data-level="5.4" data-path="arrests.html"><a href="arrests.html#important-variables-2"><i class="fa fa-check"></i><b>5.4</b> Important variables</a>
-<ul>
-<li class="chapter" data-level="5.4.1" data-path="arrests.html"><a href="arrests.html#age"><i class="fa fa-check"></i><b>5.4.1</b> Age</a></li>
-<li class="chapter" data-level="5.4.2" data-path="arrests.html"><a href="arrests.html#race"><i class="fa fa-check"></i><b>5.4.2</b> Race</a></li>
-<li class="chapter" data-level="5.4.3" data-path="arrests.html"><a href="arrests.html#ethnicity"><i class="fa fa-check"></i><b>5.4.3</b> Ethnicity</a></li>
-<li class="chapter" data-level="5.4.4" data-path="arrests.html"><a href="arrests.html#juvenile-referrals"><i class="fa fa-check"></i><b>5.4.4</b> Juvenile referrals</a></li>
+<li class="chapter" data-level="4.3.1" data-path="hate_crimes.html"><a href="hate_crimes.html#date-and-time"><i class="fa fa-check"></i><b>4.3.1</b> Date and time</a></li>
+<li class="chapter" data-level="4.3.2" data-path="hate_crimes.html"><a href="hate_crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>4.3.2</b> The bias motivation (who the hate is against)</a></li>
+<li class="chapter" data-level="4.3.3" data-path="hate_crimes.html"><a href="hate_crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>4.3.3</b> The crime that occurred</a></li>
+<li class="chapter" data-level="4.3.4" data-path="hate_crimes.html"><a href="hate_crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>4.3.4</b> The location of the crime</a></li>
+<li class="chapter" data-level="4.3.5" data-path="hate_crimes.html"><a href="hate_crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>4.3.5</b> Number and race of offenders</a></li>
+<li class="chapter" data-level="4.3.6" data-path="hate_crimes.html"><a href="hate_crimes.html#number-of-victims"><i class="fa fa-check"></i><b>4.3.6</b> Number of victims</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="shr.html"><a href="shr.html"><i class="fa fa-check"></i><b>6</b> Supplementary Homicide Reports (SHR)</a>
+<li class="chapter" data-level="5" data-path="administrative-segment.html"><a href="administrative-segment.html"><i class="fa fa-check"></i><b>5</b> Administrative Segment</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="shr.html"><a href="shr.html#agencies-reporting-2"><i class="fa fa-check"></i><b>6.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="6.2" data-path="shr.html"><a href="shr.html#important-variables-3"><i class="fa fa-check"></i><b>6.2</b> Important variables</a>
+<li class="chapter" data-level="5.1" data-path="administrative-segment.html"><a href="administrative-segment.html#the-incident-and-report-date"><i class="fa fa-check"></i><b>5.1</b> The incident and report date</a></li>
+<li class="chapter" data-level="5.2" data-path="administrative-segment.html"><a href="administrative-segment.html#hour-of-incident"><i class="fa fa-check"></i><b>5.2</b> Hour of incident</a></li>
+<li class="chapter" data-level="5.3" data-path="administrative-segment.html"><a href="administrative-segment.html#exceptional-clearance"><i class="fa fa-check"></i><b>5.3</b> Exceptional clearance</a></li>
+<li class="chapter" data-level="5.4" data-path="administrative-segment.html"><a href="administrative-segment.html#number-of-other-segments"><i class="fa fa-check"></i><b>5.4</b> Number of other segments</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="shr.html"><a href="shr.html#demographics"><i class="fa fa-check"></i><b>6.2.1</b> Demographics</a></li>
-<li class="chapter" data-level="6.2.2" data-path="shr.html"><a href="shr.html#case-characteristics"><i class="fa fa-check"></i><b>6.2.2</b> Case characteristics</a></li>
+<li class="chapter" data-level="5.4.1" data-path="administrative-segment.html"><a href="administrative-segment.html#offense-segments"><i class="fa fa-check"></i><b>5.4.1</b> Offense Segments</a></li>
+<li class="chapter" data-level="5.4.2" data-path="administrative-segment.html"><a href="administrative-segment.html#offender-segments"><i class="fa fa-check"></i><b>5.4.2</b> Offender Segments</a></li>
+<li class="chapter" data-level="5.4.3" data-path="administrative-segment.html"><a href="administrative-segment.html#victim-segments"><i class="fa fa-check"></i><b>5.4.3</b> Victim Segments</a></li>
+<li class="chapter" data-level="5.4.4" data-path="administrative-segment.html"><a href="administrative-segment.html#arrestee-segments"><i class="fa fa-check"></i><b>5.4.4</b> Arrestee Segments</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="leoka.html"><a href="leoka.html"><i class="fa fa-check"></i><b>7</b> Law Enforcement Officers Killed and Assaulted (LEOKA)</a>
+<li class="chapter" data-level="6" data-path="arrestee.html"><a href="arrestee.html"><i class="fa fa-check"></i><b>6</b> Arrestee and Group B Arrestee</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="leoka.html"><a href="leoka.html#agencies-reporting-3"><i class="fa fa-check"></i><b>7.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="7.2" data-path="leoka.html"><a href="leoka.html#important-variables-4"><i class="fa fa-check"></i><b>7.2</b> Important variables</a>
+<li class="chapter" data-level="6.1" data-path="arrestee.html"><a href="arrestee.html#crimes-arrested-for"><i class="fa fa-check"></i><b>6.1</b> Crimes arrested for</a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="leoka.html"><a href="leoka.html#number-of-employees"><i class="fa fa-check"></i><b>7.2.1</b> Number of employees</a></li>
-<li class="chapter" data-level="7.2.2" data-path="leoka.html"><a href="leoka.html#officers-killed"><i class="fa fa-check"></i><b>7.2.2</b> Officers killed</a></li>
-<li class="chapter" data-level="7.2.3" data-path="leoka.html"><a href="leoka.html#assaults-by-injury-and-weapon"><i class="fa fa-check"></i><b>7.2.3</b> Assaults by injury and weapon</a></li>
-<li class="chapter" data-level="7.2.4" data-path="leoka.html"><a href="leoka.html#assaults-by-call-type"><i class="fa fa-check"></i><b>7.2.4</b> Assaults by call type</a></li>
-<li class="chapter" data-level="7.2.5" data-path="leoka.html"><a href="leoka.html#assaults-by-time"><i class="fa fa-check"></i><b>7.2.5</b> Assaults by time</a></li>
+<li class="chapter" data-level="6.1.1" data-path="arrestee.html"><a href="arrestee.html#arrestee-segment-arrest-crimes"><i class="fa fa-check"></i><b>6.1.1</b> Arrestee Segment arrest crimes</a></li>
+<li class="chapter" data-level="6.1.2" data-path="arrestee.html"><a href="arrestee.html#group-b-segment-arrest-crimes"><i class="fa fa-check"></i><b>6.1.2</b> Group B Segment arrest crimes</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="arrestee.html"><a href="arrestee.html#arrest-date"><i class="fa fa-check"></i><b>6.2</b> Arrest date</a></li>
+<li class="chapter" data-level="6.3" data-path="arrestee.html"><a href="arrestee.html#weapons"><i class="fa fa-check"></i><b>6.3</b> Weapons</a></li>
+<li class="chapter" data-level="6.4" data-path="arrestee.html"><a href="arrestee.html#automatic-weapons"><i class="fa fa-check"></i><b>6.4</b> Automatic weapons</a></li>
+<li class="chapter" data-level="6.5" data-path="arrestee.html"><a href="arrestee.html#type-of-arrest"><i class="fa fa-check"></i><b>6.5</b> Type of arrest</a></li>
+<li class="chapter" data-level="6.6" data-path="arrestee.html"><a href="arrestee.html#disposition-for-juvenile-arrestees"><i class="fa fa-check"></i><b>6.6</b> Disposition for juvenile arrestees</a></li>
+<li class="chapter" data-level="6.7" data-path="arrestee.html"><a href="arrestee.html#demographics-1"><i class="fa fa-check"></i><b>6.7</b> Demographics</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="arrestee.html"><a href="arrestee.html#residence-status"><i class="fa fa-check"></i><b>6.7.1</b> Residence status</a></li>
+<li class="chapter" data-level="6.7.2" data-path="arrestee.html"><a href="arrestee.html#age-1"><i class="fa fa-check"></i><b>6.7.2</b> Age</a></li>
+<li class="chapter" data-level="6.7.3" data-path="arrestee.html"><a href="arrestee.html#sex-1"><i class="fa fa-check"></i><b>6.7.3</b> Sex</a></li>
+<li class="chapter" data-level="6.7.4" data-path="arrestee.html"><a href="arrestee.html#race-1"><i class="fa fa-check"></i><b>6.7.4</b> Race</a></li>
+<li class="chapter" data-level="6.7.5" data-path="arrestee.html"><a href="arrestee.html#ethnicity-1"><i class="fa fa-check"></i><b>6.7.5</b> Ethnicity</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="arsonChapter.html"><a href="arsonChapter.html"><i class="fa fa-check"></i><b>8</b> Arson</a>
+<li class="chapter" data-level="7" data-path="property.html"><a href="property.html"><i class="fa fa-check"></i><b>7</b> Property Segment</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="arsonChapter.html"><a href="arsonChapter.html#agencies-reporting-4"><i class="fa fa-check"></i><b>8.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="8.2" data-path="arsonChapter.html"><a href="arsonChapter.html#important-variables-5"><i class="fa fa-check"></i><b>8.2</b> Important variables</a>
+<li class="chapter" data-level="7.1" data-path="property.html"><a href="property.html#propertyLoss"><i class="fa fa-check"></i><b>7.1</b> Type of property loss</a></li>
+<li class="chapter" data-level="7.2" data-path="property.html"><a href="property.html#description-of-property"><i class="fa fa-check"></i><b>7.2</b> Description of property</a></li>
+<li class="chapter" data-level="7.3" data-path="property.html"><a href="property.html#value-of-stolen-property"><i class="fa fa-check"></i><b>7.3</b> Value of stolen property</a></li>
+<li class="chapter" data-level="7.4" data-path="property.html"><a href="property.html#date-property-was-recovered"><i class="fa fa-check"></i><b>7.4</b> Date property was recovered</a></li>
+<li class="chapter" data-level="7.5" data-path="property.html"><a href="property.html#drugs"><i class="fa fa-check"></i><b>7.5</b> Drugs</a>
 <ul>
-<li class="chapter" data-level="8.2.1" data-path="arsonChapter.html"><a href="arsonChapter.html#arsonType"><i class="fa fa-check"></i><b>8.2.1</b> Types of arsons</a></li>
-<li class="chapter" data-level="8.2.2" data-path="arsonChapter.html"><a href="arsonChapter.html#actual-arsons"><i class="fa fa-check"></i><b>8.2.2</b> Actual arsons</a></li>
-<li class="chapter" data-level="8.2.3" data-path="arsonChapter.html"><a href="arsonChapter.html#unfounded-arsons"><i class="fa fa-check"></i><b>8.2.3</b> Unfounded arsons</a></li>
-<li class="chapter" data-level="8.2.4" data-path="arsonChapter.html"><a href="arsonChapter.html#reported-arsons"><i class="fa fa-check"></i><b>8.2.4</b> Reported arsons</a></li>
-<li class="chapter" data-level="8.2.5" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-arsons"><i class="fa fa-check"></i><b>8.2.5</b> Cleared arsons</a></li>
-<li class="chapter" data-level="8.2.6" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-for-arsons-where-all-offenders-are-under-age-18"><i class="fa fa-check"></i><b>8.2.6</b> Cleared for arsons where all offenders are under age 18</a></li>
-<li class="chapter" data-level="8.2.7" data-path="arsonChapter.html"><a href="arsonChapter.html#uninhabited-building-arsons"><i class="fa fa-check"></i><b>8.2.7</b> Uninhabited building arsons</a></li>
-<li class="chapter" data-level="8.2.8" data-path="arsonChapter.html"><a href="arsonChapter.html#estimated-damage-cost"><i class="fa fa-check"></i><b>8.2.8</b> Estimated damage cost</a></li>
-</ul></li>
-<li class="chapter" data-level="8.3" data-path="arsonChapter.html"><a href="arsonChapter.html#data-errors-1"><i class="fa fa-check"></i><b>8.3</b> Data errors</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="hate_crimes.html"><a href="hate_crimes.html"><i class="fa fa-check"></i><b>9</b> Hate Crime Data</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="hate_crimes.html"><a href="hate_crimes.html#agencies-reporting-5"><i class="fa fa-check"></i><b>9.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="9.2" data-path="hate_crimes.html"><a href="hate_crimes.html#treeOfLife"><i class="fa fa-check"></i><b>9.2</b> Tree of Life synagogue shooting</a></li>
-<li class="chapter" data-level="9.3" data-path="hate_crimes.html"><a href="hate_crimes.html#important-variables-6"><i class="fa fa-check"></i><b>9.3</b> Important variables</a>
-<ul>
-<li class="chapter" data-level="9.3.1" data-path="hate_crimes.html"><a href="hate_crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>9.3.1</b> The bias motivation (who the hate is against)</a></li>
-<li class="chapter" data-level="9.3.2" data-path="hate_crimes.html"><a href="hate_crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>9.3.2</b> The crime that occurred</a></li>
-<li class="chapter" data-level="9.3.3" data-path="hate_crimes.html"><a href="hate_crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>9.3.3</b> The location of the crime</a></li>
-<li class="chapter" data-level="9.3.4" data-path="hate_crimes.html"><a href="hate_crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>9.3.4</b> Number and race of offenders</a></li>
-<li class="chapter" data-level="9.3.5" data-path="hate_crimes.html"><a href="hate_crimes.html#number-of-victims"><i class="fa fa-check"></i><b>9.3.5</b> Number of victims</a></li>
+<li class="chapter" data-level="7.5.1" data-path="property.html"><a href="property.html#suspected-drug-type"><i class="fa fa-check"></i><b>7.5.1</b> Suspected drug type</a></li>
+<li class="chapter" data-level="7.5.2" data-path="property.html"><a href="property.html#amount-of-drugs"><i class="fa fa-check"></i><b>7.5.2</b> Amount of drugs</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="county-level-data.html"><a href="county-level-data.html"><i class="fa fa-check"></i><b>10</b> County-Level Data</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="county-level-data.html"><a href="county-level-data.html#current-usage"><i class="fa fa-check"></i><b>10.1</b> Current usage</a></li>
-<li class="chapter" data-level="10.2" data-path="county-level-data.html"><a href="county-level-data.html#how-much-data-is-missing"><i class="fa fa-check"></i><b>10.2</b> How much data is missing</a></li>
-<li class="chapter" data-level="10.3" data-path="county-level-data.html"><a href="county-level-data.html#current-imputation-practices"><i class="fa fa-check"></i><b>10.3</b> Current imputation practices</a>
-<ul>
-<li class="chapter" data-level="10.3.1" data-path="county-level-data.html"><a href="county-level-data.html#months-missing"><i class="fa fa-check"></i><b>10.3.1</b> 1-9 months missing</a></li>
-<li class="chapter" data-level="10.3.2" data-path="county-level-data.html"><a href="county-level-data.html#months-missing-1"><i class="fa fa-check"></i><b>10.3.2</b> 10-12 months missing</a></li>
-</ul></li>
-</ul></li>
-<li class="part"><span><b>III National Incident-Based Reporting System (NIBRS)</b></span></li>
-<li class="chapter" data-level="11" data-path="nibrs-overview.html"><a href="nibrs-overview.html"><i class="fa fa-check"></i><b>11</b> NIBRS Overview</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#problems-with-nibrs"><i class="fa fa-check"></i><b>11.1</b> Problems with NIBRS</a>
-<ul>
-<li class="chapter" data-level="11.1.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#nibrs-allows-for-different-units-of-analysis"><i class="fa fa-check"></i><b>11.1.1</b> NIBRS allows for different units of analysis</a></li>
-</ul></li>
-<li class="chapter" data-level="11.2" data-path="nibrs-overview.html"><a href="nibrs-overview.html#which-agencies-report-data"><i class="fa fa-check"></i><b>11.2</b> Which agencies report data</a></li>
-<li class="chapter" data-level="11.3" data-path="nibrs-overview.html"><a href="nibrs-overview.html#crimes-included-in-nibrs"><i class="fa fa-check"></i><b>11.3</b> Crimes included in NIBRS</a>
-<ul>
-<li class="chapter" data-level="11.3.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#group-a-crimes"><i class="fa fa-check"></i><b>11.3.1</b> Group A crimes</a></li>
-<li class="chapter" data-level="11.3.2" data-path="nibrs-overview.html"><a href="nibrs-overview.html#group-b-crimes"><i class="fa fa-check"></i><b>11.3.2</b> Group B crimes</a></li>
-</ul></li>
-<li class="chapter" data-level="11.4" data-path="nibrs-overview.html"><a href="nibrs-overview.html#differences-from-srs-data"><i class="fa fa-check"></i><b>11.4</b> Differences from SRS data</a>
-<ul>
-<li class="chapter" data-level="11.4.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#nibrs-does-not-have-unfounded-crimes"><i class="fa fa-check"></i><b>11.4.1</b> NIBRS does not have unfounded crimes</a></li>
-</ul></li>
-<li class="chapter" data-level="11.5" data-path="nibrs-overview.html"><a href="nibrs-overview.html#a-summary-of-each-segment-file"><i class="fa fa-check"></i><b>11.5</b> A summary of each segment file</a>
-<ul>
-<li class="chapter" data-level="11.5.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#administrative-segment"><i class="fa fa-check"></i><b>11.5.1</b> Administrative Segment</a></li>
-<li class="chapter" data-level="11.5.2" data-path="nibrs-overview.html"><a href="nibrs-overview.html#offense-segment"><i class="fa fa-check"></i><b>11.5.2</b> Offense Segment</a></li>
-<li class="chapter" data-level="11.5.3" data-path="nibrs-overview.html"><a href="nibrs-overview.html#offender-segment"><i class="fa fa-check"></i><b>11.5.3</b> Offender Segment</a></li>
-<li class="chapter" data-level="11.5.4" data-path="nibrs-overview.html"><a href="nibrs-overview.html#victim-segment"><i class="fa fa-check"></i><b>11.5.4</b> Victim Segment</a></li>
-<li class="chapter" data-level="11.5.5" data-path="nibrs-overview.html"><a href="nibrs-overview.html#arrestee-and-group-b-arrestee-segment"><i class="fa fa-check"></i><b>11.5.5</b> Arrestee and Group B Arrestee Segment</a></li>
-<li class="chapter" data-level="11.5.6" data-path="nibrs-overview.html"><a href="nibrs-overview.html#property-segment"><i class="fa fa-check"></i><b>11.5.6</b> Property Segment</a></li>
-<li class="chapter" data-level="11.5.7" data-path="nibrs-overview.html"><a href="nibrs-overview.html#window"><i class="fa fa-check"></i><b>11.5.7</b> Window segments</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html"><i class="fa fa-check"></i><b>12</b> Administrative and Window Exceptional Clearance Segment</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#the-incident-and-report-date"><i class="fa fa-check"></i><b>12.1</b> The incident and report date</a></li>
-<li class="chapter" data-level="12.2" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#hour-of-incident"><i class="fa fa-check"></i><b>12.2</b> Hour of incident</a></li>
-<li class="chapter" data-level="12.3" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#exceptional-clearance"><i class="fa fa-check"></i><b>12.3</b> Exceptional clearance</a></li>
-<li class="chapter" data-level="12.4" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#number-of-other-segments"><i class="fa fa-check"></i><b>12.4</b> Number of other segments</a>
-<ul>
-<li class="chapter" data-level="12.4.1" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#offense-segments"><i class="fa fa-check"></i><b>12.4.1</b> Offense Segments</a></li>
-<li class="chapter" data-level="12.4.2" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#offender-segments"><i class="fa fa-check"></i><b>12.4.2</b> Offender Segments</a></li>
-<li class="chapter" data-level="12.4.3" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#victim-segments"><i class="fa fa-check"></i><b>12.4.3</b> Victim Segments</a></li>
-<li class="chapter" data-level="12.4.4" data-path="administrative-and-window-exceptional-clearance-segment.html"><a href="administrative-and-window-exceptional-clearance-segment.html#arrestee-segments"><i class="fa fa-check"></i><b>12.4.4</b> Arrestee Segments</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="offenseSegment.html"><a href="offenseSegment.html"><i class="fa fa-check"></i><b>13</b> Offense Segment</a>
-<ul>
-<li class="chapter" data-level="13.1" data-path="offenseSegment.html"><a href="offenseSegment.html#crime-category"><i class="fa fa-check"></i><b>13.1</b> Crime category</a></li>
-<li class="chapter" data-level="13.2" data-path="offenseSegment.html"><a href="offenseSegment.html#offense-subtype"><i class="fa fa-check"></i><b>13.2</b> Offense subtype</a></li>
-<li class="chapter" data-level="13.3" data-path="offenseSegment.html"><a href="offenseSegment.html#offense-completed"><i class="fa fa-check"></i><b>13.3</b> Offense completed</a></li>
-<li class="chapter" data-level="13.4" data-path="offenseSegment.html"><a href="offenseSegment.html#drug-alcohol-or-computer-use"><i class="fa fa-check"></i><b>13.4</b> Drug, alcohol, or computer use</a></li>
-<li class="chapter" data-level="13.5" data-path="offenseSegment.html"><a href="offenseSegment.html#crime-location"><i class="fa fa-check"></i><b>13.5</b> Crime location</a></li>
-<li class="chapter" data-level="13.6" data-path="offenseSegment.html"><a href="offenseSegment.html#offenseWeapons"><i class="fa fa-check"></i><b>13.6</b> Weapons</a></li>
-<li class="chapter" data-level="13.7" data-path="offenseSegment.html"><a href="offenseSegment.html#automatic-weapons"><i class="fa fa-check"></i><b>13.7</b> Automatic weapons</a></li>
-<li class="chapter" data-level="13.8" data-path="offenseSegment.html"><a href="offenseSegment.html#burglary-info"><i class="fa fa-check"></i><b>13.8</b> Burglary info</a></li>
-<li class="chapter" data-level="13.9" data-path="offenseSegment.html"><a href="offenseSegment.html#hate-crime-indicator-bias-motivation"><i class="fa fa-check"></i><b>13.9</b> Hate crime indicator (bias motivation)</a></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="offender-segment-1.html"><a href="offender-segment-1.html"><i class="fa fa-check"></i><b>14</b> Offender Segment</a>
-<ul>
-<li class="chapter" data-level="14.1" data-path="offender-segment-1.html"><a href="offender-segment-1.html#demographics-1"><i class="fa fa-check"></i><b>14.1</b> Demographics</a>
-<ul>
-<li class="chapter" data-level="14.1.1" data-path="offender-segment-1.html"><a href="offender-segment-1.html#age-2"><i class="fa fa-check"></i><b>14.1.1</b> Age</a></li>
-<li class="chapter" data-level="14.1.2" data-path="offender-segment-1.html"><a href="offender-segment-1.html#sex-1"><i class="fa fa-check"></i><b>14.1.2</b> Sex</a></li>
-<li class="chapter" data-level="14.1.3" data-path="offender-segment-1.html"><a href="offender-segment-1.html#race-2"><i class="fa fa-check"></i><b>14.1.3</b> Race</a></li>
-<li class="chapter" data-level="14.1.4" data-path="offender-segment-1.html"><a href="offender-segment-1.html#ethnicity-2"><i class="fa fa-check"></i><b>14.1.4</b> Ethnicity</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="15" data-path="victim-segment-1.html"><a href="victim-segment-1.html"><i class="fa fa-check"></i><b>15</b> Victim Segment</a>
-<ul>
-<li class="chapter" data-level="15.1" data-path="victim-segment-1.html"><a href="victim-segment-1.html#crime-category-1"><i class="fa fa-check"></i><b>15.1</b> Crime category</a></li>
-<li class="chapter" data-level="15.2" data-path="victim-segment-1.html"><a href="victim-segment-1.html#victim-type"><i class="fa fa-check"></i><b>15.2</b> Victim type</a></li>
-<li class="chapter" data-level="15.3" data-path="victim-segment-1.html"><a href="victim-segment-1.html#injury"><i class="fa fa-check"></i><b>15.3</b> Injury</a></li>
-<li class="chapter" data-level="15.4" data-path="victim-segment-1.html"><a href="victim-segment-1.html#relationship-to-offender"><i class="fa fa-check"></i><b>15.4</b> Relationship to offender</a></li>
-<li class="chapter" data-level="15.5" data-path="victim-segment-1.html"><a href="victim-segment-1.html#aggravated-assault-and-homicide-circumstances"><i class="fa fa-check"></i><b>15.5</b> Aggravated assault and homicide circumstances</a></li>
-<li class="chapter" data-level="15.6" data-path="victim-segment-1.html"><a href="victim-segment-1.html#justifiable-homicide-circumstance"><i class="fa fa-check"></i><b>15.6</b> Justifiable homicide circumstance</a></li>
-<li class="chapter" data-level="15.7" data-path="victim-segment-1.html"><a href="victim-segment-1.html#demographics-2"><i class="fa fa-check"></i><b>15.7</b> Demographics</a>
-<ul>
-<li class="chapter" data-level="15.7.1" data-path="victim-segment-1.html"><a href="victim-segment-1.html#residence-status"><i class="fa fa-check"></i><b>15.7.1</b> Residence status</a></li>
-<li class="chapter" data-level="15.7.2" data-path="victim-segment-1.html"><a href="victim-segment-1.html#age-3"><i class="fa fa-check"></i><b>15.7.2</b> Age</a></li>
-<li class="chapter" data-level="15.7.3" data-path="victim-segment-1.html"><a href="victim-segment-1.html#sex-2"><i class="fa fa-check"></i><b>15.7.3</b> Sex</a></li>
-<li class="chapter" data-level="15.7.4" data-path="victim-segment-1.html"><a href="victim-segment-1.html#race-3"><i class="fa fa-check"></i><b>15.7.4</b> Race</a></li>
-<li class="chapter" data-level="15.7.5" data-path="victim-segment-1.html"><a href="victim-segment-1.html#ethnicity-3"><i class="fa fa-check"></i><b>15.7.5</b> Ethnicity</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="16" data-path="arrestee.html"><a href="arrestee.html"><i class="fa fa-check"></i><b>16</b> Arrestee, Group B Arrestee, and Window Arrestee Segment</a>
-<ul>
-<li class="chapter" data-level="16.1" data-path="arrestee.html"><a href="arrestee.html#crimes-arrested-for"><i class="fa fa-check"></i><b>16.1</b> Crimes arrested for</a>
-<ul>
-<li class="chapter" data-level="16.1.1" data-path="arrestee.html"><a href="arrestee.html#arrestee-segment-arrest-crimes"><i class="fa fa-check"></i><b>16.1.1</b> Arrestee Segment arrest crimes</a></li>
-<li class="chapter" data-level="16.1.2" data-path="arrestee.html"><a href="arrestee.html#group-b-segment-arrest-crimes"><i class="fa fa-check"></i><b>16.1.2</b> Group B Segment arrest crimes</a></li>
-</ul></li>
-<li class="chapter" data-level="16.2" data-path="arrestee.html"><a href="arrestee.html#arrest-date"><i class="fa fa-check"></i><b>16.2</b> Arrest date</a></li>
-<li class="chapter" data-level="16.3" data-path="arrestee.html"><a href="arrestee.html#weapons"><i class="fa fa-check"></i><b>16.3</b> Weapons</a></li>
-<li class="chapter" data-level="16.4" data-path="arrestee.html"><a href="arrestee.html#automatic-weapons-1"><i class="fa fa-check"></i><b>16.4</b> Automatic weapons</a></li>
-<li class="chapter" data-level="16.5" data-path="arrestee.html"><a href="arrestee.html#type-of-arrest"><i class="fa fa-check"></i><b>16.5</b> Type of arrest</a></li>
-<li class="chapter" data-level="16.6" data-path="arrestee.html"><a href="arrestee.html#disposition-for-juvenile-arrestees"><i class="fa fa-check"></i><b>16.6</b> Disposition for juvenile arrestees</a></li>
-<li class="chapter" data-level="16.7" data-path="arrestee.html"><a href="arrestee.html#demographics-3"><i class="fa fa-check"></i><b>16.7</b> Demographics</a>
-<ul>
-<li class="chapter" data-level="16.7.1" data-path="arrestee.html"><a href="arrestee.html#residence-status-1"><i class="fa fa-check"></i><b>16.7.1</b> Residence status</a></li>
-<li class="chapter" data-level="16.7.2" data-path="arrestee.html"><a href="arrestee.html#age-4"><i class="fa fa-check"></i><b>16.7.2</b> Age</a></li>
-<li class="chapter" data-level="16.7.3" data-path="arrestee.html"><a href="arrestee.html#sex-3"><i class="fa fa-check"></i><b>16.7.3</b> Sex</a></li>
-<li class="chapter" data-level="16.7.4" data-path="arrestee.html"><a href="arrestee.html#race-4"><i class="fa fa-check"></i><b>16.7.4</b> Race</a></li>
-<li class="chapter" data-level="16.7.5" data-path="arrestee.html"><a href="arrestee.html#ethnicity-4"><i class="fa fa-check"></i><b>16.7.5</b> Ethnicity</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="property.html"><a href="property.html"><i class="fa fa-check"></i><b>17</b> Property and Window Property Segment</a>
-<ul>
-<li class="chapter" data-level="17.1" data-path="property.html"><a href="property.html#propertyLoss"><i class="fa fa-check"></i><b>17.1</b> Type of property loss</a></li>
-<li class="chapter" data-level="17.2" data-path="property.html"><a href="property.html#description-of-property"><i class="fa fa-check"></i><b>17.2</b> Description of property</a></li>
-<li class="chapter" data-level="17.3" data-path="property.html"><a href="property.html#value-of-stolen-property"><i class="fa fa-check"></i><b>17.3</b> Value of stolen property</a></li>
-<li class="chapter" data-level="17.4" data-path="property.html"><a href="property.html#date-property-was-recovered"><i class="fa fa-check"></i><b>17.4</b> Date property was recovered</a></li>
-<li class="chapter" data-level="17.5" data-path="property.html"><a href="property.html#drugs"><i class="fa fa-check"></i><b>17.5</b> Drugs</a>
-<ul>
-<li class="chapter" data-level="17.5.1" data-path="property.html"><a href="property.html#suspected-drug-type"><i class="fa fa-check"></i><b>17.5.1</b> Suspected drug type</a></li>
-<li class="chapter" data-level="17.5.2" data-path="property.html"><a href="property.html#amount-of-drugs"><i class="fa fa-check"></i><b>17.5.2</b> Amount of drugs</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
       </nav>
@@ -459,29 +283,29 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="arsonChapter" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">Chapter 8</span> Arson<a href="arsonChapter.html#arsonChapter" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="arsonChapter" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Arson<a href="arsonChapter.html#arsonChapter" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>The arson dataset provides monthly counts at the police agency-level for arsons that occur, and includes a breakdown of arsons by the type of arson (e.g. arson of a person’s home, arson of a vehicle, arson of a community/public building) and the estimated value of the damage caused by the arson. We have arson data from 1979 to 2022.</p>
-<p>This data includes all arsons reported to the police or otherwise known to the police (e.g. discovered while on patrol) and also has a count of arsons that lead to an arrest (of at least one person who committed the arson) and reports that turned out to not be arsons (such as if an investigation found that the fire was started accidentally). This is essentially the Offenses Known and Clearances by Arrest data, detailed in Chapter <a href="offensesKnown.html#offensesKnown">3</a>, but only for arsons. The data even follows the same definitions for categories such as what counts as a cleared or unfounded crime. The primary additional variable is the estimated damage in dollars caused by the arson. As much of this information is the same as detailed in Chapter <a href="offensesKnown.html#offensesKnown">3</a>, this chapter will be brief. If you have a question about definitions, please refer to that chapter.</p>
+<p>This data includes all arsons reported to the police or otherwise known to the police (e.g. discovered while on patrol) and also has a count of arsons that lead to an arrest (of at least one person who committed the arson) and reports that turned out to not be arsons (such as if an investigation found that the fire was started accidentally). This is essentially the Offenses Known and Clearances by Arrest data, detailed in Chapter <a href="#offensesKnown"><strong>??</strong></a>, but only for arsons. The data even follows the same definitions for categories such as what counts as a cleared or unfounded crime. The primary additional variable is the estimated damage in dollars caused by the arson. As much of this information is the same as detailed in Chapter <a href="#offensesKnown"><strong>??</strong></a>, this chapter will be brief. If you have a question about definitions, please refer to that chapter.</p>
 <p>For each type of arson it includes the number of arsons where the structure was uninhabited or otherwise not in use, so you can estimate the percent of arsons of buildings which had the potential to harm people. This measure is for structures where people normally did not inhabit the structure - such as a vacant building where no one lives. A home where no one is home <em>at the time of the arson</em> does not count as an uninhabited building.</p>
 <p>In cases where the arson led to a death, that death would be recorded as a murder on the Offenses Known and Clearances by Arrest dataset - but not indicated anywhere on this dataset. If an individual who responds to the arson dies because of it, such as a police officer or a firefighter, this is not considered a homicide (though the officer death is still included in the Law Enforcement Officers Killed and Assaulted data) unless the arsonist intended to cause their deaths. Even though the Offenses Known data uses the Hierarchy Rule, where only the most serious offense that occurs is recorded, all arsons are reported - arson is exempt from the Hierarchy Rule.</p>
-<div id="agencies-reporting-4" class="section level2 hasAnchor" number="8.1">
-<h2><span class="header-section-number">8.1</span> Agencies reporting<a href="arsonChapter.html#agencies-reporting-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This dataset measures how many months that an agency reports data over a year in the same way as the Offenses Known data does: the standard FBI definition using the last month reported, and my own measure counting how many months reported data according to a column for each month that says so.<a href="#fn67" class="footnote-ref" id="fnref67"><sup>67</sup></a> And just like the Offenses Known data, the variable I use for my own measurement changed in 2018, leading to fewer months of data reported and making it non-comparable to pre-2018 data. The variable changed again in 2021 and said that all agencies always reported data in every month, making the variable useless.</p>
-<p>In Figure <a href="arsonChapter.html#fig:arsonAgencies">8.1</a> we can see the annual number of agencies that reported at least one month of data using both measures. These measures are nearly identical every year with the last month reported having slightly more agencies reported, but they are effectively the same. This changes in 2018 as my measure declines considerably and then skyrockets to nearly 25,000 agencies in 2021 and 2022. The last month reported variable declines considerably in 2021, consistent with the FBI ending SRS collection, and then rebounds in 2022 when the FBI reopens SRS collection. How can there be more than 18k agencies reporting? The 18k number is the estimated number of agencies that are active. Agencies that can respond to crimes and do investigations. Remember that SRS data goes back decades - the Offenses Known data is available since 1930. So agencies can come and go, with agencies shutting down or joining with other agencies. Over time this adds up to thousands of agencies other than the 18k we normal think about.</p>
+<div id="agencies-reporting-1" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Agencies reporting<a href="arsonChapter.html#agencies-reporting-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This dataset measures how many months that an agency reports data over a year in the same way as the Offenses Known data does: the standard FBI definition using the last month reported, and my own measure counting how many months reported data according to a column for each month that says so.<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a> And just like the Offenses Known data, the variable I use for my own measurement changed in 2018, leading to fewer months of data reported and making it non-comparable to pre-2018 data. The variable changed again in 2021 and said that all agencies always reported data in every month, making the variable useless.</p>
+<p>In Figure <a href="arsonChapter.html#fig:arsonAgencies">3.1</a> we can see the annual number of agencies that reported at least one month of data using both measures. These measures are nearly identical every year with the last month reported having slightly more agencies reported, but they are effectively the same. This changes in 2018 as my measure declines considerably and then skyrockets to nearly 25,000 agencies in 2021 and 2022. The last month reported variable declines considerably in 2021, consistent with the FBI ending SRS collection, and then rebounds in 2022 when the FBI reopens SRS collection. How can there be more than 18k agencies reporting? The 18k number is the estimated number of agencies that are active. Agencies that can respond to crimes and do investigations. Remember that SRS data goes back decades - the Offenses Known data is available since 1930. So agencies can come and go, with agencies shutting down or joining with other agencies. Over time this adds up to thousands of agencies other than the 18k we normal think about.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arsonAgencies"></span>
 <img src="08_arson_files/figure-html/arsonAgencies-1.png" alt="The annual number of police agencies that report at least month of data and all 12 months of data that year, 1979-2022." width="90%" />
 <p class="caption">
-Figure 8.1: The annual number of police agencies that report at least month of data and all 12 months of data that year, 1979-2022.
+Figure 3.1: The annual number of police agencies that report at least month of data and all 12 months of data that year, 1979-2022.
 </p>
 </div>
-<p>In Figure <a href="#fig:arsonAgencies12Months"><strong>??</strong></a> we can see the same graph as before but now for agencies reporting 12 months of data that year. The trends in both measures are the same, at least until 2018, with the last month reported measure always being a bit higher than the number of months missing measure. Which measure is better to use? In general I’d say my own measure but obviously that doesn’t work starting in 2018. In practice both measures are quite similar so the decision on which to use depends on your own use-case such as if you are looking at data after 2017.</p>
+<p>In Figure <a href="#fig:arsonAgencies12Months"><strong>??</strong></a> we can see the same graph as before but now for agencies reporting 12 months of data that year. The trends in both measures are the same, at least until 2018, with the last month reported measure always being a bit higher than the number of months missing measure. Which measure is better to use? In general I would say my own measure but obviously that does not work starting in 2018. In practice both measures are quite similar so the decision on which to use depends on your own use-case such as if you are looking at data after 2017.</p>
 </div>
-<div id="important-variables-5" class="section level2 hasAnchor" number="8.2">
-<h2><span class="header-section-number">8.2</span> Important variables<a href="arsonChapter.html#important-variables-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Similar to the Offenses Known and Clearances by Arrest data, this data shows the monthly number of crimes - in this case only arsons - reported or discovered by the police, the number found by police to be unfounded, and the number cleared by the police. In addition, it includes the number of arsons in structures that were uninhabited, and the estimated cost of the damage caused by the arsons. For each variable, the arsons are also broken into several categories of arsons, which we’ll talk about in Section <a href="arsonChapter.html#arsonType">8.2.1</a>. Like other SRS datasets, there are also variables that provide information about the agency - ORI codes, population under jurisdiction - the month and year that the data covers, and how many months reported data. When another agency submits data for the given agency, that is noted in the data through the “covered_by_ori” variable.</p>
-<div id="arsonType" class="section level3 hasAnchor" number="8.2.1">
-<h3><span class="header-section-number">8.2.1</span> Types of arsons<a href="arsonChapter.html#arsonType" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="important-variables-1" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Important variables<a href="arsonChapter.html#important-variables-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Similar to the Offenses Known and Clearances by Arrest data, this data shows the monthly number of crimes - in this case only arsons - reported or discovered by the police, the number found by police to be unfounded, and the number cleared by the police. In addition, it includes the number of arsons in structures that were uninhabited, and the estimated cost of the damage caused by the arsons. For each variable, the arsons are also broken into several categories of arsons, which we will talk about in Section <a href="arsonChapter.html#arsonType">3.2.1</a>. Like other SRS datasets, there are also variables that provide information about the agency - ORI codes, population under jurisdiction - the month and year that the data covers, and how many months reported data. When another agency submits data for the given agency, that is noted in the data through the “covered_by_ori” variable.</p>
+<div id="arsonType" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Types of arsons<a href="arsonChapter.html#arsonType" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For each of the outcome categories detailed below, this dataset has information for ten different <em>types</em> of arson. Some arsons can burn down multiple types or structures or cars - fire, after all, tends to spread. This data defines the arson based on where the fire originated, regardless of what burns after that. This is true even if the damage is more severe for a type other than where the fire started. For example, a <a href="https://www.nbcnews.com/news/us-news/man-pushing-burning-car-ravine-started-park-fire-burning-45000-acres-c-rcna163697">recent fire in California</a> was started by a man “pushing a burning car into a ravine.” That fire, known as the Park Fire is still burning as of this writing (summer, 2024) and has burned over 429,000 acres and over 600 buildings. This fire would be classified as a motor vehicle arson because the fire started in a vehicle.</p>
 <p>There are seven arsons types for buildings, two for vehicles, and one as an “other” category that includes arsons of outdoor areas like parks or forests (though this group does not have any subcategories so all you know is the arson is neither of a building or a vehicle). For both the buildings and the vehicle arson types there is also a “total buildings” and “total vehicles” category that is just the sum of each subcategory; there is also a “grant total” variable that sums all building, vehicle, and other arsons. For each of the building arsons we also have variables that say how many of the arsons were of uninhabited buildings.</p>
 <ul>
@@ -493,7 +317,7 @@ Figure 8.1: The annual number of police agencies that report at least month of d
 <li>Industrial</li>
 <li>Other commercial (e.g. restaurant, office building, car dealership)</li>
 <li>Community/public (e.g. government buildings, hospitals, community centers, places of worship)</li>
-<li>All other structures (all buildings that don’t fit in another category’)</li>
+<li>All other structures (all buildings that do not fit in another category’)</li>
 </ul></li>
 <li>Total mobile vehicles (vehicles)
 <ul>
@@ -505,57 +329,57 @@ Figure 8.1: The annual number of police agencies that report at least month of d
 </ul>
 <p>Some arsons can burn down multiple types or structures or cars - fire, after all, tends to spread. This data defines the arson based on where the fire originated, regardless of what burns after that. This is true even if the damage is more severe for a type other than where the fire started. For example, a (recent fire in California)[<a href="https://www.nbcnews.com/news/us-news/man-pushing-burning-car-ravine-started-park-fire-burning-45000-acres-c-rcna163697" class="uri">https://www.nbcnews.com/news/us-news/man-pushing-burning-car-ravine-started-park-fire-burning-45000-acres-c-rcna163697</a>] was started by a man “pushing a burning car into a ravine.” That fire, known as the Park Fire is still burning as of this writing (summer, 2024) and has burned over 429,000 acres and over 600 buildings. This fire would be classified as a motor vehicle arson because the fire started in a vehicle.</p>
 </div>
-<div id="actual-arsons" class="section level3 hasAnchor" number="8.2.2">
-<h3><span class="header-section-number">8.2.2</span> Actual arsons<a href="arsonChapter.html#actual-arsons" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="actual-arsons" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Actual arsons<a href="arsonChapter.html#actual-arsons" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This variable includes the number of arsons either reported to the police or otherwise known to the police in that month and that the police determine to actually be arsons - that is, reports that are not unfounded. This is based only on the police’s determination that an arson occurred, not the decision of other groups like a court or the conviction of someone for the crime. This is the number of arsons, regardless of their severity. An arson that burns down a single vehicle is treated as one arson, as is an arson that burns down a vehicle, 429 thousand acres of land, and 600 buildings.</p>
 </div>
-<div id="unfounded-arsons" class="section level3 hasAnchor" number="8.2.3">
-<h3><span class="header-section-number">8.2.3</span> Unfounded arsons<a href="arsonChapter.html#unfounded-arsons" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="unfounded-arsons" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Unfounded arsons<a href="arsonChapter.html#unfounded-arsons" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This variable shows the number of arsons reports that the police determined to not actually be arsons. For example, if a house burns down and police think it was arson but later determine that it was an accident, it would be an unfounded arson.</p>
 </div>
-<div id="reported-arsons" class="section level3 hasAnchor" number="8.2.4">
-<h3><span class="header-section-number">8.2.4</span> Reported arsons<a href="arsonChapter.html#reported-arsons" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>This variable is the sum of actual arsons and unfounded arsons - it is the total number of arsons that were reported or known to the police, even if a later investigation found that it wasn’t actually an arson. Since this is the sum of two already present variables - and is less informative than the two variables are as separate variables - I’m not exactly sure why it’s included.</p>
+<div id="reported-arsons" class="section level3 hasAnchor" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Reported arsons<a href="arsonChapter.html#reported-arsons" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This variable is the sum of actual arsons and unfounded arsons - it is the total number of arsons that were reported or known to the police, even if a later investigation found that it was not actually an arson. Since this is the sum of two already present variables - and is less informative than the two variables are as separate variables - I am not exactly sure why it is included.</p>
 </div>
-<div id="cleared-arsons" class="section level3 hasAnchor" number="8.2.5">
-<h3><span class="header-section-number">8.2.5</span> Cleared arsons<a href="arsonChapter.html#cleared-arsons" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>This shows the number of arsons where at least one offender is arrested or when an arrest cannot be made for some reason, but the police know who the offender is - the latter option is called “exceptional clearances” or “clearances by exceptional means.” There is no way to tell if a clearance is due to an arrest or due to exceptional means.<a href="#fn68" class="footnote-ref" id="fnref68"><sup>68</sup></a>.</p>
+<div id="cleared-arsons" class="section level3 hasAnchor" number="3.2.5">
+<h3><span class="header-section-number">3.2.5</span> Cleared arsons<a href="arsonChapter.html#cleared-arsons" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This shows the number of arsons where at least one offender is arrested or when an arrest cannot be made for some reason, but the police know who the offender is - the latter option is called “exceptional clearances” or “clearances by exceptional means.” There is no way to tell if a clearance is due to an arrest or due to exceptional means.<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a>.</p>
 <p>Please note that this data is at the incident-level which means that having multiple people arrested for an incident still only is a clearance for that single incident. If there are multiple people who committed the arson only one needs to be arrested or exceptionally cleared for the incident to be cleared.</p>
-<p>Clearances are also reported in the month they occur, not in the month that the initial crime happened. This can lead to cases where there are more clearances than crimes, incorrectly leading to the conclusion that police solve &gt;100% of crimes. Figure <a href="arsonChapter.html#fig:arsonClearance">8.2</a> shows the number of actual arsons (reports that are founded) and clearances for single-family home arsons in League City, Texas, a city of about 100,000 outside of Houston. In most years there were fewer clearances than arsons, but in four years (1982, 1981, 1992, and 2007) there were more clearances than arsons.</p>
+<p>Clearances are also reported in the month they occur, not in the month that the initial crime happened. This can lead to cases where there are more clearances than crimes, incorrectly leading to the conclusion that police solve &gt;100% of crimes. Figure <a href="arsonChapter.html#fig:arsonClearance">3.2</a> shows the number of actual arsons (reports that are founded) and clearances for single-family home arsons in League City, Texas, a city of about 100,000 outside of Houston. In most years there were fewer clearances than arsons, but in four years (1982, 1981, 1992, and 2007) there were more clearances than arsons.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arsonClearance"></span>
 <img src="08_arson_files/figure-html/arsonClearance-1.png" alt="The annual number of single-family home arsons and clearances in League City, Texas, 1979-2022." width="90%" />
 <p class="caption">
-Figure 8.2: The annual number of single-family home arsons and clearances in League City, Texas, 1979-2022.
+Figure 3.2: The annual number of single-family home arsons and clearances in League City, Texas, 1979-2022.
 </p>
 </div>
 </div>
-<div id="cleared-for-arsons-where-all-offenders-are-under-age-18" class="section level3 hasAnchor" number="8.2.6">
-<h3><span class="header-section-number">8.2.6</span> Cleared for arsons where all offenders are under age 18<a href="arsonChapter.html#cleared-for-arsons-where-all-offenders-are-under-age-18" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="cleared-for-arsons-where-all-offenders-are-under-age-18" class="section level3 hasAnchor" number="3.2.6">
+<h3><span class="header-section-number">3.2.6</span> Cleared for arsons where all offenders are under age 18<a href="arsonChapter.html#cleared-for-arsons-where-all-offenders-are-under-age-18" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This variable is the same for normal clearances but only for arsons where every offender is under the age of 18. In these cases a clearance by arrest can include citing the juvenile offender with an order to go to court to stand trial, even if the juvenile is not actually taken into police custody. As this variable requires that the police know every offender (to be able to determine that they are all under 18), it is likely flawed and not a very useful variable to use.</p>
 </div>
-<div id="uninhabited-building-arsons" class="section level3 hasAnchor" number="8.2.7">
-<h3><span class="header-section-number">8.2.7</span> Uninhabited building arsons<a href="arsonChapter.html#uninhabited-building-arsons" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>This data also includes the number of arsons that occur in uninhabited structures. These structures must be uninhabited in the long-term, not simply having no one inside them when the arson occurs. The FBI defines these are structures that are “uninhabited, abandoned, deserted, or not normally in use” at the time of the arson. For example, a vacation home whose owners aren’t living in at the time would be “not normally in use” so would be an uninhabited building. A business that is closed when the fire started, but is open during the day, is not an uninhabited building.</p>
+<div id="uninhabited-building-arsons" class="section level3 hasAnchor" number="3.2.7">
+<h3><span class="header-section-number">3.2.7</span> Uninhabited building arsons<a href="arsonChapter.html#uninhabited-building-arsons" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This data also includes the number of arsons that occur in uninhabited structures. These structures must be uninhabited in the long-term, not simply having no one inside them when the arson occurs. The FBI defines these are structures that are “uninhabited, abandoned, deserted, or not normally in use” at the time of the arson. For example, a vacation home whose owners are not living in at the time would be “not normally in use” so would be an uninhabited building. A business that is closed when the fire started, but is open during the day, is not an uninhabited building.</p>
 </div>
-<div id="estimated-damage-cost" class="section level3 hasAnchor" number="8.2.8">
-<h3><span class="header-section-number">8.2.8</span> Estimated damage cost<a href="arsonChapter.html#estimated-damage-cost" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="estimated-damage-cost" class="section level3 hasAnchor" number="3.2.8">
+<h3><span class="header-section-number">3.2.8</span> Estimated damage cost<a href="arsonChapter.html#estimated-damage-cost" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The final variable is the estimated cost of the arson. This is how much the police estimates the value (in dollars) of the damaged or destroyed property is. Since this is the value of property damage, injuries to people (including non-physical injuries such as trauma or mental health costs) are not included. Since this is estimated damage it may be inaccurate to some degree. This variable is the sum of monthly estimated cost so while you can get the average cost by dividing this by the number of actual offenses, this average may be significantly off due to having extremely small or large values in your data. This value may be $0 since arsons include attempted arsons which may cause little or no damage. Please note that this value is not inflation-adjusted so you will have to adjust the value yourself.</p>
 </div>
 </div>
-<div id="data-errors-1" class="section level2 hasAnchor" number="8.3">
-<h2><span class="header-section-number">8.3</span> Data errors<a href="arsonChapter.html#data-errors-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Like the other SRS data, there are some cases where there are obvious data entry errors leading to impossible numbers of reported arsons or the price of an arson. As an example, Figure <a href="arsonChapter.html#fig:residenceArson">8.3</a> shows the annual number of single-family home arsons in Byron City, Illinois, which has a population of slightly over 3,600 people. Every year with data available there are zero arsons reported until 2003 when 469 arsons are reported. Since it is exceedingly unlikely that suddenly an eighth of the city each suffered different arson attacks, and the city never again had a residence arson, this is almost certainly a data entry error. As arsons are relatively rare, having errors - and especially ones like this - can drastically change the results of your analysis so it is important to check your data carefully for more errors.</p>
+<div id="data-errors" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Data errors<a href="arsonChapter.html#data-errors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Like the other SRS data, there are some cases where there are obvious data entry errors leading to impossible numbers of reported arsons or the price of an arson. As an example, Figure <a href="arsonChapter.html#fig:residenceArson">3.3</a> shows the annual number of single-family home arsons in Byron City, Illinois, which has a population of slightly over 3,600 people. Every year with data available there are zero arsons reported until 2003 when 469 arsons are reported. Since it is exceedingly unlikely that suddenly an eighth of the city each suffered different arson attacks, and the city never again had a residence arson, this is almost certainly a data entry error. As arsons are relatively rare, having errors - and especially ones like this - can drastically change the results of your analysis so it is important to check your data carefully for more errors.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:residenceArson"></span>
 <img src="08_arson_files/figure-html/residenceArson-1.png" alt="Annual single-family home arsons in Byron  City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this dataset, 1979-2022. " width="90%" />
 <p class="caption">
-Figure 8.3: Annual single-family home arsons in Byron City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this dataset, 1979-2022.
+Figure 3.3: Annual single-family home arsons in Byron City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this dataset, 1979-2022.
 </p>
 </div>
-<p>There are also cases where it is less clear when a value is a data error or is simply due to an outlier - but real - value. For example, Figure <a href="arsonChapter.html#fig:arsonCost">8.4</a> shows the annual average cost of a single-family home fire in Los Angeles, California. In most years the value is low. Since an arson can cause little or no damage, these low values likely mean that on average only part of the house was damaged, not the entire house. In 2009, however, the average damage is about $540,000 per arson. Is this a data entry error that simply inputs a damage value that is too high? It certainly appears to be a data error since it’s a sudden huge jump in damage value. However, it could also be that some extraordinarily expensive homes were destroyed that year. In 2009 Los Angeles only reported 63 single-family home arsons so having one, or a few, super mansions - which LA has plenty of - destroyed could mean that this huge value is real.</p>
+<p>There are also cases where it is less clear when a value is a data error or is simply due to an outlier - but real - value. For example, Figure <a href="arsonChapter.html#fig:arsonCost">3.4</a> shows the annual average cost of a single-family home fire in Los Angeles, California. In most years the value is low. Since an arson can cause little or no damage, these low values likely mean that on average only part of the house was damaged, not the entire house. In 2009, however, the average damage is about $540,000 per arson. Is this a data entry error that simply inputs a damage value that is too high? It certainly appears to be a data error since it is a sudden huge jump in damage value. However, it could also be that some extraordinarily expensive homes were destroyed that year. In 2009 Los Angeles only reported 63 single-family home arsons so having one, or a few, super mansions - which LA has plenty of - destroyed could mean that this huge value is real.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arsonCost"></span>
 <img src="08_arson_files/figure-html/arsonCost-1.png" alt="The annual cost per arson for single family homes in Los Angeles, California, 1979-2022." width="90%" />
 <p class="caption">
-Figure 8.4: The annual cost per arson for single family homes in Los Angeles, California, 1979-2022.
+Figure 3.4: The annual cost per arson for single family homes in Los Angeles, California, 1979-2022.
 </p>
 </div>
 
@@ -563,9 +387,9 @@ Figure 8.4: The annual cost per arson for single family homes in Los Angeles, Ca
 </div>
 <div class="footnotes">
 <hr />
-<ol start="67">
-<li id="fn67"><p>This is different than identifying how many months have an arson as there may be months that truly do not have any arsons. We don’t want to count those are non-reporting months.<a href="arsonChapter.html#fnref67" class="footnote-back">↩︎</a></p></li>
-<li id="fn68"><p>NIBRS data does tell more information about the type of arrest, but SRS data does not<a href="arsonChapter.html#fnref68" class="footnote-back">↩︎</a></p></li>
+<ol start="17">
+<li id="fn17"><p>This is different than identifying how many months have an arson as there may be months that truly do not have any arsons. We do not want to count those are non-reporting months.<a href="arsonChapter.html#fnref17" class="footnote-back">↩︎</a></p></li>
+<li id="fn18"><p>NIBRS data does tell more information about the type of arrest, but SRS data does not<a href="arsonChapter.html#fnref18" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -573,7 +397,7 @@ Figure 8.4: The annual cost per arson for single family homes in Los Angeles, Ca
           </div>
         </div>
       </div>
-<a href="leoka.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="shr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="hate_crimes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

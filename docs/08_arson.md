@@ -14,26 +14,22 @@ In cases where the arson led to a death, that death would be recorded as a murde
 
 ## Agencies reporting
 
-This dataset measures how many months that an agency reports data over a year in the same way as the Offenses Known data does: the standard FBI definition using the last month reported, and my own measure counting how many months reported data according to a column for each month that says so.^[This is different than identifying how many months have an arson as there may be months that truly do not have any arsons. We don't want to count those are non-reporting months.] And just like the Offenses Known data, the variable I use for my own measurement changed in 2018, leading to fewer months of data reported and making it non-comparable to pre-2018 data. The variable changed again in 2021 and said that all agencies always reported data in every month, making the variable useless. 
+This dataset measures how many months that an agency reports data over a year in the same way as the Offenses Known data does: the standard FBI definition using the last month reported, and my own measure counting how many months reported data according to a column for each month that says so.^[This is different than identifying how many months have an arson as there may be months that truly do not have any arsons. We do not want to count those are non-reporting months.] And just like the Offenses Known data, the variable I use for my own measurement changed in 2018, leading to fewer months of data reported and making it non-comparable to pre-2018 data. The variable changed again in 2021 and said that all agencies always reported data in every month, making the variable useless. 
 
 In Figure \@ref(fig:arsonAgencies) we can see the annual number of agencies that reported at least one month of data using both measures. These measures are nearly identical every year with the last month reported having slightly more agencies reported, but they are effectively the same. This changes in 2018 as my measure declines considerably and then skyrockets to nearly 25,000 agencies in 2021 and 2022. The last month reported variable declines considerably in 2021, consistent with the FBI ending SRS collection, and then rebounds in 2022 when the FBI reopens SRS collection. How can there be more than 18k agencies reporting? The 18k number is the estimated number of agencies that are active. Agencies that can respond to crimes and do investigations. Remember that SRS data goes back decades - the Offenses Known data is available since 1930. So agencies can come and go, with agencies shutting down or joining with other agencies. Over time this adds up to thousands of agencies other than the 18k we normal think about. 
 
 
-\begin{figure}
+<div class="figure" style="text-align: center">
+<img src="08_arson_files/figure-html/arsonAgencies-1.png" alt="The annual number of police agencies that report at least month of data and all 12 months of data that year, 1979-2022." width="90%" />
+<p class="caption">(\#fig:arsonAgencies)The annual number of police agencies that report at least month of data and all 12 months of data that year, 1979-2022.</p>
+</div>
 
-{\centering \includegraphics[width=0.9\linewidth]{08_arson_files/figure-latex/arsonAgencies-1} 
-
-}
-
-\caption{The annual number of police agencies that report at least month of data and all 12 months of data that year, 1979-2022.}(\#fig:arsonAgencies)
-\end{figure}
-
-In Figure \@ref(fig:arsonAgencies12Months) we can see the same graph as before but now for agencies reporting 12 months of data that year. The trends in both measures are the same, at least until 2018, with the last month reported measure always being a bit higher than the number of months missing measure. Which measure is better to use? In general I'd say my own measure but obviously that doesn't work starting in 2018. In practice both measures are quite similar so the decision on which to use depends on your own use-case such as if you are looking at data after 2017. 
+In Figure \@ref(fig:arsonAgencies12Months) we can see the same graph as before but now for agencies reporting 12 months of data that year. The trends in both measures are the same, at least until 2018, with the last month reported measure always being a bit higher than the number of months missing measure. Which measure is better to use? In general I would say my own measure but obviously that does not work starting in 2018. In practice both measures are quite similar so the decision on which to use depends on your own use-case such as if you are looking at data after 2017. 
 
 
 ## Important variables
 
-Similar to the Offenses Known and Clearances by Arrest data, this data shows the monthly number of crimes - in this case only arsons - reported or discovered by the police, the number found by police to be unfounded, and the number cleared by the police. In addition, it includes the number of arsons in structures that were uninhabited, and the estimated cost of the damage caused by the arsons. For each variable, the arsons are also broken into several categories of arsons, which we'll talk about in Section \@ref(arsonType). Like other SRS datasets, there are also variables that provide information about the agency - ORI codes, population under jurisdiction - the month and year that the data covers, and how many months reported data. When another agency submits data for the given agency, that is noted in the data through the "covered_by_ori" variable.
+Similar to the Offenses Known and Clearances by Arrest data, this data shows the monthly number of crimes - in this case only arsons - reported or discovered by the police, the number found by police to be unfounded, and the number cleared by the police. In addition, it includes the number of arsons in structures that were uninhabited, and the estimated cost of the damage caused by the arsons. For each variable, the arsons are also broken into several categories of arsons, which we will talk about in Section \@ref(arsonType). Like other SRS datasets, there are also variables that provide information about the agency - ORI codes, population under jurisdiction - the month and year that the data covers, and how many months reported data. When another agency submits data for the given agency, that is noted in the data through the "covered_by_ori" variable.
 
 ### Types of arsons {#arsonType}
 
@@ -48,7 +44,7 @@ There are seven arsons types for buildings, two for vehicles, and one as an "oth
   + Industrial
   + Other commercial (e.g. restaurant, office building, car dealership)
   + Community/public (e.g. government buildings, hospitals, community centers, places of worship)
-  + All other structures (all buildings that don't fit in another category')
+  + All other structures (all buildings that do not fit in another category')
 * Total mobile vehicles (vehicles)
   + Motor vehicles (a car that runs on a road such as a SUV, sedan, motorcycle)
   + Other mobile vehicles (other mobile objects such as airplanes and boats)
@@ -67,7 +63,7 @@ This variable shows the number of arsons reports that the police determined to n
 
 ### Reported arsons
 
-This variable is the sum of actual arsons and unfounded arsons - it is the total number of arsons that were reported or known to the police, even if a later investigation found that it wasn't actually an arson. Since this is the sum of two already present variables - and is less informative than the two variables are as separate variables - I'm not exactly sure why it's included.
+This variable is the sum of actual arsons and unfounded arsons - it is the total number of arsons that were reported or known to the police, even if a later investigation found that it was not actually an arson. Since this is the sum of two already present variables - and is less informative than the two variables are as separate variables - I am not exactly sure why it is included.
 
 ### Cleared arsons
 
@@ -77,14 +73,10 @@ Please note that this data is at the incident-level which means that having mult
 
 Clearances are also reported in the month they occur, not in the month that the initial crime happened. This can lead to cases where there are more clearances than crimes, incorrectly leading to the conclusion that police solve >100% of crimes. Figure \@ref(fig:arsonClearance) shows the number of actual arsons (reports that are founded) and clearances for single-family home arsons in League City, Texas, a city of about 100,000 outside of Houston. In most years there were fewer clearances than arsons, but in four years (1982, 1981, 1992, and 2007) there were more clearances than arsons. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{08_arson_files/figure-latex/arsonClearance-1} 
-
-}
-
-\caption{The annual number of single-family home arsons and clearances in League City, Texas, 1979-2022.}(\#fig:arsonClearance)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="08_arson_files/figure-html/arsonClearance-1.png" alt="The annual number of single-family home arsons and clearances in League City, Texas, 1979-2022." width="90%" />
+<p class="caption">(\#fig:arsonClearance)The annual number of single-family home arsons and clearances in League City, Texas, 1979-2022.</p>
+</div>
 
 ### Cleared for arsons where all offenders are under age 18
 
@@ -92,7 +84,7 @@ This variable is the same for normal clearances but only for arsons where every 
 
 ### Uninhabited building arsons
 
-This data also includes the number of arsons that occur in uninhabited structures. These structures must be uninhabited in the long-term, not simply having no one inside them when the arson occurs. The FBI defines these are structures that are "uninhabited, abandoned, deserted, or not normally in use" at the time of the arson. For example, a vacation home whose owners aren't living in at the time would be "not normally in use" so would be an uninhabited building. A business that is closed when the fire started, but is open during the day, is not an uninhabited building. 
+This data also includes the number of arsons that occur in uninhabited structures. These structures must be uninhabited in the long-term, not simply having no one inside them when the arson occurs. The FBI defines these are structures that are "uninhabited, abandoned, deserted, or not normally in use" at the time of the arson. For example, a vacation home whose owners are not living in at the time would be "not normally in use" so would be an uninhabited building. A business that is closed when the fire started, but is open during the day, is not an uninhabited building. 
 
 ### Estimated damage cost
 
@@ -102,22 +94,14 @@ The final variable is the estimated cost of the arson. This is how much the poli
 
 Like the other SRS data, there are some cases where there are obvious data entry errors leading to impossible numbers of reported arsons or the price of an arson. As an example, Figure \@ref(fig:residenceArson) shows the annual number of single-family home arsons in Byron City, Illinois, which has a population of slightly over 3,600 people. Every year with data available there are zero arsons reported until 2003 when 469 arsons are reported. Since it is exceedingly unlikely that suddenly an eighth of the city each suffered different arson attacks, and the city never again had a residence arson, this is almost certainly a data entry error. As arsons are relatively rare, having errors - and especially ones like this - can drastically change the results of your analysis so it is important to check your data carefully for more errors. 
 
-\begin{figure}
+<div class="figure" style="text-align: center">
+<img src="08_arson_files/figure-html/residenceArson-1.png" alt="Annual single-family home arsons in Byron  City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this dataset, 1979-2022. " width="90%" />
+<p class="caption">(\#fig:residenceArson)Annual single-family home arsons in Byron  City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this dataset, 1979-2022. </p>
+</div>
 
-{\centering \includegraphics[width=0.9\linewidth]{08_arson_files/figure-latex/residenceArson-1} 
+There are also cases where it is less clear when a value is a data error or is simply due to an outlier - but real - value. For example, Figure \@ref(fig:arsonCost) shows the annual average cost of a single-family home fire in Los Angeles, California. In most years the value is low. Since an arson can cause little or no damage, these low values likely mean that on average only part of the house was damaged, not the entire house. In 2009, however, the average damage is about $540,000 per arson. Is this a data entry error that simply inputs a damage value that is too high? It certainly appears to be a data error since it is a sudden huge jump in damage value. However, it could also be that some extraordinarily expensive homes were destroyed that year. In 2009 Los Angeles only reported 63 single-family home arsons so having one, or a few, super mansions - which LA has plenty of - destroyed could mean that this huge value is real. 
 
-}
-
-\caption{Annual single-family home arsons in Byron  City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this dataset, 1979-2022. }(\#fig:residenceArson)
-\end{figure}
-
-There are also cases where it is less clear when a value is a data error or is simply due to an outlier - but real - value. For example, Figure \@ref(fig:arsonCost) shows the annual average cost of a single-family home fire in Los Angeles, California. In most years the value is low. Since an arson can cause little or no damage, these low values likely mean that on average only part of the house was damaged, not the entire house. In 2009, however, the average damage is about $540,000 per arson. Is this a data entry error that simply inputs a damage value that is too high? It certainly appears to be a data error since it's a sudden huge jump in damage value. However, it could also be that some extraordinarily expensive homes were destroyed that year. In 2009 Los Angeles only reported 63 single-family home arsons so having one, or a few, super mansions - which LA has plenty of - destroyed could mean that this huge value is real. 
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{08_arson_files/figure-latex/arsonCost-1} 
-
-}
-
-\caption{The annual cost per arson for single family homes in Los Angeles, California, 1979-2022.}(\#fig:arsonCost)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="08_arson_files/figure-html/arsonCost-1.png" alt="The annual cost per arson for single family homes in Los Angeles, California, 1979-2022." width="90%" />
+<p class="caption">(\#fig:arsonCost)The annual cost per arson for single family homes in Los Angeles, California, 1979-2022.</p>
+</div>
