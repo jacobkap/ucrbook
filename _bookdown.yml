@@ -28,7 +28,7 @@ rmd_files: [
 #  "14_nibrs_offender.Rmd",
 #  "15_nibrs_victim.Rmd",
   "16_nibrs_arrestee.Rmd",
-#  "17_nibrs_property.Rmd",
+  "17_nibrs_property.Rmd",
   #  References
 #  "18_references.Rmd"
 ]
