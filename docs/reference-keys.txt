@@ -17,6 +17,8 @@ fig:phillyHomeCostPerBurglaryInflation
 fig:propertyAgencies
 fig:agenciesInBoth
 fig:agenciesInBoth12Month
+fig:theftByValue
+fig:theftByValueCalifornia
 fig:nycLivestock
 fig:phillyFurValue
 fig:romeBicycles
@@ -93,7 +95,7 @@ stolen_property
 agencies-reporting
 important-variables
 propertycount
-the-value-of-property-stolen-in-property-and-robbery-crimes
+the-value-of-property-stolen
 value-of-recovered-property-by-type-of-item-stolen
 data-errors
 arrests
