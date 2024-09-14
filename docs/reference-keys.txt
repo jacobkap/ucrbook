@@ -29,7 +29,8 @@ fig:phillyMarijuanaRacePercent
 fig:phillyMarijuanaRaceCount
 fig:theftHispanic
 fig:theftHispanicPercentAgencies
-fig:phillyJuvenileReferrals
+fig:JuvenileReferrals
+fig:JuvenileReferralsNoMichigan
 fig:shrVsOffenses
 fig:chicagoSHRvsOffensesKnown
 fig:shrAnnualAgencies
@@ -102,7 +103,6 @@ arrests
 agencies-reporting-1
 what-is-an-arrest-what-unit-is-this-data-in
 the-hierarchy-rule
-arrestsCrimesIncluded
 important-variables-1
 age
 race
