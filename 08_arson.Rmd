@@ -133,7 +133,7 @@ This shows the number of arsons where at least one offender is arrested or when 
 
 Please note that this data is at the incident-level which means that having multiple people arrested for an incident still only is a clearance for that single incident. If there are multiple people who committed the arson only one needs to be arrested or exceptionally cleared for the incident to be cleared.
 
-As with the Offenses Known data, clearances are reported in the month they occur, not in the month that the initial crime happened. This can lead to cases where there are more clearances than crimes, incorrectly leading to the conclusion that police solve >100% of crimes. Figure \@ref(fig:arsonClearance) shows the number of actual arsons (reports that are founded) and clearances for single-family home arsons in League City, Texas, a city of about 100,000 outside of Houston. In most years there were fewer clearances than arsons, but in four years (1982, 1981, 1992, and 2007) there were more clearances than arsons. 
+Clearances are reported in the month they occur, which may be different than the month when the arson happened. This can create the illusion that more crimes are solved than were reported in certain time periods. Figure \@ref(fig:arsonClearance), for example, shows the number of actual arsons (reports that are founded) and clearances for single-family home arsons in League City, Texas, a city of about 100,000 outside of Houston. In most years there were fewer clearances than arsons, but in four years (1982, 1981, 1992, and 2007) there were more clearances than arsons. 
 
 ```{r arsonClearance, fig.cap = "The annual number of single-family home arsons and clearances in League City, Texas, 1979-2022."}
 arson %>%
@@ -150,7 +150,7 @@ arson %>%
 
 ### Cleared for arsons where all offenders are under age 18
 
-This variable is the same for normal clearances but only for arsons where every offender is under the age of 18. In these cases a clearance by arrest can include citing the juvenile offender with an order to go to court to stand trial, even if the juvenile is not actually taken into police custody. As this variable requires that the police know the identity of every offender (to be able to determine that they are all under 18), it is likely flawed and merits caution when using. 
+This variable is the same for normal clearances but only for arsons where every offender is under the age of 18. For juvenile offenders, a clearance can still occur if the juvenile is issued a citation to appear in court, even if they are not formally arrested and taken into custody. As this variable requires that the police know the identity of every offender (to be able to determine that they are all under 18), it is likely flawed and merits caution when using. 
 
 ### Uninhabited building arsons
 

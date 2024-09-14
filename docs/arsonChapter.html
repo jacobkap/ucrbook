@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="shr.html"/>
-<link rel="next" href="hate_crimes.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -206,20 +206,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="arsonChapter.html"><a href="arsonChapter.html#data-errors"><i class="fa fa-check"></i><b>3.3</b> Data errors</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="hate_crimes.html"><a href="hate_crimes.html"><i class="fa fa-check"></i><b>4</b> Hate Crime Data</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="hate_crimes.html"><a href="hate_crimes.html#agencies-reporting-2"><i class="fa fa-check"></i><b>4.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="4.2" data-path="hate_crimes.html"><a href="hate_crimes.html#treeOfLife"><i class="fa fa-check"></i><b>4.2</b> Tree of Life synagogue shooting</a></li>
-<li class="chapter" data-level="4.3" data-path="hate_crimes.html"><a href="hate_crimes.html#important-variables-2"><i class="fa fa-check"></i><b>4.3</b> Important variables</a>
-<ul>
-<li class="chapter" data-level="4.3.1" data-path="hate_crimes.html"><a href="hate_crimes.html#date-and-time"><i class="fa fa-check"></i><b>4.3.1</b> Date and time</a></li>
-<li class="chapter" data-level="4.3.2" data-path="hate_crimes.html"><a href="hate_crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>4.3.2</b> The bias motivation (who the hate is against)</a></li>
-<li class="chapter" data-level="4.3.3" data-path="hate_crimes.html"><a href="hate_crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>4.3.3</b> The crime that occurred</a></li>
-<li class="chapter" data-level="4.3.4" data-path="hate_crimes.html"><a href="hate_crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>4.3.4</b> The location of the crime</a></li>
-<li class="chapter" data-level="4.3.5" data-path="hate_crimes.html"><a href="hate_crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>4.3.5</b> Number and race of offenders</a></li>
-<li class="chapter" data-level="4.3.6" data-path="hate_crimes.html"><a href="hate_crimes.html#number-of-victims"><i class="fa fa-check"></i><b>4.3.6</b> Number of victims</a></li>
-</ul></li>
-</ul></li>
 </ul>
 
       </nav>
@@ -299,7 +285,7 @@ Figure 3.1: The annual number of police agencies that report at least month of d
 <h3><span class="header-section-number">3.2.5</span> Cleared arsons<a href="arsonChapter.html#cleared-arsons" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This shows the number of arsons where at least one offender is arrested or when an arrest cannot be made for some reason, but the police know who the offender is - the latter option is called “exceptional clearances” or “clearances by exceptional means.” There is no way to tell if a clearance is due to an arrest or due to exceptional means.<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a></p>
 <p>Please note that this data is at the incident-level which means that having multiple people arrested for an incident still only is a clearance for that single incident. If there are multiple people who committed the arson only one needs to be arrested or exceptionally cleared for the incident to be cleared.</p>
-<p>As with the Offenses Known data, clearances are reported in the month they occur, not in the month that the initial crime happened. This can lead to cases where there are more clearances than crimes, incorrectly leading to the conclusion that police solve &gt;100% of crimes. Figure <a href="arsonChapter.html#fig:arsonClearance">3.2</a> shows the number of actual arsons (reports that are founded) and clearances for single-family home arsons in League City, Texas, a city of about 100,000 outside of Houston. In most years there were fewer clearances than arsons, but in four years (1982, 1981, 1992, and 2007) there were more clearances than arsons.</p>
+<p>Clearances are reported in the month they occur, which may be different than the month when the arson happened. This can create the illusion that more crimes are solved than were reported in certain time periods. Figure <a href="arsonChapter.html#fig:arsonClearance">3.2</a>, for example, shows the number of actual arsons (reports that are founded) and clearances for single-family home arsons in League City, Texas, a city of about 100,000 outside of Houston. In most years there were fewer clearances than arsons, but in four years (1982, 1981, 1992, and 2007) there were more clearances than arsons.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arsonClearance"></span>
 <img src="08_arson_files/figure-html/arsonClearance-1.png" alt="The annual number of single-family home arsons and clearances in League City, Texas, 1979-2022." width="90%" />
 <p class="caption">
@@ -309,7 +295,7 @@ Figure 3.2: The annual number of single-family home arsons and clearances in Lea
 </div>
 <div id="cleared-for-arsons-where-all-offenders-are-under-age-18" class="section level3 hasAnchor" number="3.2.6">
 <h3><span class="header-section-number">3.2.6</span> Cleared for arsons where all offenders are under age 18<a href="arsonChapter.html#cleared-for-arsons-where-all-offenders-are-under-age-18" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>This variable is the same for normal clearances but only for arsons where every offender is under the age of 18. In these cases a clearance by arrest can include citing the juvenile offender with an order to go to court to stand trial, even if the juvenile is not actually taken into police custody. As this variable requires that the police know the identity of every offender (to be able to determine that they are all under 18), it is likely flawed and merits caution when using.</p>
+<p>This variable is the same for normal clearances but only for arsons where every offender is under the age of 18. For juvenile offenders, a clearance can still occur if the juvenile is issued a citation to appear in court, even if they are not formally arrested and taken into custody. As this variable requires that the police know the identity of every offender (to be able to determine that they are all under 18), it is likely flawed and merits caution when using.</p>
 </div>
 <div id="uninhabited-building-arsons" class="section level3 hasAnchor" number="3.2.7">
 <h3><span class="header-section-number">3.2.7</span> Uninhabited building arsons<a href="arsonChapter.html#uninhabited-building-arsons" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -339,6 +325,29 @@ Figure 3.4: The annual cost per arson for single family homes in Los Angeles, Ca
 
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="footnotes">
 <hr />
 <ol start="17">
@@ -351,8 +360,8 @@ Figure 3.4: The annual cost per arson for single family homes in Los Angeles, Ca
           </div>
         </div>
       </div>
-<a href="shr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="hate_crimes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="shr.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
