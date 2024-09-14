@@ -14,11 +14,11 @@ rmd_files: [
   # SRS
 #  "02_ucr_general.Rmd",
 #  "03_offenses_known.Rmd",
-#  "04_stolen_property.Rmd",
-#  "05_arrests.Rmd",
+  "04_stolen_property.Rmd",
+  "05_arrests.Rmd",
   "06_shr.Rmd",
-#  "07_leoka.Rmd",
-  "08_arson.Rmd",
+  "07_leoka.Rmd",
+#  "08_arson.Rmd",
  # "09_hate_crime.Rmd",
  # "10_ucr_county.Rmd",
   # NIBRS
