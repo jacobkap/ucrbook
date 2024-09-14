@@ -223,7 +223,7 @@ This data breaks down the monthly number of assaults on officers in a few differ
     
 We can start by looking at the breakdown of assaults by injury and weapon type for officers in the Los Angeles Police Department. Figure \@ref(fig:leokaAssaultTypeInjury) shows the number of assaults from all years reported for these categories. Over the complete time period there were almost 43,000 officers assaulted with about three-quarters of these assaults - 33,000 assaults - leading to no injuries. This data shows the number of officers assaulted, not unique officers, so an officer can potentially be included in the data multiple times if they are assaulted multiple times over a year. A little under a quarter of assaults lead to officer injury with most of these from unarmed offenders. Interestingly, there are far more gun and knife assaults where the officer is not injured than where the officer is injured. There are likely cases when the offender threatens the officer with the weapon but does not shoot or stab the officer. 
     
-```{r leokaAssaultTypeInjury, fig.cap = "The total number of assaults on officers by injury sustained and offender weapon in Los Angeles, 1960-2022.", fig.height=15}
+```{r leokaAssaultTypeInjury, fig.cap = "The total number of assaults on officers by injury sustained and offender weapon in Los Angeles, 1960-2022."}
 assault_type <- leoka %>%
   filter(ori %in% "CA01942") %>%
   mutate(dummy = 1,

@@ -69,7 +69,7 @@ UCR data is important for three reasons:
 
 More than many other datasets, there will be times when using UCR data that you will think "that is weird". This book will cover this weirdness and when we think the weirdness is just an odd - but acceptable - quirk of the data, and when it is a sign of a big problem in the data or in that particular variable and that we should avoid using it. For most of this book we will be discussing the caveats of the above reasons - or, more directly, why these assumptions are wrong - but these are the reasons why the data is so influential. 
 
-```{r nibrsAnnualPercentPopulationIndex, fig.cap = "The annual percent of the United States population that is covered by an agency reporting data to NIBRS.", fig.height=15}
+```{r nibrsAnnualPercentPopulationIndex, fig.cap = "The annual percent of the United States population that is covered by an agency reporting data to NIBRS."}
 us_population <- read_csv("data/resident_population_usafacts.csv")
 us_population <- us_population[1,]
 us_population <- data.frame(t(us_population))
