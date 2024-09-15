@@ -23,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2024-09-14" />
+<meta name="date" content="2024-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -463,7 +463,7 @@ div.csl-indent {
 <h1><span class="header-section-number">Chapter 15</span> Victim Segment<a href="victim-segment-1.html#victim-segment-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>The Victim Segment provides data at the victim-level and includes information about who the victim is and their relationship to offenders. This data tells us what “type” of victim it is with the type meaning if they are a police officer, a civilian (“Individual” and basically any person who is not a police officer), a business, the government, etc. It also includes the standard demographics variables in other segments - age, race, sex, ethnicity - as well as whether the victim is a resident (i.e. do they live there?) of the jurisdiction where they were victimized. We also learn from this data what types of injuries (if any) the victim suffered as a result of the crime. This is limited to physical injuries - excluding important outcomes such as mental duress or PTSD - but allows for a much better measure of harm from crime than simply assuming (or using past studies that tend to be old and only look at the cost of crime) what harm comes from certain offenses. There are seven possible injury types (including no injury at all) and victims can report up to five of these injuries so we have a fairly detailed measure of victim injury.</p>
 <p>One highly interesting variable in this segment is the relationship between the victim and the offender (for up to 10 offenders). This includes, for example, if the victim was the offender’s wife, their child, employee, or if the stranger was unknown to them, with 27 total possible relationship categories. You can use this to determine which incidents were crimes by strangers, identify domestic violence, or simply learn who tends to commit crimes against certain types of victims. This variable is only available when the victim is a police officer or an “individual.” This makes some sense though there could actually be cases where non-human victims (e.g. businesses, religious organizations) do have a relationship with the offender such as an employee stealing from a store. Related to the victim-offender relationship, this segment provides a bit of information about the motive for the crime. For aggravated assaults and homicides, there is a variable with the “circumstance” of the offense which is essentially the reason why the crime occurred. For example, possible circumstances are arguments between people, hunting accidents, child playing with weapon, and domestic violence.</p>
-<p>In addition to the variables detailed below this segment has the traditional agency and incident identifiers: the ORI code, the agency state, the year of this data, and the incident number. It also has a “victim sequence number” which is a number identifying the victim in an incident since some incidents have multiple victims.</p>
+<p>It also has a “victim sequence number” which is a number identifying the victim in an incident since some incidents have multiple victims.</p>
 <div id="crime-category-1" class="section level2 hasAnchor" number="15.1">
 <h2><span class="header-section-number">15.1</span> Crime category<a href="victim-segment-1.html#crime-category-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The first variable we will look at is the crime the victim experienced. This is a bit different than the offenses in the Offense Segment as not all victims in an incident are victimized by all of the crimes involved. For example, if a couple is assaulted and the woman is raped, the woman would experience rape and assault while the man only experiences assault. NIBRS allows for up to 10 offenses per victim and these are supposed to be ranked in order of seriousness. So the first variable has the most serious offense, the second has the second most serious offense, and so on. This is true is most cases but some have more minor crimes presented before more serious crimes. This seems to just be a data entry issue and nothing systematic but you should still check all offense variables if you are interested in finding the most serious crime per victim.</p>
@@ -1488,13 +1488,13 @@ Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories
 </tbody>
 </table>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsFirstVsAllOffensesMurders"></span>
-<img src="15_nibrs_victim_files/figure-html/nibrsFirstVsAllOffensesMurders-1.png" alt="The numbers of murders when considering only the first offense or all offenses, 1991-2022." width="90%" />
+<img src="15_nibrs_victim_files/figure-html/nibrsFirstVsAllOffensesMurders-1.png" alt="The numbers of murders when considering only the first offense or all offenses, 1991-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 15.1: The numbers of murders when considering only the first offense or all offenses, 1991-2022.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsFirstVsAllOffensesSexOffenses"></span>
-<img src="15_nibrs_victim_files/figure-html/nibrsFirstVsAllOffensesSexOffenses-1.png" alt="The numbers of sexual offenders when considering only the first offense or all offenses, 1991-2022." width="90%" />
+<img src="15_nibrs_victim_files/figure-html/nibrsFirstVsAllOffensesSexOffenses-1.png" alt="The numbers of sexual offenders when considering only the first offense or all offenses, 1991-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 15.2: The numbers of sexual offenders when considering only the first offense or all offenses, 1991-2022.
 </p>
@@ -1503,7 +1503,7 @@ Figure 15.2: The numbers of sexual offenders when considering only the first off
 <div id="victim-type" class="section level2 hasAnchor" number="15.2">
 <h2><span class="header-section-number">15.2</span> Victim type<a href="victim-segment-1.html#victim-type" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>I spoke above as if all victims are people who are victimized. This is not entirely true. Some victims may be organizations, businesses, or other inanimate objects. NIBRS has nine different types of victims (including “unknown” type and “other” type) in the data and it tells us which type each victim is.</p>
-<p>Table <a href="victim-segment-1.html#tab:victimType">15.3</a> shows each of the victim types and how commonly they appear in the data. Two key ones are “individual” at 69.4% of victims and law enforcement officer at 0.5% of victims. Law enforcement officers who are victimized are only classified as law enforcement officers when they are the victims of murder, aggravated or simple assault, or intimidation. Otherwise they are labeled as “individual” victims. So an individual is a person who is either not a law enforcement officer or who is an officer but is not victimized by one of the approved crimes. These two are special types of victims as all other variables in this segment apply only to them. This is because non-humans cannot have demographic information, injuries (injury to property would be detailed in the Property Segment in Chapter <a href="property.html#property">17</a>), or relationships.<a href="#fn97" class="footnote-ref" id="fnref97"><sup>97</sup></a></p>
+<p>Table <a href="victim-segment-1.html#tab:victimType">15.3</a> shows each of the victim types and how commonly they appear in the data. Two key ones are “individual” at 69.4% of victims and law enforcement officer at 0.5% of victims. Law enforcement officers who are victimized are only classified as law enforcement officers when they are the victims of murder, aggravated or simple assault, or intimidation. Otherwise they are labeled as “individual” victims. So an individual is a person who is either not a law enforcement officer or who is an officer but is not victimized by one of the approved crimes. These two are special types of victims as all other variables in this segment apply only to them. This is because non-humans cannot have demographic information, injuries (injury to property would be detailed in the Property Segment in Chapter <a href="property.html#property">17</a>), or relationships.<a href="#fn96" class="footnote-ref" id="fnref96"><sup>96</sup></a></p>
 <p>The next most common type is business at 15.6% of victims, “society/public” at 12.9% of victims, and the government in 1% of victims. When the victim is society/public that means that the offense is a “victimless crime” or one where there is no specific victim. This includes drug offenses, animal cruelty (animals cannon be victims in this data), prostitution-related offenses (purchasing, promoting, and being a prostitute), pornography/obscene materials, and weapon offenses. The remaining categories - financial institution, other victim type, unknown victim type, and religion organization - are each under 0.25% of victims.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
@@ -1670,13 +1670,13 @@ Total
 </table></li>
 </ul>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsVictimNumberOfficer"></span>
-<img src="15_nibrs_victim_files/figure-html/nibrsVictimNumberOfficer-1.png" alt="The annual number of law enforcement officer victims, 1991-2022." width="90%" />
+<img src="15_nibrs_victim_files/figure-html/nibrsVictimNumberOfficer-1.png" alt="The annual number of law enforcement officer victims, 1991-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 15.3: The annual number of law enforcement officer victims, 1991-2022.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsVictimPercentIndividualOfficer"></span>
-<img src="15_nibrs_victim_files/figure-html/nibrsVictimPercentIndividualOfficer-1.png" alt="Percent of victimizations whose victim type of 'law enforcement officer,' 'business,' or 'invidual,' 1991-2022." width="90%" />
+<img src="15_nibrs_victim_files/figure-html/nibrsVictimPercentIndividualOfficer-1.png" alt="Percent of victimizations whose victim type of 'law enforcement officer,' 'business,' or 'invidual,' 1991-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 15.4: Percent of victimizations whose victim type of ‘law enforcement officer,’ ‘business,’ or ‘invidual,’ 1991-2022.
 </p>
@@ -1702,7 +1702,7 @@ Figure 15.4: Percent of victimizations whose victim type of ‘law enforcement o
 <p>Even though there are up to five victim injuries recorded, for the below graphs I am just looking at the first variable. Injuries are sorted by seriousness with the first recorded injury more serious than the second, and so on, so this will look at the most serious injuries victims received. As with most variables in this data, only “individual” and law enforcement officer victims have this info.</p>
 <p>Figure <a href="victim-segment-1.html#fig:victimInjury">15.5</a> shows the eight injury categories and how common they are for all victims with this information reported. The most common type is “none” at 52.6% of injuries which means the victim did not suffer any injuries at all. This is followed by 42.0% of victims suffering “apparent minor injuries.” The six serious injuries are far lesson common and given that nearly a third of victims suffer none or minor injuries are hard to see on the graph. To make it easier to see, Figure <a href="victim-segment-1.html#fig:victimInjuryExcludeNone">15.6</a> shows the breakdown in victim injury excluding those who did not suffer an injury or those who suffered a minor injury.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:victimInjury"></span>
-<img src="15_nibrs_victim_files/figure-html/victimInjury-1.png" alt="The distribution of the injury sustained by the victim, 2022. Only individual and law enforcement officer victims have this variable availablem." width="90%" />
+<img src="15_nibrs_victim_files/figure-html/victimInjury-1.png" alt="The distribution of the injury sustained by the victim, 2022. Only individual and law enforcement officer victims have this variable availablem." width="100%" height="100%"  />
 <p class="caption">
 Figure 15.5: The distribution of the injury sustained by the victim, 2022. Only individual and law enforcement officer victims have this variable availablem.
 </p>
@@ -1710,13 +1710,13 @@ Figure 15.5: The distribution of the injury sustained by the victim, 2022. Only 
 <p>For the group who suffered one of the six more serious injury types, 32.1% suffered an “other major injury” which is a serious injury other than one of the other categories. This is followed by 25.8% having a serious laceration (a laceration is a cut), 21.6% having a possible internal injury, and 12.5% having an apparent broken bone. About 6.5% of these victims became unconscious at some point in the incident, and 1.5% lost at least one tooth.</p>
 <p>Trends for law enforcement officer victims (not shown) are nearly identical for those with an injury but have more victims reporting no injury at all relative to non-law enforcement officer victims.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:victimInjuryExcludeNone"></span>
-<img src="15_nibrs_victim_files/figure-html/victimInjuryExcludeNone-1.png" alt="The distribution of the injury sustained by the victim for those who had an injury other than 'none' or 'apparent minor injuries,' 2022." width="90%" />
+<img src="15_nibrs_victim_files/figure-html/victimInjuryExcludeNone-1.png" alt="The distribution of the injury sustained by the victim for those who had an injury other than 'none' or 'apparent minor injuries,' 2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 15.6: The distribution of the injury sustained by the victim for those who had an injury other than ‘none’ or ‘apparent minor injuries,’ 2022.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsVictimAssaultInjury"></span>
-<img src="15_nibrs_victim_files/figure-html/nibrsVictimAssaultInjury-1.png" alt="Victim injury for assault offenses, by injury severity, 1991-2022. Major injury is all injury types other than 'none' and 'apparent minor injuries' which are 'other major injury,' 'severe laceration,' possible internal injury,' apparent broken bones,' 'unconsciousness,' and 'loss of teeth.'" width="90%" />
+<img src="15_nibrs_victim_files/figure-html/nibrsVictimAssaultInjury-1.png" alt="Victim injury for assault offenses, by injury severity, 1991-2022. Major injury is all injury types other than 'none' and 'apparent minor injuries' which are 'other major injury,' 'severe laceration,' possible internal injury,' apparent broken bones,' 'unconsciousness,' and 'loss of teeth.'" width="100%" height="100%"  />
 <p class="caption">
 Figure 15.7: Victim injury for assault offenses, by injury severity, 1991-2022. Major injury is all injury types other than ‘none’ and ‘apparent minor injuries’ which are ‘other major injury,’ ‘severe laceration,’ possible internal injury,’ apparent broken bones,’ ‘unconsciousness,’ and ‘loss of teeth.’
 </p>
@@ -2352,7 +2352,7 @@ Total
 </tbody>
 </table>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsVictimAssaultSpouse"></span>
-<img src="15_nibrs_victim_files/figure-html/nibrsVictimAssaultSpouse-1.png" alt="The annual percent of assault victims whose perpetrator is their spouse, 1991-2022." width="90%" />
+<img src="15_nibrs_victim_files/figure-html/nibrsVictimAssaultSpouse-1.png" alt="The annual percent of assault victims whose perpetrator is their spouse, 1991-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 15.8: The annual percent of assault victims whose perpetrator is their spouse, 1991-2022.
 </p>
@@ -2641,7 +2641,7 @@ Aggravated Assault/Murder
 <h2><span class="header-section-number">15.6</span> Justifiable homicide circumstance<a href="victim-segment-1.html#justifiable-homicide-circumstance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We know a little bit more in cases of justifiable homicides. Here, we know the circumstances behind the homicide. Figure <a href="victim-segment-1.html#fig:victimJustifiableHomicide">15.9</a> shows the circumstance breakdown for all 308 justifiable homicides reported in 2019. The most common reason, at 34.4% of justifiable homicides is because the offender attacked a civilian. In 21% of justifiable homicides the offender attacked a police officer and was killed by the same officer. In 6.5% the offender attacked a police officer and was killed by a different officer. This is followed by 28% being killed during the commission of a crime. In 4.9% of justifiable homicides, the circumstance is unknown. 3.6% had the offender killed while fleeing from a crime and 1% were killed while resisting arrest.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:victimJustifiableHomicide"></span>
-<img src="15_nibrs_victim_files/figure-html/victimJustifiableHomicide-1.png" alt="The distribution of circumstances for justifiable homicides (N = 308 in 2022 for all agencies reporting)." width="90%" />
+<img src="15_nibrs_victim_files/figure-html/victimJustifiableHomicide-1.png" alt="The distribution of circumstances for justifiable homicides (N = 308 in 2022 for all agencies reporting)." width="100%" height="100%"  />
 <p class="caption">
 Figure 15.9: The distribution of circumstances for justifiable homicides (N = 308 in 2022 for all agencies reporting).
 </p>
@@ -2654,16 +2654,16 @@ Figure 15.9: The distribution of circumstances for justifiable homicides (N = 30
 <h3><span class="header-section-number">15.7.1</span> Residence status<a href="victim-segment-1.html#residence-status" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This segment tells us if the victim is a resident of the jurisdiction they were victimized in. This basically means whether or not they live in the city where the crime happened. It has nothing to do with residence status or citizenship status in the United States. The FBI defines residence as their legal permanent address though it is unclear how that is handled for people without this info (though this is far less likely to be a problem here than for arrestees which also report this variable) and when people live permanently in a different spot than their legal address. This variable is useful when trying to figure out if victims are those who live in the area or live outside of it, such as tourists or workers who live nearby. Since crime rates are usually crimes per residents in the jurisdiction, this can be used to determine how reliable that denominator is. If many victims are residents then it makes much more sense than if few are.</p>
 <p>Table <a href="#fig:victimResidenceStatus"><strong>??</strong></a> shows the residence status for all individual or law enforcement officer victims. The vast majority, 67%, of victims are residents of the jurisdiction where they were victimized while 12.5% were not residents. 20.4% of victims have an unknown resident status.</p>
-<p>One proposed measure to improve policing is to require police officers (or at least newly hired officers) live in the city where they work. The idea here is that people will do a better job if it affects the place they consider home.<a href="#fn98" class="footnote-ref" id="fnref98"><sup>98</sup></a> Luckily for us, NIBRS includes law enforcement officers in their measure of whether the victim lives in the jurisdiction where they were victimized. Since law enforcement officers are only recorded to be victims when on the job, this is one measure of where officers live.</p>
+<p>One proposed measure to improve policing is to require police officers (or at least newly hired officers) live in the city where they work. The idea here is that people will do a better job if it affects the place they consider home.<a href="#fn97" class="footnote-ref" id="fnref97"><sup>97</sup></a> Luckily for us, NIBRS includes law enforcement officers in their measure of whether the victim lives in the jurisdiction where they were victimized. Since law enforcement officers are only recorded to be victims when on the job, this is one measure of where officers live.</p>
 <p>Figure <a href="victim-segment-1.html#fig:victimResidenceStatusPolice">15.10</a> shows the residence status for law enforcement officer victims. Most law enforcement officer victims reside in their jurisdiction with being 53.2% residents and 13.3% being non-residents. However, there is a lot of uncertainty as 33.5% have an unknown residence status.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:victimResidenceStatusPolice"></span>
-<img src="15_nibrs_victim_files/figure-html/victimResidenceStatusPolice-1.png" alt="The distribution of residence status for all Law Enforcement Officer victims, 2022." width="90%" />
+<img src="15_nibrs_victim_files/figure-html/victimResidenceStatusPolice-1.png" alt="The distribution of residence status for all Law Enforcement Officer victims, 2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 15.10: The distribution of residence status for all Law Enforcement Officer victims, 2022.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsVictimResidentStatus"></span>
-<img src="15_nibrs_victim_files/figure-html/nibrsVictimResidentStatus-1.png" alt="The share of victims by resident status in the reporting agency's jurisdiction, 1991-2022." width="90%" />
+<img src="15_nibrs_victim_files/figure-html/nibrsVictimResidentStatus-1.png" alt="The share of victims by resident status in the reporting agency's jurisdiction, 1991-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 15.11: The share of victims by resident status in the reporting agency’s jurisdiction, 1991-2022.
 </p>
@@ -2674,19 +2674,19 @@ Figure 15.11: The share of victims by resident status in the reporting agency’
 <p>This variable is the age of the victim when the crime occurred, regardless of when they reported the crime. Age is given as how many years old the victim is, with a few exceptions. Victims older than 98 are grouped together as “over 98 years old” while victims younger than 1 years old are broken down into “under 24 hours (neonate)”, “1-6 days old”, and “7-364 days old”. About 1.4% of victim ages are unknown.</p>
 <p>Figure <a href="victim-segment-1.html#fig:victimAge">15.12</a> shows the percent of victims at each age available. This is pretty similar to the age of offenders shown in Figure <a href="offender-segment-1.html#fig:offenderAge">14.1</a> with a peak in the mid to late 20s with a long decline after. The most common victim age is 27 followed by 28, 29, and 30. Relative to offender ages, there are far more young victims. About 2.8% of victims, or 145k victims, in 2019 were aged 14 or younger. However, remember that this is for all victims of any crime so age trends may differ by which crime you are looking at.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:victimAge"></span>
-<img src="15_nibrs_victim_files/figure-html/victimAge-1.png" alt="The age of all victims, 2022." width="90%" />
+<img src="15_nibrs_victim_files/figure-html/victimAge-1.png" alt="The age of all victims, 2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 15.12: The age of all victims, 2022.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsVictimAge"></span>
-<img src="15_nibrs_victim_files/figure-html/nibrsVictimAge-1.png" alt="The mean and median age of victims, 1991-2022." width="90%" />
+<img src="15_nibrs_victim_files/figure-html/nibrsVictimAge-1.png" alt="The mean and median age of victims, 1991-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 15.13: The mean and median age of victims, 1991-2022.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsVictimAgeMissing"></span>
-<img src="15_nibrs_victim_files/figure-html/nibrsVictimAgeMissing-1.png" alt="The percent of victim's age that is unknown, 1991-2022." width="90%" />
+<img src="15_nibrs_victim_files/figure-html/nibrsVictimAgeMissing-1.png" alt="The percent of victim's age that is unknown, 1991-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 15.14: The percent of victim’s age that is unknown, 1991-2022.
 </p>
@@ -2694,9 +2694,9 @@ Figure 15.14: The percent of victim’s age that is unknown, 1991-2022.
 </div>
 <div id="sex-2" class="section level3 hasAnchor" number="15.7.3">
 <h3><span class="header-section-number">15.7.3</span> Sex<a href="victim-segment-1.html#sex-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>As with the Offender and the Arrestee Segments, we know the sex of the victim. The only choices are female, male, and unknown sex. There is no option for transgender or any other identify. Since the victim can tell the police their sex, and the police can see them clearly in most cases (though this may not be true if the victim reports a crime over the phone by calling 911 but then does not stay to be interviewed) so is more reliable than in the Offender Segment which may include guesses about the offender. The most common victim sex is female at 50.8% of victims, followed closely by male at 48.4%. Only about 0.8% of victims have an unknown sex. It is interesting that female victims are so common since most criminology research finds that male victims are so common. I think this is likely due to criminologists primarily focusing on murder and index violent crimes as their measure of crime, which ignores many other crimes.<a href="#fn99" class="footnote-ref" id="fnref99"><sup>99</sup></a></p>
+<p>As with the Offender and the Arrestee Segments, we know the sex of the victim. The only choices are female, male, and unknown sex. There is no option for transgender or any other identify. Since the victim can tell the police their sex, and the police can see them clearly in most cases (though this may not be true if the victim reports a crime over the phone by calling 911 but then does not stay to be interviewed) so is more reliable than in the Offender Segment which may include guesses about the offender. The most common victim sex is female at 50.8% of victims, followed closely by male at 48.4%. Only about 0.8% of victims have an unknown sex. It is interesting that female victims are so common since most criminology research finds that male victims are so common. I think this is likely due to criminologists primarily focusing on murder and index violent crimes as their measure of crime, which ignores many other crimes.<a href="#fn98" class="footnote-ref" id="fnref98"><sup>98</sup></a></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsVictimSex"></span>
-<img src="15_nibrs_victim_files/figure-html/nibrsVictimSex-1.png" alt="The share of victims by sex, 1991-2022." width="90%" />
+<img src="15_nibrs_victim_files/figure-html/nibrsVictimSex-1.png" alt="The share of victims by sex, 1991-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 15.15: The share of victims by sex, 1991-2022.
 </p>
@@ -2707,7 +2707,7 @@ Figure 15.15: The share of victims by sex, 1991-2022.
 <p>For each victim we also know their race. The only possible races are White, Black, American Indian/Alaskan Native, Asian, and Native Hawaiian/Other Pacific Islander. These categories are mutually exclusive so people cannot be labeled as mixed race, they must be put into one of the categories. Since the police generally can talk to the victim it is possible that they ask the victim what race they are rather than just guess based on appearance. However, this may differ based on agency and the officer taking the report so may be inconsistent.</p>
 <p>Figure <a href="#fig:victimRace"><strong>??</strong></a> shows the breakdown in victims by race. Most victims are White at about 67.8% of victims, followed by Black victims at 23.4%. 5.6% have an unknown race. The remaining victims are made up of 1.9% Asian victims, 0,7% American Indian/Alaskan Native victims, and 0.5% Native Hawaiian/Pacific Islander.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsVictimRace"></span>
-<img src="15_nibrs_victim_files/figure-html/nibrsVictimRace-1.png" alt="The share of victims by race, 1991-2022." width="90%" />
+<img src="15_nibrs_victim_files/figure-html/nibrsVictimRace-1.png" alt="The share of victims by race, 1991-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 15.16: The share of victims by race, 1991-2022.
 </p>
@@ -2719,7 +2719,7 @@ Figure 15.16: The share of victims by race, 1991-2022.
 <p>There’s also the question of reliability of the ethnicity data. Someone being Hispanic or not is likely just what the arrestees calls themselves or what the arresting officer perceives them to be. Both are important ways of measuring ethnicity but get at different things. Perception is more important for studies of bias, self-identification for differences among groups of people such as arrest rates by ethnicity. And the subjectivity of who is classified as Hispanic means that this measurement may differ by agency and by officer, making it imprecise.</p>
 <p>Figure <a href="#fig:victimEthnicity"><strong>??</strong></a> shows the breakdown in arrests by victim ethnicity for all victims in 2019. Most arrestees - 62.2% - are not Hispanic. Only 10.5% are reported to be Hispanic but a much higher percent of arrestees - 27.2% - have an unknown ethnicity. Given that over a quarter of victims do not have ethnicity data, if you would like to use this variable I recommend that you carefully examine the data to ensure that the agencies you are looking at (if you do not use all agencies in the data) have a much higher reporting rate.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsVictimEthnicity"></span>
-<img src="15_nibrs_victim_files/figure-html/nibrsVictimEthnicity-1.png" alt="The share of victims by ethnicity, 1991-2022." width="90%" />
+<img src="15_nibrs_victim_files/figure-html/nibrsVictimEthnicity-1.png" alt="The share of victims by ethnicity, 1991-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 15.17: The share of victims by ethnicity, 1991-2022.
 </p>
@@ -2730,10 +2730,10 @@ Figure 15.17: The share of victims by ethnicity, 1991-2022.
 </div>
 <div class="footnotes">
 <hr />
-<ol start="97">
-<li id="fn97"><p>Businesses may have some form of demographic information if you think about demographics of the owners or managers. However, that information is not available. If the business was targeted due to the owner’s demographics then that may be considered a hate crime and be reported in the Offense Segment.<a href="victim-segment-1.html#fnref97" class="footnote-back">↩︎</a></p></li>
-<li id="fn98"><p>Since crime is generally concentrated in a small number of impoverished parts of town, and police likely would not live in these parts, this probably would not be very effective.<a href="victim-segment-1.html#fnref98" class="footnote-back">↩︎</a></p></li>
-<li id="fn99"><p>Murder and other violent crimes are mainly men hurting/killing other men, except in domestic violence which is primarily men hurting/killing women.<a href="victim-segment-1.html#fnref99" class="footnote-back">↩︎</a></p></li>
+<ol start="96">
+<li id="fn96"><p>Businesses may have some form of demographic information if you think about demographics of the owners or managers. However, that information is not available. If the business was targeted due to the owner’s demographics then that may be considered a hate crime and be reported in the Offense Segment.<a href="victim-segment-1.html#fnref96" class="footnote-back">↩︎</a></p></li>
+<li id="fn97"><p>Since crime is generally concentrated in a small number of impoverished parts of town, and police likely would not live in these parts, this probably would not be very effective.<a href="victim-segment-1.html#fnref97" class="footnote-back">↩︎</a></p></li>
+<li id="fn98"><p>Murder and other violent crimes are mainly men hurting/killing other men, except in domestic violence which is primarily men hurting/killing women.<a href="victim-segment-1.html#fnref98" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

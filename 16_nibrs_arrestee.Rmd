@@ -29,9 +29,7 @@ The Arrestee Segment has information on the person arrested in an incident and h
 
 This chapter also covers the Group B Arrestee Segment. The Arrestee Segment covers arrests for Group A offenses and there are corresponding Offense, Offender, and Victim segments for these incidents. Group B offenses, however, only have information about the arrest so incidents in this segment do not have any corresponding segments with it. Since Group B only has arrests without any associated incident, instead of the incident number variable like other segments have, this segment has an "arrest transaction incident number" which works the same as a normal incident number. Likewise, the Window Arrestee Segment is not associated with any other segments as the "window" part means that they are only partial reports. The Window Arrestee Segment has the same variables as the normal Arrestee Segment but also has 10 variables on each of the offenses committed (up to 10 offenses) during the incident. This is really to try to provide a bit of information that you would otherwise get from the other segments but do not since this is a window segment.
 
-For the rest of this chapter I will be using examples from the Arrestee Segment and not the Group B Arrestee (except for a table showing each Group B offense) or the Window Arrestee Segment. 
-
-In addition to the variables detailed below this, segment has the traditional agency and incident identifiers: the ORI code, the agency state, the year of this data, and the incident number. It also has an "arrestee sequence number" which is an identifier for an arrestee in an incident since incidents can have multiple people arrested. This is just the number of each arrestee and to my knowledge is not associated with how involved the arrestee is. Being the 1st arrestee, for example, does not mean that individual played a greater role in the crime than the 2nd arrestee.
+It also has an "arrestee sequence number" which is an identifier for an arrestee in an incident since incidents can have multiple people arrested. This is just the number of each arrestee and to my knowledge is not associated with how involved the arrestee is. Being the 1st arrestee, for example, does not mean that individual played a greater role in the crime than the 2nd arrestee.
 
 
 ## Crimes arrested for
@@ -114,30 +112,11 @@ For each arrest we know the exact date of the arrest. As with the incident date,
 
 Figure \@ref(fig:arrestsDaysUntilArrest) shows how long it takes for arrests to be made. The shortest time is zero days which means the arrest and the incident happened on the same day and the longest is 461 days after the incident. About 76.5% of arrests happen on the same day as the incident while 6.6% happen on the next day. 1.4% happen the following day and 1% on the day after this. This trend of a lower probability of the case being solved as the time from the incident increases continues throughout the figure. Including dates up to 461 days is a bit ridiculous since it is impossible to see trends among the early dates other than zero days, but it is a good demonstration of how massively concentrated arrests are that occur on the same day of the incident. The lesson here is that if an arrest is not made on the day of the incident (such as at the scene of the crime), it is very unlikely that'll it'll be made at all (and most crimes never lead to an arrest). 
 
-```{r arrestsDaysUntilArrest, fig.cap = "The distribution of the number of days from the incident to the arrest date. In 2022 the maximum days from incident to arrest was 461 days. Zero days means that the arrest occurred on the same day as the incident."}
-
-arrestee$days_until_arrest <- as.numeric(ymd(arrestee$arrest_date) - ymd(arrestee$incident_date))
-
-temp <- 
-  arrestee %>%
-  group_by(days_until_arrest) %>%
-  count()
-temp$proportion <- temp$n / sum(temp$n)
-temp$percent <- temp$proportion * 100  
-
-ggplot(temp, aes(x = days_until_arrest, y = proportion)) +
-  geom_line(size = 1.05) +
-  theme_crim() +
-  xlab("Days Until Arrest") +
-  ylab("% of Arrests") +
-  scale_y_continuous(label = scales::percent)
-
-```
 
 Figure \@ref(fig:arrestsDaysUntilArrestBarplot) groups the larger number of days together to make it easier to see trends early after the incident. Here we can see much better how the percent of arrests move quickly downwards after zero days. 
 
 ```{r arrestsDaysUntilArrestBarplot, fig.cap = "The number of days from the incident to the arrest date. Values over 10 days are grouped to better see the distribution for arrests that took fewer than 10 days. Zero days means that the arrest occurred on the same day as the incident."}
-
+arrestee$days_until_arrest <- as.numeric(ymd(arrestee$arrest_date) - ymd(arrestee$incident_date))
 max_days <- max(arrestee$days_until_arrest)
 temp <- 
   arrestee %>%

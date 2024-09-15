@@ -23,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2024-09-14" />
+<meta name="date" content="2024-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -469,34 +469,34 @@ div.csl-indent {
 <p>Figure <a href="shr.html#fig:shrVsOffenses">6.1</a> shows the annual number of homicide victims (including murders and manslaughters) from each of these datasets starting in 1976 for the SHR data and in 1999 for the CDC data.<a href="#fn53" class="footnote-ref" id="fnref53"><sup>53</sup></a></p>
 <p>For the SHR data, in every year the numbers are fairly similar and the trends are the same over time, but the number of homicides is never equal. The numbers have actually gotten worse over time with the difference between the datasets increasing and the Offenses Known data having consistently more murders reported than the SHR data since the late 1990s. Compared to the CDC data, however, both SHR datasets - and in particular the SHR data - undercount the number of homicides. While trends are the same, SHR data reports thousands fewer murders per year than the CDC data, indicating how much of an issue underreporting is in this data.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrVsOffenses"></span>
-<img src="06_shr_files/figure-html/shrVsOffenses-1.png" alt="The annual number of murders and nonngeligent manslaughters from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset, and homicides from the Center for Disease Control (CDC). Numbers differ because agencies voluntarily report and may not report to both datasets." width="90%" />
+<img src="06_shr_files/figure-html/shrVsOffenses-1.png" alt="The annual number of murders and nonngeligent manslaughters from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset, and homicides from the Center for Disease Control (CDC). Numbers differ because agencies voluntarily report and may not report to both datasets." width="100%" height="100%"  />
 <p class="caption">
 Figure 6.1: The annual number of murders and nonngeligent manslaughters from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset, and homicides from the Center for Disease Control (CDC). Numbers differ because agencies voluntarily report and may not report to both datasets.
 </p>
 </div>
 <p>Let us look at Chicago for another example of the differences in reporting from the SHR and the Offenses Known data. Figure <a href="shr.html#fig:chicagoSHRvsOffensesKnown">6.2</a> shows the annual number of homicide victims from both datasets. In most years they are pretty similar, excluding a few really odd years in the 1980s and in 1990. But what is also strange is that most years have more SHR victims than Offenses Known victims. So nationally SHR has fewer homicides than Offenses Known but that pattern is reversed in Chicago? This is one of the many quirks of SHR data. And is a warning against treating national trends as local trends; what is true nationally is not always true in your community. So when you use this data, check everything closely. And once you have done that, check it again.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:chicagoSHRvsOffensesKnown"></span>
-<img src="06_shr_files/figure-html/chicagoSHRvsOffensesKnown-1.png" alt="The annual number of homicide victims in Chicago, SHR and Offeksnes Known, 1976-2022." width="90%" />
+<img src="06_shr_files/figure-html/chicagoSHRvsOffensesKnown-1.png" alt="The annual number of homicide victims in Chicago, SHR and Offeksnes Known, 1976-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 6.2: The annual number of homicide victims in Chicago, SHR and Offeksnes Known, 1976-2022.
 </p>
 </div>
 <p>Another way to visualize reporting is to see the total number of agencies that report at least one homicide, as depicted in Figure <a href="shr.html#fig:shrAnnualAgencies">6.3</a>. Here we can see that have about 3,000 agencies reporting. Given that most agencies are small and truly do have zero homicides in a year, that may be reasonable. Agencies that do not have homicides do not submit a report saying so, they just do not submit any data. So that makes it hard to tell when an agency not reporting data is doing so because they choose to not report, or because they have nothing to report. This is most common in small agencies where many years truly have no homicides. But let us look at our biggest agencies, and see how much of an impact it would make to have them not report data.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrAnnualAgencies"></span>
-<img src="06_shr_files/figure-html/shrAnnualAgencies-1.png" alt="The annual number of agencies that report at least one homicide." width="90%" />
+<img src="06_shr_files/figure-html/shrAnnualAgencies-1.png" alt="The annual number of agencies that report at least one homicide." width="100%" height="100%"  />
 <p class="caption">
 Figure 6.3: The annual number of agencies that report at least one homicide.
 </p>
 </div>
 <p>Figures <a href="shr.html#fig:shrTopAgenciesCount">6.4</a> and <a href="shr.html#fig:shrTopAgenciesCountPercent">6.5</a> attempt to get at this question by looking the number and percent of all incidents that the top 100, 50 and 10 agencies based on number of homicide incidents make up out of all homicide incidents in each year. These agencies are massively disproportionate in how many homicides they represent - though they are also generally the largest cities in the country so are a small number of agencies but a large share of this nation’s population. On average, the 10 agencies with the most homicide incidents each year - which may change every year - have over 4,000 homicide incidents and make up about 1/4 of all homicide incidents reported nationally. The top 50 have about 7,500 incidents a year, accounting for 46% of incidents. The top 100 agencies have a bit under 10,000 incidents a year and make up over 55% of all homicide incidents in the United States. So excluding the largest agencies in the country would certainly undercount homicides.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrTopAgenciesCount"></span>
-<img src="06_shr_files/figure-html/shrTopAgenciesCount-1.png" alt="The annual number of homicide incidents, showing all agencies, the top 100 agencies (by number of homicide incidents), top 50, and top 10 agencies, 1976-2022." width="90%" />
+<img src="06_shr_files/figure-html/shrTopAgenciesCount-1.png" alt="The annual number of homicide incidents, showing all agencies, the top 100 agencies (by number of homicide incidents), top 50, and top 10 agencies, 1976-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 6.4: The annual number of homicide incidents, showing all agencies, the top 100 agencies (by number of homicide incidents), top 50, and top 10 agencies, 1976-2022.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrTopAgenciesCountPercent"></span>
-<img src="06_shr_files/figure-html/shrTopAgenciesCountPercent-1.png" alt="The annual percent of homicide incidents by the top 100 agencies (by number of homicide incidents), top 50, and top 10 agencies, 1976-2022." width="90%" />
+<img src="06_shr_files/figure-html/shrTopAgenciesCountPercent-1.png" alt="The annual percent of homicide incidents by the top 100 agencies (by number of homicide incidents), top 50, and top 10 agencies, 1976-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 6.5: The annual percent of homicide incidents by the top 100 agencies (by number of homicide incidents), top 50, and top 10 agencies, 1976-2022.
 </p>
@@ -508,14 +508,14 @@ Figure 6.5: The annual percent of homicide incidents by the top 100 agencies (by
 <p>While there is information on up to 11 victims and offenders, in most cases, there is only a single victim and a single offender in each incident. We can use the additional_victim_count and additional_offender_count columns to see how many additional victims/offenders there are. An additional victim/offender means in addition to the first one. Even though we have columns for up to 11 victims and offenders, in very rare instances the additional_[victim/offender]_count columns may say there are more than 11 victims/offenders.</p>
 <p>To see how the breakdown for the number of victims in each incident looks, Figure <a href="shr.html#fig:numberSHRVictims">6.6</a> shows the percent of incidents with each possible number of victims.<a href="#fn54" class="footnote-ref" id="fnref54"><sup>54</sup></a> In nearly all incidents - 96.0% - there was only a single victim. This drops to 3.3% of incidents for two victims, 0.5% for three victims, and only about 0.2% of incidents have four or more victims.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:numberSHRVictims"></span>
-<img src="06_shr_files/figure-html/numberSHRVictims-1.png" alt="The percent of incidents that have 1-11 victims." width="90%" />
+<img src="06_shr_files/figure-html/numberSHRVictims-1.png" alt="The percent of incidents that have 1-11 victims." width="100%" height="100%"  />
 <p class="caption">
 Figure 6.6: The percent of incidents that have 1-11 victims.
 </p>
 </div>
 <p>Figure <a href="shr.html#fig:numberSHROffenders">6.7</a> shows the breakdown of the number of offenders per homicide incident.<a href="#fn55" class="footnote-ref" id="fnref55"><sup>55</sup></a> It is a little less concentrated than with victims but the vast majority of homicides are committed by one offender - or at least the police only report one offender. About 87.6% of homicides have only one offender, 8.4% have two, 2.5% have three, and 1.5% have four. Fewer than 0.5% of homicides have more than four offenders. However, this is all a bit misleading. In cases where there is no information about the offender, including how many offenders there is, the data simply says that there is a single offender. So the number of homicides with a single offender is an over-count while the number with more offenders is an undercount.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:numberSHROffenders"></span>
-<img src="06_shr_files/figure-html/numberSHROffenders-1.png" alt="The percent of incidents that have 1-11 offenders." width="90%" />
+<img src="06_shr_files/figure-html/numberSHROffenders-1.png" alt="The percent of incidents that have 1-11 offenders." width="100%" height="100%"  />
 <p class="caption">
 Figure 6.7: The percent of incidents that have 1-11 offenders.
 </p>
@@ -531,14 +531,14 @@ Figure 6.7: The percent of incidents that have 1-11 offenders.
 <p>Figure <a href="shr.html#fig:shrOffenderAge">6.8</a> shows the percent of homicides where the first offender in the case is of each age from 0-99. Offenders with unknown ages are excluded from this graph and make up about 27% of cases. The average (mean) age is 31.1 years old (shown in orange) which is due to a long right tail; the median age is 28 years old. If you look closely at the left side of the graph you can see that there are some very young offenders, with at least one offender for each year of age from 0 to 10 included in the data. It is not clear from this alone that these ages are a data entry error. While a two-year-old certainly could not kill someone, the data does include deaths caused by “children playing with gun” (homicide circumstances will be discussed in Section <a href="shr.html#circumstance">6.2.2.3</a>) so these ages could potentially be correct.</p>
 <p>If you are familiar with the age-crime curve in criminology - which basically says crime peaks in late teen years then falls dramatically - this shows that exact curve, though is older and does not decline as the offender ages as quickly as we see with less serious crimes.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrOffenderAge"></span>
-<img src="06_shr_files/figure-html/shrOffenderAge-1.png" alt="The age of homicide offenders, based on the first offender in any homicide incident. Offenders under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Offenders reported as '99 years or older' are considered 99 years old." width="90%" />
+<img src="06_shr_files/figure-html/shrOffenderAge-1.png" alt="The age of homicide offenders, based on the first offender in any homicide incident. Offenders under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Offenders reported as '99 years or older' are considered 99 years old." width="100%" height="100%"  />
 <p class="caption">
 Figure 6.8: The age of homicide offenders, based on the first offender in any homicide incident. Offenders under age 1 (classified as ‘birth to 7 days old, including abandoned infant’ and ‘7 days to 364 days old’) and considered 0 years old. Offenders reported as ‘99 years or older’ are considered 99 years old.
 </p>
 </div>
 <p>Figure <a href="shr.html#fig:shrVictimAge">6.9</a> repeats Figure <a href="shr.html#fig:shrOffenderAge">6.8</a> but with victim age rather than offender age. The mean victim age (shown in orange) is 33 and the median age is 30. Though the average victim age is a bit younger than the average offender age, trends are relatively similar for teenagers and older where deaths spikes in the late teen years and then declines steadily. The major difference is the U-shape for younger victims - for victims under age 15, homicides peak at age 0 (i.e. younger than their first birthday) with ~1.4% of all homicides being this this age. They then decline until plateauing at around age 6 before increasing again in the early teen years.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrVictimAge"></span>
-<img src="06_shr_files/figure-html/shrVictimAge-1.png" alt="The age of homicide victims, based on the first victims in any homicide incident. Victims under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Victims reported as '99 years or older' are considered 99 years old." width="90%" />
+<img src="06_shr_files/figure-html/shrVictimAge-1.png" alt="The age of homicide victims, based on the first victims in any homicide incident. Victims under age 1 (classified as 'birth to 7 days old, including abandoned infant' and '7 days to 364 days old') and considered 0 years old. Victims reported as '99 years or older' are considered 99 years old." width="100%" height="100%"  />
 <p class="caption">
 Figure 6.9: The age of homicide victims, based on the first victims in any homicide incident. Victims under age 1 (classified as ‘birth to 7 days old, including abandoned infant’ and ‘7 days to 364 days old’) and considered 0 years old. Victims reported as ‘99 years or older’ are considered 99 years old.
 </p>
@@ -548,14 +548,14 @@ Figure 6.9: The age of homicide victims, based on the first victims in any homic
 <h4><span class="header-section-number">6.2.1.2</span> Sex<a href="shr.html#sex" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We will next look at victim and offender sex, a simple variable since only male and female are included. About 62.2% of offenders, as seen in Figure <a href="shr.html#fig:shrOffenderSex">6.10</a>, are male and about 8.2% are female, indicating a large disparity in the sex of homicide offenders. The remaining 29.6% of offenders do not have sex data available because the police do not know the sex of this individual. For offenders who are not arrested, this variable may be inaccurate since it is perceived sex of the offender.<a href="#fn56" class="footnote-ref" id="fnref56"><sup>56</sup></a></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrOffenderSex"></span>
-<img src="06_shr_files/figure-html/shrOffenderSex-1.png" alt="The sex of offender \#1, 1976-2022." width="90%" />
+<img src="06_shr_files/figure-html/shrOffenderSex-1.png" alt="The sex of offender \#1, 1976-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 6.10: The sex of offender #1, 1976-2022.
 </p>
 </div>
 <p>There is far less uncertainty for victim sex, with under 0.17% of victims having an unknown sex. Here again there is a large disparity between male and female with about 78.2% of victims being male and 21.6% being female.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrVictimSex"></span>
-<img src="06_shr_files/figure-html/shrVictimSex-1.png" alt="The sex of victim \#1, 1976-2022." width="90%" />
+<img src="06_shr_files/figure-html/shrVictimSex-1.png" alt="The sex of victim \#1, 1976-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 6.11: The sex of victim #1, 1976-2022.
 </p>
@@ -566,14 +566,14 @@ Figure 6.11: The sex of victim #1, 1976-2022.
 <p>This data also includes the race of the victims and offenders. This includes the following races: American Indian or Alaskan Native, Asian, Black, Native Hawaiian or Other Pacific Islander, and White. These are the only races included in the data; Hispanic is considered an ethnicity and is available as a separate, though flawed, variable. There is no category for bi- or multi-racial. As with other demographics info for offenders, in cases where no arrest is made (and we do not know in this data if one is made), there is no way to confirm the person’s race so these results may not be entirely accurate.</p>
 <p>Figure <a href="shr.html#fig:shrOffenderRace">6.12</a> shows the percent of homicides in the data by the race of offender #1. Black and White offenders are included are similar percentages, at 34.3% and 33.6% of victims, respectively. The next most common group is Unknown at about 30.6% of offenders. Given that so many offenders have an unknown race, the reliability of race measures is limited. The remaining races are Asian at 0.9% of offenders, American Indian or Alaskan Native at 0.6%, and Native Hawaiian or Other Pacific Islander at 0.02%.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrOffenderRace"></span>
-<img src="06_shr_files/figure-html/shrOffenderRace-1.png" alt="The race of offender \#1, 1976-2022." width="90%" />
+<img src="06_shr_files/figure-html/shrOffenderRace-1.png" alt="The race of offender \#1, 1976-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 6.12: The race of offender #1, 1976-2022.
 </p>
 </div>
 <p>For victim race, seen in Figure <a href="shr.html#fig:shrVictimRace">6.13</a>, only about 1% of victim #1 races are unknown. This means we can be a lot more confident in the race of the victims than in the race of the offender. Similar to offenders, White and Black victims are the two most common races, with 48.4% and 48.1% of victims, respectively. There is a greater share of Asian victims than Asian offenders at 1.5% of victims. American Indian or Alaskan Natives make up 0.8% of victims while Native Hawaiian or Pacific Islanders make up 0.02% of victims.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrVictimRace"></span>
-<img src="06_shr_files/figure-html/shrVictimRace-1.png" alt="The race of victim \#1, 1976-2022" width="90%" />
+<img src="06_shr_files/figure-html/shrVictimRace-1.png" alt="The race of victim \#1, 1976-2022" width="100%" height="100%"  />
 <p class="caption">
 Figure 6.13: The race of victim #1, 1976-2022
 </p>
@@ -584,21 +584,21 @@ Figure 6.13: The race of victim #1, 1976-2022
 <p>The final demographic variable is ethnicity which is whether the victim or offender is Hispanic or not Hispanic. The SHR data has a weird relationship with this variable (which is also in the Arrests by Age, Sex, and Race dataset, discussed in Chapter <a href="arrests.html#arrests">5</a>) where ethnicity is technically a variable in the data but very rarely collected. As such, this is an unreliable variable that if you really want to use needs careful attention to make sure it is being reported consistently by the agencies that you are looking at.</p>
 <p>The vast majority - 69.7% - of offenders have an unknown ethnicity while 23.4% are not Hispanic and 7.1% are Hispanic.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrOffenderEthnicity"></span>
-<img src="06_shr_files/figure-html/shrOffenderEthnicity-1.png" alt="The ethnicity of offender \#1, 1976-2022." width="90%" />
+<img src="06_shr_files/figure-html/shrOffenderEthnicity-1.png" alt="The ethnicity of offender \#1, 1976-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 6.14: The ethnicity of offender #1, 1976-2022.
 </p>
 </div>
 <p>Unlike the other demographic variables, there is still a huge amount of underreporting when it comes to victim ethnicity, though still less than for offender ethnicity. 55.6% of victims have an unknown ethnicity. Approximately 33.2% of victim #1 are reported as not Hispanic while 11.1% are reported as Hispanic.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrVictimEthnicity"></span>
-<img src="06_shr_files/figure-html/shrVictimEthnicity-1.png" alt="The ethnicity of victim \#1, 1976-2022." width="90%" />
+<img src="06_shr_files/figure-html/shrVictimEthnicity-1.png" alt="The ethnicity of victim \#1, 1976-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 6.15: The ethnicity of victim #1, 1976-2022.
 </p>
 </div>
 <p>As an example of agencies under-reporting this variable, let us look at the number of offender #1s in Albuquerque, New Mexico, a city which the <a href="https://www.census.gov/quickfacts/fact/table/albuquerquecitynewmexico,US/PST045222">US Census</a> says is about 50% Hispanic. Yet the Albuquerque police reported no ethnicity information for almost three decades of data.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ABQ"></span>
-<img src="06_shr_files/figure-html/ABQ-1.png" alt="Annual number of offender \#1 who is Hispanic in Albuquerque, New Mexico, 1976-2022." width="90%" />
+<img src="06_shr_files/figure-html/ABQ-1.png" alt="Annual number of offender \#1 who is Hispanic in Albuquerque, New Mexico, 1976-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 6.16: Annual number of offender #1 who is Hispanic in Albuquerque, New Mexico, 1976-2022.
 </p>
@@ -855,13 +855,13 @@ Total
 <p>You may have noticed from the table that AR-15 is not included. While AR-15 is the commonly discussed in the media and policy circles as a way to control gun violence, it is not in a category by itself. Instead it is combined with other rifles in the “rifle” weapon group, and makes up about 3.6% of the weapons used by offender #1 in the data.</p>
 <p>Let us check if AR-15s, through our rough proxy of the “rifle” weapon group, is getting more common over time. Figure <a href="shr.html#fig:shrRifle">6.17</a> shows the number of homicide incidents (including manslaughters, so not necessarily all murders) where offender #1 used a rifle. Figure <a href="shr.html#fig:shrRiflePercent">6.18</a> shows the percent of all homicide incidents where the the weapon was a rifle. Using both of these measures we can see the rifles are getting less common, declining substantially since 1980 though increasing again starting in the mid-2010s.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrRifle"></span>
-<img src="06_shr_files/figure-html/shrRifle-1.png" alt="The annual number of homicide incidents where offender \#1's weapon was a rifle, 1976-2022." width="90%" />
+<img src="06_shr_files/figure-html/shrRifle-1.png" alt="The annual number of homicide incidents where offender \#1's weapon was a rifle, 1976-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 6.17: The annual number of homicide incidents where offender #1’s weapon was a rifle, 1976-2022.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shrRiflePercent"></span>
-<img src="06_shr_files/figure-html/shrRiflePercent-1.png" alt="The annual share of homicide incidents where offender \#1's weapon was a rifle, 1976-2022." width="90%" />
+<img src="06_shr_files/figure-html/shrRiflePercent-1.png" alt="The annual share of homicide incidents where offender \#1's weapon was a rifle, 1976-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 6.18: The annual share of homicide incidents where offender #1’s weapon was a rifle, 1976-2022.
 </p>

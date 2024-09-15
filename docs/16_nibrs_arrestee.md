@@ -15,9 +15,7 @@ The Arrestee Segment has information on the person arrested in an incident and h
 
 This chapter also covers the Group B Arrestee Segment. The Arrestee Segment covers arrests for Group A offenses and there are corresponding Offense, Offender, and Victim segments for these incidents. Group B offenses, however, only have information about the arrest so incidents in this segment do not have any corresponding segments with it. Since Group B only has arrests without any associated incident, instead of the incident number variable like other segments have, this segment has an "arrest transaction incident number" which works the same as a normal incident number. Likewise, the Window Arrestee Segment is not associated with any other segments as the "window" part means that they are only partial reports. The Window Arrestee Segment has the same variables as the normal Arrestee Segment but also has 10 variables on each of the offenses committed (up to 10 offenses) during the incident. This is really to try to provide a bit of information that you would otherwise get from the other segments but do not since this is a window segment.
 
-For the rest of this chapter I will be using examples from the Arrestee Segment and not the Group B Arrestee (except for a table showing each Group B offense) or the Window Arrestee Segment. 
-
-In addition to the variables detailed below this, segment has the traditional agency and incident identifiers: the ORI code, the agency state, the year of this data, and the incident number. It also has an "arrestee sequence number" which is an identifier for an arrestee in an incident since incidents can have multiple people arrested. This is just the number of each arrestee and to my knowledge is not associated with how involved the arrestee is. Being the 1st arrestee, for example, does not mean that individual played a greater role in the crime than the 2nd arrestee.
+It also has an "arrestee sequence number" which is an identifier for an arrestee in an incident since incidents can have multiple people arrested. This is just the number of each arrestee and to my knowledge is not associated with how involved the arrestee is. Being the 1st arrestee, for example, does not mean that individual played a greater role in the crime than the 2nd arrestee.
 
 
 ## Crimes arrested for
@@ -30,159 +28,433 @@ One interesting part of this segment is that while it is associated with Group A
 
 Table \@ref(tab:arresteeCrime) shows the number and percent of arrests for all arrests associated with a Group A crime incident. Perhaps unsurprising, drug crimes are the most common arrest making up a quarter of all arrests (30% when including drug equipment crimes). Simple assault (assault without a weapon or without seriously injuring the victim) is the next most common at 19% of arrests, and aggravated assault is the 4th most common arrest crime at 6.3% of arrests. Theft, which NIBRS breaks into a number of subcategories of theft such as shoplifting and "all other larceny" is among the most common arrest crimes, making up ranks 3 and 6 of the top 6, as well as several other subcategories later on. The remaining crimes are all relatively rare, consisting of under 5% of arrests each. This is due to how the top crimes are broad categories (e.g. drug offenses ranges from simple possession to large scale sales but is all grouped into "drug/narcotic violations" here) while other crimes are specific (e.g. purse-snatching is a very specific form of theft).  
 
-
-\begin{longtable}[t]{l|r|r|l}
-\caption{(\#tab:arresteeCrime)The number and percent of arrests for Group A crimes for all arrests reported to NIBRS in 2022.}\\
-\hline
-Crime Category & First Year & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
-\hline
-\endfirsthead
-\caption[]{(\#tab:arresteeCrime)The number and percent of arrests for Group A crimes for all arrests reported to NIBRS in 2022. \textit{(continued)}}\\
-\hline
-Crime Category & First Year & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
-\hline
-\endhead
-Drug/Narcotic Offenses - Drug/Narcotic Violations & 1991 & 651,593 & 22.44\textbackslash{}\%\\
-\hline
-Assault Offenses - Simple Assault & 1991 & 625,914 & 21.55\textbackslash{}\%\\
-\hline
-Larceny/Theft Offenses - Shoplifting & 1991 & 262,281 & 9.03\textbackslash{}\%\\
-\hline
-Assault Offenses - Aggravated Assault & 1991 & 217,608 & 7.49\textbackslash{}\%\\
-\hline
-Drug/Narcotic Offenses - Drug Equipment Violations & 1991 & 142,720 & 4.91\textbackslash{}\%\\
-\hline
-Weapon Law Violations - Weapon Law Violations & 1991 & 123,203 & 4.24\textbackslash{}\%\\
-\hline
-Larceny/Theft Offenses - All Other Larceny & 1991 & 121,677 & 4.19\textbackslash{}\%\\
-\hline
-Destruction/Damage/Vandalism of Property & 1991 & 113,049 & 3.89\textbackslash{}\%\\
-\hline
-Assault Offenses - Intimidation & 1991 & 85,136 & 2.93\textbackslash{}\%\\
-\hline
-Burglary/Breaking And Entering & 1991 & 82,832 & 2.85\textbackslash{}\%\\
-\hline
-All Other Offenses & 1991 & 71,084 & 2.45\textbackslash{}\%\\
-\hline
-Stolen Property Offenses (Receiving, Selling, Etc.) & 1991 & 57,907 & 1.99\textbackslash{}\%\\
-\hline
-Motor Vehicle Theft & 1991 & 52,882 & 1.82\textbackslash{}\%\\
-\hline
-Robbery & 1991 & 38,048 & 1.31\textbackslash{}\%\\
-\hline
-Fraud Offenses - False Pretenses/Swindle/Confidence Game & 1991 & 31,922 & 1.10\textbackslash{}\%\\
-\hline
-Larceny/Theft Offenses - Theft From Motor Vehicle & 1991 & 23,673 & 0.82\textbackslash{}\%\\
-\hline
-Counterfeiting/Forgery & 1991 & 20,107 & 0.69\textbackslash{}\%\\
-\hline
-Larceny/Theft Offenses - Theft From Building & 1991 & 18,030 & 0.62\textbackslash{}\%\\
-\hline
-Driving Under The Influence & 1991 & 16,410 & 0.57\textbackslash{}\%\\
-\hline
-Disorderly Conduct & 1991 & 13,700 & 0.47\textbackslash{}\%\\
-\hline
-Kidnapping/Abduction & 1991 & 12,869 & 0.44\textbackslash{}\%\\
-\hline
-Fraud Offenses - Impersonation & 1991 & 11,225 & 0.39\textbackslash{}\%\\
-\hline
-Trespass of Real Property & 1991 & 10,687 & 0.37\textbackslash{}\%\\
-\hline
-Sex Offenses - Fondling (Incident Liberties/Child Molest) & 1991 & 10,298 & 0.35\textbackslash{}\%\\
-\hline
-Sex Offenses - Rape & 1991 & 8,956 & 0.31\textbackslash{}\%\\
-\hline
-Murder/Nonnegligent Manslaughter & 1991 & 8,284 & 0.29\textbackslash{}\%\\
-\hline
-Fraud Offenses - Credit Card/Atm Fraud & 1991 & 7,281 & 0.25\textbackslash{}\%\\
-\hline
-Embezzlement & 1991 & 6,689 & 0.23\textbackslash{}\%\\
-\hline
-Fraud Offenses - Identity Theft & 2015 & 6,414 & 0.22\textbackslash{}\%\\
-\hline
-Arson & 1991 & 6,338 & 0.22\textbackslash{}\%\\
-\hline
-Prostitution Offenses - Prostitution & 1991 & 5,843 & 0.20\textbackslash{}\%\\
-\hline
-Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories & 1991 & 5,621 & 0.19\textbackslash{}\%\\
-\hline
-Pornography/Obscene Material & 1991 & 5,187 & 0.18\textbackslash{}\%\\
-\hline
-Liquor Law Violations & 1991 & 4,142 & 0.14\textbackslash{}\%\\
-\hline
-Animal Cruelty & 2015 & 3,904 & 0.13\textbackslash{}\%\\
-\hline
-Family Offenses, Nonviolent & 1991 & 3,629 & 0.12\textbackslash{}\%\\
-\hline
-Larceny/Theft Offenses - Pocket-Picking & 1991 & 3,323 & 0.11\textbackslash{}\%\\
-\hline
-Sex Offenses - Sodomy & 1991 & 2,081 & 0.07\textbackslash{}\%\\
-\hline
-Prostitution Offenses - Assisting Or Promoting Prostitution & 1991 & 1,559 & 0.05\textbackslash{}\%\\
-\hline
-Sex Offenses - Statutory Rape & 1991 & 1,472 & 0.05\textbackslash{}\%\\
-\hline
-Prostitution Offenses - Purchasing Prostitution & 2013 & 1,274 & 0.04\textbackslash{}\%\\
-\hline
-Curfew/Loitering/Vagrancy Violations & 1991 & 1,191 & 0.04\textbackslash{}\%\\
-\hline
-Larceny/Theft Offenses - Purse-Snatching & 1991 & 959 & 0.03\textbackslash{}\%\\
-\hline
-Sex Offenses - Sexual Assault With An Object & 1991 & 912 & 0.03\textbackslash{}\%\\
-\hline
-Negligent Manslaughter & 1991 & 858 & 0.03\textbackslash{}\%\\
-\hline
-Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device & 1991 & 500 & 0.02\textbackslash{}\%\\
-\hline
-Extortion/Blackmail & 1991 & 458 & 0.02\textbackslash{}\%\\
-\hline
-Human Trafficking - Commercial Sex Acts & 2013 & 374 & 0.01\textbackslash{}\%\\
-\hline
-Gambling Offenses - Betting/Wagering & 1991 & 365 & 0.01\textbackslash{}\%\\
-\hline
-Fraud Offenses - Wire Fraud & 1991 & 360 & 0.01\textbackslash{}\%\\
-\hline
-Gambling Offenses - Operating/Promoting/Assisting Gambling & 1991 & 279 & 0.01\textbackslash{}\%\\
-\hline
-Sex Offenses - Incest & 1991 & 207 & 0.01\textbackslash{}\%\\
-\hline
-Bribery & 1991 & 200 & 0.01\textbackslash{}\%\\
-\hline
-Fraud Offenses - Hacking/Computer Invasion & 2015 & 125 & 0.00\textbackslash{}\%\\
-\hline
-Failure To Appear & 2020 & 119 & 0.00\textbackslash{}\%\\
-\hline
-Fraud Offenses - Welfare Fraud & 1991 & 112 & 0.00\textbackslash{}\%\\
-\hline
-Gambling Offenses - Gambling Equipment Violations & 1991 & 102 & 0.00\textbackslash{}\%\\
-\hline
-Human Trafficking - Involuntary Servitude & 2014 & 80 & 0.00\textbackslash{}\%\\
-\hline
-Runaway & 1991 & 42 & 0.00\textbackslash{}\%\\
-\hline
-Fugitive Offenses - Flight To Avoid Prosecution & 2021 & 24 & 0.00\textbackslash{}\%\\
-\hline
-Sex Offenses - Failure To Register As A Sex Offender & 2021 & 11 & 0.00\textbackslash{}\%\\
-\hline
-Commerce Violations - Federal Liquor Offenses & 2020 & 9 & 0.00\textbackslash{}\%\\
-\hline
-Gambling Offenses - Sports Tampering & 1992 & 3 & 0.00\textbackslash{}\%\\
-\hline
-Immigration Violations - Illegal Entry Into The United States & 2022 & 1 & 0.00\textbackslash{}\%\\
-\hline
-Weapon Law Violations - Explosives & 2022 & 1 & 0.00\textbackslash{}\%\\
-\hline
-Fugitive Offenses - Harboring Escappee/Concealing From Arrest & 2021 & 1 & 0.00\textbackslash{}\%\\
-\hline
-Perjury & 2022 & 1 & 0.00\textbackslash{}\%\\
-\hline
-Federal Resource Violations & 2021 & 1 & 0.00\textbackslash{}\%\\
-\hline
-Total & - & 2,904,147 & 100\textbackslash{}\%\\
-\hline
-\end{longtable}
-
-
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:arresteeCrime)The number and percent of arrests for Group A crimes for all arrests reported to NIBRS in 2022.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Crime Category </th>
+   <th style="text-align:right;"> First Year </th>
+   <th style="text-align:right;"> \# of Offenses </th>
+   <th style="text-align:left;"> \% of Offenses </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug/Narcotic Violations </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 651,593 </td>
+   <td style="text-align:left;"> 22.44\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 625,914 </td>
+   <td style="text-align:left;"> 21.55\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Shoplifting </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 262,281 </td>
+   <td style="text-align:left;"> 9.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 217,608 </td>
+   <td style="text-align:left;"> 7.49\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug Equipment Violations </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 142,720 </td>
+   <td style="text-align:left;"> 4.91\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Weapon Law Violations - Weapon Law Violations </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 123,203 </td>
+   <td style="text-align:left;"> 4.24\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 121,677 </td>
+   <td style="text-align:left;"> 4.19\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 113,049 </td>
+   <td style="text-align:left;"> 3.89\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 85,136 </td>
+   <td style="text-align:left;"> 2.93\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 82,832 </td>
+   <td style="text-align:left;"> 2.85\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> All Other Offenses </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 71,084 </td>
+   <td style="text-align:left;"> 2.45\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Stolen Property Offenses (Receiving, Selling, Etc.) </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 57,907 </td>
+   <td style="text-align:left;"> 1.99\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Motor Vehicle Theft </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 52,882 </td>
+   <td style="text-align:left;"> 1.82\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 38,048 </td>
+   <td style="text-align:left;"> 1.31\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud Offenses - False Pretenses/Swindle/Confidence Game </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 31,922 </td>
+   <td style="text-align:left;"> 1.10\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Motor Vehicle </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 23,673 </td>
+   <td style="text-align:left;"> 0.82\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Counterfeiting/Forgery </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 20,107 </td>
+   <td style="text-align:left;"> 0.69\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Building </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 18,030 </td>
+   <td style="text-align:left;"> 0.62\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Driving Under The Influence </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 16,410 </td>
+   <td style="text-align:left;"> 0.57\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Disorderly Conduct </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 13,700 </td>
+   <td style="text-align:left;"> 0.47\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Kidnapping/Abduction </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 12,869 </td>
+   <td style="text-align:left;"> 0.44\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud Offenses - Impersonation </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 11,225 </td>
+   <td style="text-align:left;"> 0.39\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Trespass of Real Property </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 10,687 </td>
+   <td style="text-align:left;"> 0.37\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sex Offenses - Fondling (Incident Liberties/Child Molest) </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 10,298 </td>
+   <td style="text-align:left;"> 0.35\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sex Offenses - Rape </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 8,956 </td>
+   <td style="text-align:left;"> 0.31\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Murder/Nonnegligent Manslaughter </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 8,284 </td>
+   <td style="text-align:left;"> 0.29\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud Offenses - Credit Card/Atm Fraud </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 7,281 </td>
+   <td style="text-align:left;"> 0.25\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Embezzlement </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 6,689 </td>
+   <td style="text-align:left;"> 0.23\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud Offenses - Identity Theft </td>
+   <td style="text-align:right;"> 2015 </td>
+   <td style="text-align:right;"> 6,414 </td>
+   <td style="text-align:left;"> 0.22\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arson </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 6,338 </td>
+   <td style="text-align:left;"> 0.22\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Prostitution Offenses - Prostitution </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 5,843 </td>
+   <td style="text-align:left;"> 0.20\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 5,621 </td>
+   <td style="text-align:left;"> 0.19\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pornography/Obscene Material </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 5,187 </td>
+   <td style="text-align:left;"> 0.18\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Liquor Law Violations </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 4,142 </td>
+   <td style="text-align:left;"> 0.14\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Animal Cruelty </td>
+   <td style="text-align:right;"> 2015 </td>
+   <td style="text-align:right;"> 3,904 </td>
+   <td style="text-align:left;"> 0.13\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Family Offenses, Nonviolent </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 3,629 </td>
+   <td style="text-align:left;"> 0.12\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Pocket-Picking </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 3,323 </td>
+   <td style="text-align:left;"> 0.11\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sex Offenses - Sodomy </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 2,081 </td>
+   <td style="text-align:left;"> 0.07\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Prostitution Offenses - Assisting Or Promoting Prostitution </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 1,559 </td>
+   <td style="text-align:left;"> 0.05\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sex Offenses - Statutory Rape </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 1,472 </td>
+   <td style="text-align:left;"> 0.05\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Prostitution Offenses - Purchasing Prostitution </td>
+   <td style="text-align:right;"> 2013 </td>
+   <td style="text-align:right;"> 1,274 </td>
+   <td style="text-align:left;"> 0.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Curfew/Loitering/Vagrancy Violations </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 1,191 </td>
+   <td style="text-align:left;"> 0.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Purse-Snatching </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 959 </td>
+   <td style="text-align:left;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sex Offenses - Sexual Assault With An Object </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 912 </td>
+   <td style="text-align:left;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Negligent Manslaughter </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 858 </td>
+   <td style="text-align:left;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 500 </td>
+   <td style="text-align:left;"> 0.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Extortion/Blackmail </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 458 </td>
+   <td style="text-align:left;"> 0.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Human Trafficking - Commercial Sex Acts </td>
+   <td style="text-align:right;"> 2013 </td>
+   <td style="text-align:right;"> 374 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gambling Offenses - Betting/Wagering </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 365 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud Offenses - Wire Fraud </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 360 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gambling Offenses - Operating/Promoting/Assisting Gambling </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 279 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sex Offenses - Incest </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 207 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bribery </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 200 </td>
+   <td style="text-align:left;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud Offenses - Hacking/Computer Invasion </td>
+   <td style="text-align:right;"> 2015 </td>
+   <td style="text-align:right;"> 125 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Failure To Appear </td>
+   <td style="text-align:right;"> 2020 </td>
+   <td style="text-align:right;"> 119 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud Offenses - Welfare Fraud </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 112 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gambling Offenses - Gambling Equipment Violations </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 102 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Human Trafficking - Involuntary Servitude </td>
+   <td style="text-align:right;"> 2014 </td>
+   <td style="text-align:right;"> 80 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Runaway </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fugitive Offenses - Flight To Avoid Prosecution </td>
+   <td style="text-align:right;"> 2021 </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sex Offenses - Failure To Register As A Sex Offender </td>
+   <td style="text-align:right;"> 2021 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Commerce Violations - Federal Liquor Offenses </td>
+   <td style="text-align:right;"> 2020 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gambling Offenses - Sports Tampering </td>
+   <td style="text-align:right;"> 1992 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Immigration Violations - Illegal Entry Into The United States </td>
+   <td style="text-align:right;"> 2022 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Weapon Law Violations - Explosives </td>
+   <td style="text-align:right;"> 2022 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fugitive Offenses - Harboring Escappee/Concealing From Arrest </td>
+   <td style="text-align:right;"> 2021 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Perjury </td>
+   <td style="text-align:right;"> 2022 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Federal Resource Violations </td>
+   <td style="text-align:right;"> 2021 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> - </td>
+   <td style="text-align:right;"> 2,904,147 </td>
+   <td style="text-align:left;"> 100\% </td>
+  </tr>
+</tbody>
+</table>
 
 ### Group B Segment arrest crimes
 
@@ -190,45 +462,91 @@ Table \@ref(tab:GroupBarresteeCrime) shows the number and percent of arrests for
 
 Trespassing makes up 5.7% of arrests and this is unlawfully entering someone's property, including a building. The difference between this and burglary is that this is entering without any intent to commit theft or a felony. Disorderly conduct is a broad category ranging from indecent exposure (which should be its own sex offense but is not for some reason) to "profanity" and noise violations, and it makes up 6.2% of arrests. So be cautious with this offense as it ranges from very minor to quite serious and there is no distinguishing what actually happened. Drunkenness and liquor law violations make up 6% and 3.6% of arrests, respectively. The difference is that drunkenness is when someone is seriously drunk in public (to the point where they cannot control their own body) and liquor law violations are about illegal making or selling of liquor. So basically bootlegging, selling alcohol without a license (or to people not allowed to drink, like minors), or avoiding paying tax on alcohol sales. "Family Offenses, Nonviolent" is also a rather vague category and includes "nonviolent abuse" (which I guess means emotional abusive) as well as neglecting the child in a few different ways like not paying alimony and deserting the child. Since these are arrests, the actions have to reach the level of criminal behavior, simply being an awful parent (or even leaving the child, as long as they have another adult to watch them) is not this offense. Runaways is an offense that only applies to people under age 18. The remaining categories are all rare and none are more than 1% of arrests.
 
-
-\begin{longtable}[t]{l|r|r|l}
-\caption{(\#tab:GroupBarresteeCrime)The number and percent of arrests for Group B crimes for all arrests reported to NIBRS in 2022.}\\
-\hline
-Crime Category & First Year & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
-\hline
-\endfirsthead
-\caption[]{(\#tab:GroupBarresteeCrime)The number and percent of arrests for Group B crimes for all arrests reported to NIBRS in 2022. \textit{(continued)}}\\
-\hline
-Crime Category & First Year & \textbackslash{}\# of Offenses & \textbackslash{}\% of Offenses\\
-\hline
-\endhead
-All Other Offenses & 1991 & 1,470,699 & 58.45\textbackslash{}\%\\
-\hline
-Driving Under The Influence & 1991 & 565,429 & 22.47\textbackslash{}\%\\
-\hline
-Trespass of Real Property & 1991 & 177,586 & 7.06\textbackslash{}\%\\
-\hline
-Disorderly Conduct & 1991 & 176,937 & 7.03\textbackslash{}\%\\
-\hline
-Liquor Law Violations & 1991 & 72,044 & 2.86\textbackslash{}\%\\
-\hline
-Family Offenses, Nonviolent & 1991 & 33,545 & 1.33\textbackslash{}\%\\
-\hline
-Curfew/Loitering/Vagrancy Violations & 1991 & 16,266 & 0.65\textbackslash{}\%\\
-\hline
-Failure To Appear & 2020 & 1,816 & 0.07\textbackslash{}\%\\
-\hline
-Runaway & 1991 & 1,629 & 0.06\textbackslash{}\%\\
-\hline
-Federal Resource Violations & 2021 & 15 & 0.00\textbackslash{}\%\\
-\hline
-Perjury & 2022 & 1 & 0.00\textbackslash{}\%\\
-\hline
-Total & - & 2,515,967 & 100\textbackslash{}\%\\
-\hline
-\end{longtable}
-
-
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:GroupBarresteeCrime)The number and percent of arrests for Group B crimes for all arrests reported to NIBRS in 2022.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Crime Category </th>
+   <th style="text-align:right;"> First Year </th>
+   <th style="text-align:right;"> \# of Offenses </th>
+   <th style="text-align:left;"> \% of Offenses </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> All Other Offenses </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 1,470,699 </td>
+   <td style="text-align:left;"> 58.45\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Driving Under The Influence </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 565,429 </td>
+   <td style="text-align:left;"> 22.47\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Trespass of Real Property </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 177,586 </td>
+   <td style="text-align:left;"> 7.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Disorderly Conduct </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 176,937 </td>
+   <td style="text-align:left;"> 7.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Liquor Law Violations </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 72,044 </td>
+   <td style="text-align:left;"> 2.86\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Family Offenses, Nonviolent </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 33,545 </td>
+   <td style="text-align:left;"> 1.33\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Curfew/Loitering/Vagrancy Violations </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 16,266 </td>
+   <td style="text-align:left;"> 0.65\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Failure To Appear </td>
+   <td style="text-align:right;"> 2020 </td>
+   <td style="text-align:right;"> 1,816 </td>
+   <td style="text-align:left;"> 0.07\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Runaway </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 1,629 </td>
+   <td style="text-align:left;"> 0.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Federal Resource Violations </td>
+   <td style="text-align:right;"> 2021 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Perjury </td>
+   <td style="text-align:right;"> 2022 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> - </td>
+   <td style="text-align:right;"> 2,515,967 </td>
+   <td style="text-align:left;"> 100\% </td>
+  </tr>
+</tbody>
+</table>
 
 ## Arrest date
 
@@ -236,25 +554,13 @@ For each arrest we know the exact date of the arrest. As with the incident date,
 
 Figure \@ref(fig:arrestsDaysUntilArrest) shows how long it takes for arrests to be made. The shortest time is zero days which means the arrest and the incident happened on the same day and the longest is 461 days after the incident. About 76.5% of arrests happen on the same day as the incident while 6.6% happen on the next day. 1.4% happen the following day and 1% on the day after this. This trend of a lower probability of the case being solved as the time from the incident increases continues throughout the figure. Including dates up to 461 days is a bit ridiculous since it is impossible to see trends among the early dates other than zero days, but it is a good demonstration of how massively concentrated arrests are that occur on the same day of the incident. The lesson here is that if an arrest is not made on the day of the incident (such as at the scene of the crime), it is very unlikely that'll it'll be made at all (and most crimes never lead to an arrest). 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/arrestsDaysUntilArrest-1} 
-
-}
-
-\caption{The distribution of the number of days from the incident to the arrest date. In 2022 the maximum days from incident to arrest was 461 days. Zero days means that the arrest occurred on the same day as the incident.}(\#fig:arrestsDaysUntilArrest)
-\end{figure}
 
 Figure \@ref(fig:arrestsDaysUntilArrestBarplot) groups the larger number of days together to make it easier to see trends early after the incident. Here we can see much better how the percent of arrests move quickly downwards after zero days. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/arrestsDaysUntilArrestBarplot-1} 
-
-}
-
-\caption{The number of days from the incident to the arrest date. Values over 10 days are grouped to better see the distribution for arrests that took fewer than 10 days. Zero days means that the arrest occurred on the same day as the incident.}(\#fig:arrestsDaysUntilArrestBarplot)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/arrestsDaysUntilArrestBarplot-1.png" alt="The number of days from the incident to the arrest date. Values over 10 days are grouped to better see the distribution for arrests that took fewer than 10 days. Zero days means that the arrest occurred on the same day as the incident." width="100%" height="100%"  />
+<p class="caption">(\#fig:arrestsDaysUntilArrestBarplot)The number of days from the incident to the arrest date. Values over 10 days are grouped to better see the distribution for arrests that took fewer than 10 days. Zero days means that the arrest occurred on the same day as the incident.</p>
+</div>
 
 ## Weapons
 
@@ -265,37 +571,25 @@ Figure \@ref(fig:arresteeWeapon) shows the breakdown in the weapon carried by th
 To see the weapons carried when the arrestee had a weapon, Figure \@ref(fig:arresteeWeaponArmed) shows the breakdown in which weapon they carried. About 43.8% of people arrested who had a weapon were carrying a handgun followed by 30% with some kind of "lethal cutting instrument" like a knife. While rifles, and especially "assault rifles", are what people (and especially politicians and the media) focus on when talking about violent crime, handguns are actually the most common gun to be used in a crime so it makes sense that handguns are the most frequently found weapon. "Firearm (type not stated)"  basically means that the type of firearm used is unknown so can belong in one of the firearm categories and makes up 9% of weapons. Blunt instruments (including bats, clubs, and brass knuckles) follow at 6.9% of weapons. And the remaining weapons included are "other firearm" (so any other than ones specified) at 5.8%, rifle at 2.3%, and shotgun at 2%. 
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/nibrsArresteeMurderWeapon-1} 
-
-}
-
-\caption{The share of murder and nonnegligent manslaughter arrestees by weapon carried at arrest, 1991-2022.}(\#fig:nibrsArresteeMurderWeapon)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeMurderWeapon-1.png" alt="The share of murder and nonnegligent manslaughter arrestees by weapon carried at arrest, 1991-2022." width="100%" height="100%"  />
+<p class="caption">(\#fig:nibrsArresteeMurderWeapon)The share of murder and nonnegligent manslaughter arrestees by weapon carried at arrest, 1991-2022.</p>
+</div>
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/arresteeWeaponArmed-1} 
-
-}
-
-\caption{The distribution of weapon usage for all arrestees in 2022 who were arrested with a weapon (i.e. excludes unarmed arrestees).}(\#fig:arresteeWeaponArmed)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/arresteeWeaponArmed-1.png" alt="The distribution of weapon usage for all arrestees in 2022 who were arrested with a weapon (i.e. excludes unarmed arrestees)." width="100%" height="100%"  />
+<p class="caption">(\#fig:arresteeWeaponArmed)The distribution of weapon usage for all arrestees in 2022 who were arrested with a weapon (i.e. excludes unarmed arrestees).</p>
+</div>
 
 ## Automatic weapons
 
 This variable tells you if the weapon the arrestee was carrying was a gun whether that gun was fully automatic. To be clear, this means that when you pull the trigger once the gun will fire multiple bullets. Semi-automatic firearms are not automatic firearms. The Offense Segment also has a variable indicating if the offender used an automatic weapon but there they did not necessarily recover the gun so it is much less reliable than in this segment where the police have the gun and are able to test it.^[It is not clear whether they actually test it or simply go by the design of the gun, such as if the model allows for fully automatic firing.] The percent of guns that are fully automatic are fairly similar between the weapons seized at arrest, as shown in Figure \@ref(fig:arresteeAutomaticWeapon) and those used in the offense as shown in Figure \@ref(fig:offenseAutomaticWeapon) in Chapter \@ref(offenseSegment). Figure \@ref(fig:arresteeAutomaticWeapon) shows that about 5.6% of rifles seized by police during an arrest were fully automatic. About 4.9% of handguns are automatic while "firearm (type not stated) are automatic in 4.3% of cases. Shotguns and  "other firearm" category are the least likely to be automatic at about 2.5% and 1.1% of weapons, respectively. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/arresteeAutomaticWeapon-1} 
-
-}
-
-\caption{The percent of firearms the arrestee was carrying that were fully automatic, for arrestees in 2022.}(\#fig:arresteeAutomaticWeapon)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/arresteeAutomaticWeapon-1.png" alt="The percent of firearms the arrestee was carrying that were fully automatic, for arrestees in 2022." width="100%" height="100%"  />
+<p class="caption">(\#fig:arresteeAutomaticWeapon)The percent of firearms the arrestee was carrying that were fully automatic, for arrestees in 2022.</p>
+</div>
 
 ## Type of arrest
 
@@ -307,25 +601,17 @@ Finally, people can get a "summoned/cited" arrest which is not really an arrest 
 
 THEYRE
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/nibrsArresteeArrestType-1} 
-
-}
-
-\caption{Annual arrest type for all arrestees, 1991-2022. Previous Incident Report includes cases where an individual was arrested for a separate crime and are then reported as also arrested for this incident.}(\#fig:nibrsArresteeArrestType)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeArrestType-1.png" alt="Annual arrest type for all arrestees, 1991-2022. Previous Incident Report includes cases where an individual was arrested for a separate crime and are then reported as also arrested for this incident." width="100%" height="100%"  />
+<p class="caption">(\#fig:nibrsArresteeArrestType)Annual arrest type for all arrestees, 1991-2022. Previous Incident Report includes cases where an individual was arrested for a separate crime and are then reported as also arrested for this incident.</p>
+</div>
 
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/nibrsArresteeDUIArrestType-1} 
-
-}
-
-\caption{Annual arrest type for DUI arrestees, 1991-2022.}(\#fig:nibrsArresteeDUIArrestType)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeDUIArrestType-1.png" alt="Annual arrest type for DUI arrestees, 1991-2022." width="100%" height="100%"  />
+<p class="caption">(\#fig:nibrsArresteeDUIArrestType)Annual arrest type for DUI arrestees, 1991-2022.</p>
+</div>
 
 
 
@@ -335,14 +621,10 @@ THEYRE
 
 For juvenile arrestees - those under age 18 *at the time of the arrest* (and, by definition they would also be under age 18 during the incident) - there is some information about the outcome of the arrest.^[There are a few people older than 18 with this variable but it is so rare that I think that they are just incorrectly inputted ages.] There are two possible outcomes (which NIBRS calls "dispositions"): being referred to other (that is, other than the arresting agency) authorities or handled within the arresting agency. Figure \@ref(fig:arresteeJuvenileDisposition) shows this breakdown and being referred to other authorities is the most common outcome at 72.6% of juvenile arrests. This is a very broad category and the "other authorities" can range from juvenile or adult court (so the police recommend that they be prosecuted) to welfare agencies and being sent to other police agencies (such as if they committed a crime elsewhere and are being extradited). The other category, being handled within the department, means that the police release the juvenile without any formal action taken (but they may give the juvenile a warning). In these cases the juvenile is released to an adult (including but not limited to family members or guardians) and the case is essentially dropped. In about 0.001% of juvenile arrests the disposition is unknown.^[A juvenile can potentially get multiple dispositions, such as if they are initially released but later the police recommend them for prosecution. It is not clear which outcome is recorded in these cases. In UCR data, however, only the initial disposition is recorded so that is likely how it also is in NIBRS.] 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/arresteeJuvenileDisposition-1} 
-
-}
-
-\caption{For juvenile arrestees (under age 18), the distribution of case outcomes.}(\#fig:arresteeJuvenileDisposition)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/arresteeJuvenileDisposition-1.png" alt="For juvenile arrestees (under age 18), the distribution of case outcomes." width="100%" height="100%"  />
+<p class="caption">(\#fig:arresteeJuvenileDisposition)For juvenile arrestees (under age 18), the distribution of case outcomes.</p>
+</div>
 
 ## Demographics
 
@@ -358,14 +640,10 @@ Figure \@ref(fig:arresteeResidenceStatus) shows the percent of arrestees in 2022
 
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/nibrsArresteeResidentStatus-1} 
-
-}
-
-\caption{Annual resident status (i.e. if they live in the arresting jurisdiction) of arrestees, 1991-2022.}(\#fig:nibrsArresteeResidentStatus)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeResidentStatus-1.png" alt="Annual resident status (i.e. if they live in the arresting jurisdiction) of arrestees, 1991-2022." width="100%" height="100%"  />
+<p class="caption">(\#fig:nibrsArresteeResidentStatus)Annual resident status (i.e. if they live in the arresting jurisdiction) of arrestees, 1991-2022.</p>
+</div>
 
 ### Age
 
@@ -373,32 +651,20 @@ This variable is the age at the arrest, which may be different than age during t
 
 Figure \@ref(fig:arresteeAge) shows the percent of arrestees at every age available. Relative to Figure \@ref(fig:offenderAge), this graph is far smoother, indicating that there was less estimating ages and more knowing the actual age. While the trend is the same for both of these graphs, the arrestee data does not have any odd spikes with certain ages. Age we see that the percent of people arrested increases as they age, peaking in the early twenties before declining and then peaking age even higher in the late 20s. After this, there is a long steady decline as the arrestee ages.     
 
-\begin{figure}
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/arresteeAge-1.png" alt="The age of all arrestees reported in the 2022 NIBRS data." width="100%" height="100%"  />
+<p class="caption">(\#fig:arresteeAge)The age of all arrestees reported in the 2022 NIBRS data.</p>
+</div>
 
-{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/arresteeAge-1} 
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeAge-1.png" alt="The mean and median age of arrestees, 1991-2022." width="100%" height="100%"  />
+<p class="caption">(\#fig:nibrsArresteeAge)The mean and median age of arrestees, 1991-2022.</p>
+</div>
 
-}
-
-\caption{The age of all arrestees reported in the 2022 NIBRS data.}(\#fig:arresteeAge)
-\end{figure}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/nibrsArresteeAge-1} 
-
-}
-
-\caption{The mean and median age of arrestees, 1991-2022.}(\#fig:nibrsArresteeAge)
-\end{figure}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/nibrsArresteeAgeMissing-1} 
-
-}
-
-\caption{The percent of arrestee's age that is unknown, 1991-2022.}(\#fig:nibrsArresteeAgeMissing)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeAgeMissing-1.png" alt="The percent of arrestee's age that is unknown, 1991-2022." width="100%" height="100%"  />
+<p class="caption">(\#fig:nibrsArresteeAgeMissing)The percent of arrestee's age that is unknown, 1991-2022.</p>
+</div>
 
 
 ### Sex
@@ -407,14 +673,10 @@ We also know the sex of the arrestee. The only options for this variable are mal
 
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/nibrsArresteeSex-1} 
-
-}
-
-\caption{The share of arrestees by sex, 1991-2022.}(\#fig:nibrsArresteeSex)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeSex-1.png" alt="The share of arrestees by sex, 1991-2022." width="100%" height="100%"  />
+<p class="caption">(\#fig:nibrsArresteeSex)The share of arrestees by sex, 1991-2022.</p>
+</div>
 
 ### Race
 
@@ -424,14 +686,10 @@ Figure \@ref(fig:arresteeRace) shows the breakdown for the races of each arreste
 
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/nibrsArresteeRace-1} 
-
-}
-
-\caption{The share of arrestees by race, 1991-2022.}(\#fig:nibrsArresteeRace)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeRace-1.png" alt="The share of arrestees by race, 1991-2022." width="100%" height="100%"  />
+<p class="caption">(\#fig:nibrsArresteeRace)The share of arrestees by race, 1991-2022.</p>
+</div>
 
 ### Ethnicity
 
@@ -443,11 +701,7 @@ Figure \@ref(fig:arresteeEthnicity) shows the breakdown in arrests by arrestee e
 
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{16_nibrs_arrestee_files/figure-latex/nibrsArresteeEthnicity-1} 
-
-}
-
-\caption{The share of arrestees by ethnicity, 1991-2022.}(\#fig:nibrsArresteeEthnicity)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeEthnicity-1.png" alt="The share of arrestees by ethnicity, 1991-2022." width="100%" height="100%"  />
+<p class="caption">(\#fig:nibrsArresteeEthnicity)The share of arrestees by ethnicity, 1991-2022.</p>
+</div>

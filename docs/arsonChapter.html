@@ -23,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2024-09-14" />
+<meta name="date" content="2024-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -470,13 +470,13 @@ div.csl-indent {
 <p>This dataset measures how many months that an agency reports data over a year in the same way as the Offenses Known data does: the standard FBI definition using the last month reported, and my own measure counting how many months reported data according to a column for each month that says so.<a href="#fn63" class="footnote-ref" id="fnref63"><sup>63</sup></a> And just like the Offenses Known data, the variable I use for my own measurement changed in 2018, leading to fewer months of data reported and making it non-comparable to pre-2018 data. The variable changed again in 2021 and said that all agencies always reported data in every month, making the variable useless.</p>
 <p>In Figure <a href="arsonChapter.html#fig:arsonAgencies">8.1</a> we can see the annual number of agencies that reported at least one month of data using both measures. These measures are nearly identical every year with the last month reported having slightly more agencies reported, but they are effectively the same. This changes in 2018 as my measure declines considerably and then skyrockets to nearly 25,000 agencies in 2021 and 2022. The last month reported variable declines considerably in 2021, consistent with the FBI ending SRS collection, and then rebounds in 2022 when the FBI reopens SRS collection. How can there be more than 18k agencies reporting? The 18k number is the estimated number of agencies that are active: agencies that can respond to crimes and do investigations. Remember that SRS data goes back decades - the Offenses Known data is available since 1930. So agencies can come and go, with agencies shutting down or joining with other agencies. Over time this adds up to thousands of agencies other than the 18k we normal think about.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arsonAgencies"></span>
-<img src="08_arson_files/figure-html/arsonAgencies-1.png" alt="The annual number of police agencies that report at least month of data, using both measures of how many months are reported, 1979-2022." width="90%" />
+<img src="08_arson_files/figure-html/arsonAgencies-1.png" alt="The annual number of police agencies that report at least month of data, using both measures of how many months are reported, 1979-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 8.1: The annual number of police agencies that report at least month of data, using both measures of how many months are reported, 1979-2022.
 </p>
 </div>
 <p>In Figure <a href="#fig:arsonAgencies12Months"><strong>??</strong></a> we can see the same graph as before but now for agencies reporting 12 months of data that year. The trends in both measures are the same, at least until 2018, with the last month reported measure always being a bit higher than the number of months missing measure. Which measure is better to use? In general I would say my own measure but obviously that does not work starting in 2018. In practice both measures are quite similar so the decision on which to use depends on your own use-case such as if you are looking at data after 2017.</p>
-<p><img src="08_arson_files/figure-html/unnamed-chunk-3-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="08_arson_files/figure-html/unnamed-chunk-3-1.png" width="100%" height="100%"  style="display: block; margin: auto;" /></p>
 </div>
 <div id="important-variables-5" class="section level2 hasAnchor" number="8.2">
 <h2><span class="header-section-number">8.2</span> Important variables<a href="arsonChapter.html#important-variables-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -523,7 +523,7 @@ Figure 8.1: The annual number of police agencies that report at least month of d
 <p>Please note that this data is at the incident-level which means that having multiple people arrested for an incident still only is a clearance for that single incident. If there are multiple people who committed the arson only one needs to be arrested or exceptionally cleared for the incident to be cleared.</p>
 <p>Clearances are reported in the month they occur, which may be different than the month when the arson happened. This can create the illusion that more crimes are solved than were reported in certain time periods. Figure <a href="arsonChapter.html#fig:arsonClearance">8.2</a>, for example, shows the number of actual arsons (reports that are founded) and clearances for single-family home arsons in League City, Texas, a city of about 100,000 outside of Houston. In most years there were fewer clearances than arsons, but in four years (1982, 1981, 1992, and 2007) there were more clearances than arsons.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arsonClearance"></span>
-<img src="08_arson_files/figure-html/arsonClearance-1.png" alt="The annual number of single-family home arsons and clearances in League City, Texas, 1979-2022." width="90%" />
+<img src="08_arson_files/figure-html/arsonClearance-1.png" alt="The annual number of single-family home arsons and clearances in League City, Texas, 1979-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 8.2: The annual number of single-family home arsons and clearances in League City, Texas, 1979-2022.
 </p>
@@ -546,14 +546,14 @@ Figure 8.2: The annual number of single-family home arsons and clearances in Lea
 <h2><span class="header-section-number">8.3</span> Data errors<a href="arsonChapter.html#data-errors-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As with other SRS datasets, the arson data sometimes includes clear data entry errors, such as reporting implausibly high numbers of arsons for small jurisdictions or recording unrealistic damage estimates. For example, Figure <a href="arsonChapter.html#fig:residenceArson">8.3</a> shows the annual number of single-family home arsons in Byron City, Illinois, which has a population of slightly over 3,600 people. In every year there are zero arsons reported until 2003 when 469 arsons are reported. Since it is exceedingly unlikely that suddenly an eighth of the city each suffered different arson attacks, and that the city never again had a residence arson, this is almost certainly a data entry error. As arsons are relatively rare, having errors - and especially ones like this - can drastically change the results of your analysis so it is important to check your data carefully for more errors.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:residenceArson"></span>
-<img src="08_arson_files/figure-html/residenceArson-1.png" alt="Annual single-family home arsons in Byron  City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this dataset, 1979-2022. " width="90%" />
+<img src="08_arson_files/figure-html/residenceArson-1.png" alt="Annual single-family home arsons in Byron  City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this dataset, 1979-2022. " width="100%" height="100%"  />
 <p class="caption">
 Figure 8.3: Annual single-family home arsons in Byron City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this dataset, 1979-2022.
 </p>
 </div>
 <p>There are also cases where it is less clear when a value is a data error or is simply due to an outlier - but real - value. For example, Figure <a href="arsonChapter.html#fig:arsonCost">8.4</a> shows the annual average cost of a single-family home fire in Los Angeles, California. In most years the value is low. Since an arson can cause little or no damage, these low values likely mean that on average only part of the house was damaged, rather than the entire house burning down. In 2009, however, the average damage is about $540,000 per arson. Is this a data entry error that simply inputs a damage value that is too high? It certainly appears to be a data error since it is a sudden huge jump in damage value. However, it could also be that some extraordinarily expensive homes were destroyed that year. In 2009, Los Angeles reported only 63 single-family home arsons so having one, or a few, super mansions - which LA has plenty of - destroyed could mean that this huge value is real.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arsonCost"></span>
-<img src="08_arson_files/figure-html/arsonCost-1.png" alt="The annual cost per arson for single family homes in Los Angeles, California, 1979-2022." width="90%" />
+<img src="08_arson_files/figure-html/arsonCost-1.png" alt="The annual cost per arson for single family homes in Los Angeles, California, 1979-2022." width="100%" height="100%"  />
 <p class="caption">
 Figure 8.4: The annual cost per arson for single family homes in Los Angeles, California, 1979-2022.
 </p>

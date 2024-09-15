@@ -20,7 +20,7 @@ As might be expected, the Offender Segment provides information about who the of
 
 In cases where there is no information about the offender there will be a single row where all of the offender variables will be "unknown." In these cases having a single row for the offender is merely a placeholder and doesn’t necessarily mean that there was only one offender for that incident. However, there’s no indicator for when this is a placeholder and when there was actually one offender but whose demographic info is unknown.
 
-The Offender Segment is the sparsest of the available segments, and provides only four new variables that are about the offender's demographics. It also includes the standard set of variables: the agency ORI, the incident number, the state the agency is in, and the incident date (though we would need to check the Administrative Segment to see if this is actually the incident date or the report date). 
+The Offender Segment is the sparsest of the available segments, and provides only four new variables that are about the offender's demographics. 
 
 ## Demographics
 

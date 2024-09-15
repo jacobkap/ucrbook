@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.3)  14 SEP 2024 19:43
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.3)  15 SEP 2024 10:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2209,18 +2209,18 @@ File: 03_offenses_known_files/figure-latex/frankenmuthRape-1.pdf Graphic file (t
 [28]
 File: 03_offenses_known_files/figure-latex/memphisUnfounded-1.pdf Graphic file (type pdf)
 <use 03_offenses_known_files/figure-latex/memphisUnfounded-1.pdf>
-
-
-[29]
 File: 03_offenses_known_files/figure-latex/denverUnfounded-1.pdf Graphic file (type pdf)
 <use 03_offenses_known_files/figure-latex/denverUnfounded-1.pdf>
 
 
-[30]
+[29]
 
-[31]
+[30]
 File: 03_offenses_known_files/figure-latex/rapePhilly-1.pdf Graphic file (type pdf)
 <use 03_offenses_known_files/figure-latex/rapePhilly-1.pdf>
+
+
+[31]
 File: 03_offenses_known_files/figure-latex/rapeNYC-1.pdf Graphic file (type pdf)
 <use 03_offenses_known_files/figure-latex/rapeNYC-1.pdf>
 
@@ -2376,10 +2376,20 @@ File: 04_stolen_property_files/figure-latex/agenciesInBoth12Month-1.pdf Graphic 
 File: 04_stolen_property_files/figure-latex/theftByValue-1.pdf Graphic file (type pdf)
 <use 04_stolen_property_files/figure-latex/theftByValue-1.pdf>
 
+Overfull \hbox (5.01385pt too wide) in paragraph at lines 2959--2960
+ []\T1/lmr/m/n/10 {[][][] 
+ []
+
+
 
 [49]
 File: 04_stolen_property_files/figure-latex/theftByValueCalifornia-1.pdf Graphic file (type pdf)
 <use 04_stolen_property_files/figure-latex/theftByValueCalifornia-1.pdf>
+
+Overfull \hbox (5.01385pt too wide) in paragraph at lines 3009--3010
+ []\T1/lmr/m/n/10 {[][][] 
+ []
+
 
 
 [50]
@@ -2987,11 +2997,11 @@ File: 06_shr_files/figure-latex/shrVictimSex-1.pdf Graphic file (type pdf)
 [90]
 File: 06_shr_files/figure-latex/shrOffenderRace-1.pdf Graphic file (type pdf)
 <use 06_shr_files/figure-latex/shrOffenderRace-1.pdf>
+File: 06_shr_files/figure-latex/shrVictimRace-1.pdf Graphic file (type pdf)
+<use 06_shr_files/figure-latex/shrVictimRace-1.pdf>
 
 
 [91]
-File: 06_shr_files/figure-latex/shrVictimRace-1.pdf Graphic file (type pdf)
-<use 06_shr_files/figure-latex/shrVictimRace-1.pdf>
 File: 06_shr_files/figure-latex/shrOffenderEthnicity-1.pdf Graphic file (type pdf)
 <use 06_shr_files/figure-latex/shrOffenderEthnicity-1.pdf>
 
@@ -4122,34 +4132,20 @@ File: 12_nibrs_administrative_files/figure-latex/administrativeIncidentMonth-1.p
 [198]
 File: 12_nibrs_administrative_files/figure-latex/administrativeMonthDayIncident-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/administrativeMonthDayIncident-1.pdf>
-
-
-[199]
-Overfull \vbox (46.02798pt too high) has occurred while \output is active []
-
-
-
-[200]
 File: 12_nibrs_administrative_files/figure-latex/administrativeMonthDayReport-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/administrativeMonthDayReport-1.pdf>
 
 
-[201]
-Overfull \vbox (46.02798pt too high) has occurred while \output is active []
+[199]
 
-
-
-[202]
+[200]
 File: 12_nibrs_administrative_files/figure-latex/administrativeHours-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/administrativeHours-1.pdf>
-
-
-[203]
 File: 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeHours-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeHours-1.pdf>
 
 
-[204]
+[201]
 Overfull \hbox (193.10954pt too wide) in alignment at lines 9725--9730
  [] [] [] [] [] 
  []
@@ -4164,102 +4160,60 @@ Overfull \hbox (193.10954pt too wide) in alignment at lines 9735--9800
  [] [] [] [] [] 
  []
 
-[205]
+[202]
 
-[206]
+[203]
+
+[204]
 File: 12_nibrs_administrative_files/figure-latex/administrativeExceptionalClearances-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/administrativeExceptionalClearances-1.pdf>
-
-
-[207]
 File: 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeClearance-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeClearance-1.pdf>
 
 
-[208]
+[205]
 
-[209]
+[206]
 File: 12_nibrs_administrative_files/figure-latex/administrativeOffenseSegments-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/administrativeOffenseSegments-1.pdf>
 File: 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeNumberOffense-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeNumberOffense-1.pdf>
 
 
-[210]
+[207]
 
-[211]
+[208]
 File: 12_nibrs_administrative_files/figure-latex/administrativeOffenderSegments-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/administrativeOffenderSegments-1.pdf>
 File: 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeNumberOffender-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeNumberOffender-1.pdf>
 
 
-[212]
+[209]
 File: 12_nibrs_administrative_files/figure-latex/administrativeVictimSegments-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/administrativeVictimSegments-1.pdf>
 
 
-[213]
+[210]
 File: 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeNumberVictim-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeNumberVictim-1.pdf>
 
 
-[214]
+[211]
 File: 12_nibrs_administrative_files/figure-latex/administrativeArresteeSegments-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/administrativeArresteeSegments-1.pdf>
 
 
-[215]
+[212]
 File: 12_nibrs_administrative_files/figure-latex/administrativeArrestsAny-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/administrativeArrestsAny-1.pdf>
 File: 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeNumberArrestee-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeNumberArrestee-1.pdf>
 
 
-[216]
+[213]
 
-[217]
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
-
-[218
-
-]
+[214]
 Underfull \vbox (badness 10000) detected at line 10145
  []
 
@@ -4303,7 +4257,8 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[219
+[215
+
 
 ]
 Overfull \hbox (196.38928pt too wide) in alignment at lines 10244--10249
@@ -4322,9 +4277,9 @@ Overfull \hbox (196.38928pt too wide) in alignment at lines 10254--10379
 
 
 
-[220] [221]
+[216] [217]
 
-[222]
+[218]
 Overfull \hbox (449.5974pt too wide) in alignment at lines 10464--10469
  [] [] [] 
  []
@@ -4341,7 +4296,7 @@ Overfull \hbox (449.5974pt too wide) in alignment at lines 10474--10507
 
 
 
-[223]
+[219]
 Overfull \hbox (448.5974pt too wide) in alignment at lines 10527--10532
  [] [] [] 
  []
@@ -4368,7 +4323,7 @@ Overfull \hbox (448.5974pt too wide) in alignment at lines 10541--10547
 
 
 
-[224]
+[220]
 Overfull \hbox (136.24963pt too wide) in alignment at lines 10578--10583
  [] [] [] 
  []
@@ -4383,22 +4338,21 @@ Overfull \hbox (136.24963pt too wide) in alignment at lines 10588--10707
  [] [] [] 
  []
 
-[225] [226]
+[221] [222]
 File: 13_nibrs_offense_files/figure-latex/nibrsOffenseCompleted-1.pdf Graphic file (type pdf)
 <use 13_nibrs_offense_files/figure-latex/nibrsOffenseCompleted-1.pdf>
 
 
-[227]
+[223]
 File: 13_nibrs_offense_files/figure-latex/offenseDrugAlcoholComputer-1.pdf Graphic file (type pdf)
 <use 13_nibrs_offense_files/figure-latex/offenseDrugAlcoholComputer-1.pdf>
-
-
-[228]
 File: 13_nibrs_offense_files/figure-latex/offenseDrugAlcoholComputerAny-1.pdf Graphic file (type pdf)
 <use 13_nibrs_offense_files/figure-latex/offenseDrugAlcoholComputerAny-1.pdf>
 
 
-[229]
+[224]
+
+[225]
 Overfull \hbox (47.4709pt too wide) in alignment at lines 10814--10819
  [] [] [] [] 
  []
@@ -4413,14 +4367,14 @@ Overfull \hbox (47.4709pt too wide) in alignment at lines 10824--10919
  [] [] [] [] 
  []
 
-[230]
+[226]
 File: 13_nibrs_offense_files/figure-latex/nibrsOffenseHome-1.pdf Graphic file (type pdf)
 <use 13_nibrs_offense_files/figure-latex/nibrsOffenseHome-1.pdf>
 
 
-[231]
+[227]
 
-[232]
+[228]
 Overfull \hbox (117.04048pt too wide) in alignment at lines 11016--11021
  [] [] [] 
  []
@@ -4439,29 +4393,29 @@ File: 13_nibrs_offense_files/figure-latex/nibrsMurdersWeapon-1.pdf Graphic file 
 <use 13_nibrs_offense_files/figure-latex/nibrsMurdersWeapon-1.pdf>
 
 
-[233]
+[229]
 File: 13_nibrs_offense_files/figure-latex/offenseAutomaticWeapon-1.pdf Graphic file (type pdf)
 <use 13_nibrs_offense_files/figure-latex/offenseAutomaticWeapon-1.pdf>
 
 
-[234]
+[230]
 File: 13_nibrs_offense_files/figure-latex/offensePremisesEntered-1.pdf Graphic file (type pdf)
 <use 13_nibrs_offense_files/figure-latex/offensePremisesEntered-1.pdf>
 
 
-[235]
+[231]
 
-LaTeX Warning: Reference `fig:offensesTypeOfEntry' on page 236 undefined on input line 11155.
+LaTeX Warning: Reference `fig:offensesTypeOfEntry' on page 232 undefined on input line 11155.
 
 File: 13_nibrs_offense_files/figure-latex/nibrsBurglaryForce-1.pdf Graphic file (type pdf)
 <use 13_nibrs_offense_files/figure-latex/nibrsBurglaryForce-1.pdf>
 
 
-[236]
+[232]
 
-[237]
+[233]
 
-[238]
+[234]
 Overfull \hbox (89.30487pt too wide) in alignment at lines 11293--11298
  [] [] [] 
  []
@@ -4476,12 +4430,12 @@ Overfull \hbox (89.30487pt too wide) in alignment at lines 11303--11374
  [] [] [] 
  []
 
-[239]
+[235]
 File: 13_nibrs_offense_files/figure-latex/nibrsOffenseBias-1.pdf Graphic file (type pdf)
 <use 13_nibrs_offense_files/figure-latex/nibrsOffenseBias-1.pdf>
 
 
-[240]
+[236]
 Underfull \vbox (badness 10000) detected at line 11385
  []
 
@@ -4525,7 +4479,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[241
+[237
 
 
 ]
@@ -4533,36 +4487,36 @@ File: 14_nibrs_offender_files/figure-latex/offenderAge-1.pdf Graphic file (type 
 <use 14_nibrs_offender_files/figure-latex/offenderAge-1.pdf>
 
 
-[242]
+[238]
 
-[243]
+[239]
 File: 14_nibrs_offender_files/figure-latex/nibrsOffenderAge-1.pdf Graphic file (type pdf)
 <use 14_nibrs_offender_files/figure-latex/nibrsOffenderAge-1.pdf>
 File: 14_nibrs_offender_files/figure-latex/nibrsOffenderAgeMissing-1.pdf Graphic file (type pdf)
 <use 14_nibrs_offender_files/figure-latex/nibrsOffenderAgeMissing-1.pdf>
 
 
-[244]
+[240]
 File: 14_nibrs_offender_files/figure-latex/nibrsOffenderSex-1.pdf Graphic file (type pdf)
 <use 14_nibrs_offender_files/figure-latex/nibrsOffenderSex-1.pdf>
 
 
-[245]
+[241]
 
-LaTeX Warning: Reference `fig:offenderRace' on page 246 undefined on input line 11590.
+LaTeX Warning: Reference `fig:offenderRace' on page 242 undefined on input line 11590.
 
 
 
-[246]
+[242]
 File: 14_nibrs_offender_files/figure-latex/nibrsOffenderRace-1.pdf Graphic file (type pdf)
 <use 14_nibrs_offender_files/figure-latex/nibrsOffenderRace-1.pdf>
 File: 14_nibrs_offender_files/figure-latex/nibrsOffenderEthnicity-1.pdf Graphic file (type pdf)
 <use 14_nibrs_offender_files/figure-latex/nibrsOffenderEthnicity-1.pdf>
 
 
-[247]
+[243]
 
-[248]
+[244]
 Underfull \vbox (badness 10000) detected at line 11660
  []
 
@@ -4606,7 +4560,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[249
+[245
 
 
 ]
@@ -4624,7 +4578,7 @@ Overfull \hbox (136.9163pt too wide) in alignment at lines 11757--11882
  [] [] [] 
  []
 
-[250] [251]
+[246] [247]
 Overfull \hbox (242.55565pt too wide) in alignment at lines 11884--11889
  [] [] [] [] 
  []
@@ -4639,40 +4593,40 @@ Overfull \hbox (242.55565pt too wide) in alignment at lines 11894--11937
  [] [] [] [] 
  []
 
-[252]
+[248]
 File: 15_nibrs_victim_files/figure-latex/nibrsFirstVsAllOffensesMurders-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/nibrsFirstVsAllOffensesMurders-1.pdf>
 File: 15_nibrs_victim_files/figure-latex/nibrsFirstVsAllOffensesSexOffenses-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/nibrsFirstVsAllOffensesSexOffenses-1.pdf>
 
 
-[253]
+[249]
 
-[254]
+[250]
 File: 15_nibrs_victim_files/figure-latex/nibrsVictimNumberOfficer-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/nibrsVictimNumberOfficer-1.pdf>
 
 
-[255]
+[251]
 File: 15_nibrs_victim_files/figure-latex/nibrsVictimPercentIndividualOfficer-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/nibrsVictimPercentIndividualOfficer-1.pdf>
 
 
-[256]
+[252]
 
-[257]
+[253]
 File: 15_nibrs_victim_files/figure-latex/victimInjury-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/victimInjury-1.pdf>
 File: 15_nibrs_victim_files/figure-latex/victimInjuryExcludeNone-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/victimInjuryExcludeNone-1.pdf>
 
 
-[258]
+[254]
 File: 15_nibrs_victim_files/figure-latex/nibrsVictimAssaultInjury-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/nibrsVictimAssaultInjury-1.pdf>
 
 
-[259]
+[255]
 Overfull \hbox (74.73483pt too wide) in alignment at lines 12205--12210
  [] [] [] 
  []
@@ -4687,7 +4641,7 @@ Overfull \hbox (74.73483pt too wide) in alignment at lines 12215--12270
  [] [] [] 
  []
 
-[260]
+[256]
 Overfull \hbox (74.73483pt too wide) in alignment at lines 12288--12293
  [] [] [] 
  []
@@ -4702,12 +4656,12 @@ Overfull \hbox (74.73483pt too wide) in alignment at lines 12298--12351
  [] [] [] 
  []
 
-[261]
+[257]
 File: 15_nibrs_victim_files/figure-latex/nibrsVictimAssaultSpouse-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/nibrsVictimAssaultSpouse-1.pdf>
 
 
-[262]
+[258]
 Overfull \hbox (126.58281pt too wide) in alignment at lines 12381--12386
  [] [] [] [] 
  []
@@ -4722,16 +4676,16 @@ Overfull \hbox (126.58281pt too wide) in alignment at lines 12391--12428
  [] [] [] [] 
  []
 
-[263]
+[259]
 File: 15_nibrs_victim_files/figure-latex/victimJustifiableHomicide-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/victimJustifiableHomicide-1.pdf>
 
 
-[264]
+[260]
 
-[265]
+[261]
 
-LaTeX Warning: Reference `fig:victimResidenceStatus' on page 266 undefined on input line 12487.
+LaTeX Warning: Reference `fig:victimResidenceStatus' on page 262 undefined on input line 12487.
 
 File: 15_nibrs_victim_files/figure-latex/victimResidenceStatusPolice-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/victimResidenceStatusPolice-1.pdf>
@@ -4739,42 +4693,42 @@ File: 15_nibrs_victim_files/figure-latex/nibrsVictimResidentStatus-1.pdf Graphic
 <use 15_nibrs_victim_files/figure-latex/nibrsVictimResidentStatus-1.pdf>
 
 
-[266]
+[262]
 File: 15_nibrs_victim_files/figure-latex/victimAge-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/victimAge-1.pdf>
 
 
-[267]
+[263]
 File: 15_nibrs_victim_files/figure-latex/nibrsVictimAge-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/nibrsVictimAge-1.pdf>
 File: 15_nibrs_victim_files/figure-latex/nibrsVictimAgeMissing-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/nibrsVictimAgeMissing-1.pdf>
 
 
-[268]
+[264]
 File: 15_nibrs_victim_files/figure-latex/nibrsVictimSex-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/nibrsVictimSex-1.pdf>
 
 
-[269]
+[265]
 
-LaTeX Warning: Reference `fig:victimRace' on page 270 undefined on input line 12625.
+LaTeX Warning: Reference `fig:victimRace' on page 266 undefined on input line 12625.
 
 File: 15_nibrs_victim_files/figure-latex/nibrsVictimRace-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/nibrsVictimRace-1.pdf>
 
 
-[270]
+[266]
 
-LaTeX Warning: Reference `fig:victimEthnicity' on page 271 undefined on input line 12665.
+LaTeX Warning: Reference `fig:victimEthnicity' on page 267 undefined on input line 12665.
 
 File: 15_nibrs_victim_files/figure-latex/nibrsVictimEthnicity-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/nibrsVictimEthnicity-1.pdf>
 
 
-[271]
+[267]
 
-[272]
+[268]
 Underfull \vbox (badness 10000) detected at line 12685
  []
 
@@ -4818,12 +4772,12 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[273
+[269
 
 
 ]
 
-[274]
+[270]
 Overfull \hbox (196.38928pt too wide) in alignment at lines 12808--12813
  [] [] [] [] 
  []
@@ -4838,9 +4792,9 @@ Overfull \hbox (196.38928pt too wide) in alignment at lines 12818--12957
  [] [] [] [] 
  []
 
-[275] [276]
+[271] [272]
 
-[277]
+[273]
 Overfull \hbox (46.86053pt too wide) in alignment at lines 13007--13012
  [] [] [] [] 
  []
@@ -4857,99 +4811,99 @@ Overfull \hbox (46.86053pt too wide) in alignment at lines 13017--13042
 
 
 
-[278]
+[274]
 File: 16_nibrs_arrestee_files/figure-latex/arrestsDaysUntilArrest-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/arrestsDaysUntilArrest-1.pdf>
 File: 16_nibrs_arrestee_files/figure-latex/arrestsDaysUntilArrestBarplot-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/arrestsDaysUntilArrestBarplot-1.pdf>
 
 
-[279]
+[275]
 
-LaTeX Warning: Reference `fig:arresteeWeapon' on page 280 undefined on input line 13120.
+LaTeX Warning: Reference `fig:arresteeWeapon' on page 276 undefined on input line 13120.
 
 
 
-[280]
+[276]
 File: 16_nibrs_arrestee_files/figure-latex/nibrsArresteeMurderWeapon-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/nibrsArresteeMurderWeapon-1.pdf>
 File: 16_nibrs_arrestee_files/figure-latex/arresteeWeaponArmed-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/arresteeWeaponArmed-1.pdf>
 
 
-[281]
+[277]
 File: 16_nibrs_arrestee_files/figure-latex/arresteeAutomaticWeapon-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/arresteeAutomaticWeapon-1.pdf>
 
 
-[282]
+[278]
 
-LaTeX Warning: Reference `fig:arresteeTypeOfArrest' on page 283 undefined on input line 13208.
+LaTeX Warning: Reference `fig:arresteeTypeOfArrest' on page 279 undefined on input line 13208.
 
 
 
-[283]
+[279]
 File: 16_nibrs_arrestee_files/figure-latex/nibrsArresteeArrestType-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/nibrsArresteeArrestType-1.pdf>
 File: 16_nibrs_arrestee_files/figure-latex/nibrsArresteeDUIArrestType-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/nibrsArresteeDUIArrestType-1.pdf>
 
 
-[284]
+[280]
 File: 16_nibrs_arrestee_files/figure-latex/arresteeJuvenileDisposition-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/arresteeJuvenileDisposition-1.pdf>
 
 
-[285]
+[281]
 
-[286]
+[282]
 
-LaTeX Warning: Reference `fig:arresteeResidenceStatus' on page 287 undefined on input line 13349.
+LaTeX Warning: Reference `fig:arresteeResidenceStatus' on page 283 undefined on input line 13349.
 
 File: 16_nibrs_arrestee_files/figure-latex/nibrsArresteeResidentStatus-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/nibrsArresteeResidentStatus-1.pdf>
 
 
-[287]
+[283]
 File: 16_nibrs_arrestee_files/figure-latex/arresteeAge-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/arresteeAge-1.pdf>
 
 
-[288]
+[284]
 File: 16_nibrs_arrestee_files/figure-latex/nibrsArresteeAge-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/nibrsArresteeAge-1.pdf>
 File: 16_nibrs_arrestee_files/figure-latex/nibrsArresteeAgeMissing-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/nibrsArresteeAgeMissing-1.pdf>
 
 
-[289]
+[285]
 
-LaTeX Warning: Reference `fig:arresteeSex' on page 290 undefined on input line 13433.
+LaTeX Warning: Reference `fig:arresteeSex' on page 286 undefined on input line 13433.
 
 File: 16_nibrs_arrestee_files/figure-latex/nibrsArresteeSex-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/nibrsArresteeSex-1.pdf>
 
 
-[290]
+[286]
 
-LaTeX Warning: Reference `fig:arresteeRace' on page 291 undefined on input line 13476.
+LaTeX Warning: Reference `fig:arresteeRace' on page 287 undefined on input line 13476.
 
 File: 16_nibrs_arrestee_files/figure-latex/nibrsArresteeRace-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/nibrsArresteeRace-1.pdf>
 
 
-[291]
+[287]
 
-LaTeX Warning: Reference `fig:arresteeEthnicity' on page 292 undefined on input line 13522.
+LaTeX Warning: Reference `fig:arresteeEthnicity' on page 288 undefined on input line 13522.
 
 
 
-[292]
+[288]
 File: 16_nibrs_arrestee_files/figure-latex/nibrsArresteeEthnicity-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/nibrsArresteeEthnicity-1.pdf>
 
 
-[293]
+[289]
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -4988,7 +4942,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[294
+[290
 
 ]
 Underfull \vbox (badness 10000) detected at line 13538
@@ -5034,21 +4988,21 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[295
+[291
 
 ]
 File: 17_nibrs_property_files/figure-latex/propertyTypeLoss-1.pdf Graphic file (type pdf)
 <use 17_nibrs_property_files/figure-latex/propertyTypeLoss-1.pdf>
 
 
-[296]
+[292]
 File: 17_nibrs_property_files/figure-latex/nibrsPropertyAgenciesReporting-1.pdf Graphic file (type pdf)
 <use 17_nibrs_property_files/figure-latex/nibrsPropertyAgenciesReporting-1.pdf>
 
 
-[297]
+[293]
 
-[298]
+[294]
 Overfull \hbox (143.80464pt too wide) in alignment at lines 13710--13715
  [] [] [] [] 
  []
@@ -5063,7 +5017,7 @@ Overfull \hbox (143.80464pt too wide) in alignment at lines 13720--13859
  [] [] [] [] 
  []
 
-[299] [300]
+[295] [296]
 Overfull \hbox (88.88757pt too wide) in alignment at lines 13875--13880
  [] [] [] 
  []
@@ -5078,16 +5032,16 @@ Overfull \hbox (88.88757pt too wide) in alignment at lines 13885--14024
  [] [] [] 
  []
 
-[301] [302]
+[297] [298]
 
-[303]
+[299]
 File: 17_nibrs_property_files/figure-latex/propertyValuePropertyLevel-1.pdf Graphic file (type pdf)
 <use 17_nibrs_property_files/figure-latex/propertyValuePropertyLevel-1.pdf>
 File: 17_nibrs_property_files/figure-latex/propertyValueIncidentLevel-1.pdf Graphic file (type pdf)
 <use 17_nibrs_property_files/figure-latex/propertyValueIncidentLevel-1.pdf>
 
 
-[304]
+[300]
 Overfull \hbox (312.83614pt too wide) in alignment at lines 14102--14107
  [] [] [] [] [] [] [] 
  []
@@ -5102,24 +5056,24 @@ Overfull \hbox (312.83614pt too wide) in alignment at lines 14112--14177
  [] [] [] [] [] [] [] 
  []
 
-[305]
+[301]
 File: 17_nibrs_property_files/figure-latex/nibrsPropertyMaxValuePercent-1.pdf Graphic file (type pdf)
 <use 17_nibrs_property_files/figure-latex/nibrsPropertyMaxValuePercent-1.pdf>
 
 
-[306]
+[302]
 File: 17_nibrs_property_files/figure-latex/propertyDaysUntilRecovered-1.pdf Graphic file (type pdf)
 <use 17_nibrs_property_files/figure-latex/propertyDaysUntilRecovered-1.pdf>
 
 
-[307]
+[303]
 File: 17_nibrs_property_files/figure-latex/nibrsPropertySeizures-1.pdf Graphic file (type pdf)
 <use 17_nibrs_property_files/figure-latex/nibrsPropertySeizures-1.pdf>
 
 
-[308]
+[304]
 
-[309]
+[305]
 Overfull \hbox (13.86015pt too wide) in alignment at lines 14338--14343
  [] [] [] [] 
  []
@@ -5134,19 +5088,19 @@ Overfull \hbox (13.86015pt too wide) in alignment at lines 14348--14385
  [] [] [] [] 
  []
 
-[310]
+[306]
 File: 17_nibrs_property_files/figure-latex/nibrsPropertyDrugType-1.pdf Graphic file (type pdf)
 <use 17_nibrs_property_files/figure-latex/nibrsPropertyDrugType-1.pdf>
 
 
-[311]
+[307]
 File: 17_nibrs_property_files/figure-latex/propertyMarijuanaGramMeasures-1.pdf Graphic file (type pdf)
 <use 17_nibrs_property_files/figure-latex/propertyMarijuanaGramMeasures-1.pdf>
 
 
-[312]
+[308]
 
-[313]
+[309]
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -5185,7 +5139,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[314
+[310
 
 ] (./ucrbook.bbl
 Underfull \vbox (badness 10000) detected at line 1
@@ -5333,12 +5287,12 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[315
+[311
 
 
 ])
 
-[316] (./ucrbook.ind) (./ucrbook.aux)
+[312] (./ucrbook.ind) (./ucrbook.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-16>
@@ -5362,4 +5316,4 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  90i,10n,126p,544b,500s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ucrbook.pdf (348 pages).
+Output written on ucrbook.pdf (344 pages).
