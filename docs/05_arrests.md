@@ -4,7 +4,7 @@
 
 
 
-The Arrests by Age, Sex, and Race dataset - often called ASR, or the "arrests data", or sometimes the "Arrests by Age, Sex, Race, and Ethnicity though most years do not report ethnicity data - includes the monthly number of arrests for a variety of crimes and, unlike the crime data, breaks down this data by age and sex This data includes a broader number of crime categories than the crime dataset (the Offenses Known and Clearances by Arrest data) though is less detailed on violent crimes since it does not breakdown aggravated assault or robberies by weapon type as the Offenses Known data does.
+The Arrests by Age, Sex, and Race dataset (ASR)^[Sometimes called Arrests by Age, Sex, Race, and Ethnicity.] provides monthly counts of arrests broken down by age, sex, and race for a variety of crimes. This data includes a broader number of crime categories than the crime dataset (the Offenses Known and Clearances by Arrest data) though is less detailed on violent crimes since it does not breakdown aggravated assault or robberies by weapon type as the Offenses Known data does.
 
 For each crime it says the number of arrests for each sex-age group with younger ages (15-24) showing the arrestee's age to the year (e.g. age 16, age 17) and other ages grouping years together (e.g. age 25-29, 30-34, "under 10"). It also breaks down arrests by race-age by including the number of arrestees of each race (American Indian, Asian, Black, and White are the only included races) and if the arrestee is a juvenile (<18 years old) or an adult. The data does technically include a breakdown by ethnicity-age (e.g. juvenile-Hispanic, juvenile-non-Hispanic) but almost no agencies report this data and most do not report ethnicity at all. So in practice the data does not include ethnicity. As the data includes counts of arrestees, people who are arrested multiple times are included in the data multiple times; it is not a measure of unique arrestees. 
 
@@ -14,14 +14,18 @@ This data is available from 1974 through 2022 though after 2020 the measure for 
 
 The first year of data has about 9,000 agencies reporting at least one month and that increases strongly to a little over 13,000 in the late 1970s, staying fairly steady until decreasing in the late 1980s then increasing in the 2000s until approximately 15,000 agencies report. The number of agencies reporting 12 months of data follows a similar trend, but at a lower level with about 4,000 fewer agencies each year. This 15,000, however, still remains under the estimated 18,000 police agencies in the United States and below the reporting rates of UCR data such as the Offenses Known and Clearances by Arrest data. This data is also missing some important cities such as New York City which has not reported even a single month since 2002 and Chicago which tends to only report a single month if at all.   
 
-<div class="figure" style="text-align: center">
-<img src="05_arrests_files/figure-html/arrestsAgenciesReporting-1.png" alt="The annual number of agencies reporting at least one month of data and 12 months of data in that year." width="90%" />
-<p class="caption">(\#fig:arrestsAgenciesReporting)The annual number of agencies reporting at least one month of data and 12 months of data in that year.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{05_arrests_files/figure-latex/arrestsAgenciesReporting-1} 
+
+}
+
+\caption{The annual number of agencies reporting at least one month of data and 12 months of data in that year.}(\#fig:arrestsAgenciesReporting)
+\end{figure}
 
 ## What is an arrest? (what unit is this data in?)
 
-A key part of understanding this data is knowing what unit of analysis it is in. This data is the monthly number of *total arrests for a given crime, with only the most serious crime per incident included*. Consider for example, a person who robs a bank, shooting and killing a guard and pointing their gun at other people in the bank. They are arrested and then released from jail (just imagine that this is true) and are then arrested the next day for shoplifting. And let us further assume that both arrests were in the same month in the same agency. How many arrests are here? They committed multiple crimes in the first incident (murder, robbery, aggravated assault) but in this dataset they would only be classified as an arrest for the most serious crime, murder. And then separately they would also be an arrested for shoplifting. So assuming that no other arrests occurred in that police agency that month, there would be two arrests reported: one for murder and one for shoplifting. 
+This dataset counts each arrest separately, meaning that individuals who are arrested multiple times will be counted multiple times. It reports the most serious crime for each arrest incident, so if someone commits multiple crimes during an incident, only the most serious one is recorded. Consider for example, a person who robs a bank, shooting and killing a guard and pointing their gun at other people in the bank. They are arrested and then released from jail (just imagine that this is true) and are then arrested the next day for shoplifting. And let us further assume that both arrests were in the same month in the same agency. How many arrests are here? They committed multiple crimes in the first incident (murder, robbery, aggravated assault) but in this dataset they would only be classified as an arrest for the most serious crime, murder. And then separately they would also be an arrested for shoplifting. So assuming that no other arrests occurred in that police agency that month, there would be two arrests reported: one for murder and one for shoplifting. 
 
 There's no way to tell how many unique people were arrested, or of those arrested multiple times which crimes they were arrested for. So if you have 100 arrests there may be 1 person arrested 100 times or 100 people arrested once - though, of course, the true number is likely somewhere in between. This means that studies that try to use this data as a measure of unique people or even the percent of arrestees by group (age, sex, or race) relative to some base rate of the population such as the number of people living in that city are going to be wrong - though how wrong is unclear.
 
@@ -35,9 +39,7 @@ Is this bounding assumption reasonable? In this context-less example, I have no 
 
 ### The Hierarchy Rule
 
-In incidents where the arrestee commits multiple crimes, this data uses something called the Hierarchy Rule which says that only the most serious crime is counted as the crime that the person was arrested for. For a comprehensive overview of the Hierarchy Rule, please see Section \@ref(hierarchy). 
-
-Essentially, the FBI chose seven crimes in 1929 that they call Index Crimes - or sometimes called Part I crimes - and these were considered the most important crimes to be recorded.^[Partly based on the quality of the data available as they considered these crimes to be a good combination of well-reported and serious.] For more on Index Crimes, please see Section \@ref(indexCrimesOffensesKnown). If a person is arrested for multiple crimes and an Index Crime is one of those crimes, then the Index Crime at the top of the Hierarchy is the one recorded in this data. Below I have listed all crimes included in this dataset and the crimes 1-7 as well as 9 (arson) are the Index Crimes. The top of the Hierarchy is the crime with the lowest number. So murder is always reported in incidents where there is a murder; rape is always reported when there is an incident with rape but no murder; etc. 
+The Hierarchy Rule is used in this data which means that when someone is arrested for multiple crimes, only the most serious crime is recorded. For example, if a person commits murder, robbery, and theft, only the murder is reported. Essentially, the FBI chose seven crimes in 1929 that they call Index Crimes - or sometimes called Part I crimes - and these were considered the most important crimes to be recorded.^[Partly based on the quality of the data available as they considered these crimes to be a good combination of well-reported and serious.] If a person is arrested for multiple crimes and an Index Crime is one of those crimes, then the Index Crime at the top of the Hierarchy is the one recorded in this data. Below I have listed all crimes included in this dataset and the crimes 1-7 as well as 9 (arson) are the Index Crimes. The top of the Hierarchy is the crime with the lowest number. So murder is always reported in incidents where there is a murder; rape is always reported when there is an incident with rape but no murder; etc. 
 
 The remaining crimes - the ones that are not Index crimes - are called Part II crimes and are not arranged in any particular way. So a lower value numbered crime is not higher on the Hierarchy than a higher value number - Part II crimes do not follow the Hierarchy. If all of the crimes in an incident are Part II crimes then the agency must decide for themselves which crime is the most serious. This can lead to agencies deciding their own hierarchy differently than others which makes this data much less comparable across agencies than if there was a standard rule.^[This here is another example of where the "Uniform" part of Uniform Crime Reporting is more of a suggestion than a rule.]  
 
@@ -96,7 +98,7 @@ For each crime this data provides the number of arrests in that month (or year f
 
 ### Age
 
-For each crime the data provides the number of people of each sex by age, with several years in the peak offending age given as the specific age and younger and older ages broken into groups. Only female and male options are available, and there is no variable for "unknown" sex. There is also no option for transgender so whether the sex for that arrestee is their biological sex or their current gender is likely dependent on the policy of the arresting agency. To get a total arrests for that crime for that age, just add the female and male variables together. Below are the ages or age categories included in the data, and these are the same for female and male arrestees.
+The dataset provides the number of arrests for each age group and gender. Specific ages are reported for younger individuals (e.g., 15-24), while older individuals are grouped into broader age ranges (e.g., 25-29, 30-34). Male and female arrestees are reported separately, and the dataset does not include any category for non-binary or transgender individuals. To get a total arrests for that crime for that age, just add the female and male variables together. Below are the ages or age categories included in the data, and these are the same for female and male arrestees.
 
 * Female
     + Under 10
@@ -149,14 +151,20 @@ One way to use this data is to look at the age-crime curve of offending. The age
 
 Figure \@ref(fig:phillyRapeAge) shows this trend for male arrestees of rape in Philadelphia from 1974-2022, which is every year of data we have available. A major problem with this figure is that some of the ages are for single years and some are for age categories. In the graph there were 793 arrests for rape for people aged 24. The next age is the category of aged 25-29 and there were 3,604 arrests for this age group. One way to address this is to assume that each age in the category has the same number of arrests, so dividing 3,604 by 5 gives us about 721 arrests per age. Assuming equal arrests by age, however, is not consistent with either the literature on the age-crime curve or the findings in this figure for previous ages, as the number of arrests by age is, overall, going down since age 18. So instead of assuming equality, would we assume that older ages have fewer arrests than younger ages (maybe taking the percent change from the previous years where we do have individual ages available)? This is a tricky question to answer and it makes these kinds of analyses really hard to do - and very imprecise since all of your assumptions will be wrong, though hopefully not *too* wrong. 
 
-<div class="figure" style="text-align: center">
-<img src="05_arrests_files/figure-html/phillyRapeAge-1.png" alt="The total number of rapes by male arrestees reported by arrestee age in Philadelphia, 1974-2022." width="90%" />
-<p class="caption">(\#fig:phillyRapeAge)The total number of rapes by male arrestees reported by arrestee age in Philadelphia, 1974-2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{05_arrests_files/figure-latex/phillyRapeAge-1} 
+
+}
+
+\caption{The total number of rapes by male arrestees reported by arrestee age in Philadelphia, 1974-2022.}(\#fig:phillyRapeAge)
+\end{figure}
 
 ### Race
 
-The data also breaks down the number of arrests for each crime by race, with the only included races being American Indian, Asian, Black, and White.^[There is no option for a person who is mixed-race. Only one race may be chosen.] This is further broken down into if the arrestee was an adult (18 years or older) or a juvenile (under 18). Whether the arrestee is Hispanic is in a separate (and nearly universally non-reported variable). Since the ethnicity variable is separate, and since the data is not at the arrestee-level unit, there is no way to interact the race and ethnicity variables. So, for example, there is no way to determine how many White-Hispanic or White-Non-Hispanic arrestees. Just total White arrestees and total Hispanic arrestees. 
+The dataset categorizes arrests by race: American Indian, Asian, Black, and White. It does not account for mixed-race individuals or provide details on how race was determined (e.g., officer perception or arrestee self-reporting). This is further broken down into if the arrestee was an adult (18 years or older) or a juvenile (under 18). 
+
+Whether the arrestee is Hispanic is in a separate (and nearly universally non-reported variable). Since the ethnicity variable is separate, and since the data is not at the arrestee-level unit, there is no way to interact the race and ethnicity variables. So, for example, there is no way to determine how many White-Hispanic or White-Non-Hispanic arrestees. Just total White arrestees and total Hispanic arrestees. 
 
 As with race variables in other UCR datasets - and, really, any dataset - you should be cautious about using this variables since it is the officer's perception of the arrestee's race - though of course some arrests do have other data about the arrestee's race such as what they tell the officer. In cases where the arrestee is carrying identification such as a driver's license this variable is likely to be extremely well reported. However, we cannot tell from this data whether the race is based on something like a license or is merely the officer's perception.^[In my experience working directly with police data where I can identify a person arrested multiple times in about 5-10% of cases they have at least one arrest where their reported race is different than other arrests. Such as a person arrested five times and being reported as White four times and Black once. This is probably a mix of officers perceiving people differently (e.g. mixed race people) and having different officers report different race for the same person, and human error when entering data. But all of it suggests that there is at least some uncertainty in this variable.] 
 
@@ -175,19 +183,27 @@ Even though there is information about the specific age of arrestee (or the age 
     
 Figure \@ref(fig:phillyMarijuanaRacePercent) shows one example of an analysis of this data by showing the percent of arrests of adults for marijuana possession by the arrestee's race in Philadelphia for all years of data we have with a full year of data reported, 1976-2018 At the bottom are American Indian and Asian arrestees who make up nearly none of the arrests for this crime. Black arrestees, shown in green, make up the bulk of arrests with only a few years making up under 60% of arrests and growing to around 80% of arrests since the mid-2000s. As White arrestees, shown in orange, are the only other race category included, they make up a near perfect mirror image of Black arrestees, composing of around 40% of arrests until decreasing starting in the 1990s to end up with about 20% of arrests in recent years. 
 
-<div class="figure" style="text-align: center">
-<img src="05_arrests_files/figure-html/phillyMarijuanaRacePercent-1.png" alt="The annual percent of adult marijuana possession arrests in Philadelphia by arrestee race, 1978:2018." width="90%" />
-<p class="caption">(\#fig:phillyMarijuanaRacePercent)The annual percent of adult marijuana possession arrests in Philadelphia by arrestee race, 1978:2018.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{05_arrests_files/figure-latex/phillyMarijuanaRacePercent-1} 
+
+}
+
+\caption{The annual percent of adult marijuana possession arrests in Philadelphia by arrestee race, 1978:2018.}(\#fig:phillyMarijuanaRacePercent)
+\end{figure}
 
 Interestingly, while the disparity between Black-White arrests has grown dramatically in recent decades, the total number of arrests have a very different trend as shown in Figure \@ref(fig:phillyMarijuanaRaceCount). Total marijuana possession arrests declined in the mid-1980s then increased in the mid-1990s from only a few hundred arrests in the early 1990s to nearly 5,000 arrests in 2010 before dropping precipitously to under 700 each year in the late-2010s. 
 
 Yet throughout this latter period as a percent of arrests, Black people consistently grew for years before plateauing around 2007 with a small decline in the last few years of full data. Philadelphia decriminalized marijuana possession in 2014 under Mayor Nutter which is right when the steepest decline in arrests happened. This suggests that who is arrested, in terms of race, is relatively unrelated to the total number of arrests, at least for marijuana in Philadelphia.
     
-<div class="figure" style="text-align: center">
-<img src="05_arrests_files/figure-html/phillyMarijuanaRaceCount-1.png" alt="The annual number of adult marijuana possession arrests in Philadelphia by arrestee race, 1978:2018." width="90%" />
-<p class="caption">(\#fig:phillyMarijuanaRaceCount)The annual number of adult marijuana possession arrests in Philadelphia by arrestee race, 1978:2018.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{05_arrests_files/figure-latex/phillyMarijuanaRaceCount-1} 
+
+}
+
+\caption{The annual number of adult marijuana possession arrests in Philadelphia by arrestee race, 1978:2018.}(\#fig:phillyMarijuanaRaceCount)
+\end{figure}
   
 ### Ethnicity
 
@@ -202,17 +218,25 @@ While technically included, the ethnicity variable is largely useless since for 
 
 Figure \@ref(fig:theftHispanic) shows the annual number of Hispanic arrestees for theft for all agencies that reported any data that year.^[Theft is used as it is one of the most common crimes.] For several years no agencies reported until the number of Hispanic arrestees start climbing in 1980 and peaks in 1986 at about 136,000 arrestees. Then there are zero Hispanic arrestees for a few years, four Hispanic arrestees in 1990 and two non-Hispanic arrests in 1991, and then again zero Hispanic arrestees, this time for decades. Only in 2017 do the number of Hispanic theft arrestees begin to creep up. From 2017 to 2022 (the last year available at the time of this writing) there are Hispanic arrestees reported every year, though now only about 60,000 per year.
     
-<div class="figure" style="text-align: center">
-<img src="05_arrests_files/figure-html/theftHispanic-1.png" alt="The national annual number of Hispanic arrestees for theft. This includes all agencies that year that reporting any number of months. Hispanic arrestees include both juvenile and adult arrestees" width="90%" />
-<p class="caption">(\#fig:theftHispanic)The national annual number of Hispanic arrestees for theft. This includes all agencies that year that reporting any number of months. Hispanic arrestees include both juvenile and adult arrestees</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{05_arrests_files/figure-latex/theftHispanic-1} 
+
+}
+
+\caption{The national annual number of Hispanic arrestees for theft. This includes all agencies that year that reporting any number of months. Hispanic arrestees include both juvenile and adult arrestees}(\#fig:theftHispanic)
+\end{figure}
 
 Perhaps a better way to look at this data is to see what percent of agencies report ethnicity data. Figure \@ref(fig:theftHispanicPercentAgencies) show the percent of agencies each year that report at least one Hispanic or non-Hispanic (which are the only choices, but showing only Hispanic arrests would exclude agencies where no Hispanic people truly were arrested) arrest for theft. About 60% of agencies reported ethnicity data in the early 80s and then only a couple agencies report in 1990 and 1991. Other than those agencies, none report between 1987 and 2016. Starting in 2017, 36% of agencies report and this number has grown by about five percentage points a year until spiking to about 67% in 2021 and it remained steady in 2022. Given the fluctuations in reporting and how many years there is no data, I strongly recommend against using these variables, even for the recent years of data. 
 
-<div class="figure" style="text-align: center">
-<img src="05_arrests_files/figure-html/theftHispanicPercentAgencies-1.png" alt="The annual percent of agencies that report theft arrests that reported at least one Hispanic person or one non-Hispanic person arrested for theft. Arrestees include both juvenile and adult arrestees." width="90%" />
-<p class="caption">(\#fig:theftHispanicPercentAgencies)The annual percent of agencies that report theft arrests that reported at least one Hispanic person or one non-Hispanic person arrested for theft. Arrestees include both juvenile and adult arrestees.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{05_arrests_files/figure-latex/theftHispanicPercentAgencies-1} 
+
+}
+
+\caption{The annual percent of agencies that report theft arrests that reported at least one Hispanic person or one non-Hispanic person arrested for theft. Arrestees include both juvenile and adult arrestees.}(\#fig:theftHispanicPercentAgencies)
+\end{figure}
 
 ### Juvenile referrals
 
@@ -231,16 +255,24 @@ Unlike the rest of this dataset where juvenile is defined as being under the age
 
 We can look at an example of this in Figure \@ref(fig:JuvenileReferrals) which shows the annual number of referral types in the entire United States from 1974-2022. For all the first couple of years almost all of the referrals have either been that the agency handles the arrest internally and releases the juvenile without any formal charges, or that the juvenile is formally arrested and referred to juvenile court. Since this only happens for a single year it appears to be a data issue.Starting in the late 1990s the number of referrals has declined over time, possibly due fewer juvenile arrests overall during this period. 
 
-<div class="figure" style="text-align: center">
-<img src="05_arrests_files/figure-html/JuvenileReferrals-1.png" alt="The annual number of juvenile referrals in the United States by referral type, 1974-2020." width="90%" />
-<p class="caption">(\#fig:JuvenileReferrals)The annual number of juvenile referrals in the United States by referral type, 1974-2020.</p>
-</div>
+\begin{figure}
 
-In Figure \@ref(fig:JuvenileReferrals) there is a massive spike in referrals to welfare, handled internally, and juvenile court cases in 1976 that occurs for a single year. Was this a year of superpredators? No, it was a year of Michigan data errors. In 1976 many agencies in Michigan provided erroneous data for this variable. This includes, for example, Washtenaw County Sheriff's Office which had a population of 101,452 in 1976 and reported that 150,088 juvenile arrests were reported in welfare. Similarly, Otisville Police Department, population 760, had 10,000 referrals to welfare, and Saginaw Police Department, population 82,000, had 80,074 referrals to welfare, 27,213 referrals to juvenile court, and 6,230 juvenile arrests handled internally. When we remove Michigan, shown in Figure \@ref(JuvenileReferralsNoMichigan), this spike disappears. 
+{\centering \includegraphics[width=0.9\linewidth]{05_arrests_files/figure-latex/JuvenileReferrals-1} 
 
-<div class="figure" style="text-align: center">
-<img src="05_arrests_files/figure-html/JuvenileReferralsNoMichigan-1.png" alt="The annual number of juvenile referrals in the United States excluding agencies in Michigan by referral type, 1974-2020." width="90%" />
-<p class="caption">(\#fig:JuvenileReferralsNoMichigan)The annual number of juvenile referrals in the United States excluding agencies in Michigan by referral type, 1974-2020.</p>
-</div>
+}
+
+\caption{The annual number of juvenile referrals in the United States by referral type, 1974-2020.}(\#fig:JuvenileReferrals)
+\end{figure}
+
+In Figure \@ref(fig:JuvenileReferrals) there is a massive spike in referrals to welfare, handled internally, and juvenile court cases in 1976 that occurs for a single year. Was this a year of superpredators? No, it was a year of Michigan data errors. In 1976 many agencies in Michigan provided erroneous data for this variable. This includes, for example, Washtenaw County Sheriff's Office which had a population of 101,452 in 1976 and reported that 150,088 juvenile arrests were reported in welfare. Similarly, Otisville Police Department, population 760, had 10,000 referrals to welfare, and Saginaw Police Department, population 82,000, had 80,074 referrals to welfare, 27,213 referrals to juvenile court, and 6,230 juvenile arrests handled internally. When we remove Michigan, shown in Figure \@ref(fig:JuvenileReferralsNoMichigan), this spike disappears. 
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{05_arrests_files/figure-latex/JuvenileReferralsNoMichigan-1} 
+
+}
+
+\caption{The annual number of juvenile referrals in the United States excluding agencies in Michigan by referral type, 1974-2020.}(\#fig:JuvenileReferralsNoMichigan)
+\end{figure}
 
 Michigan is unlikely to be the sole state with data issues in 1976, and 1976 is unlikely to be the only year with problems. We can see other spikes in the data such as small ones in 1991 and 2016. I leave the task of discovering the cause of these spikes to the reader.

@@ -139,7 +139,7 @@ leoka %>%
   geom_line(size = 1.05) +
   geom_line(aes(y = male_employees_officers, color = "Male Officers"), size = 1.05) +
   xlab("Year") +
-  ylab("% of Employees") +
+  ylab("% of Officers") +
   theme_crim() +
   scale_y_continuous(labels = scales::percent) +
   expand_limits(y = 0) +
@@ -154,7 +154,7 @@ leoka %>%
   geom_line(size = 1.05) +
   geom_line(aes(y = male_employees_officers, color = "Male Officers"), size = 1.05) +
   xlab("Year") +
-  ylab("# of Employees") +
+  ylab("# of Officers") +
   theme_crim() +
   scale_y_continuous(labels = scales::comma) +
   expand_limits(y = 0) +

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Arrestee and Group B Arrestee | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</title>
+  <title>Chapter 16 Arrestee and Group B Arrestee | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Arrestee and Group B Arrestee | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta property="og:title" content="Chapter 16 Arrestee and Group B Arrestee | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="github-repo" content="jacobkap/ucrbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Arrestee and Group B Arrestee | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta name="twitter:title" content="Chapter 16 Arrestee and Group B Arrestee | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
   
   <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   
@@ -23,14 +23,14 @@
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2024-09-13" />
+<meta name="date" content="2024-09-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="administrative-segment.html"/>
+<link rel="prev" href="victim-segment-1.html"/>
 <link rel="next" href="property.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -134,6 +134,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -181,91 +204,244 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
-<li class="chapter" data-level="2" data-path="shr.html"><a href="shr.html"><i class="fa fa-check"></i><b>2</b> Supplementary Homicide Reports (SHR)</a>
+<li class="part"><span><b>II Summary Reporting System (SRS)</b></span></li>
+<li class="chapter" data-level="2" data-path="SRSGeneral.html"><a href="SRSGeneral.html"><i class="fa fa-check"></i><b>2</b> SRS Overview</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="shr.html"><a href="shr.html#agencies-reporting"><i class="fa fa-check"></i><b>2.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="2.2" data-path="shr.html"><a href="shr.html#important-variables"><i class="fa fa-check"></i><b>2.2</b> Important variables</a>
+<li class="chapter" data-level="2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#crimes-included-in-the-srs-datasets"><i class="fa fa-check"></i><b>2.1</b> Crimes included in the SRS datasets</a></li>
+<li class="chapter" data-level="2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#a-summary-of-each-srs-dataset"><i class="fa fa-check"></i><b>2.2</b> A summary of each SRS dataset</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="shr.html"><a href="shr.html#demographics"><i class="fa fa-check"></i><b>2.2.1</b> Demographics</a></li>
-<li class="chapter" data-level="2.2.2" data-path="shr.html"><a href="shr.html#case-characteristics"><i class="fa fa-check"></i><b>2.2.2</b> Case characteristics</a></li>
+<li class="chapter" data-level="2.2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#offenses-known-and-clearances-by-arrest-1960---present"><i class="fa fa-check"></i><b>2.2.1</b> Offenses Known and Clearances by Arrest (1960 - present)</a></li>
+<li class="chapter" data-level="2.2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#arrests-by-age-sex-and-race-1974---present"><i class="fa fa-check"></i><b>2.2.2</b> Arrests by Age, Sex, and Race (1974 - present)</a></li>
+<li class="chapter" data-level="2.2.3" data-path="SRSGeneral.html"><a href="SRSGeneral.html#law-enforcement-officers-killed-and-assaulted-leoka-1960---present"><i class="fa fa-check"></i><b>2.2.3</b> Law Enforcement Officers Killed and Assaulted (LEOKA) (1960 - present)</a></li>
+<li class="chapter" data-level="2.2.4" data-path="SRSGeneral.html"><a href="SRSGeneral.html#supplementary-homicide-reports-shr"><i class="fa fa-check"></i><b>2.2.4</b> Supplementary Homicide Reports (SHR)</a></li>
+<li class="chapter" data-level="2.2.5" data-path="SRSGeneral.html"><a href="SRSGeneral.html#hate-crime-data-1991---present"><i class="fa fa-check"></i><b>2.2.5</b> Hate Crime Data (1991 - present)</a></li>
+<li class="chapter" data-level="2.2.6" data-path="SRSGeneral.html"><a href="SRSGeneral.html#property-stolen-and-recovered-supplement-to-return-a-1960---present"><i class="fa fa-check"></i><b>2.2.6</b> Property Stolen and Recovered (Supplement to Return A) (1960 - present)</a></li>
+<li class="chapter" data-level="2.2.7" data-path="SRSGeneral.html"><a href="SRSGeneral.html#arson-1979---present"><i class="fa fa-check"></i><b>2.2.7</b> Arson (1979 - present)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="arsonChapter.html"><a href="arsonChapter.html"><i class="fa fa-check"></i><b>3</b> Arson</a>
+<li class="chapter" data-level="3" data-path="offensesKnown.html"><a href="offensesKnown.html"><i class="fa fa-check"></i><b>3</b> Offenses Known and Clearances by Arrest</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="arsonChapter.html"><a href="arsonChapter.html#agencies-reporting-1"><i class="fa fa-check"></i><b>3.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="3.2" data-path="arsonChapter.html"><a href="arsonChapter.html#important-variables-1"><i class="fa fa-check"></i><b>3.2</b> Important variables</a>
+<li class="chapter" data-level="3.1" data-path="offensesKnown.html"><a href="offensesKnown.html#indexCrimesOffensesKnown"><i class="fa fa-check"></i><b>3.1</b> Which crimes are included?</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="arsonChapter.html"><a href="arsonChapter.html#arsonType"><i class="fa fa-check"></i><b>3.2.1</b> Types of arsons</a></li>
-<li class="chapter" data-level="3.2.2" data-path="arsonChapter.html"><a href="arsonChapter.html#actual-arsons"><i class="fa fa-check"></i><b>3.2.2</b> Actual arsons</a></li>
-<li class="chapter" data-level="3.2.3" data-path="arsonChapter.html"><a href="arsonChapter.html#unfounded-arsons"><i class="fa fa-check"></i><b>3.2.3</b> Unfounded arsons</a></li>
-<li class="chapter" data-level="3.2.4" data-path="arsonChapter.html"><a href="arsonChapter.html#reported-arsons"><i class="fa fa-check"></i><b>3.2.4</b> Reported arsons</a></li>
-<li class="chapter" data-level="3.2.5" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-arsons"><i class="fa fa-check"></i><b>3.2.5</b> Cleared arsons</a></li>
-<li class="chapter" data-level="3.2.6" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-for-arsons-where-all-offenders-are-under-age-18"><i class="fa fa-check"></i><b>3.2.6</b> Cleared for arsons where all offenders are under age 18</a></li>
-<li class="chapter" data-level="3.2.7" data-path="arsonChapter.html"><a href="arsonChapter.html#uninhabited-building-arsons"><i class="fa fa-check"></i><b>3.2.7</b> Uninhabited building arsons</a></li>
-<li class="chapter" data-level="3.2.8" data-path="arsonChapter.html"><a href="arsonChapter.html#estimated-damage-cost"><i class="fa fa-check"></i><b>3.2.8</b> Estimated damage cost</a></li>
+<li class="chapter" data-level="3.1.1" data-path="offensesKnown.html"><a href="offensesKnown.html#hierarchy"><i class="fa fa-check"></i><b>3.1.1</b> Hierarchy Rule</a></li>
+<li class="chapter" data-level="3.1.2" data-path="offensesKnown.html"><a href="offensesKnown.html#indexCrimes"><i class="fa fa-check"></i><b>3.1.2</b> Index (“Part 1”) crimes</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="arsonChapter.html"><a href="arsonChapter.html#data-errors"><i class="fa fa-check"></i><b>3.3</b> Data errors</a></li>
+<li class="chapter" data-level="3.2" data-path="offensesKnown.html"><a href="offensesKnown.html#offensesKnownReporting"><i class="fa fa-check"></i><b>3.2</b> Agencies reporting</a></li>
+<li class="chapter" data-level="3.3" data-path="offensesKnown.html"><a href="offensesKnown.html#negative-numbers"><i class="fa fa-check"></i><b>3.3</b> Negative numbers</a></li>
+<li class="chapter" data-level="3.4" data-path="offensesKnown.html"><a href="offensesKnown.html#important-variables"><i class="fa fa-check"></i><b>3.4</b> Important variables</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="offensesKnown.html"><a href="offensesKnown.html#actual"><i class="fa fa-check"></i><b>3.4.1</b> Actual crimes</a></li>
+<li class="chapter" data-level="3.4.2" data-path="offensesKnown.html"><a href="offensesKnown.html#clearedCrimes"><i class="fa fa-check"></i><b>3.4.2</b> Total cleared crimes</a></li>
+<li class="chapter" data-level="3.4.3" data-path="offensesKnown.html"><a href="offensesKnown.html#crimes-cleared-where-all-offenders-are-under-18-years-old"><i class="fa fa-check"></i><b>3.4.3</b> Crimes cleared where all offenders are under 18 years old</a></li>
+<li class="chapter" data-level="3.4.4" data-path="offensesKnown.html"><a href="offensesKnown.html#unfounded"><i class="fa fa-check"></i><b>3.4.4</b> Unfounded crimes</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="hate_crimes.html"><a href="hate_crimes.html"><i class="fa fa-check"></i><b>4</b> Hate Crime Data</a>
+<li class="chapter" data-level="3.5" data-path="offensesKnown.html"><a href="offensesKnown.html#important-changes"><i class="fa fa-check"></i><b>3.5</b> Important changes</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="hate_crimes.html"><a href="hate_crimes.html#agencies-reporting-2"><i class="fa fa-check"></i><b>4.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="4.2" data-path="hate_crimes.html"><a href="hate_crimes.html#treeOfLife"><i class="fa fa-check"></i><b>4.2</b> Tree of Life synagogue shooting</a></li>
-<li class="chapter" data-level="4.3" data-path="hate_crimes.html"><a href="hate_crimes.html#important-variables-2"><i class="fa fa-check"></i><b>4.3</b> Important variables</a>
-<ul>
-<li class="chapter" data-level="4.3.1" data-path="hate_crimes.html"><a href="hate_crimes.html#date-and-time"><i class="fa fa-check"></i><b>4.3.1</b> Date and time</a></li>
-<li class="chapter" data-level="4.3.2" data-path="hate_crimes.html"><a href="hate_crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>4.3.2</b> The bias motivation (who the hate is against)</a></li>
-<li class="chapter" data-level="4.3.3" data-path="hate_crimes.html"><a href="hate_crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>4.3.3</b> The crime that occurred</a></li>
-<li class="chapter" data-level="4.3.4" data-path="hate_crimes.html"><a href="hate_crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>4.3.4</b> The location of the crime</a></li>
-<li class="chapter" data-level="4.3.5" data-path="hate_crimes.html"><a href="hate_crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>4.3.5</b> Number and race of offenders</a></li>
-<li class="chapter" data-level="4.3.6" data-path="hate_crimes.html"><a href="hate_crimes.html#number-of-victims"><i class="fa fa-check"></i><b>4.3.6</b> Number of victims</a></li>
+<li class="chapter" data-level="3.5.1" data-path="offensesKnown.html"><a href="offensesKnown.html#rape-definition-change"><i class="fa fa-check"></i><b>3.5.1</b> Rape definition change</a></li>
+<li class="chapter" data-level="3.5.2" data-path="offensesKnown.html"><a href="offensesKnown.html#the-decline-of-manslaughter"><i class="fa fa-check"></i><b>3.5.2</b> The decline of manslaughter</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="administrative-segment.html"><a href="administrative-segment.html"><i class="fa fa-check"></i><b>5</b> Administrative Segment</a>
+<li class="chapter" data-level="4" data-path="stolen_property.html"><a href="stolen_property.html"><i class="fa fa-check"></i><b>4</b> Property Stolen and Recovered (Supplement to Return A)</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="administrative-segment.html"><a href="administrative-segment.html#the-incident-and-report-date"><i class="fa fa-check"></i><b>5.1</b> The incident and report date</a></li>
-<li class="chapter" data-level="5.2" data-path="administrative-segment.html"><a href="administrative-segment.html#hour-of-incident"><i class="fa fa-check"></i><b>5.2</b> Hour of incident</a></li>
-<li class="chapter" data-level="5.3" data-path="administrative-segment.html"><a href="administrative-segment.html#exceptional-clearance"><i class="fa fa-check"></i><b>5.3</b> Exceptional clearance</a></li>
-<li class="chapter" data-level="5.4" data-path="administrative-segment.html"><a href="administrative-segment.html#number-of-other-segments"><i class="fa fa-check"></i><b>5.4</b> Number of other segments</a>
+<li class="chapter" data-level="4.1" data-path="stolen_property.html"><a href="stolen_property.html#agencies-reporting"><i class="fa fa-check"></i><b>4.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="4.2" data-path="stolen_property.html"><a href="stolen_property.html#important-variables-1"><i class="fa fa-check"></i><b>4.2</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="administrative-segment.html"><a href="administrative-segment.html#offense-segments"><i class="fa fa-check"></i><b>5.4.1</b> Offense Segments</a></li>
-<li class="chapter" data-level="5.4.2" data-path="administrative-segment.html"><a href="administrative-segment.html#offender-segments"><i class="fa fa-check"></i><b>5.4.2</b> Offender Segments</a></li>
-<li class="chapter" data-level="5.4.3" data-path="administrative-segment.html"><a href="administrative-segment.html#victim-segments"><i class="fa fa-check"></i><b>5.4.3</b> Victim Segments</a></li>
-<li class="chapter" data-level="5.4.4" data-path="administrative-segment.html"><a href="administrative-segment.html#arrestee-segments"><i class="fa fa-check"></i><b>5.4.4</b> Arrestee Segments</a></li>
+<li class="chapter" data-level="4.2.1" data-path="stolen_property.html"><a href="stolen_property.html#propertycount"><i class="fa fa-check"></i><b>4.2.1</b> A more detailed breakdown of property (and robbery) crimes</a></li>
+<li class="chapter" data-level="4.2.2" data-path="stolen_property.html"><a href="stolen_property.html#the-value-of-property-stolen"><i class="fa fa-check"></i><b>4.2.2</b> The value of property stolen</a></li>
+<li class="chapter" data-level="4.2.3" data-path="stolen_property.html"><a href="stolen_property.html#value-of-recovered-property-by-type-of-item-stolen"><i class="fa fa-check"></i><b>4.2.3</b> Value of recovered property by type of item stolen</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="stolen_property.html"><a href="stolen_property.html#data-errors"><i class="fa fa-check"></i><b>4.3</b> Data errors</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="arrests.html"><a href="arrests.html"><i class="fa fa-check"></i><b>5</b> Arrests by Age, Sex, and Race</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="arrests.html"><a href="arrests.html#agencies-reporting-1"><i class="fa fa-check"></i><b>5.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="5.2" data-path="arrests.html"><a href="arrests.html#what-is-an-arrest-what-unit-is-this-data-in"><i class="fa fa-check"></i><b>5.2</b> What is an arrest? (what unit is this data in?)</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="arrests.html"><a href="arrests.html#the-hierarchy-rule"><i class="fa fa-check"></i><b>5.2.1</b> The Hierarchy Rule</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="arrests.html"><a href="arrests.html#important-variables-2"><i class="fa fa-check"></i><b>5.3</b> Important variables</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="arrests.html"><a href="arrests.html#age"><i class="fa fa-check"></i><b>5.3.1</b> Age</a></li>
+<li class="chapter" data-level="5.3.2" data-path="arrests.html"><a href="arrests.html#race"><i class="fa fa-check"></i><b>5.3.2</b> Race</a></li>
+<li class="chapter" data-level="5.3.3" data-path="arrests.html"><a href="arrests.html#ethnicity"><i class="fa fa-check"></i><b>5.3.3</b> Ethnicity</a></li>
+<li class="chapter" data-level="5.3.4" data-path="arrests.html"><a href="arrests.html#juvenile-referrals"><i class="fa fa-check"></i><b>5.3.4</b> Juvenile referrals</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="arrestee.html"><a href="arrestee.html"><i class="fa fa-check"></i><b>6</b> Arrestee and Group B Arrestee</a>
+<li class="chapter" data-level="6" data-path="shr.html"><a href="shr.html"><i class="fa fa-check"></i><b>6</b> Supplementary Homicide Reports (SHR)</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="arrestee.html"><a href="arrestee.html#crimes-arrested-for"><i class="fa fa-check"></i><b>6.1</b> Crimes arrested for</a>
+<li class="chapter" data-level="6.1" data-path="shr.html"><a href="shr.html#agencies-reporting-2"><i class="fa fa-check"></i><b>6.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="6.2" data-path="shr.html"><a href="shr.html#important-variables-3"><i class="fa fa-check"></i><b>6.2</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="6.1.1" data-path="arrestee.html"><a href="arrestee.html#arrestee-segment-arrest-crimes"><i class="fa fa-check"></i><b>6.1.1</b> Arrestee Segment arrest crimes</a></li>
-<li class="chapter" data-level="6.1.2" data-path="arrestee.html"><a href="arrestee.html#group-b-segment-arrest-crimes"><i class="fa fa-check"></i><b>6.1.2</b> Group B Segment arrest crimes</a></li>
-</ul></li>
-<li class="chapter" data-level="6.2" data-path="arrestee.html"><a href="arrestee.html#arrest-date"><i class="fa fa-check"></i><b>6.2</b> Arrest date</a></li>
-<li class="chapter" data-level="6.3" data-path="arrestee.html"><a href="arrestee.html#weapons"><i class="fa fa-check"></i><b>6.3</b> Weapons</a></li>
-<li class="chapter" data-level="6.4" data-path="arrestee.html"><a href="arrestee.html#automatic-weapons"><i class="fa fa-check"></i><b>6.4</b> Automatic weapons</a></li>
-<li class="chapter" data-level="6.5" data-path="arrestee.html"><a href="arrestee.html#type-of-arrest"><i class="fa fa-check"></i><b>6.5</b> Type of arrest</a></li>
-<li class="chapter" data-level="6.6" data-path="arrestee.html"><a href="arrestee.html#disposition-for-juvenile-arrestees"><i class="fa fa-check"></i><b>6.6</b> Disposition for juvenile arrestees</a></li>
-<li class="chapter" data-level="6.7" data-path="arrestee.html"><a href="arrestee.html#demographics-1"><i class="fa fa-check"></i><b>6.7</b> Demographics</a>
-<ul>
-<li class="chapter" data-level="6.7.1" data-path="arrestee.html"><a href="arrestee.html#residence-status"><i class="fa fa-check"></i><b>6.7.1</b> Residence status</a></li>
-<li class="chapter" data-level="6.7.2" data-path="arrestee.html"><a href="arrestee.html#age-1"><i class="fa fa-check"></i><b>6.7.2</b> Age</a></li>
-<li class="chapter" data-level="6.7.3" data-path="arrestee.html"><a href="arrestee.html#sex-1"><i class="fa fa-check"></i><b>6.7.3</b> Sex</a></li>
-<li class="chapter" data-level="6.7.4" data-path="arrestee.html"><a href="arrestee.html#race-1"><i class="fa fa-check"></i><b>6.7.4</b> Race</a></li>
-<li class="chapter" data-level="6.7.5" data-path="arrestee.html"><a href="arrestee.html#ethnicity-1"><i class="fa fa-check"></i><b>6.7.5</b> Ethnicity</a></li>
+<li class="chapter" data-level="6.2.1" data-path="shr.html"><a href="shr.html#demographics"><i class="fa fa-check"></i><b>6.2.1</b> Demographics</a></li>
+<li class="chapter" data-level="6.2.2" data-path="shr.html"><a href="shr.html#case-characteristics"><i class="fa fa-check"></i><b>6.2.2</b> Case characteristics</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="property.html"><a href="property.html"><i class="fa fa-check"></i><b>7</b> Property Segment</a>
+<li class="chapter" data-level="7" data-path="leoka.html"><a href="leoka.html"><i class="fa fa-check"></i><b>7</b> Law Enforcement Officers Killed and Assaulted (LEOKA)</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="property.html"><a href="property.html#propertyLoss"><i class="fa fa-check"></i><b>7.1</b> Type of property loss</a></li>
-<li class="chapter" data-level="7.2" data-path="property.html"><a href="property.html#description-of-property"><i class="fa fa-check"></i><b>7.2</b> Description of property</a></li>
-<li class="chapter" data-level="7.3" data-path="property.html"><a href="property.html#value-of-stolen-property"><i class="fa fa-check"></i><b>7.3</b> Value of stolen property</a></li>
-<li class="chapter" data-level="7.4" data-path="property.html"><a href="property.html#date-property-was-recovered"><i class="fa fa-check"></i><b>7.4</b> Date property was recovered</a></li>
-<li class="chapter" data-level="7.5" data-path="property.html"><a href="property.html#drugs"><i class="fa fa-check"></i><b>7.5</b> Drugs</a>
+<li class="chapter" data-level="7.1" data-path="leoka.html"><a href="leoka.html#agencies-reporting-3"><i class="fa fa-check"></i><b>7.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="7.2" data-path="leoka.html"><a href="leoka.html#important-variables-4"><i class="fa fa-check"></i><b>7.2</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="7.5.1" data-path="property.html"><a href="property.html#suspected-drug-type"><i class="fa fa-check"></i><b>7.5.1</b> Suspected drug type</a></li>
-<li class="chapter" data-level="7.5.2" data-path="property.html"><a href="property.html#amount-of-drugs"><i class="fa fa-check"></i><b>7.5.2</b> Amount of drugs</a></li>
+<li class="chapter" data-level="7.2.1" data-path="leoka.html"><a href="leoka.html#number-of-employees"><i class="fa fa-check"></i><b>7.2.1</b> Number of employees</a></li>
+<li class="chapter" data-level="7.2.2" data-path="leoka.html"><a href="leoka.html#officers-killed"><i class="fa fa-check"></i><b>7.2.2</b> Officers killed</a></li>
+<li class="chapter" data-level="7.2.3" data-path="leoka.html"><a href="leoka.html#assaults-by-injury-and-weapon"><i class="fa fa-check"></i><b>7.2.3</b> Assaults by injury and weapon</a></li>
+<li class="chapter" data-level="7.2.4" data-path="leoka.html"><a href="leoka.html#assaults-by-call-type"><i class="fa fa-check"></i><b>7.2.4</b> Assaults by call type</a></li>
+<li class="chapter" data-level="7.2.5" data-path="leoka.html"><a href="leoka.html#assaults-by-time"><i class="fa fa-check"></i><b>7.2.5</b> Assaults by time</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="arsonChapter.html"><a href="arsonChapter.html"><i class="fa fa-check"></i><b>8</b> Arson</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="arsonChapter.html"><a href="arsonChapter.html#agencies-reporting-4"><i class="fa fa-check"></i><b>8.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="8.2" data-path="arsonChapter.html"><a href="arsonChapter.html#important-variables-5"><i class="fa fa-check"></i><b>8.2</b> Important variables</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="arsonChapter.html"><a href="arsonChapter.html#arsonType"><i class="fa fa-check"></i><b>8.2.1</b> Types of arsons</a></li>
+<li class="chapter" data-level="8.2.2" data-path="arsonChapter.html"><a href="arsonChapter.html#actual-arsons"><i class="fa fa-check"></i><b>8.2.2</b> Actual arsons</a></li>
+<li class="chapter" data-level="8.2.3" data-path="arsonChapter.html"><a href="arsonChapter.html#unfounded-arsons"><i class="fa fa-check"></i><b>8.2.3</b> Unfounded arsons</a></li>
+<li class="chapter" data-level="8.2.4" data-path="arsonChapter.html"><a href="arsonChapter.html#reported-arsons"><i class="fa fa-check"></i><b>8.2.4</b> Reported arsons</a></li>
+<li class="chapter" data-level="8.2.5" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-arsons"><i class="fa fa-check"></i><b>8.2.5</b> Cleared arsons</a></li>
+<li class="chapter" data-level="8.2.6" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-for-arsons-where-all-offenders-are-under-age-18"><i class="fa fa-check"></i><b>8.2.6</b> Cleared for arsons where all offenders are under age 18</a></li>
+<li class="chapter" data-level="8.2.7" data-path="arsonChapter.html"><a href="arsonChapter.html#uninhabited-building-arsons"><i class="fa fa-check"></i><b>8.2.7</b> Uninhabited building arsons</a></li>
+<li class="chapter" data-level="8.2.8" data-path="arsonChapter.html"><a href="arsonChapter.html#estimated-damage-cost"><i class="fa fa-check"></i><b>8.2.8</b> Estimated damage cost</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="arsonChapter.html"><a href="arsonChapter.html#data-errors-1"><i class="fa fa-check"></i><b>8.3</b> Data errors</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="hate_crimes.html"><a href="hate_crimes.html"><i class="fa fa-check"></i><b>9</b> Hate Crime Data</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="hate_crimes.html"><a href="hate_crimes.html#agencies-reporting-5"><i class="fa fa-check"></i><b>9.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="9.2" data-path="hate_crimes.html"><a href="hate_crimes.html#treeOfLife"><i class="fa fa-check"></i><b>9.2</b> Tree of Life synagogue shooting</a></li>
+<li class="chapter" data-level="9.3" data-path="hate_crimes.html"><a href="hate_crimes.html#important-variables-6"><i class="fa fa-check"></i><b>9.3</b> Important variables</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="hate_crimes.html"><a href="hate_crimes.html#date-and-time"><i class="fa fa-check"></i><b>9.3.1</b> Date and time</a></li>
+<li class="chapter" data-level="9.3.2" data-path="hate_crimes.html"><a href="hate_crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>9.3.2</b> The bias motivation (who the hate is against)</a></li>
+<li class="chapter" data-level="9.3.3" data-path="hate_crimes.html"><a href="hate_crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>9.3.3</b> The crime that occurred</a></li>
+<li class="chapter" data-level="9.3.4" data-path="hate_crimes.html"><a href="hate_crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>9.3.4</b> The location of the crime</a></li>
+<li class="chapter" data-level="9.3.5" data-path="hate_crimes.html"><a href="hate_crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>9.3.5</b> Number and race of offenders</a></li>
+<li class="chapter" data-level="9.3.6" data-path="hate_crimes.html"><a href="hate_crimes.html#number-of-victims"><i class="fa fa-check"></i><b>9.3.6</b> Number of victims</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="county-level-data.html"><a href="county-level-data.html"><i class="fa fa-check"></i><b>10</b> County-Level Data</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="county-level-data.html"><a href="county-level-data.html#current-usage"><i class="fa fa-check"></i><b>10.1</b> Current usage</a></li>
+<li class="chapter" data-level="10.2" data-path="county-level-data.html"><a href="county-level-data.html#how-much-data-is-missing"><i class="fa fa-check"></i><b>10.2</b> How much data is missing</a></li>
+<li class="chapter" data-level="10.3" data-path="county-level-data.html"><a href="county-level-data.html#current-imputation-practices"><i class="fa fa-check"></i><b>10.3</b> Current imputation practices</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="county-level-data.html"><a href="county-level-data.html#months-missing"><i class="fa fa-check"></i><b>10.3.1</b> 1-9 months missing</a></li>
+<li class="chapter" data-level="10.3.2" data-path="county-level-data.html"><a href="county-level-data.html#months-missing-1"><i class="fa fa-check"></i><b>10.3.2</b> 10-12 months missing</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III National Incident-Based Reporting System (NIBRS)</b></span></li>
+<li class="chapter" data-level="11" data-path="nibrs-overview.html"><a href="nibrs-overview.html"><i class="fa fa-check"></i><b>11</b> NIBRS Overview</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#problems-with-nibrs"><i class="fa fa-check"></i><b>11.1</b> Problems with NIBRS</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#nibrs-allows-for-different-units-of-analysis"><i class="fa fa-check"></i><b>11.1.1</b> NIBRS allows for different units of analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="nibrs-overview.html"><a href="nibrs-overview.html#which-agencies-report-data"><i class="fa fa-check"></i><b>11.2</b> Which agencies report data</a></li>
+<li class="chapter" data-level="11.3" data-path="nibrs-overview.html"><a href="nibrs-overview.html#crimes-included-in-nibrs"><i class="fa fa-check"></i><b>11.3</b> Crimes included in NIBRS</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#group-a-crimes"><i class="fa fa-check"></i><b>11.3.1</b> Group A crimes</a></li>
+<li class="chapter" data-level="11.3.2" data-path="nibrs-overview.html"><a href="nibrs-overview.html#group-b-crimes"><i class="fa fa-check"></i><b>11.3.2</b> Group B crimes</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="nibrs-overview.html"><a href="nibrs-overview.html#differences-from-srs-data"><i class="fa fa-check"></i><b>11.4</b> Differences from SRS data</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#nibrs-does-not-have-unfounded-crimes"><i class="fa fa-check"></i><b>11.4.1</b> NIBRS does not have unfounded crimes</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="nibrs-overview.html"><a href="nibrs-overview.html#a-summary-of-each-segment-file"><i class="fa fa-check"></i><b>11.5</b> A summary of each segment file</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#administrative-segment"><i class="fa fa-check"></i><b>11.5.1</b> Administrative Segment</a></li>
+<li class="chapter" data-level="11.5.2" data-path="nibrs-overview.html"><a href="nibrs-overview.html#offense-segment"><i class="fa fa-check"></i><b>11.5.2</b> Offense Segment</a></li>
+<li class="chapter" data-level="11.5.3" data-path="nibrs-overview.html"><a href="nibrs-overview.html#offender-segment"><i class="fa fa-check"></i><b>11.5.3</b> Offender Segment</a></li>
+<li class="chapter" data-level="11.5.4" data-path="nibrs-overview.html"><a href="nibrs-overview.html#victim-segment"><i class="fa fa-check"></i><b>11.5.4</b> Victim Segment</a></li>
+<li class="chapter" data-level="11.5.5" data-path="nibrs-overview.html"><a href="nibrs-overview.html#arrestee-and-group-b-arrestee-segment"><i class="fa fa-check"></i><b>11.5.5</b> Arrestee and Group B Arrestee Segment</a></li>
+<li class="chapter" data-level="11.5.6" data-path="nibrs-overview.html"><a href="nibrs-overview.html#property-segment"><i class="fa fa-check"></i><b>11.5.6</b> Property Segment</a></li>
+<li class="chapter" data-level="11.5.7" data-path="nibrs-overview.html"><a href="nibrs-overview.html#window"><i class="fa fa-check"></i><b>11.5.7</b> Window segments</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="administrative-segment-1.html"><a href="administrative-segment-1.html"><i class="fa fa-check"></i><b>12</b> Administrative Segment</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="administrative-segment-1.html"><a href="administrative-segment-1.html#the-incident-and-report-date"><i class="fa fa-check"></i><b>12.1</b> The incident and report date</a></li>
+<li class="chapter" data-level="12.2" data-path="administrative-segment-1.html"><a href="administrative-segment-1.html#hour-of-incident"><i class="fa fa-check"></i><b>12.2</b> Hour of incident</a></li>
+<li class="chapter" data-level="12.3" data-path="administrative-segment-1.html"><a href="administrative-segment-1.html#exceptional-clearance"><i class="fa fa-check"></i><b>12.3</b> Exceptional clearance</a></li>
+<li class="chapter" data-level="12.4" data-path="administrative-segment-1.html"><a href="administrative-segment-1.html#number-of-other-segments"><i class="fa fa-check"></i><b>12.4</b> Number of other segments</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="administrative-segment-1.html"><a href="administrative-segment-1.html#offense-segments"><i class="fa fa-check"></i><b>12.4.1</b> Offense Segments</a></li>
+<li class="chapter" data-level="12.4.2" data-path="administrative-segment-1.html"><a href="administrative-segment-1.html#offender-segments"><i class="fa fa-check"></i><b>12.4.2</b> Offender Segments</a></li>
+<li class="chapter" data-level="12.4.3" data-path="administrative-segment-1.html"><a href="administrative-segment-1.html#victim-segments"><i class="fa fa-check"></i><b>12.4.3</b> Victim Segments</a></li>
+<li class="chapter" data-level="12.4.4" data-path="administrative-segment-1.html"><a href="administrative-segment-1.html#arrestee-segments"><i class="fa fa-check"></i><b>12.4.4</b> Arrestee Segments</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="offenseSegment.html"><a href="offenseSegment.html"><i class="fa fa-check"></i><b>13</b> Offense Segment</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="offenseSegment.html"><a href="offenseSegment.html#crime-category"><i class="fa fa-check"></i><b>13.1</b> Crime category</a></li>
+<li class="chapter" data-level="13.2" data-path="offenseSegment.html"><a href="offenseSegment.html#offense-subtype"><i class="fa fa-check"></i><b>13.2</b> Offense subtype</a></li>
+<li class="chapter" data-level="13.3" data-path="offenseSegment.html"><a href="offenseSegment.html#offense-completed"><i class="fa fa-check"></i><b>13.3</b> Offense completed</a></li>
+<li class="chapter" data-level="13.4" data-path="offenseSegment.html"><a href="offenseSegment.html#drug-alcohol-or-computer-use"><i class="fa fa-check"></i><b>13.4</b> Drug, alcohol, or computer use</a></li>
+<li class="chapter" data-level="13.5" data-path="offenseSegment.html"><a href="offenseSegment.html#crime-location"><i class="fa fa-check"></i><b>13.5</b> Crime location</a></li>
+<li class="chapter" data-level="13.6" data-path="offenseSegment.html"><a href="offenseSegment.html#offenseWeapons"><i class="fa fa-check"></i><b>13.6</b> Weapons</a></li>
+<li class="chapter" data-level="13.7" data-path="offenseSegment.html"><a href="offenseSegment.html#automatic-weapons"><i class="fa fa-check"></i><b>13.7</b> Automatic weapons</a></li>
+<li class="chapter" data-level="13.8" data-path="offenseSegment.html"><a href="offenseSegment.html#burglary-info"><i class="fa fa-check"></i><b>13.8</b> Burglary info</a></li>
+<li class="chapter" data-level="13.9" data-path="offenseSegment.html"><a href="offenseSegment.html#hate-crime-indicator-bias-motivation"><i class="fa fa-check"></i><b>13.9</b> Hate crime indicator (bias motivation)</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="offender-segment-1.html"><a href="offender-segment-1.html"><i class="fa fa-check"></i><b>14</b> Offender Segment</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="offender-segment-1.html"><a href="offender-segment-1.html#demographics-1"><i class="fa fa-check"></i><b>14.1</b> Demographics</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="offender-segment-1.html"><a href="offender-segment-1.html#age-2"><i class="fa fa-check"></i><b>14.1.1</b> Age</a></li>
+<li class="chapter" data-level="14.1.2" data-path="offender-segment-1.html"><a href="offender-segment-1.html#sex-1"><i class="fa fa-check"></i><b>14.1.2</b> Sex</a></li>
+<li class="chapter" data-level="14.1.3" data-path="offender-segment-1.html"><a href="offender-segment-1.html#race-2"><i class="fa fa-check"></i><b>14.1.3</b> Race</a></li>
+<li class="chapter" data-level="14.1.4" data-path="offender-segment-1.html"><a href="offender-segment-1.html#ethnicity-2"><i class="fa fa-check"></i><b>14.1.4</b> Ethnicity</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="victim-segment-1.html"><a href="victim-segment-1.html"><i class="fa fa-check"></i><b>15</b> Victim Segment</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="victim-segment-1.html"><a href="victim-segment-1.html#crime-category-1"><i class="fa fa-check"></i><b>15.1</b> Crime category</a></li>
+<li class="chapter" data-level="15.2" data-path="victim-segment-1.html"><a href="victim-segment-1.html#victim-type"><i class="fa fa-check"></i><b>15.2</b> Victim type</a></li>
+<li class="chapter" data-level="15.3" data-path="victim-segment-1.html"><a href="victim-segment-1.html#injury"><i class="fa fa-check"></i><b>15.3</b> Injury</a></li>
+<li class="chapter" data-level="15.4" data-path="victim-segment-1.html"><a href="victim-segment-1.html#relationship-to-offender"><i class="fa fa-check"></i><b>15.4</b> Relationship to offender</a></li>
+<li class="chapter" data-level="15.5" data-path="victim-segment-1.html"><a href="victim-segment-1.html#aggravated-assault-and-homicide-circumstances"><i class="fa fa-check"></i><b>15.5</b> Aggravated assault and homicide circumstances</a></li>
+<li class="chapter" data-level="15.6" data-path="victim-segment-1.html"><a href="victim-segment-1.html#justifiable-homicide-circumstance"><i class="fa fa-check"></i><b>15.6</b> Justifiable homicide circumstance</a></li>
+<li class="chapter" data-level="15.7" data-path="victim-segment-1.html"><a href="victim-segment-1.html#demographics-2"><i class="fa fa-check"></i><b>15.7</b> Demographics</a>
+<ul>
+<li class="chapter" data-level="15.7.1" data-path="victim-segment-1.html"><a href="victim-segment-1.html#residence-status"><i class="fa fa-check"></i><b>15.7.1</b> Residence status</a></li>
+<li class="chapter" data-level="15.7.2" data-path="victim-segment-1.html"><a href="victim-segment-1.html#age-3"><i class="fa fa-check"></i><b>15.7.2</b> Age</a></li>
+<li class="chapter" data-level="15.7.3" data-path="victim-segment-1.html"><a href="victim-segment-1.html#sex-2"><i class="fa fa-check"></i><b>15.7.3</b> Sex</a></li>
+<li class="chapter" data-level="15.7.4" data-path="victim-segment-1.html"><a href="victim-segment-1.html#race-3"><i class="fa fa-check"></i><b>15.7.4</b> Race</a></li>
+<li class="chapter" data-level="15.7.5" data-path="victim-segment-1.html"><a href="victim-segment-1.html#ethnicity-3"><i class="fa fa-check"></i><b>15.7.5</b> Ethnicity</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="arrestee.html"><a href="arrestee.html"><i class="fa fa-check"></i><b>16</b> Arrestee and Group B Arrestee</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="arrestee.html"><a href="arrestee.html#crimes-arrested-for"><i class="fa fa-check"></i><b>16.1</b> Crimes arrested for</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="arrestee.html"><a href="arrestee.html#arrestee-segment-arrest-crimes"><i class="fa fa-check"></i><b>16.1.1</b> Arrestee Segment arrest crimes</a></li>
+<li class="chapter" data-level="16.1.2" data-path="arrestee.html"><a href="arrestee.html#group-b-segment-arrest-crimes"><i class="fa fa-check"></i><b>16.1.2</b> Group B Segment arrest crimes</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="arrestee.html"><a href="arrestee.html#arrest-date"><i class="fa fa-check"></i><b>16.2</b> Arrest date</a></li>
+<li class="chapter" data-level="16.3" data-path="arrestee.html"><a href="arrestee.html#weapons"><i class="fa fa-check"></i><b>16.3</b> Weapons</a></li>
+<li class="chapter" data-level="16.4" data-path="arrestee.html"><a href="arrestee.html#automatic-weapons-1"><i class="fa fa-check"></i><b>16.4</b> Automatic weapons</a></li>
+<li class="chapter" data-level="16.5" data-path="arrestee.html"><a href="arrestee.html#type-of-arrest"><i class="fa fa-check"></i><b>16.5</b> Type of arrest</a></li>
+<li class="chapter" data-level="16.6" data-path="arrestee.html"><a href="arrestee.html#disposition-for-juvenile-arrestees"><i class="fa fa-check"></i><b>16.6</b> Disposition for juvenile arrestees</a></li>
+<li class="chapter" data-level="16.7" data-path="arrestee.html"><a href="arrestee.html#demographics-3"><i class="fa fa-check"></i><b>16.7</b> Demographics</a>
+<ul>
+<li class="chapter" data-level="16.7.1" data-path="arrestee.html"><a href="arrestee.html#residence-status-1"><i class="fa fa-check"></i><b>16.7.1</b> Residence status</a></li>
+<li class="chapter" data-level="16.7.2" data-path="arrestee.html"><a href="arrestee.html#age-4"><i class="fa fa-check"></i><b>16.7.2</b> Age</a></li>
+<li class="chapter" data-level="16.7.3" data-path="arrestee.html"><a href="arrestee.html#sex-3"><i class="fa fa-check"></i><b>16.7.3</b> Sex</a></li>
+<li class="chapter" data-level="16.7.4" data-path="arrestee.html"><a href="arrestee.html#race-4"><i class="fa fa-check"></i><b>16.7.4</b> Race</a></li>
+<li class="chapter" data-level="16.7.5" data-path="arrestee.html"><a href="arrestee.html#ethnicity-4"><i class="fa fa-check"></i><b>16.7.5</b> Ethnicity</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="property.html"><a href="property.html"><i class="fa fa-check"></i><b>17</b> Property Segment</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="property.html"><a href="property.html#propertyLoss"><i class="fa fa-check"></i><b>17.1</b> Type of property loss</a></li>
+<li class="chapter" data-level="17.2" data-path="property.html"><a href="property.html#description-of-property"><i class="fa fa-check"></i><b>17.2</b> Description of property</a></li>
+<li class="chapter" data-level="17.3" data-path="property.html"><a href="property.html#value-of-stolen-property"><i class="fa fa-check"></i><b>17.3</b> Value of stolen property</a></li>
+<li class="chapter" data-level="17.4" data-path="property.html"><a href="property.html#date-property-was-recovered"><i class="fa fa-check"></i><b>17.4</b> Date property was recovered</a></li>
+<li class="chapter" data-level="17.5" data-path="property.html"><a href="property.html#drugs"><i class="fa fa-check"></i><b>17.5</b> Drugs</a>
+<ul>
+<li class="chapter" data-level="17.5.1" data-path="property.html"><a href="property.html#suspected-drug-type"><i class="fa fa-check"></i><b>17.5.1</b> Suspected drug type</a></li>
+<li class="chapter" data-level="17.5.2" data-path="property.html"><a href="property.html#amount-of-drugs"><i class="fa fa-check"></i><b>17.5.2</b> Amount of drugs</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
       </nav>
@@ -283,22 +459,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="arrestee" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Arrestee and Group B Arrestee<a href="arrestee.html#arrestee" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="arrestee" class="section level1 hasAnchor" number="16">
+<h1><span class="header-section-number">Chapter 16</span> Arrestee and Group B Arrestee<a href="arrestee.html#arrestee" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>The Arrestee Segment has information on the person arrested in an incident and has a number of variables that look at same as in previous segments but with subtle differences. This segment covers the arrestee’s age, sex, and race, ethnicity, and residency status (of the city, not as a United States citizen). Age, sex, and race are also in the Offender Segment but can differ as not all offenders are arrested. It also says the crime the arrestee was arrested for (which in some cases is different than the crime committed in the offense since an arrest can clear multiple incidents), the weapon carried during the arrest (which may be different than the weapon used during the offense) and if this weapon (if it is a firearm) was an automatic weapon. There are a few completely new variables including the date of the arrest and the type of arrest. The type of arrest is simply whether the person was arrested by police who viewed the crime, if the arrest followed an arrest warrant or a previous arrest (i.e. arrested for a different crime and then police find out you also committed this one so they consider you arrested for this one too), and whether the person was cited by police and ordered to appear in court but not formally taken into custody. Finally, for juvenile arrestees it says whether arrestees were “handled within the department” which means they were released without formal sanctions or were “referred to other authorities” such as juvenile or criminal court, a welfare agency, or probation or parole department (for those on probation or parole).</p>
 <p>This chapter also covers the Group B Arrestee Segment. The Arrestee Segment covers arrests for Group A offenses and there are corresponding Offense, Offender, and Victim segments for these incidents. Group B offenses, however, only have information about the arrest so incidents in this segment do not have any corresponding segments with it. Since Group B only has arrests without any associated incident, instead of the incident number variable like other segments have, this segment has an “arrest transaction incident number” which works the same as a normal incident number. Likewise, the Window Arrestee Segment is not associated with any other segments as the “window” part means that they are only partial reports. The Window Arrestee Segment has the same variables as the normal Arrestee Segment but also has 10 variables on each of the offenses committed (up to 10 offenses) during the incident. This is really to try to provide a bit of information that you would otherwise get from the other segments but do not since this is a window segment.</p>
 <p>For the rest of this chapter I will be using examples from the Arrestee Segment and not the Group B Arrestee (except for a table showing each Group B offense) or the Window Arrestee Segment.</p>
 <p>In addition to the variables detailed below this, segment has the traditional agency and incident identifiers: the ORI code, the agency state, the year of this data, and the incident number. It also has an “arrestee sequence number” which is an identifier for an arrestee in an incident since incidents can have multiple people arrested. This is just the number of each arrestee and to my knowledge is not associated with how involved the arrestee is. Being the 1st arrestee, for example, does not mean that individual played a greater role in the crime than the 2nd arrestee.</p>
-<div id="crimes-arrested-for" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> Crimes arrested for<a href="arrestee.html#crimes-arrested-for" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="crimes-arrested-for" class="section level2 hasAnchor" number="16.1">
+<h2><span class="header-section-number">16.1</span> Crimes arrested for<a href="arrestee.html#crimes-arrested-for" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This segment tells us which offense the arrestee was arrested for. There are a couple of caveats with this data. First, there can be up to 10 crimes per incident but this segment only tells you the most serious offense (based on the agency’s decision of which is most serious). This can be solved partially by merging this segment with the Offense Segment and getting all of the offenses related to the incident. It is only partially solved because the crime the person is arrested for may not necessarily be the crime involved in the incident. This is because a person can be arrested for a certain crime (e.g. shoplifting) and then the police find out that there are also responsible for a more serious crime (e.g. aggravated assault). Their arrest crime is shoplifting and they will be associated with the incident for the aggravated assault.</p>
 <p>One interesting part of this segment is that while it is associated with Group A offenses, as someone may be arrested for a crime other than the crime in the incident, arrests can include Group B offenses. So the Group B Arrestee Segment can really be thought of as an arrest for a Group B offense where the arrestee is not associated with a previous Group A incident (other than ones that already led to an arrest since that incident would then be considered clear and the present arrest would not be associated with it). We will look first at the crimes people were arrested for in the main Arrestee Segment, which includes both Group A and Group B offenses as possible arrest crimes, and then at the Group B Arrestee Segment which only includes Group B offenses.</p>
-<div id="arrestee-segment-arrest-crimes" class="section level3 hasAnchor" number="6.1.1">
-<h3><span class="header-section-number">6.1.1</span> Arrestee Segment arrest crimes<a href="arrestee.html#arrestee-segment-arrest-crimes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Table <a href="arrestee.html#tab:arresteeCrime">6.1</a> shows the number and percent of arrests for all arrests associated with a Group A crime incident. Perhaps unsurprising, drug crimes are the most common arrest making up a quarter of all arrests (30% when including drug equipment crimes). Simple assault (assault without a weapon or without seriously injuring the victim) is the next most common at 19% of arrests, and aggravated assault is the 4th most common arrest crime at 6.3% of arrests. Theft, which NIBRS breaks into a number of subcategories of theft such as shoplifting and “all other larceny” is among the most common arrest crimes, making up ranks 3 and 6 of the top 6, as well as several other subcategories later on. The remaining crimes are all relatively rare, consisting of under 5% of arrests each. This is due to how the top crimes are broad categories (e.g. drug offenses ranges from simple possession to large scale sales but is all grouped into “drug/narcotic violations” here) while other crimes are specific (e.g. purse-snatching is a very specific form of theft).</p>
+<div id="arrestee-segment-arrest-crimes" class="section level3 hasAnchor" number="16.1.1">
+<h3><span class="header-section-number">16.1.1</span> Arrestee Segment arrest crimes<a href="arrestee.html#arrestee-segment-arrest-crimes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Table <a href="arrestee.html#tab:arresteeCrime">16.1</a> shows the number and percent of arrests for all arrests associated with a Group A crime incident. Perhaps unsurprising, drug crimes are the most common arrest making up a quarter of all arrests (30% when including drug equipment crimes). Simple assault (assault without a weapon or without seriously injuring the victim) is the next most common at 19% of arrests, and aggravated assault is the 4th most common arrest crime at 6.3% of arrests. Theft, which NIBRS breaks into a number of subcategories of theft such as shoplifting and “all other larceny” is among the most common arrest crimes, making up ranks 3 and 6 of the top 6, as well as several other subcategories later on. The remaining crimes are all relatively rare, consisting of under 5% of arrests each. This is due to how the top crimes are broad categories (e.g. drug offenses ranges from simple possession to large scale sales but is all grouped into “drug/narcotic violations” here) while other crimes are specific (e.g. purse-snatching is a very specific form of theft).</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:arresteeCrime">Table 6.1: </span>The number and percent of arrests for Group A crimes for all arrests reported to NIBRS in 2022.
+<span id="tab:arresteeCrime">Table 16.1: </span>The number and percent of arrests for Group A crimes for all arrests reported to NIBRS in 2022.
 </caption>
 <thead>
 <tr>
@@ -1287,13 +1463,13 @@ Total
 </table></li>
 </ul>
 </div>
-<div id="group-b-segment-arrest-crimes" class="section level3 hasAnchor" number="6.1.2">
-<h3><span class="header-section-number">6.1.2</span> Group B Segment arrest crimes<a href="arrestee.html#group-b-segment-arrest-crimes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Table <a href="arrestee.html#tab:GroupBarresteeCrime">6.2</a> shows the number and percent of arrests for all arrests associated with a Group B crime incident. The offense categories overlap with Table <a href="arrestee.html#tab:arresteeCrime">6.1</a> but these are for separate arrests, a single arrest cannot be in both segments. Unhelpfully, the most common Group B offense is “All other offenses” which means that it is a crime that is not covered in either the Group A or the Group B crime categories. However, this can also include Group A or Group B crimes if they are not completed. So an attempted or a conspiracy to commit a Group A or B crime can go in this category. At 57% of Group B arrests, this very vague category covers a huge amount of arrests. The next most common Group B arrest is driving under the influence of drugs or alcohol, and this occurred in 18.4% - or 352k times - of arrests.</p>
+<div id="group-b-segment-arrest-crimes" class="section level3 hasAnchor" number="16.1.2">
+<h3><span class="header-section-number">16.1.2</span> Group B Segment arrest crimes<a href="arrestee.html#group-b-segment-arrest-crimes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Table <a href="arrestee.html#tab:GroupBarresteeCrime">16.2</a> shows the number and percent of arrests for all arrests associated with a Group B crime incident. The offense categories overlap with Table <a href="arrestee.html#tab:arresteeCrime">16.1</a> but these are for separate arrests, a single arrest cannot be in both segments. Unhelpfully, the most common Group B offense is “All other offenses” which means that it is a crime that is not covered in either the Group A or the Group B crime categories. However, this can also include Group A or Group B crimes if they are not completed. So an attempted or a conspiracy to commit a Group A or B crime can go in this category. At 57% of Group B arrests, this very vague category covers a huge amount of arrests. The next most common Group B arrest is driving under the influence of drugs or alcohol, and this occurred in 18.4% - or 352k times - of arrests.</p>
 <p>Trespassing makes up 5.7% of arrests and this is unlawfully entering someone’s property, including a building. The difference between this and burglary is that this is entering without any intent to commit theft or a felony. Disorderly conduct is a broad category ranging from indecent exposure (which should be its own sex offense but is not for some reason) to “profanity” and noise violations, and it makes up 6.2% of arrests. So be cautious with this offense as it ranges from very minor to quite serious and there is no distinguishing what actually happened. Drunkenness and liquor law violations make up 6% and 3.6% of arrests, respectively. The difference is that drunkenness is when someone is seriously drunk in public (to the point where they cannot control their own body) and liquor law violations are about illegal making or selling of liquor. So basically bootlegging, selling alcohol without a license (or to people not allowed to drink, like minors), or avoiding paying tax on alcohol sales. “Family Offenses, Nonviolent” is also a rather vague category and includes “nonviolent abuse” (which I guess means emotional abusive) as well as neglecting the child in a few different ways like not paying alimony and deserting the child. Since these are arrests, the actions have to reach the level of criminal behavior, simply being an awful parent (or even leaving the child, as long as they have another adult to watch them) is not this offense. Runaways is an offense that only applies to people under age 18. The remaining categories are all rare and none are more than 1% of arrests.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:GroupBarresteeCrime">Table 6.2: </span>The number and percent of arrests for Group B crimes for all arrests reported to NIBRS in 2022.
+<span id="tab:GroupBarresteeCrime">Table 16.2: </span>The number and percent of arrests for Group B crimes for all arrests reported to NIBRS in 2022.
 </caption>
 <thead>
 <tr>
@@ -1485,54 +1661,54 @@ Total
 </ul>
 </div>
 </div>
-<div id="arrest-date" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Arrest date<a href="arrestee.html#arrest-date" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="arrest-date" class="section level2 hasAnchor" number="16.2">
+<h2><span class="header-section-number">16.2</span> Arrest date<a href="arrestee.html#arrest-date" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>For each arrest we know the exact date of the arrest. As with the incident date, there is evidence that when agencies do not know the exact arrest date, they put down the first of the month. However, this is far less of a problem than with the incident date, likely because since the agency is doing the arresting they know exactly when they do it. Instead of looking at arrests by day of the month, we will use both the arrest date and the incident date to look at how long it takes for crimes to get solved.</p>
-<p>Figure <a href="arrestee.html#fig:arrestsDaysUntilArrest">6.1</a> shows how long it takes for arrests to be made. The shortest time is zero days which means the arrest and the incident happened on the same day and the longest is 461 days after the incident. About 76.5% of arrests happen on the same day as the incident while 6.6% happen on the next day. 1.4% happen the following day and 1% on the day after this. This trend of a lower probability of the case being solved as the time from the incident increases continues throughout the figure. Including dates up to 461 days is a bit ridiculous since it is impossible to see trends among the early dates other than zero days, but it is a good demonstration of how massively concentrated arrests are that occur on the same day of the incident. The lesson here is that if an arrest is not made on the day of the incident (such as at the scene of the crime), it is very unlikely that’ll it’ll be made at all (and most crimes never lead to an arrest).</p>
+<p>Figure <a href="arrestee.html#fig:arrestsDaysUntilArrest">16.1</a> shows how long it takes for arrests to be made. The shortest time is zero days which means the arrest and the incident happened on the same day and the longest is 461 days after the incident. About 76.5% of arrests happen on the same day as the incident while 6.6% happen on the next day. 1.4% happen the following day and 1% on the day after this. This trend of a lower probability of the case being solved as the time from the incident increases continues throughout the figure. Including dates up to 461 days is a bit ridiculous since it is impossible to see trends among the early dates other than zero days, but it is a good demonstration of how massively concentrated arrests are that occur on the same day of the incident. The lesson here is that if an arrest is not made on the day of the incident (such as at the scene of the crime), it is very unlikely that’ll it’ll be made at all (and most crimes never lead to an arrest).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arrestsDaysUntilArrest"></span>
 <img src="16_nibrs_arrestee_files/figure-html/arrestsDaysUntilArrest-1.png" alt="The distribution of the number of days from the incident to the arrest date. In 2022 the maximum days from incident to arrest was 461 days. Zero days means that the arrest occurred on the same day as the incident." width="90%" />
 <p class="caption">
-Figure 6.1: The distribution of the number of days from the incident to the arrest date. In 2022 the maximum days from incident to arrest was 461 days. Zero days means that the arrest occurred on the same day as the incident.
+Figure 16.1: The distribution of the number of days from the incident to the arrest date. In 2022 the maximum days from incident to arrest was 461 days. Zero days means that the arrest occurred on the same day as the incident.
 </p>
 </div>
-<p>Figure <a href="arrestee.html#fig:arrestsDaysUntilArrestBarplot">6.2</a> groups the larger number of days together to make it easier to see trends early after the incident. Here we can see much better how the percent of arrests move quickly downwards after zero days.</p>
+<p>Figure <a href="arrestee.html#fig:arrestsDaysUntilArrestBarplot">16.2</a> groups the larger number of days together to make it easier to see trends early after the incident. Here we can see much better how the percent of arrests move quickly downwards after zero days.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arrestsDaysUntilArrestBarplot"></span>
 <img src="16_nibrs_arrestee_files/figure-html/arrestsDaysUntilArrestBarplot-1.png" alt="The number of days from the incident to the arrest date. Values over 10 days are grouped to better see the distribution for arrests that took fewer than 10 days. Zero days means that the arrest occurred on the same day as the incident." width="90%" />
 <p class="caption">
-Figure 6.2: The number of days from the incident to the arrest date. Values over 10 days are grouped to better see the distribution for arrests that took fewer than 10 days. Zero days means that the arrest occurred on the same day as the incident.
+Figure 16.2: The number of days from the incident to the arrest date. Values over 10 days are grouped to better see the distribution for arrests that took fewer than 10 days. Zero days means that the arrest occurred on the same day as the incident.
 </p>
 </div>
 </div>
-<div id="weapons" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Weapons<a href="arrestee.html#weapons" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In the Offense Segment we get info on what weapon (if any) was used during the crime. Here, we see what weapon the person arrested was carrying <em>when they were arrested.</em> There is probably a very large overlap here, especially given that the vast majority of arrests happen on the same day as the offense, so probably happen at the scene of the crime (and we will see exactly which ones do happen there later on in this chapter). Compared to the weapons covered in the Offense Segment - see Section <a href="#offenseWeapons"><strong>??</strong></a> for more - the weapons here are only a narrow subset, and cover mostly firearms. This is partly because the most common “weapon” in the Offense Segment is that the offender used their body as a weapon (e.g. punching, kicking) and everyone arrested has a body so it does not make sense to count that as a weapon. Each arrestee can carry up to two weapons, but we will only look at the first weapon for the below graphs. Please note that this is weapons found on the arrestee, and does not mean that they used the weapon during the arrest.</p>
-<p>Figure <a href="#fig:arresteeWeapon"><strong>??</strong></a> shows the breakdown in the weapon carried by the arrestee during the arrest. In 94% of arrests, the arrestee was not carrying any weapon. Since this graph shows arrests for all crimes, it makes a good deal of sense. Most crimes are non-violent so we would expect those people to not carry a weapon. Since so few arrestees have weapons, we will look at the breakdown among those who were carrying a weapon in Figure <a href="arrestee.html#fig:arresteeWeaponArmed">6.4</a>.</p>
-<p>To see the weapons carried when the arrestee had a weapon, Figure <a href="arrestee.html#fig:arresteeWeaponArmed">6.4</a> shows the breakdown in which weapon they carried. About 43.8% of people arrested who had a weapon were carrying a handgun followed by 30% with some kind of “lethal cutting instrument” like a knife. While rifles, and especially “assault rifles”, are what people (and especially politicians and the media) focus on when talking about violent crime, handguns are actually the most common gun to be used in a crime so it makes sense that handguns are the most frequently found weapon. “Firearm (type not stated)” basically means that the type of firearm used is unknown so can belong in one of the firearm categories and makes up 9% of weapons. Blunt instruments (including bats, clubs, and brass knuckles) follow at 6.9% of weapons. And the remaining weapons included are “other firearm” (so any other than ones specified) at 5.8%, rifle at 2.3%, and shotgun at 2%.</p>
+<div id="weapons" class="section level2 hasAnchor" number="16.3">
+<h2><span class="header-section-number">16.3</span> Weapons<a href="arrestee.html#weapons" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the Offense Segment we get info on what weapon (if any) was used during the crime. Here, we see what weapon the person arrested was carrying <em>when they were arrested.</em> There is probably a very large overlap here, especially given that the vast majority of arrests happen on the same day as the offense, so probably happen at the scene of the crime (and we will see exactly which ones do happen there later on in this chapter). Compared to the weapons covered in the Offense Segment - see Section <a href="offenseSegment.html#offenseWeapons">13.6</a> for more - the weapons here are only a narrow subset, and cover mostly firearms. This is partly because the most common “weapon” in the Offense Segment is that the offender used their body as a weapon (e.g. punching, kicking) and everyone arrested has a body so it does not make sense to count that as a weapon. Each arrestee can carry up to two weapons, but we will only look at the first weapon for the below graphs. Please note that this is weapons found on the arrestee, and does not mean that they used the weapon during the arrest.</p>
+<p>Figure <a href="#fig:arresteeWeapon"><strong>??</strong></a> shows the breakdown in the weapon carried by the arrestee during the arrest. In 94% of arrests, the arrestee was not carrying any weapon. Since this graph shows arrests for all crimes, it makes a good deal of sense. Most crimes are non-violent so we would expect those people to not carry a weapon. Since so few arrestees have weapons, we will look at the breakdown among those who were carrying a weapon in Figure <a href="arrestee.html#fig:arresteeWeaponArmed">16.4</a>.</p>
+<p>To see the weapons carried when the arrestee had a weapon, Figure <a href="arrestee.html#fig:arresteeWeaponArmed">16.4</a> shows the breakdown in which weapon they carried. About 43.8% of people arrested who had a weapon were carrying a handgun followed by 30% with some kind of “lethal cutting instrument” like a knife. While rifles, and especially “assault rifles”, are what people (and especially politicians and the media) focus on when talking about violent crime, handguns are actually the most common gun to be used in a crime so it makes sense that handguns are the most frequently found weapon. “Firearm (type not stated)” basically means that the type of firearm used is unknown so can belong in one of the firearm categories and makes up 9% of weapons. Blunt instruments (including bats, clubs, and brass knuckles) follow at 6.9% of weapons. And the remaining weapons included are “other firearm” (so any other than ones specified) at 5.8%, rifle at 2.3%, and shotgun at 2%.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsArresteeMurderWeapon"></span>
 <img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeMurderWeapon-1.png" alt="The share of murder and nonnegligent manslaughter arrestees by weapon carried at arrest, 1991-2022." width="90%" />
 <p class="caption">
-Figure 6.3: The share of murder and nonnegligent manslaughter arrestees by weapon carried at arrest, 1991-2022.
+Figure 16.3: The share of murder and nonnegligent manslaughter arrestees by weapon carried at arrest, 1991-2022.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arresteeWeaponArmed"></span>
 <img src="16_nibrs_arrestee_files/figure-html/arresteeWeaponArmed-1.png" alt="The distribution of weapon usage for all arrestees in 2022 who were arrested with a weapon (i.e. excludes unarmed arrestees)." width="90%" />
 <p class="caption">
-Figure 6.4: The distribution of weapon usage for all arrestees in 2022 who were arrested with a weapon (i.e. excludes unarmed arrestees).
+Figure 16.4: The distribution of weapon usage for all arrestees in 2022 who were arrested with a weapon (i.e. excludes unarmed arrestees).
 </p>
 </div>
 </div>
-<div id="automatic-weapons" class="section level2 hasAnchor" number="6.4">
-<h2><span class="header-section-number">6.4</span> Automatic weapons<a href="arrestee.html#automatic-weapons" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This variable tells you if the weapon the arrestee was carrying was a gun whether that gun was fully automatic. To be clear, this means that when you pull the trigger once the gun will fire multiple bullets. Semi-automatic firearms are not automatic firearms. The Offense Segment also has a variable indicating if the offender used an automatic weapon but there they did not necessarily recover the gun so it is much less reliable than in this segment where the police have the gun and are able to test it.<a href="#fn28" class="footnote-ref" id="fnref28"><sup>28</sup></a> The percent of guns that are fully automatic are fairly similar between the weapons seized at arrest, as shown in Figure <a href="arrestee.html#fig:arresteeAutomaticWeapon">6.5</a> and those used in the offense as shown in Figure <a href="#fig:offenseAutomaticWeapon"><strong>??</strong></a> in Chapter <a href="#offenseSegment"><strong>??</strong></a>. Figure <a href="arrestee.html#fig:arresteeAutomaticWeapon">6.5</a> shows that about 5.6% of rifles seized by police during an arrest were fully automatic. About 4.9% of handguns are automatic while “firearm (type not stated) are automatic in 4.3% of cases. Shotguns and”other firearm” category are the least likely to be automatic at about 2.5% and 1.1% of weapons, respectively.</p>
+<div id="automatic-weapons-1" class="section level2 hasAnchor" number="16.4">
+<h2><span class="header-section-number">16.4</span> Automatic weapons<a href="arrestee.html#automatic-weapons-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This variable tells you if the weapon the arrestee was carrying was a gun whether that gun was fully automatic. To be clear, this means that when you pull the trigger once the gun will fire multiple bullets. Semi-automatic firearms are not automatic firearms. The Offense Segment also has a variable indicating if the offender used an automatic weapon but there they did not necessarily recover the gun so it is much less reliable than in this segment where the police have the gun and are able to test it.<a href="#fn100" class="footnote-ref" id="fnref100"><sup>100</sup></a> The percent of guns that are fully automatic are fairly similar between the weapons seized at arrest, as shown in Figure <a href="arrestee.html#fig:arresteeAutomaticWeapon">16.5</a> and those used in the offense as shown in Figure <a href="offenseSegment.html#fig:offenseAutomaticWeapon">13.6</a> in Chapter <a href="offenseSegment.html#offenseSegment">13</a>. Figure <a href="arrestee.html#fig:arresteeAutomaticWeapon">16.5</a> shows that about 5.6% of rifles seized by police during an arrest were fully automatic. About 4.9% of handguns are automatic while “firearm (type not stated) are automatic in 4.3% of cases. Shotguns and”other firearm” category are the least likely to be automatic at about 2.5% and 1.1% of weapons, respectively.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arresteeAutomaticWeapon"></span>
 <img src="16_nibrs_arrestee_files/figure-html/arresteeAutomaticWeapon-1.png" alt="The percent of firearms the arrestee was carrying that were fully automatic, for arrestees in 2022." width="90%" />
 <p class="caption">
-Figure 6.5: The percent of firearms the arrestee was carrying that were fully automatic, for arrestees in 2022.
+Figure 16.5: The percent of firearms the arrestee was carrying that were fully automatic, for arrestees in 2022.
 </p>
 </div>
 </div>
-<div id="type-of-arrest" class="section level2 hasAnchor" number="6.5">
-<h2><span class="header-section-number">6.5</span> Type of arrest<a href="arrestee.html#type-of-arrest" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="type-of-arrest" class="section level2 hasAnchor" number="16.5">
+<h2><span class="header-section-number">16.5</span> Type of arrest<a href="arrestee.html#type-of-arrest" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>While arrests are sometimes talked about as if they are a homogeneous group (likely in big part because UCR data does not differentiate types of arrests), NIBRS data breaks them down into three different types of arrests. Figure <a href="#fig:arresteeTypeOfArrest"><strong>??</strong></a> shows the distribution in the type of arrest for all arrestees in the 2022 NIBRS data. The most common type is “On-View” which means that the person is arrested at the scene by an officer. For example, if police respond to a bank robbery and nab the robbers as they run out of the bank, this is an on-view arrest. On-view arrests make up the majority - 50.9% - of arrests.</p>
 <p>The next type of arrest is a “warrant/previous incident report” and this makes up 26.8% of arrests. In these cases the police had an arrest warrant and found the person and arrested them based on that warrant. This also includes when a person is arrested and found to have been involved in previous incidents. Then these previous incidents would be considered cleared from this single arrest. In these cases NIBRS has an indicator variable, called the “multiple arrestee indicator” to tell us that this individual is responsible for multiple incidents cleared so we avoid counting them twice (as their demographics will be the same each time). In this variable it says “count arrestee” if this is their only arrest or if this is the first arrest that is counted in cases where multiple incidents are cleared by the arrest, and “multiple” otherwise.</p>
 <p>Finally, people can get a “summoned/cited” arrest which is not really an arrest at all. This is when they are given a subpoena that says that must go to court to be tried for a crime, but they are not formally arrested and taken into police custody (i.e. they are never handcuffed, taken to a police precinct or to jail). About 22.2% of arrests are this form of arrest.</p>
@@ -1540,94 +1716,94 @@ Figure 6.5: The percent of firearms the arrestee was carrying that were fully au
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsArresteeArrestType"></span>
 <img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeArrestType-1.png" alt="Annual arrest type for all arrestees, 1991-2022. Previous Incident Report includes cases where an individual was arrested for a separate crime and are then reported as also arrested for this incident." width="90%" />
 <p class="caption">
-Figure 6.6: Annual arrest type for all arrestees, 1991-2022. Previous Incident Report includes cases where an individual was arrested for a separate crime and are then reported as also arrested for this incident.
+Figure 16.6: Annual arrest type for all arrestees, 1991-2022. Previous Incident Report includes cases where an individual was arrested for a separate crime and are then reported as also arrested for this incident.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsArresteeDUIArrestType"></span>
 <img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeDUIArrestType-1.png" alt="Annual arrest type for DUI arrestees, 1991-2022." width="90%" />
 <p class="caption">
-Figure 6.7: Annual arrest type for DUI arrestees, 1991-2022.
+Figure 16.7: Annual arrest type for DUI arrestees, 1991-2022.
 </p>
 </div>
 </div>
-<div id="disposition-for-juvenile-arrestees" class="section level2 hasAnchor" number="6.6">
-<h2><span class="header-section-number">6.6</span> Disposition for juvenile arrestees<a href="arrestee.html#disposition-for-juvenile-arrestees" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For juvenile arrestees - those under age 18 <em>at the time of the arrest</em> (and, by definition they would also be under age 18 during the incident) - there is some information about the outcome of the arrest.<a href="#fn29" class="footnote-ref" id="fnref29"><sup>29</sup></a> There are two possible outcomes (which NIBRS calls “dispositions”): being referred to other (that is, other than the arresting agency) authorities or handled within the arresting agency. Figure <a href="arrestee.html#fig:arresteeJuvenileDisposition">6.8</a> shows this breakdown and being referred to other authorities is the most common outcome at 72.6% of juvenile arrests. This is a very broad category and the “other authorities” can range from juvenile or adult court (so the police recommend that they be prosecuted) to welfare agencies and being sent to other police agencies (such as if they committed a crime elsewhere and are being extradited). The other category, being handled within the department, means that the police release the juvenile without any formal action taken (but they may give the juvenile a warning). In these cases the juvenile is released to an adult (including but not limited to family members or guardians) and the case is essentially dropped. In about 0.001% of juvenile arrests the disposition is unknown.<a href="#fn30" class="footnote-ref" id="fnref30"><sup>30</sup></a></p>
+<div id="disposition-for-juvenile-arrestees" class="section level2 hasAnchor" number="16.6">
+<h2><span class="header-section-number">16.6</span> Disposition for juvenile arrestees<a href="arrestee.html#disposition-for-juvenile-arrestees" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For juvenile arrestees - those under age 18 <em>at the time of the arrest</em> (and, by definition they would also be under age 18 during the incident) - there is some information about the outcome of the arrest.<a href="#fn101" class="footnote-ref" id="fnref101"><sup>101</sup></a> There are two possible outcomes (which NIBRS calls “dispositions”): being referred to other (that is, other than the arresting agency) authorities or handled within the arresting agency. Figure <a href="arrestee.html#fig:arresteeJuvenileDisposition">16.8</a> shows this breakdown and being referred to other authorities is the most common outcome at 72.6% of juvenile arrests. This is a very broad category and the “other authorities” can range from juvenile or adult court (so the police recommend that they be prosecuted) to welfare agencies and being sent to other police agencies (such as if they committed a crime elsewhere and are being extradited). The other category, being handled within the department, means that the police release the juvenile without any formal action taken (but they may give the juvenile a warning). In these cases the juvenile is released to an adult (including but not limited to family members or guardians) and the case is essentially dropped. In about 0.001% of juvenile arrests the disposition is unknown.<a href="#fn102" class="footnote-ref" id="fnref102"><sup>102</sup></a></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arresteeJuvenileDisposition"></span>
 <img src="16_nibrs_arrestee_files/figure-html/arresteeJuvenileDisposition-1.png" alt="For juvenile arrestees (under age 18), the distribution of case outcomes." width="90%" />
 <p class="caption">
-Figure 6.8: For juvenile arrestees (under age 18), the distribution of case outcomes.
+Figure 16.8: For juvenile arrestees (under age 18), the distribution of case outcomes.
 </p>
 </div>
 </div>
-<div id="demographics-1" class="section level2 hasAnchor" number="6.7">
-<h2><span class="header-section-number">6.7</span> Demographics<a href="arrestee.html#demographics-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="demographics-3" class="section level2 hasAnchor" number="16.7">
+<h2><span class="header-section-number">16.7</span> Demographics<a href="arrestee.html#demographics-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This segment provides several variables related to who the arrestee is. Age, race, and sex overlap with the Offender Segment but this segment also adds ethnicity and whether they live in the jurisdiction of the agency (i.e. the city the police patrols) they were arrested by.</p>
-<div id="residence-status" class="section level3 hasAnchor" number="6.7.1">
-<h3><span class="header-section-number">6.7.1</span> Residence status<a href="arrestee.html#residence-status" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The first variable we will look at is the residence status for the arrestee. This is residence in the jurisdiction that arrested them and it has nothing to do with residence status or citizenship status in the United States. People tend to commit crimes (and are the victims of crimes) very close to where they live, so this provides some evidence for that. We do not know where the arrestee lives, but know if they live in the jurisdiction or not. This is useful because some areas (e.g. Las Vegas, Washington DC, urban city centers where people commute to work) likely have a lot more people moving into those areas during the day but who live else compared to places like rural towns or suburbs. So it is helpful to be able to distinguish locals arrested with people who may be tourists or come into town just to commit the crime.<a href="#fn31" class="footnote-ref" id="fnref31"><sup>31</sup></a></p>
-<p>One thing to be cautious about is that residence status may be an imprecise measure of where someone actually lives. How it is defined may differ by agency which could affect comparability across agencies. For example, if it is defined as official residence (such as address on a driver’s license) that may be incorrect for a sizable share of the population (e.g. many college students live far from where their driver’s license address is).<a href="#fn32" class="footnote-ref" id="fnref32"><sup>32</sup></a> If residence status is based on asking the arrestee, they may of course lie to the police. There’s also the question of how to label people who are truly transient such as homeless people who may move from city to city. The FBI defines residence as their legal permanent address though it is unclear how that is handled for people without this info and when people live permanently in a different spot than their legal address.</p>
+<div id="residence-status-1" class="section level3 hasAnchor" number="16.7.1">
+<h3><span class="header-section-number">16.7.1</span> Residence status<a href="arrestee.html#residence-status-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The first variable we will look at is the residence status for the arrestee. This is residence in the jurisdiction that arrested them and it has nothing to do with residence status or citizenship status in the United States. People tend to commit crimes (and are the victims of crimes) very close to where they live, so this provides some evidence for that. We do not know where the arrestee lives, but know if they live in the jurisdiction or not. This is useful because some areas (e.g. Las Vegas, Washington DC, urban city centers where people commute to work) likely have a lot more people moving into those areas during the day but who live else compared to places like rural towns or suburbs. So it is helpful to be able to distinguish locals arrested with people who may be tourists or come into town just to commit the crime.<a href="#fn103" class="footnote-ref" id="fnref103"><sup>103</sup></a></p>
+<p>One thing to be cautious about is that residence status may be an imprecise measure of where someone actually lives. How it is defined may differ by agency which could affect comparability across agencies. For example, if it is defined as official residence (such as address on a driver’s license) that may be incorrect for a sizable share of the population (e.g. many college students live far from where their driver’s license address is).<a href="#fn104" class="footnote-ref" id="fnref104"><sup>104</sup></a> If residence status is based on asking the arrestee, they may of course lie to the police. There’s also the question of how to label people who are truly transient such as homeless people who may move from city to city. The FBI defines residence as their legal permanent address though it is unclear how that is handled for people without this info and when people live permanently in a different spot than their legal address.</p>
 <p>Figure <a href="#fig:arresteeResidenceStatus"><strong>??</strong></a> shows the percent of arrestees in 2022 who were residents or not (or whose status was unknown) of the jurisdiction that arrested them. Most people were arrested near where they live, with 56.9% of arrestees being residents, compared with 23.3% not being residents. However, about one-fifth of arrestees had an unknown residence status so the percents of resident and non-resident may change dramatically if we did not have any unknowns.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsArresteeResidentStatus"></span>
 <img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeResidentStatus-1.png" alt="Annual resident status (i.e. if they live in the arresting jurisdiction) of arrestees, 1991-2022." width="90%" />
 <p class="caption">
-Figure 6.9: Annual resident status (i.e. if they live in the arresting jurisdiction) of arrestees, 1991-2022.
+Figure 16.9: Annual resident status (i.e. if they live in the arresting jurisdiction) of arrestees, 1991-2022.
 </p>
 </div>
 </div>
-<div id="age-1" class="section level3 hasAnchor" number="6.7.2">
-<h3><span class="header-section-number">6.7.2</span> Age<a href="arrestee.html#age-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>This variable is the age at the arrest, which may be different than age during the crime. As in the Offender Segment we are given the exact age (in years) but agencies can input a range of possible ages with the FBI giving us the average of this range (rounding down, not to the nearest integer) in the data. In Figure <a href="#fig:offenderAge"><strong>??</strong></a> in the Offense Segment, this can be seen in the sudden spikes in the percent of offenders of a certain age and that some of the most common ages are divisible by five (e.g. 20, 25, 30). There are also far fewer unknown ages in this data with only 0.1% of arrestees having a missing age. This is reasonable as a person arrested is present for the police to learn their age from something like a driver’s license or past criminal records, or estimate the age by looking at the arrestee. Like in the Offender Segment, age as a specific year is cutoff at 98 with all older ages grouped simply as “over 98 years old”.</p>
-<p>Figure <a href="arrestee.html#fig:arresteeAge">6.10</a> shows the percent of arrestees at every age available. Relative to Figure <a href="#fig:offenderAge"><strong>??</strong></a>, this graph is far smoother, indicating that there was less estimating ages and more knowing the actual age. While the trend is the same for both of these graphs, the arrestee data does not have any odd spikes with certain ages. Age we see that the percent of people arrested increases as they age, peaking in the early twenties before declining and then peaking age even higher in the late 20s. After this, there is a long steady decline as the arrestee ages.</p>
+<div id="age-4" class="section level3 hasAnchor" number="16.7.2">
+<h3><span class="header-section-number">16.7.2</span> Age<a href="arrestee.html#age-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This variable is the age at the arrest, which may be different than age during the crime. As in the Offender Segment we are given the exact age (in years) but agencies can input a range of possible ages with the FBI giving us the average of this range (rounding down, not to the nearest integer) in the data. In Figure <a href="offender-segment-1.html#fig:offenderAge">14.1</a> in the Offense Segment, this can be seen in the sudden spikes in the percent of offenders of a certain age and that some of the most common ages are divisible by five (e.g. 20, 25, 30). There are also far fewer unknown ages in this data with only 0.1% of arrestees having a missing age. This is reasonable as a person arrested is present for the police to learn their age from something like a driver’s license or past criminal records, or estimate the age by looking at the arrestee. Like in the Offender Segment, age as a specific year is cutoff at 98 with all older ages grouped simply as “over 98 years old”.</p>
+<p>Figure <a href="arrestee.html#fig:arresteeAge">16.10</a> shows the percent of arrestees at every age available. Relative to Figure <a href="offender-segment-1.html#fig:offenderAge">14.1</a>, this graph is far smoother, indicating that there was less estimating ages and more knowing the actual age. While the trend is the same for both of these graphs, the arrestee data does not have any odd spikes with certain ages. Age we see that the percent of people arrested increases as they age, peaking in the early twenties before declining and then peaking age even higher in the late 20s. After this, there is a long steady decline as the arrestee ages.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arresteeAge"></span>
 <img src="16_nibrs_arrestee_files/figure-html/arresteeAge-1.png" alt="The age of all arrestees reported in the 2022 NIBRS data." width="90%" />
 <p class="caption">
-Figure 6.10: The age of all arrestees reported in the 2022 NIBRS data.
+Figure 16.10: The age of all arrestees reported in the 2022 NIBRS data.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsArresteeAge"></span>
 <img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeAge-1.png" alt="The mean and median age of arrestees, 1991-2022." width="90%" />
 <p class="caption">
-Figure 6.11: The mean and median age of arrestees, 1991-2022.
+Figure 16.11: The mean and median age of arrestees, 1991-2022.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsArresteeAgeMissing"></span>
 <img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeAgeMissing-1.png" alt="The percent of arrestee's age that is unknown, 1991-2022." width="90%" />
 <p class="caption">
-Figure 6.12: The percent of arrestee’s age that is unknown, 1991-2022.
+Figure 16.12: The percent of arrestee’s age that is unknown, 1991-2022.
 </p>
 </div>
 </div>
-<div id="sex-1" class="section level3 hasAnchor" number="6.7.3">
-<h3><span class="header-section-number">6.7.3</span> Sex<a href="arrestee.html#sex-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="sex-3" class="section level3 hasAnchor" number="16.7.3">
+<h3><span class="header-section-number">16.7.3</span> Sex<a href="arrestee.html#sex-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We also know the sex of the arrestee. The only options for this variable are male and female and there is never missing data so the police always choose one of these two choices. There is no option for transgender or any other identity. Figure <a href="#fig:arresteeSex"><strong>??</strong></a> shows the distribution of arrestees by sex. The vast majority, 70.5% of arrestees are male and the remaining 29.5% are female. This is a higher rate of female arrestees than you might expect - past research has found that crime is largely a male-phenomenon, even greater than found here (though “crime” in most criminology research is only murder or violent index crimes) - and that is because there are differences in sex involvement by type of crime. For rape, as an example, 97.8% of arrestees in 2022 were male. Shoplifting was an even 50% split between female and male arrestees.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsArresteeSex"></span>
 <img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeSex-1.png" alt="The share of arrestees by sex, 1991-2022." width="90%" />
 <p class="caption">
-Figure 6.13: The share of arrestees by sex, 1991-2022.
+Figure 16.13: The share of arrestees by sex, 1991-2022.
 </p>
 </div>
 </div>
-<div id="race-1" class="section level3 hasAnchor" number="6.7.4">
-<h3><span class="header-section-number">6.7.4</span> Race<a href="arrestee.html#race-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>For each arrestee we know their race, with possible races being White, Black, American Indian/Alaskan Native, Asian, and Native Hawaiian/Pacific Islander. Unlike sex, the police can say that the race is unknown.<a href="#fn33" class="footnote-ref" id="fnref33"><sup>33</sup></a> As each arrestee is visible to the police, and can self-report race or provide official records (e.g. criminal history or jail admission data) which may say their race, there is far less uncertainty for arrestee race than offender race where 38.5% of the data is missing. As with any measure of race there is still some degree of uncertainty since people’s race are not always obvious and may not fit tidily into each of the mutually exclusive groups available in NIBRS data (e.g. there is no option for mixed race).</p>
+<div id="race-4" class="section level3 hasAnchor" number="16.7.4">
+<h3><span class="header-section-number">16.7.4</span> Race<a href="arrestee.html#race-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For each arrestee we know their race, with possible races being White, Black, American Indian/Alaskan Native, Asian, and Native Hawaiian/Pacific Islander. Unlike sex, the police can say that the race is unknown.<a href="#fn105" class="footnote-ref" id="fnref105"><sup>105</sup></a> As each arrestee is visible to the police, and can self-report race or provide official records (e.g. criminal history or jail admission data) which may say their race, there is far less uncertainty for arrestee race than offender race where 38.5% of the data is missing. As with any measure of race there is still some degree of uncertainty since people’s race are not always obvious and may not fit tidily into each of the mutually exclusive groups available in NIBRS data (e.g. there is no option for mixed race).</p>
 <p>Figure <a href="#fig:arresteeRace"><strong>??</strong></a> shows the breakdown for the races of each arrestee. White arrestees are most common at 64.2% of arrestees, following by Black arrestees at 29.8%. Only 3.1% of arrestees have an unknown race. The remaining small share of arrestees is made up of American Indian/Alaskan Native at 1.6%, Asian at 1%, and Native Hawaiian/Pacific Islander at 0.3% of arrestees.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsArresteeRace"></span>
 <img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeRace-1.png" alt="The share of arrestees by race, 1991-2022." width="90%" />
 <p class="caption">
-Figure 6.14: The share of arrestees by race, 1991-2022.
+Figure 16.14: The share of arrestees by race, 1991-2022.
 </p>
 </div>
 </div>
-<div id="ethnicity-1" class="section level3 hasAnchor" number="6.7.5">
-<h3><span class="header-section-number">6.7.5</span> Ethnicity<a href="arrestee.html#ethnicity-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ethnicity-4" class="section level3 hasAnchor" number="16.7.5">
+<h3><span class="header-section-number">16.7.5</span> Ethnicity<a href="arrestee.html#ethnicity-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Finally, there is data on the race of the arrestee so we know if they are Hispanic or not. Ethnicity is so poorly used in the UCR data (e.g. UCR stopped collecting it for arrests for most years available and most agencies still do not report it) that I recommended in the <a href="https://ucrbook.com/">UCR book</a> against ever using it. For NIBRS, there is far less data missing so it is not as much of a problem to use ethnicity as it is with UCR data. The issue remains as to what agencies are actually reporting this data or in which scenarios this variable is reported or not even in agencies that generally do report it.</p>
 <p>Ethnicity is an optional variable so agencies are never required to report it. This means that there is a greater chance that it’ll be used only in non-random situations (which would make the data biased in some unknown way). There’s also the question of reliability of the ethnicity data. Someone being Hispanic or not is likely just what the arrestees calls themselves or what the arresting officer perceives them to be. Both are important ways of measuring ethnicity but get at different things. Perception is more important for studies of bias, self-identification for differences among groups of people such as arrest rates by ethnicity. And the subjectivity of who is classified as Hispanic means that this measurement may differ by agency and by officer, making it imprecise.</p>
 <p>Figure <a href="#fig:arresteeEthnicity"><strong>??</strong></a> shows the breakdown in arrests by arrestee ethnicity. Most arrestees - 72.5% - are not Hispanic. Only 10% are reported to be Hispanic but an even higher percent of arrestees - 16.8% - have an unknown ethnicity so the true percent or Hispanic or non-Hispanic arrestee may be different than shown here.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsArresteeEthnicity"></span>
 <img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeEthnicity-1.png" alt="The share of arrestees by ethnicity, 1991-2022." width="90%" />
 <p class="caption">
-Figure 6.15: The share of arrestees by ethnicity, 1991-2022.
+Figure 16.15: The share of arrestees by ethnicity, 1991-2022.
 </p>
 </div>
 
@@ -1636,13 +1812,13 @@ Figure 6.15: The share of arrestees by ethnicity, 1991-2022.
 </div>
 <div class="footnotes">
 <hr />
-<ol start="28">
-<li id="fn28"><p>It is not clear whether they actually test it or simply go by the design of the gun, such as if the model allows for fully automatic firing.<a href="arrestee.html#fnref28" class="footnote-back">↩︎</a></p></li>
-<li id="fn29"><p>There are a few people older than 18 with this variable but it is so rare that I think that they are just incorrectly inputted ages.<a href="arrestee.html#fnref29" class="footnote-back">↩︎</a></p></li>
-<li id="fn30"><p>A juvenile can potentially get multiple dispositions, such as if they are initially released but later the police recommend them for prosecution. It is not clear which outcome is recorded in these cases. In UCR data, however, only the initial disposition is recorded so that is likely how it also is in NIBRS.<a href="arrestee.html#fnref30" class="footnote-back">↩︎</a></p></li>
-<li id="fn31"><p>In a ride-along I was on, a woman who lived over an hour from the city I was in was caught shoplifting clothes.<a href="arrestee.html#fnref31" class="footnote-back">↩︎</a></p></li>
-<li id="fn32"><p>One another ride-along, a man from Florida was arrested for stealing from a local store (in California).<a href="arrestee.html#fnref32" class="footnote-back">↩︎</a></p></li>
-<li id="fn33"><p>I have been told that measuring race at all is itself racist so should never been done, even in research. This from a group of people who also said they have no need to actually evaluate police racial bias properly (i.e. using a regression with control variables) since they already knew the answer. Luckily I am no longer a postdoc.<a href="arrestee.html#fnref33" class="footnote-back">↩︎</a></p></li>
+<ol start="100">
+<li id="fn100"><p>It is not clear whether they actually test it or simply go by the design of the gun, such as if the model allows for fully automatic firing.<a href="arrestee.html#fnref100" class="footnote-back">↩︎</a></p></li>
+<li id="fn101"><p>There are a few people older than 18 with this variable but it is so rare that I think that they are just incorrectly inputted ages.<a href="arrestee.html#fnref101" class="footnote-back">↩︎</a></p></li>
+<li id="fn102"><p>A juvenile can potentially get multiple dispositions, such as if they are initially released but later the police recommend them for prosecution. It is not clear which outcome is recorded in these cases. In UCR data, however, only the initial disposition is recorded so that is likely how it also is in NIBRS.<a href="arrestee.html#fnref102" class="footnote-back">↩︎</a></p></li>
+<li id="fn103"><p>In a ride-along I was on, a woman who lived over an hour from the city I was in was caught shoplifting clothes.<a href="arrestee.html#fnref103" class="footnote-back">↩︎</a></p></li>
+<li id="fn104"><p>One another ride-along, a man from Florida was arrested for stealing from a local store (in California).<a href="arrestee.html#fnref104" class="footnote-back">↩︎</a></p></li>
+<li id="fn105"><p>I have been told that measuring race at all is itself racist so should never been done, even in research. This from a group of people who also said they have no need to actually evaluate police racial bias properly (i.e. using a regression with control variables) since they already knew the answer. Luckily I am no longer a postdoc.<a href="arrestee.html#fnref105" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -1650,7 +1826,7 @@ Figure 6.15: The share of arrestees by ethnicity, 1991-2022.
           </div>
         </div>
       </div>
-<a href="administrative-segment.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="victim-segment-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="property.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

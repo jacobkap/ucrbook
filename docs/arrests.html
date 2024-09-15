@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Arrests by Age, Sex, and Race | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</title>
+  <title>Chapter 5 Arrests by Age, Sex, and Race | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Arrests by Age, Sex, and Race | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta property="og:title" content="Chapter 5 Arrests by Age, Sex, and Race | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="github-repo" content="jacobkap/ucrbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Arrests by Age, Sex, and Race | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta name="twitter:title" content="Chapter 5 Arrests by Age, Sex, and Race | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
   
   <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   
@@ -134,6 +134,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -181,53 +204,244 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
-<li class="chapter" data-level="2" data-path="stolen_property.html"><a href="stolen_property.html"><i class="fa fa-check"></i><b>2</b> Property Stolen and Recovered (Supplement to Return A)</a>
+<li class="part"><span><b>II Summary Reporting System (SRS)</b></span></li>
+<li class="chapter" data-level="2" data-path="SRSGeneral.html"><a href="SRSGeneral.html"><i class="fa fa-check"></i><b>2</b> SRS Overview</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="stolen_property.html"><a href="stolen_property.html#agencies-reporting"><i class="fa fa-check"></i><b>2.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="2.2" data-path="stolen_property.html"><a href="stolen_property.html#important-variables"><i class="fa fa-check"></i><b>2.2</b> Important variables</a>
+<li class="chapter" data-level="2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#crimes-included-in-the-srs-datasets"><i class="fa fa-check"></i><b>2.1</b> Crimes included in the SRS datasets</a></li>
+<li class="chapter" data-level="2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#a-summary-of-each-srs-dataset"><i class="fa fa-check"></i><b>2.2</b> A summary of each SRS dataset</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="stolen_property.html"><a href="stolen_property.html#propertycount"><i class="fa fa-check"></i><b>2.2.1</b> A more detailed breakdown of property (and robbery) crimes</a></li>
-<li class="chapter" data-level="2.2.2" data-path="stolen_property.html"><a href="stolen_property.html#the-value-of-property-stolen"><i class="fa fa-check"></i><b>2.2.2</b> The value of property stolen</a></li>
-<li class="chapter" data-level="2.2.3" data-path="stolen_property.html"><a href="stolen_property.html#value-of-recovered-property-by-type-of-item-stolen"><i class="fa fa-check"></i><b>2.2.3</b> Value of recovered property by type of item stolen</a></li>
-</ul></li>
-<li class="chapter" data-level="2.3" data-path="stolen_property.html"><a href="stolen_property.html#data-errors"><i class="fa fa-check"></i><b>2.3</b> Data errors</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="arrests.html"><a href="arrests.html"><i class="fa fa-check"></i><b>3</b> Arrests by Age, Sex, and Race</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="arrests.html"><a href="arrests.html#agencies-reporting-1"><i class="fa fa-check"></i><b>3.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="3.2" data-path="arrests.html"><a href="arrests.html#what-is-an-arrest-what-unit-is-this-data-in"><i class="fa fa-check"></i><b>3.2</b> What is an arrest? (what unit is this data in?)</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="arrests.html"><a href="arrests.html#the-hierarchy-rule"><i class="fa fa-check"></i><b>3.2.1</b> The Hierarchy Rule</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="arrests.html"><a href="arrests.html#important-variables-1"><i class="fa fa-check"></i><b>3.3</b> Important variables</a>
-<ul>
-<li class="chapter" data-level="3.3.1" data-path="arrests.html"><a href="arrests.html#age"><i class="fa fa-check"></i><b>3.3.1</b> Age</a></li>
-<li class="chapter" data-level="3.3.2" data-path="arrests.html"><a href="arrests.html#race"><i class="fa fa-check"></i><b>3.3.2</b> Race</a></li>
-<li class="chapter" data-level="3.3.3" data-path="arrests.html"><a href="arrests.html#ethnicity"><i class="fa fa-check"></i><b>3.3.3</b> Ethnicity</a></li>
-<li class="chapter" data-level="3.3.4" data-path="arrests.html"><a href="arrests.html#juvenile-referrals"><i class="fa fa-check"></i><b>3.3.4</b> Juvenile referrals</a></li>
+<li class="chapter" data-level="2.2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#offenses-known-and-clearances-by-arrest-1960---present"><i class="fa fa-check"></i><b>2.2.1</b> Offenses Known and Clearances by Arrest (1960 - present)</a></li>
+<li class="chapter" data-level="2.2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#arrests-by-age-sex-and-race-1974---present"><i class="fa fa-check"></i><b>2.2.2</b> Arrests by Age, Sex, and Race (1974 - present)</a></li>
+<li class="chapter" data-level="2.2.3" data-path="SRSGeneral.html"><a href="SRSGeneral.html#law-enforcement-officers-killed-and-assaulted-leoka-1960---present"><i class="fa fa-check"></i><b>2.2.3</b> Law Enforcement Officers Killed and Assaulted (LEOKA) (1960 - present)</a></li>
+<li class="chapter" data-level="2.2.4" data-path="SRSGeneral.html"><a href="SRSGeneral.html#supplementary-homicide-reports-shr"><i class="fa fa-check"></i><b>2.2.4</b> Supplementary Homicide Reports (SHR)</a></li>
+<li class="chapter" data-level="2.2.5" data-path="SRSGeneral.html"><a href="SRSGeneral.html#hate-crime-data-1991---present"><i class="fa fa-check"></i><b>2.2.5</b> Hate Crime Data (1991 - present)</a></li>
+<li class="chapter" data-level="2.2.6" data-path="SRSGeneral.html"><a href="SRSGeneral.html#property-stolen-and-recovered-supplement-to-return-a-1960---present"><i class="fa fa-check"></i><b>2.2.6</b> Property Stolen and Recovered (Supplement to Return A) (1960 - present)</a></li>
+<li class="chapter" data-level="2.2.7" data-path="SRSGeneral.html"><a href="SRSGeneral.html#arson-1979---present"><i class="fa fa-check"></i><b>2.2.7</b> Arson (1979 - present)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="shr.html"><a href="shr.html"><i class="fa fa-check"></i><b>4</b> Supplementary Homicide Reports (SHR)</a>
+<li class="chapter" data-level="3" data-path="offensesKnown.html"><a href="offensesKnown.html"><i class="fa fa-check"></i><b>3</b> Offenses Known and Clearances by Arrest</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="shr.html"><a href="shr.html#agencies-reporting-2"><i class="fa fa-check"></i><b>4.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="4.2" data-path="shr.html"><a href="shr.html#important-variables-2"><i class="fa fa-check"></i><b>4.2</b> Important variables</a>
+<li class="chapter" data-level="3.1" data-path="offensesKnown.html"><a href="offensesKnown.html#indexCrimesOffensesKnown"><i class="fa fa-check"></i><b>3.1</b> Which crimes are included?</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="shr.html"><a href="shr.html#demographics"><i class="fa fa-check"></i><b>4.2.1</b> Demographics</a></li>
-<li class="chapter" data-level="4.2.2" data-path="shr.html"><a href="shr.html#case-characteristics"><i class="fa fa-check"></i><b>4.2.2</b> Case characteristics</a></li>
+<li class="chapter" data-level="3.1.1" data-path="offensesKnown.html"><a href="offensesKnown.html#hierarchy"><i class="fa fa-check"></i><b>3.1.1</b> Hierarchy Rule</a></li>
+<li class="chapter" data-level="3.1.2" data-path="offensesKnown.html"><a href="offensesKnown.html#indexCrimes"><i class="fa fa-check"></i><b>3.1.2</b> Index (“Part 1”) crimes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="offensesKnown.html"><a href="offensesKnown.html#offensesKnownReporting"><i class="fa fa-check"></i><b>3.2</b> Agencies reporting</a></li>
+<li class="chapter" data-level="3.3" data-path="offensesKnown.html"><a href="offensesKnown.html#negative-numbers"><i class="fa fa-check"></i><b>3.3</b> Negative numbers</a></li>
+<li class="chapter" data-level="3.4" data-path="offensesKnown.html"><a href="offensesKnown.html#important-variables"><i class="fa fa-check"></i><b>3.4</b> Important variables</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="offensesKnown.html"><a href="offensesKnown.html#actual"><i class="fa fa-check"></i><b>3.4.1</b> Actual crimes</a></li>
+<li class="chapter" data-level="3.4.2" data-path="offensesKnown.html"><a href="offensesKnown.html#clearedCrimes"><i class="fa fa-check"></i><b>3.4.2</b> Total cleared crimes</a></li>
+<li class="chapter" data-level="3.4.3" data-path="offensesKnown.html"><a href="offensesKnown.html#crimes-cleared-where-all-offenders-are-under-18-years-old"><i class="fa fa-check"></i><b>3.4.3</b> Crimes cleared where all offenders are under 18 years old</a></li>
+<li class="chapter" data-level="3.4.4" data-path="offensesKnown.html"><a href="offensesKnown.html#unfounded"><i class="fa fa-check"></i><b>3.4.4</b> Unfounded crimes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="offensesKnown.html"><a href="offensesKnown.html#important-changes"><i class="fa fa-check"></i><b>3.5</b> Important changes</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="offensesKnown.html"><a href="offensesKnown.html#rape-definition-change"><i class="fa fa-check"></i><b>3.5.1</b> Rape definition change</a></li>
+<li class="chapter" data-level="3.5.2" data-path="offensesKnown.html"><a href="offensesKnown.html#the-decline-of-manslaughter"><i class="fa fa-check"></i><b>3.5.2</b> The decline of manslaughter</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="leoka.html"><a href="leoka.html"><i class="fa fa-check"></i><b>5</b> Law Enforcement Officers Killed and Assaulted (LEOKA)</a>
+<li class="chapter" data-level="4" data-path="stolen_property.html"><a href="stolen_property.html"><i class="fa fa-check"></i><b>4</b> Property Stolen and Recovered (Supplement to Return A)</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="leoka.html"><a href="leoka.html#agencies-reporting-3"><i class="fa fa-check"></i><b>5.1</b> Agencies reporting</a></li>
-<li class="chapter" data-level="5.2" data-path="leoka.html"><a href="leoka.html#important-variables-3"><i class="fa fa-check"></i><b>5.2</b> Important variables</a>
+<li class="chapter" data-level="4.1" data-path="stolen_property.html"><a href="stolen_property.html#agencies-reporting"><i class="fa fa-check"></i><b>4.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="4.2" data-path="stolen_property.html"><a href="stolen_property.html#important-variables-1"><i class="fa fa-check"></i><b>4.2</b> Important variables</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="leoka.html"><a href="leoka.html#number-of-employees"><i class="fa fa-check"></i><b>5.2.1</b> Number of employees</a></li>
-<li class="chapter" data-level="5.2.2" data-path="leoka.html"><a href="leoka.html#officers-killed"><i class="fa fa-check"></i><b>5.2.2</b> Officers killed</a></li>
-<li class="chapter" data-level="5.2.3" data-path="leoka.html"><a href="leoka.html#assaults-by-injury-and-weapon"><i class="fa fa-check"></i><b>5.2.3</b> Assaults by injury and weapon</a></li>
-<li class="chapter" data-level="5.2.4" data-path="leoka.html"><a href="leoka.html#assaults-by-call-type"><i class="fa fa-check"></i><b>5.2.4</b> Assaults by call type</a></li>
-<li class="chapter" data-level="5.2.5" data-path="leoka.html"><a href="leoka.html#assaults-by-time"><i class="fa fa-check"></i><b>5.2.5</b> Assaults by time</a></li>
+<li class="chapter" data-level="4.2.1" data-path="stolen_property.html"><a href="stolen_property.html#propertycount"><i class="fa fa-check"></i><b>4.2.1</b> A more detailed breakdown of property (and robbery) crimes</a></li>
+<li class="chapter" data-level="4.2.2" data-path="stolen_property.html"><a href="stolen_property.html#the-value-of-property-stolen"><i class="fa fa-check"></i><b>4.2.2</b> The value of property stolen</a></li>
+<li class="chapter" data-level="4.2.3" data-path="stolen_property.html"><a href="stolen_property.html#value-of-recovered-property-by-type-of-item-stolen"><i class="fa fa-check"></i><b>4.2.3</b> Value of recovered property by type of item stolen</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="stolen_property.html"><a href="stolen_property.html#data-errors"><i class="fa fa-check"></i><b>4.3</b> Data errors</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="arrests.html"><a href="arrests.html"><i class="fa fa-check"></i><b>5</b> Arrests by Age, Sex, and Race</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="arrests.html"><a href="arrests.html#agencies-reporting-1"><i class="fa fa-check"></i><b>5.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="5.2" data-path="arrests.html"><a href="arrests.html#what-is-an-arrest-what-unit-is-this-data-in"><i class="fa fa-check"></i><b>5.2</b> What is an arrest? (what unit is this data in?)</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="arrests.html"><a href="arrests.html#the-hierarchy-rule"><i class="fa fa-check"></i><b>5.2.1</b> The Hierarchy Rule</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="arrests.html"><a href="arrests.html#important-variables-2"><i class="fa fa-check"></i><b>5.3</b> Important variables</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="arrests.html"><a href="arrests.html#age"><i class="fa fa-check"></i><b>5.3.1</b> Age</a></li>
+<li class="chapter" data-level="5.3.2" data-path="arrests.html"><a href="arrests.html#race"><i class="fa fa-check"></i><b>5.3.2</b> Race</a></li>
+<li class="chapter" data-level="5.3.3" data-path="arrests.html"><a href="arrests.html#ethnicity"><i class="fa fa-check"></i><b>5.3.3</b> Ethnicity</a></li>
+<li class="chapter" data-level="5.3.4" data-path="arrests.html"><a href="arrests.html#juvenile-referrals"><i class="fa fa-check"></i><b>5.3.4</b> Juvenile referrals</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="6" data-path="shr.html"><a href="shr.html"><i class="fa fa-check"></i><b>6</b> Supplementary Homicide Reports (SHR)</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="shr.html"><a href="shr.html#agencies-reporting-2"><i class="fa fa-check"></i><b>6.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="6.2" data-path="shr.html"><a href="shr.html#important-variables-3"><i class="fa fa-check"></i><b>6.2</b> Important variables</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="shr.html"><a href="shr.html#demographics"><i class="fa fa-check"></i><b>6.2.1</b> Demographics</a></li>
+<li class="chapter" data-level="6.2.2" data-path="shr.html"><a href="shr.html#case-characteristics"><i class="fa fa-check"></i><b>6.2.2</b> Case characteristics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="leoka.html"><a href="leoka.html"><i class="fa fa-check"></i><b>7</b> Law Enforcement Officers Killed and Assaulted (LEOKA)</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="leoka.html"><a href="leoka.html#agencies-reporting-3"><i class="fa fa-check"></i><b>7.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="7.2" data-path="leoka.html"><a href="leoka.html#important-variables-4"><i class="fa fa-check"></i><b>7.2</b> Important variables</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="leoka.html"><a href="leoka.html#number-of-employees"><i class="fa fa-check"></i><b>7.2.1</b> Number of employees</a></li>
+<li class="chapter" data-level="7.2.2" data-path="leoka.html"><a href="leoka.html#officers-killed"><i class="fa fa-check"></i><b>7.2.2</b> Officers killed</a></li>
+<li class="chapter" data-level="7.2.3" data-path="leoka.html"><a href="leoka.html#assaults-by-injury-and-weapon"><i class="fa fa-check"></i><b>7.2.3</b> Assaults by injury and weapon</a></li>
+<li class="chapter" data-level="7.2.4" data-path="leoka.html"><a href="leoka.html#assaults-by-call-type"><i class="fa fa-check"></i><b>7.2.4</b> Assaults by call type</a></li>
+<li class="chapter" data-level="7.2.5" data-path="leoka.html"><a href="leoka.html#assaults-by-time"><i class="fa fa-check"></i><b>7.2.5</b> Assaults by time</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="arsonChapter.html"><a href="arsonChapter.html"><i class="fa fa-check"></i><b>8</b> Arson</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="arsonChapter.html"><a href="arsonChapter.html#agencies-reporting-4"><i class="fa fa-check"></i><b>8.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="8.2" data-path="arsonChapter.html"><a href="arsonChapter.html#important-variables-5"><i class="fa fa-check"></i><b>8.2</b> Important variables</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="arsonChapter.html"><a href="arsonChapter.html#arsonType"><i class="fa fa-check"></i><b>8.2.1</b> Types of arsons</a></li>
+<li class="chapter" data-level="8.2.2" data-path="arsonChapter.html"><a href="arsonChapter.html#actual-arsons"><i class="fa fa-check"></i><b>8.2.2</b> Actual arsons</a></li>
+<li class="chapter" data-level="8.2.3" data-path="arsonChapter.html"><a href="arsonChapter.html#unfounded-arsons"><i class="fa fa-check"></i><b>8.2.3</b> Unfounded arsons</a></li>
+<li class="chapter" data-level="8.2.4" data-path="arsonChapter.html"><a href="arsonChapter.html#reported-arsons"><i class="fa fa-check"></i><b>8.2.4</b> Reported arsons</a></li>
+<li class="chapter" data-level="8.2.5" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-arsons"><i class="fa fa-check"></i><b>8.2.5</b> Cleared arsons</a></li>
+<li class="chapter" data-level="8.2.6" data-path="arsonChapter.html"><a href="arsonChapter.html#cleared-for-arsons-where-all-offenders-are-under-age-18"><i class="fa fa-check"></i><b>8.2.6</b> Cleared for arsons where all offenders are under age 18</a></li>
+<li class="chapter" data-level="8.2.7" data-path="arsonChapter.html"><a href="arsonChapter.html#uninhabited-building-arsons"><i class="fa fa-check"></i><b>8.2.7</b> Uninhabited building arsons</a></li>
+<li class="chapter" data-level="8.2.8" data-path="arsonChapter.html"><a href="arsonChapter.html#estimated-damage-cost"><i class="fa fa-check"></i><b>8.2.8</b> Estimated damage cost</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="arsonChapter.html"><a href="arsonChapter.html#data-errors-1"><i class="fa fa-check"></i><b>8.3</b> Data errors</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="hate_crimes.html"><a href="hate_crimes.html"><i class="fa fa-check"></i><b>9</b> Hate Crime Data</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="hate_crimes.html"><a href="hate_crimes.html#agencies-reporting-5"><i class="fa fa-check"></i><b>9.1</b> Agencies reporting</a></li>
+<li class="chapter" data-level="9.2" data-path="hate_crimes.html"><a href="hate_crimes.html#treeOfLife"><i class="fa fa-check"></i><b>9.2</b> Tree of Life synagogue shooting</a></li>
+<li class="chapter" data-level="9.3" data-path="hate_crimes.html"><a href="hate_crimes.html#important-variables-6"><i class="fa fa-check"></i><b>9.3</b> Important variables</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="hate_crimes.html"><a href="hate_crimes.html#date-and-time"><i class="fa fa-check"></i><b>9.3.1</b> Date and time</a></li>
+<li class="chapter" data-level="9.3.2" data-path="hate_crimes.html"><a href="hate_crimes.html#the-bias-motivation-who-the-hate-is-against"><i class="fa fa-check"></i><b>9.3.2</b> The bias motivation (who the hate is against)</a></li>
+<li class="chapter" data-level="9.3.3" data-path="hate_crimes.html"><a href="hate_crimes.html#the-crime-that-occurred"><i class="fa fa-check"></i><b>9.3.3</b> The crime that occurred</a></li>
+<li class="chapter" data-level="9.3.4" data-path="hate_crimes.html"><a href="hate_crimes.html#the-location-of-the-crime"><i class="fa fa-check"></i><b>9.3.4</b> The location of the crime</a></li>
+<li class="chapter" data-level="9.3.5" data-path="hate_crimes.html"><a href="hate_crimes.html#number-and-race-of-offenders"><i class="fa fa-check"></i><b>9.3.5</b> Number and race of offenders</a></li>
+<li class="chapter" data-level="9.3.6" data-path="hate_crimes.html"><a href="hate_crimes.html#number-of-victims"><i class="fa fa-check"></i><b>9.3.6</b> Number of victims</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="county-level-data.html"><a href="county-level-data.html"><i class="fa fa-check"></i><b>10</b> County-Level Data</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="county-level-data.html"><a href="county-level-data.html#current-usage"><i class="fa fa-check"></i><b>10.1</b> Current usage</a></li>
+<li class="chapter" data-level="10.2" data-path="county-level-data.html"><a href="county-level-data.html#how-much-data-is-missing"><i class="fa fa-check"></i><b>10.2</b> How much data is missing</a></li>
+<li class="chapter" data-level="10.3" data-path="county-level-data.html"><a href="county-level-data.html#current-imputation-practices"><i class="fa fa-check"></i><b>10.3</b> Current imputation practices</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="county-level-data.html"><a href="county-level-data.html#months-missing"><i class="fa fa-check"></i><b>10.3.1</b> 1-9 months missing</a></li>
+<li class="chapter" data-level="10.3.2" data-path="county-level-data.html"><a href="county-level-data.html#months-missing-1"><i class="fa fa-check"></i><b>10.3.2</b> 10-12 months missing</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III National Incident-Based Reporting System (NIBRS)</b></span></li>
+<li class="chapter" data-level="11" data-path="nibrs-overview.html"><a href="nibrs-overview.html"><i class="fa fa-check"></i><b>11</b> NIBRS Overview</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#problems-with-nibrs"><i class="fa fa-check"></i><b>11.1</b> Problems with NIBRS</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#nibrs-allows-for-different-units-of-analysis"><i class="fa fa-check"></i><b>11.1.1</b> NIBRS allows for different units of analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="nibrs-overview.html"><a href="nibrs-overview.html#which-agencies-report-data"><i class="fa fa-check"></i><b>11.2</b> Which agencies report data</a></li>
+<li class="chapter" data-level="11.3" data-path="nibrs-overview.html"><a href="nibrs-overview.html#crimes-included-in-nibrs"><i class="fa fa-check"></i><b>11.3</b> Crimes included in NIBRS</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#group-a-crimes"><i class="fa fa-check"></i><b>11.3.1</b> Group A crimes</a></li>
+<li class="chapter" data-level="11.3.2" data-path="nibrs-overview.html"><a href="nibrs-overview.html#group-b-crimes"><i class="fa fa-check"></i><b>11.3.2</b> Group B crimes</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="nibrs-overview.html"><a href="nibrs-overview.html#differences-from-srs-data"><i class="fa fa-check"></i><b>11.4</b> Differences from SRS data</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#nibrs-does-not-have-unfounded-crimes"><i class="fa fa-check"></i><b>11.4.1</b> NIBRS does not have unfounded crimes</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="nibrs-overview.html"><a href="nibrs-overview.html#a-summary-of-each-segment-file"><i class="fa fa-check"></i><b>11.5</b> A summary of each segment file</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="nibrs-overview.html"><a href="nibrs-overview.html#administrative-segment"><i class="fa fa-check"></i><b>11.5.1</b> Administrative Segment</a></li>
+<li class="chapter" data-level="11.5.2" data-path="nibrs-overview.html"><a href="nibrs-overview.html#offense-segment"><i class="fa fa-check"></i><b>11.5.2</b> Offense Segment</a></li>
+<li class="chapter" data-level="11.5.3" data-path="nibrs-overview.html"><a href="nibrs-overview.html#offender-segment"><i class="fa fa-check"></i><b>11.5.3</b> Offender Segment</a></li>
+<li class="chapter" data-level="11.5.4" data-path="nibrs-overview.html"><a href="nibrs-overview.html#victim-segment"><i class="fa fa-check"></i><b>11.5.4</b> Victim Segment</a></li>
+<li class="chapter" data-level="11.5.5" data-path="nibrs-overview.html"><a href="nibrs-overview.html#arrestee-and-group-b-arrestee-segment"><i class="fa fa-check"></i><b>11.5.5</b> Arrestee and Group B Arrestee Segment</a></li>
+<li class="chapter" data-level="11.5.6" data-path="nibrs-overview.html"><a href="nibrs-overview.html#property-segment"><i class="fa fa-check"></i><b>11.5.6</b> Property Segment</a></li>
+<li class="chapter" data-level="11.5.7" data-path="nibrs-overview.html"><a href="nibrs-overview.html#window"><i class="fa fa-check"></i><b>11.5.7</b> Window segments</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="administrative-segment-1.html"><a href="administrative-segment-1.html"><i class="fa fa-check"></i><b>12</b> Administrative Segment</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="administrative-segment-1.html"><a href="administrative-segment-1.html#the-incident-and-report-date"><i class="fa fa-check"></i><b>12.1</b> The incident and report date</a></li>
+<li class="chapter" data-level="12.2" data-path="administrative-segment-1.html"><a href="administrative-segment-1.html#hour-of-incident"><i class="fa fa-check"></i><b>12.2</b> Hour of incident</a></li>
+<li class="chapter" data-level="12.3" data-path="administrative-segment-1.html"><a href="administrative-segment-1.html#exceptional-clearance"><i class="fa fa-check"></i><b>12.3</b> Exceptional clearance</a></li>
+<li class="chapter" data-level="12.4" data-path="administrative-segment-1.html"><a href="administrative-segment-1.html#number-of-other-segments"><i class="fa fa-check"></i><b>12.4</b> Number of other segments</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="administrative-segment-1.html"><a href="administrative-segment-1.html#offense-segments"><i class="fa fa-check"></i><b>12.4.1</b> Offense Segments</a></li>
+<li class="chapter" data-level="12.4.2" data-path="administrative-segment-1.html"><a href="administrative-segment-1.html#offender-segments"><i class="fa fa-check"></i><b>12.4.2</b> Offender Segments</a></li>
+<li class="chapter" data-level="12.4.3" data-path="administrative-segment-1.html"><a href="administrative-segment-1.html#victim-segments"><i class="fa fa-check"></i><b>12.4.3</b> Victim Segments</a></li>
+<li class="chapter" data-level="12.4.4" data-path="administrative-segment-1.html"><a href="administrative-segment-1.html#arrestee-segments"><i class="fa fa-check"></i><b>12.4.4</b> Arrestee Segments</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="offenseSegment.html"><a href="offenseSegment.html"><i class="fa fa-check"></i><b>13</b> Offense Segment</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="offenseSegment.html"><a href="offenseSegment.html#crime-category"><i class="fa fa-check"></i><b>13.1</b> Crime category</a></li>
+<li class="chapter" data-level="13.2" data-path="offenseSegment.html"><a href="offenseSegment.html#offense-subtype"><i class="fa fa-check"></i><b>13.2</b> Offense subtype</a></li>
+<li class="chapter" data-level="13.3" data-path="offenseSegment.html"><a href="offenseSegment.html#offense-completed"><i class="fa fa-check"></i><b>13.3</b> Offense completed</a></li>
+<li class="chapter" data-level="13.4" data-path="offenseSegment.html"><a href="offenseSegment.html#drug-alcohol-or-computer-use"><i class="fa fa-check"></i><b>13.4</b> Drug, alcohol, or computer use</a></li>
+<li class="chapter" data-level="13.5" data-path="offenseSegment.html"><a href="offenseSegment.html#crime-location"><i class="fa fa-check"></i><b>13.5</b> Crime location</a></li>
+<li class="chapter" data-level="13.6" data-path="offenseSegment.html"><a href="offenseSegment.html#offenseWeapons"><i class="fa fa-check"></i><b>13.6</b> Weapons</a></li>
+<li class="chapter" data-level="13.7" data-path="offenseSegment.html"><a href="offenseSegment.html#automatic-weapons"><i class="fa fa-check"></i><b>13.7</b> Automatic weapons</a></li>
+<li class="chapter" data-level="13.8" data-path="offenseSegment.html"><a href="offenseSegment.html#burglary-info"><i class="fa fa-check"></i><b>13.8</b> Burglary info</a></li>
+<li class="chapter" data-level="13.9" data-path="offenseSegment.html"><a href="offenseSegment.html#hate-crime-indicator-bias-motivation"><i class="fa fa-check"></i><b>13.9</b> Hate crime indicator (bias motivation)</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="offender-segment-1.html"><a href="offender-segment-1.html"><i class="fa fa-check"></i><b>14</b> Offender Segment</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="offender-segment-1.html"><a href="offender-segment-1.html#demographics-1"><i class="fa fa-check"></i><b>14.1</b> Demographics</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="offender-segment-1.html"><a href="offender-segment-1.html#age-2"><i class="fa fa-check"></i><b>14.1.1</b> Age</a></li>
+<li class="chapter" data-level="14.1.2" data-path="offender-segment-1.html"><a href="offender-segment-1.html#sex-1"><i class="fa fa-check"></i><b>14.1.2</b> Sex</a></li>
+<li class="chapter" data-level="14.1.3" data-path="offender-segment-1.html"><a href="offender-segment-1.html#race-2"><i class="fa fa-check"></i><b>14.1.3</b> Race</a></li>
+<li class="chapter" data-level="14.1.4" data-path="offender-segment-1.html"><a href="offender-segment-1.html#ethnicity-2"><i class="fa fa-check"></i><b>14.1.4</b> Ethnicity</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="victim-segment-1.html"><a href="victim-segment-1.html"><i class="fa fa-check"></i><b>15</b> Victim Segment</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="victim-segment-1.html"><a href="victim-segment-1.html#crime-category-1"><i class="fa fa-check"></i><b>15.1</b> Crime category</a></li>
+<li class="chapter" data-level="15.2" data-path="victim-segment-1.html"><a href="victim-segment-1.html#victim-type"><i class="fa fa-check"></i><b>15.2</b> Victim type</a></li>
+<li class="chapter" data-level="15.3" data-path="victim-segment-1.html"><a href="victim-segment-1.html#injury"><i class="fa fa-check"></i><b>15.3</b> Injury</a></li>
+<li class="chapter" data-level="15.4" data-path="victim-segment-1.html"><a href="victim-segment-1.html#relationship-to-offender"><i class="fa fa-check"></i><b>15.4</b> Relationship to offender</a></li>
+<li class="chapter" data-level="15.5" data-path="victim-segment-1.html"><a href="victim-segment-1.html#aggravated-assault-and-homicide-circumstances"><i class="fa fa-check"></i><b>15.5</b> Aggravated assault and homicide circumstances</a></li>
+<li class="chapter" data-level="15.6" data-path="victim-segment-1.html"><a href="victim-segment-1.html#justifiable-homicide-circumstance"><i class="fa fa-check"></i><b>15.6</b> Justifiable homicide circumstance</a></li>
+<li class="chapter" data-level="15.7" data-path="victim-segment-1.html"><a href="victim-segment-1.html#demographics-2"><i class="fa fa-check"></i><b>15.7</b> Demographics</a>
+<ul>
+<li class="chapter" data-level="15.7.1" data-path="victim-segment-1.html"><a href="victim-segment-1.html#residence-status"><i class="fa fa-check"></i><b>15.7.1</b> Residence status</a></li>
+<li class="chapter" data-level="15.7.2" data-path="victim-segment-1.html"><a href="victim-segment-1.html#age-3"><i class="fa fa-check"></i><b>15.7.2</b> Age</a></li>
+<li class="chapter" data-level="15.7.3" data-path="victim-segment-1.html"><a href="victim-segment-1.html#sex-2"><i class="fa fa-check"></i><b>15.7.3</b> Sex</a></li>
+<li class="chapter" data-level="15.7.4" data-path="victim-segment-1.html"><a href="victim-segment-1.html#race-3"><i class="fa fa-check"></i><b>15.7.4</b> Race</a></li>
+<li class="chapter" data-level="15.7.5" data-path="victim-segment-1.html"><a href="victim-segment-1.html#ethnicity-3"><i class="fa fa-check"></i><b>15.7.5</b> Ethnicity</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="arrestee.html"><a href="arrestee.html"><i class="fa fa-check"></i><b>16</b> Arrestee and Group B Arrestee</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="arrestee.html"><a href="arrestee.html#crimes-arrested-for"><i class="fa fa-check"></i><b>16.1</b> Crimes arrested for</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="arrestee.html"><a href="arrestee.html#arrestee-segment-arrest-crimes"><i class="fa fa-check"></i><b>16.1.1</b> Arrestee Segment arrest crimes</a></li>
+<li class="chapter" data-level="16.1.2" data-path="arrestee.html"><a href="arrestee.html#group-b-segment-arrest-crimes"><i class="fa fa-check"></i><b>16.1.2</b> Group B Segment arrest crimes</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="arrestee.html"><a href="arrestee.html#arrest-date"><i class="fa fa-check"></i><b>16.2</b> Arrest date</a></li>
+<li class="chapter" data-level="16.3" data-path="arrestee.html"><a href="arrestee.html#weapons"><i class="fa fa-check"></i><b>16.3</b> Weapons</a></li>
+<li class="chapter" data-level="16.4" data-path="arrestee.html"><a href="arrestee.html#automatic-weapons-1"><i class="fa fa-check"></i><b>16.4</b> Automatic weapons</a></li>
+<li class="chapter" data-level="16.5" data-path="arrestee.html"><a href="arrestee.html#type-of-arrest"><i class="fa fa-check"></i><b>16.5</b> Type of arrest</a></li>
+<li class="chapter" data-level="16.6" data-path="arrestee.html"><a href="arrestee.html#disposition-for-juvenile-arrestees"><i class="fa fa-check"></i><b>16.6</b> Disposition for juvenile arrestees</a></li>
+<li class="chapter" data-level="16.7" data-path="arrestee.html"><a href="arrestee.html#demographics-3"><i class="fa fa-check"></i><b>16.7</b> Demographics</a>
+<ul>
+<li class="chapter" data-level="16.7.1" data-path="arrestee.html"><a href="arrestee.html#residence-status-1"><i class="fa fa-check"></i><b>16.7.1</b> Residence status</a></li>
+<li class="chapter" data-level="16.7.2" data-path="arrestee.html"><a href="arrestee.html#age-4"><i class="fa fa-check"></i><b>16.7.2</b> Age</a></li>
+<li class="chapter" data-level="16.7.3" data-path="arrestee.html"><a href="arrestee.html#sex-3"><i class="fa fa-check"></i><b>16.7.3</b> Sex</a></li>
+<li class="chapter" data-level="16.7.4" data-path="arrestee.html"><a href="arrestee.html#race-4"><i class="fa fa-check"></i><b>16.7.4</b> Race</a></li>
+<li class="chapter" data-level="16.7.5" data-path="arrestee.html"><a href="arrestee.html#ethnicity-4"><i class="fa fa-check"></i><b>16.7.5</b> Ethnicity</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="property.html"><a href="property.html"><i class="fa fa-check"></i><b>17</b> Property Segment</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="property.html"><a href="property.html#propertyLoss"><i class="fa fa-check"></i><b>17.1</b> Type of property loss</a></li>
+<li class="chapter" data-level="17.2" data-path="property.html"><a href="property.html#description-of-property"><i class="fa fa-check"></i><b>17.2</b> Description of property</a></li>
+<li class="chapter" data-level="17.3" data-path="property.html"><a href="property.html#value-of-stolen-property"><i class="fa fa-check"></i><b>17.3</b> Value of stolen property</a></li>
+<li class="chapter" data-level="17.4" data-path="property.html"><a href="property.html#date-property-was-recovered"><i class="fa fa-check"></i><b>17.4</b> Date property was recovered</a></li>
+<li class="chapter" data-level="17.5" data-path="property.html"><a href="property.html#drugs"><i class="fa fa-check"></i><b>17.5</b> Drugs</a>
+<ul>
+<li class="chapter" data-level="17.5.1" data-path="property.html"><a href="property.html#suspected-drug-type"><i class="fa fa-check"></i><b>17.5.1</b> Suspected drug type</a></li>
+<li class="chapter" data-level="17.5.2" data-path="property.html"><a href="property.html#amount-of-drugs"><i class="fa fa-check"></i><b>17.5.2</b> Amount of drugs</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
       </nav>
@@ -245,34 +459,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="arrests" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Arrests by Age, Sex, and Race<a href="arrests.html#arrests" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The Arrests by Age, Sex, and Race dataset - often called ASR, or the “arrests data”, or sometimes the “Arrests by Age, Sex, Race, and Ethnicity though most years do not report ethnicity data - includes the monthly number of arrests for a variety of crimes and, unlike the crime data, breaks down this data by age and sex This data includes a broader number of crime categories than the crime dataset (the Offenses Known and Clearances by Arrest data) though is less detailed on violent crimes since it does not breakdown aggravated assault or robberies by weapon type as the Offenses Known data does.</p>
+<div id="arrests" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Arrests by Age, Sex, and Race<a href="arrests.html#arrests" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The Arrests by Age, Sex, and Race dataset (ASR)<a href="#fn44" class="footnote-ref" id="fnref44"><sup>44</sup></a> provides monthly counts of arrests broken down by age, sex, and race for a variety of crimes. This data includes a broader number of crime categories than the crime dataset (the Offenses Known and Clearances by Arrest data) though is less detailed on violent crimes since it does not breakdown aggravated assault or robberies by weapon type as the Offenses Known data does.</p>
 <p>For each crime it says the number of arrests for each sex-age group with younger ages (15-24) showing the arrestee’s age to the year (e.g. age 16, age 17) and other ages grouping years together (e.g. age 25-29, 30-34, “under 10”). It also breaks down arrests by race-age by including the number of arrestees of each race (American Indian, Asian, Black, and White are the only included races) and if the arrestee is a juvenile (&lt;18 years old) or an adult. The data does technically include a breakdown by ethnicity-age (e.g. juvenile-Hispanic, juvenile-non-Hispanic) but almost no agencies report this data and most do not report ethnicity at all. So in practice the data does not include ethnicity. As the data includes counts of arrestees, people who are arrested multiple times are included in the data multiple times; it is not a measure of unique arrestees.</p>
-<div id="agencies-reporting-1" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> Agencies reporting<a href="arrests.html#agencies-reporting-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This data is available from 1974 through 2022 though after 2020 the measure for how many months of data an agency reported changed so post-2020 data is difficult to compare to 2020 and earlier.<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a> Figure <a href="arrests.html#fig:arrestsAgenciesReporting">3.1</a> shows how many agencies reported at least one month of the year and every month of the year for 1974-2020.</p>
+<div id="agencies-reporting-1" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Agencies reporting<a href="arrests.html#agencies-reporting-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This data is available from 1974 through 2022 though after 2020 the measure for how many months of data an agency reported changed so post-2020 data is difficult to compare to 2020 and earlier.<a href="#fn45" class="footnote-ref" id="fnref45"><sup>45</sup></a> Figure <a href="arrests.html#fig:arrestsAgenciesReporting">5.1</a> shows how many agencies reported at least one month of the year and every month of the year for 1974-2020.</p>
 <p>The first year of data has about 9,000 agencies reporting at least one month and that increases strongly to a little over 13,000 in the late 1970s, staying fairly steady until decreasing in the late 1980s then increasing in the 2000s until approximately 15,000 agencies report. The number of agencies reporting 12 months of data follows a similar trend, but at a lower level with about 4,000 fewer agencies each year. This 15,000, however, still remains under the estimated 18,000 police agencies in the United States and below the reporting rates of UCR data such as the Offenses Known and Clearances by Arrest data. This data is also missing some important cities such as New York City which has not reported even a single month since 2002 and Chicago which tends to only report a single month if at all.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arrestsAgenciesReporting"></span>
 <img src="05_arrests_files/figure-html/arrestsAgenciesReporting-1.png" alt="The annual number of agencies reporting at least one month of data and 12 months of data in that year." width="90%" />
 <p class="caption">
-Figure 3.1: The annual number of agencies reporting at least one month of data and 12 months of data in that year.
+Figure 5.1: The annual number of agencies reporting at least one month of data and 12 months of data in that year.
 </p>
 </div>
 </div>
-<div id="what-is-an-arrest-what-unit-is-this-data-in" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> What is an arrest? (what unit is this data in?)<a href="arrests.html#what-is-an-arrest-what-unit-is-this-data-in" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A key part of understanding this data is knowing what unit of analysis it is in. This data is the monthly number of <em>total arrests for a given crime, with only the most serious crime per incident included</em>. Consider for example, a person who robs a bank, shooting and killing a guard and pointing their gun at other people in the bank. They are arrested and then released from jail (just imagine that this is true) and are then arrested the next day for shoplifting. And let us further assume that both arrests were in the same month in the same agency. How many arrests are here? They committed multiple crimes in the first incident (murder, robbery, aggravated assault) but in this dataset they would only be classified as an arrest for the most serious crime, murder. And then separately they would also be an arrested for shoplifting. So assuming that no other arrests occurred in that police agency that month, there would be two arrests reported: one for murder and one for shoplifting.</p>
+<div id="what-is-an-arrest-what-unit-is-this-data-in" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> What is an arrest? (what unit is this data in?)<a href="arrests.html#what-is-an-arrest-what-unit-is-this-data-in" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This dataset counts each arrest separately, meaning that individuals who are arrested multiple times will be counted multiple times. It reports the most serious crime for each arrest incident, so if someone commits multiple crimes during an incident, only the most serious one is recorded. Consider for example, a person who robs a bank, shooting and killing a guard and pointing their gun at other people in the bank. They are arrested and then released from jail (just imagine that this is true) and are then arrested the next day for shoplifting. And let us further assume that both arrests were in the same month in the same agency. How many arrests are here? They committed multiple crimes in the first incident (murder, robbery, aggravated assault) but in this dataset they would only be classified as an arrest for the most serious crime, murder. And then separately they would also be an arrested for shoplifting. So assuming that no other arrests occurred in that police agency that month, there would be two arrests reported: one for murder and one for shoplifting.</p>
 <p>There’s no way to tell how many unique people were arrested, or of those arrested multiple times which crimes they were arrested for. So if you have 100 arrests there may be 1 person arrested 100 times or 100 people arrested once - though, of course, the true number is likely somewhere in between. This means that studies that try to use this data as a measure of unique people or even the percent of arrestees by group (age, sex, or race) relative to some base rate of the population such as the number of people living in that city are going to be wrong - though how wrong is unclear.</p>
-<p>Common uses of this data - more common in more news articles or advocacy group reports than in peer-reviewed research articles - compare the percent of arrestees of a certain group to the percent of a city’s population of that group. Any differences between the arrestee percent and the resident percent is, according to these reports, evidence of a disparity. This is most common for looking at differences by race.<a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a> For example, say a city is equally split between Black and White residents (and no other races are present, for the simplicity of this example). If &gt;50% of arrestees for a particular crime are Black, that is often cited as evidence of anti-Black discrimination.</p>
+<p>Common uses of this data - more common in more news articles or advocacy group reports than in peer-reviewed research articles - compare the percent of arrestees of a certain group to the percent of a city’s population of that group. Any differences between the arrestee percent and the resident percent is, according to these reports, evidence of a disparity. This is most common for looking at differences by race.<a href="#fn46" class="footnote-ref" id="fnref46"><sup>46</sup></a> For example, say a city is equally split between Black and White residents (and no other races are present, for the simplicity of this example). If &gt;50% of arrestees for a particular crime are Black, that is often cited as evidence of anti-Black discrimination.</p>
 <p>There are two assumptions built into this. First, that offending rates are identical between Black and White residents; second, that reoffending rates are identical. If, for example, Black people in this example commit that crime at higher rates than White people then all else being equal you would expect this group to have a higher share of arrests than their share of the resident population. Second, it assumes that people of each race are rearrested at similar rates. Put another way, it assumes that if 100 Black people are arrested and 100 White people are arrested, there are an equal number of unique people in each group. If these assumptions are violated - and they certainly are violated to some degree in every use of the data - the conclusions will be wrong. Whether this distinction between arrests and unique people arrested affects your interpretation of the data depends on the study you are doing, but it is important to consider in your research. One way to address this is to use other data on the rate of rearrest by group, though you would have to be very careful to not extrapolate the results of the other study too far beyond what they could tell you about the specific time and place they studied.</p>
-<p>Another solution would be to try to bound results, such as calculating how extreme your assumptions (e.g. assuming how different the true offense rates between races are) can be for your conclusions to still hold. Going back to the example of a city with 50% White and 50% Black people, say that there are 10 arrests with a split of 1 White and 9 Black arrestees. If offense rates are identical you would expect 5 White and 5 Black people arrested, not a disparity of 9 to 1. So you could say that this disparity is reasonable if the Black people commit this offense at a rate of nine times as often than White people.<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a></p>
+<p>Another solution would be to try to bound results, such as calculating how extreme your assumptions (e.g. assuming how different the true offense rates between races are) can be for your conclusions to still hold. Going back to the example of a city with 50% White and 50% Black people, say that there are 10 arrests with a split of 1 White and 9 Black arrestees. If offense rates are identical you would expect 5 White and 5 Black people arrested, not a disparity of 9 to 1. So you could say that this disparity is reasonable if the Black people commit this offense at a rate of nine times as often than White people.<a href="#fn47" class="footnote-ref" id="fnref47"><sup>47</sup></a></p>
 <p>Is this bounding assumption reasonable? In this context-less example, I have no idea. There certainly may be cases where it is reasonable but that is context dependent. And you need to understand the context of what you are studying. Numbers are not enough. If based on your understanding of the context of what you are studying you believe that it is unreasonable that Black people commit that offense at a rate nine times that of White people, then you may conclude that the disparity is not explained by differences in offending rates. Your next step is to identify another explanation and try to rule that out too.</p>
-<div id="the-hierarchy-rule" class="section level3 hasAnchor" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> The Hierarchy Rule<a href="arrests.html#the-hierarchy-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>In incidents where the arrestee commits multiple crimes, this data uses something called the Hierarchy Rule which says that only the most serious crime is counted as the crime that the person was arrested for. For a comprehensive overview of the Hierarchy Rule, please see Section <a href="#hierarchy"><strong>??</strong></a>.</p>
-<p>Essentially, the FBI chose seven crimes in 1929 that they call Index Crimes - or sometimes called Part I crimes - and these were considered the most important crimes to be recorded.<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a> For more on Index Crimes, please see Section <a href="#indexCrimesOffensesKnown"><strong>??</strong></a>. If a person is arrested for multiple crimes and an Index Crime is one of those crimes, then the Index Crime at the top of the Hierarchy is the one recorded in this data. Below I have listed all crimes included in this dataset and the crimes 1-7 as well as 9 (arson) are the Index Crimes. The top of the Hierarchy is the crime with the lowest number. So murder is always reported in incidents where there is a murder; rape is always reported when there is an incident with rape but no murder; etc.</p>
-<p>The remaining crimes - the ones that are not Index crimes - are called Part II crimes and are not arranged in any particular way. So a lower value numbered crime is not higher on the Hierarchy than a higher value number - Part II crimes do not follow the Hierarchy. If all of the crimes in an incident are Part II crimes then the agency must decide for themselves which crime is the most serious. This can lead to agencies deciding their own hierarchy differently than others which makes this data much less comparable across agencies than if there was a standard rule.<a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a></p>
+<div id="the-hierarchy-rule" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> The Hierarchy Rule<a href="arrests.html#the-hierarchy-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The Hierarchy Rule is used in this data which means that when someone is arrested for multiple crimes, only the most serious crime is recorded. For example, if a person commits murder, robbery, and theft, only the murder is reported. Essentially, the FBI chose seven crimes in 1929 that they call Index Crimes - or sometimes called Part I crimes - and these were considered the most important crimes to be recorded.<a href="#fn48" class="footnote-ref" id="fnref48"><sup>48</sup></a> If a person is arrested for multiple crimes and an Index Crime is one of those crimes, then the Index Crime at the top of the Hierarchy is the one recorded in this data. Below I have listed all crimes included in this dataset and the crimes 1-7 as well as 9 (arson) are the Index Crimes. The top of the Hierarchy is the crime with the lowest number. So murder is always reported in incidents where there is a murder; rape is always reported when there is an incident with rape but no murder; etc.</p>
+<p>The remaining crimes - the ones that are not Index crimes - are called Part II crimes and are not arranged in any particular way. So a lower value numbered crime is not higher on the Hierarchy than a higher value number - Part II crimes do not follow the Hierarchy. If all of the crimes in an incident are Part II crimes then the agency must decide for themselves which crime is the most serious. This can lead to agencies deciding their own hierarchy differently than others which makes this data much less comparable across agencies than if there was a standard rule.<a href="#fn49" class="footnote-ref" id="fnref49"><sup>49</sup></a></p>
 <ol style="list-style-type: decimal">
 <li>Homicide</li>
 </ol>
@@ -338,13 +551,13 @@ Figure 3.1: The annual number of agencies reporting at least one month of data a
 <p>In incidents where the arrestee committed both an Index Crime and a Part II crime, then only the top Index Crime is recorded. This can lead to rather silly results since some Part II crimes are certainly more serious than some Index Crimes. Consider, for example, a person arrested for simple assault, carrying a firearm, pimping, and theft. The first three crimes are, in my opinion, clearly more serious than theft. But since theft is an Index Crime, this person would be considered to have been arrested for theft.</p>
 </div>
 </div>
-<div id="important-variables-1" class="section level2 hasAnchor" number="3.3">
-<h2><span class="header-section-number">3.3</span> Important variables<a href="arrests.html#important-variables-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="important-variables-2" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Important variables<a href="arrests.html#important-variables-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This data has the standard set of variables describing the agency that is reporting. This includes the agency ORI - which is the unique ID for that agency - the agency name, their state, the population under their jurisdiction, and the month and year of the data.</p>
 <p>For each crime this data provides the number of arrests in that month (or year for the annual data) broken down by age (within this, by sex), by race (within this, by if they are a juvenile or an adult), and by ethnicity though this is an enormously flawed variable. Finally, we also know the number of juvenile arrests that ended in a few possible outcomes (e.g. released without charges, referred to juvenile court), though we do not know the crime that led to these arrests. We will get into each of these variables below.</p>
-<div id="age" class="section level3 hasAnchor" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> Age<a href="arrests.html#age" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>For each crime the data provides the number of people of each sex by age, with several years in the peak offending age given as the specific age and younger and older ages broken into groups. Only female and male options are available, and there is no variable for “unknown” sex. There is also no option for transgender so whether the sex for that arrestee is their biological sex or their current gender is likely dependent on the policy of the arresting agency. To get a total arrests for that crime for that age, just add the female and male variables together. Below are the ages or age categories included in the data, and these are the same for female and male arrestees.</p>
+<div id="age" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Age<a href="arrests.html#age" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The dataset provides the number of arrests for each age group and gender. Specific ages are reported for younger individuals (e.g., 15-24), while older individuals are grouped into broader age ranges (e.g., 25-29, 30-34). Male and female arrestees are reported separately, and the dataset does not include any category for non-binary or transgender individuals. To get a total arrests for that crime for that age, just add the female and male variables together. Below are the ages or age categories included in the data, and these are the same for female and male arrestees.</p>
 <ul>
 <li>Female
 <ul>
@@ -398,18 +611,19 @@ Figure 3.1: The annual number of agencies reporting at least one month of data a
 </ul></li>
 </ul>
 <p>One way to use this data is to look at the age-crime curve of offending. The age-crime curve is a criminological finding that crime trends to increase in the early teenage years to peaking around age 18 before declining sharply. So essentially people commit crime as teenagers and then tend to fizzle out (or go to prison) as they get older.</p>
-<p>Figure <a href="arrests.html#fig:phillyRapeAge">3.2</a> shows this trend for male arrestees of rape in Philadelphia from 1974-2022, which is every year of data we have available. A major problem with this figure is that some of the ages are for single years and some are for age categories. In the graph there were 793 arrests for rape for people aged 24. The next age is the category of aged 25-29 and there were 3,604 arrests for this age group. One way to address this is to assume that each age in the category has the same number of arrests, so dividing 3,604 by 5 gives us about 721 arrests per age. Assuming equal arrests by age, however, is not consistent with either the literature on the age-crime curve or the findings in this figure for previous ages, as the number of arrests by age is, overall, going down since age 18. So instead of assuming equality, would we assume that older ages have fewer arrests than younger ages (maybe taking the percent change from the previous years where we do have individual ages available)? This is a tricky question to answer and it makes these kinds of analyses really hard to do - and very imprecise since all of your assumptions will be wrong, though hopefully not <em>too</em> wrong.</p>
+<p>Figure <a href="arrests.html#fig:phillyRapeAge">5.2</a> shows this trend for male arrestees of rape in Philadelphia from 1974-2022, which is every year of data we have available. A major problem with this figure is that some of the ages are for single years and some are for age categories. In the graph there were 793 arrests for rape for people aged 24. The next age is the category of aged 25-29 and there were 3,604 arrests for this age group. One way to address this is to assume that each age in the category has the same number of arrests, so dividing 3,604 by 5 gives us about 721 arrests per age. Assuming equal arrests by age, however, is not consistent with either the literature on the age-crime curve or the findings in this figure for previous ages, as the number of arrests by age is, overall, going down since age 18. So instead of assuming equality, would we assume that older ages have fewer arrests than younger ages (maybe taking the percent change from the previous years where we do have individual ages available)? This is a tricky question to answer and it makes these kinds of analyses really hard to do - and very imprecise since all of your assumptions will be wrong, though hopefully not <em>too</em> wrong.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:phillyRapeAge"></span>
 <img src="05_arrests_files/figure-html/phillyRapeAge-1.png" alt="The total number of rapes by male arrestees reported by arrestee age in Philadelphia, 1974-2022." width="90%" />
 <p class="caption">
-Figure 3.2: The total number of rapes by male arrestees reported by arrestee age in Philadelphia, 1974-2022.
+Figure 5.2: The total number of rapes by male arrestees reported by arrestee age in Philadelphia, 1974-2022.
 </p>
 </div>
 </div>
-<div id="race" class="section level3 hasAnchor" number="3.3.2">
-<h3><span class="header-section-number">3.3.2</span> Race<a href="arrests.html#race" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The data also breaks down the number of arrests for each crime by race, with the only included races being American Indian, Asian, Black, and White.<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a> This is further broken down into if the arrestee was an adult (18 years or older) or a juvenile (under 18). Whether the arrestee is Hispanic is in a separate (and nearly universally non-reported variable). Since the ethnicity variable is separate, and since the data is not at the arrestee-level unit, there is no way to interact the race and ethnicity variables. So, for example, there is no way to determine how many White-Hispanic or White-Non-Hispanic arrestees. Just total White arrestees and total Hispanic arrestees.</p>
-<p>As with race variables in other UCR datasets - and, really, any dataset - you should be cautious about using this variables since it is the officer’s perception of the arrestee’s race - though of course some arrests do have other data about the arrestee’s race such as what they tell the officer. In cases where the arrestee is carrying identification such as a driver’s license this variable is likely to be extremely well reported. However, we cannot tell from this data whether the race is based on something like a license or is merely the officer’s perception.<a href="#fn28" class="footnote-ref" id="fnref28"><sup>28</sup></a></p>
+<div id="race" class="section level3 hasAnchor" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Race<a href="arrests.html#race" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The dataset categorizes arrests by race: American Indian, Asian, Black, and White. It does not account for mixed-race individuals or provide details on how race was determined (e.g., officer perception or arrestee self-reporting). This is further broken down into if the arrestee was an adult (18 years or older) or a juvenile (under 18).</p>
+<p>Whether the arrestee is Hispanic is in a separate (and nearly universally non-reported variable). Since the ethnicity variable is separate, and since the data is not at the arrestee-level unit, there is no way to interact the race and ethnicity variables. So, for example, there is no way to determine how many White-Hispanic or White-Non-Hispanic arrestees. Just total White arrestees and total Hispanic arrestees.</p>
+<p>As with race variables in other UCR datasets - and, really, any dataset - you should be cautious about using this variables since it is the officer’s perception of the arrestee’s race - though of course some arrests do have other data about the arrestee’s race such as what they tell the officer. In cases where the arrestee is carrying identification such as a driver’s license this variable is likely to be extremely well reported. However, we cannot tell from this data whether the race is based on something like a license or is merely the officer’s perception.<a href="#fn50" class="footnote-ref" id="fnref50"><sup>50</sup></a></p>
 <p>Even though there is information about the specific age of arrestee (or the age range, depending on the arrestee’s age) and their sex, there is no sex information combined with race and no age beyond the adult/juvenile binary. If you add up all arrests that are broken down by sex-age and compare it to the sum of all of the arrests broken down by adult/juvenile-race here, in some cases these numbers do not add up. That is because while most agencies do report the age variables, not all agencies report the race variables. So summing up the race variables will actually undercount the total number of arrests.</p>
 <ul>
 <li>Adult
@@ -427,24 +641,24 @@ Figure 3.2: The total number of rapes by male arrestees reported by arrestee age
 <li>White</li>
 </ul></li>
 </ul>
-<p>Figure <a href="arrests.html#fig:phillyMarijuanaRacePercent">3.3</a> shows one example of an analysis of this data by showing the percent of arrests of adults for marijuana possession by the arrestee’s race in Philadelphia for all years of data we have with a full year of data reported, 1976-2018 At the bottom are American Indian and Asian arrestees who make up nearly none of the arrests for this crime. Black arrestees, shown in green, make up the bulk of arrests with only a few years making up under 60% of arrests and growing to around 80% of arrests since the mid-2000s. As White arrestees, shown in orange, are the only other race category included, they make up a near perfect mirror image of Black arrestees, composing of around 40% of arrests until decreasing starting in the 1990s to end up with about 20% of arrests in recent years.</p>
+<p>Figure <a href="arrests.html#fig:phillyMarijuanaRacePercent">5.3</a> shows one example of an analysis of this data by showing the percent of arrests of adults for marijuana possession by the arrestee’s race in Philadelphia for all years of data we have with a full year of data reported, 1976-2018 At the bottom are American Indian and Asian arrestees who make up nearly none of the arrests for this crime. Black arrestees, shown in green, make up the bulk of arrests with only a few years making up under 60% of arrests and growing to around 80% of arrests since the mid-2000s. As White arrestees, shown in orange, are the only other race category included, they make up a near perfect mirror image of Black arrestees, composing of around 40% of arrests until decreasing starting in the 1990s to end up with about 20% of arrests in recent years.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:phillyMarijuanaRacePercent"></span>
 <img src="05_arrests_files/figure-html/phillyMarijuanaRacePercent-1.png" alt="The annual percent of adult marijuana possession arrests in Philadelphia by arrestee race, 1978:2018." width="90%" />
 <p class="caption">
-Figure 3.3: The annual percent of adult marijuana possession arrests in Philadelphia by arrestee race, 1978:2018.
+Figure 5.3: The annual percent of adult marijuana possession arrests in Philadelphia by arrestee race, 1978:2018.
 </p>
 </div>
-<p>Interestingly, while the disparity between Black-White arrests has grown dramatically in recent decades, the total number of arrests have a very different trend as shown in Figure <a href="arrests.html#fig:phillyMarijuanaRaceCount">3.4</a>. Total marijuana possession arrests declined in the mid-1980s then increased in the mid-1990s from only a few hundred arrests in the early 1990s to nearly 5,000 arrests in 2010 before dropping precipitously to under 700 each year in the late-2010s.</p>
+<p>Interestingly, while the disparity between Black-White arrests has grown dramatically in recent decades, the total number of arrests have a very different trend as shown in Figure <a href="arrests.html#fig:phillyMarijuanaRaceCount">5.4</a>. Total marijuana possession arrests declined in the mid-1980s then increased in the mid-1990s from only a few hundred arrests in the early 1990s to nearly 5,000 arrests in 2010 before dropping precipitously to under 700 each year in the late-2010s.</p>
 <p>Yet throughout this latter period as a percent of arrests, Black people consistently grew for years before plateauing around 2007 with a small decline in the last few years of full data. Philadelphia decriminalized marijuana possession in 2014 under Mayor Nutter which is right when the steepest decline in arrests happened. This suggests that who is arrested, in terms of race, is relatively unrelated to the total number of arrests, at least for marijuana in Philadelphia.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:phillyMarijuanaRaceCount"></span>
 <img src="05_arrests_files/figure-html/phillyMarijuanaRaceCount-1.png" alt="The annual number of adult marijuana possession arrests in Philadelphia by arrestee race, 1978:2018." width="90%" />
 <p class="caption">
-Figure 3.4: The annual number of adult marijuana possession arrests in Philadelphia by arrestee race, 1978:2018.
+Figure 5.4: The annual number of adult marijuana possession arrests in Philadelphia by arrestee race, 1978:2018.
 </p>
 </div>
 </div>
-<div id="ethnicity" class="section level3 hasAnchor" number="3.3.3">
-<h3><span class="header-section-number">3.3.3</span> Ethnicity<a href="arrests.html#ethnicity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ethnicity" class="section level3 hasAnchor" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Ethnicity<a href="arrests.html#ethnicity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>While technically included, the ethnicity variable is largely useless since for most years no agencies reported it and for the years where agencies do report ethnicity, not all agencies do so. The ethnicities included are Hispanic and non-Hispanic and are broken down by if the arrestee is an adult (18+ years old) or a juvenile (&lt;18 years old).</p>
 <ul>
 <li>Adult
@@ -458,23 +672,23 @@ Figure 3.4: The annual number of adult marijuana possession arrests in Philadelp
 <li>Non-Hispanic</li>
 </ul></li>
 </ul>
-<p>Figure <a href="arrests.html#fig:theftHispanic">3.5</a> shows the annual number of Hispanic arrestees for theft for all agencies that reported any data that year.<a href="#fn29" class="footnote-ref" id="fnref29"><sup>29</sup></a> For several years no agencies reported until the number of Hispanic arrestees start climbing in 1980 and peaks in 1986 at about 136,000 arrestees. Then there are zero Hispanic arrestees for a few years, four Hispanic arrestees in 1990 and two non-Hispanic arrests in 1991, and then again zero Hispanic arrestees, this time for decades. Only in 2017 do the number of Hispanic theft arrestees begin to creep up. From 2017 to 2022 (the last year available at the time of this writing) there are Hispanic arrestees reported every year, though now only about 60,000 per year.</p>
+<p>Figure <a href="arrests.html#fig:theftHispanic">5.5</a> shows the annual number of Hispanic arrestees for theft for all agencies that reported any data that year.<a href="#fn51" class="footnote-ref" id="fnref51"><sup>51</sup></a> For several years no agencies reported until the number of Hispanic arrestees start climbing in 1980 and peaks in 1986 at about 136,000 arrestees. Then there are zero Hispanic arrestees for a few years, four Hispanic arrestees in 1990 and two non-Hispanic arrests in 1991, and then again zero Hispanic arrestees, this time for decades. Only in 2017 do the number of Hispanic theft arrestees begin to creep up. From 2017 to 2022 (the last year available at the time of this writing) there are Hispanic arrestees reported every year, though now only about 60,000 per year.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:theftHispanic"></span>
 <img src="05_arrests_files/figure-html/theftHispanic-1.png" alt="The national annual number of Hispanic arrestees for theft. This includes all agencies that year that reporting any number of months. Hispanic arrestees include both juvenile and adult arrestees" width="90%" />
 <p class="caption">
-Figure 3.5: The national annual number of Hispanic arrestees for theft. This includes all agencies that year that reporting any number of months. Hispanic arrestees include both juvenile and adult arrestees
+Figure 5.5: The national annual number of Hispanic arrestees for theft. This includes all agencies that year that reporting any number of months. Hispanic arrestees include both juvenile and adult arrestees
 </p>
 </div>
-<p>Perhaps a better way to look at this data is to see what percent of agencies report ethnicity data. Figure <a href="arrests.html#fig:theftHispanicPercentAgencies">3.6</a> show the percent of agencies each year that report at least one Hispanic or non-Hispanic (which are the only choices, but showing only Hispanic arrests would exclude agencies where no Hispanic people truly were arrested) arrest for theft. About 60% of agencies reported ethnicity data in the early 80s and then only a couple agencies report in 1990 and 1991. Other than those agencies, none report between 1987 and 2016. Starting in 2017, 36% of agencies report and this number has grown by about five percentage points a year until spiking to about 67% in 2021 and it remained steady in 2022. Given the fluctuations in reporting and how many years there is no data, I strongly recommend against using these variables, even for the recent years of data.</p>
+<p>Perhaps a better way to look at this data is to see what percent of agencies report ethnicity data. Figure <a href="arrests.html#fig:theftHispanicPercentAgencies">5.6</a> show the percent of agencies each year that report at least one Hispanic or non-Hispanic (which are the only choices, but showing only Hispanic arrests would exclude agencies where no Hispanic people truly were arrested) arrest for theft. About 60% of agencies reported ethnicity data in the early 80s and then only a couple agencies report in 1990 and 1991. Other than those agencies, none report between 1987 and 2016. Starting in 2017, 36% of agencies report and this number has grown by about five percentage points a year until spiking to about 67% in 2021 and it remained steady in 2022. Given the fluctuations in reporting and how many years there is no data, I strongly recommend against using these variables, even for the recent years of data.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:theftHispanicPercentAgencies"></span>
 <img src="05_arrests_files/figure-html/theftHispanicPercentAgencies-1.png" alt="The annual percent of agencies that report theft arrests that reported at least one Hispanic person or one non-Hispanic person arrested for theft. Arrestees include both juvenile and adult arrestees." width="90%" />
 <p class="caption">
-Figure 3.6: The annual percent of agencies that report theft arrests that reported at least one Hispanic person or one non-Hispanic person arrested for theft. Arrestees include both juvenile and adult arrestees.
+Figure 5.6: The annual percent of agencies that report theft arrests that reported at least one Hispanic person or one non-Hispanic person arrested for theft. Arrestees include both juvenile and adult arrestees.
 </p>
 </div>
 </div>
-<div id="juvenile-referrals" class="section level3 hasAnchor" number="3.3.4">
-<h3><span class="header-section-number">3.3.4</span> Juvenile referrals<a href="arrests.html#juvenile-referrals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="juvenile-referrals" class="section level3 hasAnchor" number="5.3.4">
+<h3><span class="header-section-number">5.3.4</span> Juvenile referrals<a href="arrests.html#juvenile-referrals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The final variable of interest are five mutually exclusive outcomes for juveniles who are arrested by the police for a crime that if they were adults would have been counted as a formal arrest. This variable is not available for data after 2020.</p>
 <p>Unlike the rest of this dataset where juvenile is defined as being under the age of 18, these variables allow states to use their own definition of juvenile. So potentially the limit for who is a juvenile could be below the age of 18, and nothing in the data indicates when this is so - you would have to check each state to see their definition and if it changed over time. There is no breakdown by crime so this gives you the outcomes for juveniles arrested for all crimes in that agency. Please note that the number of juveniles in other variables and the number here do not always line up, which is a mix of underreporting of this variable, arrests for other jurisdictions are not counted as an arrest in the above variables, and different age definitions for who is a juvenile. A juvenile may potentially get multiple referrals, such as being released and then later referred to court. But in this data only the <em>initial</em> referral is included. It is also unclear - and likely determined by a particular agency’s policy - what is reported when there are multiple initial referrals. Below are the five potential outcomes and definitions of each:</p>
 <ul>
@@ -493,18 +707,18 @@ Figure 3.6: The annual percent of agencies that report theft arrests that report
 <li>These are juveniles who are referred to be tried in criminal court as adults. This is for states that allow juveniles to be tried as adults. This is the police’s recommendation that they be tried as adults, regardless of the decision of the district attorney or court for whether that juvenile is ultimately tried as an adult.</li>
 </ul></li>
 </ul>
-<p>We can look at an example of this in Figure <a href="arrests.html#fig:JuvenileReferrals">3.7</a> which shows the annual number of referral types in the entire United States from 1974-2022. For all the first couple of years almost all of the referrals have either been that the agency handles the arrest internally and releases the juvenile without any formal charges, or that the juvenile is formally arrested and referred to juvenile court. Since this only happens for a single year it appears to be a data issue.Starting in the late 1990s the number of referrals has declined over time, possibly due fewer juvenile arrests overall during this period.</p>
+<p>We can look at an example of this in Figure <a href="arrests.html#fig:JuvenileReferrals">5.7</a> which shows the annual number of referral types in the entire United States from 1974-2022. For all the first couple of years almost all of the referrals have either been that the agency handles the arrest internally and releases the juvenile without any formal charges, or that the juvenile is formally arrested and referred to juvenile court. Since this only happens for a single year it appears to be a data issue.Starting in the late 1990s the number of referrals has declined over time, possibly due fewer juvenile arrests overall during this period.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:JuvenileReferrals"></span>
 <img src="05_arrests_files/figure-html/JuvenileReferrals-1.png" alt="The annual number of juvenile referrals in the United States by referral type, 1974-2020." width="90%" />
 <p class="caption">
-Figure 3.7: The annual number of juvenile referrals in the United States by referral type, 1974-2020.
+Figure 5.7: The annual number of juvenile referrals in the United States by referral type, 1974-2020.
 </p>
 </div>
-<p>In Figure <a href="arrests.html#fig:JuvenileReferrals">3.7</a> there is a massive spike in referrals to welfare, handled internally, and juvenile court cases in 1976 that occurs for a single year. Was this a year of superpredators? No, it was a year of Michigan data errors. In 1976 many agencies in Michigan provided erroneous data for this variable. This includes, for example, Washtenaw County Sheriff’s Office which had a population of 101,452 in 1976 and reported that 150,088 juvenile arrests were reported in welfare. Similarly, Otisville Police Department, population 760, had 10,000 referrals to welfare, and Saginaw Police Department, population 82,000, had 80,074 referrals to welfare, 27,213 referrals to juvenile court, and 6,230 juvenile arrests handled internally. When we remove Michigan, shown in Figure <a href="#JuvenileReferralsNoMichigan"><strong>??</strong></a>, this spike disappears.</p>
+<p>In Figure <a href="arrests.html#fig:JuvenileReferrals">5.7</a> there is a massive spike in referrals to welfare, handled internally, and juvenile court cases in 1976 that occurs for a single year. Was this a year of superpredators? No, it was a year of Michigan data errors. In 1976 many agencies in Michigan provided erroneous data for this variable. This includes, for example, Washtenaw County Sheriff’s Office which had a population of 101,452 in 1976 and reported that 150,088 juvenile arrests were reported in welfare. Similarly, Otisville Police Department, population 760, had 10,000 referrals to welfare, and Saginaw Police Department, population 82,000, had 80,074 referrals to welfare, 27,213 referrals to juvenile court, and 6,230 juvenile arrests handled internally. When we remove Michigan, shown in Figure <a href="arrests.html#fig:JuvenileReferralsNoMichigan">5.8</a>, this spike disappears.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:JuvenileReferralsNoMichigan"></span>
 <img src="05_arrests_files/figure-html/JuvenileReferralsNoMichigan-1.png" alt="The annual number of juvenile referrals in the United States excluding agencies in Michigan by referral type, 1974-2020." width="90%" />
 <p class="caption">
-Figure 3.8: The annual number of juvenile referrals in the United States excluding agencies in Michigan by referral type, 1974-2020.
+Figure 5.8: The annual number of juvenile referrals in the United States excluding agencies in Michigan by referral type, 1974-2020.
 </p>
 </div>
 <p>Michigan is unlikely to be the sole state with data issues in 1976, and 1976 is unlikely to be the only year with problems. We can see other spikes in the data such as small ones in 1991 and 2016. I leave the task of discovering the cause of these spikes to the reader.</p>
@@ -514,15 +728,15 @@ Figure 3.8: The annual number of juvenile referrals in the United States excludi
 </div>
 <div class="footnotes">
 <hr />
-<ol start="22">
-<li id="fn22"><p>Post-2020 years do have considerably fewer agencies reporting than in previous years.<a href="arrests.html#fnref22" class="footnote-back">↩︎</a></p></li>
-<li id="fn23"><p>Disparity, of course, does not even mean discrimination.<a href="arrests.html#fnref23" class="footnote-back">↩︎</a></p></li>
-<li id="fn24"><p>This is a simplification as there are other things that affect arrests such as witness cooperation, details of the offense like time of day and location, and (especially in the case of rare events like only 10 arrests) random chance.<a href="arrests.html#fnref24" class="footnote-back">↩︎</a></p></li>
-<li id="fn25"><p>Partly based on the quality of the data available as they considered these crimes to be a good combination of well-reported and serious.<a href="arrests.html#fnref25" class="footnote-back">↩︎</a></p></li>
-<li id="fn26"><p>This here is another example of where the “Uniform” part of Uniform Crime Reporting is more of a suggestion than a rule.<a href="arrests.html#fnref26" class="footnote-back">↩︎</a></p></li>
-<li id="fn27"><p>There is no option for a person who is mixed-race. Only one race may be chosen.<a href="arrests.html#fnref27" class="footnote-back">↩︎</a></p></li>
-<li id="fn28"><p>In my experience working directly with police data where I can identify a person arrested multiple times in about 5-10% of cases they have at least one arrest where their reported race is different than other arrests. Such as a person arrested five times and being reported as White four times and Black once. This is probably a mix of officers perceiving people differently (e.g. mixed race people) and having different officers report different race for the same person, and human error when entering data. But all of it suggests that there is at least some uncertainty in this variable.<a href="arrests.html#fnref28" class="footnote-back">↩︎</a></p></li>
-<li id="fn29"><p>Theft is used as it is one of the most common crimes.<a href="arrests.html#fnref29" class="footnote-back">↩︎</a></p></li>
+<ol start="44">
+<li id="fn44"><p>Sometimes called Arrests by Age, Sex, Race, and Ethnicity.<a href="arrests.html#fnref44" class="footnote-back">↩︎</a></p></li>
+<li id="fn45"><p>Post-2020 years do have considerably fewer agencies reporting than in previous years.<a href="arrests.html#fnref45" class="footnote-back">↩︎</a></p></li>
+<li id="fn46"><p>Disparity, of course, does not even mean discrimination.<a href="arrests.html#fnref46" class="footnote-back">↩︎</a></p></li>
+<li id="fn47"><p>This is a simplification as there are other things that affect arrests such as witness cooperation, details of the offense like time of day and location, and (especially in the case of rare events like only 10 arrests) random chance.<a href="arrests.html#fnref47" class="footnote-back">↩︎</a></p></li>
+<li id="fn48"><p>Partly based on the quality of the data available as they considered these crimes to be a good combination of well-reported and serious.<a href="arrests.html#fnref48" class="footnote-back">↩︎</a></p></li>
+<li id="fn49"><p>This here is another example of where the “Uniform” part of Uniform Crime Reporting is more of a suggestion than a rule.<a href="arrests.html#fnref49" class="footnote-back">↩︎</a></p></li>
+<li id="fn50"><p>In my experience working directly with police data where I can identify a person arrested multiple times in about 5-10% of cases they have at least one arrest where their reported race is different than other arrests. Such as a person arrested five times and being reported as White four times and Black once. This is probably a mix of officers perceiving people differently (e.g. mixed race people) and having different officers report different race for the same person, and human error when entering data. But all of it suggests that there is at least some uncertainty in this variable.<a href="arrests.html#fnref50" class="footnote-back">↩︎</a></p></li>
+<li id="fn51"><p>Theft is used as it is one of the most common crimes.<a href="arrests.html#fnref51" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
