@@ -71,29 +71,29 @@ There are also some unexpected subtypes related to certain offenses. For example
 
 This data is only available for the below subset of crimes, and is not always present even for these crimes. In Table \@ref(tab:offenseCrimeSubcategories) we show the breakdown of subtypes for each of these offenses, based on the first subtype reported. 
 
-* Animal Cruelty                                                   
-* Assault Offenses - Aggravated Assault                            
-* Assault Offenses - Intimidation                                  
-* Assault Offenses - Simple Assault                                
-* Commerce Violations - Federal Liquor Offenses                    
-* Counterfeiting/Forgery                                           
-* Drug/Narcotic Offenses - Drug Equipment Violations               
-* Drug/Narcotic Offenses - Drug/Narcotic Violations                
-* Fugitive Offenses - Harboring Escapee/Concealing From Arrest    
-* Gambling Offenses - Gambling Equipment Violations                
-* Kidnapping/Abduction                                             
-* Murder/Nonnegligent Manslaughter                                 
-* Negligent Manslaughter                                           
-* Pornography/Obscene Material                                     
-* Robbery                                                          
-* Sex Offenses - Fondling (Incident Liberties/Child Molest)        
-* Sex Offenses - Rape                                              
-* Sex Offenses - Sexual Assault With An Object                     
-* Sex Offenses - Sodomy                                            
-* Stolen Property Offenses (Receiving, Selling, Etc.)              
-* Weapon Law Violations - Explosives                               
+* Animal Cruelty
+* Assault Offenses - Aggravated Assault
+* Assault Offenses - Intimidation
+* Assault Offenses - Simple Assault
+* Commerce Violations - Federal Liquor Offenses
+* Counterfeiting/Forgery
+* Drug/Narcotic Offenses - Drug Equipment Violations
+* Drug/Narcotic Offenses - Drug/Narcotic Violations
+* Fugitive Offenses - Harboring Escapee/Concealing From Arrest
+* Gambling Offenses - Gambling Equipment Violations
+* Kidnapping/Abduction
+* Murder/Nonnegligent Manslaughter
+* Negligent Manslaughter
+* Pornography/Obscene Material
+* Robbery
+* Sex Offenses - Fondling (Incident Liberties/Child Molest)
+* Sex Offenses - Rape
+* Sex Offenses - Sexual Assault With An Object
+* Sex Offenses - Sodomy
+* Stolen Property Offenses (Receiving, Selling, Etc.)
+* Weapon Law Violations - Explosives
 * Weapon Law Violations - Violation of National Firearm Act of 1934
-* Weapon Law Violations - Weapon Law Violations 
+* Weapon Law Violations - Weapon Law Violations
 
 ```{r }
 offenses_with_subtypes <- c("animal cruelty",
@@ -121,7 +121,6 @@ offenses_with_subtypes <- c("animal cruelty",
                             "weapon law violations - weapon law violations" )
 
 final <- data.frame()
-unique(offense$type_criminal_activity_1)
 offense$type_criminal_activity_1[is.na(offense$type_criminal_activity_1)] <- "None"
 for (crime in offenses_with_subtypes) {
 temp <- make_frequency_table(offense %>% filter(ucr_offense_code %in% crime),

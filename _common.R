@@ -1,4 +1,4 @@
-library(groundhog)
+library(groundhog) 
 
 # devtools::install_github("wmurphyrd/fiftystater")
 library(fiftystater)
@@ -87,34 +87,36 @@ options(readr.show_col_types = FALSE)
 
 
 # 
-# knitr::opts_chunk$set(
-#   comment = "#>",
-#   collapse = TRUE,
-#   out.width = "90%",
-#   fig.align = "center",
-#   fig.width = 18.33333,
-#   fig.height = 13,
-#  # fig.asp = (1 / 1.618033988749895), # 1 / phi
-#   fig.show = "hold",
-#   error = TRUE
-# )
-
-
-library(formatR)
 knitr::opts_chunk$set(
-  comment = "#",
- # collapse = TRUE,
-  fig.align = 'center',
-  fig.width = 12,
-  fig.asp =  0.618,
+  comment = "#>",
+  collapse = TRUE,
+  out.width = "90%",
+  fig.align = "center",
+  fig.width = 18.33333,
+  fig.height = 14,
+ # fig.asp = (1 / 1.618033988749895), # 1 / phi
   fig.show = "hold",
-  #error = TRUE,
- # fig.pos = "!H",
-  out.extra = "",
-  tidy = "styler",
+  error = TRUE,
   out.width = "100%",
   out.height= "100%"
 )
+
+
+library(formatR)
+# knitr::opts_chunk$set(
+#   comment = "#",
+#  # collapse = TRUE,
+#   fig.align = 'center',
+#   fig.width = 12,
+#   fig.asp =  0.618,
+#   fig.show = "hold",
+#   #error = TRUE,
+#  # fig.pos = "!H",
+#   out.extra = "",
+#   tidy = "styler",
+#   out.width = "100%",
+#   out.height= "100%"
+# )
 
 get_replace_single_month <- function(data, crime_col, crime) {
   data <- data[match(data$month, month.name), ]

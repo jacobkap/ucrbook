@@ -71,8 +71,8 @@ The Hierarchy Rule is used in this data which means that when someone is arreste
 The remaining crimes - the ones that are not Index crimes - are called Part II crimes and are not arranged in any particular way. So a lower value numbered crime is not higher on the Hierarchy than a higher value number - Part II crimes do not follow the Hierarchy. If all of the crimes in an incident are Part II crimes then the agency must decide for themselves which crime is the most serious. This can lead to agencies deciding their own hierarchy differently than others which makes this data much less comparable across agencies than if there was a standard rule.^[This here is another example of where the "Uniform" part of Uniform Crime Reporting is more of a suggestion than a rule.]  
 
 1. Homicide
-  + Murder and non-negligent manslaughter
-  + Manslaughter by negligence
+  a. Murder and non-negligent manslaughter
+  b. Manslaughter by negligence
 2. Rape
 3. Robbery
 4. Aggravated assault
@@ -90,20 +90,20 @@ The remaining crimes - the ones that are not Index crimes - are called Part II c
 16. Prostitution and commercialized vice
 17. Sex offenses - other than rape or prostitution
 18. Drug abuse violations - total
-  + Drug sale or manufacturing
-    - Opium and cocaine, and their derivatives (including morphine and heroin)
-    - Marijuana
-    - Synthetic narcotics
-    - Other dangerous non-narcotic drugs
-  + Drug possession
-    - Opium and cocaine, and their derivatives (including morphine and heroin)
-    - Marijuana
-    - Synthetic narcotics
-    - Other dangerous non-narcotic drugs
+  a. Drug sale or manufacturing
+    1. Opium and cocaine, and their derivatives (including morphine and heroin)
+    2. Marijuana
+    3. Synthetic narcotics
+    4. Other dangerous non-narcotic drugs
+  b Drug possession
+    1. Opium and cocaine, and their derivatives (including morphine and heroin)
+    2. Marijuana
+    3. Synthetic narcotics
+    4. Other dangerous non-narcotic drugs
 19. Gambling - total
-  + Bookmaking - horse and sports
-  + Number and lottery
-  + All other gambling
+  a. Bookmaking - horse and sports
+  b. Number and lottery
+  c. All other gambling
 20. Offenses against family and children - nonviolent acts against family members. Includes neglect or abuse, nonpayment of child support or alimony.
 21. Driving under the influence (DUI)
 22. Liquor law violations - Includes illegal production, possession (e.g. underage) or sale of alcohol, open container, or public use laws. Does not include DUIs and drunkenness.
@@ -256,7 +256,7 @@ Even though there is information about the specific age of arrestee (or the age 
     
 Figure \@ref(fig:phillyMarijuanaRacePercent) shows one example of an analysis of this data by showing the percent of arrests of adults for marijuana possession by the arrestee's race in Philadelphia for all years of data we have with a full year of data reported, 1976-2018 At the bottom are American Indian and Asian arrestees who make up nearly none of the arrests for this crime. Black arrestees, shown in green, make up the bulk of arrests with only a few years making up under 60% of arrests and growing to around 80% of arrests since the mid-2000s. As White arrestees, shown in orange, are the only other race category included, they make up a near perfect mirror image of Black arrestees, composing of around 40% of arrests until decreasing starting in the 1990s to end up with about 20% of arrests in recent years. 
 
-```{r phillyMarijuanaRacePercent, fig.cap = "The annual percent of adult marijuana possession arrests in Philadelphia by arrestee race, 1978:2018."}
+```{r phillyMarijuanaRacePercent, fig.cap = "The annual percent of adult marijuana possession arrests in Philadelphia by arrestee race, 1978-2018."}
 
 all_crimes %>%
   filter(ori %in% "PAPEP00",

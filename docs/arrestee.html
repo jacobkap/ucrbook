@@ -23,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2024-09-15" />
+<meta name="date" content="2024-09-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1666,7 +1666,7 @@ Total
 <p>Figure <a href="#fig:arrestsDaysUntilArrest"><strong>??</strong></a> shows how long it takes for arrests to be made. The shortest time is zero days which means the arrest and the incident happened on the same day and the longest is 461 days after the incident. About 76.5% of arrests happen on the same day as the incident while 6.6% happen on the next day. 1.4% happen the following day and 1% on the day after this. This trend of a lower probability of the case being solved as the time from the incident increases continues throughout the figure. Including dates up to 461 days is a bit ridiculous since it is impossible to see trends among the early dates other than zero days, but it is a good demonstration of how massively concentrated arrests are that occur on the same day of the incident. The lesson here is that if an arrest is not made on the day of the incident (such as at the scene of the crime), it is very unlikely that’ll it’ll be made at all (and most crimes never lead to an arrest).</p>
 <p>Figure <a href="arrestee.html#fig:arrestsDaysUntilArrestBarplot">16.1</a> groups the larger number of days together to make it easier to see trends early after the incident. Here we can see much better how the percent of arrests move quickly downwards after zero days.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arrestsDaysUntilArrestBarplot"></span>
-<img src="16_nibrs_arrestee_files/figure-html/arrestsDaysUntilArrestBarplot-1.png" alt="The number of days from the incident to the arrest date. Values over 10 days are grouped to better see the distribution for arrests that took fewer than 10 days. Zero days means that the arrest occurred on the same day as the incident." width="100%" height="100%"  />
+<img src="16_nibrs_arrestee_files/figure-html/arrestsDaysUntilArrestBarplot-1.png" alt="The number of days from the incident to the arrest date. Values over 10 days are grouped to better see the distribution for arrests that took fewer than 10 days. Zero days means that the arrest occurred on the same day as the incident." width="100%" height="100%" />
 <p class="caption">
 Figure 16.1: The number of days from the incident to the arrest date. Values over 10 days are grouped to better see the distribution for arrests that took fewer than 10 days. Zero days means that the arrest occurred on the same day as the incident.
 </p>
@@ -1678,13 +1678,13 @@ Figure 16.1: The number of days from the incident to the arrest date. Values ove
 <p>Figure <a href="#fig:arresteeWeapon"><strong>??</strong></a> shows the breakdown in the weapon carried by the arrestee during the arrest. In 94% of arrests, the arrestee was not carrying any weapon. Since this graph shows arrests for all crimes, it makes a good deal of sense. Most crimes are non-violent so we would expect those people to not carry a weapon. Since so few arrestees have weapons, we will look at the breakdown among those who were carrying a weapon in Figure <a href="arrestee.html#fig:arresteeWeaponArmed">16.3</a>.</p>
 <p>To see the weapons carried when the arrestee had a weapon, Figure <a href="arrestee.html#fig:arresteeWeaponArmed">16.3</a> shows the breakdown in which weapon they carried. About 43.8% of people arrested who had a weapon were carrying a handgun followed by 30% with some kind of “lethal cutting instrument” like a knife. While rifles, and especially “assault rifles”, are what people (and especially politicians and the media) focus on when talking about violent crime, handguns are actually the most common gun to be used in a crime so it makes sense that handguns are the most frequently found weapon. “Firearm (type not stated)” basically means that the type of firearm used is unknown so can belong in one of the firearm categories and makes up 9% of weapons. Blunt instruments (including bats, clubs, and brass knuckles) follow at 6.9% of weapons. And the remaining weapons included are “other firearm” (so any other than ones specified) at 5.8%, rifle at 2.3%, and shotgun at 2%.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsArresteeMurderWeapon"></span>
-<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeMurderWeapon-1.png" alt="The share of murder and nonnegligent manslaughter arrestees by weapon carried at arrest, 1991-2022." width="100%" height="100%"  />
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeMurderWeapon-1.png" alt="The share of murder and nonnegligent manslaughter arrestees by weapon carried at arrest, 1991-2022." width="100%" height="100%" />
 <p class="caption">
 Figure 16.2: The share of murder and nonnegligent manslaughter arrestees by weapon carried at arrest, 1991-2022.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arresteeWeaponArmed"></span>
-<img src="16_nibrs_arrestee_files/figure-html/arresteeWeaponArmed-1.png" alt="The distribution of weapon usage for all arrestees in 2022 who were arrested with a weapon (i.e. excludes unarmed arrestees)." width="100%" height="100%"  />
+<img src="16_nibrs_arrestee_files/figure-html/arresteeWeaponArmed-1.png" alt="The distribution of weapon usage for all arrestees in 2022 who were arrested with a weapon (i.e. excludes unarmed arrestees)." width="100%" height="100%" />
 <p class="caption">
 Figure 16.3: The distribution of weapon usage for all arrestees in 2022 who were arrested with a weapon (i.e. excludes unarmed arrestees).
 </p>
@@ -1694,7 +1694,7 @@ Figure 16.3: The distribution of weapon usage for all arrestees in 2022 who were
 <h2><span class="header-section-number">16.4</span> Automatic weapons<a href="arrestee.html#automatic-weapons-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This variable tells you if the weapon the arrestee was carrying was a gun whether that gun was fully automatic. To be clear, this means that when you pull the trigger once the gun will fire multiple bullets. Semi-automatic firearms are not automatic firearms. The Offense Segment also has a variable indicating if the offender used an automatic weapon but there they did not necessarily recover the gun so it is much less reliable than in this segment where the police have the gun and are able to test it.<a href="#fn99" class="footnote-ref" id="fnref99"><sup>99</sup></a> The percent of guns that are fully automatic are fairly similar between the weapons seized at arrest, as shown in Figure <a href="arrestee.html#fig:arresteeAutomaticWeapon">16.4</a> and those used in the offense as shown in Figure <a href="offenseSegment.html#fig:offenseAutomaticWeapon">13.5</a> in Chapter <a href="offenseSegment.html#offenseSegment">13</a>. Figure <a href="arrestee.html#fig:arresteeAutomaticWeapon">16.4</a> shows that about 5.6% of rifles seized by police during an arrest were fully automatic. About 4.9% of handguns are automatic while “firearm (type not stated) are automatic in 4.3% of cases. Shotguns and”other firearm” category are the least likely to be automatic at about 2.5% and 1.1% of weapons, respectively.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arresteeAutomaticWeapon"></span>
-<img src="16_nibrs_arrestee_files/figure-html/arresteeAutomaticWeapon-1.png" alt="The percent of firearms the arrestee was carrying that were fully automatic, for arrestees in 2022." width="100%" height="100%"  />
+<img src="16_nibrs_arrestee_files/figure-html/arresteeAutomaticWeapon-1.png" alt="The percent of firearms the arrestee was carrying that were fully automatic, for arrestees in 2022." width="100%" height="100%" />
 <p class="caption">
 Figure 16.4: The percent of firearms the arrestee was carrying that were fully automatic, for arrestees in 2022.
 </p>
@@ -1707,13 +1707,13 @@ Figure 16.4: The percent of firearms the arrestee was carrying that were fully a
 <p>Finally, people can get a “summoned/cited” arrest which is not really an arrest at all. This is when they are given a subpoena that says that must go to court to be tried for a crime, but they are not formally arrested and taken into police custody (i.e. they are never handcuffed, taken to a police precinct or to jail). About 22.2% of arrests are this form of arrest.</p>
 <p>THEYRE</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsArresteeArrestType"></span>
-<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeArrestType-1.png" alt="Annual arrest type for all arrestees, 1991-2022. Previous Incident Report includes cases where an individual was arrested for a separate crime and are then reported as also arrested for this incident." width="100%" height="100%"  />
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeArrestType-1.png" alt="Annual arrest type for all arrestees, 1991-2022. Previous Incident Report includes cases where an individual was arrested for a separate crime and are then reported as also arrested for this incident." width="100%" height="100%" />
 <p class="caption">
 Figure 16.5: Annual arrest type for all arrestees, 1991-2022. Previous Incident Report includes cases where an individual was arrested for a separate crime and are then reported as also arrested for this incident.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsArresteeDUIArrestType"></span>
-<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeDUIArrestType-1.png" alt="Annual arrest type for DUI arrestees, 1991-2022." width="100%" height="100%"  />
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeDUIArrestType-1.png" alt="Annual arrest type for DUI arrestees, 1991-2022." width="100%" height="100%" />
 <p class="caption">
 Figure 16.6: Annual arrest type for DUI arrestees, 1991-2022.
 </p>
@@ -1723,7 +1723,7 @@ Figure 16.6: Annual arrest type for DUI arrestees, 1991-2022.
 <h2><span class="header-section-number">16.6</span> Disposition for juvenile arrestees<a href="arrestee.html#disposition-for-juvenile-arrestees" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>For juvenile arrestees - those under age 18 <em>at the time of the arrest</em> (and, by definition they would also be under age 18 during the incident) - there is some information about the outcome of the arrest.<a href="#fn100" class="footnote-ref" id="fnref100"><sup>100</sup></a> There are two possible outcomes (which NIBRS calls “dispositions”): being referred to other (that is, other than the arresting agency) authorities or handled within the arresting agency. Figure <a href="arrestee.html#fig:arresteeJuvenileDisposition">16.7</a> shows this breakdown and being referred to other authorities is the most common outcome at 72.6% of juvenile arrests. This is a very broad category and the “other authorities” can range from juvenile or adult court (so the police recommend that they be prosecuted) to welfare agencies and being sent to other police agencies (such as if they committed a crime elsewhere and are being extradited). The other category, being handled within the department, means that the police release the juvenile without any formal action taken (but they may give the juvenile a warning). In these cases the juvenile is released to an adult (including but not limited to family members or guardians) and the case is essentially dropped. In about 0.001% of juvenile arrests the disposition is unknown.<a href="#fn101" class="footnote-ref" id="fnref101"><sup>101</sup></a></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arresteeJuvenileDisposition"></span>
-<img src="16_nibrs_arrestee_files/figure-html/arresteeJuvenileDisposition-1.png" alt="For juvenile arrestees (under age 18), the distribution of case outcomes." width="100%" height="100%"  />
+<img src="16_nibrs_arrestee_files/figure-html/arresteeJuvenileDisposition-1.png" alt="For juvenile arrestees (under age 18), the distribution of case outcomes." width="100%" height="100%" />
 <p class="caption">
 Figure 16.7: For juvenile arrestees (under age 18), the distribution of case outcomes.
 </p>
@@ -1738,7 +1738,7 @@ Figure 16.7: For juvenile arrestees (under age 18), the distribution of case out
 <p>One thing to be cautious about is that residence status may be an imprecise measure of where someone actually lives. How it is defined may differ by agency which could affect comparability across agencies. For example, if it is defined as official residence (such as address on a driver’s license) that may be incorrect for a sizable share of the population (e.g. many college students live far from where their driver’s license address is).<a href="#fn103" class="footnote-ref" id="fnref103"><sup>103</sup></a> If residence status is based on asking the arrestee, they may of course lie to the police. There’s also the question of how to label people who are truly transient such as homeless people who may move from city to city. The FBI defines residence as their legal permanent address though it is unclear how that is handled for people without this info and when people live permanently in a different spot than their legal address.</p>
 <p>Figure <a href="#fig:arresteeResidenceStatus"><strong>??</strong></a> shows the percent of arrestees in 2022 who were residents or not (or whose status was unknown) of the jurisdiction that arrested them. Most people were arrested near where they live, with 56.9% of arrestees being residents, compared with 23.3% not being residents. However, about one-fifth of arrestees had an unknown residence status so the percents of resident and non-resident may change dramatically if we did not have any unknowns.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsArresteeResidentStatus"></span>
-<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeResidentStatus-1.png" alt="Annual resident status (i.e. if they live in the arresting jurisdiction) of arrestees, 1991-2022." width="100%" height="100%"  />
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeResidentStatus-1.png" alt="Annual resident status (i.e. if they live in the arresting jurisdiction) of arrestees, 1991-2022." width="100%" height="100%" />
 <p class="caption">
 Figure 16.8: Annual resident status (i.e. if they live in the arresting jurisdiction) of arrestees, 1991-2022.
 </p>
@@ -1749,19 +1749,19 @@ Figure 16.8: Annual resident status (i.e. if they live in the arresting jurisdi
 <p>This variable is the age at the arrest, which may be different than age during the crime. As in the Offender Segment we are given the exact age (in years) but agencies can input a range of possible ages with the FBI giving us the average of this range (rounding down, not to the nearest integer) in the data. In Figure <a href="offender-segment-1.html#fig:offenderAge">14.1</a> in the Offense Segment, this can be seen in the sudden spikes in the percent of offenders of a certain age and that some of the most common ages are divisible by five (e.g. 20, 25, 30). There are also far fewer unknown ages in this data with only 0.1% of arrestees having a missing age. This is reasonable as a person arrested is present for the police to learn their age from something like a driver’s license or past criminal records, or estimate the age by looking at the arrestee. Like in the Offender Segment, age as a specific year is cutoff at 98 with all older ages grouped simply as “over 98 years old”.</p>
 <p>Figure <a href="arrestee.html#fig:arresteeAge">16.9</a> shows the percent of arrestees at every age available. Relative to Figure <a href="offender-segment-1.html#fig:offenderAge">14.1</a>, this graph is far smoother, indicating that there was less estimating ages and more knowing the actual age. While the trend is the same for both of these graphs, the arrestee data does not have any odd spikes with certain ages. Age we see that the percent of people arrested increases as they age, peaking in the early twenties before declining and then peaking age even higher in the late 20s. After this, there is a long steady decline as the arrestee ages.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arresteeAge"></span>
-<img src="16_nibrs_arrestee_files/figure-html/arresteeAge-1.png" alt="The age of all arrestees reported in the 2022 NIBRS data." width="100%" height="100%"  />
+<img src="16_nibrs_arrestee_files/figure-html/arresteeAge-1.png" alt="The age of all arrestees reported in the 2022 NIBRS data." width="100%" height="100%" />
 <p class="caption">
 Figure 16.9: The age of all arrestees reported in the 2022 NIBRS data.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsArresteeAge"></span>
-<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeAge-1.png" alt="The mean and median age of arrestees, 1991-2022." width="100%" height="100%"  />
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeAge-1.png" alt="The mean and median age of arrestees, 1991-2022." width="100%" height="100%" />
 <p class="caption">
 Figure 16.10: The mean and median age of arrestees, 1991-2022.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsArresteeAgeMissing"></span>
-<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeAgeMissing-1.png" alt="The percent of arrestee's age that is unknown, 1991-2022." width="100%" height="100%"  />
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeAgeMissing-1.png" alt="The percent of arrestee's age that is unknown, 1991-2022." width="100%" height="100%" />
 <p class="caption">
 Figure 16.11: The percent of arrestee’s age that is unknown, 1991-2022.
 </p>
@@ -1771,7 +1771,7 @@ Figure 16.11: The percent of arrestee’s age that is unknown, 1991-2022.
 <h3><span class="header-section-number">16.7.3</span> Sex<a href="arrestee.html#sex-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We also know the sex of the arrestee. The only options for this variable are male and female and there is never missing data so the police always choose one of these two choices. There is no option for transgender or any other identity. Figure <a href="#fig:arresteeSex"><strong>??</strong></a> shows the distribution of arrestees by sex. The vast majority, 70.5% of arrestees are male and the remaining 29.5% are female. This is a higher rate of female arrestees than you might expect - past research has found that crime is largely a male-phenomenon, even greater than found here (though “crime” in most criminology research is only murder or violent index crimes) - and that is because there are differences in sex involvement by type of crime. For rape, as an example, 97.8% of arrestees in 2022 were male. Shoplifting was an even 50% split between female and male arrestees.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsArresteeSex"></span>
-<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeSex-1.png" alt="The share of arrestees by sex, 1991-2022." width="100%" height="100%"  />
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeSex-1.png" alt="The share of arrestees by sex, 1991-2022." width="100%" height="100%" />
 <p class="caption">
 Figure 16.12: The share of arrestees by sex, 1991-2022.
 </p>
@@ -1782,7 +1782,7 @@ Figure 16.12: The share of arrestees by sex, 1991-2022.
 <p>For each arrestee we know their race, with possible races being White, Black, American Indian/Alaskan Native, Asian, and Native Hawaiian/Pacific Islander. Unlike sex, the police can say that the race is unknown.<a href="#fn104" class="footnote-ref" id="fnref104"><sup>104</sup></a> As each arrestee is visible to the police, and can self-report race or provide official records (e.g. criminal history or jail admission data) which may say their race, there is far less uncertainty for arrestee race than offender race where 38.5% of the data is missing. As with any measure of race there is still some degree of uncertainty since people’s race are not always obvious and may not fit tidily into each of the mutually exclusive groups available in NIBRS data (e.g. there is no option for mixed race).</p>
 <p>Figure <a href="#fig:arresteeRace"><strong>??</strong></a> shows the breakdown for the races of each arrestee. White arrestees are most common at 64.2% of arrestees, following by Black arrestees at 29.8%. Only 3.1% of arrestees have an unknown race. The remaining small share of arrestees is made up of American Indian/Alaskan Native at 1.6%, Asian at 1%, and Native Hawaiian/Pacific Islander at 0.3% of arrestees.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsArresteeRace"></span>
-<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeRace-1.png" alt="The share of arrestees by race, 1991-2022." width="100%" height="100%"  />
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeRace-1.png" alt="The share of arrestees by race, 1991-2022." width="100%" height="100%" />
 <p class="caption">
 Figure 16.13: The share of arrestees by race, 1991-2022.
 </p>
@@ -1794,7 +1794,7 @@ Figure 16.13: The share of arrestees by race, 1991-2022.
 <p>Ethnicity is an optional variable so agencies are never required to report it. This means that there is a greater chance that it’ll be used only in non-random situations (which would make the data biased in some unknown way). There’s also the question of reliability of the ethnicity data. Someone being Hispanic or not is likely just what the arrestees calls themselves or what the arresting officer perceives them to be. Both are important ways of measuring ethnicity but get at different things. Perception is more important for studies of bias, self-identification for differences among groups of people such as arrest rates by ethnicity. And the subjectivity of who is classified as Hispanic means that this measurement may differ by agency and by officer, making it imprecise.</p>
 <p>Figure <a href="#fig:arresteeEthnicity"><strong>??</strong></a> shows the breakdown in arrests by arrestee ethnicity. Most arrestees - 72.5% - are not Hispanic. Only 10% are reported to be Hispanic but an even higher percent of arrestees - 16.8% - have an unknown ethnicity so the true percent or Hispanic or non-Hispanic arrestee may be different than shown here.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsArresteeEthnicity"></span>
-<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeEthnicity-1.png" alt="The share of arrestees by ethnicity, 1991-2022." width="100%" height="100%"  />
+<img src="16_nibrs_arrestee_files/figure-html/nibrsArresteeEthnicity-1.png" alt="The share of arrestees by ethnicity, 1991-2022." width="100%" height="100%" />
 <p class="caption">
 Figure 16.14: The share of arrestees by ethnicity, 1991-2022.
 </p>

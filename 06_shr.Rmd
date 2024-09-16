@@ -299,7 +299,9 @@ This data also includes the race of the victims and offenders. This includes the
 Figure \@ref(fig:shrOffenderRace) shows the percent of homicides in the data by the race of offender #1. Black and White offenders are included are similar percentages, at 34.3% and 33.6% of victims, respectively. The next most common group is Unknown at about 30.6% of offenders. Given that so many offenders have an unknown race, the reliability of race measures is limited. The remaining races are Asian at 0.9% of offenders, American Indian or Alaskan Native at 0.6%, and Native Hawaiian or Other Pacific Islander at 0.02%. 
 
 ```{r shrOffenderRace, fig.cap = "The race of offender \\#1, 1976-2022."}
-shr$offender_1_race[shr$offender_1_race %in% "p"] <- "Native Hawaiian/Pacific Islander"
+shr$offender_1_race[shr$offender_1_race %in% c("p",
+                                               "P",
+                                               "native hawaiian or other pacific islander")] <- "Native Hawaiian/Pacific Islander"
 shr$offender_1_race[shr$offender_1_race %in% "american indian or alaskan native"] <- "American Indian/Alaskan Native"
 shr$offender_1_race[is.na(shr$offender_1_race)] <- "unknown"
 shr %>%
@@ -311,7 +313,8 @@ shr %>%
 For victim race, seen in Figure \@ref(fig:shrVictimRace), only about 1% of victim #1 races are unknown. This means we can be a lot more confident in the race of the victims than in the race of the offender. Similar to offenders, White and Black victims are the two most common races, with 48.4% and 48.1% of victims, respectively. There is a greater share of Asian victims than Asian offenders at 1.5% of victims. American Indian or Alaskan Natives make up 0.8% of victims while Native Hawaiian or Pacific Islanders make up 0.02% of victims.
 
 ```{r shrVictimRace, fig.cap = "The race of victim \\#1, 1976-2022"}
-shr$victim_1_race[shr$victim_1_race %in% c("P", "p")] <- "Native Hawaiian/Pacific Islander"
+shr$victim_1_race[shr$victim_1_race %in% c("P", "p",
+                                           "native hawaiian or other pacific islander")] <- "Native Hawaiian/Pacific Islander"
 shr$victim_1_race[shr$victim_1_race %in% "american indian or alaskan native"] <- "American Indian/Alaskan Native"
 shr %>%
   mutate(victim_1_race = capitalize_words(victim_1_race)) %>%

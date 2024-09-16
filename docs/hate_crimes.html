@@ -23,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2024-09-15" />
+<meta name="date" content="2024-09-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -470,28 +470,28 @@ div.csl-indent {
 <p>We will start by looking at how many agencies report hate crime each year. This is a bit tricky since there can be multiple ways to examine how agencies report, and since agencies can truly have no hate crimes in a year it is hard to differentiate the true zeroes from the non-reporters.</p>
 <p>Figure <a href="hate_crimes.html#fig:hateAgencies">9.1</a> shows the number of agencies that report at least one hate crime incident in that year. During the first year of data in 1991 there were about 750 agencies reporting and that grew steadily to about 2,000 agencies in year 2000. From there it increased a bit over the next decade before declining to below 1,750 in the early 2010s and rising again to around 3,000 agencies at the end of our data.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateAgencies"></span>
-<img src="09_hate_crime_files/figure-html/hateAgencies-1.png" alt="The annual number of police agencies that report at least one hate crime incident in that year." width="100%" height="100%"  />
+<img src="09_hate_crime_files/figure-html/hateAgencies-1.png" alt="The annual number of police agencies that report at least one hate crime incident in that year." width="100%" height="100%" />
 <p class="caption">
 Figure 9.1: The annual number of police agencies that report at least one hate crime incident in that year.
 </p>
 </div>
 <p>The 3,000 or so agencies that report each year are not the same every year. Figure <a href="hate_crimes.html#fig:hateCrimesEver">9.2</a> shows the cumulative number of agencies that have reported at least one hate crime between 1991 and 2022. There is a steady growth in the cumulative number of agencies, with about 350 new agencies each year. In each year some new agencies report hate crimes for the first time while some agencies that reported a hate crime in previous years do not report any hate crimes in the current year.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateCrimesEver"></span>
-<img src="09_hate_crime_files/figure-html/hateCrimesEver-1.png" alt="The cumulative number of agencies that have reported one or more hate crimes between 1991 and 2022" width="100%" height="100%"  />
+<img src="09_hate_crime_files/figure-html/hateCrimesEver-1.png" alt="The cumulative number of agencies that have reported one or more hate crimes between 1991 and 2022" width="100%" height="100%" />
 <p class="caption">
 Figure 9.2: The cumulative number of agencies that have reported one or more hate crimes between 1991 and 2022
 </p>
 </div>
 <p>Figure <a href="hate_crimes.html#fig:hateCrimesPreviousYear">9.3</a> puts this into hard numbers by showing the percent of agencies who reported a hate crime in a certain year who <em>also</em> reported a hate crime in the previous year. For most years between 50% and 60% of agencies which reported a hate crime in the year shown on the x-axis also reported a hate crime in the previous year, indicating somewhat high consistency in which agencies have hate crimes.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateCrimesPreviousYear"></span>
-<img src="09_hate_crime_files/figure-html/hateCrimesPreviousYear-1.png" alt="The percent of agencies that report a hate crime in a given year that also reported a hate crime in the previous year, 1992-2022" width="100%" height="100%"  />
+<img src="09_hate_crime_files/figure-html/hateCrimesPreviousYear-1.png" alt="The percent of agencies that report a hate crime in a given year that also reported a hate crime in the previous year, 1992-2022" width="100%" height="100%" />
 <p class="caption">
 Figure 9.3: The percent of agencies that report a hate crime in a given year that also reported a hate crime in the previous year, 1992-2022
 </p>
 </div>
 <p>Another way to understand reporting is to look at the number of reported hate crimes by state and see which states report and which do not. Figure <a href="hate_crimes.html#fig:hateCrimesMap">9.4</a> does this for 2022 data by showing the number of reported hate crime incidents by state. Unfortunately what we have done here is basically create a population map, though with California as a clear outlier. Counting up and graphing or mapping the number of crimes is a common first response to getting new data but is not actually that helpful. Here we see that the states with the biggest populations - California, New York, Texas, - have the most hate crimes. To be more useful let us look at state-level reporting after adjusting to the number of agencies in the state and to the civilian population.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateCrimesMap"></span>
-<img src="09_hate_crime_files/figure-html/hateCrimesMap-1.png" alt="Total reported hate crimes by state, 2022" width="100%" height="100%"  />
+<img src="09_hate_crime_files/figure-html/hateCrimesMap-1.png" alt="Total reported hate crimes by state, 2022" width="100%" height="100%" />
 <p class="caption">
 Figure 9.4: Total reported hate crimes by state, 2022
 </p>
@@ -500,7 +500,7 @@ Figure 9.4: Total reported hate crimes by state, 2022
 <p>Figure <a href="hate_crimes.html#fig:statePercentReporting">9.5</a> shows the percent of agencies for each state that reported at least one hate crime in 2022. In New Jersey, the state with the highest percent of agencies reporting, 39% of agencies reported at least one hate crime. It is neighboring states of Pennsylvania, Delaware, and New York have a much lower rate of reporting at 4% (the lowest of any state), 11%, and 14%, respectively. This difference is likely due to a 2019 request by the New Jersey Attorney General to police officers that they <a href="%22more%20thoroughly%20report%20on%20bias%20incidents.%22">https://www.washingtonpost.com/national-security/2022/01/29/hate-crimes-nj-fbi-asian/</a> To me this suggests that decisions at the state level can lead to drastic changes in reporting rates by agencies, and is a possible solution to low reporting rates.</p>
 <p>In 15 states, fewer than 10% of agencies reported a hate crime, and in one state (Pennsylvania) fewer than 5% of agencies did so. One interesting finding from this map is the more liberal states - New Jersey, Washington, California, Connecticut, etc. - have the highest share of agencies reporting a hate crime, indicating that the culture of the state may influence either the propensity of hate crimes, whether victims report, whether agencies report hate crimes, or simply that more hate crimes happen in these areas.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:statePercentReporting"></span>
-<img src="09_hate_crime_files/figure-html/statePercentReporting-1.png" alt="The percent of agencies in each state that reported at least one hate crime in 2022, excluding agencies covered by another agency." width="100%" height="100%"  />
+<img src="09_hate_crime_files/figure-html/statePercentReporting-1.png" alt="The percent of agencies in each state that reported at least one hate crime in 2022, excluding agencies covered by another agency." width="100%" height="100%" />
 <p class="caption">
 Figure 9.5: The percent of agencies in each state that reported at least one hate crime in 2022, excluding agencies covered by another agency.
 </p>
@@ -510,7 +510,7 @@ Figure 9.5: The percent of agencies in each state that reported at least one hat
 <p>Is this good? We do not necessarily want 100% of agencies to report a hate crime since not all agencies will experience a hate crime in their jurisdiction. The ideal dataset would have all hate crimes reported but without knowing how many hates crimes there actually are we cannot tell how well this data captures hate crimes.</p>
 <p>This is also a fairly poor measure of reporting as it just measures agencies reporting at least one hate crime. If an agency had many hate crimes but only reported very few - and here let us think about that as both agencies not knowing a crime was a hate crime and also knowing but not reporting a hate crime - that is also quite bad for our understanding of hate crimes. However, it is far more likely that a hate crime is not reported than a non-hate crime being reported as a hate crime. Since we know the likely direction of any errors we can think about this entire dataset as being the lower-bound of hate crime data.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:statePercentReportingPop"></span>
-<img src="09_hate_crime_files/figure-html/statePercentReportingPop-1.png" alt="The percent of population in each state in agencies that reported at least one hate crime in 2022, excluding agencies that are covered by another agency." width="100%" height="100%"  />
+<img src="09_hate_crime_files/figure-html/statePercentReportingPop-1.png" alt="The percent of population in each state in agencies that reported at least one hate crime in 2022, excluding agencies that are covered by another agency." width="100%" height="100%" />
 <p class="caption">
 Figure 9.6: The percent of population in each state in agencies that reported at least one hate crime in 2022, excluding agencies that are covered by another agency.
 </p>
@@ -529,14 +529,14 @@ Figure 9.6: The percent of population in each state in agencies that reported at
 <h3><span class="header-section-number">9.3.1</span> Date and time<a href="hate_crimes.html#date-and-time" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This data says the exact date that the hate crime occurred on - though not the date it was reported on. Figure <a href="hate_crimes.html#fig:hateCrimesByDay">9.7</a> shows the percent of hates crimes between 1991 and 2022 that occurred on each day of the week. Interestingly, the most common days for a hate crime to occur is on Friday, which is also when non-hate crimes most frequently occur. This suggests that hate crimes do follow the same trends - at least partially - as other crimes.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateCrimesByDay"></span>
-<img src="09_hate_crime_files/figure-html/hateCrimesByDay-1.png" alt="The day of the week that hate crimes occurred on, 1991-2022" width="100%" height="100%"  />
+<img src="09_hate_crime_files/figure-html/hateCrimesByDay-1.png" alt="The day of the week that hate crimes occurred on, 1991-2022" width="100%" height="100%" />
 <p class="caption">
 Figure 9.7: The day of the week that hate crimes occurred on, 1991-2022
 </p>
 </div>
 <p>We can also look at which day of the month is most common, as shown in Figure <a href="hate_crimes.html#fig:hateCrimesByMonthDay">9.8</a>. There’s no pattern that I can see other than the the 1st of the most has the most hate crimes and the end of the month has the fewest. Not all months have more than 28 days so it makes sense that the 29th, 30th, and 31st are the least common days. Is the 1st of the month really the most dangerous? I think this is likely just a quirk of the data, and is something we also see in NIBRS data. When an agency does not report an actual date they may use the 1st of the month as a placeholder which then looks to us like the 1st is an especially prolific day for hate crimes.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateCrimesByMonthDay"></span>
-<img src="09_hate_crime_files/figure-html/hateCrimesByMonthDay-1.png" alt="The day of the month that hate crimes occurred on, 1991-2022" width="100%" height="100%"  />
+<img src="09_hate_crime_files/figure-html/hateCrimesByMonthDay-1.png" alt="The day of the month that hate crimes occurred on, 1991-2022" width="100%" height="100%" />
 <p class="caption">
 Figure 9.8: The day of the month that hate crimes occurred on, 1991-2022
 </p>
@@ -1073,7 +1073,7 @@ Anti-Jehovahs Witness
 <p>Each hate crime incident can cover up to 10 different crimes occurring - for example, a person who burglarizes a synagogue and spray paints a swastika on the wall would have both burglary and vandalism reported in this data. With each crime, this data has the bias motivation for that crime, the location of the crime (in broad categories, not the actual location in the city like a street address would have), and the number of victims for that offense. In practice, in most hate crimes with multiple offenses recorded, the bias motivation, location, and victim count is the same for each offense.</p>
 <p>Figure <a href="hate_crimes.html#fig:crimesPerHateCrime">9.9</a> shows the number of crimes per incident for each hate crime reported between 1991 and 2022. In 96.6% of cases, there is only one offense in that incident.<a href="#fn68" class="footnote-ref" id="fnref68"><sup>68</sup></a> This drops sharply to 3.2% of incidents having two offenses, 0.21% having three offenses, 0.019% having four offenses, and 0.002% having five offenses. Even though this data does allow up to 10 offenses per hate crime incident, there has never been a recorded case with more than five offenses. Results are nearly identical when examining the number of bias motivations and locations reported in an incident.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:crimesPerHateCrime"></span>
-<img src="09_hate_crime_files/figure-html/crimesPerHateCrime-1.png" alt="The number of offenses per hate crime incident." width="100%" height="100%"  />
+<img src="09_hate_crime_files/figure-html/crimesPerHateCrime-1.png" alt="The number of offenses per hate crime incident." width="100%" height="100%" />
 <p class="caption">
 Figure 9.9: The number of offenses per hate crime incident.
 </p>
@@ -2451,14 +2451,14 @@ Military Installation
 <p>There are two variables that have information about the people who commit the hate crime: the number of offenders and the race of the offenders. The offender race is recorded as a single value with the race of the group if all are of the same race or it will say a “multi-racial” group if there are offenders of different races. Unfortunately, important information like the age of the offenders, their criminal history, their relationship to the victim, their gender, or whether they are arrested are completely unavailable in this dataset. These variables, however, are available in NIBRS data.</p>
 <p>As shown in Figure <a href="hate_crimes.html#fig:hateCrimeOffenderNumber">9.11</a>, the most common racial group is “unknown” since the police do not know the race of the offenders. Next are White offenders at nearly 40% of hate crimes followed by Black offenders at nearly 13% of hate crimes. The remaining racial groups are rare with about 2% of hate crimes being committed by a multi-racial group of offenders and 0.8 % of hate crimes committed by Asian or Pacific Islander offenders and 0.6 % committed by American Indian or Native Alaskan offenders. Only 0.05% of offenders are Native Hawaiian or Other Pacific Islander.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateCrimeOffenderRace"></span>
-<img src="09_hate_crime_files/figure-html/hateCrimeOffenderRace-1.png" alt="The race of offenders, as a group, for hate crime incidents, 1991-2022." width="100%" height="100%"  />
+<img src="09_hate_crime_files/figure-html/hateCrimeOffenderRace-1.png" alt="The race of offenders, as a group, for hate crime incidents, 1991-2022." width="100%" height="100%" />
 <p class="caption">
 Figure 9.10: The race of offenders, as a group, for hate crime incidents, 1991-2022.
 </p>
 </div>
 <p>When the police do not have any information about the number of offenders (which is common in cases of property crimes such as vandalism but rare in violent crimes), this data considers that to have zero offenders. The zero is just a placeholder that means that the police do not know how many offenders there are, not that they think there were actually no offenders. Figure <a href="hate_crimes.html#fig:hateCrimeOffenderNumber">9.11</a> shows the percent of hate crimes from 1991-2022 that have each number of offenders recorded. In the actual data it says the actual number of offenders, with the largest group in the current data going to 99 offenders - in this graph I group 10 or more offenders together for simplicity. I also relabel zero offenders as “Unknown” offenders since that is more accurate. The most common number of offenders per hate crime is one offender, at about 49% of hate crimes from 1991-2022 having only one offender. This drops sharply to 9% of hate crimes having two offenders and continues to drop as the number of offenders increase. However, about a third (36%) of hate crimes have an unknown number of offenders.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hateCrimeOffenderNumber"></span>
-<img src="09_hate_crime_files/figure-html/hateCrimeOffenderNumber-1.png" alt="The race of offenders, as a group, for hate crime incidents, 1991-2022." width="100%" height="100%"  />
+<img src="09_hate_crime_files/figure-html/hateCrimeOffenderNumber-1.png" alt="The race of offenders, as a group, for hate crime incidents, 1991-2022." width="100%" height="100%" />
 <p class="caption">
 Figure 9.11: The race of offenders, as a group, for hate crime incidents, 1991-2022.
 </p>
@@ -2473,13 +2473,13 @@ Figure 9.11: The race of offenders, as a group, for hate crime incidents, 1991-2
 <p>Nonetheless, this is a book about the data. So let us look at one final variable in this data, the number of victims for each incident. This is not going to be true number of people affected by the crime. It is more the number of direct victims for the incident. Whether that is actually better than just counting incidents is dependent on the context of your question and the hate crimes in question. In Figure <a href="hate_crimes.html#fig:jewishIncidentVictim">9.12</a> I show the annual number of anti-Jewish hate crimes reported by all agencies in the country. As may be expected, there are always more victims than incidents though the trends are extremely similar over the entire period of data. This trend is also present for other bias motivations, such as anti-Black hate crimes shown in Figure <a href="hate_crimes.html#fig:blackIncidentVictim">9.13</a>.</p>
 <p>While this variable is available in the data, I actually think it is best not to use it. I think there is always a danger in being overly precise and, therefore, overly confident about what the data shows. When you use the number of incidents you implicitly allow for each incident to affect multiple people<a href="#fn69" class="footnote-ref" id="fnref69"><sup>69</sup></a> and readers understand that. But if you use this variable and say that “this is the number of victims of this crime” you are implicitly closing that door and therefore being too confident about how many victims of a crime there is. This is especially true for readers who are not paying close attention - such as academics reviewing papers or New York Times reporters - since they may think you are measuring the number of victims in a better way than you actually are.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:jewishIncidentVictim"></span>
-<img src="09_hate_crime_files/figure-html/jewishIncidentVictim-1.png" alt="The annual number of anti-Jewish hate crime incidents and victims in the United States, 1991-2022." width="100%" height="100%"  />
+<img src="09_hate_crime_files/figure-html/jewishIncidentVictim-1.png" alt="The annual number of anti-Jewish hate crime incidents and victims in the United States, 1991-2022." width="100%" height="100%" />
 <p class="caption">
 Figure 9.12: The annual number of anti-Jewish hate crime incidents and victims in the United States, 1991-2022.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:blackIncidentVictim"></span>
-<img src="09_hate_crime_files/figure-html/blackIncidentVictim-1.png" alt="The annual number of anti-Black hate crime incidents and victims in the United States, 1991-2022." width="100%" height="100%"  />
+<img src="09_hate_crime_files/figure-html/blackIncidentVictim-1.png" alt="The annual number of anti-Black hate crime incidents and victims in the United States, 1991-2022." width="100%" height="100%" />
 <p class="caption">
 Figure 9.13: The annual number of anti-Black hate crime incidents and victims in the United States, 1991-2022.
 </p>

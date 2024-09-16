@@ -23,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2024-09-15" />
+<meta name="date" content="2024-09-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -687,32 +687,32 @@ Percent Difference
 </table>
 <p>We can look at how these trends change over time in Figure <a href="county-level-data.html#fig:countyAnyMonthReported">10.1</a> that shows the annual number of agencies that reported at least one month of data in that year. Both measures have the exact same trend with the last month reported measure always being a bit higher than the number of months missing method, at least until the data change in 2018 that renders my method unreliable.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:countyAnyMonthReported"></span>
-<img src="10_ucr_county_files/figure-html/countyAnyMonthReported-1.png" alt="The annual number of agencies that reported at least 12 months of data in that year." width="100%" height="100%"  />
+<img src="10_ucr_county_files/figure-html/countyAnyMonthReported-1.png" alt="The annual number of agencies that reported at least 12 months of data in that year." width="100%" height="100%" />
 <p class="caption">
 Figure 10.1: The annual number of agencies that reported at least 12 months of data in that year.
 </p>
 </div>
 <p>For the remainder of this chapter we will treat the last month reported variable as our measure of how many months an agency reports data. I believe that pre-2018 this is not as good a measure at the number of months missing, but it has the benefit of consistency post-2017. So keep in mind that the true number of agencies reporting fewer than 12 months of data is a bit larger than what it seems when using this measure.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:stateMap2022"></span>
-<img src="10_ucr_county_files/figure-html/stateMap2022-1.png" alt="The share of the population in each state covered by an agency reporting 12 months of data based on their last month reported being December, 2022." width="100%" height="100%"  />
+<img src="10_ucr_county_files/figure-html/stateMap2022-1.png" alt="The share of the population in each state covered by an agency reporting 12 months of data based on their last month reported being December, 2022." width="100%" height="100%" />
 <p class="caption">
 Figure 10.2: The share of the population in each state covered by an agency reporting 12 months of data based on their last month reported being December, 2022.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:countyMap2022"></span>
-<img src="10_ucr_county_files/figure-html/countyMap2022-1.png" alt="The share of the population in each county covered by an agency reporting 12 months of data based on their last month reported being December, 2022." width="100%" height="100%"  />
+<img src="10_ucr_county_files/figure-html/countyMap2022-1.png" alt="The share of the population in each county covered by an agency reporting 12 months of data based on their last month reported being December, 2022." width="100%" height="100%" />
 <p class="caption">
 Figure 10.3: The share of the population in each county covered by an agency reporting 12 months of data based on their last month reported being December, 2022.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:countyMap2010"></span>
-<img src="10_ucr_county_files/figure-html/countyMap2010-1.png" alt="The share of the population in each county covered by an agency reporting 12 months of data based on their last month reported being December, 2010." width="100%" height="100%"  />
+<img src="10_ucr_county_files/figure-html/countyMap2010-1.png" alt="The share of the population in each county covered by an agency reporting 12 months of data based on their last month reported being December, 2010." width="100%" height="100%" />
 <p class="caption">
 Figure 10.4: The share of the population in each county covered by an agency reporting 12 months of data based on their last month reported being December, 2010.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:countyMap2000"></span>
-<img src="10_ucr_county_files/figure-html/countyMap2000-1.png" alt="The share of the population in each county covered by an agency reporting 12 months of data based on their last month reported being December, 2000." width="100%" height="100%"  />
+<img src="10_ucr_county_files/figure-html/countyMap2000-1.png" alt="The share of the population in each county covered by an agency reporting 12 months of data based on their last month reported being December, 2000." width="100%" height="100%" />
 <p class="caption">
 Figure 10.5: The share of the population in each county covered by an agency reporting 12 months of data based on their last month reported being December, 2000.
 </p>
@@ -725,7 +725,7 @@ Figure 10.5: The share of the population in each county covered by an agency rep
 <p>When an agency reports 3-11 months, those months of data are multiplied by 12/numbers-of-months-reported so it just upweights the available data to account for the missing months, assuming that missing months are like the present months.</p>
 <p>Finally, for agencies that reported all 12 months there is nothing missing so it just uses the data as it is.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:countyImputation"></span>
-<img src="images/segments_flowchart.PNG" alt="The imputation procedure for missing data based on the number of months missing." width="100%" height="100%"  />
+<img src="images/segments_flowchart.PNG" alt="The imputation procedure for missing data based on the number of months missing." width="100%" height="100%" />
 <p class="caption">
 Figure 10.6: The imputation procedure for missing data based on the number of months missing.
 </p>

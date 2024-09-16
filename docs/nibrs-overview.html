@@ -23,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2024-09-15" />
+<meta name="date" content="2024-09-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -465,7 +465,7 @@ div.csl-indent {
 <p>NIBRS data provides detailed information on every crime reported to the police, including victim and offender demographics, whether the offender was arrested (and the type of arrest it was), what date and time of day (by hour only) it happened on, the victim-offender relationship, and the crime location (as a location type, not the exact address). It also covers a far wider range of crimes than UCR data did. With the exception of UCR data on assaults against police officers, all NIBRS data can be converted back to UCR data, making it fully backwards compatible and, therefore, comparable to UCR data. In many ways NIBRS data is a massive improvement over UCR data. This data allows for a deeper understanding of crime and it has led to an explosion of research that allows a far more detailed analysis of crime and crime-policies than the blunt UCR data.</p>
 <p>However, there is a major limitation to this data: most agencies do not use it. <a href="https://www.fbi.gov/news/pressrel/press-releases/fbi-releases-2019-nibrs-crime-data">According to the FBI</a> only about 8,500 police agencies, covering about 45% of the US population, reported NIBRS data in 2019 (the latest year currently available). This is fewer than half of the about 18,000 police agencies in the United States. This is an even larger problem than it seems as the agencies that do report - especially in earlier years of the data - are disproportionately small and rural. So we are missing out of data from most major cities. A number of states do not have any agencies reporting, making this data relatively biased at least in terms of geography and city size. <strong>Even so, the FBI has said that they are moving entirely to NIBRS data starting in 2021, and will no longer even collect UCR data.</strong> While NIBRS can be converted to UCR data, meaning we can have consistent statistics over time, for agencies that do not report to NIBRS, we have no information on their crimes. In effect, unless the majority of agencies suddenly switch to NIBRS - which, given that the high level of detail relative to UCR data makes moving to NIBRS a costly and timely switch - we will be flying blind for most crime in the country.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsSegmentsAgencies"></span>
-<img src="11_nibrs_general_files/figure-html/nibrsSegmentsAgencies-1.png" alt="The number of agencies reporting data for each of the NIBRS Segments, 1991-2022." width="100%" height="100%"  />
+<img src="11_nibrs_general_files/figure-html/nibrsSegmentsAgencies-1.png" alt="The number of agencies reporting data for each of the NIBRS Segments, 1991-2022." width="100%" height="100%" />
 <p class="caption">
 Figure 11.1: The number of agencies reporting data for each of the NIBRS Segments, 1991-2022.
 </p>
@@ -487,21 +487,21 @@ Figure 11.1: The number of agencies reporting data for each of the NIBRS Segment
 <p>So if this data has the same info (other than unfounded and negative crimes) as UCR data, but is also far more detailed, why do people ever use UCR data? Besides NIBRS being more complicated to use, far fewer agencies report NIBRS data than do UCR data. Nearly all agencies report crime data for UCR, though fewer do so for some of the UCR datasets such as arrests or arsons - for more, please see my <a href="https://ucrbook.com/">UCR book</a>. In comparison, fewer than half of agencies report to NIBRS, and these agencies are disproportionately smaller and more rural. Starting with 2021 data, the FBI has stopped collecting UCR data, instead only collecting NIBRS data. So if - and this is a very large if - many more agencies move to NIBRS in 2021, we will start having much more detail from a very representative sample of agencies. Even so, most research - especially policy analyses - requires many years of data so it’ll take many years before the full potential of NIBRS data can be realized.</p>
 <p>We will look here at how many agencies report at least one crime each year between 1991 - the first year of data - and 2019 - the latest year of data - as well as compare NIBRS reporting to UCR reporting. Figure <a href="nibrs-overview.html#fig:agenciesReporting">11.2</a> shows the number of agencies each year that reported at least one incident. Keep in mind that there are about 18,000 police agencies in the United States. Only a little over 600 agencies reported in 1991. This has grown pretty linearly, adding a few hundred agencies each year though that trend accelerated in recent years. In 2019, nearly 8,200 agencies reported at least some data to NIBRS. Compared to the estimated 18,000 police agencies in the United States, however, this is still fewer than half of agencies. The data shown here is potentially an overcount, however, as it includes agencies reporting any crime that year, even if they do not report every month.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:agenciesReporting"></span>
-<img src="11_nibrs_general_files/figure-html/agenciesReporting-1.png" alt="The annual number of agencies reporting at least one incident in that year." width="100%" height="100%"  />
+<img src="11_nibrs_general_files/figure-html/agenciesReporting-1.png" alt="The annual number of agencies reporting at least one incident in that year." width="100%" height="100%" />
 <p class="caption">
 Figure 11.2: The annual number of agencies reporting at least one incident in that year.
 </p>
 </div>
 <p>Another way to look at reporting is comparing it to reporting to UCR. Figure <a href="nibrs-overview.html#fig:agenciesReportingMap">11.3</a> shows the number of agencies in each state that report NIBRS data in 2019. Since 2019 is the year with the most participation, this does overstate reporting for previous years. This map pretty closely follows a population map of the US. Texas had the most agencies, followed by Michigan and Ohio. The southern states have more agencies reporting than the lightly populated northern states. The issue here is that a number of states are in white, indicating that very few agencies reported. Indeed, four of the most populated states - California, New York, Florida, and New Jersey - do not have any agencies at all that report NIBRS data.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:agenciesReportingMap"></span>
-<img src="11_nibrs_general_files/figure-html/agenciesReportingMap-1.png" alt="The number of agencies in each state that reported at least one crime in 2022 to NIBRS." width="100%" height="100%"  />
+<img src="11_nibrs_general_files/figure-html/agenciesReportingMap-1.png" alt="The number of agencies in each state that reported at least one crime in 2022 to NIBRS." width="100%" height="100%" />
 <p class="caption">
 Figure 11.3: The number of agencies in each state that reported at least one crime in 2022 to NIBRS.
 </p>
 </div>
 <p>Since the number of agencies in a state is partially just a factor of population, Figure <a href="nibrs-overview.html#fig:agenciesReportingMapPercent">11.4</a> shows each state as a percent of agencies in that state that report to NIBRS that also reported to the UCR Offenses Known and Clearances by Arrest (the “crime” dataset) in 2019.<a href="#fn86" class="footnote-ref" id="fnref86"><sup>86</sup></a> Not all agencies in the US reported to UCR in 2019 - and a small number reported to NIBRS but not UCR in 2019 - but this is a fairly good measure of reporting rates. Here the story looks a bit different than in the previous figure. Now we can tell that among north-western states and states along the Appalachian Mountains, nearly all agencies report. In total, 18 states have 90% or more of agencies that reported to UCR in 2019 also reporting to NIBRS. Thirteen agencies have fewer than 10% of agencies reporting to NIBRS that also reported to UCR, with 5 of these having 0% of agencies reporting. The remaining states average about 56% of agencies reporting. So when using NIBRS data, keep in mind that you have very good coverage of certain states, and very poor coverage of other states. And the low - or zero - reporting states are systematically high population states.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:agenciesReportingMapPercent"></span>
-<img src="11_nibrs_general_files/figure-html/agenciesReportingMapPercent-1.png" alt="Agencies in each state reporting at least one crime to NIBRS in 2022 as a percent of agencies that reported UCR Offenses Known and Clearances by Arrests data in 2022." width="100%" height="100%"  />
+<img src="11_nibrs_general_files/figure-html/agenciesReportingMapPercent-1.png" alt="Agencies in each state reporting at least one crime to NIBRS in 2022 as a percent of agencies that reported UCR Offenses Known and Clearances by Arrests data in 2022." width="100%" height="100%" />
 <p class="caption">
 Figure 11.4: Agencies in each state reporting at least one crime to NIBRS in 2022 as a percent of agencies that reported UCR Offenses Known and Clearances by Arrests data in 2022.
 </p>
@@ -1259,19 +1259,19 @@ Wyoming
 </tbody>
 </table>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsAnnualNumberAgencies"></span>
-<img src="11_nibrs_general_files/figure-html/nibrsAnnualNumberAgencies-1.png" alt="The annual number of police agencies that report data to NIBRS." width="100%" height="100%"  />
+<img src="11_nibrs_general_files/figure-html/nibrsAnnualNumberAgencies-1.png" alt="The annual number of police agencies that report data to NIBRS." width="100%" height="100%" />
 <p class="caption">
 Figure 11.5: The annual number of police agencies that report data to NIBRS.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsAnnualPercentPopulation"></span>
-<img src="11_nibrs_general_files/figure-html/nibrsAnnualPercentPopulation-1.png" alt="The annual percent of the United States population that is covered by an agency reporting data to NIBRS." width="100%" height="100%"  />
+<img src="11_nibrs_general_files/figure-html/nibrsAnnualPercentPopulation-1.png" alt="The annual percent of the United States population that is covered by an agency reporting data to NIBRS." width="100%" height="100%" />
 <p class="caption">
 Figure 11.6: The annual percent of the United States population that is covered by an agency reporting data to NIBRS.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsStateParticipation2020"></span>
-<img src="11_nibrs_general_files/figure-html/nibrsStateParticipation2020-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS." width="100%" height="100%"  />
+<img src="11_nibrs_general_files/figure-html/nibrsStateParticipation2020-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS." width="100%" height="100%" />
 <p class="caption">
 Figure 11.7: The percent of each state’s population that is covered by police agencies reporting at least one month of data to NIBRS.
 </p>
@@ -1431,7 +1431,7 @@ Figure 11.7: The percent of each state’s population that is covered by police 
 <h2><span class="header-section-number">11.5</span> A summary of each segment file<a href="nibrs-overview.html#a-summary-of-each-segment-file" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>NIBRS data is often discussed - and is used - as if it were a single file with all of this information available. But it actually comes as multiple different files that each provide different information about a crime incident, including at different levels of analysis so users must clean each segment before merging them together. In this section we will discuss each of the segments and how they are related to each other. First, keep in mind that NIBRS is at its core an incident-level dataset (hence the “Incident-Based” part of its name). Everything that we have stems from the incident, even though we can get more detailed and look at, for example, individual victims in an incident or even offenses within an incident. Figure <a href="nibrs-overview.html#fig:segmentFlowchart">11.8</a> shows the seven main segments and how they relate to each other. There are also three segments called “window segments” - there is one for arrestees, one of exceptional clearances (i.e. police could have made an arrest but did not for some reason but still consider the case closed), and one for property - that do not have an associated segment with them, they only have the information available in the given “window” segment. We will talk about window segments more in Section <a href="nibrs-overview.html#window">11.5.7</a> below.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:segmentFlowchart"></span>
-<img src="images/segments_flowchart.png" alt="The association of each segment file in the NIBRS dataset." width="100%" height="100%"  />
+<img src="images/segments_flowchart.png" alt="The association of each segment file in the NIBRS dataset." width="100%" height="100%" />
 <p class="caption">
 Figure 11.8: The association of each segment file in the NIBRS dataset.
 </p>
