@@ -14,6 +14,7 @@ documentclass: krantz
 monofont: "Source Code Pro"
 monofontoptions: "Scale=0.7"
 graphics: yes
+always_allow_html: true
 ---
 
 

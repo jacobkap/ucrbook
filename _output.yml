@@ -28,4 +28,8 @@ bookdown::pdf_book:
  toc_appendix: yes
  quote_footer: ["\\VA{", "}{}"]
  highlight_bw: true
- 
+bookdown::word_document2:
+ split_by: chapter
+ toc: yes
+ toc_depth: 3
+ always_allow_html: true
