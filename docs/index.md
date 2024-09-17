@@ -1,7 +1,7 @@
 --- 
 title: "Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data"
 author: "Jacob Kaplan, Ph.D."
-date: "2024-09-16"
+date: "2024-09-17"
 bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
@@ -149,15 +149,6 @@ When dealing with specific agencies, make sure to use the ORI rather than the ag
 ## The data as you get it from the FBI
 
 We will finish this overview of the SRS data by briefly talking about format of the data that is released by the FBI, before the processing done by myself or [NACJD](https://www.icpsr.umich.edu/web/pages/NACJD/index.html) that converts the data to a type that software like R or Stata or Excel can understand. The FBI releases their data as fixed-width ASCII files which are basically just an Excel file but with all of the columns squished together. As an example, Figure \@ref(fig:SRSascii) shows what the data looks like as you receive it from the FBI for the Offenses Known and Clearances by Arrest dataset for 1960, the first year with data available. In the figure, it seems like there are multiple rows but that is just because the software that I opened the file in is not wide enough - in reality what is shown is a single row that is extremely wide because there are over 1,500 columns in this data. If you scroll down enough you will see the next row, but that is not shown in the current image. What is shown is a single row with a ton of columns all pushed up next to each other. Since all of the columns are squished together (the gaps are just blank spaces because the value there is a space, but that does not mean there is a in the data. Spaces are possible values in the data and are meaningful), you need some way to figure out which parts of the data belong in which column. 
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{images/offenses_known_raw_ascii_1960} 
-
-}
-
-\caption{Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset.}(\#fig:SRSascii)
-\end{figure}
 
 \begin{figure}
 

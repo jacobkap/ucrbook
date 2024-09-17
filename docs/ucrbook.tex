@@ -228,7 +228,7 @@
 \title{Uniform Crime Reporting (UCR) Program Data: An
 Opinionated Guide to FBI Data}
 \author{Jacob Kaplan, Ph.D.}
-\date{2024-09-16}
+\date{2024-09-17}
 
 \begin{document}
 \maketitle
@@ -588,15 +588,6 @@ spaces because the value there is a space, but that does not
 mean there is a in the data. Spaces are possible values in
 the data and are meaningful), you need some way to figure
 out which parts of the data belong in which column.
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{images/offenses_known_raw_ascii_1960} 
-
-}
-
-\caption{Fixed-width ASCII file for the 1960 Offenses Known and Clearances by Arrest dataset.}\label{fig:SRSascii}
-\end{figure}
 
 \begin{figure}
 
@@ -4492,31 +4483,7 @@ done that, check it again.
 
 }
 
-\caption{The annual number of homicide victims in Chicago, SHR and Offeksnes Known, 1976-2022.}\label{fig:chicagoSHRvsOffensesKnown}
-\end{figure}
-
-Another way to visualize reporting is to see the total
-number of agencies that report at least one homicide, as
-depicted in Figure \ref{fig:shrAnnualAgencies}. Here we can
-see that have about 3,000 agencies reporting. Given that
-most agencies are small and truly do have zero homicides in
-a year, that may be reasonable. Agencies that do not have
-homicides do not submit a report saying so, they just do not
-submit any data. So that makes it hard to tell when an
-agency not reporting data is doing so because they choose to
-not report, or because they have nothing to report. This is
-most common in small agencies where many years truly have no
-homicides. But let us look at our biggest agencies, and see
-how much of an impact it would make to have them not report
-data.
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{06_shr_files/figure-latex/shrAnnualAgencies-1} 
-
-}
-
-\caption{The annual number of agencies that report at least one homicide.}\label{fig:shrAnnualAgencies}
+\caption{The annual number of homicide victims in Chicago, Supplementary Homicide Reports and Offenses Known and Clearances by Arrest, 1976-2022.}\label{fig:chicagoSHRvsOffensesKnown}
 \end{figure}
 
 Figures \ref{fig:shrTopAgenciesCount} and
@@ -5356,7 +5323,7 @@ no longer supporting SRS data.
 
 }
 
-\caption{The annual number of police agencies that report at least month of data that year, 1960-2022}\label{fig:leokaAgencies}
+\caption{The annual number of police agencies that report at least month of data, at least one employee, and at least one assault against an officer, 1960-2022}\label{fig:leokaAgencies}
 \end{figure}
 
 Part of the decline we see in Figure \ref{fig:leokaAgencies}
@@ -5367,15 +5334,6 @@ annual number of agencies that report having at least one
 employee (civilian or sworn officer). Compared to Figure
 \ref{fig:leokaAgencies} we see more agencies reporting since
 the 200s, and an earlier but less steep drop in reporting.
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{07_leoka_files/figure-latex/leokaAgenciesEmployees-1} 
-
-}
-
-\caption{The annual number of police agencies that report having at least one employee, 1960-2022}\label{fig:leokaAgenciesEmployees}
-\end{figure}
 
 I mentioned that LEOKA has two purposes: employee
 information and assaults on officers information. You should
@@ -5402,15 +5360,6 @@ agencies which report assaults in other years - which report
 zero assaults in some months or years. So you will need to
 be careful when determining if a zero report is a true zero
 rather than an agency submitting incomplete data.
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{07_leoka_files/figure-latex/leokaAgenciesAssaults-1} 
-
-}
-
-\caption{The annual number of police agencies that report having at least one assault against a police officer, 1960-2022}\label{fig:leokaAgenciesAssaults}
-\end{figure}
 
 \section{Important variables}\label{important-variables-4}
 
@@ -8652,15 +8601,6 @@ than half of agencies. The data shown here is potentially an
 overcount, however, as it includes agencies reporting any
 crime that year, even if they do not report every month.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{11_nibrs_general_files/figure-latex/agenciesReporting-1} 
-
-}
-
-\caption{The annual number of agencies reporting at least one incident in that year.}\label{fig:agenciesReporting}
-\end{figure}
-
 Another way to look at reporting is comparing it to
 reporting to UCR. Figure \ref{fig:agenciesReportingMap}
 shows the number of agencies in each state that report NIBRS
@@ -8675,15 +8615,6 @@ very few agencies reported. Indeed, four of the most
 populated states - California, New York, Florida, and New
 Jersey - do not have any agencies at all that report NIBRS
 data.
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{11_nibrs_general_files/figure-latex/agenciesReportingMap-1} 
-
-}
-
-\caption{The number of agencies in each state that reported at least one crime in 2022 to NIBRS.}\label{fig:agenciesReportingMap}
-\end{figure}
 
 Since the number of agencies in a state is partially just a
 factor of population, Figure
@@ -8707,138 +8638,6 @@ agencies reporting. So when using NIBRS data, keep in mind
 that you have very good coverage of certain states, and very
 poor coverage of other states. And the low - or zero -
 reporting states are systematically high population states.
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{11_nibrs_general_files/figure-latex/agenciesReportingMapPercent-1} 
-
-}
-
-\caption{Agencies in each state reporting at least one crime to NIBRS in 2022 as a percent of agencies that reported UCR Offenses Known and Clearances by Arrests data in 2022.}\label{fig:agenciesReportingMapPercent}
-\end{figure}
-
-For ease of reference, Table
-\ref{tab:agenciesReportingTable} shows the number of
-agencies in each state reporting to NIBRS and to UCR in
-2019, and the percent shown in Figure
-\ref{fig:agenciesReportingMapPercent}.
-
-\begin{longtable}[t]{l|r|r|r}
-\caption{\label{tab:agenciesReportingTable}The number of agencies in each state reporting to NIBRS and to UCR in 2019. Also shows NIBRS reporting in each state as a percent of UCR reporting.}\\
-\hline
-State & NIBRS Agencies & UCR Agencies & \textbackslash{}\% of UCR Agencies\\
-\hline
-\endfirsthead
-\caption[]{\label{tab:agenciesReportingTable}The number of agencies in each state reporting to NIBRS and to UCR in 2019. Also shows NIBRS reporting in each state as a percent of UCR reporting. \textit{(continued)}}\\
-\hline
-State & NIBRS Agencies & UCR Agencies & \textbackslash{}\% of UCR Agencies\\
-\hline
-\endhead
-Alabama & 393 & 414 & 94.93\textbackslash{}\%\\
-\hline
-Alaska & 32 & 33 & 96.97\textbackslash{}\%\\
-\hline
-Arizona & 88 & 108 & 81.48\textbackslash{}\%\\
-\hline
-Arkansas & 292 & 294 & 99.32\textbackslash{}\%\\
-\hline
-California & 530 & 665 & 79.7\textbackslash{}\%\\
-\hline
-Colorado & 225 & 233 & 96.57\textbackslash{}\%\\
-\hline
-Connecticut & 104 & 107 & 97.2\textbackslash{}\%\\
-\hline
-Delaware & 62 & 63 & 98.41\textbackslash{}\%\\
-\hline
-District of Columbia & 2 & 2 & 100\textbackslash{}\%\\
-\hline
-Florida & 78 & 372 & 20.97\textbackslash{}\%\\
-\hline
-Georgia & 425 & 457 & 93\textbackslash{}\%\\
-\hline
-Guam & 1 & 1 & 100\textbackslash{}\%\\
-\hline
-Hawaii & 3 & 3 & 100\textbackslash{}\%\\
-\hline
-Idaho & 111 & 110 & 100.91\textbackslash{}\%\\
-\hline
-Illinois & 497 & 522 & 95.21\textbackslash{}\%\\
-\hline
-Indiana & 205 & 212 & 96.7\textbackslash{}\%\\
-\hline
-Iowa & 225 & 228 & 98.68\textbackslash{}\%\\
-\hline
-Kansas & 320 & 327 & 97.86\textbackslash{}\%\\
-\hline
-Kentucky & 394 & 432 & 91.2\textbackslash{}\%\\
-\hline
-Louisiana & 137 & 151 & 90.73\textbackslash{}\%\\
-\hline
-Maine & 129 & 131 & 98.47\textbackslash{}\%\\
-\hline
-Maryland & 77 & 150 & 51.33\textbackslash{}\%\\
-\hline
-Massachusetts & 378 & 384 & 98.44\textbackslash{}\%\\
-\hline
-Michigan & 595 & 603 & 98.67\textbackslash{}\%\\
-\hline
-Minnesota & 398 & 411 & 96.84\textbackslash{}\%\\
-\hline
-Mississippi & 150 & 152 & 98.68\textbackslash{}\%\\
-\hline
-Missouri & 471 & 498 & 94.58\textbackslash{}\%\\
-\hline
-Montana & 106 & 110 & 96.36\textbackslash{}\%\\
-\hline
-Nebraska & 238 & 263 & 90.49\textbackslash{}\%\\
-\hline
-Nevada & 52 & 54 & 96.3\textbackslash{}\%\\
-\hline
-New Hampshire & 208 & 213 & 97.65\textbackslash{}\%\\
-\hline
-New Jersey & 307 & 543 & 56.54\textbackslash{}\%\\
-\hline
-New Mexico & 93 & 96 & 96.88\textbackslash{}\%\\
-\hline
-New York & 149 & 560 & 26.61\textbackslash{}\%\\
-\hline
-North Carolina & 395 & 407 & 97.05\textbackslash{}\%\\
-\hline
-North Dakota & 111 & 111 & 100\textbackslash{}\%\\
-\hline
-Ohio & 629 & 638 & 98.59\textbackslash{}\%\\
-\hline
-Oklahoma & 443 & 457 & 96.94\textbackslash{}\%\\
-\hline
-Oregon & 181 & 212 & 85.38\textbackslash{}\%\\
-\hline
-Pennsylvania & 130 & 1123 & 11.58\textbackslash{}\%\\
-\hline
-Rhode Island & 47 & 49 & 95.92\textbackslash{}\%\\
-\hline
-South Carolina & 351 & 472 & 74.36\textbackslash{}\%\\
-\hline
-South Dakota & 102 & 107 & 95.33\textbackslash{}\%\\
-\hline
-Tennessee & 397 & 399 & 99.5\textbackslash{}\%\\
-\hline
-Texas & 1041 & 1064 & 97.84\textbackslash{}\%\\
-\hline
-Utah & 133 & 135 & 98.52\textbackslash{}\%\\
-\hline
-Vermont & 85 & 88 & 96.59\textbackslash{}\%\\
-\hline
-Virginia & 405 & 410 & 98.78\textbackslash{}\%\\
-\hline
-Washington & 240 & 246 & 97.56\textbackslash{}\%\\
-\hline
-West Virginia & 201 & 214 & 93.93\textbackslash{}\%\\
-\hline
-Wisconsin & 361 & 403 & 89.58\textbackslash{}\%\\
-\hline
-Wyoming & 49 & 50 & 98\textbackslash{}\%\\
-\hline
-\end{longtable}
 
 \begin{figure}
 
@@ -12573,7 +12372,7 @@ Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories & 2018 & 1 & 0
 
 }
 
-\caption{The numbers of murders when considering only the first offense or all offenses, 1991-2022.}\label{fig:nibrsFirstVsAllOffensesMurders}
+\caption{The numbers of murder victims when considering only the first offense or all offenses, 1991-2022.}\label{fig:nibrsFirstVsAllOffensesMurders}
 \end{figure}
 
 \begin{figure}
@@ -12582,7 +12381,7 @@ Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories & 2018 & 1 & 0
 
 }
 
-\caption{The numbers of sexual offenders when considering only the first offense or all offenses, 1991-2022.}\label{fig:nibrsFirstVsAllOffensesSexOffenses}
+\caption{The numbers of sexual offense victims when considering only the first offense or all offenses, 1991-2022.}\label{fig:nibrsFirstVsAllOffensesSexOffenses}
 \end{figure}
 
 \section{Victim type}\label{victim-type}
@@ -12762,7 +12561,7 @@ or those who suffered a minor injury.
 
 }
 
-\caption{The distribution of the injury sustained by the victim, 2022. Only individual and law enforcement officer victims have this variable availablem.}\label{fig:victimInjury}
+\caption{The distribution of the injury sustained by the victim, 2022. Only individual and law enforcement officer victims have this variable available.}\label{fig:victimInjury}
 \end{figure}
 
 For the group who suffered one of the six more serious

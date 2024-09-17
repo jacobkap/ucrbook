@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.3)  16 SEP 2024 12:50
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.3)  17 SEP 2024 12:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -840,9 +840,6 @@ LaTeX Warning: Label `tab:hateLocations' multiply defined.
 LaTeX Warning: Label `tab:CountyPhillyMurders' multiply defined.
 
 
-LaTeX Warning: Label `tab:agenciesReportingTable' multiply defined.
-
-
 LaTeX Warning: Label `tab:nibrsAdministrativeCommonHours' multiply defined.
 
 
@@ -1487,9 +1484,11 @@ File: images/edit_button.png Graphic file (type bmp)
 
 [8]
 
+LaTeX Warning: Reference `fig:SRSascii' on page 9 undefined on input line 575.
+
+
+
 [9]
-File: images/offenses_known_raw_ascii_1960.png Graphic file (type bmp)
-<images/offenses_known_raw_ascii_1960.png>
 File: images/nibrs_ascii.png Graphic file (type bmp)
 <images/nibrs_ascii.png>
 
@@ -1579,43 +1578,43 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [22
 
 ]
-Underfull \vbox (badness 10000) detected at line 982
+Underfull \vbox (badness 10000) detected at line 973
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 982
+Overfull \hbox (336.25pt too wide) detected at line 973
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 982
+Underfull \vbox (badness 10000) detected at line 973
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 982
+Overfull \hbox (336.25pt too wide) detected at line 973
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 982
+Underfull \vbox (badness 10000) detected at line 973
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 982
+Overfull \hbox (336.25pt too wide) detected at line 973
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 982
+Underfull \vbox (badness 10000) detected at line 973
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 982
+Overfull \hbox (336.25pt too wide) detected at line 973
 []
  []
 
 
-Underfull \hbox (badness 10000) detected at line 982
+Underfull \hbox (badness 10000) detected at line 973
 []
  []
 
@@ -1623,7 +1622,7 @@ Underfull \hbox (badness 10000) detected at line 982
 Package hyperref Warning: bookmark level for unknown fm defaults to 0.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1003--1003
+Underfull \hbox (badness 10000) in paragraph at lines 994--994
 [][][][][]$\T1/lmr/m/n/8 https : / / www . routledge . com / A -[] Criminologists -[] Guide -[] to -[] R -[] Crime -[] by -[] the -[] Numbers /
  []
 
@@ -1678,38 +1677,38 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [24
 
 ]
-Underfull \vbox (badness 10000) detected at line 1031
+Underfull \vbox (badness 10000) detected at line 1022
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1031
+Overfull \hbox (336.25pt too wide) detected at line 1022
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1031
+Underfull \vbox (badness 10000) detected at line 1022
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1031
+Overfull \hbox (336.25pt too wide) detected at line 1022
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1031
+Underfull \vbox (badness 10000) detected at line 1022
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1031
+Overfull \hbox (336.25pt too wide) detected at line 1022
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1031
+Underfull \vbox (badness 10000) detected at line 1022
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1031
+Overfull \hbox (336.25pt too wide) detected at line 1022
 []
  []
 
@@ -1794,38 +1793,38 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [2]
-Underfull \vbox (badness 10000) detected at line 1034
+Underfull \vbox (badness 10000) detected at line 1025
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1034
+Overfull \hbox (336.25pt too wide) detected at line 1025
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1034
+Underfull \vbox (badness 10000) detected at line 1025
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1034
+Overfull \hbox (336.25pt too wide) detected at line 1025
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1034
+Underfull \vbox (badness 10000) detected at line 1025
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1034
+Overfull \hbox (336.25pt too wide) detected at line 1025
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1034
+Underfull \vbox (badness 10000) detected at line 1025
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1034
+Overfull \hbox (336.25pt too wide) detected at line 1025
 []
  []
 
@@ -1847,7 +1846,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [5]
 
 [6]
-Underfull \hbox (badness 6641) in paragraph at lines 1258--1258
+Underfull \hbox (badness 6641) in paragraph at lines 1249--1249
 []\T1/lmr/bx/n/11 Law En-force-ment Of-fi-cers Killed and As-saulted
  []
 
@@ -1899,38 +1898,38 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [10
 
 ]
-Underfull \vbox (badness 10000) detected at line 1400
+Underfull \vbox (badness 10000) detected at line 1391
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1400
+Overfull \hbox (336.25pt too wide) detected at line 1391
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1400
+Underfull \vbox (badness 10000) detected at line 1391
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1400
+Overfull \hbox (336.25pt too wide) detected at line 1391
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1400
+Underfull \vbox (badness 10000) detected at line 1391
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1400
+Overfull \hbox (336.25pt too wide) detected at line 1391
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1400
+Underfull \vbox (badness 10000) detected at line 1391
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1400
+Overfull \hbox (336.25pt too wide) detected at line 1391
 []
  []
 
@@ -1945,135 +1944,155 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [11
 
 ]
-Underfull \hbox (badness 10000) detected at line 1499
+Underfull \hbox (badness 10000) detected at line 1490
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1499
+Underfull \hbox (badness 10000) detected at line 1490
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1504--1506
+Underfull \hbox (badness 10000) in paragraph at lines 1495--1497
 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1509
+Underfull \hbox (badness 10000) detected at line 1500
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1509
+Underfull \hbox (badness 10000) detected at line 1500
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1514--1516
+Underfull \hbox (badness 10000) in paragraph at lines 1505--1507
 
  []
 
 
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 1516--1517
+Underfull \hbox (badness 10000) in paragraph at lines 1507--1508
 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1519
+Underfull \hbox (badness 10000) detected at line 1510
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1519
+Underfull \hbox (badness 10000) detected at line 1510
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1524--1526
+Underfull \hbox (badness 10000) in paragraph at lines 1515--1517
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1526--1528
+Underfull \hbox (badness 10000) in paragraph at lines 1517--1519
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1528--1530
+Underfull \hbox (badness 10000) in paragraph at lines 1519--1521
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1530--1531
+Underfull \hbox (badness 10000) in paragraph at lines 1521--1522
 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1533
+Underfull \hbox (badness 10000) detected at line 1524
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1533
+Underfull \hbox (badness 10000) detected at line 1524
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1539--1541
+Underfull \hbox (badness 10000) in paragraph at lines 1530--1532
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1541--1543
+Underfull \hbox (badness 10000) in paragraph at lines 1532--1534
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1543--1545
+Underfull \hbox (badness 10000) in paragraph at lines 1534--1536
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1545--1546
+Underfull \hbox (badness 10000) in paragraph at lines 1536--1537
 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1548
+Underfull \hbox (badness 10000) detected at line 1539
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1548
+Underfull \hbox (badness 10000) detected at line 1539
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1553--1555
+Underfull \hbox (badness 10000) in paragraph at lines 1544--1546
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1555--1557
+Underfull \hbox (badness 10000) in paragraph at lines 1546--1548
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1557--1558
+Underfull \hbox (badness 10000) in paragraph at lines 1548--1549
 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1560
+Underfull \hbox (badness 10000) detected at line 1551
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1560
+Underfull \hbox (badness 10000) detected at line 1551
 [][][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1551--1553
+
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 1553
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 1553
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1558--1560
+
  []
 
 
@@ -2082,59 +2101,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 1560--1562
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1562
+Underfull \hbox (badness 10000) in paragraph at lines 1562--1563
+
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 1565
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1562
+Underfull \hbox (badness 10000) detected at line 1565
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1567--1569
+Underfull \hbox (badness 10000) in paragraph at lines 1565--1567
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1569--1571
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1571--1572
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 1574
+Underfull \hbox (badness 10000) detected at line 1567
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1574
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1574--1576
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 1576
- [][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 1576
+Underfull \hbox (badness 10000) detected at line 1567
 [][][]
  []
 
 
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 1635--1635
+Underfull \hbox (badness 10000) in paragraph at lines 1626--1626
 [][][][][]$\T1/lmr/m/n/8 https : / / ucr . fbi . gov / nibrs / 2014 / resource -[] pages / e^^[ects _ of _ nibrs _ on _ crime _
  []
 
@@ -2155,12 +2154,12 @@ File: 03_offenses_known_files/figure-latex/chicagoMurder-1.pdf Graphic file (typ
 
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 1807--1807
+Underfull \hbox (badness 10000) in paragraph at lines 1798--1798
 [][][][][]$\T1/lmr/m/n/8 https : / / SRS . fbi . gov / crime -[] in -[] the -[] u . s / 2019 / crime -[] in -[] the -[] u . s. -[] 2019 / topic -[] pages /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1812--1812
+Underfull \hbox (badness 10000) in paragraph at lines 1803--1803
 [][][][][]$\T1/lmr/m/n/8 https : / / www . aclu . org / report / tale -[] two -[] countries -[] racially -[] targeted -[] arrests -[] era -[]
  []
 
@@ -2177,7 +2176,7 @@ File: 03_offenses_known_files/figure-latex/simpleIndex-1.pdf Graphic file (type 
 File: 03_offenses_known_files/figure-latex/offensesAgenciesReporting-1.pdf Graphic file (type pdf)
 <use 03_offenses_known_files/figure-latex/offensesAgenciesReporting-1.pdf>
 
-LaTeX Warning: Reference `fig:offensesAgenciesReportingFull' on page 21 undefined on input line 1968.
+LaTeX Warning: Reference `fig:offensesAgenciesReportingFull' on page 21 undefined on input line 1959.
 
 
 
@@ -2196,7 +2195,7 @@ File: 03_offenses_known_files/figure-latex/newarkMurders-1.pdf Graphic file (typ
 [24]
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 2162--2162
+Underfull \hbox (badness 10000) in paragraph at lines 2153--2153
 [][][][][]$\T1/lmr/m/n/8 https : / / www . propublica . org / article / when -[] it -[] comes -[] to -[] rape -[] just -[] because -[] a -[] case -[] is -[]
  []
 
@@ -2295,38 +2294,38 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [38
 
 ]
-Underfull \vbox (badness 10000) detected at line 2521
+Underfull \vbox (badness 10000) detected at line 2512
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 2521
+Overfull \hbox (336.25pt too wide) detected at line 2512
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2521
+Underfull \vbox (badness 10000) detected at line 2512
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 2521
+Overfull \hbox (336.25pt too wide) detected at line 2512
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2521
+Underfull \vbox (badness 10000) detected at line 2512
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 2521
+Overfull \hbox (336.25pt too wide) detected at line 2512
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2521
+Underfull \vbox (badness 10000) detected at line 2512
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 2521
+Overfull \hbox (336.25pt too wide) detected at line 2512
 []
  []
 
@@ -2459,38 +2458,38 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [60
 
 ]
-Underfull \vbox (badness 10000) detected at line 3535
+Underfull \vbox (badness 10000) detected at line 3526
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 3535
+Overfull \hbox (336.25pt too wide) detected at line 3526
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3535
+Underfull \vbox (badness 10000) detected at line 3526
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 3535
+Overfull \hbox (336.25pt too wide) detected at line 3526
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3535
+Underfull \vbox (badness 10000) detected at line 3526
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 3535
+Overfull \hbox (336.25pt too wide) detected at line 3526
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3535
+Underfull \vbox (badness 10000) detected at line 3526
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 3535
+Overfull \hbox (336.25pt too wide) detected at line 3526
 []
  []
 
@@ -2514,6 +2513,26 @@ File: 05_arrests_files/figure-latex/arrestsAgenciesReporting-1.pdf Graphic file 
 [63]
 
 [64]
+Underfull \hbox (badness 10000) detected at line 3731
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 3731
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 3738
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 3738
+[][][]
+ []
+
+
 Underfull \hbox (badness 10000) detected at line 3740
  [][]
  []
@@ -2524,172 +2543,172 @@ Underfull \hbox (badness 10000) detected at line 3740
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3747
+Underfull \hbox (badness 10000) detected at line 3748
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3747
+Underfull \hbox (badness 10000) detected at line 3748
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3749
+Underfull \hbox (badness 10000) detected at line 3750
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3749
+Underfull \hbox (badness 10000) detected at line 3750
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3757
+Underfull \hbox (badness 10000) detected at line 3752
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3757
+Underfull \hbox (badness 10000) detected at line 3752
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3759
+Underfull \hbox (badness 10000) detected at line 3754
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3759
+Underfull \hbox (badness 10000) detected at line 3754
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3761
+Underfull \hbox (badness 10000) detected at line 3756
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3761
+Underfull \hbox (badness 10000) detected at line 3756
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3763
+Underfull \hbox (badness 10000) detected at line 3758
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3763
+Underfull \hbox (badness 10000) detected at line 3758
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3765
+Underfull \hbox (badness 10000) detected at line 3760
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3765
+Underfull \hbox (badness 10000) detected at line 3760
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3767
+Underfull \hbox (badness 10000) detected at line 3762
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3767
+Underfull \hbox (badness 10000) detected at line 3762
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3769
+Underfull \hbox (badness 10000) detected at line 3764
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3769
+Underfull \hbox (badness 10000) detected at line 3764
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3771
+Underfull \hbox (badness 10000) detected at line 3766
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3771
+Underfull \hbox (badness 10000) detected at line 3766
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3773
+Underfull \hbox (badness 10000) detected at line 3768
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3773
+Underfull \hbox (badness 10000) detected at line 3768
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3775
+Underfull \hbox (badness 10000) detected at line 3770
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3775
+Underfull \hbox (badness 10000) detected at line 3770
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3777
+Underfull \hbox (badness 10000) detected at line 3772
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3777
+Underfull \hbox (badness 10000) detected at line 3772
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3779
+Underfull \hbox (badness 10000) detected at line 3774
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3779
+Underfull \hbox (badness 10000) detected at line 3774
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3781
+Underfull \hbox (badness 10000) detected at line 3776
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3781
+Underfull \hbox (badness 10000) detected at line 3776
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3783
+Underfull \hbox (badness 10000) detected at line 3778
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3783
+Underfull \hbox (badness 10000) detected at line 3778
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3785
+Underfull \hbox (badness 10000) detected at line 3780
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3785
+Underfull \hbox (badness 10000) detected at line 3780
 [][][]
  []
 
@@ -2704,22 +2723,22 @@ Underfull \hbox (badness 10000) detected at line 3787
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3789
+Underfull \hbox (badness 10000) detected at line 3801
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3789
+Underfull \hbox (badness 10000) detected at line 3801
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3796
+Underfull \hbox (badness 10000) detected at line 3808
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3796
+Underfull \hbox (badness 10000) detected at line 3808
 [][][]
  []
 
@@ -2734,58 +2753,68 @@ Underfull \hbox (badness 10000) detected at line 3810
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3817
+Underfull \hbox (badness 10000) detected at line 3812
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3817
+Underfull \hbox (badness 10000) detected at line 3812
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3819
+Underfull \hbox (badness 10000) detected at line 3820
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3819
+Underfull \hbox (badness 10000) detected at line 3820
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3821
+Underfull \hbox (badness 10000) detected at line 3824
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3821
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 3829
- [][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 3829
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 3833
- [][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 3833
+Underfull \hbox (badness 10000) detected at line 3824
 [][][]
  []
 
 
 
 [65]
+Underfull \hbox (badness 10000) detected at line 3826
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 3826
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 3831
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 3831
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 3833
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 3833
+[][][]
+ []
+
+
 Underfull \hbox (badness 10000) detected at line 3835
  [][]
  []
@@ -2796,72 +2825,42 @@ Underfull \hbox (badness 10000) detected at line 3835
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3840
+Underfull \hbox (badness 10000) detected at line 3838
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3840
+Underfull \hbox (badness 10000) detected at line 3838
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3842
+Underfull \hbox (badness 10000) detected at line 3843
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3842
+Underfull \hbox (badness 10000) detected at line 3843
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3844
+Underfull \hbox (badness 10000) detected at line 3846
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3844
+Underfull \hbox (badness 10000) detected at line 3846
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3847
+Underfull \hbox (badness 10000) detected at line 3848
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3847
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 3852
- [][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 3852
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 3855
- [][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 3855
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 3857
- [][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 3857
+Underfull \hbox (badness 10000) detected at line 3848
 [][][]
  []
 
@@ -2951,38 +2950,38 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [78
 
 ]
-Underfull \vbox (badness 10000) detected at line 4393
+Underfull \vbox (badness 10000) detected at line 4384
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4393
+Overfull \hbox (336.25pt too wide) detected at line 4384
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4393
+Underfull \vbox (badness 10000) detected at line 4384
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4393
+Overfull \hbox (336.25pt too wide) detected at line 4384
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4393
+Underfull \vbox (badness 10000) detected at line 4384
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4393
+Overfull \hbox (336.25pt too wide) detected at line 4384
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4393
+Underfull \vbox (badness 10000) detected at line 4384
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4393
+Overfull \hbox (336.25pt too wide) detected at line 4384
 []
  []
 
@@ -3007,73 +3006,68 @@ File: 06_shr_files/figure-latex/chicagoSHRvsOffensesKnown-1.pdf Graphic file (ty
 
 
 [81]
-File: 06_shr_files/figure-latex/shrAnnualAgencies-1.pdf Graphic file (type pdf)
-<use 06_shr_files/figure-latex/shrAnnualAgencies-1.pdf>
-
-
-[82]
 File: 06_shr_files/figure-latex/shrTopAgenciesCount-1.pdf Graphic file (type pdf)
 <use 06_shr_files/figure-latex/shrTopAgenciesCount-1.pdf>
 
 
-[83]
+[82]
 File: 06_shr_files/figure-latex/shrTopAgenciesCountPercent-1.pdf Graphic file (type pdf)
 <use 06_shr_files/figure-latex/shrTopAgenciesCountPercent-1.pdf>
 
 
-[84]
+[83]
 
-[85]
+[84]
 File: 06_shr_files/figure-latex/numberSHRVictims-1.pdf Graphic file (type pdf)
 <use 06_shr_files/figure-latex/numberSHRVictims-1.pdf>
 File: 06_shr_files/figure-latex/numberSHROffenders-1.pdf Graphic file (type pdf)
 <use 06_shr_files/figure-latex/numberSHROffenders-1.pdf>
 
 
-[86]
+[85]
 
-[87]
+[86]
 File: 06_shr_files/figure-latex/shrOffenderAge-1.pdf Graphic file (type pdf)
 <use 06_shr_files/figure-latex/shrOffenderAge-1.pdf>
 
 
-[88]
+[87]
 File: 06_shr_files/figure-latex/shrVictimAge-1.pdf Graphic file (type pdf)
 <use 06_shr_files/figure-latex/shrVictimAge-1.pdf>
 
 
-[89]
+[88]
 File: 06_shr_files/figure-latex/shrOffenderSex-1.pdf Graphic file (type pdf)
 <use 06_shr_files/figure-latex/shrOffenderSex-1.pdf>
 
 
-[90]
+[89]
 File: 06_shr_files/figure-latex/shrVictimSex-1.pdf Graphic file (type pdf)
 <use 06_shr_files/figure-latex/shrVictimSex-1.pdf>
 
 
-[91]
+[90]
 File: 06_shr_files/figure-latex/shrOffenderRace-1.pdf Graphic file (type pdf)
 <use 06_shr_files/figure-latex/shrOffenderRace-1.pdf>
 
 
-[92]
+[91]
 File: 06_shr_files/figure-latex/shrVictimRace-1.pdf Graphic file (type pdf)
 <use 06_shr_files/figure-latex/shrVictimRace-1.pdf>
 
 
-[93]
+[92]
 File: 06_shr_files/figure-latex/shrOffenderEthnicity-1.pdf Graphic file (type pdf)
 <use 06_shr_files/figure-latex/shrOffenderEthnicity-1.pdf>
 
 
-[94]
+[93]
 File: 06_shr_files/figure-latex/shrVictimEthnicity-1.pdf Graphic file (type pdf)
 <use 06_shr_files/figure-latex/shrVictimEthnicity-1.pdf>
 
 
-[95]
-Underfull \hbox (badness 10000) in paragraph at lines 4872--4872
+[94]
+Underfull \hbox (badness 10000) in paragraph at lines 4839--4839
 [][][][][]$\T1/lmr/m/n/8 https : / / www . census . gov / quickfacts / fact / table / albuquerquecitynewmexico ,[] US /
  []
 
@@ -3081,126 +3075,85 @@ File: 06_shr_files/figure-latex/ABQ-1.pdf Graphic file (type pdf)
 <use 06_shr_files/figure-latex/ABQ-1.pdf>
 
 
-[96]
+[95]
 
-[97]
+[96]
 File: 06_shr_files/figure-latex/shrRifle-1.pdf Graphic file (type pdf)
 <use 06_shr_files/figure-latex/shrRifle-1.pdf>
 
 
-[98]
+[97]
 File: 06_shr_files/figure-latex/shrRiflePercent-1.pdf Graphic file (type pdf)
 <use 06_shr_files/figure-latex/shrRiflePercent-1.pdf>
 
 
+[98]
+Overfull \hbox (49.02655pt too wide) in alignment at lines 5016--5021
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (49.02655pt too wide) in alignment at lines 5021--5026
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (49.02655pt too wide) in alignment at lines 5026--5087
+ [] [] [] [] 
+ []
+
 [99]
-Overfull \hbox (49.02655pt too wide) in alignment at lines 5049--5054
- [] [] [] [] 
- []
-
-
-Overfull \hbox (49.02655pt too wide) in alignment at lines 5054--5059
- [] [] [] [] 
- []
-
-
-Overfull \hbox (49.02655pt too wide) in alignment at lines 5059--5120
- [] [] [] [] 
- []
 
 [100]
+Overfull \hbox (246.76343pt too wide) in alignment at lines 5131--5136
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (246.76343pt too wide) in alignment at lines 5136--5141
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (246.76343pt too wide) in alignment at lines 5141--5214
+ [] [] [] [] 
+ []
 
 [101]
-Overfull \hbox (246.76343pt too wide) in alignment at lines 5164--5169
- [] [] [] [] 
- []
-
-
-Overfull \hbox (246.76343pt too wide) in alignment at lines 5169--5174
- [] [] [] [] 
- []
-
-
-Overfull \hbox (246.76343pt too wide) in alignment at lines 5174--5247
- [] [] [] [] 
- []
 
 [102]
-
-[103]
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 5261
+ []
 
 
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
+Overfull \hbox (336.25pt too wide) detected at line 5261
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 5261
+ []
 
 
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
+Overfull \hbox (336.25pt too wide) detected at line 5261
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 5261
+ []
 
 
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
+Overfull \hbox (336.25pt too wide) detected at line 5261
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
+Underfull \vbox (badness 10000) detected at line 5261
  []
 
 
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
-
-[104
-
-]
-Underfull \vbox (badness 10000) detected at line 5294
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 5294
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 5294
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 5294
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 5294
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 5294
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 5294
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 5294
+Overfull \hbox (336.25pt too wide) detected at line 5261
 []
  []
 
@@ -3212,89 +3165,94 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[105
+[103
+
 
 ]
 File: 07_leoka_files/figure-latex/leokaAgencies-1.pdf Graphic file (type pdf)
 <use 07_leoka_files/figure-latex/leokaAgencies-1.pdf>
-File: 07_leoka_files/figure-latex/leokaAgenciesEmployees-1.pdf Graphic file (type pdf)
-<use 07_leoka_files/figure-latex/leokaAgenciesEmployees-1.pdf>
+
+LaTeX Warning: Reference `fig:leokaAgenciesEmployees' on page 104 undefined on input line 5332.
 
 
-[106]
-File: 07_leoka_files/figure-latex/leokaAgenciesAssaults-1.pdf Graphic file (type pdf)
-<use 07_leoka_files/figure-latex/leokaAgenciesAssaults-1.pdf>
+LaTeX Warning: Reference `fig:leokaAgenciesAssaults' on page 104 undefined on input line 5344.
 
 
-[107]
 
-[108]
+[104]
+
+[105]
 File: 07_leoka_files/figure-latex/leokaNationalEmployees-1.pdf Graphic file (type pdf)
 <use 07_leoka_files/figure-latex/leokaNationalEmployees-1.pdf>
 
 
-[109]
+[106]
 File: 07_leoka_files/figure-latex/leokaCivilianOfficers-1.pdf Graphic file (type pdf)
 <use 07_leoka_files/figure-latex/leokaCivilianOfficers-1.pdf>
 
 
-[110]
+[107]
 File: 07_leoka_files/figure-latex/leokaOfficersGender-1.pdf Graphic file (type pdf)
 <use 07_leoka_files/figure-latex/leokaOfficersGender-1.pdf>
 
 
-[111]
+[108]
 File: 07_leoka_files/figure-latex/leokaOfficersGenderCount-1.pdf Graphic file (type pdf)
 <use 07_leoka_files/figure-latex/leokaOfficersGenderCount-1.pdf>
 
 
-[112]
+[109]
 File: 07_leoka_files/figure-latex/leokaOfficersKilled-1.pdf Graphic file (type pdf)
 <use 07_leoka_files/figure-latex/leokaOfficersKilled-1.pdf>
 
 
-[113]
+[110]
 File: 07_leoka_files/figure-latex/leokaOfficersKilledNational-1.pdf Graphic file (type pdf)
 <use 07_leoka_files/figure-latex/leokaOfficersKilledNational-1.pdf>
 
 
-[114]
+[111]
 
-[115]
+[112]
 File: 07_leoka_files/figure-latex/leokaAssaultTypeInjury-1.pdf Graphic file (type pdf)
 <use 07_leoka_files/figure-latex/leokaAssaultTypeInjury-1.pdf>
 
 
-[116]
+[113]
+Overfull \vbox (34.01563pt too high) has occurred while \output is active []
+
+
+
+[114]
 File: 07_leoka_files/figure-latex/leokaAssaultsInjuryYear-1.pdf Graphic file (type pdf)
 <use 07_leoka_files/figure-latex/leokaAssaultsInjuryYear-1.pdf>
 
 
-[117]
+[115]
 File: 07_leoka_files/figure-latex/leokaAssaultCallType-1.pdf Graphic file (type pdf)
 <use 07_leoka_files/figure-latex/leokaAssaultCallType-1.pdf>
 
 
-[118]
+[116]
 
-[119]
+[117]
 File: 07_leoka_files/figure-latex/leokaDisturbanceWeapon-1.pdf Graphic file (type pdf)
 <use 07_leoka_files/figure-latex/leokaDisturbanceWeapon-1.pdf>
 
 
-[120]
+[118]
 File: 07_leoka_files/figure-latex/leokaShiftAssignment-1.pdf Graphic file (type pdf)
 <use 07_leoka_files/figure-latex/leokaShiftAssignment-1.pdf>
 
 
-[121]
+[119]
 File: 07_leoka_files/figure-latex/phoenixAssaultTimes-1.pdf Graphic file (type pdf)
 <use 07_leoka_files/figure-latex/phoenixAssaultTimes-1.pdf>
 
 
-[122]
+[120]
 
-[123]
+[121]
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -3333,41 +3291,41 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[124
+[122
 
 ]
-Underfull \vbox (badness 10000) detected at line 6029
+Underfull \vbox (badness 10000) detected at line 5978
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6029
+Overfull \hbox (336.25pt too wide) detected at line 5978
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 6029
+Underfull \vbox (badness 10000) detected at line 5978
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6029
+Overfull \hbox (336.25pt too wide) detected at line 5978
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 6029
+Underfull \vbox (badness 10000) detected at line 5978
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6029
+Overfull \hbox (336.25pt too wide) detected at line 5978
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 6029
+Underfull \vbox (badness 10000) detected at line 5978
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6029
+Overfull \hbox (336.25pt too wide) detected at line 5978
 []
  []
 
@@ -3379,82 +3337,82 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[125
+[123
 
 ]
 File: 08_arson_files/figure-latex/arsonAgencies-1.pdf Graphic file (type pdf)
 <use 08_arson_files/figure-latex/arsonAgencies-1.pdf>
 
 
-[126]
+[124]
 
-LaTeX Warning: Reference `fig:arsonAgencies12Months' on page 127 undefined on input line 6117.
+LaTeX Warning: Reference `fig:arsonAgencies12Months' on page 125 undefined on input line 6066.
 
 File: 08_arson_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use 08_arson_files/figure-latex/unnamed-chunk-3-1.pdf>
 
 
-[127]
+[125]
 
-[128]
-Underfull \hbox (badness 10000) in paragraph at lines 6215--6215
+[126]
+Underfull \hbox (badness 10000) in paragraph at lines 6164--6164
 [][][][][]$\T1/lmr/m/n/8 https : / / www . nbcnews . com / news / us -[] news / man -[] pushing -[] burning -[] car -[] ravine -[] started -[]
  []
 
 
 
-[129]
+[127]
 File: 08_arson_files/figure-latex/arsonClearance-1.pdf Graphic file (type pdf)
 <use 08_arson_files/figure-latex/arsonClearance-1.pdf>
 
 
-[130]
+[128]
 
-[131]
+[129]
 File: 08_arson_files/figure-latex/residenceArson-1.pdf Graphic file (type pdf)
 <use 08_arson_files/figure-latex/residenceArson-1.pdf>
 
 
-[132]
+[130]
 File: 08_arson_files/figure-latex/arsonCost-1.pdf Graphic file (type pdf)
 <use 08_arson_files/figure-latex/arsonCost-1.pdf>
 
 
-[133]
+[131]
 
-[134]
-Underfull \vbox (badness 10000) detected at line 6393
+[132]
+Underfull \vbox (badness 10000) detected at line 6342
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6393
+Overfull \hbox (336.25pt too wide) detected at line 6342
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 6393
+Underfull \vbox (badness 10000) detected at line 6342
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6393
+Overfull \hbox (336.25pt too wide) detected at line 6342
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 6393
+Underfull \vbox (badness 10000) detected at line 6342
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6393
+Overfull \hbox (336.25pt too wide) detected at line 6342
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 6393
+Underfull \vbox (badness 10000) detected at line 6342
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6393
+Overfull \hbox (336.25pt too wide) detected at line 6342
 []
  []
 
@@ -3466,7 +3424,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[135
+[133
 
 
 ]
@@ -3474,28 +3432,28 @@ File: 09_hate_crime_files/figure-latex/hateAgencies-1.pdf Graphic file (type pdf
 <use 09_hate_crime_files/figure-latex/hateAgencies-1.pdf>
 
 
-[136]
+[134]
 File: 09_hate_crime_files/figure-latex/hateCrimesEver-1.pdf Graphic file (type pdf)
 <use 09_hate_crime_files/figure-latex/hateCrimesEver-1.pdf>
 
 
-[137]
+[135]
 File: 09_hate_crime_files/figure-latex/hateCrimesPreviousYear-1.pdf Graphic file (type pdf)
 <use 09_hate_crime_files/figure-latex/hateCrimesPreviousYear-1.pdf>
 
 
-[138]
+[136]
 File: 09_hate_crime_files/figure-latex/hateCrimesMap-1.pdf Graphic file (type pdf)
 <use 09_hate_crime_files/figure-latex/hateCrimesMap-1.pdf>
 
 
-[139]
-Underfull \hbox (badness 1067) in paragraph at lines 6567--6581
+[137]
+Underfull \hbox (badness 1067) in paragraph at lines 6516--6530
 \T1/lmr/m/n/10 state), 11%, and 14%, re-spec-tively. This dif-fer-ence is likely due to a
  []
 
 
-Underfull \hbox (badness 3977) in paragraph at lines 6567--6581
+Underfull \hbox (badness 3977) in paragraph at lines 6516--6530
 \T1/lmr/m/n/10 they https://www.washingtonpost.com/national-security/2022/01/29/hate-
  []
 
@@ -3503,137 +3461,137 @@ File: 09_hate_crime_files/figure-latex/statePercentReporting-1.pdf Graphic file 
 <use 09_hate_crime_files/figure-latex/statePercentReporting-1.pdf>
 
 
-[140]
+[138]
 File: 09_hate_crime_files/figure-latex/statePercentReportingPop-1.pdf Graphic file (type pdf)
 <use 09_hate_crime_files/figure-latex/statePercentReportingPop-1.pdf>
 
 
-[141]
+[139]
 
-[142]
+[140]
 File: 09_hate_crime_files/figure-latex/hateCrimesByDay-1.pdf Graphic file (type pdf)
 <use 09_hate_crime_files/figure-latex/hateCrimesByDay-1.pdf>
 
 
-[143]
+[141]
 File: 09_hate_crime_files/figure-latex/hateCrimesByMonthDay-1.pdf Graphic file (type pdf)
 <use 09_hate_crime_files/figure-latex/hateCrimesByMonthDay-1.pdf>
 
 
+[142]
+
+[143]
+
 [144]
+Overfull \hbox (219.6238pt too wide) in alignment at lines 6803--6808
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (219.6238pt too wide) in alignment at lines 6808--6813
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (219.6238pt too wide) in alignment at lines 6813--6884
+ [] [] [] [] 
+ []
 
 [145]
 
 [146]
-Overfull \hbox (219.6238pt too wide) in alignment at lines 6854--6859
- [] [] [] [] 
- []
-
-
-Overfull \hbox (219.6238pt too wide) in alignment at lines 6859--6864
- [] [] [] [] 
- []
-
-
-Overfull \hbox (219.6238pt too wide) in alignment at lines 6864--6935
- [] [] [] [] 
- []
-
-[147]
-
-[148]
 File: 09_hate_crime_files/figure-latex/crimesPerHateCrime-1.pdf Graphic file (type pdf)
 <use 09_hate_crime_files/figure-latex/crimesPerHateCrime-1.pdf>
 
 
+[147]
+Overfull \hbox (144.44443pt too wide) in alignment at lines 6983--6988
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (144.44443pt too wide) in alignment at lines 6988--6993
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (144.44443pt too wide) in alignment at lines 6993--7090
+ [] [] [] [] 
+ []
+
+[148]
+
 [149]
-Overfull \hbox (144.44443pt too wide) in alignment at lines 7034--7039
+Overfull \hbox (88.35968pt too wide) in alignment at lines 7132--7137
  [] [] [] [] 
  []
 
 
-Overfull \hbox (144.44443pt too wide) in alignment at lines 7039--7044
+Overfull \hbox (88.35968pt too wide) in alignment at lines 7137--7142
  [] [] [] [] 
  []
 
 
-Overfull \hbox (144.44443pt too wide) in alignment at lines 7044--7141
+Overfull \hbox (88.35968pt too wide) in alignment at lines 7142--7235
  [] [] [] [] 
  []
 
 [150]
 
 [151]
-Overfull \hbox (88.35968pt too wide) in alignment at lines 7183--7188
- [] [] [] [] 
- []
-
-
-Overfull \hbox (88.35968pt too wide) in alignment at lines 7188--7193
- [] [] [] [] 
- []
-
-
-Overfull \hbox (88.35968pt too wide) in alignment at lines 7193--7286
- [] [] [] [] 
- []
-
-[152]
-
-[153]
 File: 09_hate_crime_files/figure-latex/hateCrimeOffenderRace-1.pdf Graphic file (type pdf)
 <use 09_hate_crime_files/figure-latex/hateCrimeOffenderRace-1.pdf>
 
 
-[154]
+[152]
 File: 09_hate_crime_files/figure-latex/hateCrimeOffenderNumber-1.pdf Graphic file (type pdf)
 <use 09_hate_crime_files/figure-latex/hateCrimeOffenderNumber-1.pdf>
 
 
-[155]
+[153]
 
-[156]
+[154]
 File: 09_hate_crime_files/figure-latex/jewishIncidentVictim-1.pdf Graphic file (type pdf)
 <use 09_hate_crime_files/figure-latex/jewishIncidentVictim-1.pdf>
 File: 09_hate_crime_files/figure-latex/blackIncidentVictim-1.pdf Graphic file (type pdf)
 <use 09_hate_crime_files/figure-latex/blackIncidentVictim-1.pdf>
 
 
-[157]
+[155]
 
-[158]
-Underfull \vbox (badness 10000) detected at line 7454
+[156]
+Underfull \vbox (badness 10000) detected at line 7403
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 7454
+Overfull \hbox (336.25pt too wide) detected at line 7403
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 7454
+Underfull \vbox (badness 10000) detected at line 7403
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 7454
+Overfull \hbox (336.25pt too wide) detected at line 7403
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 7454
+Underfull \vbox (badness 10000) detected at line 7403
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 7454
+Overfull \hbox (336.25pt too wide) detected at line 7403
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 7454
+Underfull \vbox (badness 10000) detected at line 7403
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 7454
+Overfull \hbox (336.25pt too wide) detected at line 7403
 []
  []
 
@@ -3645,166 +3603,188 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[159
+[157
 
 
 ]
 
+[158]
+
+[159]
+Overfull \hbox (94.80742pt too wide) in alignment at lines 7599--7604
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (94.80742pt too wide) in alignment at lines 7604--7609
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (94.80742pt too wide) in alignment at lines 7609--7636
+ [] [] [] [] 
+ []
+
+
+
 [160]
-
-[161]
-Overfull \hbox (94.80742pt too wide) in alignment at lines 7650--7655
- [] [] [] [] 
- []
-
-
-Overfull \hbox (94.80742pt too wide) in alignment at lines 7655--7660
- [] [] [] [] 
- []
-
-
-Overfull \hbox (94.80742pt too wide) in alignment at lines 7660--7687
- [] [] [] [] 
- []
-
-
-
-[162]
 File: 10_ucr_county_files/figure-latex/countyAnyMonthReported-1.pdf Graphic file (type pdf)
 <use 10_ucr_county_files/figure-latex/countyAnyMonthReported-1.pdf>
 File: 10_ucr_county_files/figure-latex/stateMap2022-1.pdf Graphic file (type pdf)
 <use 10_ucr_county_files/figure-latex/stateMap2022-1.pdf>
 
 
-[163]
+[161]
 File: 10_ucr_county_files/figure-latex/countyMap2022-1.pdf Graphic file (type pdf)
 <use 10_ucr_county_files/figure-latex/countyMap2022-1.pdf>
 File: 10_ucr_county_files/figure-latex/countyMap2010-1.pdf Graphic file (type pdf)
 <use 10_ucr_county_files/figure-latex/countyMap2010-1.pdf>
 
 
-[164]
+[162]
 File: 10_ucr_county_files/figure-latex/countyMap2000-1.pdf Graphic file (type pdf)
 <use 10_ucr_county_files/figure-latex/countyMap2000-1.pdf>
 
 
-[165]
+[163]
 File: images/segments_flowchart.png Graphic file (type bmp)
 <images/segments_flowchart.png>
 
 
+[164]
+Overfull \hbox (139.91663pt too wide) in alignment at lines 7788--7793
+ [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (139.91663pt too wide) in alignment at lines 7793--7798
+ [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (139.91663pt too wide) in alignment at lines 7798--7823
+ [] [] [] [] [] 
+ []
+
+[165]
+Overfull \hbox (114.74864pt too wide) in alignment at lines 7840--7845
+ [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (114.74864pt too wide) in alignment at lines 7845--7850
+ [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (114.74864pt too wide) in alignment at lines 7850--7875
+ [] [] [] [] [] 
+ []
+
+
+
 [166]
-Overfull \hbox (139.91663pt too wide) in alignment at lines 7839--7844
+Overfull \hbox (218.08215pt too wide) in alignment at lines 7892--7897
  [] [] [] [] [] 
  []
 
 
-Overfull \hbox (139.91663pt too wide) in alignment at lines 7844--7849
+Overfull \hbox (218.08215pt too wide) in alignment at lines 7897--7902
  [] [] [] [] [] 
  []
 
 
-Overfull \hbox (139.91663pt too wide) in alignment at lines 7849--7874
+Overfull \hbox (218.08215pt too wide) in alignment at lines 7902--7927
  [] [] [] [] [] 
  []
+
+
 
 [167]
-Overfull \hbox (114.74864pt too wide) in alignment at lines 7891--7896
+Overfull \hbox (223.16472pt too wide) in alignment at lines 7969--7974
  [] [] [] [] [] 
  []
 
 
-Overfull \hbox (114.74864pt too wide) in alignment at lines 7896--7901
+Overfull \hbox (223.16472pt too wide) in alignment at lines 7974--7979
  [] [] [] [] [] 
  []
 
 
-Overfull \hbox (114.74864pt too wide) in alignment at lines 7901--7926
+Overfull \hbox (223.16472pt too wide) in alignment at lines 7979--8000
+ [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (223.16472pt too wide) in alignment at lines 8013--8018
+ [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (223.16472pt too wide) in alignment at lines 8018--8023
+ [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (223.16472pt too wide) in alignment at lines 8023--8044
  [] [] [] [] [] 
  []
 
 
 
 [168]
-Overfull \hbox (218.08215pt too wide) in alignment at lines 7943--7948
+Overfull \hbox (223.16472pt too wide) in alignment at lines 8046--8051
  [] [] [] [] [] 
  []
 
 
-Overfull \hbox (218.08215pt too wide) in alignment at lines 7948--7953
+Overfull \hbox (223.16472pt too wide) in alignment at lines 8051--8056
  [] [] [] [] [] 
  []
 
 
-Overfull \hbox (218.08215pt too wide) in alignment at lines 7953--7978
+Overfull \hbox (223.16472pt too wide) in alignment at lines 8056--8077
  [] [] [] [] [] 
  []
 
 
 
 [169]
-Overfull \hbox (223.16472pt too wide) in alignment at lines 8020--8025
- [] [] [] [] [] 
- []
-
-
-Overfull \hbox (223.16472pt too wide) in alignment at lines 8025--8030
- [] [] [] [] [] 
- []
-
-
-Overfull \hbox (223.16472pt too wide) in alignment at lines 8030--8051
- [] [] [] [] [] 
- []
-
-
-Overfull \hbox (223.16472pt too wide) in alignment at lines 8064--8069
- [] [] [] [] [] 
- []
-
-
-Overfull \hbox (223.16472pt too wide) in alignment at lines 8069--8074
- [] [] [] [] [] 
- []
-
-
-Overfull \hbox (223.16472pt too wide) in alignment at lines 8074--8095
- [] [] [] [] [] 
- []
-
-
 
 [170]
-Overfull \hbox (223.16472pt too wide) in alignment at lines 8097--8102
- [] [] [] [] [] 
+Overfull \hbox (296.36363pt too wide) in alignment at lines 8179--8184
+ [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (223.16472pt too wide) in alignment at lines 8102--8107
- [] [] [] [] [] 
+Overfull \hbox (296.36363pt too wide) in alignment at lines 8184--8189
+ [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (223.16472pt too wide) in alignment at lines 8107--8128
- [] [] [] [] [] 
+Overfull \hbox (296.36363pt too wide) in alignment at lines 8189--8208
+ [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (296.36363pt too wide) in alignment at lines 8210--8215
+ [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (296.36363pt too wide) in alignment at lines 8215--8220
+ [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (296.36363pt too wide) in alignment at lines 8220--8239
+ [] [] [] [] [] [] 
  []
 
 
 
 [171]
-
-[172]
-Overfull \hbox (296.36363pt too wide) in alignment at lines 8230--8235
- [] [] [] [] [] [] 
- []
-
-
-Overfull \hbox (296.36363pt too wide) in alignment at lines 8235--8240
- [] [] [] [] [] [] 
- []
-
-
-Overfull \hbox (296.36363pt too wide) in alignment at lines 8240--8259
+Overfull \hbox (296.36363pt too wide) in alignment at lines 8256--8261
  [] [] [] [] [] [] 
  []
 
@@ -3814,86 +3794,144 @@ Overfull \hbox (296.36363pt too wide) in alignment at lines 8261--8266
  []
 
 
-Overfull \hbox (296.36363pt too wide) in alignment at lines 8266--8271
+Overfull \hbox (296.36363pt too wide) in alignment at lines 8266--8285
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (296.36363pt too wide) in alignment at lines 8271--8290
+
+[172]
+Overfull \hbox (296.36363pt too wide) in alignment at lines 8299--8304
  [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (296.36363pt too wide) in alignment at lines 8304--8309
+ [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (296.36363pt too wide) in alignment at lines 8309--8328
+ [] [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 8330
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 8330
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 8330
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 8330
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 8330
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 8330
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 8330
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 8330
+[]
  []
 
 
 
 [173]
-Overfull \hbox (296.36363pt too wide) in alignment at lines 8307--8312
- [] [] [] [] [] [] 
- []
 
 
-Overfull \hbox (296.36363pt too wide) in alignment at lines 8312--8317
- [] [] [] [] [] [] 
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Overfull \hbox (296.36363pt too wide) in alignment at lines 8317--8336
- [] [] [] [] [] [] 
- []
-
-
-
-[174]
-Overfull \hbox (296.36363pt too wide) in alignment at lines 8350--8355
- [] [] [] [] [] [] 
- []
-
-
-Overfull \hbox (296.36363pt too wide) in alignment at lines 8355--8360
- [] [] [] [] [] [] 
- []
-
-
-Overfull \hbox (296.36363pt too wide) in alignment at lines 8360--8379
- [] [] [] [] [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 8381
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 8381
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 8381
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 8381
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 8381
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 8381
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 8381
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 8381
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
 []
  []
 
 
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[174
+
+]
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
 
 [175]
 
@@ -3934,119 +3972,39 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[176
-
-]
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[176]
+Underfull \vbox (badness 10000) detected at line 8333
+ []
 
 
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
+Overfull \hbox (336.25pt too wide) detected at line 8333
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 8333
+ []
 
 
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
+Overfull \hbox (336.25pt too wide) detected at line 8333
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 8333
+ []
 
 
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
+Overfull \hbox (336.25pt too wide) detected at line 8333
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
+Underfull \vbox (badness 10000) detected at line 8333
  []
 
 
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
-
-[177]
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
-
-[178]
-Underfull \vbox (badness 10000) detected at line 8384
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 8384
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 8384
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 8384
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 8384
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 8384
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 8384
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 8384
+Overfull \hbox (336.25pt too wide) detected at line 8333
 []
  []
 
@@ -4058,7 +4016,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[179
+[177
 
 
 ]
@@ -4066,439 +4024,380 @@ File: 11_nibrs_general_files/figure-latex/nibrsSegmentsAgencies-1.pdf Graphic fi
 <use 11_nibrs_general_files/figure-latex/nibrsSegmentsAgencies-1.pdf>
 
 
+[178]
+
+[179]
+
 [180]
 
 [181]
 
-[182]
-
-[183]
-File: 11_nibrs_general_files/figure-latex/agenciesReporting-1.pdf Graphic file (type pdf)
-<use 11_nibrs_general_files/figure-latex/agenciesReporting-1.pdf>
+LaTeX Warning: Reference `fig:agenciesReporting' on page 182 undefined on input line 8591.
 
 
-[184]
-File: 11_nibrs_general_files/figure-latex/agenciesReportingMap-1.pdf Graphic file (type pdf)
-<use 11_nibrs_general_files/figure-latex/agenciesReportingMap-1.pdf>
-File: 11_nibrs_general_files/figure-latex/agenciesReportingMapPercent-1.pdf Graphic file (type pdf)
-<use 11_nibrs_general_files/figure-latex/agenciesReportingMapPercent-1.pdf>
+LaTeX Warning: Reference `fig:agenciesReportingMap' on page 182 undefined on input line 8605.
 
 
-[185]
-Overfull \hbox (22.6094pt too wide) in alignment at lines 8726--8731
- [] [] [] [] 
- []
+LaTeX Warning: Reference `fig:agenciesReportingMapPercent' on page 182 undefined on input line 8621.
 
-
-Overfull \hbox (22.6094pt too wide) in alignment at lines 8731--8736
- [] [] [] [] 
- []
-
-
-Overfull \hbox (22.6094pt too wide) in alignment at lines 8736--8841
- [] [] [] [] 
- []
-
-[186]
 File: 11_nibrs_general_files/figure-latex/nibrsAnnualNumberAgencies-1.pdf Graphic file (type pdf)
 <use 11_nibrs_general_files/figure-latex/nibrsAnnualNumberAgencies-1.pdf>
 
 
-[187]
+[182]
 File: 11_nibrs_general_files/figure-latex/nibrsAnnualPercentPopulation-1.pdf Graphic file (type pdf)
 <use 11_nibrs_general_files/figure-latex/nibrsAnnualPercentPopulation-1.pdf>
 File: 11_nibrs_general_files/figure-latex/nibrsStateParticipation2020-1.pdf Graphic file (type pdf)
 <use 11_nibrs_general_files/figure-latex/nibrsStateParticipation2020-1.pdf>
 
 
-[188]
-Underfull \hbox (badness 10000) in paragraph at lines 8876--8876
+[183]
+Underfull \hbox (badness 10000) in paragraph at lines 8675--8675
 [][][][][]$\T1/lmr/m/n/8 https : / / ucrbook . com / ucrGeneral . html # crimes -[] in -[] the -[] o^^[enses -[] known -[] and -[] clearances -[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8880--8880
+Underfull \hbox (badness 10000) in paragraph at lines 8679--8679
 [][][][][]$\T1/lmr/m/n/8 https : / / ucrbook . com / ucrGeneral . html # crimes -[] in -[] the -[] arrests -[] by -[] age -[] sex -[] and -[] race -[]
  []
 
 
 
-[189]
-Underfull \hbox (badness 10000) in paragraph at lines 8938--8938
+[184]
+Underfull \hbox (badness 10000) in paragraph at lines 8737--8737
 [][][][][]$\T1/lmr/m/n/8 https : / / www . propublica . org / article / the -[] secret -[] irs -[] ^^\les -[] trove -[] of -[] never -[] before -[] seen -[]
  []
 
 
 
+[185]
+Underfull \hbox (badness 10000) in paragraph at lines 8744--8746
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8746--8748
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8748--8750
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8750--8752
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8752--8754
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8754--8756
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8756--8758
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8758--8760
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8760--8762
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8762--8764
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8764--8766
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8766--8768
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8768--8770
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8770--8772
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8772--8774
+
+ []
+
+
+
+[186]
+Underfull \hbox (badness 10000) in paragraph at lines 8774--8776
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8776--8778
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8778--8780
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8780--8782
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8782--8784
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8784--8786
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8786--8788
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8788--8790
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8790--8792
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8792--8794
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8794--8796
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8796--8798
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8798--8800
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8800--8802
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8802--8804
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8804--8806
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8806--8808
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8808--8810
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8810--8812
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8812--8814
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8814--8816
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8816--8818
+
+ []
+
+
+
+[187]
+Underfull \hbox (badness 10000) in paragraph at lines 8818--8820
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8820--8822
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8822--8824
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8824--8826
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8826--8828
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8828--8830
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8830--8832
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8834--8836
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8836--8838
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8838--8840
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8840--8842
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8842--8844
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8844--8846
+
+ []
+
+
+
+[188]
+Underfull \hbox (badness 10000) in paragraph at lines 8887--8889
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8891--8893
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8895--8897
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8899--8901
+
+ []
+
+
+
+[189]
+
 [190]
-Underfull \hbox (badness 10000) in paragraph at lines 8945--8947
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8947--8949
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8949--8951
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8951--8953
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8953--8955
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8955--8957
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8957--8959
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8959--8961
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8961--8963
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8963--8965
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8965--8967
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8967--8969
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8969--8971
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8971--8973
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8973--8975
-
- []
-
-
-
-[191]
-Underfull \hbox (badness 10000) in paragraph at lines 8975--8977
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8977--8979
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8979--8981
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8981--8983
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8983--8985
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8985--8987
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8987--8989
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8989--8991
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8991--8993
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8993--8995
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8995--8997
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8997--8999
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8999--9001
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9001--9003
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9003--9005
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9005--9007
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9007--9009
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9009--9011
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9011--9013
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9013--9015
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9015--9017
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9017--9019
-
- []
-
-
-
-[192]
-Underfull \hbox (badness 10000) in paragraph at lines 9019--9021
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9021--9023
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9023--9025
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9025--9027
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9027--9029
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9029--9031
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9031--9033
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9035--9037
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9037--9039
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9039--9041
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9041--9043
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9043--9045
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9045--9047
-
- []
-
-
-
-[193]
-Underfull \hbox (badness 10000) in paragraph at lines 9088--9090
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9092--9094
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9096--9098
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9100--9102
-
- []
-
-
-
-[194]
-
-[195]
 File: images/segments_flowchart.png Graphic file (type bmp)
 <images/segments_flowchart.png>
 
 
+[191]
+
+[192]
+
+[193]
+
+[194]
+
+[195]
+
 [196]
-
-[197]
-
-[198]
-
-[199]
-
-[200]
-
-[201]
+Underfull \vbox (badness 10000) detected at line 9271
+ []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
+Overfull \hbox (336.25pt too wide) detected at line 9271
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 9271
+ []
 
 
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
+Overfull \hbox (336.25pt too wide) detected at line 9271
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 9271
+ []
 
 
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
+Overfull \hbox (336.25pt too wide) detected at line 9271
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
+Underfull \vbox (badness 10000) detected at line 9271
  []
 
 
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
-
-[202
-
-]
-Underfull \vbox (badness 10000) detected at line 9472
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 9472
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 9472
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 9472
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 9472
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 9472
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 9472
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 9472
+Overfull \hbox (336.25pt too wide) detected at line 9271
 []
  []
 
@@ -4510,147 +4409,148 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[203
+[197
+
 
 ]
 File: 12_nibrs_administrative_files/figure-latex/administrativeIncidentMonth-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/administrativeIncidentMonth-1.pdf>
 
 
-[204]
+[198]
 File: 12_nibrs_administrative_files/figure-latex/administrativeMonthDayIncident-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/administrativeMonthDayIncident-1.pdf>
 
 
-[205]
+[199]
 Overfull \vbox (46.02798pt too high) has occurred while \output is active []
 
 
 
-[206]
+[200]
 File: 12_nibrs_administrative_files/figure-latex/administrativeMonthDayReport-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/administrativeMonthDayReport-1.pdf>
 
 
-[207]
+[201]
 Overfull \vbox (46.02798pt too high) has occurred while \output is active []
 
 
 
-[208]
+[202]
 File: 12_nibrs_administrative_files/figure-latex/administrativeHours-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/administrativeHours-1.pdf>
 
 
-[209]
+[203]
 File: 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeHours-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeHours-1.pdf>
 
 
-[210]
-Overfull \hbox (193.10954pt too wide) in alignment at lines 9692--9697
+[204]
+Overfull \hbox (193.10954pt too wide) in alignment at lines 9491--9496
  [] [] [] [] [] 
  []
 
 
-Overfull \hbox (193.10954pt too wide) in alignment at lines 9697--9702
+Overfull \hbox (193.10954pt too wide) in alignment at lines 9496--9501
  [] [] [] [] [] 
  []
 
 
-Overfull \hbox (193.10954pt too wide) in alignment at lines 9702--9767
+Overfull \hbox (193.10954pt too wide) in alignment at lines 9501--9566
  [] [] [] [] [] 
  []
 
-[211]
+[205]
 
-[212]
+[206]
 
-[213]
+[207]
 File: 12_nibrs_administrative_files/figure-latex/administrativeExceptionalClearances-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/administrativeExceptionalClearances-1.pdf>
 File: 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeClearance-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeClearance-1.pdf>
 
 
-[214]
+[208]
 
-[215]
+[209]
 File: 12_nibrs_administrative_files/figure-latex/administrativeOffenseSegments-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/administrativeOffenseSegments-1.pdf>
 File: 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeNumberOffense-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeNumberOffense-1.pdf>
 
 
-[216]
+[210]
 
-[217]
+[211]
 File: 12_nibrs_administrative_files/figure-latex/administrativeOffenderSegments-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/administrativeOffenderSegments-1.pdf>
 File: 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeNumberOffender-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeNumberOffender-1.pdf>
 
 
-[218]
+[212]
 File: 12_nibrs_administrative_files/figure-latex/administrativeVictimSegments-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/administrativeVictimSegments-1.pdf>
 
 
-[219]
+[213]
 File: 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeNumberVictim-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeNumberVictim-1.pdf>
 
 
-[220]
+[214]
 File: 12_nibrs_administrative_files/figure-latex/administrativeArresteeSegments-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/administrativeArresteeSegments-1.pdf>
 
 
-[221]
+[215]
 File: 12_nibrs_administrative_files/figure-latex/administrativeArrestsAny-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/administrativeArrestsAny-1.pdf>
 
 
-[222]
+[216]
 File: 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeNumberArrestee-1.pdf Graphic file (type pdf)
 <use 12_nibrs_administrative_files/figure-latex/nibrsAdministrativeNumberArrestee-1.pdf>
 
 
-[223]
+[217]
 
-[224]
-Underfull \vbox (badness 10000) detected at line 10112
+[218]
+Underfull \vbox (badness 10000) detected at line 9911
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 10112
+Overfull \hbox (336.25pt too wide) detected at line 9911
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 10112
+Underfull \vbox (badness 10000) detected at line 9911
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 10112
+Overfull \hbox (336.25pt too wide) detected at line 9911
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 10112
+Underfull \vbox (badness 10000) detected at line 9911
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 10112
+Overfull \hbox (336.25pt too wide) detected at line 9911
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 10112
+Underfull \vbox (badness 10000) detected at line 9911
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 10112
+Overfull \hbox (336.25pt too wide) detected at line 9911
 []
  []
 
@@ -4662,195 +4562,195 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[225
+[219
 
 
 ]
-Overfull \hbox (196.38928pt too wide) in alignment at lines 10212--10217
+Overfull \hbox (196.38928pt too wide) in alignment at lines 10011--10016
  [] [] [] [] 
  []
 
 
-Overfull \hbox (196.38928pt too wide) in alignment at lines 10217--10222
+Overfull \hbox (196.38928pt too wide) in alignment at lines 10016--10021
  [] [] [] [] 
  []
 
 
-Overfull \hbox (196.38928pt too wide) in alignment at lines 10222--10347
+Overfull \hbox (196.38928pt too wide) in alignment at lines 10021--10146
  [] [] [] [] 
  []
 
 
 
-[226] [227]
+[220] [221]
 
-[228]
+[222]
 
-[229]
-Overfull \hbox (758.81949pt too wide) in alignment at lines 10466--10471
+[223]
+Overfull \hbox (758.81949pt too wide) in alignment at lines 10265--10270
  [] [] [] [] 
  []
 
 
-Overfull \hbox (758.81949pt too wide) in alignment at lines 10471--10476
+Overfull \hbox (758.81949pt too wide) in alignment at lines 10270--10275
  [] [] [] [] 
  []
 
 
-Overfull \hbox (758.81949pt too wide) in alignment at lines 10476--10749
+Overfull \hbox (758.81949pt too wide) in alignment at lines 10275--10548
  [] [] [] [] 
  []
 
-[230] [231] [232] [233]
-Overfull \hbox (136.24963pt too wide) in alignment at lines 10781--10786
+[224] [225] [226] [227]
+Overfull \hbox (136.24963pt too wide) in alignment at lines 10580--10585
  [] [] [] 
  []
 
 
-Overfull \hbox (136.24963pt too wide) in alignment at lines 10786--10791
+Overfull \hbox (136.24963pt too wide) in alignment at lines 10585--10590
  [] [] [] 
  []
 
 
-Overfull \hbox (136.24963pt too wide) in alignment at lines 10791--10910
+Overfull \hbox (136.24963pt too wide) in alignment at lines 10590--10709
  [] [] [] 
  []
 
-[234] [235]
+[228] [229]
 File: 13_nibrs_offense_files/figure-latex/nibrsOffenseCompleted-1.pdf Graphic file (type pdf)
 <use 13_nibrs_offense_files/figure-latex/nibrsOffenseCompleted-1.pdf>
 
 
-[236]
+[230]
 
-[237]
+[231]
 File: 13_nibrs_offense_files/figure-latex/offenseDrugAlcoholComputer-1.pdf Graphic file (type pdf)
 <use 13_nibrs_offense_files/figure-latex/offenseDrugAlcoholComputer-1.pdf>
 File: 13_nibrs_offense_files/figure-latex/offenseDrugAlcoholComputerAny-1.pdf Graphic file (type pdf)
 <use 13_nibrs_offense_files/figure-latex/offenseDrugAlcoholComputerAny-1.pdf>
 
 
-[238]
+[232]
 
-[239]
-Overfull \hbox (47.4709pt too wide) in alignment at lines 11027--11032
+[233]
+Overfull \hbox (47.4709pt too wide) in alignment at lines 10826--10831
  [] [] [] [] 
  []
 
 
-Overfull \hbox (47.4709pt too wide) in alignment at lines 11032--11037
+Overfull \hbox (47.4709pt too wide) in alignment at lines 10831--10836
  [] [] [] [] 
  []
 
 
-Overfull \hbox (47.4709pt too wide) in alignment at lines 11037--11132
+Overfull \hbox (47.4709pt too wide) in alignment at lines 10836--10931
  [] [] [] [] 
  []
 
-[240]
+[234]
 
-[241]
+[235]
 
-[242]
-Overfull \hbox (426.26257pt too wide) in alignment at lines 11239--11244
- [] [] [] [] 
- []
-
-
-Overfull \hbox (426.26257pt too wide) in alignment at lines 11244--11249
+[236]
+Overfull \hbox (426.26257pt too wide) in alignment at lines 11038--11043
  [] [] [] [] 
  []
 
 
-Overfull \hbox (426.26257pt too wide) in alignment at lines 11249--11649
+Overfull \hbox (426.26257pt too wide) in alignment at lines 11043--11048
  [] [] [] [] 
  []
 
 
-Overfull \hbox (426.26257pt too wide) in alignment at lines 11649--11726
+Overfull \hbox (426.26257pt too wide) in alignment at lines 11048--11448
  [] [] [] [] 
  []
 
-[243] [244] [245] [246] [247] [248]
 
-LaTeX Warning: Reference `nibrsMurdersWeapon' on page 249 undefined on input line 11731.
+Overfull \hbox (426.26257pt too wide) in alignment at lines 11448--11525
+ [] [] [] [] 
+ []
+
+[237] [238] [239] [240] [241] [242]
+
+LaTeX Warning: Reference `nibrsMurdersWeapon' on page 243 undefined on input line 11530.
 
 File: 13_nibrs_offense_files/figure-latex/nibrsMurdersWeapon-1.pdf Graphic file (type pdf)
 <use 13_nibrs_offense_files/figure-latex/nibrsMurdersWeapon-1.pdf>
 
 
-[249]
+[243]
 File: 13_nibrs_offense_files/figure-latex/offenseAutomaticWeapon-1.pdf Graphic file (type pdf)
 <use 13_nibrs_offense_files/figure-latex/offenseAutomaticWeapon-1.pdf>
 
 
-[250]
+[244]
 File: 13_nibrs_offense_files/figure-latex/offensePremisesEntered-1.pdf Graphic file (type pdf)
 <use 13_nibrs_offense_files/figure-latex/offensePremisesEntered-1.pdf>
 
 
-[251]
+[245]
 
-[252]
+[246]
 File: 13_nibrs_offense_files/figure-latex/nibrsBurglaryForce-1.pdf Graphic file (type pdf)
 <use 13_nibrs_offense_files/figure-latex/nibrsBurglaryForce-1.pdf>
 
 
-[253]
-Overfull \hbox (89.30487pt too wide) in alignment at lines 11926--11931
+[247]
+Overfull \hbox (89.30487pt too wide) in alignment at lines 11725--11730
  [] [] [] 
  []
 
 
-Overfull \hbox (89.30487pt too wide) in alignment at lines 11931--11936
+Overfull \hbox (89.30487pt too wide) in alignment at lines 11730--11735
  [] [] [] 
  []
 
 
-Overfull \hbox (89.30487pt too wide) in alignment at lines 11936--12007
+Overfull \hbox (89.30487pt too wide) in alignment at lines 11735--11806
  [] [] [] 
  []
 
-[254]
+[248]
 File: 13_nibrs_offense_files/figure-latex/nibrsOffenseBias-1.pdf Graphic file (type pdf)
 <use 13_nibrs_offense_files/figure-latex/nibrsOffenseBias-1.pdf>
 
 
-[255]
+[249]
 
-[256]
-Underfull \vbox (badness 10000) detected at line 12024
+[250]
+Underfull \vbox (badness 10000) detected at line 11823
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 12024
+Overfull \hbox (336.25pt too wide) detected at line 11823
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 12024
+Underfull \vbox (badness 10000) detected at line 11823
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 12024
+Overfull \hbox (336.25pt too wide) detected at line 11823
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 12024
+Underfull \vbox (badness 10000) detected at line 11823
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 12024
+Overfull \hbox (336.25pt too wide) detected at line 11823
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 12024
+Underfull \vbox (badness 10000) detected at line 11823
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 12024
+Overfull \hbox (336.25pt too wide) detected at line 11823
 []
  []
 
@@ -4862,7 +4762,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[257
+[251
 
 
 ]
@@ -4870,69 +4770,69 @@ File: 14_nibrs_offender_files/figure-latex/offenderAge-1.pdf Graphic file (type 
 <use 14_nibrs_offender_files/figure-latex/offenderAge-1.pdf>
 
 
-[258]
+[252]
 File: 14_nibrs_offender_files/figure-latex/nibrsOffenderAge-1.pdf Graphic file (type pdf)
 <use 14_nibrs_offender_files/figure-latex/nibrsOffenderAge-1.pdf>
 
 
-[259]
+[253]
 File: 14_nibrs_offender_files/figure-latex/nibrsOffenderAgeMissing-1.pdf Graphic file (type pdf)
 <use 14_nibrs_offender_files/figure-latex/nibrsOffenderAgeMissing-1.pdf>
 
 
-[260]
+[254]
 File: 14_nibrs_offender_files/figure-latex/nibrsOffenderSex-1.pdf Graphic file (type pdf)
 <use 14_nibrs_offender_files/figure-latex/nibrsOffenderSex-1.pdf>
 
 
-[261]
+[255]
 
-LaTeX Warning: Reference `fig:offenderRace' on page 262 undefined on input line 12224.
+LaTeX Warning: Reference `fig:offenderRace' on page 256 undefined on input line 12023.
 
 File: 14_nibrs_offender_files/figure-latex/nibrsOffenderRace-1.pdf Graphic file (type pdf)
 <use 14_nibrs_offender_files/figure-latex/nibrsOffenderRace-1.pdf>
 
 
-[262]
+[256]
 File: 14_nibrs_offender_files/figure-latex/nibrsOffenderEthnicity-1.pdf Graphic file (type pdf)
 <use 14_nibrs_offender_files/figure-latex/nibrsOffenderEthnicity-1.pdf>
 
 
-[263]
+[257]
 
-[264]
-Underfull \vbox (badness 10000) detected at line 12294
+[258]
+Underfull \vbox (badness 10000) detected at line 12093
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 12294
+Overfull \hbox (336.25pt too wide) detected at line 12093
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 12294
+Underfull \vbox (badness 10000) detected at line 12093
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 12294
+Overfull \hbox (336.25pt too wide) detected at line 12093
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 12294
+Underfull \vbox (badness 10000) detected at line 12093
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 12294
+Overfull \hbox (336.25pt too wide) detected at line 12093
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 12294
+Underfull \vbox (badness 10000) detected at line 12093
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 12294
+Overfull \hbox (336.25pt too wide) detected at line 12093
 []
  []
 
@@ -4944,103 +4844,103 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[265
+[259
 
 
 ]
-Overfull \hbox (136.9163pt too wide) in alignment at lines 12378--12383
+Overfull \hbox (136.9163pt too wide) in alignment at lines 12177--12182
  [] [] [] 
  []
 
 
-Overfull \hbox (136.9163pt too wide) in alignment at lines 12383--12388
+Overfull \hbox (136.9163pt too wide) in alignment at lines 12182--12187
  [] [] [] 
  []
 
 
-Overfull \hbox (136.9163pt too wide) in alignment at lines 12388--12513
+Overfull \hbox (136.9163pt too wide) in alignment at lines 12187--12312
  [] [] [] 
  []
 
-[266] [267]
-Overfull \hbox (242.55565pt too wide) in alignment at lines 12515--12520
+[260] [261]
+Overfull \hbox (242.55565pt too wide) in alignment at lines 12314--12319
  [] [] [] [] 
  []
 
 
-Overfull \hbox (242.55565pt too wide) in alignment at lines 12520--12525
+Overfull \hbox (242.55565pt too wide) in alignment at lines 12319--12324
  [] [] [] [] 
  []
 
 
-Overfull \hbox (242.55565pt too wide) in alignment at lines 12525--12568
+Overfull \hbox (242.55565pt too wide) in alignment at lines 12324--12367
  [] [] [] [] 
  []
 
-[268]
+[262]
 File: 15_nibrs_victim_files/figure-latex/nibrsFirstVsAllOffensesMurders-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/nibrsFirstVsAllOffensesMurders-1.pdf>
 File: 15_nibrs_victim_files/figure-latex/nibrsFirstVsAllOffensesSexOffenses-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/nibrsFirstVsAllOffensesSexOffenses-1.pdf>
 
 
-[269]
+[263]
 
-[270]
+[264]
 File: 15_nibrs_victim_files/figure-latex/nibrsVictimNumberOfficer-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/nibrsVictimNumberOfficer-1.pdf>
 
 
-[271]
+[265]
 File: 15_nibrs_victim_files/figure-latex/nibrsVictimPercentIndividualOfficer-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/nibrsVictimPercentIndividualOfficer-1.pdf>
 
 
-[272]
+[266]
 
-[273]
+[267]
 File: 15_nibrs_victim_files/figure-latex/victimInjury-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/victimInjury-1.pdf>
 File: 15_nibrs_victim_files/figure-latex/victimInjuryExcludeNone-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/victimInjuryExcludeNone-1.pdf>
 
 
-[274]
+[268]
 File: 15_nibrs_victim_files/figure-latex/nibrsVictimAssaultInjury-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/nibrsVictimAssaultInjury-1.pdf>
 
 
-[275]
+[269]
 
-[276]
-Overfull \hbox (74.73483pt too wide) in alignment at lines 12836--12841
+[270]
+Overfull \hbox (74.73483pt too wide) in alignment at lines 12635--12640
  [] [] [] 
  []
 
 
-Overfull \hbox (74.73483pt too wide) in alignment at lines 12841--12846
+Overfull \hbox (74.73483pt too wide) in alignment at lines 12640--12645
  [] [] [] 
  []
 
 
-Overfull \hbox (74.73483pt too wide) in alignment at lines 12846--12901
+Overfull \hbox (74.73483pt too wide) in alignment at lines 12645--12700
  [] [] [] 
  []
 
 
 
-[277]
-Overfull \hbox (74.73483pt too wide) in alignment at lines 12919--12924
+[271]
+Overfull \hbox (74.73483pt too wide) in alignment at lines 12718--12723
  [] [] [] 
  []
 
 
-Overfull \hbox (74.73483pt too wide) in alignment at lines 12924--12929
+Overfull \hbox (74.73483pt too wide) in alignment at lines 12723--12728
  [] [] [] 
  []
 
 
-Overfull \hbox (74.73483pt too wide) in alignment at lines 12929--12982
+Overfull \hbox (74.73483pt too wide) in alignment at lines 12728--12781
  [] [] [] 
  []
 
@@ -5048,80 +4948,80 @@ File: 15_nibrs_victim_files/figure-latex/nibrsVictimAssaultSpouse-1.pdf Graphic 
 <use 15_nibrs_victim_files/figure-latex/nibrsVictimAssaultSpouse-1.pdf>
 
 
-[278]
-Overfull \hbox (126.58281pt too wide) in alignment at lines 13012--13017
+[272]
+Overfull \hbox (126.58281pt too wide) in alignment at lines 12811--12816
  [] [] [] [] 
  []
 
 
-Overfull \hbox (126.58281pt too wide) in alignment at lines 13017--13022
+Overfull \hbox (126.58281pt too wide) in alignment at lines 12816--12821
  [] [] [] [] 
  []
 
 
-Overfull \hbox (126.58281pt too wide) in alignment at lines 13022--13059
+Overfull \hbox (126.58281pt too wide) in alignment at lines 12821--12858
  [] [] [] [] 
  []
 
 
 
-[279]
+[273]
 File: 15_nibrs_victim_files/figure-latex/victimJustifiableHomicide-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/victimJustifiableHomicide-1.pdf>
 
 
-[280]
+[274]
 
-[281]
+[275]
 
-LaTeX Warning: Reference `fig:victimResidenceStatus' on page 282 undefined on input line 13118.
+LaTeX Warning: Reference `fig:victimResidenceStatus' on page 276 undefined on input line 12917.
 
 File: 15_nibrs_victim_files/figure-latex/victimResidenceStatusPolice-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/victimResidenceStatusPolice-1.pdf>
 
 
-[282]
+[276]
 File: 15_nibrs_victim_files/figure-latex/nibrsVictimResidentStatus-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/nibrsVictimResidentStatus-1.pdf>
 
 
-[283]
+[277]
 File: 15_nibrs_victim_files/figure-latex/victimAge-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/victimAge-1.pdf>
 
 
-[284]
+[278]
 File: 15_nibrs_victim_files/figure-latex/nibrsVictimAge-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/nibrsVictimAge-1.pdf>
 File: 15_nibrs_victim_files/figure-latex/nibrsVictimAgeMissing-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/nibrsVictimAgeMissing-1.pdf>
 
 
-[285]
+[279]
 File: 15_nibrs_victim_files/figure-latex/nibrsVictimSex-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/nibrsVictimSex-1.pdf>
 
 
-[286]
+[280]
 
-LaTeX Warning: Reference `fig:victimRace' on page 287 undefined on input line 13256.
+LaTeX Warning: Reference `fig:victimRace' on page 281 undefined on input line 13055.
 
 File: 15_nibrs_victim_files/figure-latex/nibrsVictimRace-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/nibrsVictimRace-1.pdf>
 
 
-[287]
+[281]
 
-LaTeX Warning: Reference `fig:victimEthnicity' on page 288 undefined on input line 13296.
+LaTeX Warning: Reference `fig:victimEthnicity' on page 282 undefined on input line 13095.
 
 
 
-[288]
+[282]
 File: 15_nibrs_victim_files/figure-latex/nibrsVictimEthnicity-1.pdf Graphic file (type pdf)
 <use 15_nibrs_victim_files/figure-latex/nibrsVictimEthnicity-1.pdf>
 
 
-[289]
+[283]
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -5160,41 +5060,41 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[290
+[284
 
 ]
-Underfull \vbox (badness 10000) detected at line 13316
+Underfull \vbox (badness 10000) detected at line 13115
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 13316
+Overfull \hbox (336.25pt too wide) detected at line 13115
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 13316
+Underfull \vbox (badness 10000) detected at line 13115
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 13316
+Overfull \hbox (336.25pt too wide) detected at line 13115
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 13316
+Underfull \vbox (badness 10000) detected at line 13115
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 13316
+Overfull \hbox (336.25pt too wide) detected at line 13115
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 13316
+Underfull \vbox (badness 10000) detected at line 13115
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 13316
+Overfull \hbox (336.25pt too wide) detected at line 13115
 []
  []
 
@@ -5206,168 +5106,168 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[291
+[285
 
 ]
 
-[292]
-Overfull \hbox (196.38928pt too wide) in alignment at lines 13431--13436
+[286]
+Overfull \hbox (196.38928pt too wide) in alignment at lines 13230--13235
  [] [] [] [] 
  []
 
 
-Overfull \hbox (196.38928pt too wide) in alignment at lines 13436--13441
+Overfull \hbox (196.38928pt too wide) in alignment at lines 13235--13240
  [] [] [] [] 
  []
 
 
-Overfull \hbox (196.38928pt too wide) in alignment at lines 13441--13580
+Overfull \hbox (196.38928pt too wide) in alignment at lines 13240--13379
  [] [] [] [] 
  []
 
-[293]
+[287]
 
-[294]
-Overfull \hbox (46.86053pt too wide) in alignment at lines 13630--13635
- [] [] [] [] 
- []
-
-
-Overfull \hbox (46.86053pt too wide) in alignment at lines 13635--13640
+[288]
+Overfull \hbox (46.86053pt too wide) in alignment at lines 13429--13434
  [] [] [] [] 
  []
 
 
-Overfull \hbox (46.86053pt too wide) in alignment at lines 13640--13665
+Overfull \hbox (46.86053pt too wide) in alignment at lines 13434--13439
  [] [] [] [] 
  []
 
-[295]
 
-LaTeX Warning: Reference `fig:arrestsDaysUntilArrest' on page 296 undefined on input line 13679.
+Overfull \hbox (46.86053pt too wide) in alignment at lines 13439--13464
+ [] [] [] [] 
+ []
+
+[289]
+
+LaTeX Warning: Reference `fig:arrestsDaysUntilArrest' on page 290 undefined on input line 13478.
 
 File: 16_nibrs_arrestee_files/figure-latex/arrestsDaysUntilArrestBarplot-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/arrestsDaysUntilArrestBarplot-1.pdf>
 
 
-[296]
+[290]
 
-LaTeX Warning: Reference `fig:arresteeWeapon' on page 297 undefined on input line 13734.
+LaTeX Warning: Reference `fig:arresteeWeapon' on page 291 undefined on input line 13533.
 
 
 
-[297]
+[291]
 File: 16_nibrs_arrestee_files/figure-latex/nibrsArresteeMurderWeapon-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/nibrsArresteeMurderWeapon-1.pdf>
 File: 16_nibrs_arrestee_files/figure-latex/arresteeWeaponArmed-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/arresteeWeaponArmed-1.pdf>
 
 
-[298]
+[292]
 File: 16_nibrs_arrestee_files/figure-latex/arresteeAutomaticWeapon-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/arresteeAutomaticWeapon-1.pdf>
 
 
-[299]
+[293]
 
-LaTeX Warning: Reference `fig:arresteeTypeOfArrest' on page 300 undefined on input line 13822.
+LaTeX Warning: Reference `fig:arresteeTypeOfArrest' on page 294 undefined on input line 13621.
 
 
 
-[300]
+[294]
 File: 16_nibrs_arrestee_files/figure-latex/nibrsArresteeArrestType-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/nibrsArresteeArrestType-1.pdf>
 File: 16_nibrs_arrestee_files/figure-latex/nibrsArresteeDUIArrestType-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/nibrsArresteeDUIArrestType-1.pdf>
 
 
-[301]
+[295]
 File: 16_nibrs_arrestee_files/figure-latex/arresteeJuvenileDisposition-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/arresteeJuvenileDisposition-1.pdf>
 
 
-[302]
+[296]
 
-[303]
+[297]
 
-LaTeX Warning: Reference `fig:arresteeResidenceStatus' on page 304 undefined on input line 13963.
+LaTeX Warning: Reference `fig:arresteeResidenceStatus' on page 298 undefined on input line 13762.
 
 File: 16_nibrs_arrestee_files/figure-latex/nibrsArresteeResidentStatus-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/nibrsArresteeResidentStatus-1.pdf>
 
 
-[304]
+[298]
 File: 16_nibrs_arrestee_files/figure-latex/arresteeAge-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/arresteeAge-1.pdf>
 
 
-[305]
+[299]
 File: 16_nibrs_arrestee_files/figure-latex/nibrsArresteeAge-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/nibrsArresteeAge-1.pdf>
 File: 16_nibrs_arrestee_files/figure-latex/nibrsArresteeAgeMissing-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/nibrsArresteeAgeMissing-1.pdf>
 
 
-[306]
+[300]
 
-LaTeX Warning: Reference `fig:arresteeSex' on page 307 undefined on input line 14047.
+LaTeX Warning: Reference `fig:arresteeSex' on page 301 undefined on input line 13846.
 
 File: 16_nibrs_arrestee_files/figure-latex/nibrsArresteeSex-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/nibrsArresteeSex-1.pdf>
 
 
-[307]
+[301]
 
-LaTeX Warning: Reference `fig:arresteeRace' on page 308 undefined on input line 14090.
+LaTeX Warning: Reference `fig:arresteeRace' on page 302 undefined on input line 13889.
 
 File: 16_nibrs_arrestee_files/figure-latex/nibrsArresteeRace-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/nibrsArresteeRace-1.pdf>
 
 
-[308]
+[302]
 
-LaTeX Warning: Reference `fig:arresteeEthnicity' on page 309 undefined on input line 14136.
+LaTeX Warning: Reference `fig:arresteeEthnicity' on page 303 undefined on input line 13935.
 
 
 
-[309]
+[303]
 File: 16_nibrs_arrestee_files/figure-latex/nibrsArresteeEthnicity-1.pdf Graphic file (type pdf)
 <use 16_nibrs_arrestee_files/figure-latex/nibrsArresteeEthnicity-1.pdf>
 
 
-[310]
-Underfull \vbox (badness 10000) detected at line 14152
+[304]
+Underfull \vbox (badness 10000) detected at line 13951
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 14152
+Overfull \hbox (336.25pt too wide) detected at line 13951
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 14152
+Underfull \vbox (badness 10000) detected at line 13951
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 14152
+Overfull \hbox (336.25pt too wide) detected at line 13951
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 14152
+Underfull \vbox (badness 10000) detected at line 13951
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 14152
+Overfull \hbox (336.25pt too wide) detected at line 13951
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 14152
+Underfull \vbox (badness 10000) detected at line 13951
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 14152
+Overfull \hbox (336.25pt too wide) detected at line 13951
 []
  []
 
@@ -5379,7 +5279,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[311
+[305
 
 
 ]
@@ -5387,78 +5287,78 @@ File: 17_nibrs_property_files/figure-latex/propertyTypeLoss-1.pdf Graphic file (
 <use 17_nibrs_property_files/figure-latex/propertyTypeLoss-1.pdf>
 
 
-[312]
+[306]
 
-[313]
-Overfull \hbox (322.16554pt too wide) in alignment at lines 14310--14315
+[307]
+Overfull \hbox (322.16554pt too wide) in alignment at lines 14109--14114
  [] [] [] [] [] 
  []
 
 
-Overfull \hbox (322.16554pt too wide) in alignment at lines 14315--14320
+Overfull \hbox (322.16554pt too wide) in alignment at lines 14114--14119
  [] [] [] [] [] 
  []
 
 
-Overfull \hbox (322.16554pt too wide) in alignment at lines 14320--14459
+Overfull \hbox (322.16554pt too wide) in alignment at lines 14119--14258
  [] [] [] [] [] 
  []
 
-[314] [315]
+[308] [309]
 
-LaTeX Warning: Reference `tab:propertySeizedDescription' on page 316 undefined on input line 14461.
+LaTeX Warning: Reference `tab:propertySeizedDescription' on page 310 undefined on input line 14260.
 
 
 
-[316]
+[310]
 File: 17_nibrs_property_files/figure-latex/propertyValuePropertyLevel-1.pdf Graphic file (type pdf)
 <use 17_nibrs_property_files/figure-latex/propertyValuePropertyLevel-1.pdf>
 
 
-[317]
-Overfull \hbox (310.08621pt too wide) in alignment at lines 14522--14527
+[311]
+Overfull \hbox (310.08621pt too wide) in alignment at lines 14321--14326
  [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (310.08621pt too wide) in alignment at lines 14527--14532
+Overfull \hbox (310.08621pt too wide) in alignment at lines 14326--14331
  [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (310.08621pt too wide) in alignment at lines 14532--14597
+Overfull \hbox (310.08621pt too wide) in alignment at lines 14331--14396
  [] [] [] [] [] [] [] 
  []
 
-[318]
+[312]
 File: 17_nibrs_property_files/figure-latex/nibrsPropertyMaxValuePercent-1.pdf Graphic file (type pdf)
 <use 17_nibrs_property_files/figure-latex/nibrsPropertyMaxValuePercent-1.pdf>
 
 
-[319]
+[313]
 
-LaTeX Warning: Reference `fig:arrestsDaysUntilArrest' on page 320 undefined on input line 14626.
+LaTeX Warning: Reference `fig:arrestsDaysUntilArrest' on page 314 undefined on input line 14425.
 
 File: 17_nibrs_property_files/figure-latex/propertyDaysUntilRecovered-1.pdf Graphic file (type pdf)
 <use 17_nibrs_property_files/figure-latex/propertyDaysUntilRecovered-1.pdf>
 
 
-[320]
+[314]
 
-[321]
+[315]
 
-[322]
-Overfull \hbox (13.86015pt too wide) in alignment at lines 14749--14754
+[316]
+Overfull \hbox (13.86015pt too wide) in alignment at lines 14548--14553
  [] [] [] [] 
  []
 
 
-Overfull \hbox (13.86015pt too wide) in alignment at lines 14754--14759
+Overfull \hbox (13.86015pt too wide) in alignment at lines 14553--14558
  [] [] [] [] 
  []
 
 
-Overfull \hbox (13.86015pt too wide) in alignment at lines 14759--14796
+Overfull \hbox (13.86015pt too wide) in alignment at lines 14558--14595
  [] [] [] [] 
  []
 
@@ -5466,36 +5366,36 @@ File: 17_nibrs_property_files/figure-latex/nibrsPropertyDrugType-1.pdf Graphic f
 <use 17_nibrs_property_files/figure-latex/nibrsPropertyDrugType-1.pdf>
 
 
-[323]
-Underfull \hbox (badness 10000) in paragraph at lines 14824--14826
+[317]
+Underfull \hbox (badness 10000) in paragraph at lines 14623--14625
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 14828--14830
+Underfull \hbox (badness 10000) in paragraph at lines 14627--14629
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 14830--14832
+Underfull \hbox (badness 10000) in paragraph at lines 14629--14631
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 14834--14836
+Underfull \hbox (badness 10000) in paragraph at lines 14633--14635
 
  []
 
 
 
-[324]
+[318]
 File: 17_nibrs_property_files/figure-latex/propertyMarijuanaGramMeasures-1.pdf Graphic file (type pdf)
 <use 17_nibrs_property_files/figure-latex/propertyMarijuanaGramMeasures-1.pdf>
 
 
-[325]
+[319]
 
-[326] (./ucrbook.bbl
+[320] (./ucrbook.bbl
 Underfull \vbox (badness 10000) detected at line 1
  []
 
@@ -5641,13 +5541,13 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[327
+[321
 
 
 
 ])
 
-[328] (./ucrbook.ind) (./ucrbook.aux)
+[322] (./ucrbook.ind) (./ucrbook.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-16>
@@ -5663,12 +5563,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 25604 strings out of 476233
- 546933 string characters out of 5785518
+ 25516 strings out of 476233
+ 541957 string characters out of 5785518
  2078612 words of memory out of 5000000
- 47619 multiletter control sequences out of 15000+600000
+ 47538 multiletter control sequences out of 15000+600000
  626189 words of font info for 105 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  90i,10n,126p,544b,1701s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ucrbook.pdf (360 pages).
+Output written on ucrbook.pdf (354 pages).

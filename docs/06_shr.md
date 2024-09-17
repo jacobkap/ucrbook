@@ -34,18 +34,7 @@ Let us look at Chicago for another example of the differences in reporting from 
 
 }
 
-\caption{The annual number of homicide victims in Chicago, SHR and Offeksnes Known, 1976-2022.}(\#fig:chicagoSHRvsOffensesKnown)
-\end{figure}
-
-Another way to visualize reporting is to see the total number of agencies that report at least one homicide, as depicted in Figure \@ref(fig:shrAnnualAgencies). Here we can see that have about 3,000 agencies reporting. Given that most agencies are small and truly do have zero homicides in a year, that may be reasonable. Agencies that do not have homicides do not submit a report saying so, they just do not submit any data. So that makes it hard to tell when an agency not reporting data is doing so because they choose to not report, or because they have nothing to report. This is most common in small agencies where many years truly have no homicides. But let us look at our biggest agencies, and see how much of an impact it would make to have them not report data.
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{06_shr_files/figure-latex/shrAnnualAgencies-1} 
-
-}
-
-\caption{The annual number of agencies that report at least one homicide.}(\#fig:shrAnnualAgencies)
+\caption{The annual number of homicide victims in Chicago, Supplementary Homicide Reports and Offenses Known and Clearances by Arrest, 1976-2022.}(\#fig:chicagoSHRvsOffensesKnown)
 \end{figure}
 
 Figures \@ref(fig:shrTopAgenciesCount) and \@ref(fig:shrTopAgenciesCountPercent) attempt to get at this question by looking the number and percent of all incidents that the top 100, 50 and 10 agencies based on number of homicide incidents make up out of all homicide incidents in each year. These agencies are massively disproportionate in how many homicides they represent - though they are also generally the largest cities in the country so are a small number of agencies but a large share of this nation's population. On average, the 10 agencies with the most homicide incidents each year - which may change every year - have over 4,000 homicide incidents and make up about 1/4 of all homicide incidents reported nationally. The top 50 have about 7,500 incidents a year, accounting for 46% of incidents. The top 100 agencies have a bit under 10,000 incidents a year and make up over 55% of all homicide incidents in the United States. So excluding the largest agencies in the country would certainly undercount homicides.

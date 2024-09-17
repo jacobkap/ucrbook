@@ -18,30 +18,13 @@ The decline after 2020 is part of what I have referred to as the "death and rebi
 
 }
 
-\caption{The annual number of police agencies that report at least month of data that year, 1960-2022}(\#fig:leokaAgencies)
+\caption{The annual number of police agencies that report at least month of data, at least one employee, and at least one assault against an officer, 1960-2022}(\#fig:leokaAgencies)
 \end{figure}
 
 Part of the decline we see in Figure \@ref(fig:leokaAgencies) is because starting in 2018 - for reasons I am unsure of - many more agencies started reporting having zero employees. In Figure \@ref(fig:leokaAgenciesEmployees) we can see the annual number of agencies that report having at least one employee (civilian or sworn officer). Compared to Figure \@ref(fig:leokaAgencies) we see more agencies reporting since the 200s, and an earlier but less steep drop in reporting.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{07_leoka_files/figure-latex/leokaAgenciesEmployees-1} 
-
-}
-
-\caption{The annual number of police agencies that report having at least one employee, 1960-2022}(\#fig:leokaAgenciesEmployees)
-\end{figure}
-
 I mentioned that LEOKA has two purposes: employee information and assaults on officers information. You should really think about this data as two separate datasets as agencies can report one, both, or neither part. In practice, more agencies report data on the number of employees they have than they do for assaults on officers. In Figure \@ref(fig:leokaAgenciesAssaults) we can see that in most years of data fewer than 6,000 (out of ~18k agencies in the country) report having at least one officer assaulted. The year with the most agencies reporting >1 assault was 2022 with 6,397 agencies. Most years average about 5,000 agencies reporting at least one assault on an officer. Though there is variation over time, the trend is much more settled than in the previous figures without any sharp decline in recent years. Assaults on officers is *relatively* rare, at least considering how many officer-civilian interactions occur. And many agencies are small with relatively little crime. So agencies that say they had zero assaults on officers may in fact truly have zero assaults. However, there are agencies that likely do have assaults on officers - such as large, high crime agencies which report assaults in other years - which report zero assaults in some months or years. So you will need to be careful when determining if a zero report is a true zero rather than an agency submitting incomplete data.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{07_leoka_files/figure-latex/leokaAgenciesAssaults-1} 
-
-}
-
-\caption{The annual number of police agencies that report having at least one assault against a police officer, 1960-2022}(\#fig:leokaAgenciesAssaults)
-\end{figure}
 
 ## Important variables
 

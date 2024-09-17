@@ -222,7 +222,7 @@ Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories & 2018 & 1 & 0
 
 }
 
-\caption{The numbers of murders when considering only the first offense or all offenses, 1991-2022.}(\#fig:nibrsFirstVsAllOffensesMurders)
+\caption{The numbers of murder victims when considering only the first offense or all offenses, 1991-2022.}(\#fig:nibrsFirstVsAllOffensesMurders)
 \end{figure}
 
 \begin{figure}
@@ -231,7 +231,7 @@ Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories & 2018 & 1 & 0
 
 }
 
-\caption{The numbers of sexual offenders when considering only the first offense or all offenses, 1991-2022.}(\#fig:nibrsFirstVsAllOffensesSexOffenses)
+\caption{The numbers of sexual offense victims when considering only the first offense or all offenses, 1991-2022.}(\#fig:nibrsFirstVsAllOffensesSexOffenses)
 \end{figure}
 
 ## Victim type
@@ -325,7 +325,7 @@ Figure \@ref(fig:victimInjury) shows the eight injury categories and how common 
 
 }
 
-\caption{The distribution of the injury sustained by the victim, 2022. Only individual and law enforcement officer victims have this variable availablem.}(\#fig:victimInjury)
+\caption{The distribution of the injury sustained by the victim, 2022. Only individual and law enforcement officer victims have this variable available.}(\#fig:victimInjury)
 \end{figure}
 
 For the group who suffered one of the six more serious injury types, 32.1% suffered an "other major injury" which is a serious injury other than one of the other categories. This is followed by 25.8% having a serious laceration (a laceration is a cut), 21.6% having a possible internal injury, and 12.5% having an apparent broken bone. About 6.5% of these victims became unconscious at some point in the incident, and 1.5% lost at least one tooth. 

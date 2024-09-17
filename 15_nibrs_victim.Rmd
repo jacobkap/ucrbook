@@ -88,7 +88,7 @@ kableExtra::kbl(officer_victim_offense_first_year,
 ```
 
 
-```{r nibrsFirstVsAllOffensesMurders, fig.cap="The numbers of murders when considering only the first offense or all offenses, 1991-2022."}
+```{r nibrsFirstVsAllOffensesMurders, fig.cap="The numbers of murder victims when considering only the first offense or all offenses, 1991-2022."}
 nibrs_victim_summary  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = number_murders_first_offense, color = "1st Offense"), size = 1.05) +
@@ -103,7 +103,7 @@ nibrs_victim_summary  %>%
                                 "All Offenses" = "#d95f02"))
 ```
 
-```{r nibrsFirstVsAllOffensesSexOffenses, fig.cap="The numbers of sexual offenders when considering only the first offense or all offenses, 1991-2022."}
+```{r nibrsFirstVsAllOffensesSexOffenses, fig.cap="The numbers of sexual offense victims when considering only the first offense or all offenses, 1991-2022."}
 nibrs_victim_summary  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = number_sex_offenses_first_offense, color = "1st Offense"), size = 1.05) +
@@ -206,7 +206,7 @@ Even though there are up to five victim injuries recorded, for the below graphs 
 
 Figure \@ref(fig:victimInjury) shows the eight injury categories and how common they are for all victims with this information reported. The most common type is "none" at 52.6% of injuries which means the victim did not suffer any injuries at all. This is followed by 42.0% of victims suffering "apparent minor injuries." The six serious injuries are far lesson common and given that nearly a third of victims suffer none or minor injuries are hard to see on the graph. To make it easier to see, Figure \@ref(fig:victimInjuryExcludeNone) shows the breakdown in victim injury excluding those who did not suffer an injury or those who suffered a minor injury. 
 
-```{r victimInjury, fig.cap = "The distribution of the injury sustained by the victim, 2022. Only individual and law enforcement officer victims have this variable availablem."}
+```{r victimInjury, fig.cap = "The distribution of the injury sustained by the victim, 2022. Only individual and law enforcement officer victims have this variable available."}
 victim %>%
   filter(!is.na(type_of_injury_1)) %>%
   mutate(type_of_injury_1 = capitalize_words(type_of_injury_1)) %>%
@@ -352,7 +352,7 @@ We know a little bit more in cases of justifiable homicides. Here, we know the c
 ```{r victimJustifiableHomicide, fig.cap = "The distribution of circumstances for justifiable homicides (N = 308 in 2022 for all agencies reporting)."}
 victim$justifiable_homicide <- victim$addit_just_homicide_circumsta
 justifiable_homicide_fix <- c("^criminal killed in commission of a crime$" = "during commission of crime",
-                              "^criminal attacked police officer and criminal killed by another police officer$" = "attached officer, killed by other officer",
+                              "^criminal attacked police officer and criminal killed by another police officer$" = "attacked officer, killed by other officer",
                               "^criminal attacked police officer and that officer killed criminal$" = "attacked officer, killed by officer",
                               "^criminal attacked a civilian$" = "attacked civilian",
                               "^criminal attempted flight from a crime$" = "flight from crime",
@@ -445,9 +445,10 @@ nibrs_victim_summary  %>%
 
 ```{r nibrsVictimAgeMissing, fig.cap="The percent of victim's age that is unknown, 1991-2022."}
 nibrs_victim_summary  %>%
-  ggplot(aes(x = year, y = percent_unknown_age )) +
+  ggplot(aes(x = year, y = percent_unknown_age)) +
   geom_line(size = 1.05) + 
   xlab("Year") +
+  ylab("% of Victims") +
   theme_crim() +
   scale_y_continuous(labels = scales::percent) +
   labs(color = "") +

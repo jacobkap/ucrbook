@@ -1,6 +1,6 @@
 library(groundhog) 
 
-# devtools::install_github("wmurphyrd/fiftystater")
+  # devtools::install_github("wmurphyrd/fiftystater")
 library(fiftystater)
 
 
@@ -19,13 +19,13 @@ packages <- c(
   "priceR",
   "blscrapeR",
   "janitor",
- # "quantmod",
+  # "quantmod",
   "ggh4x",
   "sf",
   "tigris",
- "stringr",
- "tidycensus",
- "patchwork"
+  "stringr",
+  "tidycensus",
+  "patchwork"
 )
 
 groundhog.library(packages, "2024-08-27")
@@ -94,7 +94,7 @@ knitr::opts_chunk$set(
   fig.align = "center",
   fig.width = 18.33333,
   fig.height = 14,
- # fig.asp = (1 / 1.618033988749895), # 1 / phi
+  # fig.asp = (1 / 1.618033988749895), # 1 / phi
   fig.show = "hold",
   error = TRUE,
   out.width = "100%",
@@ -130,7 +130,7 @@ get_replace_single_month <- function(data, crime_col, crime) {
   data$imputed_if_missing <- round(data$imputed_if_missing, 0)
   data$actual_crimes <- data[, crime_col]
   data$annual_crimes <- sum(data$actual_crimes)
-
+  
   data <-
     data %>%
     select(month, actual_crimes, annual_crimes, imputed_if_missing)
@@ -138,17 +138,17 @@ get_replace_single_month <- function(data, crime_col, crime) {
   data <-
     data %>%
     mutate_if(is.numeric, formatC, format = "d", big.mark = ",")
-
-
+  
+  
   data$actual_crimes <- as.character(data$actual_crimes)
   crime_percent <- parse_number(data$actual_crimes) / sum(parse_number(data$actual_crimes)) * 100
   crime_percent <- round(crime_percent, 2)
   crime_percent <- pad_decimals(crime_percent, 2)
   crime_percent <- paste0("(", crime_percent, "%)")
   data$actual_crimes <- paste(data$actual_crimes, crime_percent)
-
-
-
+  
+  
+  
   names(data) <- c(
     "Month",
     paste(crime, "That Month"),
@@ -156,7 +156,7 @@ get_replace_single_month <- function(data, crime_col, crime) {
     paste("Imputed Annual", crime),
     "Percent Change"
   )
-
+  
   return(data)
 }
 
@@ -213,7 +213,7 @@ get_percent_change <- function(number1,
   final <- round(final, 2)
   final <- pad_decimals(final, 2)
   final[-grep("-", final)] <- paste0("+", final[-grep("-", final)])
-
+  
   return(final)
 }
 
@@ -242,16 +242,16 @@ get_murder_by_pop_group <- function(data) {
     min_murder = NA,
     max_murder = NA
   )
-
-
+  
+  
   for (i in 1:nrow(final)) {
     temp <- data[data$population_group %in% final$agency_size[i], ]
     if (nrow(temp) > 0) {
-    final$mean_murder[i] <- mean(temp$actual_murder)
-    final$median_murder[i] <- median(temp$actual_murder)
-    final$min_murder[i] <- min(temp$actual_murder)
-    final$percentile_90[i] <- as.numeric(quantile(temp$actual_murder, 0.90))
-    final$max_murder[i] <- max(temp$actual_murder)
+      final$mean_murder[i] <- mean(temp$actual_murder)
+      final$median_murder[i] <- median(temp$actual_murder)
+      final$min_murder[i] <- min(temp$actual_murder)
+      final$percentile_90[i] <- as.numeric(quantile(temp$actual_murder, 0.90))
+      final$max_murder[i] <- max(temp$actual_murder)
     }
   }
   final <-
@@ -259,19 +259,19 @@ get_murder_by_pop_group <- function(data) {
     mutate_if(is.numeric, round, 1) %>%
     mutate_if(is.numeric, formatC, format = "d", big.mark = ",") %>%
     mutate(agency_size = capitalize_words(agency_size))
-
+  
   final$mean_murder[final$mean_murder == "NA"] <- "-"
   final$median_murder[final$median_murder == "NA"] <- "-"
   final$min_murder[final$min_murder == "NA"] <- "-"
   final$percentile_90[final$percentile_90 == "NA"] <- "-"
   final$max_murder[final$max_murder == "NA"] <- "-"
-
+  
   final$agency_size <- gsub(" thru ", "-", final$agency_size, ignore.case = TRUE)
   final$agency_size <- gsub("msa", "MSA", final$agency_size, ignore.case = TRUE)
   final$agency_size <- gsub("And", "and", final$agency_size, ignore.case = TRUE)
   
   
-
+  
   names(final) <- c(
     "Population Group",
     "Mean Murder",
@@ -280,7 +280,7 @@ get_murder_by_pop_group <- function(data) {
     "Minimum Murder",
     "Max Murder"
   )
-
+  
   return(final)
 }
 
@@ -293,7 +293,7 @@ make_frequency_table_year <- function(data, column, col_names) {
     first_year = NA,
     number = NA
   )
-
+  
   for (i in 1:nrow(temp_df)) {
     loop_value <- temp_df$col1[i]
     storage <- data[data[, column] %in% loop_value, ]
@@ -314,7 +314,7 @@ make_frequency_table_year <- function(data, column, col_names) {
   temp_df$percent <- paste0(temp_df$percent, "\\%")
   total <- data.frame(col1 = "Total", number = sum(temp_df$number), percent = "100\\%")
   temp_df <- bind_rows(temp_df, total)
-
+  
   temp_df$number <- formatC(temp_df$number, format = "d", big.mark = ",")
   names(temp_df) <- col_names
   return(temp_df)
@@ -327,7 +327,7 @@ make_frequency_table <- function(data, column, col_names) {
     col1 = temp,
     number = NA
   )
-
+  
   for (i in 1:nrow(temp_df)) {
     loop_value <- temp_df$col1[i]
     storage <- data[data[, column] %in% loop_value, ]
@@ -338,16 +338,17 @@ make_frequency_table <- function(data, column, col_names) {
     mutate(percent = number / sum(number)) %>%
     arrange(desc(number)) %>%
     mutate(col1 = crimeutils::capitalize_words(col1))
-
+  
   temp_df$percent <- temp_df$percent * 100
   temp_df$percent <- round(temp_df$percent, 2)
   temp_df$percent <- pad_decimals(temp_df$percent, 2)
   temp_df$percent <- paste0(temp_df$percent, "\\%")
   total <- data.frame(col1 = "Total", number = sum(temp_df$number), percent = "100\\%")
   temp_df <- bind_rows(temp_df, total)
-
+  
   temp_df$number <- formatC(temp_df$number, format = "d", big.mark = ",")
-
+  
   names(temp_df) <- col_names
   return(temp_df)
 }
+

@@ -1,42 +1,70 @@
-offenses_known_yearly$last_month_any <- 0
-offenses_known_yearly$last_month_any[!offenses_known_yearly$last_month_reported %in% "no months reported"] <- 1
+assault_type <- leoka %>%
+  filter(ori %in% "CA01942") %>%
+  mutate(dummy = 1,
+         assaults_total_assaults = assaults_with_injury_total + assaults_no_injury_total) %>%
+  select(dummy,
+         "assaults_total_assaults",
+         "assaults_with_injury_gun",
+         "assaults_with_injury_knife",
+         "assaults_with_injury_oth_weap",
+         "assaults_with_injury_unarmed",
+         "assaults_with_injury_total",
+         "assaults_no_injury_gun",
+         "assaults_no_injury_knife",
+         "assaults_no_injury_oth_weap",
+         "assaults_no_injury_unarmed",
+         "assaults_no_injury_total") %>%
+  group_by(dummy) %>%
+  summarize_all(sum)
 
-offenses_known_yearly$months_missing_any <- 0
-offenses_known_yearly$months_missing_any[!offenses_known_yearly$number_of_months_missing %in% 12] <- 1
+assault_type$dummy <- NULL
+assault_type <- t(assault_type)
+assault_type <- data.frame(assault_type)
+assault_type$type <- rownames(assault_type)
+rownames(assault_type) <- NULL
+assault_type$type <- gsub("assaults_", "", assault_type$type)
+names(assault_type)[1] <- "assaults"
+assault_type$type <- gsub("_", " ", assault_type$type)
+assault_type$type <- capitalize_words(assault_type$type)
+assault_type <- assault_type %>% arrange(desc(assaults))
+assault_type$type <- gsub("Injury", "Injury - ", assault_type$type)
+assault_type$type <- gsub("Oth Weap", "Other Weapon", assault_type$type)
+assault_type$type <- factor(assault_type$type, levels = rev(assault_type$type))
 
 
-offenses_known_yearly$last_month_full <- 0
-offenses_known_yearly$last_month_full[offenses_known_yearly$last_month_reported %in% "december"] <- 1
+assault_type$category <- assault_type$type
+assault_type$category <- gsub(".*- +", "", assault_type$category)
+assault_type$category <- gsub("^Total$", "Total Assaults", assault_type$category)
+assault_type$type <- gsub(" -.*", "", assault_type$type)
 
-offenses_known_yearly$months_missing_full <- 0
-offenses_known_yearly$months_missing_full[offenses_known_yearly$number_of_months_missing %in% 0] <- 1
 
-
-offense_12_months <-
-  offenses_known_yearly %>%
-  group_by(year) %>%
-  summarize(last_month_full = sum(last_month_full),
-            months_missing_full = sum(months_missing_full)) %>%
-  ungroup()
-  
-
-offenses_known_yearly %>%
-  group_by(year) %>%
-  summarize(last_month_any = sum(last_month_any),
-            months_missing_any = sum(months_missing_any)) %>%
+assault_type_ordering <-
+  assault_type %>%
+  group_by(category) %>%
+  summarize(assaults = sum(assaults)) %>%
   ungroup() %>%
-  ggplot(aes(x = year, y = last_month_any)) +
-  geom_line(aes(color = "Last Reported; >= 1 month"), size = 1.05) +
-  geom_line(aes(y = months_missing_any, color = "Months Missing; >=1 month"), size = 1.05) +
-  geom_line(data = offense_12_months, aes(y = last_month_full, color = "Last Reported; 12 months"), size = 1.05) +
-  geom_line(data = offense_12_months, aes(y = months_missing_full, color = "Months Missing; 12 months"), size = 1.05) +
-  xlab("Year") +
-  ylab("# of Agencies") +
+  arrange(desc(assaults))
+
+assault_type$category <- factor(assault_type$category,
+                                levels = assault_type_ordering$category)
+
+# ggplot(assault_type, aes(x = assaults, y = type)) +
+#   geom_col(width    = 0.5,    
+#            position = position_dodge(0.5)) +
+#   xlab("# of Assaults") +
+#   ylab("Assault Type") +
+#   expand_limits(x = 0) + 
+#   theme_crim() +
+#   scale_x_continuous(labels = scales::comma)
+
+
+ggplot(assault_type %>% filter(type != "Total Assaults"),
+       aes(x = assaults, y = type)) +
+  geom_col(width    = 0.5,    
+           position = position_dodge(0.5)) +
+  xlab("") +
+  ylab("") +
+  expand_limits(x = 0) + 
   theme_crim() +
-  scale_color_manual(values = c("Last Reported; >= 1 month" = "#1b9e77",
-                                "Months Missing; >=1 month" = "#d95f02",
-                                "Last Reported; 12 months" = "#7570b3",
-                                "Months Missing; 12 months" = "black")) +
-  scale_y_continuous(labels = scales::comma) +
-  labs(color = "") +
-  expand_limits(y = 0)
+  scale_x_continuous(labels = scales::comma) +
+  facet_wrap(~category, scales = "free", ncol = 1) 
