@@ -64,7 +64,9 @@ ggplot(shr_offenses_known_murders, aes(x = year)) +
   xlab("Year") +
   ylab("Murders") +
   theme_crim() +
-  crimeutils::scale_color_crim() + 
+  scale_color_manual(values = c("SHR" = "#1b9e77",
+                                "Offenses Known" = "#d95f02",
+                                "CDC" = "#7570b3")) +
   scale_y_continuous(labels = scales::comma) +
   labs(color = "") +
   expand_limits(y = 0)

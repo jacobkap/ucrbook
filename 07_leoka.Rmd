@@ -45,7 +45,7 @@ leoka %>%
   count(year) %>%
   left_join(leoka_years_one_assault) %>%
   left_join(leoka_years_one_month) %>%
-  ggplot(aes(x = year, y = n, color = "\u2265 One employees")) +
+  ggplot(aes(x = year, y = n, color = "\u2265 One Employee")) +
   geom_line(size = 1.05) + 
   geom_line(size = 1.05, aes(y = at_least_one_month, color = "\u2265 One Month")) +
   geom_line(size = 1.05, aes(y = at_least_one_assault, color = "\u2265 One Assault")) +
@@ -54,7 +54,7 @@ leoka %>%
   theme_crim() +
   scale_y_continuous(labels = scales::comma) +
   expand_limits(y = 0) +
-  scale_color_manual(values = c("\u2265 One employees" = "#1b9e77",
+  scale_color_manual(values = c("\u2265 One Employee" = "#1b9e77",
                                 "\u2265 One Month" = "#d95f02",
                                 "\u2265 One Assault" = "#7570b3")) +
   scale_y_continuous(labels = scales::comma) +
@@ -221,7 +221,7 @@ This data breaks down the monthly number of assaults on officers in a few differ
     
 We can start by looking at the breakdown of assaults by injury and weapon type for officers in the Los Angeles Police Department. Figure \@ref(fig:leokaAssaultTypeInjury) shows the number of assaults from all years reported for these categories. Over the complete time period there were almost 43,000 officers assaulted with about three-quarters of these assaults - 33,000 assaults - leading to no injuries. This data shows the number of officers assaulted, not unique officers, so an officer can potentially be included in the data multiple times if they are assaulted multiple times over a year. A little under a quarter of assaults lead to officer injury with most of these from unarmed offenders. Interestingly, there are far more gun and knife assaults where the officer is not injured than where the officer is injured. There are likely cases when the offender threatens the officer with the weapon but does not shoot or stab the officer. 
     
-```{r leokaAssaultTypeInjury, fig.cap = "The total number of assaults on officers by injury sustained and offender weapon in Los Angeles, 1960-2022.", fig.height=16}
+```{r leokaAssaultTypeInjury, fig.cap = "The total number of assaults on officers by injury sustained and offender weapon in Los Angeles, 1960-2022."}
 assault_type <- leoka %>%
   filter(ori %in% "CA01942") %>%
   mutate(dummy = 1,

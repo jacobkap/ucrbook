@@ -23,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2024-09-17" />
+<meta name="date" content="2024-09-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -469,7 +469,7 @@ div.csl-indent {
 <p>This segment contains information on all property involved in the incident, other than the weapon used by the offender. Property can be involved in multiple ways - such as being stolen, destroyed, or that the stolen property is recovered by the police - so NIBRS breaks this info into seven different categories (eight when including “unknown” type). Figure <a href="property.html#fig:propertyTypeLoss">17.1</a> shows each of these categories as how often they occur. The most common category, at 60.7% of the rows in this segment, is when the item is taken from the victim by the offender. This includes when the offender stole the item, took it by force in a robbery, tricked the victim (e.g. offender committed fraud), and any other way to illegal get the item (e.g. extortion, ransom, bribery). Though it includes all these types of ways to illegally take the item, it is often just called “stolen” property and I will refer to it as such in this chapter just for simplicity of writing.</p>
 <p>The next most common group, at 13.3%, is when the item was seized by the police. This excludes items that were stolen and that the police recovered. It includes all types of property that the offender illegally had but is primary for drug crimes where the drug or drug equipment was seized. This segment also includes property damaged, destroyed, or vandalized by the offender and this type makes up 11.2% of the data. Following this, about 9% of rows are for recovered property which is when one of the previously stolen items is recovered by the police.</p>
 <p>Next is “none” which only means that no property was stolen or damaged but that it could have been. For example, if someone tries to grab a person’s purse but fails, that would be considered “none” since the purse was not actually taken. The remaining types are when the item was a counterfeit/forgery, at 1.2%, was burned (such as during an arson) at 0.2%, or when the type of loss is unknown at 0.2%</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:propertyTypeLoss"></span>
+<div class="figure"><span style="display:block;" id="fig:propertyTypeLoss"></span>
 <img src="17_nibrs_property_files/figure-html/propertyTypeLoss-1.png" alt="The type of loss or if the item is recovered." width="100%" height="100%" />
 <p class="caption">
 Figure 17.1: The type of loss or if the item is recovered.
@@ -1689,7 +1689,7 @@ Total
 <p>For all types of property loss other than the property being seized by the police (and when the type is “unknown”) there is data on the estimated value of that property. This is estimates by the police but is supposed to be the current value of the item (e.g. a stolen car is what it currently sells for, not what the buyer bought it for) and is the cost it will take for the victim to replace the item. To be a bit more specific, this variable is the sum of items stolen in this category. For example, if someone burglarizes a house and steals three rings from the victim, this would not count as three thefts of a ring. It would be recorded as loss of jewelry and the value would be the total value of all three rings.</p>
 <p>The police can take the victim’s estimation into consideration but are not supposed to immediately accept it as victims may exaggerate values (especially for insurance purposes). When items are recovered, the police put in the value at the time of recovery which may be substantially different than at the time of the loss if the item is damaged or destroyed.</p>
 <p>We can use this variable to look at the value of items lost by the victim. Figure <a href="property.html#fig:propertyValuePropertyLevel">17.2</a> looks at the value per item stolen in a crime (if incidents have multiple items stolen, this counts them all separately). This includes items lost by theft, robbery, and burglary so is part of the “Stolen/Robbed/Etc.” category of types of property loss. It excludes items damaged or destroyed or burned (there is info about the value of property in these incidents but these are not shown in the figure). To make this graph a bit simpler I have rounded all values to the nearest $100 so items valued at $0 mean that they are worth between $1 and $50.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:propertyValuePropertyLevel"></span>
+<div class="figure"><span style="display:block;" id="fig:propertyValuePropertyLevel"></span>
 <img src="17_nibrs_property_files/figure-html/propertyValuePropertyLevel-1.png" alt="The distribution of the value of property stolen. Each value is rounded to the nearest 100. The x-axis is set on the log scale as this distribution is hugely skewed." width="100%" height="100%" />
 <p class="caption">
 Figure 17.2: The distribution of the value of property stolen. Each value is rounded to the nearest 100. The x-axis is set on the log scale as this distribution is hugely skewed.
@@ -2463,7 +2463,7 @@ Max Value Recovered
 </tr>
 </tbody>
 </table>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsPropertyMaxValuePercent"></span>
+<div class="figure"><span style="display:block;" id="fig:nibrsPropertyMaxValuePercent"></span>
 <img src="17_nibrs_property_files/figure-html/nibrsPropertyMaxValuePercent-1.png" alt="Annual percent of the value of all property stolen that is made up of the value that is the maximum dollar amount reported in that year, 1991-2022." width="100%" height="100%" />
 <p class="caption">
 Figure 17.3: Annual percent of the value of all property stolen that is made up of the value that is the maximum dollar amount reported in that year, 1991-2022.
@@ -2474,7 +2474,7 @@ Figure 17.3: Annual percent of the value of all property stolen that is made up 
 <h2><span class="header-section-number">17.4</span> Date property was recovered<a href="property.html#date-property-was-recovered" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This segment tells us both when the incident happened and, for stolen property, when the item was recovered. We can use this to look at how long it generally takes for property to be recovered (though most property stolen is never recovered). Figure <a href="property.html#fig:propertyDaysUntilRecovered">17.4</a> shows the number of days it takes for property to be recovered. Though this data gives us the exact date, allowing for the precise number of days from property loss to recovery, this graph groups days greater than nine days to simplify the graph. The maximum number of days in the 2022 NIBRS data is 450 days so showing all days would be a rather unhelpful graph.</p>
 <p>The majority - 60.8% - of property lost is recovered on the same day, which is shown as zero days. We saw in Figure <a href="#fig:arrestsDaysUntilArrest"><strong>??</strong></a> that the vast majority of arrests happen on the same day as the incident so it makes sense the most property would too.<a href="#fn105" class="footnote-ref" id="fnref105"><sup>105</sup></a> A smaller and smaller share of property is recovered as the number of days from the incident increase, a trend also found in the time to arrest graph. The lesson here seems to be that if you are a victim of a crime and had something taken, unless it is recovered very quickly it is unlikely to be recovered at all.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:propertyDaysUntilRecovered"></span>
+<div class="figure"><span style="display:block;" id="fig:propertyDaysUntilRecovered"></span>
 <img src="17_nibrs_property_files/figure-html/propertyDaysUntilRecovered-1.png" alt="The distribution of the number of days from the incident to the property recovered date. Zero days means that the arrest occurred on the same day as the incident." width="100%" height="100%" />
 <p class="caption">
 Figure 17.4: The distribution of the number of days from the incident to the property recovered date. Zero days means that the arrest occurred on the same day as the incident.
@@ -2784,7 +2784,7 @@ Total
 </tbody>
 </table></li>
 </ul>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsPropertyDrugType"></span>
+<div class="figure"><span style="display:block;" id="fig:nibrsPropertyDrugType"></span>
 <img src="17_nibrs_property_files/figure-html/nibrsPropertyDrugType-1.png" alt="Annual percent of drug seizures by drug type, for the 1st drug reported, 1991-2022." width="100%" height="100%" />
 <p class="caption">
 Figure 17.5: Annual percent of drug seizures by drug type, for the 1st drug reported, 1991-2022.
@@ -2812,7 +2812,7 @@ Figure 17.5: Annual percent of drug seizures by drug type, for the 1st drug repo
 </ul>
 <p>Once you know the units you can look at the amount of drugs seized. The amount is specific up to the thousandths place though the integer and the numbers after the decimal point are actually in different columns in the data. For example, if police seized 1.257 grams of heroin, the 1 gram and the 0.257 grams would be in separate columns. As an example, we will look at Figure <a href="property.html#fig:propertyMarijuanaGramMeasures">17.6</a> which shows the number of grams seized for marijuana. This is only looking at the column with the amount in integers, so parts of a gram are excluded (but are available in the data). This also excludes any case where the marijuana seized was measured in a unit other than gram, such as number of plants, ounces, or pounds. Even though the data shows the number of grams as actual integers, not grouped at all, I do group the larger values together to make the graph simpler.</p>
 <p>So with those caveats, we can see what amounts of marijuana, measured in grams, are most frequently seized. Generally, the amount of marijuana seized is in small amounts with 22.5% being 1-2 grams (since we do not include the parts of a gram we can only say that it is 1 to 1.999 grams) and 18.6% being less than one gram. As the amount of drugs increase, the percent of seizures that involve this number of drugs decreases. It’s a bit curious that they include grams for values over 28 since 28.3495 grams is one ounce so it would make sense to just start reporting in units of ounces instead of just increasingly large number of grams.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:propertyMarijuanaGramMeasures"></span>
+<div class="figure"><span style="display:block;" id="fig:propertyMarijuanaGramMeasures"></span>
 <img src="17_nibrs_property_files/figure-html/propertyMarijuanaGramMeasures-1.png" alt="For drugs seized that are measured in grams, this figure shows the distribution in the number of grams seized. Values over 10 grams are grouped together for easier interpretation of lower values of drugs seized." width="100%" height="100%" />
 <p class="caption">
 Figure 17.6: For drugs seized that are measured in grams, this figure shows the distribution in the number of grams seized. Values over 10 grams are grouped together for easier interpretation of lower values of drugs seized.

@@ -167,7 +167,7 @@ batch_header_all_years %>%
 ```
 
 
-```{r nibrsStateParticipation2020, fig.cap = "The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS.", fig.height=16}
+```{r nibrsStateParticipation2020, fig.cap = "The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS."}
 fips_state_codes <- c(
   "01", "02", "04", "05", "06", "08", "09", "10", "11", "12",
   "13", "15", "16", "17", "18", "19", "20", "21", "22", "23",
@@ -454,7 +454,7 @@ Negative numbers in SRS data are because when a crime is reported and then later
 NIBRS data is often discussed - and is used - as if it were a single file with all of this information available. But it actually comes as multiple different files that each provide different information about a crime incident, including at different levels of analysis so users must clean each segment before merging them together. In this section we will discuss each of the segments and how they are related to each other. First, keep in mind that NIBRS is at its core an incident-level dataset (hence the "Incident-Based" part of its name). Everything that we have stems from the incident, even though we can get more detailed and look at, for example, individual victims in an incident or even offenses within an incident. Figure \@ref(fig:segmentFlowchart) shows the seven main segments and how they relate to each other. There are also three segments called "window segments" - there is one for arrestees, one of exceptional clearances (i.e. police could have made an arrest but did not for some reason but still consider the case closed), and one for property - that do not have an associated segment with them, they only have the information available in the given "window" segment. We will talk about window segments more in Section \@ref(window) below.
 
 ```{r segmentFlowchart, fig.cap="The association of each segment file in the NIBRS dataset."}
-knitr::include_graphics('images/segments_flowchart.png')
+knitr::include_graphics('images/nibrsSegments.png')
 ```
 
 The first two boxes in Figure \@ref(fig:segmentFlowchart), colored in orange, are not part of NIBRS but are part of the data generating process. First, obviously, a crime has to occur. The police then have to learn about the crime. This can happen in two ways. First, they can discover it themselves while on patrol. This is common in crimes such as drug possession or sale as well as any crime that occurs outdoors, which is largely where police are able to observe behavior. The second way is that the victim or witness to a crime reports it. So if they call the police to report a crime, the police learn about it from that call. We do not actually know from the data how the police learned of a crime but it is important to think about this data generating process when using the data. 

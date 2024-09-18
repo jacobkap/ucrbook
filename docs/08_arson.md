@@ -18,19 +18,14 @@ This dataset measures how many months that an agency reports data over a year in
 
 In Figure \@ref(fig:arsonAgencies) we can see the annual number of agencies that reported at least one month of data using both measures. These measures are nearly identical every year with the last month reported having slightly more agencies reported, but they are effectively the same. This changes in 2018 as my measure declines considerably and then skyrockets to nearly 25,000 agencies in 2021 and 2022. The last month reported variable declines considerably in 2021, consistent with the FBI ending SRS collection, and then rebounds in 2022 when the FBI reopens SRS collection. How can there be more than 18k agencies reporting? The 18k number is the estimated number of agencies that are active: agencies that can respond to crimes and do investigations. Remember that SRS data goes back decades - the Offenses Known data is available since 1930. So agencies can come and go, with agencies shutting down or joining with other agencies. Over time this adds up to thousands of agencies other than the 18k we normal think about. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{08_arson_files/figure-latex/arsonAgencies-1} 
-
-}
-
-\caption{The annual number of police agencies that report at least month of data, using both measures of how many months are reported, 1979-2022.}(\#fig:arsonAgencies)
-\end{figure}
+<div class="figure">
+<img src="08_arson_files/figure-html/arsonAgencies-1.png" alt="The annual number of police agencies that report at least month of data, using both measures of how many months are reported, 1979-2022." width="100%" height="100%" />
+<p class="caption">(\#fig:arsonAgencies)The annual number of police agencies that report at least month of data, using both measures of how many months are reported, 1979-2022.</p>
+</div>
 
 In Figure \@ref(fig:arsonAgencies12Months) we can see the same graph as before but now for agencies reporting 12 months of data that year. The trends in both measures are the same, at least until 2018, with the last month reported measure always being a bit higher than the number of months missing measure. Which measure is better to use? In general I would say my own measure but obviously that does not work starting in 2018. In practice both measures are quite similar so the decision on which to use depends on your own use-case such as if you are looking at data after 2017. 
 
-
-\begin{center}\includegraphics[width=1\linewidth,height=1\textheight]{08_arson_files/figure-latex/unnamed-chunk-3-1} \end{center}
+<img src="08_arson_files/figure-html/unnamed-chunk-3-1.png" width="100%" height="100%" />
 
 
 ## Important variables
@@ -78,14 +73,10 @@ Please note that this data is at the incident-level which means that having mult
 
 Clearances are reported in the month they occur, which may be different than the month when the arson happened. This can create the illusion that more crimes are solved than were reported in certain time periods. Figure \@ref(fig:arsonClearance), for example, shows the number of actual arsons (reports that are founded) and clearances for single-family home arsons in League City, Texas, a city of about 100,000 outside of Houston. In most years there were fewer clearances than arsons, but in four years (1982, 1981, 1992, and 2007) there were more clearances than arsons. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{08_arson_files/figure-latex/arsonClearance-1} 
-
-}
-
-\caption{The annual number of single-family home arsons and clearances in League City, Texas, 1979-2022.}(\#fig:arsonClearance)
-\end{figure}
+<div class="figure">
+<img src="08_arson_files/figure-html/arsonClearance-1.png" alt="The annual number of single-family home arsons and clearances in League City, Texas, 1979-2022." width="100%" height="100%" />
+<p class="caption">(\#fig:arsonClearance)The annual number of single-family home arsons and clearances in League City, Texas, 1979-2022.</p>
+</div>
 
 ### Cleared for arsons where all offenders are under age 18
 
@@ -103,22 +94,14 @@ The final variable is the estimated cost of the arson. This is how much the poli
 
 As with other SRS datasets, the arson data sometimes includes clear data entry errors, such as reporting implausibly high numbers of arsons for small jurisdictions or recording unrealistic damage estimates. For example, Figure \@ref(fig:residenceArson) shows the annual number of single-family home arsons in Byron City, Illinois, which has a population of slightly over 3,600 people. In every year there are zero arsons reported until 2003 when 469 arsons are reported. Since it is exceedingly unlikely that suddenly an eighth of the city each suffered different arson attacks, and that the city never again had a residence arson, this is almost certainly a data entry error. As arsons are relatively rare, having errors - and especially ones like this - can drastically change the results of your analysis so it is important to check your data carefully for more errors. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{08_arson_files/figure-latex/residenceArson-1} 
-
-}
-
-\caption{Annual single-family home arsons in Byron  City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this dataset, 1979-2022. }(\#fig:residenceArson)
-\end{figure}
+<div class="figure">
+<img src="08_arson_files/figure-html/residenceArson-1.png" alt="Annual single-family home arsons in Byron  City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this dataset, 1979-2022. " width="100%" height="100%" />
+<p class="caption">(\#fig:residenceArson)Annual single-family home arsons in Byron  City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this dataset, 1979-2022. </p>
+</div>
 
 There are also cases where it is less clear when a value is a data error or is simply due to an outlier - but real - value. For example, Figure \@ref(fig:arsonCost) shows the annual average cost of a single-family home fire in Los Angeles, California. In most years the value is low. Since an arson can cause little or no damage, these low values likely mean that on average only part of the house was damaged, rather than the entire house burning down. In 2009, however, the average damage is about $540,000 per arson. Is this a data entry error that simply inputs a damage value that is too high? It certainly appears to be a data error since it is a sudden huge jump in damage value. However, it could also be that some extraordinarily expensive homes were destroyed that year. In 2009, Los Angeles reported only 63 single-family home arsons so having one, or a few, super mansions - which LA has plenty of - destroyed could mean that this huge value is real. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{08_arson_files/figure-latex/arsonCost-1} 
-
-}
-
-\caption{The annual cost per arson for single family homes in Los Angeles, California, 1979-2022.}(\#fig:arsonCost)
-\end{figure}
+<div class="figure">
+<img src="08_arson_files/figure-html/arsonCost-1.png" alt="The annual cost per arson for single family homes in Los Angeles, California, 1979-2022." width="100%" height="100%" />
+<p class="caption">(\#fig:arsonCost)The annual cost per arson for single family homes in Los Angeles, California, 1979-2022.</p>
+</div>

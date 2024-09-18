@@ -548,7 +548,7 @@ for (file in victim_files) {
     filter(!relation_of_vict_to_offender1 %in% officer_victim_relationship_first_year$relation_of_vict_to_offender1)
   officer_victim_relationship_first_year <-
     officer_victim_relationship_first_year %>%
-    bind_rows(victim_relationship_first_year_temp) %>%
+    bind_rows(officer_victim_relationship_first_year_temp) %>%
     arrange(
       year,
       relation_of_vict_to_offender1
@@ -601,7 +601,7 @@ officer_victim_relationship_first_year
 saveRDS(victim_type_first_year, "data/nibrs_summary_stats/victim_type_first_year.rds")
 saveRDS(officer_victim_offense_first_year, "data/nibrs_summary_stats/officer_victim_offense_first_year.rds")
 saveRDS(victim_offense_first_year, "data/nibrs_summary_stats/victim_offense_first_year.rds")
-saveRDS(victim_relationship_first_year, "data/nibrs_summary_stats/victim_offense_first_year.rds")
+saveRDS(victim_relationship_first_year, "data/nibrs_summary_stats/victim_relationship_first_year.rds")
 saveRDS(victim_agg_assault_circumstance_first_year, "data/nibrs_summary_stats/victim_agg_assault_circumstance_first_year.rds")
 saveRDS(officer_victim_relationship_first_year, "data/nibrs_summary_stats/officer_victim_relationship_first_year.rds")
 

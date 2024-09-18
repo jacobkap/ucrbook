@@ -23,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2024-09-17" />
+<meta name="date" content="2024-09-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -466,7 +466,7 @@ div.csl-indent {
 <h2><span class="header-section-number">7.1</span> Agencies reporting<a href="leoka.html#agencies-reporting-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Figure <a href="leoka.html#fig:leokaAgencies">7.1</a> shows the annual number of police agencies that reported at least one month that year. The first year of data available, 1960, has about 8,400 agencies reporting though this quickly drops to a trough of around 4,800 agencies that last for several years. After some undulations in the 1970s, reporting agencies steadily increases to nearly 14,000 agencies in the 1980s and remains steady until declining to around 12,000 by the late 1990s. Then reporting again steadily increases through 2020 to about 16,000 agencies by the end. 2021 has a massive drop in reporting to only about 5,000 agencies and then slightly increasing in 2022.<a href="#fn57" class="footnote-ref" id="fnref57"><sup>57</sup></a></p>
 <p>The decline after 2020 is part of what I have referred to as the “death and rebirth” of the SRS. 2020 was the last year that the FBI accepted SRS data - though in 2022 they began accepting SRS submissions again. As noted in previous chapters, this death and rebirth led to changes in both which agencies reported and what data was reported. In 2021 when only NIBRS was collected, no SRS agencies could report, but even once they began to accept SRS data again the damage was done. Some agencies were transitioning from SRS to NIBRS so reported neither, while others likely made the decision to stick to NIBRS only - perhaps caused by their data vendor no longer supporting SRS data.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaAgencies"></span>
+<div class="figure"><span style="display:block;" id="fig:leokaAgencies"></span>
 <img src="07_leoka_files/figure-html/leokaAgencies-1.png" alt="The annual number of police agencies that report at least month of data, at least one employee, and at least one assault against an officer, 1960-2022" width="100%" height="100%" />
 <p class="caption">
 Figure 7.1: The annual number of police agencies that report at least month of data, at least one employee, and at least one assault against an officer, 1960-2022
@@ -495,27 +495,27 @@ Figure 7.1: The annual number of police agencies that report at least month of d
 </ul>
 <p>One of the claims made around the massive crime spike during Covid is that it was caused, at least in part, by an exodus of police officers. Fewer police officers led to more crime. Luckily, we can easily determine if there were fewer officers employed starting in 2020. In Figure <a href="leoka.html#fig:leokaNationalEmployees">7.2</a> we have the total number of sworn officers and civilian employees in the country from 1960 through 2022. The number of both groups has fairly steadily increased since 1960 until plateuing around 2010 and then fairly sharply dropping in 2018 before rebounding a bit in 2022. So the number of employees dropped before 2020, actually increased a tiny bit in 20202 itself, and increased in 2022. Obviously all the claims about a declining number of officers was wrong.</p>
 <p>Well, not quite. This country’s population has grown quite a bit since 1960 so we really want to do some kind of rate of officers per civilian population. And as we saw earlier not all agencies report data. So changes over time may really just be changes in which agencies report data. For a good comparison we need to look at only agencies that have reported data for every year we are interested in. And that is all assuming we actually care about national trends which we really should not. Crime is a local issue; what happens in your community - be it whether officers are leaving or crime is increasing - matters a whole lot more than what is happening across the country.<a href="#fn58" class="footnote-ref" id="fnref58"><sup>58</sup></a></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaNationalEmployees"></span>
+<div class="figure"><span style="display:block;" id="fig:leokaNationalEmployees"></span>
 <img src="07_leoka_files/figure-html/leokaNationalEmployees-1.png" alt="The number of civilian employees and sworn officers in the United States, 1960-2022" width="100%" height="100%" />
 <p class="caption">
 Figure 7.2: The number of civilian employees and sworn officers in the United States, 1960-2022
 </p>
 </div>
 <p>So now lets look at a local example: the Philadelphia Police Department as shown in Figure <a href="leoka.html#fig:leokaCivilianOfficers">7.3</a>. The number of civilian employees has remained at a little under 1,000 employees from about 1970 through the end of our data, though declining very slightly since the middle 2000s. This is curious since the city’s population and crime trends have changed dramatically over this time and the ability of civilian employees to contribute has also changed, such as that they now have computers.<a href="#fn59" class="footnote-ref" id="fnref59"><sup>59</sup></a> In contrast, the number of police has changed far more than civilians, growing rapidly in the 1960s and 1970s to peaking at a little over 8,000 officers in the mid-1970s before declining substantially to the 6,000s. in the late-1980s. As with some larger agencies nationwide, the number of officers increased in the 1990s and then has decreased steadily in ensuing years. By recent years there are about as many officers as in the late-1980s, even though the city’s population has grown substantially since then. What stands out is that in 2020 there are zero sworn officers or civilians employees. By 2022 there are fewer sworn officers but more civilian employees than in 2020. 2021 is simply due to Philly reporting zero employees in that year, though obviously this is not actually a reflection of reality. When looking at only one city like we do here it is glaringly obvious that there is a data issue. The problem is that when looking at aggregate data, like we do in Figure <a href="leoka.html#fig:leokaNationalEmployees">7.2</a> it is much harder, without additional data cleaning steps, to determine what is a data error and what is a true change.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaCivilianOfficers"></span>
+<div class="figure"><span style="display:block;" id="fig:leokaCivilianOfficers"></span>
 <img src="07_leoka_files/figure-html/leokaCivilianOfficers-1.png" alt="The number of civilian employees and sworn officers in the Philadelphia Police Department, 1960-2022" width="100%" height="100%" />
 <p class="caption">
 Figure 7.3: The number of civilian employees and sworn officers in the Philadelphia Police Department, 1960-2022
 </p>
 </div>
 <p>We can also look at the number of officers (or civilian employees) by gender. Figure <a href="leoka.html#fig:leokaOfficersGender">7.4</a> shows the percent of Philadelphia police officers by gender while Figure <a href="leoka.html#fig:leokaOfficersGenderCount">7.5</a> shows the number of officers. For the first decade of data all female officers (or civilians) were recorded as male, so that variable should be interpreted as “total officers” until 1971 when it is split into gender. Starting at basically 0% of officers in 1971, female officers grew until they made up about a quarter of officers in 2000 and then has declined slowly since then.<a href="#fn60" class="footnote-ref" id="fnref60"><sup>60</sup></a></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaOfficersGender"></span>
+<div class="figure"><span style="display:block;" id="fig:leokaOfficersGender"></span>
 <img src="07_leoka_files/figure-html/leokaOfficersGender-1.png" alt="The percent of female and male sworn officers in Philadelphia, 1960-2022" width="100%" height="100%" />
 <p class="caption">
 Figure 7.4: The percent of female and male sworn officers in Philadelphia, 1960-2022
 </p>
 </div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaOfficersGenderCount"></span>
+<div class="figure"><span style="display:block;" id="fig:leokaOfficersGenderCount"></span>
 <img src="07_leoka_files/figure-html/leokaOfficersGenderCount-1.png" alt="The number of female and male sworn officers in Philadelphia, 1960-2022" width="100%" height="100%" />
 <p class="caption">
 Figure 7.5: The number of female and male sworn officers in Philadelphia, 1960-2022
@@ -526,7 +526,7 @@ Figure 7.5: The number of female and male sworn officers in Philadelphia, 1960-2
 <h3><span class="header-section-number">7.2.2</span> Officers killed<a href="leoka.html#officers-killed" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There is almost no information about officers killed. The data only breaks this down into if they died “feloniously” which just means that someone killed them on purpose (e.g. shooting them, intentionally hitting them with a car) or if they died “accidentally” such as if they die during a car crash while on duty. The FBI actually collects more information on officer deaths than they release in this data. This includes the circumstances of each death such as the type of death (e.g. car crash, shooting, ambush, etc.), what weapon the offender had if feloniously killed, and even a detailed written summary of what occurred for each officer killed. They post this information in their annual LEOKA report which is part of their Crime in the United States report. The 2019 report, for example, can be found on their site <a href="https://ucr.fbi.gov/leoka/2019/home">here</a>.</p>
 <p>We can look at what data is available through Figure <a href="leoka.html#fig:leokaOfficersKilled">7.6</a> which shows the number of Los Angeles Police Department officers killed over time. There are no accidental killings until 1975 though this is misleading because that accidental killings variable is not reported until 1971, which is a year in which many other variables in this data began reporting. So we actually have no idea how many officers were killed accidentally from 1960-1970 since this variable is always reported as 0. In general it seems like there is about one officer killed per year in recent decades while the period from 1980 to 2000 was the time of highest danger with as many as five officers killed in a single year. We can also see some trend changes with felonious killings more common than accidental killings in the 1990s and then accidental killings becoming far more common starting in 2000.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaOfficersKilled"></span>
+<div class="figure"><span style="display:block;" id="fig:leokaOfficersKilled"></span>
 <img src="07_leoka_files/figure-html/leokaOfficersKilled-1.png" alt="The number of officers killed by felony and killed accidentally in Los Angeles, 1960-2022" width="100%" height="100%" />
 <p class="caption">
 Figure 7.6: The number of officers killed by felony and killed accidentally in Los Angeles, 1960-2022
@@ -534,7 +534,7 @@ Figure 7.6: The number of officers killed by felony and killed accidentally in L
 </div>
 <p>We can also look at the national number of officers killed as shown in Figure <a href="leoka.html#fig:leokaOfficersKilledNational">7.7</a>. Please note that this is simply summing up the number of officers killed by all agencies that report that year so changes over time are certainly partially due to different agencies reporting each year. Therefore, we will focus on interpreting the different between felony and accidental killings rather than counts over time - though even this may be off if agencies that reported more felony or more accidental killings differ in their reporting over time. Again we see that there are no officers killed accidentally, due to that variable not being reported, until 1971. The difference between officers killed by felony and killed accidentally is widest are the start of our data and narrows considerable until there are only several more felonious killings than accidental killings by the late 1990s. This trend reverses in the early 2010s with accidental killings decreasing and felonious killings increasing again.</p>
 <p>The last several years of data have extremely few officers killed accidentally, with fewer than 10 a year since 2018 and even zero officers killed in 2021. According to the website <a href="https://www.odmp.org/search/year?year=2021">Officer Down Memorial Page</a>, there were 719 officers who died in 2021, including some that should meet the killed accidentally criteria.<a href="#fn61" class="footnote-ref" id="fnref61"><sup>61</sup></a> For example, 23 officers were reported to have been killed by an automobile crash. So this data on officers killed is incorrect, is an undercount, and should be used only with a great deal of caution.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaOfficersKilledNational"></span>
+<div class="figure"><span style="display:block;" id="fig:leokaOfficersKilledNational"></span>
 <img src="07_leoka_files/figure-html/leokaOfficersKilledNational-1.png" alt="The national number of officers killed by felony and killed accidentally, 1960-2022" width="100%" height="100%" />
 <p class="caption">
 Figure 7.7: The national number of officers killed by felony and killed accidentally, 1960-2022
@@ -561,14 +561,14 @@ Figure 7.7: The national number of officers killed by felony and killed accident
 </ul></li>
 </ul>
 <p>We can start by looking at the breakdown of assaults by injury and weapon type for officers in the Los Angeles Police Department. Figure <a href="leoka.html#fig:leokaAssaultTypeInjury">7.8</a> shows the number of assaults from all years reported for these categories. Over the complete time period there were almost 43,000 officers assaulted with about three-quarters of these assaults - 33,000 assaults - leading to no injuries. This data shows the number of officers assaulted, not unique officers, so an officer can potentially be included in the data multiple times if they are assaulted multiple times over a year. A little under a quarter of assaults lead to officer injury with most of these from unarmed offenders. Interestingly, there are far more gun and knife assaults where the officer is not injured than where the officer is injured. There are likely cases when the offender threatens the officer with the weapon but does not shoot or stab the officer.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaAssaultTypeInjury"></span>
+<div class="figure"><span style="display:block;" id="fig:leokaAssaultTypeInjury"></span>
 <img src="07_leoka_files/figure-html/leokaAssaultTypeInjury-1.png" alt="The total number of assaults on officers by injury sustained and offender weapon in Los Angeles, 1960-2022." width="100%" height="100%" />
 <p class="caption">
 Figure 7.8: The total number of assaults on officers by injury sustained and offender weapon in Los Angeles, 1960-2022.
 </p>
 </div>
 <p>We can also look at assaults over time. Figure <a href="leoka.html#fig:leokaAssaultsInjuryYear">7.9</a> shows the number of assaults, assaults with injury, and assault without injury for the Los Angeles Police Department from 1960 to 2018. We can immediately see some data issues are there are years with no assaults recorded. And in the late-2000s there is a sudden drop from about 250 assaults with injuries per year in the previous few decades to nearly zero officer injuries reported a year. This strongly suggests some change in reporting rather than a true decrease in assaults with injuries. For the decades where the data is less obviously wrong, there is a consistent trend of most assaults leading to no injuries, though the distance between the number of injury and non-injury assaults fluctuates over time.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaAssaultsInjuryYear"></span>
+<div class="figure"><span style="display:block;" id="fig:leokaAssaultsInjuryYear"></span>
 <img src="07_leoka_files/figure-html/leokaAssaultsInjuryYear-1.png" alt="The annual number of assaults on officers by injury sustained in Los Angeles, 1960-2022." width="100%" height="100%" />
 <p class="caption">
 Figure 7.9: The annual number of assaults on officers by injury sustained in Los Angeles, 1960-2022.
@@ -594,7 +594,7 @@ Figure 7.9: The annual number of assaults on officers by injury sustained in Los
 </ul>
 <p>Figure <a href="leoka.html#fig:leokaAssaultCallType">7.10</a> shows the number of assaults on Los Angeles Police Department officers by the type of call for 1960-2022. There were about 41,000 assaults against Los Angeles Police Department officers with a little over 33,500 of these assaults cleared. An important thing to note is that the number of assaults here is less than the nearly 43,000 assaults for the same agency over the same time period we saw in Figure <a href="leoka.html#fig:leokaAssaultTypeInjury">7.8</a>. This is because some variables are not reported for all years and agencies are free to report which variables they want to report in any given year. This makes it massively tricky to use this data since even simple statistics for the same agency for supposedly the same variable (here it is technically different variables but should still be the total number of officers assaulted) can be different.</p>
 <p>The most common type of call where officers are assaulted are disturbance calls which include domestic violence and reports of dangerous individuals such as people carrying guns in public. The least common call type is ambush calls, though in these calls the police are called to a scene by the offender who intends to assault or kill the officers, so is likely far more dangerous than other call types, even though it is rare.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaAssaultCallType"></span>
+<div class="figure"><span style="display:block;" id="fig:leokaAssaultCallType"></span>
 <img src="07_leoka_files/figure-html/leokaAssaultCallType-1.png" alt="Assaults on Los Angeles Police Department officers by type of call where they were assaulted at, 1960-2022." width="100%" height="100%" />
 <p class="caption">
 Figure 7.10: Assaults on Los Angeles Police Department officers by type of call where they were assaulted at, 1960-2022.
@@ -622,14 +622,14 @@ Figure 7.10: Assaults on Los Angeles Police Department officers by type of call 
 <li>Number of assaults on police cleared</li>
 </ul>
 <p>We will look specifically at disturbance calls since they are the most common call type, at least for the Los Angeles Police Department. Figure <a href="leoka.html#fig:leokaDisturbanceWeapon">7.11</a> shows the total number of disturbance assaults by offender weapon in Los Angeles. Most assaults have an unarmed offender with a sharp decline to the number of offenders with a weapon other than a gun or knife. Assaults by a gun and by a knife are the least common.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaDisturbanceWeapon"></span>
+<div class="figure"><span style="display:block;" id="fig:leokaDisturbanceWeapon"></span>
 <img src="07_leoka_files/figure-html/leokaDisturbanceWeapon-1.png" alt="The number of assaults on Los Angeles Police Department officers in disturbance calls by the injury sustained by the officer, 1960-2022." width="100%" height="100%" />
 <p class="caption">
 Figure 7.11: The number of assaults on Los Angeles Police Department officers in disturbance calls by the injury sustained by the officer, 1960-2022.
 </p>
 </div>
 <p>Again using disturbance calls for the Los Angeles Police Department, we can look at assaults by the officer assignment, as seen in Figure <a href="leoka.html#fig:leokaShiftAssignment">7.12</a>. In the vast majority of assaults it is of officers who are in a vehicle along with a partner. This drops very sharply to several hundred assaults on detectives who are assisting other officers and then increasingly declines to the other shift assignments to the least common assault being against detectives who are acting alone. So are officers in two-man vehicles are much higher risk of assaults than officers alone or of detectives? Almost certainly not. To determine the risk for officers we need to know how officers are generally deployed. If the vast majority of officers are in two-man cars then it makes sense that the vast majority of assaults are on these assignments. Like most FBI data - and most crime data in general - we have the numerator (in this case the number of assaults by shift assignment type) and do not have a proper denominator (such as the distribution of shift assignments for all LAPD officers) to determine a rate of risk. Without this we can present some descriptive statistics but cannot be more useful by determining, for example, if officers in certain shift assignments are at higher risks of being assaulted.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:leokaShiftAssignment"></span>
+<div class="figure"><span style="display:block;" id="fig:leokaShiftAssignment"></span>
 <img src="07_leoka_files/figure-html/leokaShiftAssignment-1.png" alt="The number of assaults on Los Angeles Police Department officers in disturbance calls by the injury sustained by the shift assignment of the officer, 1960-2022." width="100%" height="100%" />
 <p class="caption">
 Figure 7.12: The number of assaults on Los Angeles Police Department officers in disturbance calls by the injury sustained by the shift assignment of the officer, 1960-2022.
@@ -654,7 +654,7 @@ Figure 7.12: The number of assaults on Los Angeles Police Department officers in
 <li>10:01pm - 12:00am</li>
 </ul>
 <p>We will look at these time chunks in Figure <a href="leoka.html#fig:phoenixAssaultTimes">7.13</a> which shows the total number of assaults by time of day from 1971 to 2018 in Phoenix, Arizona. The most common times for officers to be assaulted looks pretty similar to when crime is highest: late night and early morning. The 12:01am to 2am chunk is the most common time followed by 10pm to midnight, with assaults increasing at the day grows later and at its lowest point from 6-8am. This strongly suggests that officers are assaulted at crime scenes, such as responding to crimes or making arrests.<a href="#fn62" class="footnote-ref" id="fnref62"><sup>62</sup></a></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:phoenixAssaultTimes"></span>
+<div class="figure"><span style="display:block;" id="fig:phoenixAssaultTimes"></span>
 <img src="07_leoka_files/figure-html/phoenixAssaultTimes-1.png" alt="The number of assaults against Phoenix Police Department officers by hourly grouping for all years with data available, 1971-2018." width="100%" height="100%" />
 <p class="caption">
 Figure 7.13: The number of assaults against Phoenix Police Department officers by hourly grouping for all years with data available, 1971-2018.

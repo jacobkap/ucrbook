@@ -14,14 +14,10 @@ This data is available from 1974 through 2022 though after 2020 the measure for 
 
 The first year of data has about 9,000 agencies reporting at least one month and that increases strongly to a little over 13,000 in the late 1970s, staying fairly steady until decreasing in the late 1980s then increasing in the 2000s until approximately 15,000 agencies report. The number of agencies reporting 12 months of data follows a similar trend, but at a lower level with about 4,000 fewer agencies each year. This 15,000, however, still remains under the estimated 18,000 police agencies in the United States and below the reporting rates of UCR data such as the Offenses Known and Clearances by Arrest data. This data is also missing some important cities such as New York City which has not reported even a single month since 2002 and Chicago which tends to only report a single month if at all.   
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{05_arrests_files/figure-latex/arrestsAgenciesReporting-1} 
-
-}
-
-\caption{The annual number of agencies reporting at least one month of data and 12 months of data in that year.}(\#fig:arrestsAgenciesReporting)
-\end{figure}
+<div class="figure">
+<img src="05_arrests_files/figure-html/arrestsAgenciesReporting-1.png" alt="The annual number of agencies reporting at least one month of data and 12 months of data in that year." width="100%" height="100%" />
+<p class="caption">(\#fig:arrestsAgenciesReporting)The annual number of agencies reporting at least one month of data and 12 months of data in that year.</p>
+</div>
 
 ## What is an arrest? (what unit is this data in?)
 
@@ -151,14 +147,10 @@ One way to use this data is to look at the age-crime curve of offending. The age
 
 Figure \@ref(fig:phillyRapeAge) shows this trend for male arrestees of rape in Philadelphia from 1974-2022, which is every year of data we have available. A major problem with this figure is that some of the ages are for single years and some are for age categories. In the graph there were 793 arrests for rape for people aged 24. The next age is the category of aged 25-29 and there were 3,604 arrests for this age group. One way to address this is to assume that each age in the category has the same number of arrests, so dividing 3,604 by 5 gives us about 721 arrests per age. Assuming equal arrests by age, however, is not consistent with either the literature on the age-crime curve or the findings in this figure for previous ages, as the number of arrests by age is, overall, going down since age 18. So instead of assuming equality, would we assume that older ages have fewer arrests than younger ages (maybe taking the percent change from the previous years where we do have individual ages available)? This is a tricky question to answer and it makes these kinds of analyses really hard to do - and very imprecise since all of your assumptions will be wrong, though hopefully not *too* wrong. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{05_arrests_files/figure-latex/phillyRapeAge-1} 
-
-}
-
-\caption{The total number of rapes by male arrestees reported by arrestee age in Philadelphia, 1974-2022.}(\#fig:phillyRapeAge)
-\end{figure}
+<div class="figure">
+<img src="05_arrests_files/figure-html/phillyRapeAge-1.png" alt="The total number of rapes by male arrestees reported by arrestee age in Philadelphia, 1974-2022." width="100%" height="100%" />
+<p class="caption">(\#fig:phillyRapeAge)The total number of rapes by male arrestees reported by arrestee age in Philadelphia, 1974-2022.</p>
+</div>
 
 ### Race
 
@@ -183,27 +175,19 @@ Even though there is information about the specific age of arrestee (or the age 
     
 Figure \@ref(fig:phillyMarijuanaRacePercent) shows one example of an analysis of this data by showing the percent of arrests of adults for marijuana possession by the arrestee's race in Philadelphia for all years of data we have with a full year of data reported, 1976-2018 At the bottom are American Indian and Asian arrestees who make up nearly none of the arrests for this crime. Black arrestees, shown in green, make up the bulk of arrests with only a few years making up under 60% of arrests and growing to around 80% of arrests since the mid-2000s. As White arrestees, shown in orange, are the only other race category included, they make up a near perfect mirror image of Black arrestees, composing of around 40% of arrests until decreasing starting in the 1990s to end up with about 20% of arrests in recent years. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{05_arrests_files/figure-latex/phillyMarijuanaRacePercent-1} 
-
-}
-
-\caption{The annual percent of adult marijuana possession arrests in Philadelphia by arrestee race, 1978-2018.}(\#fig:phillyMarijuanaRacePercent)
-\end{figure}
+<div class="figure">
+<img src="05_arrests_files/figure-html/phillyMarijuanaRacePercent-1.png" alt="The annual percent of adult marijuana possession arrests in Philadelphia by arrestee race, 1978-2018." width="100%" height="100%" />
+<p class="caption">(\#fig:phillyMarijuanaRacePercent)The annual percent of adult marijuana possession arrests in Philadelphia by arrestee race, 1978-2018.</p>
+</div>
 
 Interestingly, while the disparity between Black-White arrests has grown dramatically in recent decades, the total number of arrests have a very different trend as shown in Figure \@ref(fig:phillyMarijuanaRaceCount). Total marijuana possession arrests declined in the mid-1980s then increased in the mid-1990s from only a few hundred arrests in the early 1990s to nearly 5,000 arrests in 2010 before dropping precipitously to under 700 each year in the late-2010s. 
 
 Yet throughout this latter period as a percent of arrests, Black people consistently grew for years before plateauing around 2007 with a small decline in the last few years of full data. Philadelphia decriminalized marijuana possession in 2014 under Mayor Nutter which is right when the steepest decline in arrests happened. This suggests that who is arrested, in terms of race, is relatively unrelated to the total number of arrests, at least for marijuana in Philadelphia.
     
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{05_arrests_files/figure-latex/phillyMarijuanaRaceCount-1} 
-
-}
-
-\caption{The annual number of adult marijuana possession arrests in Philadelphia by arrestee race, 1978:2018.}(\#fig:phillyMarijuanaRaceCount)
-\end{figure}
+<div class="figure">
+<img src="05_arrests_files/figure-html/phillyMarijuanaRaceCount-1.png" alt="The annual number of adult marijuana possession arrests in Philadelphia by arrestee race, 1978:2018." width="100%" height="100%" />
+<p class="caption">(\#fig:phillyMarijuanaRaceCount)The annual number of adult marijuana possession arrests in Philadelphia by arrestee race, 1978:2018.</p>
+</div>
   
 ### Ethnicity
 
@@ -218,25 +202,17 @@ While technically included, the ethnicity variable is largely useless since for 
 
 Figure \@ref(fig:theftHispanic) shows the annual number of Hispanic arrestees for theft for all agencies that reported any data that year.^[Theft is used as it is one of the most common crimes.] For several years no agencies reported until the number of Hispanic arrestees start climbing in 1980 and peaks in 1986 at about 136,000 arrestees. Then there are zero Hispanic arrestees for a few years, four Hispanic arrestees in 1990 and two non-Hispanic arrests in 1991, and then again zero Hispanic arrestees, this time for decades. Only in 2017 do the number of Hispanic theft arrestees begin to creep up. From 2017 to 2022 (the last year available at the time of this writing) there are Hispanic arrestees reported every year, though now only about 60,000 per year.
     
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{05_arrests_files/figure-latex/theftHispanic-1} 
-
-}
-
-\caption{The national annual number of Hispanic arrestees for theft. This includes all agencies that year that reporting any number of months. Hispanic arrestees include both juvenile and adult arrestees}(\#fig:theftHispanic)
-\end{figure}
+<div class="figure">
+<img src="05_arrests_files/figure-html/theftHispanic-1.png" alt="The national annual number of Hispanic arrestees for theft. This includes all agencies that year that reporting any number of months. Hispanic arrestees include both juvenile and adult arrestees" width="100%" height="100%" />
+<p class="caption">(\#fig:theftHispanic)The national annual number of Hispanic arrestees for theft. This includes all agencies that year that reporting any number of months. Hispanic arrestees include both juvenile and adult arrestees</p>
+</div>
 
 Perhaps a better way to look at this data is to see what percent of agencies report ethnicity data. Figure \@ref(fig:theftHispanicPercentAgencies) show the percent of agencies each year that report at least one Hispanic or non-Hispanic (which are the only choices, but showing only Hispanic arrests would exclude agencies where no Hispanic people truly were arrested) arrest for theft. About 60% of agencies reported ethnicity data in the early 80s and then only a couple agencies report in 1990 and 1991. Other than those agencies, none report between 1987 and 2016. Starting in 2017, 36% of agencies report and this number has grown by about five percentage points a year until spiking to about 67% in 2021 and it remained steady in 2022. Given the fluctuations in reporting and how many years there is no data, I strongly recommend against using these variables, even for the recent years of data. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{05_arrests_files/figure-latex/theftHispanicPercentAgencies-1} 
-
-}
-
-\caption{The annual percent of agencies that report theft arrests that reported at least one Hispanic person or one non-Hispanic person arrested for theft. Arrestees include both juvenile and adult arrestees.}(\#fig:theftHispanicPercentAgencies)
-\end{figure}
+<div class="figure">
+<img src="05_arrests_files/figure-html/theftHispanicPercentAgencies-1.png" alt="The annual percent of agencies that report theft arrests that reported at least one Hispanic person or one non-Hispanic person arrested for theft. Arrestees include both juvenile and adult arrestees." width="100%" height="100%" />
+<p class="caption">(\#fig:theftHispanicPercentAgencies)The annual percent of agencies that report theft arrests that reported at least one Hispanic person or one non-Hispanic person arrested for theft. Arrestees include both juvenile and adult arrestees.</p>
+</div>
 
 ### Juvenile referrals
 
@@ -255,24 +231,16 @@ Unlike the rest of this dataset where juvenile is defined as being under the age
 
 We can look at an example of this in Figure \@ref(fig:JuvenileReferrals) which shows the annual number of referral types in the entire United States from 1974-2022. For all the first couple of years almost all of the referrals have either been that the agency handles the arrest internally and releases the juvenile without any formal charges, or that the juvenile is formally arrested and referred to juvenile court. Since this only happens for a single year it appears to be a data issue.Starting in the late 1990s the number of referrals has declined over time, possibly due fewer juvenile arrests overall during this period. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{05_arrests_files/figure-latex/JuvenileReferrals-1} 
-
-}
-
-\caption{The annual number of juvenile referrals in the United States by referral type, 1974-2020.}(\#fig:JuvenileReferrals)
-\end{figure}
+<div class="figure">
+<img src="05_arrests_files/figure-html/JuvenileReferrals-1.png" alt="The annual number of juvenile referrals in the United States by referral type, 1974-2020." width="100%" height="100%" />
+<p class="caption">(\#fig:JuvenileReferrals)The annual number of juvenile referrals in the United States by referral type, 1974-2020.</p>
+</div>
 
 In Figure \@ref(fig:JuvenileReferrals) there is a massive spike in referrals to welfare, handled internally, and juvenile court cases in 1976 that occurs for a single year. Was this a year of superpredators? No, it was a year of Michigan data errors. In 1976 many agencies in Michigan provided erroneous data for this variable. This includes, for example, Washtenaw County Sheriff's Office which had a population of 101,452 in 1976 and reported that 150,088 juvenile arrests were reported in welfare. Similarly, Otisville Police Department, population 760, had 10,000 referrals to welfare, and Saginaw Police Department, population 82,000, had 80,074 referrals to welfare, 27,213 referrals to juvenile court, and 6,230 juvenile arrests handled internally. When we remove Michigan, shown in Figure \@ref(fig:JuvenileReferralsNoMichigan), this spike disappears. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{05_arrests_files/figure-latex/JuvenileReferralsNoMichigan-1} 
-
-}
-
-\caption{The annual number of juvenile referrals in the United States excluding agencies in Michigan by referral type, 1974-2020.}(\#fig:JuvenileReferralsNoMichigan)
-\end{figure}
+<div class="figure">
+<img src="05_arrests_files/figure-html/JuvenileReferralsNoMichigan-1.png" alt="The annual number of juvenile referrals in the United States excluding agencies in Michigan by referral type, 1974-2020." width="100%" height="100%" />
+<p class="caption">(\#fig:JuvenileReferralsNoMichigan)The annual number of juvenile referrals in the United States excluding agencies in Michigan by referral type, 1974-2020.</p>
+</div>
 
 Michigan is unlikely to be the sole state with data issues in 1976, and 1976 is unlikely to be the only year with problems. We can see other spikes in the data such as small ones in 1991 and 2016. I leave the task of discovering the cause of these spikes to the reader.

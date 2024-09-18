@@ -180,7 +180,7 @@ nibrs_property_summary  %>%
   ggplot(aes(x = year, y = percent_stolen_max_value)) +
   geom_line(size = 1.05) + 
   xlab("Year") +
-  ylab("% of Incidents") +
+  ylab("% of Value Stolen in US") +
   theme_crim() +
   scale_y_continuous(labels = scales::percent) +
   labs(color = "") +

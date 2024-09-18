@@ -14,6 +14,11 @@ victim <- readRDS("data/nibrs_victim_segment_2022.rds")
 nibrs_victim_summary <- readRDS("data/nibrs_summary_stats/nibrs_victim_summary_stats.rds")
 officer_victim_offense_first_year <- readRDS("data/nibrs_summary_stats/officer_victim_offense_first_year.rds")
 victim_type_first_year <- readRDS("data/nibrs_summary_stats/victim_type_first_year.rds")
+
+victim_offense_first_year <- readRDS("data/nibrs_summary_stats/victim_offense_first_year.rds")
+victim_relationship_first_year <- readRDS("data/nibrs_summary_stats/victim_relationship_first_year.rds")
+victim_agg_assault_circumstance_first_year <- readRDS("data/nibrs_summary_stats/victim_agg_assault_circumstance_first_year.rds")
+officer_victim_relationship_first_year <- readRDS("data/nibrs_summary_stats/officer_victim_relationship_first_year.rds")
 gc()
 ```
 
@@ -34,8 +39,40 @@ temp <- make_frequency_table(victim,
                              "ucr_offense_code_1",
                              c("Crime Category",
                                "\\# of Victims",
-                               "\\% of Victims"))
+                               "\\% of Victims")) %>% 
+  left_join(victim_offense_first_year %>% 
+              mutate(ucr_offense_code_1 = capitalize_words(ucr_offense_code_1)) %>%
+              rename(`Crime Category` = ucr_offense_code_1) %>%
+              select(-number_of_victims)) %>%
+  select(`Crime Category`,
+         `First Year` = year,
+         everything())
+temp$`First Year`[is.na(temp$`First Year`)] <- "-"
 
+officer_crime_2022 <- 
+  victim %>%
+  filter(type_of_victim %in% "law enforcement officer") %>%
+  count(ucr_offense_code_1) %>%
+  rename(`# of Officer Victims` = n) %>%
+  rename(`Crime Category` = ucr_offense_code_1)
+officer_victim_offense_first_year <-
+  officer_victim_offense_first_year %>%
+  select(-number_of_victims) %>%
+  rename(`Crime Category` = ucr_offense_code_1) %>%
+  left_join(officer_crime_2022) %>%
+  select(`Crime Category`,
+         everything()) %>%
+  mutate(`Crime Category` = capitalize_words(`Crime Category`)) %>%
+  select(-year)
+officer_victim_offense_first_year[is.na(officer_victim_offense_first_year)] <- 0
+officer_victim_offense_first_year$`# of Officer Victims` <-
+  prettyNum(officer_victim_offense_first_year$`# of Officer Victims`,
+            big.mark = ",")
+
+temp <-
+  temp %>%
+  left_join(officer_victim_offense_first_year)
+temp$`# of Officer Victims`[is.na(temp$`# of Officer Victims`)] <- "-"
 
 
 kableExtra::kbl(temp, 
@@ -46,77 +83,39 @@ kableExtra::kbl(temp,
                 label = "victimCrimeCategory",
                 longtable = TRUE,
                 escape = TRUE,
-                caption = "The number and percent of crimes committed against each victim. For victims with multiple crimes committed against them, this shows the first crime reported, 2022.") %>%
+                caption = "The number and percent of crimes committed against each victim, counting all victims and then separately law enforcement officer victims, 2022. For victims with multiple crimes committed against them, this shows the first crime reported.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
+```{r nibrsFirstVsAllOffensesMurders, fig.cap="The share of victims when considering only the 1st offense reported compared to using all offenses, for murder and nonnegligent manslaughter, sex offenses, motor vehicle theft, and destruction of property/vandalism, 1991-2022."}
+nibrs_victim_summary$murder_percent <-
+  nibrs_victim_summary$number_murders_first_offense / nibrs_victim_summary$number_murders_all_offenses
+nibrs_victim_summary$sex_offenses_percent <-
+  nibrs_victim_summary$number_sex_offenses_first_offense / nibrs_victim_summary$number_sex_offenses_all_offenses
+nibrs_victim_summary$motor_vehicle_theft_percent <-
+  nibrs_victim_summary$number_motor_vehicle_theft_first_offense / nibrs_victim_summary$number_motor_vehicle_theft_all_offenses
+nibrs_victim_summary$vandalism_percent <-
+  nibrs_victim_summary$number_vandalism_first_offense / nibrs_victim_summary$number_vandalism_all_offenses
 
-```{r}
-officer_crime_2022 <- 
-  victim %>%
-  filter(type_of_victim %in% "law enforcement officer") %>%
-  count(ucr_offense_code_1) %>%
-  rename(`# of Victims in 2022` = n) %>%
-  rename(`Crime Category` = ucr_offense_code_1)
-officer_victim_offense_first_year <-
-  officer_victim_offense_first_year %>%
-  rename(`Crime Category` = ucr_offense_code_1,
-         `# of Victims in 1st Year` = number_of_victims,
-         `First Year` = year) %>%
-  left_join(officer_crime_2022) %>%
-  select(`Crime Category`,
-         `First Year`,
-         everything()) 
-officer_victim_offense_first_year$`Crime Category` <-
-  capitalize_words(officer_victim_offense_first_year$`Crime Category`)
-officer_victim_offense_first_year[is.na(officer_victim_offense_first_year)] <- 0
-officer_victim_offense_first_year$`# of Victims in 1st Year` <-
-  prettyNum(officer_victim_offense_first_year$`# of Victims in 1st Year`,
-            big.mark = ",")
-
-kableExtra::kbl(officer_victim_offense_first_year, 
-                # format = "html",
-                digits = 2, 
-                align = c("l", "r", "r"),
-                #booktabs = TRUE, 
-                longtable = TRUE,
-                escape = TRUE,
-                label = "offenseOfficerCrimeCategories",
-                caption = "The number and percent of crimes reported for offenses where the victim type was 'law enforcement officer,' 2022.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
-
-```
-
-
-```{r nibrsFirstVsAllOffensesMurders, fig.cap="The numbers of murder victims when considering only the first offense or all offenses, 1991-2022."}
 nibrs_victim_summary  %>%
   ggplot(aes(x = year)) +
-  geom_line(aes(y = number_murders_first_offense, color = "1st Offense"), size = 1.05) +
-  geom_line(aes(y = number_murders_all_offenses , color = "All Offenses"), size = 1.05) +
+  geom_line(aes(y = murder_percent, color = "Murder"), size = 1.05) +
+  geom_line(aes(y = sex_offenses_percent , color = "Sex Offenses"), size = 1.05) +
+  geom_line(aes(y = vandalism_percent , color = "Vandalism"), size = 1.05) +
+  geom_line(aes(y = motor_vehicle_theft_percent , color = "Motor Vehicle Theft"), size = 1.05) +
   xlab("Year") +
-  ylab("# of Victims") +
+  ylab("% of Victims for Offense") +
   theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::percent) +
   labs(color = "") +
   expand_limits(y = 0) +
-  scale_color_manual(values = c("1st Offense" = "#1b9e77",
-                                "All Offenses" = "#d95f02"))
+  scale_color_manual(values = c("Murder" = "#1b9e77",
+                                "Sex Offenses" = "#d95f02",
+                                "Vandalism" = "#7570b3",
+                                "Motor Vehicle Theft" = "black"))
+
 ```
 
-```{r nibrsFirstVsAllOffensesSexOffenses, fig.cap="The numbers of sexual offense victims when considering only the first offense or all offenses, 1991-2022."}
-nibrs_victim_summary  %>%
-  ggplot(aes(x = year)) +
-  geom_line(aes(y = number_sex_offenses_first_offense, color = "1st Offense"), size = 1.05) +
-  geom_line(aes(y = number_sex_offenses_all_offenses , color = "All Offenses"), size = 1.05) +
-  xlab("Year") +
-  ylab("# of Victims") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
-  labs(color = "") +
-  expand_limits(y = 0) +
-  scale_color_manual(values = c("1st Offense" = "#1b9e77",
-                                "All Offenses" = "#d95f02"))
-```
 
 ## Victim type
 
@@ -152,19 +151,6 @@ kableExtra::kbl(temp,
                 label = "victimType",
                 caption = "The distribution of the type of victim, 2022. Victim types are mutually exclusive.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
-```
-
-
-```{r nibrsVictimNumberOfficer, fig.cap="The annual number of law enforcement officer victims, 1991-2022."}
-nibrs_victim_summary  %>%
-  ggplot(aes(x = year, y = number_victim_officer)) +
-  geom_line(size = 1.05) + 
-  xlab("Year") +
-  ylab("# of Victims") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
-  labs(color = "") +
-  expand_limits(y = 0) 
 ```
 
 ```{r nibrsVictimPercentIndividualOfficer, fig.cap="Percent of victimizations whose victim type of 'law enforcement officer,' 'business,' or 'invidual,' 1991-2022."}
@@ -218,6 +204,56 @@ For the group who suffered one of the six more serious injury types, 32.1% suffe
 
 Trends for law enforcement officer victims (not shown) are nearly identical for those with an injury but have more victims reporting no injury at all relative to non-law enforcement officer victims.
 
+```{r}
+
+offenses_with_injury <- sort(c("assault offenses - aggravated assault",
+                          "assault offenses - simple assault",
+                          "extortion/blackmail",
+                          "human trafficking - commercial sex acts",
+                          "human trafficking - involuntary servitude",
+                          "kidnapping/abduction",
+                          "robbery",
+                          "sex offenses - fondling (incident liberties/child molest)",
+                          "sex offenses - rape",
+                          "sex offenses - sexual assault with an object",
+                          "sex offenses - sodomy",
+                          "sex offenses - statutory rape",
+                          "murder/nonnegligent manslaughter"))
+
+
+final <- data.frame()
+victim$type_of_injury_1[is.na(victim$type_of_injury_1)] <- "Unknown"
+for (crime in offenses_with_injury) {
+  temp <- make_frequency_table(victim %>% filter(ucr_offense_code_1 %in% crime),
+                               "type_of_injury_1",
+                               c("Injury",
+                                 "\\# of Offenses",
+                                 "\\% of Offenses")) %>%
+    mutate(Crime = capitalize_words(crime)) %>%
+    select(`Crime`,
+           `Injury`,
+           "\\# of Offenses",
+           "\\% of Offenses")
+  final <-
+    final %>%
+    bind_rows(temp)
+}
+
+
+
+kableExtra::kbl(final, 
+                #  format = "html",
+                digits = 2, 
+                align = c("l", "l", "r", "r"),
+                #booktabs = TRUE, 
+                longtable = TRUE,
+                escape = TRUE,
+                label = "offenseCrimeInjury",
+                caption = "The number and percent of victim injury by offense, 2022. This breakdown is only available for a subset of offenses. There can be up to five injuries per victim; in this table we only use the first injury reported. There can be up to 10 offenses per victim; in this table we only use the first offense reported.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+```
+
+
 ```{r victimInjuryExcludeNone, fig.cap = "The distribution of the injury sustained by the victim for those who had an injury other than 'none' or 'apparent minor injuries,' 2022."}
 victim %>%
   filter(!is.na(type_of_injury_1)) %>%
@@ -253,11 +289,32 @@ Table \@ref(tab:victimRelationship) shows each of the relationship categories an
 If you are familiar with the FBI's [Supplementary Homicide Report](https://ucrbook.com/shr.html) data, this variable  - and the two following variables - is also in that dataset. 
 
 ```{r }
+officer_victim_relationship <- 
+  victim %>%
+  filter(type_of_victim %in% "law enforcement officer") %>%
+  make_frequency_table("relation_of_vict_to_offender1",
+                       c("Crime Category",
+                         "\\# of Officer Victims",
+                         "\\% of Victims")) %>%
+  select(-`\\% of Victims`)
+
 temp <- make_frequency_table(victim,
                              "relation_of_vict_to_offender1",
                              c("Crime Category",
                                "\\# of Victims",
-                               "\\% of Victims"))
+                               "\\% of Victims")) %>%
+  left_join(victim_relationship_first_year %>%
+              filter(!is.na(relation_of_vict_to_offender1)) %>%
+              select(-number_of_victims) %>%
+              mutate(relation_of_vict_to_offender1 = capitalize_words(relation_of_vict_to_offender1)) %>%
+              rename(`Crime Category` = relation_of_vict_to_offender1)) %>%
+  rename(`First Year` = year) %>%
+  select(`Crime Category`,
+         `First Year`,
+         everything()) %>%
+  left_join(officer_victim_relationship)
+temp[is.na(temp)] <- 0
+temp
 kableExtra::kbl(temp, 
                 # format = "html",
                 digits = 2, 
@@ -272,51 +329,90 @@ kableExtra::kbl(temp,
 
 We also know the relationship between victim and offender when the victim is a law enforcement officer. As shown in Table \@ref(tab:victimRelationshipPolice), most of the time the officer did not know the offender, with 58.9% of victimizations being this relationship type. This is followed by 18.7% where the officer knew the offender, including if they were familiar with the person by arresting or stopping them previously. In about 18.5% we do not know the relationship as it is unknown and in 3.2% the officer and the offender were acquaintances. There are also a number of unlikely (and some impossible) relationships like the three in which the officer was the offender's child and the one in which the officer was a baby who was abused by their babysitter. These seem to be clear indications that there are some data errors with this variable. 
 
-```{r }
-temp <- 
-  victim %>%
-  filter(type_of_victim %in% "law enforcement officer") %>%
-  make_frequency_table("relation_of_vict_to_offender1",
-                       c("Crime Category",
-                         "\\# of Victims",
-                         "\\% of Victims"))
-kableExtra::kbl(temp, 
-                # format = "html",
+
+```{r}
+offenses_with_relationships <-
+  sort(unique(victim$ucr_offense_code_1[!is.na(victim$relation_of_vict_to_offender1)]))
+
+
+
+final <- data.frame()
+victim$type_of_injury_1[is.na(victim$type_of_injury_1)] <- "Unknown"
+for (crime in offenses_with_relationships) {
+  temp <- make_frequency_table(victim %>% filter(ucr_offense_code_1 %in% crime,
+                                                 type_of_victim %in% c("individual",
+                                                                       "law enforcement officer")),
+                               "relation_of_vict_to_offender1",
+                               c("Relationship to Offender",
+                                 "\\# of Offenses",
+                                 "\\% of Offenses")) %>%
+    mutate(Crime = capitalize_words(crime)) %>%
+    select(`Crime`,
+           `Relationship to Offender`,
+           "\\# of Offenses",
+           "\\% of Offenses")
+  
+  temp_final <- temp[nrow(temp), ]
+  temp <- temp[-nrow(temp), ]
+  temp_other <- temp
+  names(temp_other)[3:4] <- c("count", "percent")
+  temp_other_count <- sum(parse_number(temp_other$count[6:nrow(temp_other)]))
+  temp_other_percent <- sum(parse_number(temp_other$percent[6:nrow(temp_other)]))
+  temp_other <- data.frame(Crime = crime,
+                           relationship = "All Other",
+                           count = temp_other_count,
+                           percent = temp_other_percent) %>%
+    mutate(count = prettyNum(count, big.mark = ","),
+           percent = paste0(percent, "\\%")) %>%
+    rename(`Relationship to Offender` = relationship,
+           `\\# of Offenses` = count,
+           `\\% of Offenses` = percent)
+  temp_other$Crime <- capitalize_words(temp_other$Crime)
+  temp <- temp[1:5, ]
+  temp <- temp %>%
+    bind_rows(temp_other,
+              temp_final)
+  
+  final <-
+    final %>%
+    bind_rows(temp)
+}
+
+
+
+kableExtra::kbl(final, 
+                #  format = "html",
                 digits = 2, 
-                align = c("l", "r", "r"),
+                align = c("l", "l", "r", "r"),
                 #booktabs = TRUE, 
                 longtable = TRUE,
-                label = "victimRelationshipPolice",
                 escape = TRUE,
-                caption = "The distribution of the relationship between the victim and the offender for law enforcement officer victims, 2022.") %>%
+                label = "offenseVictimRelationship",
+                caption = "The number and percent of victim relationships to offender by offense, 2022. This breakdown is only available for a subset of offenses. There can be up to 10 victim-offender relationships per victim; in this table we only use the first relationship reported. The top five most common relationships are shown, all other relationships are combined into an 'All Other' category. ") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
-
-```{r nibrsVictimAssaultSpouse, fig.cap="The annual percent of assault victims whose perpetrator is their spouse, 1991-2022."}
-nibrs_victim_summary  %>%
-  ggplot(aes(x = year, y = percent_assault_spouse)) +
-  geom_line(size = 1.05) + 
-  xlab("Year") +
-  ylab("% of Victims") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
-  labs(color = "") +
-  expand_limits(y = 0) 
-```
 
 ## Aggravated assault and homicide circumstances
 
 In cases of aggravated assault or homicide we have some information about the motive of the offender. There can be up to two motives, what NIBRS calls circumstances, for each of these offenses. Table \@ref(tab:victimAggAssault) shows all of the possible circumstances in the data, and shows the frequency only of the first circumstance. The most common circumstance is that there was an argument, and this accounts for 42.7% of these victims. The next most common is 24% which had unknown circumstances followed by 18.7% with "other" circumstances. The next most common group is "lovers' quarrel" which the FBI relabeled as "domestic violence" beginning in 2019. This group accounts for 9.4% of victims. Assault on law enforcement officers is the next most common group at 2.8% of victims. All other groups are less common than 2% of victims. 
 
 ```{r }
-victim$agg_assault_homicide_circumsta_1[victim$agg_assault_homicide_circumsta1 %in% "lovers quarrel"] <- "lovers quarrel/domestic violence"
+victim$agg_assault_homicide_circumsta_1[victim$agg_assault_homicide_circumsta1 %in% "lovers quarrel"] <- "domestic violence (historically called lovers triangle/quarrel)"
 temp <- make_frequency_table(victim[!is.na(victim$agg_assault_homicide_circumsta1), ],
                              "agg_assault_homicide_circumsta1",
                              c("agg_assault_homicide_circumsta1",
                                "\\# of Victims",
-                               "\\% of Victims")) 
-temp$agg_assault_homicide_circumsta1 <- gsub(" \\(.*", "", temp$agg_assault_homicide_circumsta1)
+                               "\\% of Victims")) %>%
+  left_join(victim_agg_assault_circumstance_first_year %>%
+              select(-number_of_victims) %>%
+              mutate(agg_assault_homicide_circumsta1 = capitalize_words(agg_assault_homicide_circumsta1))) %>%
+  rename(`First Year` = year) %>%
+  select(agg_assault_homicide_circumsta1,
+         `First Year`,
+         everything())
+
+
 temp$crime_category <- "Aggravated Assault/Murder"
 temp$crime_category[temp$agg_assault_homicide_circumsta1 %in%
                       c("Child Playing With Weapon",
@@ -329,20 +425,27 @@ temp$crime_category[temp$agg_assault_homicide_circumsta1 %in%
                         "Criminal Killed By Police Officer")] <- "Justifiable Homicide"
 temp <-
   temp %>%
-  select(1, 4, 2:3)
-names(temp)[1] <- "Circumstance"
-names(temp)[2] <- "Crime Category"
+  select(agg_assault_homicide_circumsta1,
+         crime_category,
+         `First Year`,
+         everything()) %>%
+  rename(Circumstance = agg_assault_homicide_circumsta1,
+         `Crime Category` = crime_category)
+temp$`First Year`[is.na(temp$`First Year`)] <- "-"
+temp$Circumstance <- gsub("\\(S\\)", "(s)", temp$Circumstance)
 
 kableExtra::kbl(temp, 
                 #   format = "html",
                 digits = 2, 
-                align = c("l", "r", "r"),
+                align = c("l", "l", "r", "r"),
                 #booktabs = TRUE, 
                 longtable = TRUE,
                 escape = TRUE,
                 label = "victimAggAssault",
                 caption = "The distribution of circumstances for aggravated assault and homicides, 2022.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+
+
 ```
 
 ## Justifiable homicide circumstance
@@ -390,14 +493,29 @@ temp %>%
   ggplot2::scale_y_continuous(labels = scales::percent)
 ```
 
-
-
 ```{r nibrsVictimResidentStatus, fig.cap="The share of victims by resident status in the reporting agency's jurisdiction, 1991-2022."}
 nibrs_victim_summary  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_resident_status_resident, color = "Resident"), size = 1.05) +
   geom_line(aes(y = percent_resident_status_nonresident , color = "Nonresident"), size = 1.05) +
   geom_line(aes(y = percent_resident_status_unknown, color = "Unknown resident"), size = 1.05) +
+  xlab("Year") +
+  ylab("% of Victims") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Resident" = "#1b9e77",
+                                "Nonresident" = "#d95f02",
+                                "Unknown resident" = "#7570b3"))
+```
+
+```{r nibrsVictimResidentStatusOfficer, fig.cap="The share of victims by resident status in the reporting agency's jurisdiction for law enforcement officer victims, 1991-2022."}
+nibrs_victim_summary  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = percent_resident_status_resident_officer, color = "Resident"), size = 1.05) +
+  geom_line(aes(y = percent_resident_status_nonresident_officer , color = "Nonresident"), size = 1.05) +
+  geom_line(aes(y = percent_resident_status_unknown_officer, color = "Unknown resident"), size = 1.05) +
   xlab("Year") +
   ylab("% of Victims") +
   theme_crim() +

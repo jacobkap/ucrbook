@@ -51,7 +51,7 @@ We can also look at the days of the month to see if there is any variation there
 
 The most common day of the month is the 1st which accounts for 3.95% of all incidents. In this data the agencies must report a date, even if they do not know the exact date; there is no option to put "unknown date". When agencies are unsure of the exact date of a crime, they appear to default to entering the 1st of the month as a placeholder. This practice introduces a potential source of error, and researchers should be cautious when analyzing trends that rely on specific dates, as the 1st of the month may disproportionately represent incidents with unknown dates.
 
-```{r administrativeMonthDayIncident, fig.cap = "The percent of incidents that occur (the day of the incident, even if the incidents was not reported that day) each day of the month for all agencies reporting to NIBRS in 2022.", fig.height = 12}
+```{r administrativeMonthDayIncident, fig.cap = "The percent of incidents that occur (the day of the incident, even if the incidents was not reported that day) each day of the month for all agencies reporting to NIBRS in 2022."}
 
 administrative$mday <- lubridate::mday(administrative$incident_date)
 administrative$mday <- factor(administrative$mday, 
@@ -72,7 +72,7 @@ ggplot2::ggplot(aes(x = mday)) +
 
 The above graph showed the days of the month where the incident was said to occur. There is also a variable that says if the date included was the incident date or the date the crime was reported to the police. Figure \@ref(fig:administrativeMonthDayReport) replicates Figure \@ref(fig:administrativeMonthDayIncident) but now shows only report dates rather than incident date. Here too we see the same pattern of the 1st of the month having a disproportionate share of data, again suggesting that it is a placeholder for "unknown" dates.
 
-```{r administrativeMonthDayReport, fig.cap = "The percent of incidents that are reported (the day of the report, even if not the day of the incident) each day of the month for all agencies reporting to NIBRS in 2022.", fig.height = 12}
+```{r administrativeMonthDayReport, fig.cap = "The percent of incidents that are reported (the day of the report, even if not the day of the incident) each day of the month for all agencies reporting to NIBRS in 2022."}
 
 administrative$mday <- mday(administrative$incident_date)
 administrative$mday <- factor(administrative$mday, 

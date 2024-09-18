@@ -141,7 +141,7 @@ final <-
 kableExtra::kbl(final, 
                 #  format = "html",
                 digits = 2, 
-                align = c("l", "r", "r"),
+                align = c("l", "l", "r", "r"),
                 #booktabs = TRUE, 
                 longtable = TRUE,
                 escape = TRUE,

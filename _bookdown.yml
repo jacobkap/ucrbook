@@ -14,21 +14,21 @@ rmd_files: [
   # SRS
   "02_ucr_general.Rmd",
   "03_offenses_known.Rmd",
- # "04_stolen_property.Rmd",
-#  "05_arrests.Rmd",
-##  "06_shr.Rmd",
-#  "07_leoka.Rmd",
-#  "08_arson.Rmd",
-##  "09_hate_crime.Rmd",
-#  "10_ucr_county.Rmd",
+  "04_stolen_property.Rmd",
+  "05_arrests.Rmd",
+  "06_shr.Rmd",
+  "07_leoka.Rmd",
+  "08_arson.Rmd",
+  "09_hate_crime.Rmd",
+  "10_ucr_county.Rmd",
   # NIBRS
-#  "11_nibrs_general.Rmd",
-#  "12_nibrs_administrative.Rmd",
-#  "13_nibrs_offense.Rmd",
-##  "14_nibrs_offender.Rmd",
-#  "15_nibrs_victim.Rmd",
-#  "16_nibrs_arrestee.Rmd",
-#  "17_nibrs_property.Rmd",
+  "11_nibrs_general.Rmd",
+  "12_nibrs_administrative.Rmd",
+  "13_nibrs_offense.Rmd",
+  "14_nibrs_offender.Rmd",
+  "15_nibrs_victim.Rmd",
+  "16_nibrs_arrestee.Rmd",
+  "17_nibrs_property.Rmd",
   # References
-#  "18_references.Rmd"
+  "18_references.Rmd"
 ]
