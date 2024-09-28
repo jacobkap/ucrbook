@@ -48,11 +48,11 @@ temp <- ucr_property_stolen_recovered_yearly %>%
 
 
 ggplot(temp, aes(x = year, y = offenses_burg_resident_day)) +
-  geom_line(size = 1.05) +
+  geom_line(linewidth = 1.05) +
   xlab("Year") +
   ylab("# of daytime home burglaries") +
   theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   expand_limits(y = 0)
 
 ```
@@ -64,7 +64,7 @@ The trend here is different than the previous graph which showed movement in the
 ```{r PhillyBurglaryCost, fig.cap ="The total annual cost of daytime home burglaries in Philadelphia."}
 temp$value_burg_resident_day[temp$number_of_months_reported < 12] <- NA
 ggplot(temp, aes(x = year, y = value_burg_resident_day)) +
-  geom_path(size = 1.05) +
+  geom_path(linewidth = 1.05) +
   geom_point() +
   xlab("Year") +
   ylab("Value of property stolen") +
@@ -78,35 +78,40 @@ The final way we can measure daytime home burglaries is to put the previous vari
 A perhaps obvious issue here is that we have no way to determining how much outliers are affecting results. If one year has, for example, a home burglary where \$10 million worth of jewelry is stolen then that year's total value of property stolen would be much higher just due to a single burglary. There is, unfortunately, no way to handle this in this dataset, though NIBRS has similar data which does allow you to check for outliers.^[Having an outlier, as long as it is not just a data entry error, should not necessarily mean you remove it. If we removed rare events after all we would have to drop murders from our data as murders are very uncommon crimes.] 
 
 ```{r phillyHomeCostPerBurglary, fig.cap = "The annual cost per burglary for daytime home burglaries in Philadelphia, 1960-2022."}
-temp$cost_per_burglary[temp$number_of_months_reported < 12] <- NA
-ggplot(temp, aes(x = year, y = cost_per_burglary )) +
-  geom_path(size = 1.05) +
+
+suppressMessages(capture.output(temp <-
+                                  temp %>%
+                                  mutate(inflation_cost_per_burglary = adjust_for_inflation(cost_per_burglary, from_date = year, "US", to_date = 2023),
+                                         inflation_value_burg_resident_day =  adjust_for_inflation(value_burg_resident_day, from_date = year, "US", to_date = 2023)), file = nullfile()))
+
+ggplot(temp, aes(x = year, y = inflation_cost_per_burglary)) +
+  geom_path(linewidth = 1.05) +
   geom_point() +
   xlab("Year") +
   ylab("Cost per burglary") +
   theme_crim() +
   scale_y_continuous(labels = scales::dollar) +
   expand_limits(y = 0)
+
+temp$cost_per_burglary[temp$number_of_months_reported < 12] <- NA
+temp$inflation_cost_per_burglary[temp$number_of_months_reported < 12] <- NA
+ggplot(temp, aes(x = year, y = cost_per_burglary)) +
+  geom_path(linewidth = 1.05, aes(color = "Unadjusted")) +
+  geom_point(size = 1.05, aes(color = "Unadjusted")) +
+  geom_path(linewidth = 1.05, aes(y = inflation_cost_per_burglary, color = "Inflation Adjusted")) +
+  geom_point(size = 1.05, aes(y = inflation_cost_per_burglary, color = "Inflation Adjusted")) +
+  xlab("Year") +
+  ylab("Cost per burglary") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::dollar) +
+  expand_limits(y = 0) +
+  labs(color = "") +
+  scale_color_manual(values = c("Unadjusted" = "#1b9e77",
+                                "Inflation Adjusted" = "#d95f02"))
+
 ```
 
 Part of this - and part of the long-term increase seen in Figure \@ref(fig:PhillyBurglaryCost) - is simply due to inflation. A dollar in 1964, the first year we have data on the value of burglaries, is worth \$9.84 in 2023, according to the Bureau of Labor Statistics.^[Based on June of both years] The values in this data are *not* adjusted for inflation so you need to do that adjustment yourself before any analyses, otherwise your results will be quite a bit off. When we adjust all values to 2023 dollars, as shown in Figure \@ref(fig:phillyHomeCostPerBurglaryInflation), the trend becomes changes a bit. There's still a steady increase in cost per burglary over time but it is far more gradual than in Figure \@ref(fig:phillyHomeCostPerBurglary). And now the difference from the cost in early years and late years are far smaller. 
-
-```{r phillyHomeCostPerBurglaryInflation, fig.cap = "The inflation-adjusted annual number of burglaries and cost per burglary for daytime home burglaries in Philadelphia (2023 dollars), 1960-2022.", message=FALSE}
-suppressMessages(capture.output(temp <-
-                                    temp %>%
-                                    mutate(inflation_cost_per_burglary = adjust_for_inflation(cost_per_burglary, from_date = year, "US", to_date = 2023),
-                                           inflation_value_burg_resident_day =  adjust_for_inflation(value_burg_resident_day, from_date = year, "US", to_date = 2023)), file = nullfile()))
-
-ggplot(temp, aes(x = year, y = inflation_cost_per_burglary)) +
-  geom_path(size = 1.05) +
-  geom_point() +
-  xlab("Year") +
-  ylab("Cost per burglary") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::dollar) +
-  expand_limits(y = 0)
-
-```
 
 ## Agencies reporting
 
@@ -123,12 +128,12 @@ ucr_property_stolen_recovered_yearly %>%
   count(year) %>%
   ungroup() %>%
   ggplot(aes(x = year, y = n)) +
-  geom_line(size = 1.05, aes(color = "12 Months")) +
-  geom_line(data = property_any_month_reporting, size = 1.05, aes(y = n, color = "At Least 1 Month")) +
+  geom_line(linewidth = 1.05, aes(color = "12 Months")) +
+  geom_line(data = property_any_month_reporting, linewidth = 1.05, aes(y = n, color = "At Least 1 Month")) +
   xlab("Year") +
   ylab("# of Agencies Reporting") +
   theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0) +
   scale_color_manual(values = c("12 Months" = "#1b9e77",
@@ -137,7 +142,7 @@ ucr_property_stolen_recovered_yearly %>%
 
 Since this data is called the "Supplement to Return A" we would expect that the agencies that report here are the same as the ones that report to the Offenses Known and Clearances by Arrest data, which is also called the Return A dataset. Figure \@ref(fig:agenciesInBoth) shows the percent of agencies in this dataset that are report at least one month of Return A data. Except for the first several years of data in the 1960s, we can see that most years have nearly all agencies reporting to both, though this has declined slightly in recent years. Since the late 1970s, over 90% of agencies that report to the Offenses Known data also report to this dataset. 
 
-```{r agenciesInBoth, fig.cap = "The percent of agencies in the Supplement to Return A data that report at least one month of data and are also in the Offenses Known and Clearances by Arrest (Return A) data in that year, 1960-2022."}
+```{r agenciesInBoth, fig.cap = "The percent of agencies in the Supplement to Return A data that report at least one month of data, and all 12 months of data, and are also in the Offenses Known and Clearances by Arrest (Return A) data in that year, 1960-2022."}
 agencies_in_offenses <- data.frame(year = 1960:2022,
                                    percent = NA)
 for (i in 1:nrow(agencies_in_offenses)) {
@@ -157,23 +162,12 @@ for (i in 1:nrow(agencies_in_offenses)) {
   
 }
 
-ggplot(agencies_in_offenses, aes(x = year, y = percent)) +
-  geom_line(size = 1.05) +
-  xlab("Year") +
-  ylab("% of Agencies ") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::percent, expand = c(0, 0))
-```
-
-When filtering the data to agencies that report a full 12 months of both the Return A and the Supplement to Return A, shown in Figure \@ref(fig:agenciesInBoth12Month), trends are quite similar to Figure \@ref(fig:agenciesInBoth) though now the average percent is around 75% rather than 90%. This translates to around 11k agencies though it drops starting in 2018 until fewer than 8,500 agencies report full data to both datasets in 2022. 
-
-```{r agenciesInBoth12Month, fig.cap = "The percent of agencies that report 12 months of data to both the the Supplement to Return A data and the Offenses Known and Clearances by Arrest (Return A) data in that year, 1960-2022."}
-agencies_in_offenses <- data.frame(year = 1960:2022,
+agencies_in_offenses_12 <- data.frame(year = 1960:2022,
                                    offenses_agencies = NA,
                                    property_agencies = NA,
                                    percent = NA)
-for (i in 1:nrow(agencies_in_offenses)) {
-  year_temp <- agencies_in_offenses$year[i]
+for (i in 1:nrow(agencies_in_offenses_12)) {
+  year_temp <- agencies_in_offenses_12$year[i]
   offenses_agencies <- offenses_known_yearly %>%
     dplyr::filter(year %in% year_temp,
                   number_of_months_missing %in% 0)
@@ -184,20 +178,28 @@ for (i in 1:nrow(agencies_in_offenses)) {
   table(property_agencies$ori %in% offenses_agencies$ori)
   property_agencies <- property_agencies[property_agencies$ori %in% offenses_agencies$ori, ]
   
-  agencies_in_offenses$offenses_agencies[i] <- nrow(offenses_agencies) 
-  agencies_in_offenses$property_agencies[i] <- nrow(property_agencies) 
-  agencies_in_offenses$percent[i] <- nrow(property_agencies) / 
+  agencies_in_offenses_12$offenses_agencies[i] <- nrow(offenses_agencies) 
+  agencies_in_offenses_12$property_agencies[i] <- nrow(property_agencies) 
+  agencies_in_offenses_12$percent[i] <- nrow(property_agencies) / 
     nrow(offenses_agencies) 
   
 }
 
 ggplot(agencies_in_offenses, aes(x = year, y = percent)) +
-  geom_line(size = 1.05) +
+  geom_line(linewidth = 1.05, aes(color = "At Least One Month")) +
+  geom_line(data = agencies_in_offenses_12, linewidth = 1.05, aes(color = "12 Months")) +
   xlab("Year") +
   ylab("% of Agencies ") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent, expand = c(0, 0))
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0)) +
+  labs(color = "Months Reported") +
+  scale_color_manual(values = c("12 Months" = "#1b9e77",
+                                "At Least One Month" = "#d95f02"))
+
 ```
+
+When filtering the data to agencies that report a full 12 months of both the Return A and the Supplement to Return A, shown in Figure \@ref(fig:agenciesInBoth12Month), trends are quite similar to Figure \@ref(fig:agenciesInBoth) though now the average percent is around 75% rather than 90%. This translates to around 11k agencies though it drops starting in 2018 until fewer than 8,500 agencies report full data to both datasets in 2022. 
+
 
 ## Important variables
 
@@ -269,16 +271,16 @@ ucr_property_stolen_recovered_yearly %>%
   ggplot(aes(x = year,
              y = offenses_theft_under_50,
              color = "<$50")) +
-  geom_line(size = 1.05) +
-  geom_line(aes(y = offenses_theft_50_to_200, color = "$50-$200"), size = 1.05) +
-  geom_line(aes(y = offenses_theft_over_200, color = ">$200"), size = 1.05) +
+  geom_line(linewidth = 1.05) +
+  geom_line(aes(y = offenses_theft_50_to_200, color = "$50-$200"), linewidth = 1.05) +
+  geom_line(aes(y = offenses_theft_over_200, color = ">$200"), linewidth = 1.05) +
   xlab("Year") +
   ylab("% of Thefts") +
   labs(color = "Theft Value Category") +
   theme_crim() +
   theme(legend.position = "bottom") +
   scale_color_manual(values = c("<$50" = "#1b9e77", "$50-$200" = "#d95f02", ">$200" ="#7570b3")) +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
   expand_limits(y = 0)
 
 ```
@@ -303,16 +305,16 @@ ucr_property_stolen_recovered_yearly %>%
   ggplot(aes(x = year,
              y = offenses_theft_under_50,
              color = "<$50")) +
-  geom_line(aes(y = offenses_theft_50_to_200, color = "$50-$200"), size = 1.05) +
-  geom_line(aes(y = offenses_theft_over_200, color = ">$200"), size = 1.05) +
-  geom_line(size = 1.05) +
+  geom_line(aes(y = offenses_theft_50_to_200, color = "$50-$200"), linewidth = 1.05) +
+  geom_line(aes(y = offenses_theft_over_200, color = ">$200"), linewidth = 1.05) +
+  geom_line(linewidth = 1.05) +
   xlab("Year") +
   ylab("# of Thefts <$50") +
   theme_crim() +
   labs(color = "Theft Value Category") +
   theme(legend.position = "bottom") +
   scale_color_manual(values = c("<$50" = "#1b9e77", "$50-$200" = "#d95f02", ">$200" ="#7570b3")) +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   expand_limits(y = 0)
 ```
 
@@ -425,7 +427,7 @@ First, we will look at the value of livestock thefts in New York City. Livestock
 ucr_property_stolen_recovered_yearly %>%
   dplyr::filter(ori %in% "NY03030") %>%
   ggplot(aes(x = year, y = value_stolen_livestock )) +
-  geom_line(size = 1.05) +
+  geom_line(linewidth = 1.05) +
   xlab("Year") +
   ylab("Value of property stolen") +
   theme_crim() +
@@ -446,7 +448,7 @@ ucr_property_stolen_recovered_yearly %>%
   dplyr::filter(ori %in% "PAPEP00") %>%
   filter(year < 2019) %>%
 ggplot(aes(x = year, y = value_stolen_clothing_or_fur)) +
-  geom_line(size = 1.05) +
+  geom_line(linewidth = 1.05) +
   xlab("Year") +
   ylab("Value of property stolen") +
   theme_crim() +
@@ -456,17 +458,6 @@ ggplot(aes(x = year, y = value_stolen_clothing_or_fur)) +
 
 Finally, some errors are so extreme that it is surprising they were not captured during any of the review points from the police officer entering data in their agency's computer to the FBI releasing this data to the public. For example, Figure \@ref(fig:romeBicycles) shows Rome, New York, a city of about 32,000 people in central New York State. Here's what the reported value of bicycles stolen was for Rome in our data.^[For this example we would not worry about years where <12 months of data were reported.]
 
-```{r romeBicycles, fig.cap = "The annual value of stolen bicycles in Rome, New York, 1960-2022."}
-ucr_property_stolen_recovered_yearly %>%
-  dplyr::filter(ori %in% "NY03201") %>%
-  ggplot(aes(x = year, y = value_theft_bicycle)) +
-  geom_line(size = 1.05) +
-  xlab("Year") +
-  ylab("Value of property stolen") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::dollar) +
-  expand_limits(y = 0)
-```
 
 2020 had a bit of a spike in their stolen bicycle value, from less than \$10,000 is the previous few years to over \$5 billion. Yes, that is billion with a "b." 2021 followed by slightly under \$3 billion worth of bicycles stolen. In both years 19 bicycles were reported stolen. 
 
@@ -474,16 +465,28 @@ Bicycles were not the only thing stolen in Rome. Consumable goods such as food a
 
 Now, obviously this is not real. This is just an error with the police entering in the wrong price. But the issue is that through all the layers of checks that occurred - checks by the local police, by the state UCR system (though some agencies submit directly to the FBI) and the FBI themselves - failed to prevent this incorrect data from being published. This is an obvious, glaring error. If this slipped through the cracks, what less glaring issue did too? So you cannot just trust that this data is right. You need to check and recheck^[and check again.] everything before using it. This is the right approach for all data, and especially for this data. 
 
-```{r romeConsumable, fig.cap = "The annual value of stolen consumable goods in Rome, New York, 1960-2022."}
+```{r romeConsumable, fig.cap = "The annual value of stolen consumable goods, bicycles, livestock, and thefts from pickpocketing, in Rome, New York, 1960-2022."}
 ucr_property_stolen_recovered_yearly %>%
   dplyr::filter(ori %in% "NY03201") %>%
   ggplot(aes(x = year, y = value_stolen_consumable_good)) +
-  geom_line(size = 1.05) +
+  geom_line(linewidth = 1.05, aes(color = "Consumable Goods")) +
+  geom_line(linewidth = 1.05, aes(y = value_theft_bicycle, color = "Bicycle")) +
+  geom_line(linewidth = 1.05, aes(y = value_stolen_livestock, color = "Livestock")) +
+  geom_line(linewidth = 1.05, aes(y = value_theft_pick_pocket, color = "Pickpocket")) +
+  geom_point(size = 1.05, aes(color = "Consumable Goods")) +
+  geom_point(size = 1.05, aes(y = value_theft_bicycle, color = "Bicycle")) +
+  geom_point(size = 1.05, aes(y = value_stolen_livestock, color = "Livestock")) +
+  geom_point(size = 1.05, aes(y = value_theft_pick_pocket, color = "Pickpocket")) +
   xlab("Year") +
   ylab("Value of property stolen") +
   theme_crim() +
   scale_y_continuous(labels = scales::dollar) +
-  expand_limits(y = 0)
+  expand_limits(y = 0) +
+  labs(color = "Property Type") +
+  scale_color_manual(values = c("Consumable Goods" = "#1b9e77",
+                                "Bicycle" = "#d95f02",
+                                "Livestock" = "#7570b3",
+                                "Pickpocket" = "black"))
 ```
 
 The Property Stolen and Recovered dataset offers a useful, though imperfect, view of property crimes and their financial impact. While limitations such as reporting gaps and data inconsistencies exist, careful analysis can still reveal important trends in the types and values of stolen and recovered property. Researchers should approach this data with caution, especially when making year-to-year comparisons or analyzing categories with significant outliers.

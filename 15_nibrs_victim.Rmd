@@ -65,6 +65,10 @@ officer_victim_offense_first_year <-
   mutate(`Crime Category` = capitalize_words(`Crime Category`)) %>%
   select(-year)
 officer_victim_offense_first_year[is.na(officer_victim_offense_first_year)] <- 0
+officer_victim_offense_first_year$`% of Officer Victims` <-
+  paste0(round(officer_victim_offense_first_year$`# of Officer Victims` /
+                 sum(officer_victim_offense_first_year$`# of Officer Victims`) * 100, 2),
+         "\\%")
 officer_victim_offense_first_year$`# of Officer Victims` <-
   prettyNum(officer_victim_offense_first_year$`# of Officer Victims`,
             big.mark = ",")
@@ -73,12 +77,13 @@ temp <-
   temp %>%
   left_join(officer_victim_offense_first_year)
 temp$`# of Officer Victims`[is.na(temp$`# of Officer Victims`)] <- "-"
+temp$`% of Officer Victims`[is.na(temp$`% of Officer Victims`)] <- "-"
 
 
 kableExtra::kbl(temp, 
                 #format = "html",
                 digits = 2, 
-                align = c("l", "r", "r"),
+                align = c("l", "l", "r", "r", "r"),
                 #booktabs = TRUE, 
                 label = "victimCrimeCategory",
                 longtable = TRUE,
@@ -96,23 +101,28 @@ nibrs_victim_summary$motor_vehicle_theft_percent <-
   nibrs_victim_summary$number_motor_vehicle_theft_first_offense / nibrs_victim_summary$number_motor_vehicle_theft_all_offenses
 nibrs_victim_summary$vandalism_percent <-
   nibrs_victim_summary$number_vandalism_first_offense / nibrs_victim_summary$number_vandalism_all_offenses
+nibrs_victim_summary$theft_percent <-
+  nibrs_victim_summary$number_theft_first_offense / nibrs_victim_summary$number_theft_all_offenses
 
 nibrs_victim_summary  %>%
   ggplot(aes(x = year)) +
-  geom_line(aes(y = murder_percent, color = "Murder"), size = 1.05) +
-  geom_line(aes(y = sex_offenses_percent , color = "Sex Offenses"), size = 1.05) +
-  geom_line(aes(y = vandalism_percent , color = "Vandalism"), size = 1.05) +
-  geom_line(aes(y = motor_vehicle_theft_percent , color = "Motor Vehicle Theft"), size = 1.05) +
+  geom_line(aes(y = murder_percent, color = "Murder"), linewidth = 1.05) +
+  geom_line(aes(y = sex_offenses_percent , color = "Sex\n Offenses"), linewidth = 1.05) +
+  geom_line(aes(y = vandalism_percent , color = "Vandalism"), linewidth = 1.05) +
+  geom_line(aes(y = motor_vehicle_theft_percent , color = "Motor\n Vehicle\n Theft"), linewidth = 1.05) +
+  geom_line(aes(y = motor_vehicle_theft_percent , color = "Theft"), linewidth = 1.05) +
   xlab("Year") +
   ylab("% of Victims for Offense") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0) +
   scale_color_manual(values = c("Murder" = "#1b9e77",
-                                "Sex Offenses" = "#d95f02",
+                                "Sex\n Offenses" = "#d95f02",
                                 "Vandalism" = "#7570b3",
-                                "Motor Vehicle Theft" = "black"))
+                                "Theft" = "#1f78b4",
+                                "Motor\n Vehicle\n Theft" = "black")) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 
 ```
 
@@ -144,7 +154,7 @@ temp$`First Year`[is.na(temp$`First Year`)] <- "-"
 kableExtra::kbl(temp, 
                 # format = "html",
                 digits = 2, 
-                align = c("l", "r", "r"),
+                align = c("l", "l", "r", "r"),
                 #booktabs = TRUE, 
                 longtable = TRUE,
                 escape = TRUE,
@@ -156,25 +166,28 @@ kableExtra::kbl(temp,
 ```{r nibrsVictimPercentIndividualOfficer, fig.cap="Percent of victimizations whose victim type of 'law enforcement officer,' 'business,' or 'invidual,' 1991-2022."}
 nibrs_victim_summary  %>%
   ggplot(aes(x = year)) +
-  geom_line(aes(y = percent_victim_officer, color = "Law Enforcement Officer"), size = 1.05) +
-  geom_line(aes(y = percent_victim_individual , color = "Individual"), size = 1.05) +
-  geom_line(aes(y = percent_victim_business , color = "Business"), size = 1.05) +
+  geom_line(aes(y = percent_victim_officer, color = "Law\n Enforcement\n Officer"), linewidth = 1.05) +
+  geom_line(aes(y = percent_victim_individual , color = "Individual"), linewidth = 1.05) +
+  geom_line(aes(y = percent_victim_business , color = "Business"), linewidth = 1.05) +
+  geom_line(aes(y = percent_victim_society_public , color = "Society/Public"), linewidth = 1.05) +
   xlab("Year") +
   ylab("% of Victims") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0) +
-  scale_color_manual(values = c("Law Enforcement Officer" = "#1b9e77",
+  scale_color_manual(values = c("Law\n Enforcement\n Officer" = "#1b9e77",
                                 "Individual" = "#d95f02",
-                                "Business" = "#7570b3"))
+                                "Business" = "#7570b3",
+                                "Society/Public" = "black")) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```
 
 ## Injury
 
 An important variable that is completely missing in UCR data is how injured the victim was. NIBRS has eight different categories of victim injuries ranging from no injury to serious injuries such as "possible internal injury" or "apparent broken bones". NIBRS includes five variables for victim injuries so up to five of the seven injury types (if there is no injury, that will take up the first variable and no others will be recorded) per victim. These injuries should be thought of as suspected injuries based on observations by the officer or what the victim says. These do not need to be confirmed by a doctor. Therefore there is some imprecision on the exact victim injury. For example, "possible internal injury" means only the possibility, even if the victim does not turn out to have internal injuries.
 
-However, it is still a useful measure of victim injury and is highly necessary given that UCR data does not provide any indication about injury. As academics continue to argue about which crimes are serious, this variable can provide information as to exactly how injured victims are from the crime. Not all crimes have this information. The FBI only includes this info for what they consider violent crimes which are listed below (since victims may have up to 10 offenses recorded, only one offense has to be among the below list for injury to be recorded). 
+However, it is still a useful measure of victim injury and is highly necessary given that UCR data does not provide any indication about injury. As academics continue to argue about which crimes are serious, this variable can provide information as to exactly how injured victims are from the crime. Not all crimes have this information. The FBI only includes this information for what they consider violent crimes which are listed below (since victims may have up to 10 offenses recorded, only one offense has to be among the below list for injury to be recorded). 
 
 * Aggravated assault
 * Extortion/blackmail
@@ -197,7 +210,7 @@ victim %>%
   filter(!is.na(type_of_injury_1)) %>%
   mutate(type_of_injury_1 = capitalize_words(type_of_injury_1)) %>%
   crimeutils::make_barplots("type_of_injury_1", count = FALSE, ylab = "% of victims") +
-  ggplot2::scale_y_continuous(labels = scales::percent)
+  ggplot2::scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA))
 ```
 
 For the group who suffered one of the six more serious injury types, 32.1% suffered an "other major injury" which is a serious injury other than one of the other categories. This is followed by 25.8% having a serious laceration (a laceration is a cut), 21.6% having a possible internal injury, and 12.5% having an apparent broken bone. About 6.5% of these victims became unconscious at some point in the incident, and 1.5% lost at least one tooth. 
@@ -207,18 +220,18 @@ Trends for law enforcement officer victims (not shown) are nearly identical for 
 ```{r}
 
 offenses_with_injury <- sort(c("assault offenses - aggravated assault",
-                          "assault offenses - simple assault",
-                          "extortion/blackmail",
-                          "human trafficking - commercial sex acts",
-                          "human trafficking - involuntary servitude",
-                          "kidnapping/abduction",
-                          "robbery",
-                          "sex offenses - fondling (incident liberties/child molest)",
-                          "sex offenses - rape",
-                          "sex offenses - sexual assault with an object",
-                          "sex offenses - sodomy",
-                          "sex offenses - statutory rape",
-                          "murder/nonnegligent manslaughter"))
+                               "assault offenses - simple assault",
+                               "extortion/blackmail",
+                               "human trafficking - commercial sex acts",
+                               "human trafficking - involuntary servitude",
+                               "kidnapping/abduction",
+                               "robbery",
+                               "sex offenses - fondling (incident liberties/child molest)",
+                               "sex offenses - rape",
+                               "sex offenses - sexual assault with an object",
+                               "sex offenses - sodomy",
+                               "sex offenses - statutory rape",
+                               "murder/nonnegligent manslaughter"))
 
 
 final <- data.frame()
@@ -254,30 +267,23 @@ kableExtra::kbl(final,
 ```
 
 
-```{r victimInjuryExcludeNone, fig.cap = "The distribution of the injury sustained by the victim for those who had an injury other than 'none' or 'apparent minor injuries,' 2022."}
-victim %>%
-  filter(!is.na(type_of_injury_1)) %>%
-  filter(!type_of_injury_1 %in% c("none", "apparent minor injuries")) %>%
-  mutate(type_of_injury_1 = capitalize_words(type_of_injury_1)) %>%
-  crimeutils::make_barplots("type_of_injury_1", count = FALSE, ylab = "% of victims") +
-  ggplot2::scale_y_continuous(labels = scales::percent)
-```
 
 ```{r nibrsVictimAssaultInjury, fig.cap="Victim injury for assault offenses, by injury severity, 1991-2022. Major injury is all injury types other than 'none' and 'apparent minor injuries' which are 'other major injury,' 'severe laceration,' possible internal injury,' apparent broken bones,' 'unconsciousness,' and 'loss of teeth.'"}
 nibrs_victim_summary  %>%
   ggplot(aes(x = year)) +
-  geom_line(aes(y = percent_assault_no_injury, color = "No Injury"), size = 1.05) +
-  geom_line(aes(y = percent_assault_minor_injury , color = "Minor Injury"), size = 1.05) +
-  geom_line(aes(y = percent_assault_major_injury, color = "Major Injury"), size = 1.05) +
+  geom_line(aes(y = percent_assault_no_injury, color = "No Injury"), linewidth = 1.05) +
+  geom_line(aes(y = percent_assault_minor_injury , color = "Minor Injury"), linewidth = 1.05) +
+  geom_line(aes(y = percent_assault_major_injury, color = "Major Injury"), linewidth = 1.05) +
   xlab("Year") +
   ylab("% of Victims") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0) +
   scale_color_manual(values = c("No Injury" = "#1b9e77",
                                 "Minor Injury" = "#d95f02",
-                                "Major Injury" = "#7570b3"))
+                                "Major Injury" = "#7570b3")) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```
 
 ## Relationship to offender
@@ -286,7 +292,6 @@ One interesting variable in this segment is that we know the relationship betwee
 
 Table \@ref(tab:victimRelationship) shows each of the relationship categories and how frequently they occur. The most common relationship category, accounting for 19.8% of relationships was that the relationship was unknown. This is followed by 14.4% of victims being the boyfriend or girlfriend (we can find out which by looking at their sex) of the offender. Then victims were the acquaintance of or a stranger to the offender at 13% and 12.8%, respectively. The only other categories that account for over 5% of victims are the victim being "otherwise known" to the offender at 9.5% and being the spouse of the offender at 5.4%. One relationship to note is that when the victim "was child" that means they were the offender's biological or adopted child. This does not mean that they are actually a child (<18 years old). 
 
-If you are familiar with the FBI's [Supplementary Homicide Report](https://ucrbook.com/shr.html) data, this variable  - and the two following variables - is also in that dataset. 
 
 ```{r }
 officer_victim_relationship <- 
@@ -295,8 +300,7 @@ officer_victim_relationship <-
   make_frequency_table("relation_of_vict_to_offender1",
                        c("Crime Category",
                          "\\# of Officer Victims",
-                         "\\% of Victims")) %>%
-  select(-`\\% of Victims`)
+                         "percent of Officer Victims")) 
 
 temp <- make_frequency_table(victim,
                              "relation_of_vict_to_offender1",
@@ -314,11 +318,16 @@ temp <- make_frequency_table(victim,
          everything()) %>%
   left_join(officer_victim_relationship)
 temp[is.na(temp)] <- 0
-temp
+temp$`percent of Officer Victims`[temp$`percent of Officer Victims` %in% 0] <- "0.00\\%"
+temp$`First Year`[temp$`First Year` %in% 0] <- "-"
+temp <-
+  temp %>%
+  rename(`\\% of Officer Victims` = `percent of Officer Victims`)
+
 kableExtra::kbl(temp, 
                 # format = "html",
                 digits = 2, 
-                align = c("l", "r", "r"),
+                align = c("l", "l", "r", "r", "r"),
                 #booktabs = TRUE, 
                 longtable = TRUE,
                 label = "victimRelationship",
@@ -329,12 +338,9 @@ kableExtra::kbl(temp,
 
 We also know the relationship between victim and offender when the victim is a law enforcement officer. As shown in Table \@ref(tab:victimRelationshipPolice), most of the time the officer did not know the offender, with 58.9% of victimizations being this relationship type. This is followed by 18.7% where the officer knew the offender, including if they were familiar with the person by arresting or stopping them previously. In about 18.5% we do not know the relationship as it is unknown and in 3.2% the officer and the offender were acquaintances. There are also a number of unlikely (and some impossible) relationships like the three in which the officer was the offender's child and the one in which the officer was a baby who was abused by their babysitter. These seem to be clear indications that there are some data errors with this variable. 
 
-
 ```{r}
 offenses_with_relationships <-
   sort(unique(victim$ucr_offense_code_1[!is.na(victim$relation_of_vict_to_offender1)]))
-
-
 
 final <- data.frame()
 victim$type_of_injury_1[is.na(victim$type_of_injury_1)] <- "Unknown"
@@ -454,9 +460,9 @@ We know a little bit more in cases of justifiable homicides. Here, we know the c
 
 ```{r victimJustifiableHomicide, fig.cap = "The distribution of circumstances for justifiable homicides (N = 308 in 2022 for all agencies reporting)."}
 victim$justifiable_homicide <- victim$addit_just_homicide_circumsta
-justifiable_homicide_fix <- c("^criminal killed in commission of a crime$" = "during commission of crime",
-                              "^criminal attacked police officer and criminal killed by another police officer$" = "attacked officer, killed by other officer",
-                              "^criminal attacked police officer and that officer killed criminal$" = "attacked officer, killed by officer",
+justifiable_homicide_fix <- c("^criminal killed in commission of a crime$" = "during commission\n of crime",
+                              "^criminal attacked police officer and criminal killed by another police officer$" = "attacked officer,\n killed by other officer",
+                              "^criminal attacked police officer and that officer killed criminal$" = "attacked officer,\n killed by officer",
                               "^criminal attacked a civilian$" = "attacked civilian",
                               "^criminal attempted flight from a crime$" = "flight from crime",
                               "^unable to determine/not enough information$" = "unknown",
@@ -466,7 +472,7 @@ victim %>%
   filter(!is.na(justifiable_homicide)) %>%
   mutate(justifiable_homicide = capitalize_words(justifiable_homicide)) %>%
   crimeutils::make_barplots("justifiable_homicide", count = FALSE, ylab = "% Justifiable Homicides") +
-  ggplot2::scale_y_continuous(labels = scales::percent)
+  ggplot2::scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA))
 ```
 
 ## Demographics
@@ -475,56 +481,47 @@ As only people have demographics, these variables only apply when the victim is 
 
 ### Residence status
 
-This segment tells us if the victim is a resident of the jurisdiction they were victimized in. This basically means whether or not they live in the city where the crime happened. It has nothing to do with residence status or citizenship status in the United States. The FBI defines residence as their legal permanent address though it is unclear how that is handled for people without this info (though this is far less likely to be a problem here than for arrestees which also report this variable) and when people live permanently in a different spot than their legal address. This variable is useful when trying to figure out if victims are those who live in the area or live outside of it, such as tourists or workers who live nearby. Since crime rates are usually crimes per residents in the jurisdiction, this can be used to determine how reliable that denominator is. If many victims are residents then it makes much more sense than if few are.   
+This segment tells us if the victim is a resident of the jurisdiction they were victimized in. This basically means whether or not they live in the city where the crime happened. It has nothing to do with residence status or citizenship status in the United States. The FBI defines residence as their legal permanent address though it is unclear how that is handled for people without this information (though this is far less likely to be a problem here than for arrestees which also report this variable) and when people live permanently in a different spot than their legal address. This variable is useful when trying to figure out if victims are those who live in the area or live outside of it, such as tourists or workers who live nearby. Since crime rates are usually crimes per residents in the jurisdiction, this can be used to determine how reliable that denominator is. If many victims are residents then it makes much more sense than if few are.   
 
 Table \@ref(fig:victimResidenceStatus) shows the residence status for all individual or law enforcement officer victims. The vast majority, 67%, of victims are residents of the jurisdiction where they were victimized while 12.5% were not residents. 20.4% of victims have an unknown resident status.    
 
 One proposed measure to improve policing is to require police officers (or at least newly hired officers) live in the city where they work. The idea here is that people will do a better job if it affects the place they consider home.^[Since crime is generally concentrated in a small number of impoverished parts of town, and police likely would not live in these parts, this probably would not be very effective.] Luckily for us, NIBRS includes law enforcement officers in their measure of whether the victim lives in the jurisdiction where they were victimized. Since law enforcement officers are only recorded to be victims when on the job, this is one measure of where officers live.
 
-Figure \@ref(fig:victimResidenceStatusPolice) shows the residence status for law enforcement officer victims. Most law enforcement officer victims reside in their jurisdiction with being 53.2% residents and 13.3% being non-residents. However, there is a lot of uncertainty as 33.5% have an unknown residence status. 
-
-```{r victimResidenceStatusPolice, fig.cap = "The distribution of residence status for all Law Enforcement Officer victims, 2022."}
-temp <- victim
-temp$resident_status_of_victim[is.na(temp$resident_status_of_victim)] <- "Unknown"
-temp %>%
-  filter(type_of_victim %in% "law enforcement officer") %>%
-  mutate(resident_status_of_victim = capitalize_words(resident_status_of_victim)) %>%
-  crimeutils::make_barplots("resident_status_of_victim", count = FALSE, ylab = "% of victims") +
-  ggplot2::scale_y_continuous(labels = scales::percent)
-```
 
 ```{r nibrsVictimResidentStatus, fig.cap="The share of victims by resident status in the reporting agency's jurisdiction, 1991-2022."}
 nibrs_victim_summary  %>%
   ggplot(aes(x = year)) +
-  geom_line(aes(y = percent_resident_status_resident, color = "Resident"), size = 1.05) +
-  geom_line(aes(y = percent_resident_status_nonresident , color = "Nonresident"), size = 1.05) +
-  geom_line(aes(y = percent_resident_status_unknown, color = "Unknown resident"), size = 1.05) +
+  geom_line(aes(y = percent_resident_status_resident, color = "Resident"), linewidth = 1.05) +
+  geom_line(aes(y = percent_resident_status_nonresident , color = "Nonresident"), linewidth = 1.05) +
+  geom_line(aes(y = percent_resident_status_unknown, color = "Unknown resident"), linewidth = 1.05) +
   xlab("Year") +
   ylab("% of Victims") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0) +
   scale_color_manual(values = c("Resident" = "#1b9e77",
                                 "Nonresident" = "#d95f02",
-                                "Unknown resident" = "#7570b3"))
+                                "Unknown resident" = "#7570b3")) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```
 
 ```{r nibrsVictimResidentStatusOfficer, fig.cap="The share of victims by resident status in the reporting agency's jurisdiction for law enforcement officer victims, 1991-2022."}
 nibrs_victim_summary  %>%
   ggplot(aes(x = year)) +
-  geom_line(aes(y = percent_resident_status_resident_officer, color = "Resident"), size = 1.05) +
-  geom_line(aes(y = percent_resident_status_nonresident_officer , color = "Nonresident"), size = 1.05) +
-  geom_line(aes(y = percent_resident_status_unknown_officer, color = "Unknown resident"), size = 1.05) +
+  geom_line(aes(y = percent_resident_status_resident_officer, color = "Resident"), linewidth = 1.05) +
+  geom_line(aes(y = percent_resident_status_nonresident_officer , color = "Nonresident"), linewidth = 1.05) +
+  geom_line(aes(y = percent_resident_status_unknown_officer, color = "Unknown resident"), linewidth = 1.05) +
   xlab("Year") +
   ylab("% of Victims") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0) +
   scale_color_manual(values = c("Resident" = "#1b9e77",
                                 "Nonresident" = "#d95f02",
-                                "Unknown resident" = "#7570b3"))
+                                "Unknown resident" = "#7570b3")) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```
 
 ### Age
@@ -542,35 +539,43 @@ victim$age_of_victim[victim$age_of_victim %in% "unknown"] <- NA
 victim$age_of_victim <- as.numeric(victim$age_of_victim)
 victim %>%
   filter(type_of_victim %in% c("individual", "law enforcement officer")) %>%
-  make_stat_count_plots("age_of_victim", count = FALSE, ylab = "% of Victims") + xlab("Age")
+  make_stat_count_plots("age_of_victim", count = FALSE, ylab = "% of Victims") + xlab("Age") +
+  geom_vline(xintercept = mean(victim$age_of_victim, na.rm = TRUE), col = "#1b9e77", size = 1.5) +
+  geom_vline(xintercept = median(victim$age_of_victim, na.rm = TRUE), col = "#d95f02", size = 1.5) +
+  annotate("text", x=70, y=.03, label= paste0("Mean = ", round(mean(victim$age_of_victim, na.rm = TRUE), 2)),
+           size = 6, col = "#1b9e77") +
+  annotate("text", x=69, y=.028, label= paste0("Median = ", round(median(victim$age_of_victim, na.rm = TRUE), 2)),
+           size = 6, col = "#d95f02")
 
 ```
 
 ```{r nibrsVictimAge, fig.cap="The mean and median age of victims, 1991-2022."}
 nibrs_victim_summary  %>%
   ggplot(aes(x = year)) +
-  geom_line(aes(y = mean_age, color = "Mean Age"), size = 1.05) +
-  geom_line(aes(y = median_age , color = "Median Age"), size = 1.05) +
+  geom_line(aes(y = mean_age, color = "Mean Age"), linewidth = 1.05) +
+  geom_line(aes(y = median_age , color = "Median Age"), linewidth = 1.05) +
   xlab("Year") +
   ylab("Victim Age") +
   theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0) +
   scale_color_manual(values = c("Mean Age" = "#1b9e77",
-                                "Median Age" = "#d95f02"))
+                                "Median Age" = "#d95f02")) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```
 
 ```{r nibrsVictimAgeMissing, fig.cap="The percent of victim's age that is unknown, 1991-2022."}
 nibrs_victim_summary  %>%
   ggplot(aes(x = year, y = percent_unknown_age)) +
-  geom_line(size = 1.05) + 
+  geom_line(linewidth = 1.05) + 
   xlab("Year") +
   ylab("% of Victims") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
-  expand_limits(y = 0) 
+  expand_limits(y = 0)  +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```
 
 ### Sex
@@ -581,18 +586,19 @@ As with the Offender and the Arrestee Segments, we know the sex of the victim. T
 ```{r nibrsVictimSex, fig.cap="The share of victims by sex, 1991-2022."}
 nibrs_victim_summary  %>%
   ggplot(aes(x = year)) +
-  geom_line(aes(y = percent_male, color = "Male"), size = 1.05) +
-  geom_line(aes(y = percent_female , color = "Female"), size = 1.05) +
-  geom_line(aes(y = percent_unknown_sex, color = "Unknown"), size = 1.05) +
+  geom_line(aes(y = percent_male, color = "Male"), linewidth = 1.05) +
+  geom_line(aes(y = percent_female , color = "Female"), linewidth = 1.05) +
+  geom_line(aes(y = percent_unknown_sex, color = "Unknown"), linewidth = 1.05) +
   xlab("Year") +
   ylab("% of Victims") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0) +
   scale_color_manual(values = c("Male" = "#1b9e77",
                                 "Female" = "#d95f02",
-                                "Unknown" = "#7570b3"))
+                                "Unknown" = "#7570b3")) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```
 
 ### Race
@@ -608,16 +614,16 @@ Figure \@ref(fig:victimRace) shows the breakdown in victims by race. Most victim
 ```{r nibrsVictimRace, fig.cap="The share of victims by race, 1991-2022."}
 nibrs_victim_summary  %>%
   ggplot(aes(x = year)) +
-  geom_line(aes(y = percent_asian, color = "Asian"), size = 1.05) +
-  geom_line(aes(y = percent_black , color = "Black"), size = 1.05) +
-  geom_line(aes(y = percent_american_indian, color = "American Indian"), size = 1.05) +
-  geom_line(aes(y = percent_white , color = "White"), size = 1.05) +
-  geom_line(aes(y = percent_native_hawaiian, color = "Native Hawaiian"), size = 1.05) +
-  geom_line(aes(y = percent_unknown_race, color = "Unknown"), size = 1.05) +
+  geom_line(aes(y = percent_asian, color = "Asian"), linewidth = 1.05) +
+  geom_line(aes(y = percent_black , color = "Black"), linewidth = 1.05) +
+  geom_line(aes(y = percent_american_indian, color = "American Indian"), linewidth = 1.05) +
+  geom_line(aes(y = percent_white , color = "White"), linewidth = 1.05) +
+  geom_line(aes(y = percent_native_hawaiian, color = "Native Hawaiian"), linewidth = 1.05) +
+  geom_line(aes(y = percent_unknown_race, color = "Unknown"), linewidth = 1.05) +
   xlab("Year") +
   ylab("% of Victims") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0) +
   scale_color_manual(values = c("Asian" = "#d7191c",
@@ -625,7 +631,8 @@ nibrs_victim_summary  %>%
                                 "American Indian" = "#7b3294",
                                 "White" = "#abd9e9",
                                 "Native Hawaiian" = "#2c7bb6",
-                                "Unknown" = "black"))
+                                "Unknown" = "black")) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```
 
 ### Ethnicity
@@ -640,16 +647,17 @@ Figure \@ref(fig:victimEthnicity) shows the breakdown in arrests by victim ethni
 ```{r nibrsVictimEthnicity, fig.cap="The share of victims by ethnicity, 1991-2022."}
 nibrs_victim_summary  %>%
   ggplot(aes(x = year)) +
-  geom_line(aes(y = percent_hispanic, color = "Hispanic"), size = 1.05) +
-  geom_line(aes(y = percent_not_hispanic , color = "Not Hispanic"), size = 1.05) +
-  geom_line(aes(y = percent_ethnicity_unknown, color = "Unknown"), size = 1.05) +
+  geom_line(aes(y = percent_hispanic, color = "Hispanic"), linewidth = 1.05) +
+  geom_line(aes(y = percent_not_hispanic , color = "Not Hispanic"), linewidth = 1.05) +
+  geom_line(aes(y = percent_ethnicity_unknown, color = "Unknown"), linewidth = 1.05) +
   xlab("Year") +
   ylab("% of Victims") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0) +
   scale_color_manual(values = c("Hispanic" = "#1b9e77",
                                 "Not Hispanic" = "#d95f02",
-                                "Unknown" = "#7570b3"))
+                                "Unknown" = "#7570b3")) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```

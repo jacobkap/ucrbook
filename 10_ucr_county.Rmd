@@ -115,7 +115,7 @@ kableExtra::kbl(months_table,
 
 We can look at how these trends change over time in Figure \@ref(fig:countyAnyMonthReported) that shows the annual number of agencies that reported at least one month of data in that year. Both measures have the exact same trend with the last month reported measure always being a bit higher than the number of months missing method, at least until the data change in 2018 that renders my method unreliable. 
 
-```{r countyAnyMonthReported, fig.cap = "The annual number of agencies that reported at least 12 months of data in that year."}
+```{r countyAnyMonthReported, fig.cap = "The annual number of agencies that reported data in that year."}
 offenses_known_yearly$last_month_any <- 0
 offenses_known_yearly$last_month_any[!offenses_known_yearly$last_month_reported %in% "no months reported"] <- 1
 
@@ -135,14 +135,14 @@ offenses_known_yearly %>%
             months_missing_full = sum(months_missing_full)) %>%
   ungroup() %>%
   ggplot(aes(x = year, y = last_month_full)) +
-  geom_line(aes(color = "Last Month Reported"), size = 1.05) +
-  geom_line(aes(y = months_missing_full, color = "# of Months Missing"), size = 1.05) +
+  geom_line(aes(color = "Last Month Reported"), linewidth = 1.05) +
+  geom_line(aes(y = months_missing_full, color = "# of Months Missing"), linewidth = 1.05) +
   xlab("Year") +
   ylab("# of Agencies") +
   theme_crim() +
   scale_color_manual(values = c("Last Month Reported" = "#1b9e77",
                                 "# of Months Missing" = "#d95f02")) +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0)
 ```

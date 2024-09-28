@@ -7,24 +7,28 @@
 
 
 
-Nearly a century ago the FBI started collecting data on crime that occurred in the United States as a way to better understand and respond to crime. This data, the [Uniform Crime Reporting (UCR) Program Data](https://ucrbook.com/), is a monthly count of the number of crime incidents (in cases where more than one crime happens per incident, only the most serious crime is included) in each police agency that reports data.^[This data has been expanded since it began in 1929 to include information on arrests, hate crimes, and stolen property.] Other than for homicides (which provides info about each victim and offender), only the number of crimes that occurred is included. So we know, for example, the number of robberies in a city but nothing about who the victims or offenders were, when in that month (day or time of day) the robberies occurred, or the type of location where they happened. To address these limitations the FBI started a new dataset in 1991, the National Incident-Based Reporting System data - which is known by its abbreviation NIBRS - and is the topic of this book. Relative to the FBI's UCR data there are far fewer "weird things" in NIBRS data. Still, we will cover instances of the "weirdness" in the data, such as the why crime always goes up on the 1st of the month, or why there are more crimes at noon than at nearly all other hours of the day. We will also be discussing how much of the detailed information that should be available in the data is missing, and when that affects which questions we can answer.
+Nearly a century ago the FBI started collecting data on crime that occurred in the United States as a way to better understand and respond to crime. This data, the [Uniform Crime Reporting (UCR) Program Data](https://ucrbook.com/), is a monthly count of the number of crime incidents (in cases where more than one crime happens per incident, only the most serious crime is included) in each police agency that reports data.^[This data has been expanded since it began in 1929 to include information on arrests, hate crimes, and stolen property.] Other than for homicides (which provides information about each victim and offender), only the number of crimes that occurred is included. So we know, for example, the number of robberies in a city but nothing about who the victims or offenders were, when in that month (day or time of day) the robberies occurred, or the type of location where they happened. To address these limitations the FBI started a new dataset in 1991, the National Incident-Based Reporting System data - which is known by its abbreviation NIBRS - and is the topic of this book. Relative to the FBI's UCR data there are far fewer "weird things" in NIBRS data. Still, we will cover instances of the "weirdness" in the data, such as the why crime always goes up on the 1st of the month, or why there are more crimes at noon than at nearly all other hours of the day. We will also be discussing how much of the detailed information that should be available in the data is missing, and when that affects which questions we can answer.
 
 NIBRS data provides detailed information on every crime reported to the police, including victim and offender demographics, whether the offender was arrested (and the type of arrest it was), what date and time of day (by hour only) it happened on, the victim-offender relationship, and the crime location (as a location type, not the exact address). It also covers a far wider range of crimes than UCR data did. With the exception of UCR data on assaults against police officers, all NIBRS data can be converted back to UCR data, making it fully backwards compatible and, therefore, comparable to UCR data. In many ways NIBRS data is a massive improvement over UCR data. This data allows for a deeper understanding of crime and it has led to an explosion of research that allows a far more detailed analysis of crime and crime-policies than the blunt UCR data. 
 
 However, there is a major limitation to this data: most agencies do not use it. [According to the FBI](https://www.fbi.gov/news/pressrel/press-releases/fbi-releases-2019-nibrs-crime-data) only about 8,500 police agencies, covering about 45% of the US population, reported NIBRS data in 2019 (the latest year currently available). This is fewer than half of the about 18,000 police agencies in the United States. This is an even larger problem than it seems as the agencies that do report - especially in earlier years of the data - are disproportionately small and rural. So we are missing out of data from most major cities. A number of states do not have any agencies reporting, making this data relatively biased at least in terms of geography and city size. **Even so, the FBI has said that they are moving entirely to NIBRS data starting in 2021, and will no longer even collect UCR data.** While NIBRS can be converted to UCR data, meaning we can have consistent statistics over time, for agencies that do not report to NIBRS, we have no information on their crimes. In effect, unless the majority of agencies suddenly switch to NIBRS - which, given that the high level of detail relative to UCR data makes moving to NIBRS a costly and timely switch - we will be flying blind for most crime in the country. 
 
-<div class="figure">
-<img src="11_nibrs_general_files/figure-html/nibrsSegmentsAgencies-1.png" alt="The number of agencies reporting data for each of the NIBRS Segments, 1991-2022." width="100%" height="100%" />
-<p class="caption">(\#fig:nibrsSegmentsAgencies)The number of agencies reporting data for each of the NIBRS Segments, 1991-2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{11_nibrs_general_files/figure-latex/nibrsSegmentsAgencies-1} 
+
+}
+
+\caption{The number of agencies reporting data for each of the NIBRS Segments, 1991-2022.}(\#fig:nibrsSegmentsAgencies)
+\end{figure}
 
 ## Problems with NIBRS
 
-There are three major problems with NIBRS data, with the first two related to the lack of reporting. First, we are potentially looking at a massive loss of data when UCR data ends in 2020 - it takes over a year for data to be released so even though I am writing this in Spring 2021, 2019 UCR and NIBRS data are the latest years available. 2020 data would not be released by the FBI until September or October of this year. Considering the huge crime changes during 2020 - and the latest evidence suggests that the violent crime increase is continuing (and in places even accelerating) in 2021 - losing standardized crime data for most cities (and especially the largest cities) is a very bad thing. Moving the majority of agencies over to NIBRS so quickly may also risk the integrity of the data.^["Quickly" is a bit of a misnomer as agencies were free to report to NIBRS since it began in 1991 and the FBI had announced many years ago that they would only collect NIBRS in 2021. Still, given that the majority of agencies do not report to NIBRS and 2020 had a plague, the switch is likely to introduce issues and should be delayed.] As they rush to comply with the FBI's order that they only will accept NIBRS data, there will likely be more mistakes made and erroneous data included in NIBRS data. This will likely include both knowledge problems with agencies not understanding how to properly report data and the simply issue of typos leading to wrong info being entered. Though the FBI does do quality assurance checks, no check is foolproof - and their checks in UCR data have still allowed clearly impossible data to be entered (e.g. millions of arsons reported in a month in a small town). So while I always urge caution when using any data - caution that should be accompanied by a thorough examination of your data before using it - NIBRS data from 2020 and beyond merits extra attention.
+There are three major problems with NIBRS data, with the first two related to the lack of reporting. First, we are potentially looking at a massive loss of data when UCR data ends in 2020 - it takes over a year for data to be released so even though I am writing this in Spring 2021, 2019 UCR and NIBRS data are the latest years available. 2020 data would not be released by the FBI until September or October of this year. Considering the huge crime changes during 2020 - and the latest evidence suggests that the violent crime increase is continuing (and in places even accelerating) in 2021 - losing standardized crime data for most cities (and especially the largest cities) is a very bad thing. Moving the majority of agencies over to NIBRS so quickly may also risk the integrity of the data.^["Quickly" is a bit of a misnomer as agencies were free to report to NIBRS since it began in 1991 and the FBI had announced many years ago that they would only collect NIBRS in 2021. Still, given that the majority of agencies do not report to NIBRS and 2020 had a plague, the switch is likely to introduce issues and should be delayed.] As they rush to comply with the FBI's order that they only will accept NIBRS data, there will likely be more mistakes made and erroneous data included in NIBRS data. This will likely include both knowledge problems with agencies not understanding how to properly report data and the simply issue of typos leading to wrong information being entered. Though the FBI does do quality assurance checks, no check is foolproof - and their checks in UCR data have still allowed clearly impossible data to be entered (e.g. millions of arsons reported in a month in a small town). So while I always urge caution when using any data - caution that should be accompanied by a thorough examination of your data before using it - NIBRS data from 2020 and beyond merits extra attention.
 
 The second problem is that even if suddenly all agencies do start reporting in 2021, we would only have a single year of data available. Even for agencies that already report, we generally do not have too many years of data for them. This really limits the kind of research since we can do since it is hard to know if a finding is based on a trend or is just a weird outlier without having many years of data available. For the agencies where 2020 is the first year, we will likely to have to wait a few years to even figure out what "normal" crime is supposed to look like. This means that for the next several years at least we will be mostly using NIBRS data as UCR-like datasets, aggregated to the month- or year-level so we can compare it with UCR data from the past. Luckily, this problem will be alleviated the longer we wait as more years of data will become available. 
 
-The final issue is that this data is massive. A single year of 2019 data - with <50% of agencies reporting, and few large agencies reporting - has about 6.5 million crime incidents recorded. Since each crime incident can have multiple victims, offenders, and crimes, there are more rows for these datasets.^[While people generally refer to NIBRS just as "NIBRS data" it is actually a collection multiple different datasets all - with a few exceptions - corresponding to a single crime incident. For example, if you care about victim info you will look in the victim file called the "Victim Segment" (each of the datasets are called "Segments" since they are part of the whole picture of the crime incident) and likely will merge it with other data, such as when are where the crime occurred which is in the "Offense Segment". In most cases you will merge together multiple datasets from the NIBRS collection to be able to answer the question that you have.] Once all agencies report - though it is doubtful that'll ever occur, though we may come close - we are looking at tens of millions of rows per year. And even now if we wanted to look at a decade of data we are going to be dealing with over 50 million rows of data. So this data requires both good hardware - a strong laptop or server is necessary - and good programming skills, which most academics sorely lack. If you can, buy more RAM for your computer as that is much easier than having to write complicated code to deal with large data. I want to stress this point. If you intend to work with NIBRS data for any significant amount of time you should buy the most RAM your computer can use (RAM is very cheap now) and install it. I would recommend at least 16GB but more is better. While computers can handle NIBRS with less RAM, it'll just lead to you spending more time writing code to deal with big data and it'll inevitably still run slower than buying extra RAM. 
+The final issue is that this data is massive. A single year of 2019 data - with <50% of agencies reporting, and few large agencies reporting - has about 6.5 million crime incidents recorded. Since each crime incident can have multiple victims, offenders, and crimes, there are more rows for these datasets.^[While people generally refer to NIBRS just as "NIBRS data" it is actually a collection multiple different datasets all - with a few exceptions - corresponding to a single crime incident. For example, if you care about victim information you will look in the victim file called the "Victim Segment" (each of the datasets are called "Segments" since they are part of the whole picture of the crime incident) and likely will merge it with other data, such as when are where the crime occurred which is in the "Offense Segment". In most cases you will merge together multiple datasets from the NIBRS collection to be able to answer the question that you have.] Once all agencies report - though it is doubtful that'll ever occur, though we may come close - we are looking at tens of millions of rows per year. And even now if we wanted to look at a decade of data we are going to be dealing with over 50 million rows of data. So this data requires both good hardware - a strong laptop or server is necessary - and good programming skills, which most academics sorely lack. If you can, buy more RAM for your computer as that is much easier than having to write complicated code to deal with large data. I want to stress this point. If you intend to work with NIBRS data for any significant amount of time you should buy the most RAM your computer can use (RAM is very cheap now) and install it. I would recommend at least 16GB but more is better. While computers can handle NIBRS with less RAM, it'll just lead to you spending more time writing code to deal with big data and it'll inevitably still run slower than buying extra RAM. 
 
 ### NIBRS allows for different units of analysis
 
@@ -36,7 +40,7 @@ Since this data includes multiple crimes in each criminal incident, unlike the U
 
 ## Which agencies report data
 
-So if this data has the same info (other than unfounded and negative crimes) as UCR data, but is also far more detailed, why do people ever use UCR data? Besides NIBRS being more complicated to use, far fewer agencies report NIBRS data than do UCR data. Nearly all agencies report crime data for UCR, though fewer do so for some of the UCR datasets such as arrests or arsons - for more, please see my [UCR book](https://ucrbook.com/). In comparison, fewer than half of agencies report to NIBRS, and these agencies are disproportionately smaller and more rural. Starting with 2021 data, the FBI has stopped collecting UCR data, instead only collecting NIBRS data. So if - and this is a very large if - many more agencies move to NIBRS in 2021, we will start having much more detail from a very representative sample of agencies. Even so, most research - especially policy analyses - requires many years of data so it'll take many years before the full potential of NIBRS data can be realized.
+So if this data has the same information (other than unfounded and negative crimes) as UCR data, but is also far more detailed, why do people ever use UCR data? Besides NIBRS being more complicated to use, far fewer agencies report NIBRS data than do UCR data. Nearly all agencies report crime data for UCR, though fewer do so for some of the UCR datasets such as arrests or arsons - for more, please see my [UCR book](https://ucrbook.com/). In comparison, fewer than half of agencies report to NIBRS, and these agencies are disproportionately smaller and more rural. Starting with 2021 data, the FBI has stopped collecting UCR data, instead only collecting NIBRS data. So if - and this is a very large if - many more agencies move to NIBRS in 2021, we will start having much more detail from a very representative sample of agencies. Even so, most research - especially policy analyses - requires many years of data so it'll take many years before the full potential of NIBRS data can be realized.
 
 We will look here at how many agencies report at least one crime each year between 1991 - the first year of data - and 2019 - the latest year of data - as well as compare NIBRS reporting to UCR reporting. Figure \@ref(fig:agenciesReporting) shows the number of agencies each year that reported at least one incident. Keep in mind that there are about 18,000 police agencies in the United States. Only a little over 600 agencies reported in 1991. This has grown pretty linearly, adding a few hundred agencies each year though that trend accelerated in recent years. In 2019, nearly 8,200 agencies reported at least some data to NIBRS. Compared to the estimated 18,000 police agencies in the United States, however, this is still fewer than half of agencies. The data shown here is potentially an overcount, however, as it includes agencies reporting any crime that year, even if they do not report every month. 
 
@@ -44,28 +48,64 @@ Another way to look at reporting is comparing it to reporting to UCR. Figure \@r
 
 Since the number of agencies in a state is partially just a factor of population, Figure \@ref(fig:agenciesReportingMapPercent) shows each state as a percent of agencies in that state that report to NIBRS that also reported to the UCR Offenses Known and Clearances by Arrest (the "crime" dataset) in 2019.^[This is the UCR dataset which has the highest reporting rate.] Not all agencies in the US reported to UCR in 2019 -  and a small number reported to NIBRS but not UCR in 2019 - but this is a fairly good measure of reporting rates. Here the story looks a bit different than in the previous figure. Now we can tell that among north-western states and states along the Appalachian Mountains, nearly all agencies report. In total, 18 states have 90% or more of agencies that reported to UCR in 2019 also reporting to NIBRS. Thirteen agencies have fewer than 10% of agencies reporting to NIBRS that also reported to UCR, with 5 of these having 0% of agencies reporting. The remaining states average about 56% of agencies reporting. So when using NIBRS data, keep in mind that you have very good coverage of certain states, and very poor coverage of other states. And the low - or zero - reporting states are systematically high population states.    
 
-<div class="figure">
-<img src="11_nibrs_general_files/figure-html/nibrsAnnualNumberAgencies-1.png" alt="The annual number of police agencies that report data to NIBRS." width="100%" height="100%" />
-<p class="caption">(\#fig:nibrsAnnualNumberAgencies)The annual number of police agencies that report data to NIBRS.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{11_nibrs_general_files/figure-latex/nibrsAnnualNumberAgencies-1} 
+
+}
+
+\caption{The annual number of police agencies that report data to NIBRS.}(\#fig:nibrsAnnualNumberAgencies)
+\end{figure}
 
 
 
 
-<div class="figure">
-<img src="11_nibrs_general_files/figure-html/nibrsAnnualPercentPopulation-1.png" alt="The annual percent of the United States population that is covered by an agency reporting data to NIBRS." width="100%" height="100%" />
-<p class="caption">(\#fig:nibrsAnnualPercentPopulation)The annual percent of the United States population that is covered by an agency reporting data to NIBRS.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{11_nibrs_general_files/figure-latex/nibrsAnnualPercentPopulation-1} 
+
+}
+
+\caption{The annual percent of the United States population that is covered by an agency reporting data to NIBRS.}(\#fig:nibrsAnnualPercentPopulation)
+\end{figure}
 
 
-<div class="figure">
-<img src="11_nibrs_general_files/figure-html/nibrsStateParticipation2020-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS." width="100%" height="100%" />
-<p class="caption">(\#fig:nibrsStateParticipation2020)The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{11_nibrs_general_files/figure-latex/nibrsStateParticipation2000-1} 
+
+}
+
+\caption{The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2000}(\#fig:nibrsStateParticipation2000)
+\end{figure}
 
 
+\begin{figure}
 
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{11_nibrs_general_files/figure-latex/nibrsStateParticipation2010-1} 
 
+}
+
+\caption{The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2010}(\#fig:nibrsStateParticipation2010)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{11_nibrs_general_files/figure-latex/nibrsStateParticipation2022-1} 
+
+}
+
+\caption{The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022}(\#fig:nibrsStateParticipation2022)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{11_nibrs_general_files/figure-latex/nibrsStateParticipation2022Full-1} 
+
+}
+
+\caption{The percent of each state's population that is covered by police agencies reporting 12 months of data to NIBRS, 2022}(\#fig:nibrsStateParticipation2022Full)
+\end{figure}
 
 
 ## Crimes included in NIBRS
@@ -78,62 +118,85 @@ The crimes included in NIBRS are broken into two categories: Group A and Group B
 
 ### Group A crimes
 
-The first set of crimes included are Group A crimes and these are really the main crimes included in NIBRS. For each of these crimes we have full data on the victim, the offender, the offense, any property stolen or damaged (or for drug crimes, seized by the police), and info about the arrestee (if any). Of course, not all of this data may be available (e.g. information on the offender is unknown) so there can be significant amounts of missing data, but each crime incident does have corresponding files with this information.
+The first set of crimes included are Group A crimes and these are really the main crimes included in NIBRS. For each of these crimes we have full data on the victim, the offender, the offense, any property stolen or damaged (or for drug crimes, seized by the police), and information about the arrestee (if any). Of course, not all of this data may be available (e.g. information on the offender is unknown) so there can be significant amounts of missing data, but each crime incident does have corresponding files with this information.
 
-The complete list of Group A crimes is below. I have bolded the Index Crimes which are a flawed, but ubiquitous measure of crime used in the UCR crime data as the main measure of crime in the United States. The Index Crimes are murder, rape (sexual assault with an object and sodomy are only considered rape using the FBI new definition that began in 2013), aggravated assault, robbery (these four are the "Violent Index Crimes"), burglary, motor vehicle theft, and theft (these are the "Property Index Crimes". Theft here is broken down into several types of theft like purse-snatching and shoplifting. In the UCR crime dataset it is only "theft".). Arson is also technically an Index Crime (arson is considered a property crime) but is generally excluded. Using Index Crimes as your measure of crime is a bad idea (see [here for more on this](https://www.propublica.org/article/the-secret-irs-files-trove-of-never-before-seen-records-reveal-how-the-wealthiest-avoid-income-tax)) but it is good that all of the Index Crimes are available in NIBRS so we have continuity of data from when agencies move from UCR to NIBRS.
+The complete list of Group A crimes is below. I have bolded the Index Crimes which are a flawed, but ubiquitous measure of crime used in the UCR crime data as the main measure of crime in the United States. The Index Crimes are murder, rape (sexual assault with an object and sodomy are only considered rape using the FBI new definition that began in 2013), aggravated assault, robbery (these four are the "Violent Index Crimes"), burglary, motor vehicle theft, and theft (these are the "Property Index Crimes". Theft here is broken down into several types of theft like purse-snatching and shoplifting. In the UCR crime dataset it is only "theft".). Arson is also technically an Index Crime (arson is considered a property crime) but is generally excluded. 
 
-* __Aggravated Assault__                                 
-* __All Other Larceny__                                  
-* Animal Cruelty                                     
-* Arson                                              
-* Assisting Or Promoting Prostitution                
-* Betting/Wagering                                   
-* Bribery                                            
-* __Burglary/Breaking And Entering__                     
-* Counterfeiting/Forgery                             
-* Credit Card/ATM Fraud                              
-* Destruction/Damage/Vandalism of Property           
-* Drug Equipment Violations                          
-* Drug/Narcotic Violations                           
-* Embezzlement                                       
-* Extortion/Blackmail                                
-* False Pretenses/Swindle/Confidence Game            
-* Fondling (Incident Liberties/Child Molest)         
-* Gambling Equipment Violations                      
-* Hacking/Computer Invasion                          
-* Human Trafficking - Commercial Sex Acts            
-* Human Trafficking - Involuntary Servitude          
-* Identity Theft                                     
-* Impersonation                                      
-* Incest                                             
-* Intimidation                                       
-* Justifiable Homicide                               
-* Kidnapping/Abduction                               
-* __Motor Vehicle Theft__                                
-* __Murder/Non-negligent Manslaughter__                   
-* __Negligent Manslaughter__                             
-* Operating/Promoting/Assisting Gambling             
-* Pocket-Picking                                     
-* Pornography/Obscene Material                       
-* Prostitution                                       
-* Purchasing Prostitution                            
-* __Purse-Snatching__                                    
-* __Rape__                                               
-* __Robbery__                                            
-* __Sexual Assault With An Object__                      
-* __Shoplifting__                                        
-* __Simple Assault__                                     
-* __Sodomy__                                             
-* Sports Tampering                                   
-* Statutory Rape                                     
-* Stolen Property Offenses (Receiving, Selling, Etc.)
-* __Theft From Building__                                
-* __Theft From Coin-Operated Machine Or Device__         
-* __Theft From Motor Vehicle__                           
-* __Theft of Motor Vehicle Parts/Accessories__           
-* Weapon Law Violations                              
-* Welfare Fraud                                      
-* Wire Fraud 
+                             
+* Animal Cruelty                                                     
+* Arson                                                              
+* __Assault Offenses - Aggravated Assault__                              
+* Assault Offenses - Intimidation                                    
+* __Assault Offenses - Simple Assault__
+* Bad Checks                                                         
+* Bribery                                                            
+* __Burglary/Breaking And Entering__
+* *Commerce Violations - Import Violations*
+* *Commerce Violations - Export Violations*
+* Commerce Violations - Federal Liquor Offenses    
+* *Commerce Violations - Federal Tobacco Offenses*     
+* *Commerce Violations - Wildlife Trafficking*
+* Counterfeiting/Forgery                                              
+* Destruction/Damage/Vandalism of Property                                       
+* Driving Under The Influence                                        
+* Drug/Narcotic Offenses - Drug Equipment Violations                 
+* Drug/Narcotic Offenses - Drug/Narcotic Violations                  
+* Drunkenness                                                        
+* Embezzlement
+* *Espionage*
+* Extortion/Blackmail                                                
+* Fraud Offenses - Credit Card/Atm Fraud                             
+* Fraud Offenses - False Pretenses/Swindle/Confidence Game           
+* Fraud Offenses - Hacking/Computer Invasion                         
+* Fraud Offenses - Identity Theft                                    
+* Fraud Offenses - Impersonation        
+* *Fraud Offenses - Money Laundering*
+* Fraud Offenses - Welfare Fraud                                     
+* Fraud Offenses - Wire Fraud                                        
+* Fugitive Offenses - Flight To Avoid Prosecution       
+* *Fugitive Offenses - Flight to Avoid Deportation*      
+* Fugitive Offenses - Harboring Escappee/Concealing From Arrest      
+* Gambling Offenses - Betting/Wagering                               
+* Gambling Offenses - Gambling Equipment Violations                  
+* Gambling Offenses - Operating/Promoting/Assisting Gambling         
+* Gambling Offenses - Sports Tampering                               
+* Human Trafficking - Commercial Sex Acts                            
+* Human Trafficking - Involuntary Servitude                          
+* Immigration Violations - Illegal Entry Into The United States      
+* *Immigration Violations - False Citizenship*
+* *Immigration Violations - Smuggling Aliens*
+* *Immigration Violations - Re-entry after Deportation*      
+* Kidnapping/Abduction                                               
+* __Larceny/Theft Offenses - All Other Larceny__
+* __Larceny/Theft Offenses - Pocket-Picking__
+* __Larceny/Theft Offenses - Purse-Snatching__
+* __Larceny/Theft Offenses - Shoplifting__
+* __Larceny/Theft Offenses - Theft From Building__
+* __Larceny/Theft Offenses - Theft From Coin-Operated Machine Or Device__
+* __Larceny/Theft Offenses - Theft From Motor Vehicle__
+* __Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories__                                   
+* __Motor Vehicle Theft__
+* __Murder/Nonnegligent Manslaughter__
+* __Negligent Manslaughter__
+* Peeping Tom                                                          
+* Pornography/Obscene Material                                       
+* Prostitution Offenses - Assisting Or Promoting Prostitution        
+* Prostitution Offenses - Prostitution                               
+* Prostitution Offenses - Purchasing Prostitution                    
+* __Robbery__                                             
+* Sex Offenses - Failure To Register As A Sex Offender               
+* Sex Offenses - Fondling (Indecent Liberties/Child Molest)          
+* Sex Offenses - Incest                                              
+* __Sex Offenses - Rape__
+* __Sex Offenses - Sexual Assault With An Object__
+* __Sex Offenses - Sodomy__
+* Sex Offenses - Statutory Rape                                      
+* Stolen Property Offenses (Receiving, Selling, Etc.)    
+* *Treason*
+* Weapon Law Violations - Explosives                                 
+* *Weapon Law Violations - Violation of National Firearm Act of 1934*                                 
+* Weapon Law Violations - Weapon Law Violations 
+* *Weapon Law Violations - Weapons of Mass Destruction*
 
 ### Group B crimes
 
@@ -142,15 +205,18 @@ The other set of crimes included in NIBRS are called Group B crimes. For these c
 One way I like to think of Group B crimes is that they are mostly - excluding peeping tom - victim-less crimes, or more specifically crimes without a specific victim. For example, in DUIs there is no individual victim; public drunkenness may disturb certain people around the event but they are not the victims of the drunkenness. There are Group A crimes where the same is true, such as drug offenses, but I think this is a helpful way of thinking about Group B crimes. 
 
 * All Other Offenses - excludes traffic violations
-* Bad Checks                          
+* Bad Checks (removed starting in 2021)
 * Curfew/Loitering/Vagrancy Violations
-* Disorderly Conduct                  
+* Disorderly Conduct
 * Driving Under The Influence (DUI)
-* Drunkenness                         
+* Drunkenness (removed starting in 2021)
+* Failure To Appear
 * Family Offenses, Nonviolent
-* Liquor Law Violations               
-* Peeping Tom
-* Runaway - only for minors (data ends in 2011)
+* Federal Resource Violations
+* Liquor Law Violations
+* Peeping Tom (removed starting in 2021)
+* Perjury
+* Runaway
 * Trespass of Real Property
 
 ## Differences from SRS data
@@ -159,7 +225,7 @@ While NIBRS data is a far more expansive and detailed dataset than the SRS data,
 
 ### NIBRS does not have unfounded crimes
 
-In SRS data, which provides monthly counts of crimes (as well as more detailed info on hate crimes and homicides, and monthly counts of arrests), there is a count of "unfounded" crimes in each month. An unfounded crime is just one which was previously reported and then new evidence finds out that it never actually occurred (or that it is not for the crime that was reported). For example, if you misplace your wallet but think it is stolen you may call the police and report it stolen. This would be recorded in SRS data as a theft. If you then find your wallet and tell the police, then it would be changed to an unfounded crime since the reported theft never actually happened. NIBRS data does not include unfounded data at all so you do not know how many reported crimes turn out to not be true. In practice, this does not matter too much as unfounded crimes are rare, constituting generally under 2% of each crime type. The major exception is in rape, where some agencies report that over 10% of rapes in certain years are unfounded. 
+In SRS data, which provides monthly counts of crimes (as well as more detailed information on hate crimes and homicides, and monthly counts of arrests), there is a count of "unfounded" crimes in each month. An unfounded crime is just one which was previously reported and then new evidence finds out that it never actually occurred (or that it is not for the crime that was reported). For example, if you misplace your wallet but think it is stolen you may call the police and report it stolen. This would be recorded in SRS data as a theft. If you then find your wallet and tell the police, then it would be changed to an unfounded crime since the reported theft never actually happened. NIBRS data does not include unfounded data at all so you do not know how many reported crimes turn out to not be true. In practice, this does not matter too much as unfounded crimes are rare, constituting generally under 2% of each crime type. The major exception is in rape, where some agencies report that over 10% of rapes in certain years are unfounded. 
 
 Unfounded crimes are also a way that the SRS used to identify justifiable homicides and when police killed someone. But that way was not always used properly and NIBRS data already includes justifiable homicide as a crime category so this is not a problem.
 
@@ -172,10 +238,14 @@ Negative numbers in SRS data are because when a crime is reported and then later
 
 NIBRS data is often discussed - and is used - as if it were a single file with all of this information available. But it actually comes as multiple different files that each provide different information about a crime incident, including at different levels of analysis so users must clean each segment before merging them together. In this section we will discuss each of the segments and how they are related to each other. First, keep in mind that NIBRS is at its core an incident-level dataset (hence the "Incident-Based" part of its name). Everything that we have stems from the incident, even though we can get more detailed and look at, for example, individual victims in an incident or even offenses within an incident. Figure \@ref(fig:segmentFlowchart) shows the seven main segments and how they relate to each other. There are also three segments called "window segments" - there is one for arrestees, one of exceptional clearances (i.e. police could have made an arrest but did not for some reason but still consider the case closed), and one for property - that do not have an associated segment with them, they only have the information available in the given "window" segment. We will talk about window segments more in Section \@ref(window) below.
 
-<div class="figure">
-<img src="images/nibrsSegments.png" alt="The association of each segment file in the NIBRS dataset." width="100%" height="100%" />
-<p class="caption">(\#fig:segmentFlowchart)The association of each segment file in the NIBRS dataset.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{images/nibrsSegments} 
+
+}
+
+\caption{The association of each segment file in the NIBRS dataset.}(\#fig:segmentFlowchart)
+\end{figure}
 
 The first two boxes in Figure \@ref(fig:segmentFlowchart), colored in orange, are not part of NIBRS but are part of the data generating process. First, obviously, a crime has to occur. The police then have to learn about the crime. This can happen in two ways. First, they can discover it themselves while on patrol. This is common in crimes such as drug possession or sale as well as any crime that occurs outdoors, which is largely where police are able to observe behavior. The second way is that the victim or witness to a crime reports it. So if they call the police to report a crime, the police learn about it from that call. We do not actually know from the data how the police learned of a crime but it is important to think about this data generating process when using the data. 
 Alongside the crime being reported (or discovered) to the police, agencies must then report the crime to NIBRS. All crimes that occur in that agency's jurisdiction *should* be reported, but that is not always the case. Since reporting is voluntary (at least nationally, though some states do require agencies to report data), agencies are free to report as many or as few crimes as they wish. This often occurs when agencies report only parts of the year, excluding certain months, so you should ensure that the agency reported data for each month you are interested in.
@@ -196,7 +266,7 @@ This segment provides information about the offense that occurred, and each inci
 
 ### Offender Segment
 
-As might be expected, the Offender Segment provides information about who the offender is for each incident, though this is limited to only demographic variables. So we know the age, sex, and race of each offender but nothing else. This means that important variables such as criminal history, ethnicity, socioeconomic status, and motive are missing. In the Victim Segment we learn about the relationship between the victim and offender, and in the Offense Segment we learn which weapon (if any) the offender used. So there is some other data on the offender in other segments but it is quite limited. This data has one row per offender so incidents with multiple offenders have multiple rows. In cases where there is no information about the offender there will be a single row where all of the offender variables will be "unknown." In these cases having a single row for the offender is merely a placeholder and does not necessarily mean that there was only one offender for that incident. However, there is no indicator for when this is a placeholder and when there was actually one offender but whose demographic info is unknown.
+As might be expected, the Offender Segment provides information about who the offender is for each incident, though this is limited to only demographic variables. So we know the age, sex, and race of each offender but nothing else. This means that important variables such as criminal history, ethnicity, socioeconomic status, and motive are missing. In the Victim Segment we learn about the relationship between the victim and offender, and in the Offense Segment we learn which weapon (if any) the offender used. So there is some other data on the offender in other segments but it is quite limited. This data has one row per offender so incidents with multiple offenders have multiple rows. In cases where there is no information about the offender there will be a single row where all of the offender variables will be "unknown." In these cases having a single row for the offender is merely a placeholder and does not necessarily mean that there was only one offender for that incident. However, there is no indicator for when this is a placeholder and when there was actually one offender but whose demographic information is unknown.
 
 ### Victim Segment
 
@@ -210,7 +280,7 @@ The Arrestee Segment has information on the person arrested in an incident and h
 
 ### Property Segment
 
-The Property Segment provides a bit more info than would be expected from the name. For each item involved in the crime it tells you what category that items falls into, with 68 total categories of types of property (including "other") ranging from explosives and pets to money and alcohol. It also tells you the estimated value of that item. This data covers more than just items stolen during a crime. For each item it tells you what happened to that item such as if it was stolen, damaged, seized by police (such as illegal items like drugs), recovered by police, or burned during an arson.
+The Property Segment provides a bit more information than would be expected from the name. For each item involved in the crime it tells you what category that items falls into, with 68 total categories of types of property (including "other") ranging from explosives and pets to money and alcohol. It also tells you the estimated value of that item. This data covers more than just items stolen during a crime. For each item it tells you what happened to that item such as if it was stolen, damaged, seized by police (such as illegal items like drugs), recovered by police, or burned during an arson.
 
 For drug offenses it includes the drugs seized by police. For these offenses, the data tells us the type of drug, with 16 different drug categories ranging from specific ones like marijuana or heroin to broader categories such as "other narcotics". There can be up to three different drugs included in this data - if the person has more than three types of drugs seized then the third drug category will simply indicate that there are more than three drugs, so we learn what the first two drugs are but not the third or greater drugs are in these cases. For each drug we also know exactly how much was seized with one variable saying the amount the police found and another saying the units we should we reading that amount as (e.g. pills, grams, plants). 
 

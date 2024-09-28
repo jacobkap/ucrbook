@@ -46,18 +46,18 @@ leoka %>%
   left_join(leoka_years_one_assault) %>%
   left_join(leoka_years_one_month) %>%
   ggplot(aes(x = year, y = n, color = "\u2265 One Employee")) +
-  geom_line(size = 1.05) + 
-  geom_line(size = 1.05, aes(y = at_least_one_month, color = "\u2265 One Month")) +
-  geom_line(size = 1.05, aes(y = at_least_one_assault, color = "\u2265 One Assault")) +
+  geom_line(linewidth = 1.05) + 
+  geom_line(linewidth = 1.05, aes(y = at_least_one_month, color = "\u2265 One Month")) +
+  geom_line(linewidth = 1.05, aes(y = at_least_one_assault, color = "\u2265 One Assault")) +
   xlab("Year") +
   ylab("# of Agencies") +
   theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   expand_limits(y = 0) +
   scale_color_manual(values = c("\u2265 One Employee" = "#1b9e77",
                                 "\u2265 One Month" = "#d95f02",
                                 "\u2265 One Assault" = "#7570b3")) +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "")
 
 
@@ -75,13 +75,9 @@ The important variables can be divided into two sections: information on people 
 ### Number of employees 
 
 This data includes the number of people employed by the department with breakdowns by if they are civilian employees or sworn officers (i.e. carries a gun and badge and can make arrests) as well as by gender. The only genders available are female and male. This is the number of employees as of Halloween that year so it is a single point in time. Though this helps us as it is consistent every year, we do not know exactly when certain officer classes start, which we would likely see through a jump in employment that year, or if employment or hiring patterns change over the year. 
- 
-* Female employees
-    + Officers
-    + Civilians
-* Male employees
-    + Officers
-    + Civilians
+
+* Officers
+* Civilians
 
 One of the claims made around the massive crime spike during Covid is that it was caused, at least in part, by an exodus of police officers. Fewer police officers led to more crime. Luckily, we can easily determine if there were fewer officers employed starting in 2020. In Figure \@ref(fig:leokaNationalEmployees) we have the total number of sworn officers and civilian employees in the country from 1960 through 2022. The number of both groups has fairly steadily increased since 1960 until plateuing around 2010 and then fairly sharply dropping in 2018 before rebounding a bit in 2022. So the number of employees dropped before 2020, actually increased a tiny bit in 20202 itself, and increased in 2022. Obviously all the claims about a declining number of officers was wrong. 
 
@@ -95,70 +91,92 @@ leoka %>%
             total_employees_civilians = sum(total_employees_civilians, na.rm = TRUE)) %>%
   ungroup() %>%
   ggplot(aes(x = year, y = total_employees_officers, color = "Officers")) +
-  geom_line(size = 1.05) +
-  geom_line(aes(y = total_employees_civilians, color = "Civilians"), size = 1.05) +
+  geom_line(linewidth = 1.05) +
+  geom_line(aes(y = total_employees_civilians, color = "Civilians"), linewidth = 1.05) +
   xlab("Year") +
   ylab("# of Employees") +
   theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   expand_limits(y = 0) +
   labs(color = "Employee Type") +
   scale_color_crim()
 
 ```
 
-So now lets look at a local example: the Philadelphia Police Department as shown in Figure \@ref(fig:leokaCivilianOfficers). The number of civilian employees has remained at a little under 1,000 employees from about 1970 through the end of our data, though declining very slightly since the middle 2000s. This is curious since the city's population and crime trends have changed dramatically over this time and the ability of civilian employees to contribute has also changed, such as that they now have computers.^[The last time I heard, which was several years ago, patrol officers in Philadelphia still had to write up certain reports using typewriters. So tech apparently is still about 1960 level.] In contrast, the number of police has changed far more than civilians, growing rapidly in the 1960s and 1970s to peaking at a little over 8,000 officers in the mid-1970s before declining substantially to the 6,000s. in the late-1980s. As with some larger agencies nationwide, the number of officers increased in the 1990s and then has decreased steadily in ensuing years. By recent years there are about as many officers as in the late-1980s, even though the city's population has grown substantially since then. What stands out is that in 2020 there are zero sworn officers or civilians employees. By 2022 there are fewer sworn officers but more civilian employees than in 2020. 2021 is simply due to Philly reporting zero employees in that year, though obviously this is not actually a reflection of reality. When looking at only one city like we do here it is glaringly obvious that there is a data issue. The problem is that when looking at aggregate data, like we do in Figure \@ref(fig:leokaNationalEmployees) it is much harder, without additional data cleaning steps, to determine what is a data error and what is a true change.  
-    
-```{r leokaCivilianOfficers, fig.cap = "The number of civilian employees and sworn officers in the Philadelphia Police Department, 1960-2022"}
-leoka %>%
-  dplyr::filter(ori %in% "PAPEP00") %>%
-  ggplot(aes(x = year, y = total_employees_officers, color = "Officers")) +
-  geom_line(size = 1.05) +
-  geom_line(aes(y = total_employees_civilians, color = "Civilians"), size = 1.05) +
+```{r leokaNationalOfficers, fig.cap = "The percent of sworn officers by gender in the United States, 1960-2022"}
+temp <- leoka %>%
+  distinct(year, ori, .keep_all = TRUE) %>%
+  group_by(year) %>%
+  summarize(male_employees_officers = sum(male_employees_officers, na.rm = TRUE),
+            female_employees_officers = sum(female_employees_officers, na.rm = TRUE)) %>%
+  ungroup() %>%
+  mutate(total_officers = male_employees_officers + female_employees_officers,
+         male_prop = male_employees_officers / total_officers,
+         female_prop = female_employees_officers / total_officers) %>%
+  ggplot(aes(x = year, y = male_prop, color = "Male Officers")) +
+  geom_line(linewidth = 1.05) +
+  geom_line(aes(y = female_prop, color = "Female Officers"), linewidth = 1.05) +
   xlab("Year") +
   ylab("# of Employees") +
   theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
+  expand_limits(y = 0) +
+  labs(color = "") +
+  scale_color_manual(values = c("Female Officers" = "#1b9e77",
+                                "Male Officers" = "#d95f02"))
+```
+
+So now lets look at a local example: the Philadelphia Police Department as shown in Figure \@ref(fig:leokaCivilianOfficers). The number of civilian employees has remained at a little under 1,000 employees from about 1970 through the end of our data, though declining very slightly since the middle 2000s. This is curious since the city's population and crime trends have changed dramatically over this time and the ability of civilian employees to contribute has also changed, such as that they now have computers.^[The last time I heard, which was several years ago, patrol officers in Philadelphia still had to write up certain reports using typewriters. So tech apparently is still about 1960 level.] In contrast, the number of police has changed far more than civilians, growing rapidly in the 1960s and 1970s to peaking at a little over 8,000 officers in the mid-1970s before declining substantially to the 6,000s. in the late-1980s. As with some larger agencies nationwide, the number of officers increased in the 1990s and then has decreased steadily in ensuing years. By recent years there are about as many officers as in the late-1980s, even though the city's population has grown substantially since then. What stands out is that in 2020 there are zero sworn officers or civilians employees. By 2022 there are fewer sworn officers but more civilian employees than in 2020. 2021 is simply due to Philly reporting zero employees in that year, though obviously this is not actually a reflection of reality. When looking at only one city like we do here it is glaringly obvious that there is a data issue. The problem is that when looking at aggregate data, like we do in Figure \@ref(fig:leokaNationalEmployees) it is much harder, without additional data cleaning steps, to determine what is a data error and what is a true change.  
+
+```{r leokaCivilianOfficers, fig.cap = "The number of civilian employees and sworn officers in the Philadelphia Police Department, 1960-2022"}
+leoka$total_employees_officers[leoka$ori %in% "PAPEP00" &
+                                 leoka$total_employees_officers %in% 0] <- NA
+leoka$total_employees_civilians[leoka$ori %in% "PAPEP00" &
+                                  leoka$total_employees_civilians %in% 0] <- NA
+leoka %>%
+  dplyr::filter(ori %in% "PAPEP00") %>%
+  ggplot(aes(x = year, y = total_employees_officers, color = "Officers")) +
+  geom_path(linewidth = 1.05) +
+  geom_path(aes(y = total_employees_civilians, color = "Civilians"), linewidth = 1.05) +
+  geom_point(size = 1.05, aes(y = total_employees_officers, color = "Officers")) +
+  geom_point(aes(y = total_employees_civilians, color = "Civilians"), size = 1.05) +
+  xlab("Year") +
+  ylab("# of Employees") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   expand_limits(y = 0) +
   labs(color = "Employee Type") +
-  scale_color_crim()
+  scale_color_manual(values = c("Officers" = "#1b9e77",
+                                "Civilians" = "#d95f02"))
 ```
 
 We can also look at the number of officers (or civilian employees) by gender. Figure \@ref(fig:leokaOfficersGender) shows the percent of Philadelphia police officers by gender while Figure \@ref(fig:leokaOfficersGenderCount) shows the number of officers. For the first decade of data all female officers (or civilians) were recorded as male, so that variable should be interpreted as "total officers" until 1971 when it is split into gender. Starting at basically 0% of officers in 1971, female officers grew until they made up about a quarter of officers in 2000 and then has declined slowly since then.^[Please note that since Philly did not report in 2021 the 2021 value is NA, and is shown in the figure as the 2020 data point drawing a straight line to the 2022 data point.] 
 
 ```{r leokaOfficersGender, fig.cap = "The percent of female and male sworn officers in Philadelphia, 1960-2022"}
-leoka %>%
+
+temp <- 
+  leoka %>%
   dplyr::filter(ori %in% "PAPEP00") %>%
   mutate(total_officers = female_employees_officers+male_employees_officers,
          male_employees_officers = male_employees_officers / total_officers,
-         female_employees_officers = female_employees_officers / total_officers) %>%
-  filter(total_officers > 0) %>%
+         female_employees_officers = female_employees_officers / total_officers) 
+
+temp$male_employees_officers[temp$total_officers %in% 0] <- NA
+temp$female_employees_officers[temp$total_officers %in% 0] <- NA
+temp %>%
   ggplot(aes(x = year, y = female_employees_officers, color = "Female Officers")) +
-  geom_line(size = 1.05) +
-  geom_line(aes(y = male_employees_officers, color = "Male Officers"), size = 1.05) +
+  geom_path(linewidth = 1.05) +
+  geom_point(size = 1.05) +
+  geom_path(aes(y = male_employees_officers, color = "Male Officers"), linewidth = 1.05) +
+  geom_point(aes(y = male_employees_officers, color = "Male Officers"), size = 1.05) +
   xlab("Year") +
   ylab("% of Officers") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
   expand_limits(y = 0) +
   labs(color = "") +
-  scale_color_crim()
-```
-
-```{r leokaOfficersGenderCount, fig.cap = "The number of female and male sworn officers in Philadelphia, 1960-2022"}
-leoka %>%
-  dplyr::filter(ori %in% "PAPEP00") %>%
-  ggplot(aes(x = year, y = female_employees_officers, color = "Female Officers")) +
-  geom_line(size = 1.05) +
-  geom_line(aes(y = male_employees_officers, color = "Male Officers"), size = 1.05) +
-  xlab("Year") +
-  ylab("# of Officers") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
-  expand_limits(y = 0) +
-  labs(color = "") +
-  scale_color_crim()
-
+  scale_color_manual(values = c("Female Officers" = "#1b9e77",
+                                "Male Officers" = "#d95f02"))
 ```
 
 
@@ -168,16 +186,16 @@ There is almost no information about officers killed. The data only breaks this 
 
 We can look at what data is available through Figure \@ref(fig:leokaOfficersKilled) which shows the number of Los Angeles Police Department officers killed over time. There are no accidental killings until 1975 though this is misleading because that accidental killings variable is not reported until 1971, which is a year in which many other variables in this data began reporting. So we actually have no idea how many officers were killed accidentally from 1960-1970 since this variable is always reported as 0. In general it seems like there is about one officer killed per year in recent decades while the period from 1980 to 2000 was the time of highest danger with as many as five officers killed in a single year. We can also see some trend changes with felonious killings more common than accidental killings in the 1990s and then accidental killings becoming far more common starting in 2000.
 
-```{r leokaOfficersKilled, fig.cap = "The number of officers killed by felony and killed accidentally in Los Angeles, 1960-2022"}
+```{r leokaOfficersKilled, fig.cap = "The number of officers killed by felony and killed accidentally in New York City, 1960-2022"}
 leoka %>%
-  dplyr::filter(ori %in% "CA01942") %>%
+  dplyr::filter(ori %in% "NY03030") %>%
   ggplot(aes(x = year, y = officers_killed_by_felony, color = "Killed by Felony")) +
-  geom_line(size = 1.05) +
-  geom_line(aes(y = officers_killed_by_accident, color = "Killed Accidentally"), size = 1.05) +
+  geom_line(linewidth = 1.05) +
+  geom_line(aes(y = officers_killed_by_accident, color = "Killed Accidentally"), linewidth = 1.05) +
   xlab("Year") +
   ylab("# of Officers") +
   theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   expand_limits(y = 0) +
   labs(color = "") +
   scale_color_crim()
@@ -193,12 +211,12 @@ leoka %>%
   summarize(officers_killed_by_felony = sum(officers_killed_by_felony, na.rm = TRUE),
             officers_killed_by_accident = sum(officers_killed_by_accident, na.rm = TRUE)) %>%
   ggplot(aes(x = year, y = officers_killed_by_felony, color = "Killed by Felony")) +
-  geom_line(size = 1.05) +
-  geom_line(aes(y = officers_killed_by_accident, color = "Killed Accidentally"), size = 1.05) +
+  geom_line(linewidth = 1.05) +
+  geom_line(aes(y = officers_killed_by_accident, color = "Killed Accidentally"), linewidth = 1.05) +
   xlab("Year") +
   ylab("# of Officers") +
   theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   expand_limits(y = 0) +
   labs(color = "") +
   scale_color_crim()
@@ -209,19 +227,19 @@ leoka %>%
 This data breaks down the monthly number of assaults on officers in a few different ways. Here, we will look at the number of assaults where the officer is injured or not injured and within these categories by which weapon the offender had. This is the number of officers assaulted so if an incident has three officers assaulted, that will count as three different assaults. If the offender used multiple weapons then only the most serious weapon would be counted. For example, if an offender used a knife and a gun during the assault, the assault would be counted as a gun assault. Unfortunately we only know if an officer was injured or not and not the severity of the injury. So we cannot tell if the officer is merely bruised or was shot or stabbed. 
 
 * Assaults with injury
-    + Offender has firearm
-    + Offender had knife
-    + Offender had other weapon
-    + Offender was unarmed
++ Offender has firearm
++ Offender had knife
++ Offender had other weapon
++ Offender was unarmed
 * Assaults without injury
-    + Offender has firearm
-    + Offender had knife
-    + Offender had other weapon
-    + Offender was unarmed
-    
++ Offender has firearm
++ Offender had knife
++ Offender had other weapon
++ Offender was unarmed
+
 We can start by looking at the breakdown of assaults by injury and weapon type for officers in the Los Angeles Police Department. Figure \@ref(fig:leokaAssaultTypeInjury) shows the number of assaults from all years reported for these categories. Over the complete time period there were almost 43,000 officers assaulted with about three-quarters of these assaults - 33,000 assaults - leading to no injuries. This data shows the number of officers assaulted, not unique officers, so an officer can potentially be included in the data multiple times if they are assaulted multiple times over a year. A little under a quarter of assaults lead to officer injury with most of these from unarmed offenders. Interestingly, there are far more gun and knife assaults where the officer is not injured than where the officer is injured. There are likely cases when the offender threatens the officer with the weapon but does not shoot or stab the officer. 
-    
-```{r leokaAssaultTypeInjury, fig.cap = "The total number of assaults on officers by injury sustained and offender weapon in Los Angeles, 1960-2022."}
+
+```{r leokaAssaultTypeInjury, fig.cap = "The total number of assaults on officers by injury sustained and offender weapon in Los Angeles, 1960-2022.", fig.height = 18}
 assault_type <- leoka %>%
   filter(ori %in% "CA01942") %>%
   mutate(dummy = 1,
@@ -298,22 +316,22 @@ ggplot(assault_type %>% filter(type != "Total Assaults"),
 
 We can also look at assaults over time. Figure \@ref(fig:leokaAssaultsInjuryYear) shows the number of assaults, assaults with injury, and assault without injury for the Los Angeles Police Department from 1960 to 2018. We can immediately see some data issues are there are years with no assaults recorded. And in the late-2000s there is a sudden drop from about 250 assaults with injuries per year in the previous few decades to nearly zero officer injuries reported a year. This strongly suggests some change in reporting rather than a true decrease in assaults with injuries. For the decades where the data is less obviously wrong, there is a consistent trend of most assaults leading to no injuries, though the distance between the number of injury and non-injury assaults fluctuates over time. 
 
-```{r leokaAssaultsInjuryYear, fig.cap = "The annual number of assaults on officers by injury sustained in Los Angeles, 1960-2022."}
+```{r leokaAssaultsInjuryYear, fig.cap = "The annual number of assaults on officers by injury sustained in New York City, 1960-2022."}
 leoka %>%
-  filter(ori %in% "CA01942") %>%
+  filter(ori %in% "NY03030") %>%
   mutate(assaults_total_assaults = assaults_with_injury_total + assaults_no_injury_total) %>%
   group_by(year) %>%
   summarize(assaults_total_assaults = sum(assaults_total_assaults),
-         assaults_with_injury_total = sum(assaults_with_injury_total),
-         assaults_no_injury_total   = sum(assaults_no_injury_total)) %>%
-ggplot(aes(x = year, y = assaults_total_assaults, color = "Total Assaults")) +
-  geom_line(size = 1.05) +
-  geom_line(aes(y = assaults_with_injury_total, color = "With Injuries"), size = 1.05) +
-  geom_line(aes(y = assaults_no_injury_total, color = "No Injuries"), size = 1.05) +
+            assaults_with_injury_total = sum(assaults_with_injury_total),
+            assaults_no_injury_total   = sum(assaults_no_injury_total)) %>%
+  ggplot(aes(x = year, y = assaults_total_assaults, color = "Total Assaults")) +
+  geom_line(linewidth = 1.05) +
+  geom_line(aes(y = assaults_with_injury_total, color = "With Injuries"), linewidth = 1.05) +
+  geom_line(aes(y = assaults_no_injury_total, color = "No Injuries"), linewidth = 1.05) +
   xlab("Year") +
   ylab("# of Assaults") +
   theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   expand_limits(y = 0) +
   labs(color = "") +
   scale_color_crim()
@@ -393,18 +411,18 @@ ggplot(call_type, aes(x = assaults, y = type)) +
 Within these call types is also a breakdown by offender weapon use, with the same weapons as above, and the type of officer assignment which is essentially if they are alone or not and if they are on foot or not. Finally, it says how many assaults are cleared by arrest or cleared through exceptional means, though it does not differentiate between the two. The shift assignment is essentially how they go through their normal day, if this is in a vehicle, alone, as a detective, or under a different assignment (including being off-duty). For example, being in a vehicle with two officers  means that their normal assignment is driving in a vehicle, not that they were actually assaulted in said vehicle. This also does not necessarily mean that these are the only officers at the scene. It is simply the shift assignment of the officer who is assaulted. For example, if an officer who normally works alone in a vehicle shows up to a scene where other officers are present, and who are under different shift assignments, and gets assaulted - and no one else gets assaulted - that is an assault for officers "in a vehicle alone". 
 
 * Offender weapons
-    + Offender has firearm
-    + Offender had knife
-    + Offender had other weapon
-    + Offender was unarmed
++ Offender has firearm
++ Offender had knife
++ Offender had other weapon
++ Offender was unarmed
 * Type of officer shift assignment
-    + In a vehicle with two officers
-    + In a vehicle alone
-    + In a vehicle alone but assisted by other officers
-    + Detective or special unit alone
-    + Detective or special unit assisted by other officers
-    + Other assignment alone
-    + Other assignment assisted by other officers
++ In a vehicle with two officers
++ In a vehicle alone
++ In a vehicle alone but assisted by other officers
++ Detective or special unit alone
++ Detective or special unit assisted by other officers
++ Other assignment alone
++ Other assignment assisted by other officers
 * Number of assaults on police cleared
 
 We will look specifically at disturbance calls since they are the most common call type, at least for the Los Angeles Police Department. Figure \@ref(fig:leokaDisturbanceWeapon) shows the total number of disturbance assaults by offender weapon in Los Angeles. Most assaults have an unarmed offender with a sharp decline to the number of offenders with a weapon other than a gun or knife. Assaults by a gun and by a knife are the least common. 
@@ -435,6 +453,9 @@ call_type <- call_type %>% arrange(desc(assaults))
 call_type$type <- gsub("Susp Pers", "Suspicious Person", call_type$type)
 call_type$type <- gsub("Oth Weap", "Other Weapon", call_type$type)
 call_type$type <- gsub("Veh", "Vehicle", call_type$type)
+call_type$type <- gsub("Assaults?", "", call_type$type)
+call_type$type <- trimws(call_type$type)
+
 call_type$type <- factor(call_type$type, levels = rev(call_type$type))
 
 
@@ -494,7 +515,7 @@ ggplot(call_type, aes(x = assaults, y = type)) +
 
 ```
 
-    
+
 ### Assaults by time
 
 The final breakdown in assaults is by the time they occur, divided into 12 two-hour chunks starting at 12:01am. Like some other variables this data is only available starting in 1971. There is no more information than total assaults in this time so we do not know if the assaults led to injuries, the type of call or shift assignment the officer was on, or the offender's weapons. 

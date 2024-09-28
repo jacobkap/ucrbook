@@ -1,7 +1,7 @@
 --- 
 title: "Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data"
 author: "Jacob Kaplan, Ph.D."
-date: "2024-09-18"
+date: "2024-09-27"
 bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
@@ -14,7 +14,6 @@ documentclass: krantz
 monofont: "Source Code Pro"
 monofontoptions: "Scale=0.7"
 graphics: yes
-always_allow_html: true
 ---
 
 
@@ -42,16 +41,24 @@ UCR data is important for three reasons:
 
 More than many other datasets, there will be times when using UCR data that you will think "that is weird". This book will cover this weirdness and when we think the weirdness is just an odd - but acceptable - quirk of the data, and when it is a sign of a big problem in the data or in that particular variable and that we should avoid using it. For most of this book we will be discussing the caveats of the above reasons - or, more directly, why these assumptions are wrong - but these are the reasons why the data is so influential. 
 
-<div class="figure">
-<img src="index_files/figure-html/nibrsAnnualPercentPopulationIndex-1.png" alt="The annual percent of the United States population that is covered by an agency reporting data to NIBRS." width="100%" height="100%" />
-<p class="caption">(\#fig:nibrsAnnualPercentPopulationIndex)The annual percent of the United States population that is covered by an agency reporting data to NIBRS.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{index_files/figure-latex/nibrsAnnualPercentPopulationIndex-1} 
+
+}
+
+\caption{The annual percent of the United States population that is covered by an agency reporting data to NIBRS.}(\#fig:nibrsAnnualPercentPopulationIndex)
+\end{figure}
 
 
-<div class="figure">
-<img src="index_files/figure-html/nibrsStateParticipation2020Index-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022." width="100%" height="100%" />
-<p class="caption">(\#fig:nibrsStateParticipation2020Index)The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{index_files/figure-latex/nibrsStateParticipation2020Index-1} 
+
+}
+
+\caption{The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022.}(\#fig:nibrsStateParticipation2020Index)
+\end{figure}
 
 ## Goal of the book
 
@@ -80,30 +87,6 @@ BibTeX format:
 }
 ```
 
-## Sources of UCR data
-
-### My own collection
-
-#### openICPSR
-
-#### [Crimedatatool.com][https://crimedatatool.com/]
-
-### NACJD
-
-### FBI (raw data)
-
-### Raw data
-
-### Crime Data Explorer
-
-### Crimes in the United States report
-
-
-
-### FBI (Crime Data Explorer)
-
-### FBI (Crimes in the United States Report)
-
 There are a few different sources of UCR data available today. First, and probably most commonly used, is the data put together by the [National Archive of Criminal Justice Data (NACJD)](https://www.icpsr.umich.edu/web/pages/NACJD/index.html)). This a team out of the University of Michigan who manages a huge number of criminal justice datasets and makes them available to the public. If you have any questions about crime data - UCR or other crime data - I highly recommend you reach out to them for answers. They have a collection of data and excellent documentation available for UCR data available on their site [here](https://www.icpsr.umich.edu/web/NACJD/series/57). One limitation to their data, however, is that each year of data is available as an individual file meaning that you will need to concatenate each year together into a single file. Some years also have different column names (generally minor changes like spelling robbery "rob" one year and "robb" the next) which requires more work to standardize before you could concatenate. They also only have data through 2016 which means that the most recent years (UCR data is available through 2019) of data are (as of this writing) unavailable. 
 
 Next, and most usable for the general public - but limited for researchers - is the FBI's official website [Crime Data Explorer](https://crime-data-explorer.fr.cloud.gov/). On this site you can chose an agency and see annual crime data (remember, UCR data is monthly so this is not as detailed as it can be) for certain crimes (and not even all the crimes actually available in the data). This is okay for the general public but only provides a fraction of the data available in the actual data so is really not good for researchers. 
@@ -121,10 +104,14 @@ If you have any questions, suggestions (such as a topic to cover), or find any i
 
 For more minor issues like typos or grammar mistakes, you can edit the book directly through its GitHub page. That will make an update for me to accept, which will change the book to include your edit. To do that, click the edit button at the top of the site - the button is highlighted in the below figure. You will need to make a GitHub account to make edits. When you click on that button you will be taken to a page that looks like a Word Doc where you can make edits. Make any edits you want and then scroll to the bottom of the page. There you can write a short (please, no more than a sentence or two) description of what you have done and then submit the changes for me to review.
 
-<div class="figure">
-<img src="images/edit_button.PNG" alt="The edit button for how to make edits of this book." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-3)The edit button for how to make edits of this book.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{images/edit_button} 
+
+}
+
+\caption{The edit button for how to make edits of this book.}(\#fig:unnamed-chunk-3)
+\end{figure}
 
 Please only use the above two methods to contribute or make suggestions about the book. While it is a bit more work for you to do it this way, since you will need to make a GitHub account if you do not already have one, it helps me organize all the questions in one place and update the book if I decide to add answers to certain questions. 
 
@@ -139,10 +126,15 @@ When dealing with specific agencies, make sure to use the ORI rather than the ag
 
 We will finish this overview of the SRS data by briefly talking about format of the data that is released by the FBI, before the processing done by myself or [NACJD](https://www.icpsr.umich.edu/web/pages/NACJD/index.html) that converts the data to a type that software like R or Stata or Excel can understand. The FBI releases their data as fixed-width ASCII files which are basically just an Excel file but with all of the columns squished together. As an example, Figure \@ref(fig:SRSascii) shows what the data looks like as you receive it from the FBI for the Offenses Known and Clearances by Arrest dataset for 1960, the first year with data available. In the figure, it seems like there are multiple rows but that is just because the software that I opened the file in is not wide enough - in reality what is shown is a single row that is extremely wide because there are over 1,500 columns in this data. If you scroll down enough you will see the next row, but that is not shown in the current image. What is shown is a single row with a ton of columns all pushed up next to each other. Since all of the columns are squished together (the gaps are just blank spaces because the value there is a space, but that does not mean there is a in the data. Spaces are possible values in the data and are meaningful), you need some way to figure out which parts of the data belong in which column. 
 
-<div class="figure">
-<img src="images/nibrs_ascii.PNG" alt="Fixed-width ASCII file for the 1991 National Incident-Based Reporting System (NIBRS) dataset." width="100%" height="100%" />
-<p class="caption">(\#fig:ascii)Fixed-width ASCII file for the 1991 National Incident-Based Reporting System (NIBRS) dataset.</p>
-</div>
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{images/nibrs_ascii} 
+
+}
+
+\caption{Fixed-width ASCII file for the 1991 National Incident-Based Reporting System (NIBRS) dataset.}(\#fig:ascii)
+\end{figure}
 
 The "fixed-width" part of the file type is how this works (the ASCII part basically means it is a text file). Each row is the same width - literally the same number of characters, including blank spaces. So you must tell the software you are using to process this file - by literally writing code in something called a "setup file" but is basically just instructions for whatever software you use (R, SPSS, Stata, SAS can all do this) - which characters are certain columns. For example, in this data the first character says which type of SRS data it is (1 means the Offenses Known and Clearances by Arrest data) and the next two characters (in the setup file written as 2-3 since it is characters 2 through 3 [inclusive]) are the state number (01 is the state code for Alabama). So we can read this row as the first column indicating it is an Offenses Known data, the second column indicating that it is for the state of Alabama, and so on for each of the remaining columns. To read in this data you will need a setup file that covers every column in the data (some software, like R, can handle just reading in the specific columns you want and do not need to include every column in the setup file). 
 
@@ -170,51 +162,75 @@ The population value is the population who reside in that jurisdiction and does 
 
 When an agency reports their data to the FBI, they do so voluntarily - there is no national requirement to report.^[Some states do mandate that their agencies report, but this is not always followed.] This means that there is inconsistency in which agencies report, how many months of the year they report for, and which variables they include in their data submissions. 
 
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{index_files/figure-latex/nibrsAnnualNumberAgenciesIndex-1} 
+
+}
+
+\caption{The annual number of police agencies that report data to NIBRS.}(\#fig:nibrsAnnualNumberAgenciesIndex)
+\end{figure}
+
 In general, more agencies report their data every year and once an agency begins reporting data they tend to keep reporting. The SRS datasets are a collection of separate, though related, datasets and an agency can report to as many of these datasets as they want - an agency that reports to one dataset does not mean that they report to other datasets. Figure \@ref(fig:SRSagenciesReporting) shows the number of agencies that submitted at least one month of data to the Offenses Known and Clearances by Arrest data in the given year. For the first decade of available data under 8,000 agencies reported data and this grew to over 13,500 by the late 1970s before plateauing for about a decade. The number of agencies that reported their data actually declined in the 1990s, driven primarily by many Florida agencies temporarily dropping out, before growing steadily to nearly 17,000 agencies in 2010; from here it kept increasing but slower than before. 
 
-<div class="figure">
-<img src="index_files/figure-html/SRSagenciesReporting-1.png" alt="The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year." width="100%" height="100%" />
-<p class="caption">(\#fig:SRSagenciesReporting)The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{index_files/figure-latex/SRSagenciesReporting-1} 
+
+}
+
+\caption{The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.}(\#fig:SRSagenciesReporting)
+\end{figure}
 
 There are approximately 18,000 police agencies in the United States so recent data has reports from nearly all agencies, while older data has far fewer agencies reporting. When trying to estimate to larger geographies, such as state or national-level, later years will be more accurate as you are missing less data. For earlier data, however, you are dealing with a smaller share of agencies meaning that you have a large amount of missing data and a less representative sample. 
 
-Figure \@ref(fig:bigAgenciesReporting) repeats the above figure but now including only agencies with 100,000 people or more in their jurisdiction. While these agencies have a far more linear trend than all agencies, the basic lesson is the same: recent data has most agencies reporting; old data excludes many agencies. 
 
-<div class="figure">
-<img src="index_files/figure-html/bigAgenciesReporting-1.png" alt="The annual number of agencies with a population of 100,000 or higher reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year." width="100%" height="100%" />
-<p class="caption">(\#fig:bigAgenciesReporting)The annual number of agencies with a population of 100,000 or higher reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.</p>
-</div>
 
 This voluntariness extends beyond whether they report or not, but into which variables they report. While in practice most agencies report every crime when they report any, they do have the choice to report only a subset of offenses. This is especially true for subsets of larger categories - such as gun assaults, a subset of aggravated assaults, or marijuana possession arrests which is a subset of drug possession arrests. As an example, Figure \@ref(fig:nycGunAssaults) shows the annual number of aggravated assaults with a gun in New York City. In 2003 the New York Police Department stopped reporting this category of offense, resuming only in 2013. They continued to report the broader aggravated assault category, but not any of the subsections of aggravated assaults which say which weapon was used during the assault.
 
-<div class="figure">
-<img src="index_files/figure-html/nycGunAssaults-1.png" alt="Monthly reports of gun assaults in New York City, 1960-2022." width="100%" height="100%" />
-<p class="caption">(\#fig:nycGunAssaults)Monthly reports of gun assaults in New York City, 1960-2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{index_files/figure-latex/nycGunAssaults-1} 
+
+}
+
+\caption{Monthly reports of gun assaults in New York City, 1960-2022.}(\#fig:nycGunAssaults)
+\end{figure}
 
 Given that agencies can join or drop out of the SRS program at will, and report only partial data, it is highly important to carefully examine your data to make sure that there are no issues caused by this. 
 
 Even when an agency reports SRS data, and even when they report every crime category, they can report fewer than 12 months of data. In some cases they simply report all of their data in December, or report quarterly or semi-annually so some months have zero crimes reported while others count multiple months in that month's data. One example of this is New York City, shown in Figure \@ref(fig:nycMurderMonthly), in the early-2000s to the mid-2010s where they began reporting data quarterly instead of monthly. 
 
-<div class="figure">
-<img src="index_files/figure-html/nycMurderMonthly-1.png" alt="Monthly murders in New York City, 1990-2022. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting." width="100%" height="100%" />
-<p class="caption">(\#fig:nycMurderMonthly)Monthly murders in New York City, 1990-2022. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{index_files/figure-latex/nycMurderMonthly-1} 
+
+}
+
+\caption{Monthly murders in New York City, 1990-2022. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting.}(\#fig:nycMurderMonthly)
+\end{figure}
 
 When you sum up each month into an annual count, as shown in Figure \@ref(fig:nycMurderYearly), the problem disappears since the zero months are accounted for in the months that have the quarterly data. If you are using monthly data and only examine the data at the annual level, you will fall into the trap of having incorrect data that is hidden due to the level of aggregation examined. While cases like NYC are obvious when viewed monthly, for people that are including thousands of agencies in their data, it is unfeasible to look at each agency for each crime included. This can introduce errors as the best way to examine the data is manually viewing graphs and the automated method, looking for outliers through some kind of comparison to expected values, can be incorrect.   
 
-<div class="figure">
-<img src="index_files/figure-html/nycMurderYearly-1.png" alt="Annual murders in New York City, 1990-2022." width="100%" height="100%" />
-<p class="caption">(\#fig:nycMurderYearly)Annual murders in New York City, 1990-2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{index_files/figure-latex/nycMurderYearly-1} 
+
+}
+
+\caption{Annual murders in New York City, 1990-2022.}(\#fig:nycMurderYearly)
+\end{figure}
 
 In other cases when agencies report fewer than 12 months of the year, they simply report partial data and as a result undercount crimes. Figure \@ref(fig:miamiDadeMurderAnnual) shows annual murders in Miami-Dade, Florida and has three years of this issue occurring. The first two years with this issue are the two where zero murders are reported - this is because the agency did not report any months of data. The final year is in 2018, the last year of data in this graph, where it looks like murder suddenly dropped significantly. That is just because Miami-Dade only reported through June, so they are missing half of 2018. 
 
-<div class="figure">
-<img src="index_files/figure-html/miamiDadeMurderAnnual-1.png" alt="Annual murders in Miami-Dade, Florida, 1960-2022." width="100%" height="100%" />
-<p class="caption">(\#fig:miamiDadeMurderAnnual)Annual murders in Miami-Dade, Florida, 1960-2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{index_files/figure-latex/miamiDadeMurderAnnual-1} 
+
+}
+
+\caption{Annual murders in Miami-Dade, Florida, 1960-2022.}(\#fig:miamiDadeMurderAnnual)
+\end{figure}
 
 ### Zero crimes vs no reports
 
@@ -225,9 +241,13 @@ In some cases it is easy to see when a zero crimes reported is actually the agen
 Differentiating zero crimes and no reports becomes tricky in agencies that tend to report few crimes, which most small towns do. As an example, Figure \@ref(fig:danvilleRape) shows the annual reports of rape in Danville, California, a city of approximately 45,000 people. The city reports on average 2.8 rapes per year and in five years reported zero rapes. In cases like this it is not clear whether we should consider those zero years as true zeros (that no one was raped or reported their rape to the police) or whether the agency simply did not report rape data that year.  
 
 
-<div class="figure">
-<img src="index_files/figure-html/danvilleRape-1.png" alt="Annual rapes reported in Danville, CA, 1960-2022." width="100%" height="100%" />
-<p class="caption">(\#fig:danvilleRape)Annual rapes reported in Danville, CA, 1960-2022.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{index_files/figure-latex/danvilleRape-1} 
+
+}
+
+\caption{Annual rapes reported in Danville, CA, 1960-2022.}(\#fig:danvilleRape)
+\end{figure}
 
 ### Agency data covered by another agency

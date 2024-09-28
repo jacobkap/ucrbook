@@ -14,6 +14,7 @@ offense <- readRDS("data/nibrs_offense_segment_2022.rds")
 nibrs_offense_summary_stats <- readRDS("data/nibrs_summary_stats/nibrs_offense_summary_stats.rds")
 nibrs_offense_first_year <- readRDS("data/nibrs_summary_stats/nibrs_offense_first_year.rds")
 nibrs_location_first_year <- readRDS("data/nibrs_summary_stats/nibrs_location_first_year.rds")
+bias_motivation_first_year <- readRDS("data/nibrs_summary_stats/bias_motivation_first_year.rds")
 gc()
 ```
 
@@ -25,7 +26,7 @@ As you look through this data yourself you may be surprised that some common cri
 
 ## Crime category
 
-The most important variable in the Offense Segment is figuring out exactly what offense was committed. This tells you what crimes occurred in the incident. There can be multiple crimes in a single incident so this provides info about each offense that happened. To figure out which offenses belong together, just look at the incident number, year, and the ORI. Within ORI and year, each incident number is a unique identifier for an incident. Be careful that you're using all three of these variables as the incident number may be the same in different agencies, or in the same agency in different years, but these refer to different incidents.
+The most important variable in the Offense Segment is figuring out exactly what offense was committed. This tells you what crimes occurred in the incident. There can be multiple crimes in a single incident so this provides information about each offense that happened. To figure out which offenses belong together, just look at the incident number, year, and the ORI. Within ORI and year, each incident number is a unique identifier for an incident. Be careful that you're using all three of these variables as the incident number may be the same in different agencies, or in the same agency in different years, but these refer to different incidents.
 
 Each crime is mutually exclusive and crimes which are elements of another crime are not double-counted. For example, robberies are basically theft plus assault/intimidation - it is the use of force (assault) or the threat of force (intimidation) to take property (theft). A case of robbery in this data would only count as robbery, not as robbery and theft and assault/intimidation. If there are these crimes together in an incident that is because that crime *also* occurred separately. For example, if someone is robbed and after the robbery is over (i.e. they hand over their belongings) they are then punched repeatedly, that could potentially be classified as a robbery and an assault. 
 
@@ -52,7 +53,7 @@ temp$`First Year`[is.na(temp$`First Year`)] <- "-"
 kableExtra::kbl(temp, 
                 # format = "html",
                 digits = 2, 
-                align = c("l", "r", "r"),
+                align = c("l", "l", "r", "r"),
                 #booktabs = TRUE, 
                 longtable = TRUE,
                 escape = TRUE,
@@ -189,7 +190,7 @@ names(final) <- c("Crime Category", "\\% Completed", "% Attempted")
 kableExtra::kbl(final, 
                 #format = "html",
                 digits = 2, 
-                align = c("l", "r", "r"),
+                align = c("l", "l", "r", "r"),
                 #booktabs = TRUE, 
                 longtable = TRUE,
                 label = "offensesCompleted",
@@ -204,13 +205,14 @@ In Figure \@ref(fig:nibrsOffenseCompleted) we see the share of all offenses per 
 nibrs_offense_summary_stats  %>%
   ungroup() %>%
   ggplot(aes(x = year, y = percent_offense_completed )) +
-  geom_line(size = 1.05) +
+  geom_line(linewidth = 1.05) +
   xlab("Year") +
   ylab("% Completed") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
-  expand_limits(y = 0)
+  expand_limits(y = 0) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```
 
 ## Drug, alcohol, or computer use
@@ -225,7 +227,7 @@ Figure \@ref(fig:offenseDrugAlcoholComputer) shows the distribution is suspected
 offense %>%
   mutate(offender_suspected_of_using_1 = capitalize_words(offender_suspected_of_using_1)) %>%
   crimeutils::make_barplots("offender_suspected_of_using_1", count = FALSE, ylab = "% of Offenses") +
-  ggplot2::scale_y_continuous(labels = scales::percent)
+  ggplot2::scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA))
 ```
 
 Figure \@ref(fig:offenseDrugAlcoholComputerAny) shows the distribution of suspected use when excluding "Not Applicable." Drug usage is the most common thing offenders are suspected of using. In about 61% of offenses where the offender is suspected of using something (of the drugs, alcohol, or "computer equipment" choices), that something is drugs. Again, we do not know what type of drug was used, only that it was not alcohol. Alcohol follows at 30% while computer equipment is only 6%. 
@@ -235,7 +237,7 @@ offense %>%
   filter(offender_suspected_of_using_1 != "not applicable") %>%
   mutate(offender_suspected_of_using_1 = capitalize_words(offender_suspected_of_using_1)) %>%
   crimeutils::make_barplots("offender_suspected_of_using_1", count = FALSE, ylab = "% of Offenses") +
-  ggplot2::scale_y_continuous(labels = scales::percent)
+  ggplot2::scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA))
 ```
 
 ## Crime location
@@ -264,7 +266,7 @@ temp$`First Year`[is.na(temp$`First Year`)] <- "-"
 kableExtra::kbl(temp, 
                 #   format = "html",
                 digits = 2, 
-                align = c("l", "r", "r"),
+                align = c("l", "l", "r", "r"),
                 #booktabs = TRUE, 
                 longtable = TRUE,
                 label = "offenseLocation",
@@ -274,6 +276,33 @@ kableExtra::kbl(temp,
 ```
 
 Keep in mind that some locations may be an overly specific location that fits well into a broader category that you are interested in. For example, if you care about crimes that happen in stores you would look at "Bank/Savings and Loan", "Restaurant", "Bar/Nightclub," among other locations, which combined have a lot more offenses than any one individually. This is a recurring theme of NIBRS data - you have a lot of data and some of it is so specific that you need to do extra work to aggregate data into units you want.
+
+```{r}
+locations <- unique(offense$location_type)
+locations <- sort(locations)
+
+location_offense <- 
+  make_top_5_table(data = offense,
+                   filter_variable = "location_type",
+                   filter_values = locations,
+                   filter_variable_name = "Crime Location",
+                   other_variable = "ucr_offense_code",
+                   other_variable_name = "Offense",
+                   unit = "Offenses")
+
+kableExtra::kbl(location_offense, 
+                #   format = "html",
+                digits = 2, 
+                align = c("l", "l", "r", "r"),
+                #booktabs = TRUE, 
+                longtable = TRUE,
+                label = "offenseLocation",
+                escape = TRUE,
+                caption = "The most common offenses for each crime location, 2022.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+
+```
+
 
 ## Weapons {#offenseWeapons}
 
@@ -323,7 +352,6 @@ offenses_with_weapons <-
 
 
 final <- data.frame()
-unique(offense$type_weapon_force_involved_1)
 offense$type_weapon_force_involved_1[is.na(offense$type_weapon_force_involved_1)] <- "Unknown"
 offense$type_weapon_force_involved_1[offense$type_weapon_force_involved_1 %in% 16:17] <- "Unknown"
 for (crime in offenses_with_weapons) {
@@ -345,7 +373,7 @@ for (crime in offenses_with_weapons) {
 kableExtra::kbl(final, 
                 # format = "html",
                 digits = 2, 
-                align = c("l", "r", "r"),
+                align = c("l", "l", "r", "r"),
                 #booktabs = TRUE, 
                 longtable = TRUE,
                 label = "offenseWeapon",
@@ -359,56 +387,50 @@ We can use this dataset to look at, for example, trends in the type of weapon us
 ```{r nibrsMurdersWeapon, fig.cap="The annual percent of murders and nonnegligent homicides, by offender weapon, 1991-2022."}
 nibrs_offense_summary_stats  %>%
   ggplot(aes(x = year)) +
-  geom_line(aes(y = percent_murders_gun, color = "Gun"), size = 1.05) +
-  geom_line(aes(y = percent_murders_knife, color = "Knife"), size = 1.05) +
-  geom_line(aes(y = percent_murders_other_weapon, color = "Other"), size = 1.05) +
-  geom_line(aes(y = percent_murders_unarmed, color = "Unarmed"), size = 1.05) +
-  geom_line(aes(y = percent_murders_handgun, color = "Handgun"), size = 1.05) +
+  geom_line(aes(y = percent_murders_gun, color = "Gun"), linewidth = 1.05) +
+  geom_line(aes(y = percent_murders_knife, color = "Knife"), linewidth = 1.05) +
+  geom_line(aes(y = percent_murders_other_weapon, color = "Other"), linewidth = 1.05) +
+  geom_line(aes(y = percent_murders_unarmed, color = "Unarmed"), linewidth = 1.05) +
+  geom_line(aes(y = percent_murders_handgun, color = "Handgun"), linewidth = 1.05) +
   xlab("Year") +
   ylab("% at Murders") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0) +
   scale_color_manual(values = c("Gun" = "#a6cee3",
                                 "Knife" = "#1f78b4",
                                 "Other" = "#b2df8a",
                                 "Unarmed" = "#33a02c",
-                                "Handgun" = "black"))
+                                "Handgun" = "black")) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```
 
-## Automatic weapons
+### Automatic weapons
 
 When the weapon involved was a firearm there is a variable which indicates that the firearm was fully automatic. To be clear, this means that when you pull the trigger once the gun will fire multiple bullets. Semi-automatic firearms are **not** automatic firearms. Of course, saying a gun is fully automatic requires either the policing seizing the gun or the gun being fired (and for witnesses to accurately determine that it is fully automatic). Since many crimes are never solved (and even those that lead to an arrest may not lead to the gun being seized^[Though some guns are seized even without an arrest, such as if the gun is left at the crime scene], this variable is likely imprecise. Still, Figure \@ref(fig:offenseAutomaticWeapon) shows the percent of firearms used in offenses in 2022 that are reported to be fully automatic. Even though there can be up to three weapons used in an offense, this figure only looks at the first weapon. The most common guns to be automatic are rifles and handguns, both with about 5% of all uses being of an automatic weapon. The remaining categories are all under 3% of uses. 
 
-```{r offenseAutomaticWeapon, fig.cap = "The percent of firearms used that were fully automatic, for all offenses in 2022."}
-temp <- 
-  offense %>%
-  filter(type_weapon_force_involved_1 %in% c("firearm (type not stated)",
-                                             "handgun",
-                                             "other firearm",
-                                             "rifle",
-                                             "shotgun"))
-temp$automatic_binary <- 0
-temp$automatic_binary[temp$automatic_weapon_indicator_1 %in% "automatic weapon"] <- 1
+```{r offenseAutomaticWeapon, fig.cap = "The percent of firearms used that were fully automatic, for all offenses, 1991-2022."}
+nibrs_offense_summary_stats  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = percent_rifle_automatic, color = "Rifle"), linewidth = 1.05) +
+  geom_line(aes(y = percent_shotgun_automatic , color = "Shotgun"), linewidth = 1.05) +
+  geom_line(aes(y = percent_handgun_automatic , color = "Handgun"), linewidth = 1.05) +
+  geom_line(aes(y = percent_firearm_type_not_stated_automatic , color = "Firearm\n (type not\n stated)"), linewidth = 1.05) +
+  geom_line(aes(y = percent_other_firearm_automatic , color = "Other\n Firearm"), linewidth = 1.05) +
+  xlab("Year") +
+  ylab("% Automatic Weapon") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Rifle" = "#1b9e77",
+                                "Shotgun" = "#d95f02",
+                                "Handgun" = "#7570b3",
+                                "Firearm\n (type not\n stated)" = "#1f78b4",
+                                "Other\n Firearm" = "black")) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 
-temp <- 
-  temp %>%
-  group_by(type_weapon_force_involved_1) %>%
-  summarize(automatic_weapon = mean(automatic_binary)) %>%
-  mutate(type_weapon_force_involved_1 = capitalize_words(type_weapon_force_involved_1)) %>%
-  arrange(desc(automatic_weapon))
-temp$type_weapon_force_involved_1 <- factor(temp$type_weapon_force_involved_1, 
-                                            levels = rev(temp$type_weapon_force_involved_1))
-
-
-ggplot(temp, aes(x = type_weapon_force_involved_1, y = automatic_weapon)) +
-  geom_col() +
-  coord_flip() + 
-  ggplot2::scale_y_continuous(labels = scales::percent) + 
-  xlab("Weapon") +
-  ylab("% Automatic Weapon") + 
-  theme_crim()
 
 ```
 
@@ -416,7 +438,7 @@ ggplot(temp, aes(x = type_weapon_force_involved_1, y = automatic_weapon)) +
 
 For burglary offenses there are two variables that provide a little more information on the offense. The first variable is the number of "premises" that the burglar entered. This is only available when the location for the offense is either hotel/motel or a rental storage facility. So the "premise" can really be thought of as a room in the building, not that they break into multiple hotels. Figure \@ref(fig:offensePremisesEntered) shows the breakdown in the number of premises entered during a burglary incident. The graph is capped at ten or more for simplicity but in the data itself the number can go higher. The vast majority of hotel/motel and storage facility burglaries only have one room entered, with 87% of these burglaries only being on a single room. This declines enormously to 5% burglarizing two rooms and then more than halves to 2% burglarizing three rooms. This trend continues as the number of rooms increase. 
 
-```{r offensePremisesEntered, fig.cap = "The distribution in the number of premises entered during burglaries. This info is only available for burglaries in a hotel/motel or rental storage facilities."}
+```{r offensePremisesEntered, fig.cap = "The distribution in the number of premises entered during burglaries, 2022. This information is only available for burglaries in a hotel/motel or rental storage facilities."}
 
 
 offense$number_of_premises_entered[offense$number_of_premises_entered >= 10] <- "10 or more"
@@ -443,16 +465,17 @@ Figure \@ref(fig:nibrsBurglaryForce) shows the annual trend in the share of burg
 ```{r nibrsBurglaryForce, fig.cap="The annual percent of burglaries, by whether entry used force, 1991-2022."}
 nibrs_offense_summary_stats  %>%
   ggplot(aes(x = year)) +
-  geom_line(aes(y = percent_burglary_force, color = "Force"), size = 1.05) +
-  geom_line(aes(y = percent_burglary_no_force , color = "No Force"), size = 1.05) +
+  geom_line(aes(y = percent_burglary_force, color = "Force"), linewidth = 1.05) +
+  geom_line(aes(y = percent_burglary_no_force , color = "No Force"), linewidth = 1.05) +
   xlab("Year") +
   ylab("% of Burglaries") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0) +
   scale_color_manual(values = c("Force" = "#1b9e77",
-                                "No Force" = "#d95f02"))
+                                "No Force" = "#d95f02")) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```
 
 ## Hate crime indicator (bias motivation)
@@ -477,7 +500,7 @@ temp <- make_frequency_table(temp,
 kableExtra::kbl(temp, 
                 #  format = "html",
                 digits = 2, 
-                align = c("l", "r", "r"),
+                align = c("l", "l", "r", "r"),
                 #booktabs = TRUE, 
                 longtable = TRUE,
                 escape = TRUE,
@@ -501,30 +524,101 @@ temp <- make_frequency_table(temp[!temp$bias_motivation %in% c("no bias motivati
                              "bias_motivation",
                              c("Bias Motivation",
                                "\\# of Offenses",
-                               "\\% of Offenses"))
+                               "\\% of Offenses")) %>%
+  left_join(bias_motivation_first_year  %>% 
+              mutate(bias_motivation = capitalize_words(bias_motivation)) %>%
+              rename(`Bias Motivation` = bias_motivation)) %>%
+  select(`Bias Motivation`,
+         `First Year` = year,
+         everything())
+temp$`First Year`[is.na(temp$`First Year`)] <- "-"
+
 kableExtra::kbl(temp, 
                 #  format = "html",
                 digits = 2, 
-                align = c("l", "r", "r"),
+                align = c("l", "l", "r", "r"),
                 #booktabs = TRUE, 
                 longtable = TRUE,
                 label = "offenseBiasMotivationBiases",
                 escape = TRUE,
-                caption = "The bias motivation (i.e. if it was a hate crime and what type of hate crime) for all incidents reported in 2022 that were classified as hate crimes. For easier viewing of how hate crimes are broken down, this excludes all offenses where there was no bias motivation.") %>%
+                caption = "The bias motivation (i.e. if it was a hate crime and what type of hate crime) for all incidents reported in 2022 that were classified as hate crimes.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 Even as the number of agencies reporting to NIBRS increased over time, the share of offenses that are considered hate crimes has remained fairly steady, as shown in Figure \@ref(fig:nibrsOffenseBias) with no year having more than 0.1% of offenses considered hate crimes. 
 
+```{r}
+biases <- unique(offense$bias_motivation)
+biases <- biases[!biases %in% c("no bias motivation",
+                                "unknown bias motivation")]
+biases <- sort(biases)
+
+final <- data.frame()
+for (bias in biases) {
+  temp <- make_frequency_table(offense %>% filter(bias_motivation %in% bias) %>%
+                                 distinct(unique_incident_id,
+                                          bias_motivation,
+                                          ucr_offense_code),
+                               "ucr_offense_code",
+                               c("Offense",
+                                 "\\# of Offenses",
+                                 "\\% of Offenses")) %>%
+    mutate(bias = capitalize_words(bias)) %>%
+    select(`bias`,
+           `Offense`,
+           "\\# of Offenses",
+           "\\% of Offenses")
+  
+  temp_final <- temp[nrow(temp), ]
+  temp <- temp[-nrow(temp), ]
+  temp_other <- temp
+  names(temp_other)[3:4] <- c("count", "percent")
+  temp_other_count <- sum(parse_number(temp_other$count[6:nrow(temp_other)]))
+  temp_other_percent <- sum(parse_number(temp_other$percent[6:nrow(temp_other)]))
+  temp_other <- data.frame(bias = bias,
+                           offense = "All Other",
+                           count = temp_other_count,
+                           percent = temp_other_percent) %>%
+    mutate(count = prettyNum(count, big.mark = ","),
+           percent = paste0(percent, "\\%")) %>%
+    rename(Offense = offense,
+           `\\# of Offenses` = count,
+           `\\% of Offenses` = percent)
+  temp_other$bias <- capitalize_words(temp_other$bias)
+  temp <- temp[1:5, ]
+  temp <- temp %>%
+    bind_rows(temp_other,
+              temp_final)
+  
+  final <-
+    final %>%
+    bind_rows(temp)
+}
+
+
+
+kableExtra::kbl(final, 
+                #  format = "html",
+                digits = 2, 
+                align = c("l", "l", "r", "r"),
+                #booktabs = TRUE, 
+                longtable = TRUE,
+                escape = TRUE,
+                label = "offenseBiasOffense",
+                caption = "The number and percent of offenses by bias motivation, 2022. ") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+```
+
+
 ```{r nibrsOffenseBias, fig.cap="The annual percent of offenses reported as having a bias motivation (i.e. hate crime), 1993-2022."}
 nibrs_offense_summary_stats  %>%
   filter(year > 1992) %>%
   ggplot(aes(x = year, y = percent_with_bias )) +
-  geom_line(size = 1.05) +
+  geom_line(linewidth = 1.05) +
   xlab("Year") +
   ylab("% With Bias Motivation") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0)
 ```

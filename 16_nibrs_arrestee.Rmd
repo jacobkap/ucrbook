@@ -59,17 +59,17 @@ temp$`First Year`[is.na(temp$`First Year`)] <- "-"
 
 
 kableExtra::kbl(temp, 
-            #format = 'markdown',
-             digits = 2, 
-             align = c("l", "r", "r"),
-             #booktabs = TRUE, 
-             longtable = TRUE,
-            escape = TRUE,
-            label = "arresteeCrime",
-             caption = "The number and percent of arrests for Group A crimes for all arrests reported to NIBRS in 2022.") %>%
-   kable_styling(bootstrap_options = "striped",
-                 full_width = FALSE,
-                 latex_options = c("hold_position", "repeat_header"))
+                #format = 'markdown',
+                digits = 2, 
+                align = c("l", "l", "r", "r"),
+                #booktabs = TRUE, 
+                longtable = TRUE,
+                escape = TRUE,
+                label = "arresteeCrime",
+                caption = "The number and percent of arrests for Group A crimes for all arrests reported to NIBRS in 2022.") %>%
+  kable_styling(bootstrap_options = "striped",
+                full_width = FALSE,
+                latex_options = c("hold_position", "repeat_header"))
 ```
 
 ### Group B Segment arrest crimes
@@ -95,14 +95,14 @@ temp$`First Year`[is.na(temp$`First Year`)] <- "-"
 
 
 kableExtra::kbl(temp, 
-            # format = "html",
-             digits = 2, 
-             align = c("l", "r", "r"),
-            # booktabs = TRUE, 
-             longtable = TRUE,
-             label = "GroupBarresteeCrime",
-             escape = TRUE,
-             caption = "The number and percent of arrests for Group B crimes for all arrests reported to NIBRS in 2022.") %>%
+                # format = "html",
+                digits = 2, 
+                align = c("l", "l", "r", "r"),
+                # booktabs = TRUE, 
+                longtable = TRUE,
+                label = "GroupBarresteeCrime",
+                escape = TRUE,
+                caption = "The number and percent of arrests for Group B crimes for all arrests reported to NIBRS in 2022.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
@@ -135,7 +135,7 @@ temp$proportion <- temp$n / sum(temp$n)
 ggplot(temp, aes(x = days_until_arrest, y = proportion)) +
   geom_col() +
   coord_flip() + 
-  ggplot2::scale_y_continuous(labels = scales::percent) + 
+  ggplot2::scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) + 
   xlab("Days Until Arrest") +
   ylab("% of Arrests") + 
   theme_crim()
@@ -144,7 +144,7 @@ ggplot(temp, aes(x = days_until_arrest, y = proportion)) +
 
 ## Weapons
 
-In the Offense Segment we get info on what weapon (if any) was used during the crime. Here, we see what weapon the person arrested was carrying *when they were arrested.* There is probably a very large overlap here, especially given that the vast majority of arrests happen on the same day as the offense, so probably happen at the scene of the crime (and we will see exactly which ones do happen there later on in this chapter). Compared to the weapons covered in the Offense Segment - see Section \@ref(offenseWeapons) for more - the weapons here are only a narrow subset, and cover mostly firearms. This is partly because the most common "weapon" in the Offense Segment is that the offender used their body as a weapon (e.g. punching, kicking) and everyone arrested has a body so it does not make sense to count that as a weapon. Each arrestee can carry up to two weapons, but we will only look at the first weapon for the below graphs. Please note that this is weapons found on the arrestee, and does not mean that they used the weapon during the arrest. 
+In the Offense Segment we get information on what weapon (if any) was used during the crime. Here, we see what weapon the person arrested was carrying *when they were arrested.* There is probably a very large overlap here, especially given that the vast majority of arrests happen on the same day as the offense, so probably happen at the scene of the crime (and we will see exactly which ones do happen there later on in this chapter). Compared to the weapons covered in the Offense Segment - see Section \@ref(offenseWeapons) for more - the weapons here are only a narrow subset, and cover mostly firearms. This is partly because the most common "weapon" in the Offense Segment is that the offender used their body as a weapon (e.g. punching, kicking) and everyone arrested has a body so it does not make sense to count that as a weapon. Each arrestee can carry up to two weapons, but we will only look at the first weapon for the below graphs. Please note that this is weapons found on the arrestee, and does not mean that they used the weapon during the arrest. 
 
 Figure \@ref(fig:arresteeWeapon) shows the breakdown in the weapon carried by the arrestee during the arrest. In 94% of arrests, the arrestee was not carrying any weapon. Since this graph shows arrests for all crimes, it makes a good deal of sense. Most crimes are non-violent so we would expect those people to not carry a weapon. Since so few arrestees have weapons, we will look at the breakdown among those who were carrying a weapon in Figure \@ref(fig:arresteeWeaponArmed). 
 
@@ -154,66 +154,97 @@ To see the weapons carried when the arrestee had a weapon, Figure \@ref(fig:arre
 ```{r nibrsArresteeMurderWeapon, fig.cap="The share of murder and nonnegligent manslaughter arrestees by weapon carried at arrest, 1991-2022."}
 nibrs_arrestee_summary  %>%
   ggplot(aes(x = year)) +
-  geom_line(aes(y = percent_murders_gun, color = "Gun"), size = 1.05) +
-  geom_line(aes(y = percent_murders_handgun , color = "Handgun"), size = 1.05) +
-  geom_line(aes(y = percent_murders_unarmed, color = "Unarmed"), size = 1.05) +
-  geom_line(aes(y = percent_murders_knife , color = "Knife"), size = 1.05) +
-  geom_line(aes(y = percent_murders_club_blackjack, color = "Club"), size = 1.05) +
+  geom_line(aes(y = percent_murders_gun, color = "Gun"), linewidth = 1.05) +
+  geom_line(aes(y = percent_murders_handgun , color = "Handgun"), linewidth = 1.05) +
+  geom_line(aes(y = percent_murders_unarmed, color = "Unarmed"), linewidth = 1.05) +
+  geom_line(aes(y = percent_murders_knife , color = "Knife"), linewidth = 1.05) +
+  geom_line(aes(y = percent_murders_club_blackjack, color = "Club"), linewidth = 1.05) +
   xlab("Year") +
   ylab("% of Arrestees") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0) +
   scale_color_manual(values = c("Gun" = "#d7191c",
                                 "Handgun" = "#fdae61",
                                 "Unarmed" = "#7b3294",
                                 "Knife" = "#2c7bb6",
-                                "Club" = "black"))
+                                "Club" = "black")) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```
 
 
-```{r arresteeWeaponArmed, fig.cap = "The distribution of weapon usage for all arrestees in 2022 who were arrested with a weapon (i.e. excludes unarmed arrestees)."}
-arrestee$weapon <- arrestee$arrestee_weapon_1
-arrestee$weapon <- gsub("lethal.*", "knife", arrestee$weapon)
-arrestee$weapon <- gsub("club.*", "club", arrestee$weapon)
-arrestee$weapon <- capitalize_words(arrestee$weapon)
-make_barplots(arrestee[arrestee$weapon != "Unarmed", ], "weapon", count = FALSE, ylab = "% of Arrestees") +
-   ggplot2::scale_y_continuous(labels = scales::percent)
+```{r}
+offenses <- unique(arrestee$ucr_arrest_offense_code)
+offenses <- sort(offenses)
+
+final <- data.frame()
+for (offense in offenses) {
+  temp <- make_frequency_table(arrestee %>% filter(ucr_arrest_offense_code %in% offense) %>%
+                                 distinct(unique_incident_id,
+                                          ucr_arrest_offense_code,
+                                          arrestee_weapon_1),
+                               "arrestee_weapon_1",
+                               c("weapon",
+                                 "num_arrestees",
+                                 "percent_arrestees")) %>%
+    mutate(offense = capitalize_words(offense),
+           weapon = gsub("\\(.*", "", weapon),
+           weapon = trimws(weapon))
+
+
+  final <-
+    final %>%
+    bind_rows(temp)
+}
+final <- fastDummies::dummy_rows(final, select_columns = c("offense", "weapon"),
+                                 dummy_value = 0)
+
+final <- fix_dummy_ordering(final, "offense", "weapon", "num_arrestees")
+final$percent_arrestees[final$percent_arrestees %in% "0"] <- "0\\%"
+final <-
+  final %>%
+  select(Offense = offense,
+         `Type of Arrest` = weapon,
+       "\\# of arrestees" = num_arrestees,
+       "\\% of arrestees" = percent_arrestees)
+kableExtra::kbl(final, 
+                #  format = "html",
+                digits = 2, 
+                align = c("l", "l", "r", "r"),
+                #booktabs = TRUE, 
+                longtable = TRUE,
+                escape = TRUE,
+                label = "arresteeoffenseWeapon",
+                caption = "The number and percent of arrestees by offense and weapon, using the first weapon reported, 2022.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+
 ```
 
 ## Automatic weapons
 
 This variable tells you if the weapon the arrestee was carrying was a gun whether that gun was fully automatic. To be clear, this means that when you pull the trigger once the gun will fire multiple bullets. Semi-automatic firearms are not automatic firearms. The Offense Segment also has a variable indicating if the offender used an automatic weapon but there they did not necessarily recover the gun so it is much less reliable than in this segment where the police have the gun and are able to test it.^[It is not clear whether they actually test it or simply go by the design of the gun, such as if the model allows for fully automatic firing.] The percent of guns that are fully automatic are fairly similar between the weapons seized at arrest, as shown in Figure \@ref(fig:arresteeAutomaticWeapon) and those used in the offense as shown in Figure \@ref(fig:offenseAutomaticWeapon) in Chapter \@ref(offenseSegment). Figure \@ref(fig:arresteeAutomaticWeapon) shows that about 5.6% of rifles seized by police during an arrest were fully automatic. About 4.9% of handguns are automatic while "firearm (type not stated) are automatic in 4.3% of cases. Shotguns and  "other firearm" category are the least likely to be automatic at about 2.5% and 1.1% of weapons, respectively. 
 
-```{r arresteeAutomaticWeapon, fig.cap = "The percent of firearms the arrestee was carrying that were fully automatic, for arrestees in 2022."}
-temp <- 
-  arrestee %>%
-  filter(arrestee_weapon_1 %in% c("firearm (type not stated)",
-                                             "handgun",
-                                             "other firearm",
-                                             "rifle",
-                                             "shotgun"))
-temp$automatic_binary <- 0
-temp$automatic_binary[temp$automatic_weapon_indicator_1 %in% "automatic weapon"] <- 1
-
-temp <- 
-  temp %>%
-  group_by(arrestee_weapon_1) %>%
-  summarize(automatic_weapon = mean(automatic_binary)) %>%
-  mutate(arrestee_weapon_1 = capitalize_words(arrestee_weapon_1)) %>%
-  arrange(desc(automatic_weapon))
-temp$arrestee_weapon_1 <- factor(temp$arrestee_weapon_1, 
-                                            levels = rev(temp$arrestee_weapon_1))
-
-
-ggplot(temp, aes(x = arrestee_weapon_1, y = automatic_weapon)) +
-  geom_col() +
-  coord_flip() + 
-  ggplot2::scale_y_continuous(labels = scales::percent) + 
-  xlab("Weapon") +
-  ylab("% Automatic Weapon") + 
-  theme_crim()
+```{r arresteeAutomaticWeapon, fig.cap = "The percent of firearms the arrestee was carrying that were fully automatic, for the first weapon reported, 1991-2022."}
+nibrs_arrestee_summary  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = percent_rifle_automatic, color = "Rifle"), linewidth = 1.05) +
+  geom_line(aes(y = percent_shotgun_automatic , color = "Shotgun"), linewidth = 1.05) +
+  geom_line(aes(y = percent_handgun_automatic , color = "Handgun"), linewidth = 1.05) +
+  geom_line(aes(y = percent_firearm_type_not_stated_automatic , color = "Firearm\n (type not\n stated)"), linewidth = 1.05) +
+  geom_line(aes(y = percent_other_firearm_automatic , color = "Other\n Firearm"), linewidth = 1.05) +
+  xlab("Year") +
+  ylab("% Automatic Weapon") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Rifle" = "#1b9e77",
+                                "Shotgun" = "#d95f02",
+                                "Handgun" = "#7570b3",
+                                "Firearm\n (type not\n stated)" = "#1f78b4",
+                                "Other\n Firearm" = "black")) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 
 ```
 
@@ -225,61 +256,71 @@ The next type of arrest is a "warrant/previous incident report" and this makes u
 
 Finally, people can get a "summoned/cited" arrest which is not really an arrest at all. This is when they are given a subpoena that says that must go to court to be tried for a crime, but they are not formally arrested and taken into police custody (i.e. they are never handcuffed, taken to a police precinct or to jail). About 22.2% of arrests are this form of arrest.
 
-THEYRE
 
-```{r nibrsArresteeArrestType, fig.cap="Annual arrest type for all arrestees, 1991-2022. Previous Incident Report includes cases where an individual was arrested for a separate crime and are then reported as also arrested for this incident."}
-nibrs_arrestee_summary  %>%
-  ggplot(aes(x = year)) +
-  geom_line(aes(y = percent_arrest_type_on_view, color = "On-View"), size = 1.05) +
-  geom_line(aes(y = percent_arrest_type_summoned_cited , color = "Summoned/Cited"), size = 1.05) +
-  geom_line(aes(y = percent_arrest_type_taken_into_custody, color = "Taken Into Custody"), size = 1.05) +
-  xlab("Year") +
-  ylab("% of Arrestees") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
-  labs(color = "") +
-  expand_limits(y = 0) +
-  scale_color_manual(values = c("On-View" = "#1b9e77",
-                                "Summoned/Cited" = "#d95f02",
-                                "Taken Into Custody" = "#7570b3"))
+```{r }
+offenses <- unique(arrestee$ucr_arrest_offense_code)
+offenses <- sort(offenses)
+
+final <- data.frame()
+for (offense in offenses) {
+  temp <- make_frequency_table(arrestee %>% filter(ucr_arrest_offense_code %in% offense) %>%
+                                 distinct(unique_incident_id,
+                                          ucr_arrest_offense_code,
+                                          type_of_arrest),
+                               "type_of_arrest",
+                               c("arrestee",
+                                 "num_arrestees",
+                                 "percent_arrestees")) %>%
+    mutate(offense = capitalize_words(offense),
+           arrestee = gsub("\\(.*", "", arrestee),
+           arrestee = trimws(arrestee))
+
+
+  final <-
+    final %>%
+    bind_rows(temp)
+}
+final <- fastDummies::dummy_rows(final, select_columns = c("offense", "arrestee"),
+                                 dummy_value = 0)
+final$percent_arrestees[final$percent_arrestees %in% "0"] <- "0\\%"
+final <-
+  final %>%
+  select(Offense = offense,
+         `Type of Arrest` = arrestee,
+       "\\# of arrestees" = num_arrestees,
+       "\\% of arrestees" = percent_arrestees)
+kableExtra::kbl(final, 
+                #  format = "html",
+                digits = 2, 
+                align = c("l", "l", "r", "r"),
+                #booktabs = TRUE, 
+                longtable = TRUE,
+                escape = TRUE,
+                label = "arresteeoffenseArrestType",
+                caption = "The number and percent of arrestees by offense and type of arrest, 2022.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+
 ```
-
-
-
-```{r nibrsArresteeDUIArrestType, fig.cap="Annual arrest type for DUI arrestees, 1991-2022."}
-nibrs_arrestee_summary  %>%
-  ggplot(aes(x = year)) +
-  geom_line(aes(y = percent_dui_arrest_type_on_view, color = "On-View"), size = 1.05) +
-  geom_line(aes(y = percent_dui_arrest_type_summoned_cited , color = "Summoned/Cited"), size = 1.05) +
-  geom_line(aes(y = percent_dui_arrest_type_taken_into_custody, color = "Taken Into Custody"), size = 1.05) +
-  xlab("Year") +
-  ylab("% of Murder Arrestees") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
-  labs(color = "") +
-  expand_limits(y = 0) +
-  scale_color_manual(values = c("On-View" = "#1b9e77",
-                                "Summoned/Cited" = "#d95f02",
-                                "Taken Into Custody" = "#7570b3"))
-```
-
-
-
-
 
 ## Disposition for juvenile arrestees
 
 For juvenile arrestees - those under age 18 *at the time of the arrest* (and, by definition they would also be under age 18 during the incident) - there is some information about the outcome of the arrest.^[There are a few people older than 18 with this variable but it is so rare that I think that they are just incorrectly inputted ages.] There are two possible outcomes (which NIBRS calls "dispositions"): being referred to other (that is, other than the arresting agency) authorities or handled within the arresting agency. Figure \@ref(fig:arresteeJuvenileDisposition) shows this breakdown and being referred to other authorities is the most common outcome at 72.6% of juvenile arrests. This is a very broad category and the "other authorities" can range from juvenile or adult court (so the police recommend that they be prosecuted) to welfare agencies and being sent to other police agencies (such as if they committed a crime elsewhere and are being extradited). The other category, being handled within the department, means that the police release the juvenile without any formal action taken (but they may give the juvenile a warning). In these cases the juvenile is released to an adult (including but not limited to family members or guardians) and the case is essentially dropped. In about 0.001% of juvenile arrests the disposition is unknown.^[A juvenile can potentially get multiple dispositions, such as if they are initially released but later the police recommend them for prosecution. It is not clear which outcome is recorded in these cases. In UCR data, however, only the initial disposition is recorded so that is likely how it also is in NIBRS.] 
 
-```{r arresteeJuvenileDisposition, fig.cap = "For juvenile arrestees (under age 18), the distribution of case outcomes."}
-arrestee$disposition_temp <- arrestee$disposition_of_arrestee_under18
-arrestee$disposition_temp[is.na(arrestee$disposition_temp)] <- "unknown"
-arrestee$disposition_temp <- gsub(" \\(.*", "", arrestee$disposition_temp)
-arrestee %>%
-  filter(age_of_arrestee < 18) %>%
-  mutate(disposition_temp = capitalize_words(disposition_temp)) %>%
-crimeutils::make_barplots("disposition_temp", count = FALSE, ylab = "% of Juvenile Arrestees") +
-  ggplot2::scale_y_continuous(labels = scales::percent)
+```{r arresteeJuvenileDisposition, fig.cap = "For juvenile arrestees (under age 18), the distribution of case outcomes, 1991-2022."}
+nibrs_arrestee_summary  %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = percent_handled_within_department, color = "Handled Within Department"), linewidth = 1.05) +
+  geom_line(aes(y = percent_referred_to_other_authorities , color = "Referred to Other Authorities"), linewidth = 1.05) +
+  xlab("Year") +
+  ylab("% of Juvenile Arrestees") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("Handled Within Department" = "#1b9e77",
+                                "Referred to Other Authorities" = "#d95f02")) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
+
 ```
 
 ## Demographics
@@ -290,7 +331,7 @@ This segment provides several variables related to who the arrestee is. Age, rac
 
 The first variable we will look at is the residence status for the arrestee. This is residence in the jurisdiction that arrested them and it has nothing to do with residence status or citizenship status in the United States. People tend to commit crimes (and are the victims of crimes) very close to where they live, so this provides some evidence for that. We do not know where the arrestee lives, but know if they live in the jurisdiction or not. This is useful because some areas (e.g. Las Vegas, Washington DC, urban city centers where people commute to work) likely have a lot more people moving into those areas during the day but who live else compared to places like rural towns or suburbs. So it is helpful to be able to distinguish locals arrested with people who may be tourists or come into town just to commit the crime.^[In a ride-along I was on, a woman who lived over an hour from the city I was in was caught shoplifting clothes.] 
 
-One thing to be cautious about is that residence status may be an imprecise measure of where someone actually lives. How it is defined may differ by agency which could affect comparability across agencies. For example, if it is defined as official residence (such as address on a driver's license) that may be incorrect for a sizable share of the population (e.g. many college students live far from where their driver's license address is).^[One another ride-along, a man from Florida was arrested for stealing from a local store (in California).] If residence status is based on asking the arrestee, they may of course lie to the police. There's also the question of how to label people who are truly transient such as homeless people who may move from city to city. The FBI defines residence as their legal permanent address though it is unclear how that is handled for people without this info and when people live permanently in a different spot than their legal address.  
+One thing to be cautious about is that residence status may be an imprecise measure of where someone actually lives. How it is defined may differ by agency which could affect comparability across agencies. For example, if it is defined as official residence (such as address on a driver's license) that may be incorrect for a sizable share of the population (e.g. many college students live far from where their driver's license address is).^[One another ride-along, a man from Florida was arrested for stealing from a local store (in California).] If residence status is based on asking the arrestee, they may of course lie to the police. There's also the question of how to label people who are truly transient such as homeless people who may move from city to city. The FBI defines residence as their legal permanent address though it is unclear how that is handled for people without this information and when people live permanently in a different spot than their legal address.  
 
 Figure \@ref(fig:arresteeResidenceStatus) shows the percent of arrestees in 2022 who were residents or not (or whose status was unknown) of the jurisdiction that arrested them. Most people were arrested near where they live, with 56.9% of arrestees being residents, compared with 23.3% not being residents. However, about one-fifth of arrestees had an unknown residence status so the percents of resident and non-resident may change dramatically if we did not have any unknowns. 
 
@@ -299,18 +340,19 @@ Figure \@ref(fig:arresteeResidenceStatus) shows the percent of arrestees in 2022
 ```{r nibrsArresteeResidentStatus, fig.cap="Annual resident status (i.e. if they live in the arresting jurisdiction) of arrestees, 1991-2022."}
 nibrs_arrestee_summary  %>%
   ggplot(aes(x = year)) +
-  geom_line(aes(y = percent_resident_status_resident, color = "Resident"), size = 1.05) +
-  geom_line(aes(y = percent_resident_status_nonresident , color = "Nonresident"), size = 1.05) +
-  geom_line(aes(y = percent_resident_status_unknown, color = "Unknown Resident Status"), size = 1.05) +
+  geom_line(aes(y = percent_resident_status_resident, color = "Resident"), linewidth = 1.05) +
+  geom_line(aes(y = percent_resident_status_nonresident , color = "Nonresident"), linewidth = 1.05) +
+  geom_line(aes(y = percent_resident_status_unknown, color = "Unknown Resident Status"), linewidth = 1.05) +
   xlab("Year") +
   ylab("% of Arrestees") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0) +
   scale_color_manual(values = c("Resident" = "#1b9e77",
                                 "Nonresident" = "#d95f02",
-                                "Unknown Resident Status" = "#7570b3"))
+                                "Unknown Resident Status" = "#7570b3")) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```
 
 ### Age
@@ -323,34 +365,45 @@ Figure \@ref(fig:arresteeAge) shows the percent of arrestees at every age availa
 arrestee$age_of_arrestee[arrestee$age_of_arrestee %in% "over 98 years old"] <- 99
 arrestee$age_of_arrestee[arrestee$age_of_arrestee %in% "unknown"] <- NA
 arrestee$age_of_arrestee <- as.numeric(arrestee$age_of_arrestee)
-make_stat_count_plots(arrestee, "age_of_arrestee", count = FALSE, ylab = "% of Arrestees") + xlab("Age")
+mean(arrestee$age_of_arrestee, na.rm = TRUE)
+median(arrestee$age_of_arrestee, na.rm = TRUE)
+make_stat_count_plots(arrestee, "age_of_arrestee", count = FALSE, ylab = "% of Arrestees") + xlab("Age") +
+  geom_vline(xintercept = mean(arrestee$age_of_arrestee, na.rm = TRUE), col = "#1b9e77", size = 1.5) +
+  geom_vline(xintercept = median(arrestee$age_of_arrestee, na.rm = TRUE), col = "#d95f02", size = 1.5) +
+  annotate("text", x=70, y=.03, label= paste0("Mean = ", round(mean(arrestee$age_of_arrestee, na.rm = TRUE), 2)),
+           size = 6, col = "#1b9e77") +
+  annotate("text", x=69, y=.028, label= paste0("Median = ", round(median(arrestee$age_of_arrestee, na.rm = TRUE), 2)),
+           size = 6, col = "#d95f02")
+
 ```
 
 ```{r nibrsArresteeAge, fig.cap="The mean and median age of arrestees, 1991-2022."}
 nibrs_arrestee_summary  %>%
   ggplot(aes(x = year)) +
-  geom_line(aes(y = mean_age, color = "Mean Age"), size = 1.05) +
-  geom_line(aes(y = median_age , color = "Median Age"), size = 1.05) +
+  geom_line(aes(y = mean_age, color = "Mean Age"), linewidth = 1.05) +
+  geom_line(aes(y = median_age , color = "Median Age"), linewidth = 1.05) +
   xlab("Year") +
   ylab("Arrestee Age") +
   theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0) +
   scale_color_manual(values = c("Mean Age" = "#1b9e77",
-                                "Median Age" = "#d95f02"))
+                                "Median Age" = "#d95f02")) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```
 
 ```{r nibrsArresteeAgeMissing, fig.cap="The percent of arrestee's age that is unknown, 1991-2022."}
 nibrs_arrestee_summary  %>%
   ggplot(aes(x = year, y = percent_unknown_age )) +
-  geom_line(size = 1.05) + 
+  geom_line(linewidth = 1.05) + 
   xlab("Year") +
   ylab("% of Arrestees") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
-  expand_limits(y = 0) 
+  expand_limits(y = 0)  +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```
 
 
@@ -363,18 +416,19 @@ We also know the sex of the arrestee. The only options for this variable are mal
 ```{r nibrsArresteeSex, fig.cap="The share of arrestees by sex, 1991-2022."}
 nibrs_arrestee_summary  %>%
   ggplot(aes(x = year)) +
-  geom_line(aes(y = percent_male, color = "Male"), size = 1.05) +
-  geom_line(aes(y = percent_female , color = "Female"), size = 1.05) +
-  geom_line(aes(y = percent_unknown_race, color = "Unknown Race"), size = 1.05) +
+  geom_line(aes(y = percent_male, color = "Male"), linewidth = 1.05) +
+  geom_line(aes(y = percent_female , color = "Female"), linewidth = 1.05) +
+  geom_line(aes(y = percent_unknown_race, color = "Unknown Race"), linewidth = 1.05) +
   xlab("Year") +
   ylab("% of Arrestees") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0) +
   scale_color_manual(values = c("Male" = "#1b9e77",
                                 "Female" = "#d95f02",
-                                "Unknown Race" = "#7570b3"))
+                                "Unknown Race" = "#7570b3")) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```
 
 ### Race
@@ -388,16 +442,16 @@ Figure \@ref(fig:arresteeRace) shows the breakdown for the races of each arreste
 ```{r nibrsArresteeRace, fig.cap="The share of arrestees by race, 1991-2022."}
 nibrs_arrestee_summary  %>%
   ggplot(aes(x = year)) +
-  geom_line(aes(y = percent_asian, color = "Asian"), size = 1.05) +
-  geom_line(aes(y = percent_black , color = "Black"), size = 1.05) +
-  geom_line(aes(y = percent_american_indian, color = "American Indian"), size = 1.05) +
-  geom_line(aes(y = percent_white , color = "White"), size = 1.05) +
-  geom_line(aes(y = percent_native_hawaiian, color = "Native Hawaiian"), size = 1.05) +
-  geom_line(aes(y = percent_unknown_race, color = "Unknown"), size = 1.05) +
+  geom_line(aes(y = percent_asian, color = "Asian"), linewidth = 1.05) +
+  geom_line(aes(y = percent_black , color = "Black"), linewidth = 1.05) +
+  geom_line(aes(y = percent_american_indian, color = "American Indian"), linewidth = 1.05) +
+  geom_line(aes(y = percent_white , color = "White"), linewidth = 1.05) +
+  geom_line(aes(y = percent_native_hawaiian, color = "Native Hawaiian"), linewidth = 1.05) +
+  geom_line(aes(y = percent_unknown_race, color = "Unknown"), linewidth = 1.05) +
   xlab("Year") +
   ylab("% of Arrestees") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0) +
   scale_color_manual(values = c("Asian" = "#d7191c",
@@ -405,7 +459,8 @@ nibrs_arrestee_summary  %>%
                                 "American Indian" = "#7b3294",
                                 "White" = "#abd9e9",
                                 "Native Hawaiian" = "#2c7bb6",
-                                "Unknown" = "black"))
+                                "Unknown" = "black")) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```
 
 ### Ethnicity
@@ -421,16 +476,17 @@ Figure \@ref(fig:arresteeEthnicity) shows the breakdown in arrests by arrestee e
 ```{r nibrsArresteeEthnicity, fig.cap="The share of arrestees by ethnicity, 1991-2022."}
 nibrs_arrestee_summary  %>%
   ggplot(aes(x = year)) +
-  geom_line(aes(y = percent_hispanic, color = "Hispanic"), size = 1.05) +
-  geom_line(aes(y = percent_not_hispanic , color = "Not Hispanic"), size = 1.05) +
-  geom_line(aes(y = percent_ethnicity_unknown, color = "Unknown Ethnicity"), size = 1.05) +
+  geom_line(aes(y = percent_hispanic, color = "Hispanic"), linewidth = 1.05) +
+  geom_line(aes(y = percent_not_hispanic , color = "Not Hispanic"), linewidth = 1.05) +
+  geom_line(aes(y = percent_ethnicity_unknown, color = "Unknown Ethnicity"), linewidth = 1.05) +
   xlab("Year") +
   ylab("% of Arrestees") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0) +
   scale_color_manual(values = c("Hispanic" = "#1b9e77",
                                 "Not Hispanic" = "#d95f02",
-                                "Unknown Ethnicity" = "#7570b3"))
+                                "Unknown Ethnicity" = "#7570b3")) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```

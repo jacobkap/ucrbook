@@ -351,9 +351,9 @@ shr %>%
             not_hispanic_offender = sum(not_hispanic_offender)) %>%
   data.frame() %>%
   ggplot(aes(x = year, y = hispanic_offender)) +
-  geom_line(aes(color = "Hispanic"), size = 1.05) +
-    geom_line(aes(y = unknown_hispanic_offender, color = "Not Hispanic"), size = 1.05) +
-    geom_line(aes(y = not_hispanic_offender, color = "Unknown Ethnicity"), size = 1.05) +
+  geom_line(aes(color = "Hispanic"), linewidth = 1.05) +
+    geom_line(aes(y = unknown_hispanic_offender, color = "Not Hispanic"), linewidth = 1.05) +
+    geom_line(aes(y = not_hispanic_offender, color = "Unknown Ethnicity"), linewidth = 1.05) +
   xlab("Year") +
   ylab("Hispanic Offenders") +
   theme_crim() +
@@ -382,7 +382,7 @@ temp <- make_frequency_table(shr %>% filter(offender_1_weapon != 35), "offender_
 kableExtra::kbl(temp, 
            #  format = "html",
              digits = 2, 
-             align = c("l", "r", "r"),
+             align = c("l", "l", "r", "r"),
              #booktabs = TRUE, 
              longtable = TRUE,
              label = "shrWeapon",
@@ -405,7 +405,7 @@ shr %>%
   summarize(rifle = sum(rifle)) %>%
   data.frame() %>%
   ggplot(aes(x = year, y = rifle)) +
-  geom_line(size = 1.05) + 
+  geom_line(linewidth = 1.05) + 
   xlab("Year") +
   ylab("# of Homicide Incidents") +
   theme_crim() +
@@ -425,7 +425,7 @@ shr %>%
   mutate(rifle_percent = rifle / dummy) %>%
   data.frame() %>%
   ggplot(aes(x = year, y = rifle_percent)) +
-  geom_line(size = 1.05) + 
+  geom_line(linewidth = 1.05) + 
   xlab("Year") +
   ylab("% of Homicide Incidents") +
   theme_crim() +
@@ -486,7 +486,7 @@ temp <-
 kableExtra::kbl(temp, 
           #   format = "html",
              digits = 2, 
-             align = c("l", "r", "r"),
+             align = c("l", "l", "r", "r"),
              #booktabs = TRUE, 
              longtable = TRUE,
              label = "shrRelationship",
@@ -553,7 +553,7 @@ temp <-
 kableExtra::kbl(temp, 
              #format = "html",
              digits = 2, 
-             align = c("l", "r", "r"),
+             align = c("l", "l", "r", "r"),
              #booktabs = TRUE, 
              longtable = TRUE,
              escape = TRUE,
@@ -574,7 +574,7 @@ temp <- make_frequency_table(shr, "offender_1_subcircumstance",
 kableExtra::kbl(temp, 
             # format = "html",
              digits = 2, 
-             align = c("l", "r", "r"),
+             align = c("l", "l", "r", "r"),
              #booktabs = TRUE, 
              longtable = TRUE,
              label = "shrSubCircumstance",

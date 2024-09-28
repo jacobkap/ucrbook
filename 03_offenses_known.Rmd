@@ -20,7 +20,7 @@ offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2022.rds")
 nibrs_offense <- readRDS("data/nibrs_offense_segment_2022.rds")
 ```
 
-The Offenses Known and Clearances by Arrest dataset - often called Return A, "Offenses Known" or, less commonly, OKCA - is the oldest and most commonly used dataset and measures crimes reported to the police. For this reason it is used as *the* main measure of crime in the United States, and I tend to call it the "crimes dataset." This data answers the most basic questions about crimes: how many occurred? If you see crime data referenced in a news or academic article it is usually this data. This data also includes the number of crimes solved (though with a weaker definition of "solved" than you may think) and the number of crimes in which the agency concluded did not actually occur which they call an "unfounded" crime. This data has the monthly number of crimes - for a select group of crimes types - that occurred in an agency, as well as how many the police investigated and decided did not occur, and the number "cleared" by an arrest. 
+The Offenses Known and Clearances by Arrest dataset - often called Return A, "Offenses Known" or, less commonly, OKCA - is the oldest and most commonly used dataset in the UCR and measures it crimes reported to the police. For this reason it is used as *the* main measure of crime in the United States, and I tend to call it the "crimes dataset." This data answers the most basic questions about crimes: how many occurred? If you see crime data referenced in a news or academic article it is usually this data. This data also includes the number of crimes solved (though with a weaker definition of "solved" than you may think) and the number of crimes in which the agency concluded did not actually occur which they call an "unfounded" crime. This data has the monthly number of crimes - for a select group of crimes types - that occurred in an agency, as well as how many the police investigated and decided did not occur, and the number "cleared" by an arrest. 
 
 The Offenses Known data has been **the** crime data of record for nearly a century, and will likely still be for the next couple of decades at least. And that is due to its simplicity. This data is (with some exceptions we will get into) just the monthly number of crimes reported or otherwise known (e.g. discovered while on patrol) to a police agency for a small number of crimes. If you want to know, for example, how many murders or burglaries happened in your city last year, this is the dataset to turn to. This simplicity allows a much wider group of people to use the data; since it is monthly counts of crimes (with no breakdown by location, race, age, injury, etc.) you do not need much programming or analytic skills to use it. 
 
@@ -35,32 +35,32 @@ One thing you may have heard about this data is that it uses something called th
 This dataset contains information on the number of "Index Crimes" (sometimes called Part I crimes) reported to each agency.^[While some people capitalize "Index Crime," I prefer the term in lowercase which is how I will write it.] These index crimes are a collection of eight crimes that, for historical reasons based largely by perceived importance and reliability of their reporting in the 1920s when the UCR program was first developed, are used as the primary measure of crime today. Other data sets in the UCR, such as the Arrests by Age, Sex, and Race data and the Hate Crime data have more crimes reported. 
 
 The crimes are, in order by the Hierarchy Rule (which we will discuss next):
-    
+
 1. Homicide     
-    + Murder and non-negligent manslaughter  
-    + Manslaughter by negligence 
++ Murder and non-negligent manslaughter  
++ Manslaughter by negligence 
 2. Rape     
-    + Rape     
-    + Attempted rape     
++ Rape     
++ Attempted rape     
 3. Robbery     
-    + With a firearm     
-    + With a knife of cutting instrument     
-    + With a dangerous weapon not otherwise specified     
-    + Unarmed - using hands, fists, feet, etc.     
++ With a firearm     
++ With a knife of cutting instrument     
++ With a dangerous weapon not otherwise specified     
++ Unarmed - using hands, fists, feet, etc.     
 4. Aggravated Assault (assault with a weapon or with the intent to cause serious bodily injury)     
-    + With a firearm     
-    + With a knife of cutting instrument     
-    + With a dangerous weapon not otherwise specified     
-    + Unarmed - using hands, fists, feet, etc.     
++ With a firearm     
++ With a knife of cutting instrument     
++ With a dangerous weapon not otherwise specified     
++ Unarmed - using hands, fists, feet, etc.     
 5. Burglary     
-    + With forcible entry     
-    + Without forcible entry      
-    + Attempted burglary with forcible entry     
++ With forcible entry     
++ Without forcible entry      
++ Attempted burglary with forcible entry     
 6. Theft (other than of a motor vehicle)     
 7. Motor Vehicle Theft     
-    + Cars     
-    + Trucks and buses     
-    + Other vehicles          
++ Cars     
++ Trucks and buses     
++ Other vehicles          
 8. Arson     
 9. Simple Assault     
 
@@ -101,8 +101,8 @@ hierarchy <- data.frame(offense = c("murder/nonnegligent manslaughter",
                                     "larceny/theft offenses - theft of motor vehicle parts/accessories",
                                     "motor vehicle theft",
                                     "arson"
-                                    ),
-                        rank = c(1, 1, 2, 2, 2, 3, 4, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 8))
+),
+rank = c(1, 1, 2, 2, 2, 3, 4, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 8))
 
 hierarchy_table <- data.frame(offense = c("homicide",
                                           "rape",
@@ -140,17 +140,17 @@ hierarchy_table <-
   mutate(offense = capitalize_words(offense)) %>%
   rename(`Crime` = offense,
          `% increase without Hierarchy Rule` = percent_above_hierarchy)
- 
+
 kableExtra::kbl(hierarchy_table,  
-           #  format = "latex",
-             digits = 2, 
-             align = c("l", "r", "r"),
-             booktabs = TRUE, 
-             longtable = TRUE,
-             escape = TRUE,
-             label = "nibrsHierarchy",
-             caption = "The percent increase in reported crimes for each index crime if the Hierarchy Rule was not used, NIBRS 2022.") %>%
-    kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+                #  format = "latex",
+                digits = 2, 
+                align = c("l", "l", "r", "r"),
+                booktabs = TRUE, 
+                longtable = TRUE,
+                escape = TRUE,
+                label = "nibrsHierarchy",
+                caption = "The percent increase in reported crimes for each index crime if the Hierarchy Rule was not used, NIBRS 2022.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 
 ```
 
@@ -162,19 +162,25 @@ The biggest problem with index crimes is that it is simply the sum of 8 (or 7 si
 
 ```{r sfThefts, fig.cap = "Thefts and total index crimes in San Francisco, 2000-2022." }
 sf <- offenses_known_yearly[offenses_known_yearly$ori %in% "CA03801", ]
+sf$actual_theft_total[sf$number_of_months_missing %in% 12] <- NA
+sf$actual_index_violent[sf$number_of_months_missing %in% 12] <- NA
+sf$actual_index_total[sf$number_of_months_missing %in% 12] <- NA
 sf %>%
   filter(year >= 2000) %>%
   ggplot(aes(x = year, y = actual_index_total, color = "Total Index")) +
-  geom_line(size = 1.05) +
-  geom_line(aes(y = actual_theft_total, color = "Theft"), size = 1.05) +
-  geom_line(aes(y = actual_index_violent, color = "Violent Index"), size = 1.05) +
+  geom_path(linewidth = 1.05) +
+  geom_path(aes(y = actual_theft_total, color = "Theft"), linewidth = 1.05) +
+  geom_path(aes(y = actual_index_violent, color = "Violent Index"), linewidth = 1.05) +
+  geom_point(size = 1.05) +
+  geom_point(aes(y = actual_theft_total, color = "Theft"), geom_point = 1.05) +
+  geom_point(aes(y = actual_index_violent, color = "Violent Index"), geom_point = 1.05) +
   xlab("Year") +
   ylab("Crimes Reported") +
   labs(color = "Crime") +
   theme_crim() +
   theme(legend.position = "bottom") +
   scale_color_manual(values = c("Total Index" = "#1b9e77", "Theft" = "#d95f02", "Violent Index" ="#7570b3")) +
-  scale_y_continuous(labels = scales::comma)
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA))
 ```
 
 Many researchers divide index crimes into violent and nonviolent categories, which helps but even this is not entirely sufficient. Take Chicago as an example. It is a city infamous for its large number of murders. But as a fraction of index crimes, Chicago has a rounding error worth of murders. Their 653 murders in 2017 is only 0.5% of total index crimes. For violent index crimes, murder made up 2.2% of crimes that year. As seen in Figure \@ref(fig:chicagoMurder), in no year where data is available did murders account for more than 3.5% of violent index crimes; and, while murders are increasing as a percent of violent index crimes they still account for no more than 2.5% in most recent years. What this means is that changes in murder are very difficult to detect. If Chicago had no murders this year, but a less serious crime (such as theft) increased slightly, we could not tell from looking at the number of index crimes, even from violent index crimes. As discussed in the below section, using this sample of crimes as the primary measure of crimes - and particularly of violent crimes - is also misleading as it excludes important - and highly common relative to index crimes - offenses, such as simple assault.
@@ -184,11 +190,11 @@ chicago <- offenses_known_yearly[offenses_known_yearly$ori %in% "ILCPD00", ]
 chicago$murder_percent_of_index <- chicago$actual_murder / chicago$actual_index_violent
 
 ggplot(chicago, aes(x = year, y = murder_percent_of_index)) +
-  geom_line(size = 1.05) +
+  geom_line(linewidth = 1.05) +
   xlab("Year") +
   ylab("% of violent index crimes") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent)
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA))
 ```
 
 
@@ -208,16 +214,16 @@ As an example of this last point, Figure \@ref(fig:simpleIndex) shows the number
 houston <- offenses_known_yearly[offenses_known_yearly$ori %in% "TXHPD00",]
 
 ggplot(houston, aes(x = year, y = actual_index_violent, color = "Violent Index")) +
-  geom_line(size = 1.05) +
-  geom_line(aes(y = actual_assault_simple, color = "Simple Assault"), size = 1.05) +
-  geom_line(aes(y = actual_assault_aggravated, color = "Aggravated Assault"), size = 1.05) +
+  geom_line(linewidth = 1.05) +
+  geom_line(aes(y = actual_assault_simple, color = "Simple Assault"), linewidth = 1.05) +
+  geom_line(aes(y = actual_assault_aggravated, color = "Aggravated Assault"), linewidth = 1.05) +
   xlab("Year") +
   ylab("Crimes Reported") +
   labs(color = "") +
   theme_crim() +
   theme(legend.position = "bottom") +
   scale_color_manual(values = c("Violent Index" = "#1b9e77", "Simple Assault" = "#d95f02", "Aggravated Assault" = "#7570b3")) +
-  scale_y_continuous(labels = scales::comma)
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA))
 ```
 
 
@@ -251,7 +257,7 @@ offense_12_months <-
   summarize(last_month_full = sum(last_month_full),
             months_missing_full = sum(months_missing_full)) %>%
   ungroup()
-  
+
 
 offenses_known_yearly %>%
   group_by(year) %>%
@@ -259,18 +265,18 @@ offenses_known_yearly %>%
             months_missing_any = sum(months_missing_any)) %>%
   ungroup() %>%
   ggplot(aes(x = year, y = last_month_any)) +
-  geom_line(aes(color = "Reported; >= 1 month"), size = 1.05) +
-  geom_line(aes(y = months_missing_any, color = "Missing; >=1 month"), size = 1.05) +
-  geom_line(data = offense_12_months, aes(y = last_month_full, color = "Reported; 12 months"), size = 1.05) +
-  geom_line(data = offense_12_months, aes(y = months_missing_full, color = "Missing; 12 months"), size = 1.05) +
+  geom_line(aes(color = "Last Month\n Reported;\n >= 1 month"), linewidth = 1.05) +
+  geom_line(aes(y = months_missing_any, color = "Months\n Missing;\n >=1 month"), linewidth = 1.05) +
+  geom_line(data = offense_12_months, aes(y = last_month_full, color = "Last Month\n Reported;\n 12 months"), linewidth = 1.05) +
+  geom_line(data = offense_12_months, aes(y = months_missing_full, color = "Months\n Missing;\n 12 months"), linewidth = 1.05) +
   xlab("Year") +
   ylab("# of Agencies") +
   theme_crim() +
-  scale_color_manual(values = c("Reported; >= 1 month" = "#1b9e77",
-                                "Missing; >=1 month" = "#d95f02",
-                                "Reported; 12 months" = "#7570b3",
-                                "Missing; 12 months" = "black")) +
-  scale_y_continuous(labels = scales::comma) +
+  scale_color_manual(values = c("Last Month\n Reported;\n >= 1 month" = "#1b9e77",
+                                "Months\n Missing;\n >=1 month" = "#d95f02",
+                                "Last Month\n Reported;\n 12 months" = "#7570b3",
+                                "Months\n Missing;\n 12 months" = "black")) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0)
 
@@ -286,10 +292,9 @@ How this works when the police input the data is that an unfounded crime is repo
 
 Negative values occur when the unfounding happens in a later month than the crime report. In the theft case, let us say the theft occurred in January and the discovery of the wallet happens in August. Assuming no other crimes occurred, January would have 1 theft, and August would have -1 thefts and 1 unfounded theft. There is no way of determining in which month (or even which year) an unfounded crime was initially reported in. When averaging over the long term, there should not be any negative numbers as the actual and unfounded reports will cancel themselves out. However, when looking at monthly crimes - particularly for rare crimes - you will still see negative numbers for this reason. Since crimes can be unfounded for reports in previous years, you can actually see entire year's crime counts be negative, though this is much rarer than monthly values.^[From 1960-2022, there were 39 agency-years with a negative count of murders.] 
 
+So using the far more common last month reported method will overestimate how many agencies report a full year of data. In practice, though, this affects very little data and what it does affect is only overcounted very slightly. At least when aggregating nationally - which I generally advise against since local crime matters a lot more than national averages. Still, let us look the increase in the total number of crimes reported by 12-month reporting agencies increases from the "number of months missing" measure to the "last month reported" measure, shown in Figure \@ref(fig:murdersBothMeasures). The answer is an extremely small increase, averaging (mean = 0.93%, mean = 1.26%) about a one percent point increase each year. The differences in measuring how many months are reported can matter a great deal at the agency-level, but does very little when aggregating nationally.
 
-So using the far more common last month reported method will overestimate how many agencies report a full year of data. In practice, though, this affects very little data. At least when aggregating nationally - which I generally advise against since local crime matters a lot more than national averages. Still, let us look the increase in the total number of crimes reported by 12-month reporting agencies increases from the "number of months missing" measure to the "last month reported" measure, shown in Figure \@ref(fig:murdersBothMeasures). The answer is an extremely small increase, averaging (mean = 0.93, mean = 1.55) about a one percent point increase each year. The differences in measuring how many months are reported can matter a great deal at the agency-level, but does very little when aggregating nationally.
-
-```{r murdersBothMeasures, fig.cap = "The percent change in the number of murders reported in the United States each year when moving from the number of months missing measure to the last month reported measure, 1960-2022."}
+```{r murdersBothMeasures, fig.cap = "The percent change in the number of murders reported in the United States each year when moving from the number of months missing measure to the last month reported measure, 1960-2020."}
 last_month_murder <- 
   offenses_known_yearly %>%
   filter(last_month_full %in% 1) %>%
@@ -306,15 +311,16 @@ last_month_murder <-
   data.frame() %>%
   left_join(last_month_murder)
 last_month_murder$percent_change <- (last_month_murder$actual_murder_last_month - last_month_murder$actual_murder_months_missing_full) / last_month_murder$actual_murder_months_missing_full
-  
+
 
 last_month_murder %>%
+  filter(year <= 2020) %>%
   ggplot(aes(x = year, y = percent_change)) +
-  geom_line(size = 1.05) +
+  geom_line(linewidth = 1.05) +
   xlab("Year") +
   ylab("% Change") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0)
 
@@ -337,11 +343,11 @@ offenses_known_yearly %>%
   filter(ori %in% "NJNPD00") %>%
   mutate(murder_rate = actual_murder / population * 100000) %>%
   ggplot(aes(x = year, y = murder_rate)) +
-  geom_line(, size = 1.05) +
+  geom_line(, linewidth = 1.05) +
   xlab("Year") +
   ylab("Rate per 100,000") +
   theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0)
 
@@ -365,17 +371,23 @@ This means that there are occasionally months - and even years - where there are
 This is actually a good check to see when people who use this data do not actually understand how it works. I have seen published academic papers that say that having more clearances than actual crimes is a data error; clearly they declined to read the official manual (or this book) before they, their editor, and their anonymous reviewers published the paper. 
 
 ```{r lapdClearance, fig.cap = "The annual number of actual and cleared murders from the Los Angeles Police Department, 1960-2022."}
+offenses_known_yearly$actual_murder[offenses_known_yearly$ori %in% "CA01942" &
+                                      offenses_known_yearly$number_of_months_missing %in% 12] <- NA
+offenses_known_yearly$tot_clr_murder[offenses_known_yearly$ori %in% "CA01942" &
+                                       offenses_known_yearly$number_of_months_missing %in% 12] <- NA
 offenses_known_yearly %>%
   filter(ori %in% "CA01942") %>%
   ggplot(aes(x = year, y = actual_murder)) +
-  geom_line(aes(color = "Actual Murders"), size = 1.05) +
-  geom_line(aes(y = tot_clr_murder, color = "Cleared Murders"), size = 1.05) +
+  geom_path(aes(color = "Actual Murders"), linewidth = 1.05) +
+  geom_path(aes(y = tot_clr_murder, color = "Cleared Murders"), linewidth = 1.05) +
+  geom_point(aes(color = "Actual Murders"), linewidth = 1.05) +
+  geom_point(aes(y = tot_clr_murder, color = "Cleared Murders"), linewidth = 1.05) +
   xlab("Year") +
   ylab("# of Crimes") +
   theme_crim() +
   scale_color_manual(values = c("Actual Murders" = "#1b9e77",
                                 "Cleared Murders" = "#d95f02")) +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0)
 
@@ -399,33 +411,16 @@ Figure \@ref(fig:frankenmuthRape) provides one example of this by showing the nu
 offenses_known_yearly %>%
   filter(ori %in% "MI73406") %>%
   ggplot(aes(x = year, y = actual_burg_total)) +
-  geom_line(size = 1.05) +
+  geom_line(linewidth = 1.05) +
   xlab("Year") +
   ylab("# of Rapes") +
   theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0)
 ```
 
-While this is a useful variable, it is not captured in NIBRS data. Instead the number of unfounded crimes is always reported as zero. For example, Figures \@ref(fig:memphisUnfounded) and \@ref(fig:denverUnfounded) show the annual number of unfounded crimes (of any crime type) in Memphis, TN, and Denver, CO, which are two of the earliest large agencies to adopt NIBRS. Memphis started in reporting to NIBRS in 2000 and Denver did so in 2005. These agencies stopped reporting any unfounded crimes either in that or the following year.^[For Memphis, as agencies can report both SRS and NIBRS, that agency may have reported both in 2000 which is why we still see unfounded data that year.]
-
-```{r memphisUnfounded, fig.cap = "The annual number of unfounded crimes in Memphis, TN, 1983-2022."}
-offenses_known_yearly %>%
-  filter(ori %in% "TNMPD00",
-         year > 1982) %>%
-  group_by(year) %>%
-  summarize(unfound_all_crimes = sum(unfound_all_crimes)) %>%
-  data.frame() %>%
-  ggplot(aes(x = year, y = unfound_all_crimes)) +
-  geom_line(size = 1.05) +
-  xlab("Year") +
-  ylab("# of Crimes") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
-  labs(color = "") +
-  expand_limits(y = 0)
-```
+While this is a useful variable, it is not captured in NIBRS data. Instead the number of unfounded crimes is always reported as zero. For example, Figure \@ref(fig:denverUnfounded) shows the annual number of unfounded crimes (of any crime type) in Memphis, TN, and Denver, CO, which are two of the earliest large agencies to adopt NIBRS. Memphis started in reporting to NIBRS in 2000 and Denver did so in 2005. These agencies stopped reporting any unfounded crimes either in that or the following year.^[For Memphis, as agencies can report both SRS and NIBRS, that agency may have reported both in 2000 which is why we still see unfounded data that year.]
 
 
 ```{r denverUnfounded, fig.cap = "The annual number of unfounded crimes in Denver, CO, 1983-2022."}
@@ -436,11 +431,11 @@ offenses_known_yearly %>%
   summarize(unfound_all_crimes = sum(unfound_all_crimes)) %>%
   data.frame() %>%
   ggplot(aes(x = year, y = unfound_all_crimes)) +
-  geom_line(size = 1.05) +
+  geom_line(linewidth = 1.05) +
   xlab("Year") +
   ylab("# of Crimes") +
   theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "")
 ```
 
@@ -454,74 +449,90 @@ There are two major changes in recording practices over the life of this dataset
 The FBI changed the definition of rape for UCR data starting in 2013 to a broader definition than the older definition, which is commonly called the "legacy definition" or "legacy" or "historical" rape. The legacy definition is "the carnal knowledge of a female **forcibly** and against her will" (emphasis added). This means that only rape is only included in UCR data when it is a female (of any age, there is no differentiation for child victims) forcibly vaginally penetrated by a penis. This is a narrow definition and excludes a number of sexual acts that people may consider rape such as forced oral or anal sex, and cases with a male victim. 
 
 Starting in 2013, rape has a new, broader definition in the UCR to include oral and anal penetration (by a body part or object) and to allow men to be victims. The new definition is: "Penetration, no matter how slight, of the vagina or anus with any body part or object, or oral penetration by a sex organ of another person, without the consent of the victim." The previous definition included only forcible intercourse against a woman. This definition is far broader and is effectively any non-consensual sexual act. It also includes male victims though the data does not differentiate between male or female (or any other gender) victims. 
- 
+
 Both the current and legacy definitions exclude statutory rape and incest other than forcible incest.^[Both of these are recorded in NIBRS.] They both also include lack of consent as cases where the victim cannot give consent, such as if they are too young or are mentally or physically incapacitated - the FBI specifically give the example of being temporarily incapacitated through drugs or alcohol.
 
 As this revised definition is broader than the original one post-2013, rape data is not comparable to pre-2013 data. 2013, however, is simply the year that the FBI required that agencies report using the new definition. As might not be too surprising, not all agencies followed this requirement. We will look at four examples to show when there is clear evidence that the agency did change their definition in 2013, when it is clear they did so a year later, when it is unclear exactly when they made the change, and when the agency seems to not follow the change at all. 
 
 We will start with the Philadelphia Police Department shown in Figure \@ref(fig:rapePhilly). It is declining slowly but steadily over the 2000-2012 time period until spiking sharply in 2013. Since the rape definition change in 2013 is far broader than previous year's definition, this makes sense. A broader definition should lead to a sudden increase in reported rapes if the agency is reporting correctly. 
 
-```{r rapePhilly, fig.cap = "The annual number of rapes reported in Philadelphia, Pennsylvania, 2000-2022."}
-offenses_known_yearly %>%
+```{r rapePhilly, fig.cap = "The annual number of rapes reported in Philadelphia, San Francisco, New York City, and Jackson, MS, 2005-2019."}
+philly_rape <-
+  offenses_known_yearly %>%
   dplyr::filter(ori %in% "PAPEP00",
-                year >= 2000) %>%
-  ggplot(aes(x = year, y = actual_rape_total)) +
-  geom_line(size = 1.05) +
+                year %in% 2005:2019) %>%
+  mutate(rape_rate = actual_rape_total / population * 100000) %>%
+  select(year,
+         number_of_months_missing,
+         rape_rate) %>%
+  mutate(agency = "Philadelphia")
+
+nyc_rape <-
+  offenses_known_yearly %>%
+  dplyr::filter(ori %in% "NY03030",
+                year %in% 2005:2019) %>%
+  mutate(rape_rate = actual_rape_total / population * 100000) %>%
+  select(year,
+         number_of_months_missing,
+         rape_rate) %>%
+  mutate(agency = "New York City")
+
+sf_rape <-
+  offenses_known_yearly %>%
+  dplyr::filter(ori %in% "CA03801",
+                year %in% 2005:2019) %>%
+  mutate(rape_rate = actual_rape_total / population * 100000) %>%
+  select(year,
+         number_of_months_missing,
+         rape_rate) %>%
+  mutate(agency = "San Francisco")
+
+jackson_rape <-
+  offenses_known_yearly %>%
+  dplyr::filter(ori %in% "MS02501",
+                year %in% 2005:2019) %>%
+  mutate(rape_rate = actual_rape_total / population * 100000) %>%
+  select(year,
+         number_of_months_missing,
+         rape_rate) %>%
+  mutate(agency = "Jackson, MS")
+
+philly_rape$rape_rate[philly_rape$number_of_months_missing > 0] <- NA
+nyc_rape$rape_rate[nyc_rape$number_of_months_missing > 0] <- NA
+sf_rape$rape_rate[sf_rape$number_of_months_missing > 0] <- NA
+jackson_rape$rape_rate[jackson_rape$number_of_months_missing > 0] <- NA
+
+philly_rape %>%
+  ggplot(aes(x = year, y = rape_rate)) +
+  geom_path(linewidth = 1.05, aes(color = "Philadelphia")) +
+  geom_point(size = 1.05, aes(color = "Philadelphia")) +
+  geom_path(data = nyc_rape, linewidth = 1.05, aes(color = "New York City")) +
+  geom_point(data = nyc_rape, size = 1.05, aes(color = "New York City")) +
+  geom_path(data = sf_rape, linewidth = 1.05, aes(color = "San Francisco")) +
+  geom_point(data = sf_rape, size = 1.05, aes(color = "San Francisco")) +
+  geom_path(data = jackson_rape, linewidth = 1.05, aes(color = "Jackson, MS")) +
+  geom_point(data = jackson_rape, size = 1.05, aes(color = "Jackson, MS")) +
   xlab("Year") +
-  ylab("Rapes") +
+  ylab("Rapes per 100k Population") +
   theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   expand_limits(y = 0) +
-  scale_x_continuous(breaks = c(2001, 2005, 2009, 2013, 2017, 2021))
+  labs(color = "") +
+  scale_color_manual(values = c("Philadelphia" = "#1b9e77",
+                                "New York City" = "#d95f02",
+                                "San Francisco" = "#7570b3",
+                                "Jackson, MS" = "black")) +
+  scale_x_continuous(breaks = c(2005:2019))
+
 ```
 
 In comparison, New York City has the sudden spike a year later, which indicates that they did not start using the new definition until 2014. Figure \@ref(fig:rapeNYC) shows that rape is fairly steady, though increasing, in the years leading up to 2013 and has almost no change from 2012 to 2013, but a huge increase in 2014 and then steadily increases from there, spiking again in 2018. This seems like a fairly clear indicator that NYC simply did not follow the new definition until 2014. 
 
-```{r rapeNYC, fig.cap = "The annual number of rapes reported in New York City, 2000-2022."}
-offenses_known_yearly %>%
-  dplyr::filter(ori %in% "NY03030",
-                year >= 2000) %>%
-  ggplot(aes(x = year, y = actual_rape_total)) +
-  geom_line(size = 1.05) +
-  xlab("Year") +
-  ylab("Rapes") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
-  expand_limits(y = 0) +
-  scale_x_continuous(breaks = c(2001, 2005, 2009, 2013, 2017, 2021))
-```
 
 Less clear is what is happening in San Francisco, shown in Figure \@ref(fig:rapeLA). Here we do see an increase in 2013 which while it appears small on the graph is actually a 49% increase from 2012. Then there is a much larger spike in 2014 - a 120% increase - which may suggest that part of the agency started following the new definition in 2013 and the remainder followed in 2014. Or maybe some months used the old definition and others the new definition in 2013, while all of 2014 used the new definition However, increases or decreases are relatively common in San Francisco so it could also be that the agency only switched to the new definition in 2014 and the spike in 2013 is just a coincidence.
 
-```{r rapeLA, fig.cap = "The annual number of rapes reported in San Francisco, California, 2000-2022."}
-offenses_known_yearly %>%
-  dplyr::filter(ori %in% "CA03801",
-                year >= 2000) %>%
-  ggplot(aes(x = year, y = actual_rape_total)) +
-  geom_line(size = 1.05) +
-  xlab("Year") +
-  ylab("Rapes") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
-  expand_limits(y = 0) +
-  scale_x_continuous(breaks = c(2001, 2005, 2009, 2013, 2017, 2021))
-```
 
 Finally, we will look at Jackson Police Department in Mississippi where the definition change seems to have had no effect. As seen in Figure \@ref(fig:rapeJackson), reported rapes start to undulate in 2010 with 2013 data perfectly in line with the before and after trends - no sign that there is a change in reporting. This suggests that Jackson simply did not follow the definition change and continues to report using the old definition. 
-
-```{r rapeJackson, fig.cap = "The annual number of rapes reported in Jackson, Mississippi, 2000-2022."}
-offenses_known_yearly %>%
-  dplyr::filter(ori %in% "MS02501",
-                year >= 2000) %>%
-  ggplot(aes(x = year, y = actual_rape_total)) +
-  geom_line(size = 1.05) +
-  xlab("Year") +
-  ylab("Rapes") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
-  expand_limits(y = 0) +
-  scale_x_continuous(breaks = c(2001, 2005, 2009, 2013, 2017, 2021))
-```
 
 My takeaway from this is that rape should not be used at all for years after 2012. While the definition change makes pre-2013 and 2013+ years non-comparable, the differences in agency responses to this change - i.e. if they follow the rules or not - is such a mess that the data is too flawed to use. 
 
@@ -545,7 +556,7 @@ offenses_known_yearly %>%
   ylab("Crimes") +
   theme_crim() +
   crimeutils::scale_color_crim() + 
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0)
 ```
@@ -565,7 +576,7 @@ offenses_known_yearly %>%
   xlab("Year") +
   ylab("Percent of Murders") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent)  +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA))  +
   expand_limits(y = 0)
 ```
 

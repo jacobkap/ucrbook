@@ -14,7 +14,6 @@ documentclass: krantz
 monofont: "Source Code Pro"
 monofontoptions: "Scale=0.7"
 graphics: yes
-always_allow_html: true
 ---
 
 
@@ -50,7 +49,7 @@ knitr::opts_chunk$set(
 nyc <- read_csv("data/New_York_New_York_City_Police_Department.csv")
 offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2022.rds")
 SRS_hate_crimes <- readRDS("data/ucr_hate_crimes_1991_2022.rds")
-batch_header_all_years <- readRDS("E:/Dropbox/ucrbook/data/nibrs_summary_stats/batch_header_all_years.rds")
+batch_header_all_years <- readRDS("data/nibrs_summary_stats/batch_header_all_years.rds")
 ```
 \pagenumbering{roman}
 \mainmatter
@@ -201,30 +200,6 @@ BibTeX format:
 }
 ```
 
-## Sources of UCR data
-
-### My own collection
-
-#### openICPSR
-
-#### [Crimedatatool.com][https://crimedatatool.com/]
-
-### NACJD
-
-### FBI (raw data)
-
-### Raw data
-
-### Crime Data Explorer
-
-### Crimes in the United States report
-
-
-
-### FBI (Crime Data Explorer)
-
-### FBI (Crimes in the United States Report)
-
 There are a few different sources of UCR data available today. First, and probably most commonly used, is the data put together by the [National Archive of Criminal Justice Data (NACJD)](https://www.icpsr.umich.edu/web/pages/NACJD/index.html)). This a team out of the University of Michigan who manages a huge number of criminal justice datasets and makes them available to the public. If you have any questions about crime data - UCR or other crime data - I highly recommend you reach out to them for answers. They have a collection of data and excellent documentation available for UCR data available on their site [here](https://www.icpsr.umich.edu/web/NACJD/series/57). One limitation to their data, however, is that each year of data is available as an individual file meaning that you will need to concatenate each year together into a single file. Some years also have different column names (generally minor changes like spelling robbery "rob" one year and "robb" the next) which requires more work to standardize before you could concatenate. They also only have data through 2016 which means that the most recent years (UCR data is available through 2019) of data are (as of this writing) unavailable. 
 
 Next, and most usable for the general public - but limited for researchers - is the FBI's official website [Crime Data Explorer](https://crime-data-explorer.fr.cloud.gov/). On this site you can chose an agency and see annual crime data (remember, UCR data is monthly so this is not as detailed as it can be) for certain crimes (and not even all the crimes actually available in the data). This is okay for the general public but only provides a fraction of the data available in the actual data so is really not good for researchers. 
@@ -259,6 +234,7 @@ When dealing with specific agencies, make sure to use the ORI rather than the ag
 
 We will finish this overview of the SRS data by briefly talking about format of the data that is released by the FBI, before the processing done by myself or [NACJD](https://www.icpsr.umich.edu/web/pages/NACJD/index.html) that converts the data to a type that software like R or Stata or Excel can understand. The FBI releases their data as fixed-width ASCII files which are basically just an Excel file but with all of the columns squished together. As an example, Figure \@ref(fig:SRSascii) shows what the data looks like as you receive it from the FBI for the Offenses Known and Clearances by Arrest dataset for 1960, the first year with data available. In the figure, it seems like there are multiple rows but that is just because the software that I opened the file in is not wide enough - in reality what is shown is a single row that is extremely wide because there are over 1,500 columns in this data. If you scroll down enough you will see the next row, but that is not shown in the current image. What is shown is a single row with a ton of columns all pushed up next to each other. Since all of the columns are squished together (the gaps are just blank spaces because the value there is a space, but that does not mean there is a in the data. Spaces are possible values in the data and are meaningful), you need some way to figure out which parts of the data belong in which column. 
 
+
 ```{r ascii, fig.cap="Fixed-width ASCII file for the 1991 National Incident-Based Reporting System (NIBRS) dataset."}
 knitr::include_graphics('images/nibrs_ascii.PNG')
 ```
@@ -289,6 +265,42 @@ The population value is the population who reside in that jurisdiction and does 
 
 When an agency reports their data to the FBI, they do so voluntarily - there is no national requirement to report.^[Some states do mandate that their agencies report, but this is not always followed.] This means that there is inconsistency in which agencies report, how many months of the year they report for, and which variables they include in their data submissions. 
 
+```{r nibrsAnnualNumberAgenciesIndex, fig.cap = "The annual number of police agencies that report data to NIBRS."}
+batch_header_all_years$number_of_months_reported <-
+  as.numeric(batch_header_all_years$number_of_months_reported)
+
+
+batch_header_all_years$number_of_months_reported <- 
+  as.numeric(batch_header_all_years$number_of_months_reported)
+batch_header_any_months <-
+  batch_header_all_years %>%
+  filter(number_of_months_reported > 0) %>%
+  group_by(year) %>%
+  summarize(any_months_number_agencies = length(unique(ori)),
+         any_months_population = sum(population))
+
+
+batch_header_all_years %>%
+  filter(number_of_months_reported %in% 12) %>%
+  group_by(year) %>%
+  summarize(agencies = length(unique(ori))) %>%
+  ungroup() %>%
+  left_join(batch_header_any_months) %>%
+  ggplot(aes(x = year,
+             y = agencies,
+             color = "12 Months")) +
+  geom_line(size = 1.05) +
+  geom_line(size = 1.05, aes(y = any_months_number_agencies, color = "At Least 1 Month")) +
+  xlab("Year") +
+  ylab("# of Agencies") +
+  theme_crim() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(color = "") +
+  expand_limits(y = 0) +
+  scale_color_manual(values = c("12 Months" = "#1b9e77",
+                                "At Least 1 Month" = "#d95f02"))
+```
+
 In general, more agencies report their data every year and once an agency begins reporting data they tend to keep reporting. The SRS datasets are a collection of separate, though related, datasets and an agency can report to as many of these datasets as they want - an agency that reports to one dataset does not mean that they report to other datasets. Figure \@ref(fig:SRSagenciesReporting) shows the number of agencies that submitted at least one month of data to the Offenses Known and Clearances by Arrest data in the given year. For the first decade of available data under 8,000 agencies reported data and this grew to over 13,500 by the late 1970s before plateauing for about a decade. The number of agencies that reported their data actually declined in the 1990s, driven primarily by many Florida agencies temporarily dropping out, before growing steadily to nearly 17,000 agencies in 2010; from here it kept increasing but slower than before. 
 
 ```{r SRSagenciesReporting, fig.cap="The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year."}
@@ -306,21 +318,7 @@ offenses_known_yearly %>%
 
 There are approximately 18,000 police agencies in the United States so recent data has reports from nearly all agencies, while older data has far fewer agencies reporting. When trying to estimate to larger geographies, such as state or national-level, later years will be more accurate as you are missing less data. For earlier data, however, you are dealing with a smaller share of agencies meaning that you have a large amount of missing data and a less representative sample. 
 
-Figure \@ref(fig:bigAgenciesReporting) repeats the above figure but now including only agencies with 100,000 people or more in their jurisdiction. While these agencies have a far more linear trend than all agencies, the basic lesson is the same: recent data has most agencies reporting; old data excludes many agencies. 
 
-```{r bigAgenciesReporting, fig.cap = "The annual number of agencies with a population of 100,000 or higher reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year."}
-offenses_known_yearly %>%
-  dplyr::filter(!last_month_reported %in% "no months reported",
-                population >= 100000) %>%
-  count(year) %>%
-  ggplot(aes(x = year, y = n)) +
-  geom_line(size = 1.05) +
-  xlab("Year") +
-  ylab("# of Agencies Reporting") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
-  expand_limits(y = 0)
-```
 
 This voluntariness extends beyond whether they report or not, but into which variables they report. While in practice most agencies report every crime when they report any, they do have the choice to report only a subset of offenses. This is especially true for subsets of larger categories - such as gun assaults, a subset of aggravated assaults, or marijuana possession arrests which is a subset of drug possession arrests. As an example, Figure \@ref(fig:nycGunAssaults) shows the annual number of aggravated assaults with a gun in New York City. In 2003 the New York Police Department stopped reporting this category of offense, resuming only in 2013. They continued to report the broader aggravated assault category, but not any of the subsections of aggravated assaults which say which weapon was used during the assault.
 

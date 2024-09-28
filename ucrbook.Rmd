@@ -547,11 +547,11 @@ offenses_known_yearly %>%
   dplyr::filter(!last_month_reported %in% "no months reported") %>%
   count(year) %>%
   ggplot(aes(x = year, y = n)) +
-  geom_line(size = 1.05) +
+  geom_line(linewidth = 1.05) +
   xlab("Year") +
   ylab("# of Agencies Reporting") +
   theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   expand_limits(y = 0)
 ```
 
@@ -565,11 +565,11 @@ offenses_known_yearly %>%
                 population >= 100000) %>%
   count(year) %>%
   ggplot(aes(x = year, y = n)) +
-  geom_line(size = 1.05) +
+  geom_line(linewidth = 1.05) +
   xlab("Year") +
   ylab("# of Agencies Reporting") +
   theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   expand_limits(y = 0)
 ```
 
@@ -582,7 +582,7 @@ ggplot(nyc_annual, aes(x = year, y = actual_assault_with_a_gun)) +
   xlab("Year") +
   ylab("Gun Assaults") +
   theme_crim() +
-  scale_y_continuous(labels = scales::comma)
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA))
 ```
 
 Given that agencies can join or drop out of the SRS program at will, and report only partial data, it is highly important to carefully examine your data to make sure that there are no issues caused by this. 
@@ -609,7 +609,7 @@ ggplot(aes(x = year, y = actual_murder)) +
   xlab("Year") +
   ylab("Murders") +
   theme_crim() +
-  scale_y_continuous(labels = scales::comma)
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA))
 ```
 
 In other cases when agencies report fewer than 12 months of the year, they simply report partial data and as a result undercount crimes. Figure \@ref(fig:miamiDadeMurderAnnual) shows annual murders in Miami-Dade, Florida and has three years of this issue occurring. The first two years with this issue are the two where zero murders are reported - this is because the agency did not report any months of data. The final year is in 2018, the last year of data in this graph, where it looks like murder suddenly dropped significantly. That is just because Miami-Dade only reported through June, so they are missing half of 2018. 
@@ -622,7 +622,7 @@ ggplot(aes(x = year, y = actual_murder)) +
   xlab("Year") +
   ylab("Murders") +
   theme_crim() +
-  scale_y_continuous(labels = scales::comma)
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA))
 ```
 
 ### Zero crimes vs no reports
@@ -1495,14 +1495,14 @@ offenses_known_yearly %>%
             months_missing_full = sum(months_missing_full)) %>%
   ungroup() %>%
   ggplot(aes(x = year, y = last_month_full)) +
-  geom_line(aes(color = "Last Month Reported"), size = 1.05) +
-  geom_line(aes(y = months_missing_full, color = "# of Months Missing"), size = 1.05) +
+  geom_line(aes(color = "Last Month Reported"), linewidth = 1.05) +
+  geom_line(aes(y = months_missing_full, color = "# of Months Missing"), linewidth = 1.05) +
   xlab("Year") +
   ylab("# of Agencies") +
   theme_crim() +
   scale_color_manual(values = c("Last Month Reported" = "#1b9e77",
                                 "# of Months Missing" = "#d95f02")) +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0)
 ```

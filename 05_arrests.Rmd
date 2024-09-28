@@ -37,12 +37,12 @@ all_crimes %>%
   ungroup() %>%
   rename(n_12_month = n) %>%
   ggplot(aes(x = year, y = n_12_month)) +
-  geom_line(size = 1.05, aes(color = "12 Months")) +
-  geom_line(data = arrests_any_month_reporting, size = 1.05, aes(y = n, color = "At Least 1 Month")) +
+  geom_line(linewidth = 1.05, aes(color = "12 Months")) +
+  geom_line(data = arrests_any_month_reporting, linewidth = 1.05, aes(y = n, color = "At Least 1 Month")) +
   xlab("Year") +
   ylab("# of Agencies Reporting") +
   theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
   expand_limits(y = 0) +
   scale_color_manual(values = c("12 Months" = "#1b9e77",
@@ -91,15 +91,15 @@ The remaining crimes - the ones that are not Index crimes - are called Part II c
 17. Sex offenses - other than rape or prostitution
 18. Drug abuse violations - total
   a. Drug sale or manufacturing
-    1. Opium and cocaine, and their derivatives (including morphine and heroin)
-    2. Marijuana
-    3. Synthetic narcotics
-    4. Other dangerous non-narcotic drugs
+    + Opium and cocaine, and their derivatives (including morphine and heroin)
+    + Marijuana
+    + Synthetic narcotics
+    + Other dangerous non-narcotic drugs
   b Drug possession
-    1. Opium and cocaine, and their derivatives (including morphine and heroin)
-    2. Marijuana
-    3. Synthetic narcotics
-    4. Other dangerous non-narcotic drugs
+    + Opium and cocaine, and their derivatives (including morphine and heroin)
+    + Marijuana
+    + Synthetic narcotics
+    + Other dangerous non-narcotic drugs
 19. Gambling - total
   a. Bookmaking - horse and sports
   b. Number and lottery
@@ -127,52 +127,28 @@ For each crime this data provides the number of arrests in that month (or year f
 
 The dataset provides the number of arrests for each age group and gender. Specific ages are reported for younger individuals (e.g., 15-24), while older individuals are grouped into broader age ranges (e.g., 25-29, 30-34). Male and female arrestees are reported separately, and the dataset does not include any category for non-binary or transgender individuals. To get a total arrests for that crime for that age, just add the female and male variables together. Below are the ages or age categories included in the data, and these are the same for female and male arrestees.
 
-* Female
-    + Under 10
-    + 10-12
-    + 13-14
-    + 15
-    + 16
-    + 17
-    + 18
-    + 19
-    + 20
-    + 21
-    + 22
-    + 23
-    + 24
-    + 25-29
-    + 30-34
-    + 35-39
-    + 40-44
-    + 45-49
-    + 50-54
-    + 55-59
-    + 60-64
-    + 65 and older
-* Male
-    + Under 10
-    + 10-12
-    + 13-14
-    + 15
-    + 16
-    + 17
-    + 18
-    + 19
-    + 20
-    + 21
-    + 22
-    + 23
-    + 24
-    + 25-29
-    + 30-34
-    + 35-39
-    + 40-44
-    + 45-49
-    + 50-54
-    + 55-59
-    + 60-64
-    + 65 and older
+* Under 10
+* 10-12
+* 13-14
+* 15
+* 16
+* 17
+* 18
+* 19
+* 20
+* 21
+* 22
+* 23
+* 24
+* 25-29
+* 30-34
+* 35-39
+* 40-44
+* 45-49
+* 50-54
+* 55-59
+* 60-64
+* 65 and older
     
 One way to use this data is to look at the age-crime curve of offending. The age-crime curve is a criminological finding that crime trends to increase in the early teenage years to peaking around age 18 before declining sharply. So essentially people commit crime as teenagers and then tend to fizzle out (or go to prison) as they get older. 
 
@@ -243,16 +219,10 @@ As with race variables in other UCR datasets - and, really, any dataset - you sh
 
 Even though there is information about the specific age of arrestee (or the age range, depending on the arrestee's age) and their sex, there is no sex information combined with race and no age beyond the adult/juvenile binary. If you add up all arrests that are broken down by sex-age and compare it to the sum of all of the arrests broken down by adult/juvenile-race here, in some cases these numbers do not add up. That is because while most agencies do report the age variables, not all agencies report the race variables. So summing up the race variables will actually undercount the total number of arrests. 
 
-* Adult
-    + American Indian
-    + Asian
-    + Black
-    + White
-* Juvenile
-    + American Indian
-    + Asian
-    + Black
-    + White
+* American Indian
+* Asian
+* Black
+* White
     
 Figure \@ref(fig:phillyMarijuanaRacePercent) shows one example of an analysis of this data by showing the percent of arrests of adults for marijuana possession by the arrestee's race in Philadelphia for all years of data we have with a full year of data reported, 1976-2018 At the bottom are American Indian and Asian arrestees who make up nearly none of the arrests for this crime. Black arrestees, shown in green, make up the bulk of arrests with only a few years making up under 60% of arrests and growing to around 80% of arrests since the mid-2000s. As White arrestees, shown in orange, are the only other race category included, they make up a near perfect mirror image of Black arrestees, composing of around 40% of arrests until decreasing starting in the 1990s to end up with about 20% of arrests in recent years. 
 
@@ -268,20 +238,20 @@ all_crimes %>%
          cannabis_adult_amer_ind_prop = poss_cannabis_adult_amer_ind / tot_cannabis_adults) %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = cannabis_adult_black_prop,
-                color = "Black"), size = 1.05) +
+                color = "Black"), linewidth = 1.05) +
   geom_line(aes(y = cannabis_adult_white_prop,
-                color = "White"), size = 1.05) +
+                color = "White"), linewidth = 1.05) +
   geom_line(aes(y = cannabis_adult_asian_prop,
-                color = "Asian"), size = 1.05) +
+                color = "Asian"), linewidth = 1.05) +
   geom_line(aes(y = cannabis_adult_amer_ind_prop,
-                color = "American Indian"), size = 1.05) +
+                color = "American Indian"), linewidth = 1.05) +
   ylab("% of Arrests") +
   xlab("Year") +
   labs(color = "") +
   theme_crim() +
   scale_color_manual(values = c("Black" = "#1b9e77", "White" = "#d95f02", "Asian" ="#7570b3",
                                   "American Indian" = "black")) +
-  scale_y_continuous(labels = scales::percent) 
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) 
 
 ```
 
@@ -296,20 +266,20 @@ all_crimes %>%
          year %in% 1978:2018) %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = poss_cannabis_adult_black,
-                color = "Black"), size = 1.05) +
+                color = "Black"), linewidth = 1.05) +
   geom_line(aes(y = poss_cannabis_adult_white,
-                color = "White"), size = 1.05) +
+                color = "White"), linewidth = 1.05) +
   geom_line(aes(y = poss_cannabis_adult_asian,
-                color = "Asian"), size = 1.05) +
+                color = "Asian"), linewidth = 1.05) +
   geom_line(aes(y = poss_cannabis_adult_amer_ind,
-                color = "American Indian"), size = 1.05) +
+                color = "American Indian"), linewidth = 1.05) +
   ylab("# of Arrests") +
   xlab("Year") +
   labs(color = "") +
   theme_crim() +
     scale_color_manual(values = c("Black" = "#1b9e77", "White" = "#d95f02", "Asian" ="#7570b3",
                                   "American Indian" = "black")) +
-  scale_y_continuous(labels = scales::comma)
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA))
 
 ```    
   
@@ -333,11 +303,11 @@ all_crimes %>%
   summarize(theft_tot_hispanic = sum(theft_tot_hispanic, na.rm = TRUE),
             theft_tot_non_hisp = sum(theft_tot_non_hisp, na.rm = TRUE)) %>%
   ggplot(aes(x = year, y = theft_tot_hispanic)) +
-  geom_line(size = 1.05) +
+  geom_line(linewidth = 1.05) +
   xlab("Year") +
   ylab("# of Arrestees") +
   theme_crim() +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   expand_limits(y = 0)
 ```
 
@@ -358,11 +328,11 @@ all_crimes %>%
   mutate(prop_reporting_agencies = agencies_reporting / dummy) %>%
   data.frame() %>%
   ggplot(aes(x = year, y = prop_reporting_agencies)) +
-  geom_line(size = 1.05) +
+  geom_line(linewidth = 1.05) +
   xlab("Year") +
   ylab("% of Agencies") +
   theme_crim() +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
   expand_limits(y = 0)
 
 ```
@@ -397,22 +367,22 @@ all_crimes %>%
             ) %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = juv_handled_within_department,
-                color = "Internally"), size = 1.05) +
+                color = "Internally"), linewidth = 1.05) +
   geom_line(aes(y = juv_referred_to_juv_court,
-                color = "Juvenile\n court"), size = 1.05) +
+                color = "Juvenile\n court"), linewidth = 1.05) +
   geom_line(aes(y = juv_referred_to_welfare,
-                color = "Welfare"), size = 1.05) +
+                color = "Welfare"), linewidth = 1.05) +
   geom_line(aes(y = juv_referred_to_police,
-                color = "Other\npolice"), size = 1.05) +
+                color = "Other\npolice"), linewidth = 1.05) +
   geom_line(aes(y = juv_referred_to_crim_court,
-                color = "Adult\n court"), size = 1.05) +
+                color = "Adult\n court"), linewidth = 1.05) +
   ylab("# of Arrests") +
   xlab("Year") +
   labs(color = "") +
   theme_crim() +
       scale_color_manual(values = c("Internally" = "#1b9e77", "Juvenile\n court" = "#d95f02", "Welfare" ="#7570b3",
                                   "Other\npolice" = "darkgreen", "Adult\n court" = "black")) +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   ggplot2::theme(legend.text = ggplot2::element_text(size = 13))
 
 ```    
@@ -432,22 +402,22 @@ all_crimes %>%
   ) %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = juv_handled_within_department,
-                color = "Internally"), size = 1.05) +
+                color = "Internally"), linewidth = 1.05) +
   geom_line(aes(y = juv_referred_to_juv_court,
-                color = "Juvenile\n court"), size = 1.05) +
+                color = "Juvenile\n court"), linewidth = 1.05) +
   geom_line(aes(y = juv_referred_to_welfare,
-                color = "Welfare"), size = 1.05) +
+                color = "Welfare"), linewidth = 1.05) +
   geom_line(aes(y = juv_referred_to_police,
-                color = "Other\npolice"), size = 1.05) +
+                color = "Other\npolice"), linewidth = 1.05) +
   geom_line(aes(y = juv_referred_to_crim_court,
-                color = "Adult\n court"), size = 1.05) +
+                color = "Adult\n court"), linewidth = 1.05) +
   ylab("# of Arrests") +
   xlab("Year") +
   labs(color = "") +
   theme_crim() +
   scale_color_manual(values = c("Internally" = "#1b9e77", "Juvenile\n court" = "#d95f02", "Welfare" ="#7570b3",
                                 "Other\npolice" = "darkgreen", "Adult\n court" = "black")) +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   ggplot2::theme(legend.text = ggplot2::element_text(size = 13))
 ```
 

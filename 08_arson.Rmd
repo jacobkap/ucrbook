@@ -27,7 +27,7 @@ This dataset measures how many months that an agency reports data over a year in
 
 In Figure \@ref(fig:arsonAgencies) we can see the annual number of agencies that reported at least one month of data using both measures. These measures are nearly identical every year with the last month reported having slightly more agencies reported, but they are effectively the same. This changes in 2018 as my measure declines considerably and then skyrockets to nearly 25,000 agencies in 2021 and 2022. The last month reported variable declines considerably in 2021, consistent with the FBI ending SRS collection, and then rebounds in 2022 when the FBI reopens SRS collection. How can there be more than 18k agencies reporting? The 18k number is the estimated number of agencies that are active: agencies that can respond to crimes and do investigations. Remember that SRS data goes back decades - the Offenses Known data is available since 1930. So agencies can come and go, with agencies shutting down or joining with other agencies. Over time this adds up to thousands of agencies other than the 18k we normal think about. 
 
-```{r arsonAgencies, fig.cap = "The annual number of police agencies that report at least month of data, using both measures of how many months are reported, 1979-2022."}
+```{r arsonAgencies, fig.cap = "The annual number of police agencies that report at least month of data and all 12 months of data, using both measures of how many months are reported, 1979-2022."}
 arson$last_month_any <- 0
 arson$last_month_any[!arson$last_month_reported %in% "no months reported"] <- 1
 
@@ -48,46 +48,39 @@ arson_12_months <-
   summarize(last_month_full = sum(last_month_full),
             months_missing_full = sum(months_missing_full)) %>%
   ungroup()
-  
-arson %>%
+
+
+arson_years_any <- 
+  arson %>%
   group_by(year) %>%
   summarize(last_month_any = sum(last_month_any),
             months_missing_any = sum(months_missing_any)) %>%
-  ungroup() %>%
+  ungroup() 
+
+arson_12_months %>%
+  left_join(arson_years_any) %>%
   ggplot(aes(x = year, y = last_month_any)) +
-  geom_line(aes(color = "Last Month Reported"), size = 1.05) +
-  geom_line(aes(y = months_missing_any, color = "# of Months Missing"), size = 1.05) +
+  geom_line(aes(color = "Last Month\n Reported;\n >= 1 month"), linewidth = 1.05) +
+  geom_line(aes(y = months_missing_any, color = "Months\n Missing;\n >=1 month"), linewidth = 1.05) +
+  geom_line(data = arson_12_months, aes(y = last_month_full, color = "Last Month\n Reported;\n 12 months"), linewidth = 1.05) +
+  geom_line(data = arson_12_months, aes(y = months_missing_full, color = "Months\n Missing;\n 12 months"), linewidth = 1.05) +
   xlab("Year") +
   ylab("# of Agencies") +
   theme_crim() +
-  scale_color_manual(values = c("Last Month Reported" = "#1b9e77",
-                                "# of Months Missing" = "#d95f02")) +
-  scale_y_continuous(labels = scales::comma) +
+  scale_color_manual(values = c("Last Month\n Reported;\n >= 1 month" = "#1b9e77",
+                                "Months\n Missing;\n >=1 month" = "#d95f02",
+                                "Last Month\n Reported;\n 12 months" = "#7570b3",
+                                "Months\n Missing;\n 12 months" = "black")) +
+  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
-  expand_limits(y = 0)
+  expand_limits(y = 0) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks_arson)
+
+
 
 ```
 
-In Figure \@ref(fig:arsonAgencies12Months) we can see the same graph as before but now for agencies reporting 12 months of data that year. The trends in both measures are the same, at least until 2018, with the last month reported measure always being a bit higher than the number of months missing measure. Which measure is better to use? In general I would say my own measure but obviously that does not work starting in 2018. In practice both measures are quite similar so the decision on which to use depends on your own use-case such as if you are looking at data after 2017. 
 
-```{r}
-arson %>%
-  group_by(year) %>%
-  summarize(last_month_any = sum(last_month_any),
-            months_missing_any = sum(months_missing_any)) %>%
-  ungroup() %>%
-  ggplot(aes(x = year, y = last_month_any)) +
- geom_line(data = arson_12_months, aes(y = last_month_full, color = "Last Month Reported"), size = 1.05) +
-  geom_line(data = arson_12_months, aes(y = months_missing_full, color = "# of Months Missing"), size = 1.05) +
-  xlab("Year") +
-  ylab("# of Agencies") +
-  theme_crim() +
-  scale_color_manual(values = c("Last Month Reported" = "#1b9e77",
-                                "# of Months Missing" = "#d95f02")) +
-  scale_y_continuous(labels = scales::comma) +
-  labs(color = "") +
-  expand_limits(y = 0)
-```
 
 
 ## Important variables

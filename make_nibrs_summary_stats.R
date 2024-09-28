@@ -95,17 +95,24 @@ offense_final <- data.frame(
   percent_murders_handgun = NA,
   percent_murders_unarmed = NA,
   percent_murders_knife = NA,
-  percent_murders_other_weapon = NA
+  percent_murders_other_weapon = NA,
+  percent_rifle_automatic = NA,
+  percent_shotgun_automatic = NA,
+  percent_other_firearm_automatic = NA,
+  percent_firearm_type_not_stated_automatic = NA,
+  percent_handgun_automatic = NA
 )
 
 offense_first_year <- data.frame()
 location_first_year <- data.frame()
+bias_motivation_first_year <- data.frame()
 
 for (file in offense_files) {
   offense_temp <- readRDS(file) %>% distinct(unique_incident_id,
     ucr_offense_code,
     .keep_all = TRUE
   )
+  offense_temp$bias_motivation[is.na(offense_temp$bias_motivation)] <- "no bias motivation"
 
   offense_final$number_of_agencies[offense_final$year %in% unique(offense_temp$year)] <- length(unique(offense_temp$ori))
   offense_final$number_of_offenses[offense_final$year %in% unique(offense_temp$year)] <- nrow(offense_temp)
@@ -186,6 +193,20 @@ for (file in offense_files) {
         "firearm (type not stated)",
         "other firearm"
       ))
+  
+  
+  
+  # Automatic
+  offense_final$percent_rifle_automatic[offense_final$year %in% unique(offense_temp$year)] <-
+    mean(offense_temp$automatic_weapon_indicator_1[offense_temp$type_weapon_force_involved_1 %in% "rifle"] %in% "automatic weapon")
+  offense_final$percent_shotgun_automatic[offense_final$year %in% unique(offense_temp$year)] <-
+    mean(offense_temp$automatic_weapon_indicator_1[offense_temp$type_weapon_force_involved_1 %in% "shotgun"] %in% "automatic weapon")
+  offense_final$percent_other_firearm_automatic[offense_final$year %in% unique(offense_temp$year)] <-
+    mean(offense_temp$automatic_weapon_indicator_1[offense_temp$type_weapon_force_involved_1 %in% "other firearm"] %in% "automatic weapon")
+  offense_final$percent_firearm_type_not_stated_automatic[offense_final$year %in% unique(offense_temp$year)] <-
+    mean(offense_temp$automatic_weapon_indicator_1[offense_temp$type_weapon_force_involved_1 %in% "firearm (type not stated)"] %in% "automatic weapon")
+  offense_final$percent_handgun_automatic[offense_final$year %in% unique(offense_temp$year)] <-
+    mean(offense_temp$automatic_weapon_indicator_1[offense_temp$type_weapon_force_involved_1 %in% "handgun"] %in% "automatic weapon")
 
   # Get first year offense is reported
   offenses_offense_temp <- offense_temp %>%
@@ -212,7 +233,19 @@ for (file in offense_files) {
       location_type
     )
 
-
+  
+  # Get first year drug is reported
+  bias_motivation_first_year_temp <- offense_temp %>%
+    distinct(bias_motivation) %>%
+    mutate(year = unique(offense_temp$year)) %>%
+    filter(!bias_motivation %in% bias_motivation_first_year$bias_motivation)
+  bias_motivation_first_year <-
+    bias_motivation_first_year %>%
+    bind_rows(bias_motivation_first_year_temp) %>%
+    arrange(
+      year,
+      bias_motivation
+    )
 
   message(file)
   # message("Bias")
@@ -233,9 +266,11 @@ for (file in offense_files) {
 offense_final
 offense_first_year
 location_first_year
+bias_motivation_first_year
 saveRDS(offense_final, "data/nibrs_summary_stats/nibrs_offense_summary_stats.rds")
 saveRDS(offense_first_year, "data/nibrs_summary_stats/nibrs_offense_first_year.rds")
 saveRDS(location_first_year, "data/nibrs_summary_stats/nibrs_location_first_year.rds")
+saveRDS(bias_motivation_first_year, "data/nibrs_summary_stats/bias_motivation_first_year.rds")
 
 
 # Victim ----------------------------------------------------------------
@@ -273,6 +308,7 @@ victim_final <- data.frame(
   percent_victim_officer = NA,
   number_victim_officer = NA,
   percent_victim_individual = NA,
+  percent_victim_society_public = NA,
   percent_victim_business = NA,
   percent_resident_status_resident = NA,
   percent_resident_status_nonresident = NA,
@@ -291,7 +327,9 @@ victim_final <- data.frame(
   number_motor_vehicle_theft_first_offense = NA,
   number_motor_vehicle_theft_all_offenses = NA,
   number_vandalism_first_offense = NA,
-  number_vandalism_all_offenses = NA
+  number_vandalism_all_offenses = NA,
+  number_theft_first_offense = NA,
+  number_theft_all_offenses = NA
 )
 for (file in victim_files) {
   victim_temp <- readRDS(file)
@@ -354,6 +392,9 @@ for (file in victim_files) {
     mean(victim_temp$type_of_victim %in% "individual")
   victim_final$percent_victim_business[victim_final$year %in% unique(victim_temp$year)] <-
     mean(victim_temp$type_of_victim %in% "business")
+  victim_final$percent_victim_society_public[victim_final$year %in% unique(victim_temp$year)] <-
+    mean(victim_temp$type_of_victim %in%  "society/public")
+  
   # Resident status
   victim_final$percent_resident_status_resident[victim_final$year %in% unique(victim_temp$year)] <-
     mean(victim_temp$resident_status_of_victim[victim_temp$type_of_victim %in% c("individual", "law enforcement officer")] %in% "resident")
@@ -482,6 +523,30 @@ for (file in victim_files) {
       victim_temp$ucr_offense_code_8 %in% "destruction/damage/vandalism of property" |
       victim_temp$ucr_offense_code_9 %in% "destruction/damage/vandalism of property" |
       victim_temp$ucr_offense_code_10 %in% "destruction/damage/vandalism of property")
+  
+  
+  # Number theft
+  theft_offenses <- c("larceny/theft offenses - all other larceny",
+                      "larceny/theft offenses - pocket-picking",
+                      "larceny/theft offenses - purse-snatching",
+                      "larceny/theft offenses - shoplifting",
+                      "larceny/theft offenses - theft from building",
+                      "larceny/theft offenses - theft from coin-operated machine or device",
+                      "larceny/theft offenses - theft from motor vehicle",
+                      "larceny/theft offenses - theft of motor vehicle parts/accessories")
+  victim_final$number_theft_first_offense[victim_final$year %in% unique(victim_temp$year)] <-
+    sum(victim_temp$ucr_offense_code_1 %in% theft_offenses)
+  victim_final$number_theft_all_offenses[victim_final$year %in% unique(victim_temp$year)] <-
+    sum(victim_temp$ucr_offense_code_1 %in% theft_offenses |
+          victim_temp$ucr_offense_code_2 %in% theft_offenses |
+          victim_temp$ucr_offense_code_3 %in% theft_offenses |
+          victim_temp$ucr_offense_code_4 %in% theft_offenses |
+          victim_temp$ucr_offense_code_5 %in% theft_offenses |
+          victim_temp$ucr_offense_code_6 %in% theft_offenses |
+          victim_temp$ucr_offense_code_7 %in% theft_offenses |
+          victim_temp$ucr_offense_code_8 %in% theft_offenses |
+          victim_temp$ucr_offense_code_9 %in% theft_offenses |
+          victim_temp$ucr_offense_code_10 %in% theft_offenses)
 
   # Get first year victim type is reported
   victim_type_victim_temp <- victim_temp %>%
@@ -663,7 +728,12 @@ administrative_final <- data.frame(
   least_common_hour = NA,
   percent_hour_midnight = NA,
   percent_hour_noon = NA,
-  percent_hour_unknown = NA
+  percent_hour_unknown = NA,
+  percent_exceptional_offender_death = NA,
+  percent_exceptional_extradition_denied = NA,
+  percent_exceptional_juvenile_no_custody = NA,
+  percent_exceptional_prosecution_declined = NA,
+  percent_exceptional_victim_refused_cooperate = NA
 )
 for (file in administrative_files) {
   administrative_temp <- readRDS(file)
@@ -700,6 +770,23 @@ for (file in administrative_files) {
   administrative_temp$hour <- as.numeric(administrative_temp$hour)
 
   administrative_final$number_of_agencies[administrative_final$year %in% unique(administrative_temp$year)] <- length(unique(administrative_temp$ori))
+  
+  # Exceptionally cleared subcategories
+  administrative_temp_exceptional <-
+    administrative_temp %>%
+    filter(!cleared_exceptionally %in% "not applicable",
+           !is.na(cleared_exceptionally))
+  administrative_final$percent_exceptional_offender_death[administrative_final$year %in% unique(administrative_temp$year)] <-
+    mean(administrative_temp_exceptional$cleared_exceptionally %in% "death of offender")
+  administrative_final$percent_exceptional_extradition_denied[administrative_final$year %in% unique(administrative_temp$year)] <-
+    mean(administrative_temp_exceptional$cleared_exceptionally %in% "extradition denied")
+  administrative_final$percent_exceptional_juvenile_no_custody[administrative_final$year %in% unique(administrative_temp$year)] <-
+    mean(administrative_temp_exceptional$cleared_exceptionally %in% "juvenile/no custody")
+  administrative_final$percent_exceptional_prosecution_declined[administrative_final$year %in% unique(administrative_temp$year)] <-
+    mean(administrative_temp_exceptional$cleared_exceptionally %in% "prosecution declined (for other than lack of probable cause)")
+  administrative_final$percent_exceptional_victim_refused_cooperate[administrative_final$year %in% unique(administrative_temp$year)] <-
+    mean(administrative_temp_exceptional$cleared_exceptionally %in% "victim refused to cooperate")
+  
 
   # Exceptionally cleared
   administrative_final$percent_cleared_exceptionally[administrative_final$year %in% unique(administrative_temp$year)] <-
@@ -802,10 +889,18 @@ arrestee_final <- data.frame(
   percent_murder_arrest_type_taken_into_custody = NA,
   percent_dui_arrest_type_on_view = NA,
   percent_dui_arrest_type_summoned_cited = NA,
-  percent_dui_arrest_type_taken_into_custody = NA
+  percent_dui_arrest_type_taken_into_custody = NA,
+  percent_referred_to_other_authorities = NA,
+  percent_handled_within_department = NA,
+  percent_rifle_automatic = NA,
+  percent_shotgun_automatic = NA,
+  percent_other_firearm_automatic = NA,
+  percent_firearm_type_not_stated_automatic = NA,
+  percent_handgun_automatic = NA
 )
 for (file in arrestee_files) {
   arrestee_temp <- readRDS(file)
+  arrestee_temp_old <- arrestee_temp
   group_b_arrestee_temp <- readRDS(group_b_arrestee_files[grep(parse_number(file), group_b_arrestee_files)]) %>%
     mutate(
       automatic_weapon_indicator_1 = as.character(automatic_weapon_indicator_1),
@@ -827,6 +922,27 @@ for (file in arrestee_files) {
 
   arrestee_final$number_of_agencies[arrestee_final$year %in% unique(arrestee_temp$year)] <- length(unique(arrestee_temp$ori))
 
+  # Automatic
+  arrestee_final$percent_rifle_automatic[arrestee_final$year %in% unique(arrestee_temp$year)] <-
+    mean(arrestee_temp$automatic_weapon_indicator_1[arrestee_temp$arrestee_weapon_1 %in% "rifle"] %in% "automatic weapon")
+  arrestee_final$percent_shotgun_automatic[arrestee_final$year %in% unique(arrestee_temp$year)] <-
+    mean(arrestee_temp$automatic_weapon_indicator_1[arrestee_temp$arrestee_weapon_1 %in% "shotgun"] %in% "automatic weapon")
+  arrestee_final$percent_other_firearm_automatic[arrestee_final$year %in% unique(arrestee_temp$year)] <-
+    mean(arrestee_temp$automatic_weapon_indicator_1[arrestee_temp$arrestee_weapon_1 %in% "other firearm"] %in% "automatic weapon")
+  arrestee_final$percent_firearm_type_not_stated_automatic[arrestee_final$year %in% unique(arrestee_temp$year)] <-
+    mean(arrestee_temp$automatic_weapon_indicator_1[arrestee_temp$arrestee_weapon_1 %in% "firearm (type not stated)"] %in% "automatic weapon")
+  arrestee_final$percent_handgun_automatic[arrestee_final$year %in% unique(arrestee_temp$year)] <-
+    mean(arrestee_temp$automatic_weapon_indicator_1[arrestee_temp$arrestee_weapon_1 %in% "handgun"] %in% "automatic weapon")
+  
+  # Disposition
+  arrestee_temp_juvenile <- 
+    arrestee_temp %>%
+    filter(age_of_arrestee < 18)
+  arrestee_final$percent_referred_to_other_authorities[arrestee_final$year %in% unique(arrestee_temp$year)] <-
+    mean(arrestee_temp_juvenile$disposition_of_arrestee_under18 %in% "referred to other authorities (turned over to juvenile court, probation department, welfare agency, other police agency, criminal or adult court, etc.)")
+  arrestee_final$percent_handled_within_department[arrestee_final$year %in% unique(arrestee_temp$year)] <-
+    mean(arrestee_temp_juvenile$disposition_of_arrestee_under18 %in% "handled within department (released to parents, released with warning, etc.)")
+  
   # Age
   arrestee_final$median_age[arrestee_final$year %in% unique(arrestee_temp$year)] <- median(arrestee_temp$age_of_arrestee, na.rm = TRUE)
   arrestee_final$mean_age[arrestee_final$year %in% unique(arrestee_temp$year)] <- mean(arrestee_temp$age_of_arrestee, na.rm = TRUE)
@@ -874,6 +990,8 @@ for (file in arrestee_files) {
   arrestee_final$percent_murders_club_blackjack[arrestee_final$year %in% unique(arrestee_temp$year)] <-
     mean(arrestee_temp$arrestee_weapon_1[arrestee_temp$ucr_arrest_offense_code %in% "murder/nonnegligent manslaughter"] %in%
       "club/blackjack/brass knuckles")
+  
+  
   # Arrest type
   arrestee_final$percent_arrest_type_on_view[arrestee_final$year %in% unique(arrestee_temp$year)] <-
     mean(arrestee_temp$type_of_arrest %in%
@@ -907,7 +1025,7 @@ for (file in arrestee_files) {
       "taken into custody (based on warrant and/or previous incident report)")
 
   # Get first year offense is reported
-  arrestee_offenses_arrestee_temp <- arrestee_temp %>%
+  arrestee_offenses_arrestee_temp <- arrestee_temp_old %>%
     distinct(ucr_arrest_offense_code) %>%
     mutate(year = unique(arrestee_temp$year)) %>%
     filter(!ucr_arrest_offense_code %in% arrestee_offense_first_year$ucr_arrest_offense_code)
@@ -918,7 +1036,7 @@ for (file in arrestee_files) {
       year,
       ucr_arrest_offense_code
     )
-
+  
   message(file)
   message("Age")
   print(sort(unique(arrestee_temp$age_of_arrestee)))
@@ -935,11 +1053,41 @@ for (file in arrestee_files) {
   message("Resident status")
   print(sort(unique(arrestee_temp$resident_status_of_arrestee)))
   message("\n\n\n")
+  print(sort(unique(arrestee_temp$disposition_of_arrestee_under18)))
+  message("\n\n\n")
+}
+
+group_b_offense_first_year <- data.frame()
+for (file in group_b_arrestee_files) {
+  group_b_arrestee_temp <- readRDS(file)
+  
+  # Get first year group b offense is reported
+  group_b_offense_first_year_temp <- 
+    group_b_arrestee_temp %>%
+    distinct(ucr_arrest_offense_code) %>%
+    mutate(year = unique(group_b_arrestee_temp$year)) %>%
+    filter(!ucr_arrest_offense_code %in% group_b_offense_first_year$ucr_arrest_offense_code)
+  group_b_offense_first_year  <-
+    group_b_offense_first_year %>%
+    bind_rows(group_b_offense_first_year_temp) %>%
+    arrange(
+      year,
+      ucr_arrest_offense_code
+    )
+  missing_crimes <- group_b_offense_first_year$ucr_arrest_offense_code[!group_b_offense_first_year$ucr_arrest_offense_code %in%
+                                                                         group_b_arrestee_temp$ucr_arrest_offense_code]
+  if (length(missing_crimes) > 0) {
+    group_b_offense_first_year$final_year[group_b_offense_first_year$ucr_arrest_offense_code %in% missing_crimes] <-
+      unique(group_b_offense_first_year_temp$year)
+  }
+  message(file)
 }
 
 arrestee_offense_first_year
+group_b_offense_first_year
 arrestee_final
 saveRDS(arrestee_offense_first_year, "data/nibrs_summary_stats/arrestee_offense_first_year.rds")
+saveRDS(group_b_offense_first_year, "data/nibrs_summary_stats/group_b_offense_first_year.rds")
 saveRDS(arrestee_final, "data/nibrs_summary_stats/nibrs_arrestee_summary_stats.rds")
 
 
