@@ -13,14 +13,10 @@ NIBRS data provides detailed information on every crime reported to the police, 
 
 However, there is a major limitation to this data: most agencies do not use it. [According to the FBI](https://www.fbi.gov/news/pressrel/press-releases/fbi-releases-2019-nibrs-crime-data) only about 8,500 police agencies, covering about 45% of the US population, reported NIBRS data in 2019 (the latest year currently available). This is fewer than half of the about 18,000 police agencies in the United States. This is an even larger problem than it seems as the agencies that do report - especially in earlier years of the data - are disproportionately small and rural. So we are missing out of data from most major cities. A number of states do not have any agencies reporting, making this data relatively biased at least in terms of geography and city size. **Even so, the FBI has said that they are moving entirely to NIBRS data starting in 2021, and will no longer even collect UCR data.** While NIBRS can be converted to UCR data, meaning we can have consistent statistics over time, for agencies that do not report to NIBRS, we have no information on their crimes. In effect, unless the majority of agencies suddenly switch to NIBRS - which, given that the high level of detail relative to UCR data makes moving to NIBRS a costly and timely switch - we will be flying blind for most crime in the country. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{11_nibrs_general_files/figure-latex/nibrsSegmentsAgencies-1} 
-
-}
-
-\caption{The number of agencies reporting data for each of the NIBRS Segments, 1991-2022.}(\#fig:nibrsSegmentsAgencies)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="11_nibrs_general_files/figure-html/nibrsSegmentsAgencies-1.png" alt="The number of agencies reporting data for each of the NIBRS Segments, 1991-2023." width="100%" height="100%" />
+<p class="caption">(\#fig:nibrsSegmentsAgencies)The number of agencies reporting data for each of the NIBRS Segments, 1991-2023.</p>
+</div>
 
 ## Problems with NIBRS
 
@@ -48,65 +44,35 @@ Another way to look at reporting is comparing it to reporting to UCR. Figure \@r
 
 Since the number of agencies in a state is partially just a factor of population, Figure \@ref(fig:agenciesReportingMapPercent) shows each state as a percent of agencies in that state that report to NIBRS that also reported to the UCR Offenses Known and Clearances by Arrest (the "crime" dataset) in 2019.^[This is the UCR dataset which has the highest reporting rate.] Not all agencies in the US reported to UCR in 2019 -  and a small number reported to NIBRS but not UCR in 2019 - but this is a fairly good measure of reporting rates. Here the story looks a bit different than in the previous figure. Now we can tell that among north-western states and states along the Appalachian Mountains, nearly all agencies report. In total, 18 states have 90% or more of agencies that reported to UCR in 2019 also reporting to NIBRS. Thirteen agencies have fewer than 10% of agencies reporting to NIBRS that also reported to UCR, with 5 of these having 0% of agencies reporting. The remaining states average about 56% of agencies reporting. So when using NIBRS data, keep in mind that you have very good coverage of certain states, and very poor coverage of other states. And the low - or zero - reporting states are systematically high population states.    
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{11_nibrs_general_files/figure-latex/nibrsAnnualNumberAgencies-1} 
-
-}
-
-\caption{The annual number of police agencies that report data to NIBRS.}(\#fig:nibrsAnnualNumberAgencies)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="11_nibrs_general_files/figure-html/nibrsAnnualNumberAgencies-1.png" alt="The annual number of police agencies that report data to NIBRS." width="100%" height="100%" />
+<p class="caption">(\#fig:nibrsAnnualNumberAgencies)The annual number of police agencies that report data to NIBRS.</p>
+</div>
 
 
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{11_nibrs_general_files/figure-latex/nibrsAnnualPercentPopulation-1} 
-
-}
-
-\caption{The annual percent of the United States population that is covered by an agency reporting data to NIBRS.}(\#fig:nibrsAnnualPercentPopulation)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="11_nibrs_general_files/figure-html/nibrsAnnualPercentPopulation-1.png" alt="The annual percent of the United States population that is covered by an agency reporting data to NIBRS." width="100%" height="100%" />
+<p class="caption">(\#fig:nibrsAnnualPercentPopulation)The annual percent of the United States population that is covered by an agency reporting data to NIBRS.</p>
+</div>
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{11_nibrs_general_files/figure-latex/nibrsStateParticipation2000-1} 
-
-}
-
-\caption{The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2000}(\#fig:nibrsStateParticipation2000)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="11_nibrs_general_files/figure-html/nibrsStateParticipation2000-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2000" width="100%" height="100%" />
+<p class="caption">(\#fig:nibrsStateParticipation2000)The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2000</p>
+</div>
 
 
-\begin{figure}
+<div class="figure" style="text-align: center">
+<img src="11_nibrs_general_files/figure-html/nibrsStateParticipation2010-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2010" width="100%" height="100%" />
+<p class="caption">(\#fig:nibrsStateParticipation2010)The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2010</p>
+</div>
 
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{11_nibrs_general_files/figure-latex/nibrsStateParticipation2010-1} 
-
-}
-
-\caption{The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2010}(\#fig:nibrsStateParticipation2010)
-\end{figure}
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{11_nibrs_general_files/figure-latex/nibrsStateParticipation2022-1} 
-
-}
-
-\caption{The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022}(\#fig:nibrsStateParticipation2022)
-\end{figure}
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{11_nibrs_general_files/figure-latex/nibrsStateParticipation2022Full-1} 
-
-}
-
-\caption{The percent of each state's population that is covered by police agencies reporting 12 months of data to NIBRS, 2022}(\#fig:nibrsStateParticipation2022Full)
-\end{figure}
-
+<div class="figure" style="text-align: center">
+<img src="11_nibrs_general_files/figure-html/nibrsStateParticipation2022-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2023 (using 2022 ACS 5-year Census data)" width="100%" height="100%" />
+<p class="caption">(\#fig:nibrsStateParticipation2022)The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2023 (using 2022 ACS 5-year Census data)</p>
+</div>
 
 ## Crimes included in NIBRS
 
@@ -238,14 +204,10 @@ Negative numbers in SRS data are because when a crime is reported and then later
 
 NIBRS data is often discussed - and is used - as if it were a single file with all of this information available. But it actually comes as multiple different files that each provide different information about a crime incident, including at different levels of analysis so users must clean each segment before merging them together. In this section we will discuss each of the segments and how they are related to each other. First, keep in mind that NIBRS is at its core an incident-level dataset (hence the "Incident-Based" part of its name). Everything that we have stems from the incident, even though we can get more detailed and look at, for example, individual victims in an incident or even offenses within an incident. Figure \@ref(fig:segmentFlowchart) shows the seven main segments and how they relate to each other. There are also three segments called "window segments" - there is one for arrestees, one of exceptional clearances (i.e. police could have made an arrest but did not for some reason but still consider the case closed), and one for property - that do not have an associated segment with them, they only have the information available in the given "window" segment. We will talk about window segments more in Section \@ref(window) below.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{images/nibrsSegments} 
-
-}
-
-\caption{The association of each segment file in the NIBRS dataset.}(\#fig:segmentFlowchart)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/nibrsSegments.png" alt="The association of each segment file in the NIBRS dataset." width="100%" height="100%" />
+<p class="caption">(\#fig:segmentFlowchart)The association of each segment file in the NIBRS dataset.</p>
+</div>
 
 The first two boxes in Figure \@ref(fig:segmentFlowchart), colored in orange, are not part of NIBRS but are part of the data generating process. First, obviously, a crime has to occur. The police then have to learn about the crime. This can happen in two ways. First, they can discover it themselves while on patrol. This is common in crimes such as drug possession or sale as well as any crime that occurs outdoors, which is largely where police are able to observe behavior. The second way is that the victim or witness to a crime reports it. So if they call the police to report a crime, the police learn about it from that call. We do not actually know from the data how the police learned of a crime but it is important to think about this data generating process when using the data. 
 Alongside the crime being reported (or discovered) to the police, agencies must then report the crime to NIBRS. All crimes that occur in that agency's jurisdiction *should* be reported, but that is not always the case. Since reporting is voluntary (at least nationally, though some states do require agencies to report data), agencies are free to report as many or as few crimes as they wish. This often occurs when agencies report only parts of the year, excluding certain months, so you should ensure that the agency reported data for each month you are interested in.

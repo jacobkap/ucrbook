@@ -23,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2024-09-27" />
+<meta name="date" content="2024-10-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -492,9 +492,9 @@ Figure 12.4: The percent of crimes that are reported each hour for all agencies 
 </div>
 <p>To look at these trends over time, Figure <a href="administrative-segment-1.html#fig:nibrsAdministrativeHours">12.5</a> shows the percent of incidents each year that are reported at noon, at midnight, and where the hour is unknown. The noon hour has slowly and steadily become more common, moving from about 4% in 1991 to 6% in 2022. The midnight hour has seen more fluctuations, increasing to 9% by 1993 before steadily decreasing until a large and sustained spike to 9% in 2017. The spike was caused by the end of data being reported as having an unknown hour. While the share of incidents with an unknown hour has also fluctuated - from around 2.5% to 5% of incidents depending on the year - that dropped to 0% in 2017, as unknown hours stopped being reported after 2016.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsAdministrativeHours"></span>
-<img src="12_nibrs_administrative_files/figure-html/nibrsAdministrativeHours-1.png" alt="Annual percent of incidents that occurred at midnight, noon, and at an unknown time, 1991-2022." width="100%" height="100%" />
+<img src="12_nibrs_administrative_files/figure-html/nibrsAdministrativeHours-1.png" alt="Annual percent of incidents that occurred at midnight, noon, and at an unknown time, 1991-2023." width="100%" height="100%" />
 <p class="caption">
-Figure 12.5: Annual percent of incidents that occurred at midnight, noon, and at an unknown time, 1991-2022.
+Figure 12.5: Annual percent of incidents that occurred at midnight, noon, and at an unknown time, 1991-2023.
 </p>
 </div>
 <p>Another way to visualize this is to see what hour is most and least common for every year we have data, as shown in Table <a href="administrative-segment-1.html#tab:nibrsAdministrativeCommonHours">12.1</a>. Results are strikingly similar for the entire time period we have NIBRS. In every year except for 1991 the most common hour is midnight, and in every year the least common is 5am. When excluding midnight the most common hours are are the end of the work day at 5PM-5:59PM and 6PM-6:59PM, or at noon.</p>
@@ -1067,6 +1067,23 @@ Noon
 5PM
 </td>
 </tr>
+<tr>
+<td style="text-align:left;">
+2023
+</td>
+<td style="text-align:left;">
+Midnight
+</td>
+<td style="text-align:right;">
+5AM
+</td>
+<td style="text-align:right;">
+Noon
+</td>
+<td style="text-align:left;">
+5PM
+</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -1077,16 +1094,16 @@ Noon
 <p>Next we have when the offender is a juvenile and the police chose to avoid arresting them due to their age, which makes up about 7% of these incidents. This generally occurs in minor offenses such as property crimes and the police do give notice to the juvenile offender’s parents or guardians about the situation. If the offender is in another agency’s jurisdiction (including out of the country) and the agency reporting data is unable to make an arrest, including when the agency who has the offender in their jurisdiction refuses to extradite the offender, the case can be exceptionally cleared. This occurs in 2% of exceptional clearances. In these cases we do not know any information about which jurisdiction the offender is in at the time of the exceptional clearance. Finally, if the offender dies (by any means) before the arrest they cannot be arrested so the case is exceptionally cleared. This makes up about 1% of exceptional clearances.</p>
 <p>The values shown in Figure <a href="administrative-segment-1.html#fig:administrativeExceptionalClearances">12.6</a> are for all incidents so can be quite different when examining subsets of the data such as by offender demographics or incident type. Doing this would require merging the Administrative Segment with another segment such as Offense or Victim.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:administrativeExceptionalClearances"></span>
-<img src="12_nibrs_administrative_files/figure-html/administrativeExceptionalClearances-1.png" alt="The distribution of exceptional clearances for all exceptional clearances reported to NIBRS, 1991-2022." width="100%" height="100%" />
+<img src="12_nibrs_administrative_files/figure-html/administrativeExceptionalClearances-1.png" alt="The distribution of exceptional clearances for all exceptional clearances reported to NIBRS, 1991-2023." width="100%" height="100%" />
 <p class="caption">
-Figure 12.6: The distribution of exceptional clearances for all exceptional clearances reported to NIBRS, 1991-2022.
+Figure 12.6: The distribution of exceptional clearances for all exceptional clearances reported to NIBRS, 1991-2023.
 </p>
 </div>
 <p>In Figure <a href="administrative-segment-1.html#fig:nibrsAdministrativeClearance">12.7</a> we can see trends in the percent of incidents that involve an arrest or an exceptional clearance. Ignoring the spike in the arrest rate in the first few years of data, likely part of growing pains of any new dataset, the share of incidents with an arrest is relatively steady over time, increasing until it peaks at a little under 30% of incidents in the mid-2010s and then declining since then. The share of incidents that are exceptionally cleared likewise are relatively steady but do show a slow decline over time, moving from a bit over 5% at the start of our data to about 3% by the end. These changes may simply be due to different agencies reporting over time but they are steady enough that I think the trend likely accurately reflects arrest and exceptional clearance rates in the US.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsAdministrativeClearance"></span>
-<img src="12_nibrs_administrative_files/figure-html/nibrsAdministrativeClearance-1.png" alt="Percent of incidents with an arrest or exceptional clearance, 1991-2022." width="100%" height="100%" />
+<img src="12_nibrs_administrative_files/figure-html/nibrsAdministrativeClearance-1.png" alt="Percent of incidents with an arrest or exceptional clearance, 1991-2023." width="100%" height="100%" />
 <p class="caption">
-Figure 12.7: Percent of incidents with an arrest or exceptional clearance, 1991-2022.
+Figure 12.7: Percent of incidents with an arrest or exceptional clearance, 1991-2023.
 </p>
 </div>
 </div>
@@ -1105,9 +1122,9 @@ Figure 12.8: The distribution for the number of Offender Segments per incident, 
 </div>
 <p>This trend is consistent over time. As shown in Figure <a href="administrative-segment-1.html#fig:nibrsAdministrativeNumberOffense">12.9</a>, the median number of offense segments each year is one, while the mean number is slightly over one.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsAdministrativeNumberOffense"></span>
-<img src="12_nibrs_administrative_files/figure-html/nibrsAdministrativeNumberOffense-1.png" alt="Annual mean and median number of Offense Segments, 1991-2022." width="100%" height="100%" />
+<img src="12_nibrs_administrative_files/figure-html/nibrsAdministrativeNumberOffense-1.png" alt="Annual mean and median number of Offense Segments, 1991-2023." width="100%" height="100%" />
 <p class="caption">
-Figure 12.9: Annual mean and median number of Offense Segments, 1991-2022.
+Figure 12.9: Annual mean and median number of Offense Segments, 1991-2023.
 </p>
 </div>
 </div>
@@ -1123,9 +1140,9 @@ Figure 12.10: The distribution for the number of Offender Segments per incident,
 </div>
 <p>As seen in Figure <a href="administrative-segment-1.html#fig:nibrsAdministrativeNumberOffender">12.11</a>, in every year the median number of offenders is one and the mean number is just above one.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsAdministrativeNumberOffender"></span>
-<img src="12_nibrs_administrative_files/figure-html/nibrsAdministrativeNumberOffender-1.png" alt="Annual mean and median number of Offender Segments, 1991-2022." width="100%" height="100%" />
+<img src="12_nibrs_administrative_files/figure-html/nibrsAdministrativeNumberOffender-1.png" alt="Annual mean and median number of Offender Segments, 1991-2023." width="100%" height="100%" />
 <p class="caption">
-Figure 12.11: Annual mean and median number of Offender Segments, 1991-2022.
+Figure 12.11: Annual mean and median number of Offender Segments, 1991-2023.
 </p>
 </div>
 </div>
@@ -1141,9 +1158,9 @@ Figure 12.12: The distribution for the number of Victim Segments per incident, f
 </div>
 <p>Similar to what we have seen with offenses and offenders, we can see in Figure <a href="administrative-segment-1.html#fig:nibrsAdministrativeNumberVictim">12.13</a> that the median number of victims is one and the mean number is just a bit more than one.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsAdministrativeNumberVictim"></span>
-<img src="12_nibrs_administrative_files/figure-html/nibrsAdministrativeNumberVictim-1.png" alt="Annual mean and median number of Victim Segments, 1991-2022." width="100%" height="100%" />
+<img src="12_nibrs_administrative_files/figure-html/nibrsAdministrativeNumberVictim-1.png" alt="Annual mean and median number of Victim Segments, 1991-2023." width="100%" height="100%" />
 <p class="caption">
-Figure 12.13: Annual mean and median number of Victim Segments, 1991-2022.
+Figure 12.13: Annual mean and median number of Victim Segments, 1991-2023.
 </p>
 </div>
 </div>
@@ -1167,9 +1184,9 @@ Figure 12.15: The percent of incidents by number of offenders where at least one
 </div>
 <p>The median number of arrestee segments over time, as shown in Figure <a href="administrative-segment-1.html#fig:nibrsAdministrativeNumberArrestee">12.16</a> is zero, with the mean number slightly higher at around 0.3.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsAdministrativeNumberArrestee"></span>
-<img src="12_nibrs_administrative_files/figure-html/nibrsAdministrativeNumberArrestee-1.png" alt="Annual mean and median number of Arrestee Segments, 1991-2022." width="100%" height="100%" />
+<img src="12_nibrs_administrative_files/figure-html/nibrsAdministrativeNumberArrestee-1.png" alt="Annual mean and median number of Arrestee Segments, 1991-2023." width="100%" height="100%" />
 <p class="caption">
-Figure 12.16: Annual mean and median number of Arrestee Segments, 1991-2022.
+Figure 12.16: Annual mean and median number of Arrestee Segments, 1991-2023.
 </p>
 </div>
 <p>In summary, the Administrative Segment provides a useful metadata for understanding what other segments are available for each incident. Although it is often necessary to combine this data with other segments to gain a full understanding of the incident, the information in the Administrative Segment - such as the timing of the crime and exceptional clearance details - offers useful insights into the broader patterns of criminal activity and law enforcement responses.</p>

@@ -15,8 +15,8 @@ One important point of clarification: this is not the number of murders, though 
 
 
 ```{r}
-shr <- readRDS("data/shr_1976_2022.rds")
-offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2022.rds")
+shr <- readRDS("data/shr_1976_2023.rds")
+offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2023.rds")
 ```
 
 ## Agencies reporting
@@ -74,7 +74,7 @@ ggplot(shr_offenses_known_murders, aes(x = year)) +
 
 Let us look at Chicago for another example of the differences in reporting from the SHR and the Offenses Known data. Figure \@ref(fig:chicagoSHRvsOffensesKnown) shows the annual number of homicide victims from both datasets. In most years they are pretty similar, excluding a few really odd years in the 1980s and in 1990. But what is also strange is that most years have more SHR victims than Offenses Known victims. So nationally SHR has fewer homicides than Offenses Known but that pattern is reversed in Chicago? This is one of the many quirks of SHR data. And is a warning against treating national trends as local trends; what is true nationally is not always true in your community. So when you use this data, check everything closely. And once you have done that, check it again. 
 
-```{r chicagoSHRvsOffensesKnown, fig.cap = "The annual number of homicide victims in Chicago, Supplementary Homicide Reports and Offenses Known and Clearances by Arrest, 1976-2022."}
+```{r chicagoSHRvsOffensesKnown, fig.cap = "The annual number of homicide victims in Chicago, Supplementary Homicide Reports and Offenses Known and Clearances by Arrest, 1976-2023."}
 chicago_homicides <- shr %>%
   filter(ori %in% "ILCPD00") %>%
   mutate(victim_count = additional_victim_count + 1) %>%
@@ -110,7 +110,7 @@ ggplot(chicago_offenses_known_homicides, aes(x = year)) +
 
 Figures \@ref(fig:shrTopAgenciesCount) and \@ref(fig:shrTopAgenciesCountPercent) attempt to get at this question by looking the number and percent of all incidents that the top 100, 50 and 10 agencies based on number of homicide incidents make up out of all homicide incidents in each year. These agencies are massively disproportionate in how many homicides they represent - though they are also generally the largest cities in the country so are a small number of agencies but a large share of this nation's population. On average, the 10 agencies with the most homicide incidents each year - which may change every year - have over 4,000 homicide incidents and make up about 1/4 of all homicide incidents reported nationally. The top 50 have about 7,500 incidents a year, accounting for 46% of incidents. The top 100 agencies have a bit under 10,000 incidents a year and make up over 55% of all homicide incidents in the United States. So excluding the largest agencies in the country would certainly undercount homicides.
 
-```{r, shrTopAgenciesCount, fig.cap = "The annual number of homicide incidents, showing all agencies, the top 100 agencies (by number of homicide incidents), top 50, and top 10 agencies, 1976-2022."}
+```{r, shrTopAgenciesCount, fig.cap = "The annual number of homicide incidents, showing all agencies, the top 100 agencies (by number of homicide incidents), top 50, and top 10 agencies, 1976-2023."}
 shr_annual_top_agencies <- data.frame(year = 1976:2022,
                                  total_incidents = NA,
                                  top_100_incidents = NA,
@@ -159,7 +159,7 @@ ggplot(shr_annual_top_agencies, aes(x = year)) +
 ```
 
 
-```{r, shrTopAgenciesCountPercent, fig.cap = "The annual percent of homicide incidents by the top 100 agencies (by number of homicide incidents), top 50, and top 10 agencies, 1976-2022."}
+```{r, shrTopAgenciesCountPercent, fig.cap = "The annual percent of homicide incidents by the top 100 agencies (by number of homicide incidents), top 50, and top 10 agencies, 1976-2023."}
 ggplot(shr_annual_top_agencies, aes(x = year)) +
   geom_line(aes(y = top_100_percent, color = "Top 100"), size = 1.02) +
   geom_line(aes(y = top_50_percent, color = "Top 50"), size = 1.02) +
@@ -258,7 +258,7 @@ crimeutils::make_stat_count_plots(temp,
 
 We will next look at victim and offender sex, a simple variable since only male and female are included. About 62.2% of offenders, as seen in Figure \@ref(fig:shrOffenderSex), are male and about 8.2% are female, indicating a large disparity in the sex of homicide offenders. The remaining 29.6% of offenders do not have sex data available because the police do not know the sex of this individual. For offenders who are not arrested, this variable may be inaccurate since it is perceived sex of the offender.^[If we ignore unknown sex, essentially saying that the unknown people will have their sex distributed exactly as the known sex people, 88% are male and 12% are female. However, this assumption is probably wrong since the unknown people may be materially different than the known people, as evidence by them likely not being arrested and committing the crime in a way where even their sex cannot be identified. ] 
 
-```{r shrOffenderSex, fig.cap = "The sex of offender \\#1, 1976-2022."}
+```{r shrOffenderSex, fig.cap = "The sex of offender \\#1, 1976-2023."}
 shr$offender_1_sex[is.na(shr$offender_1_sex)] <- "unknown"
 shr$offender_1_sex <- tolower(shr$offender_1_sex)
 shr %>%
@@ -269,7 +269,7 @@ shr %>%
 
 There is far less uncertainty for victim sex, with under 0.17% of victims having an unknown sex. Here again there is a large disparity between male and female with about 78.2% of victims being male and 21.6% being female. 
 
-```{r shrVictimSex, fig.cap = "The sex of victim \\#1, 1976-2022."}
+```{r shrVictimSex, fig.cap = "The sex of victim \\#1, 1976-2023."}
 shr %>%
   mutate(victim_1_sex = capitalize_words(victim_1_sex)) %>%
   crimeutils::make_barplots("victim_1_sex", count = "FALSE") +
@@ -282,7 +282,7 @@ This data also includes the race of the victims and offenders. This includes the
 
 Figure \@ref(fig:shrOffenderRace) shows the percent of homicides in the data by the race of offender #1. Black and White offenders are included are similar percentages, at 34.3% and 33.6% of victims, respectively. The next most common group is Unknown at about 30.6% of offenders. Given that so many offenders have an unknown race, the reliability of race measures is limited. The remaining races are Asian at 0.9% of offenders, American Indian or Alaskan Native at 0.6%, and Native Hawaiian or Other Pacific Islander at 0.02%. 
 
-```{r shrOffenderRace, fig.cap = "The race of offender \\#1, 1976-2022."}
+```{r shrOffenderRace, fig.cap = "The race of offender \\#1, 1976-2023."}
 shr$offender_1_race[shr$offender_1_race %in% c("p",
                                                "P",
                                                "native hawaiian or other pacific islander")] <- "Native Hawaiian/Pacific Islander"
@@ -296,7 +296,7 @@ shr %>%
 
 For victim race, seen in Figure \@ref(fig:shrVictimRace), only about 1% of victim #1 races are unknown. This means we can be a lot more confident in the race of the victims than in the race of the offender. Similar to offenders, White and Black victims are the two most common races, with 48.4% and 48.1% of victims, respectively. There is a greater share of Asian victims than Asian offenders at 1.5% of victims. American Indian or Alaskan Natives make up 0.8% of victims while Native Hawaiian or Pacific Islanders make up 0.02% of victims.
 
-```{r shrVictimRace, fig.cap = "The race of victim \\#1, 1976-2022"}
+```{r shrVictimRace, fig.cap = "The race of victim \\#1, 1976-2023"}
 shr$victim_1_race[shr$victim_1_race %in% c("P", "p",
                                            "native hawaiian or other pacific islander")] <- "Native Hawaiian/Pacific Islander"
 shr$victim_1_race[shr$victim_1_race %in% "american indian or alaskan native"] <- "American Indian/Alaskan Native"
@@ -312,7 +312,7 @@ The final demographic variable is ethnicity which is whether the victim or offen
 
 The vast majority - 69.7% - of offenders have an unknown ethnicity while 23.4% are not Hispanic and 7.1% are Hispanic. 
 
-```{r shrOffenderEthnicity, fig.cap = "The ethnicity of offender \\#1, 1976-2022."}
+```{r shrOffenderEthnicity, fig.cap = "The ethnicity of offender \\#1, 1976-2023."}
 shr$offender_1_ethnic_origin[is.na(shr$offender_1_ethnic_origin)] <- "unknown"
 shr %>%
   mutate(offender_1_ethnic_origin = capitalize_words(offender_1_ethnic_origin)) %>%
@@ -322,7 +322,7 @@ shr %>%
 
 Unlike the other demographic variables, there is still a huge amount of underreporting when it comes to victim ethnicity, though still less than for offender ethnicity. 55.6% of victims have an unknown ethnicity. Approximately 33.2% of victim #1 are reported as not Hispanic while 11.1% are reported as Hispanic.
 
-```{r shrVictimEthnicity, fig.cap = "The ethnicity of victim \\#1, 1976-2022."}
+```{r shrVictimEthnicity, fig.cap = "The ethnicity of victim \\#1, 1976-2023."}
 shr$victim_1_ethnic_origin[is.na(shr$victim_1_ethnic_origin)] <- "unknown"
 shr %>%
   mutate(victim_1_ethnic_origin = capitalize_words(victim_1_ethnic_origin)) %>%
@@ -332,7 +332,7 @@ shr %>%
 
 As an example of agencies under-reporting this variable, let us look at the number of offender #1s in Albuquerque, New Mexico, a city which the [US Census](https://www.census.gov/quickfacts/fact/table/albuquerquecitynewmexico,US/PST045222) says is about 50% Hispanic. Yet the Albuquerque police reported no ethnicity information for almost three decades of data. 
 
-```{r ABQ, fig.cap = "Annual number of offender \\#1 who is Hispanic in Albuquerque, New Mexico, 1976-2022."}
+```{r ABQ, fig.cap = "Annual number of offender \\#1 who is Hispanic in Albuquerque, New Mexico, 1976-2023."}
 shr$hispanic_offender <- 0
 shr$hispanic_offender[shr$offender_1_ethnic_origin %in% "hispanic"] <- 1
 
@@ -386,7 +386,7 @@ kableExtra::kbl(temp,
              #booktabs = TRUE, 
              longtable = TRUE,
              label = "shrWeapon",
-             caption = "The weapon used in a homicide incident, 1976-2022. In cases where there are multiple offenders, shows only the primary weapon for the first offender.",
+             caption = "The weapon used in a homicide incident, 1976-2023. In cases where there are multiple offenders, shows only the primary weapon for the first offender.",
             escape = TRUE
            ) %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
@@ -395,7 +395,7 @@ You may have noticed from the table that AR-15 is not included. While AR-15 is t
 
 Let us check if AR-15s, through our rough proxy of the "rifle" weapon group, is getting more common over time. Figure \@ref(fig:shrRifle) shows the number of homicide incidents (including manslaughters, so not necessarily all murders) where offender #1 used a rifle. Figure \@ref(fig:shrRiflePercent) shows the percent of all homicide incidents where the the weapon was a rifle. Using both of these measures we can see the rifles are getting less common, declining substantially since 1980 though increasing again starting in the mid-2010s.  
 
-```{r, shrRifle, fig.cap = "The annual number of homicide incidents where offender \\#1's weapon was a rifle, 1976-2022."}
+```{r, shrRifle, fig.cap = "The annual number of homicide incidents where offender \\#1's weapon was a rifle, 1976-2023."}
 shr$rifle <- 0
 shr$rifle[shr$offender_1_weapon %in% "rifle"] <- 1
 
@@ -415,7 +415,7 @@ shr %>%
   expand_limits(y = 0)
 ```
 
-```{r shrRiflePercent, fig.cap = "The annual share of homicide incidents where offender \\#1's weapon was a rifle, 1976-2022."}
+```{r shrRiflePercent, fig.cap = "The annual share of homicide incidents where offender \\#1's weapon was a rifle, 1976-2023."}
 shr %>%
   mutate(dummy = 1) %>%
   group_by(year) %>%
@@ -490,7 +490,7 @@ kableExtra::kbl(temp,
              #booktabs = TRUE, 
              longtable = TRUE,
              label = "shrRelationship",
-             caption = "The relationship between the first victim and the first offender in a homicide incident, 1976-2022.",
+             caption = "The relationship between the first victim and the first offender in a homicide incident, 1976-2023.",
              escape = TRUE
           )%>%
  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))

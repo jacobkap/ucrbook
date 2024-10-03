@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r,  results='hide'}
-property        <- readRDS("data/nibrs_property_segment_2022.rds")
+property        <- readRDS("data/nibrs_property_segment_2023.rds")
 window_property <- readRDS("data/nibrs_window_recovered_property_segment_2021.rds")
 nibrs_property_summary <- readRDS("data/nibrs_summary_stats/nibrs_property_summary_stats.rds")
 drug_first_year <- readRDS("data/nibrs_summary_stats/drug_first_year.rds")
@@ -33,7 +33,7 @@ The next most common group, at 13.3%, is when the item was seized by the police.
 
 Next is "none" which only means that no property was stolen or damaged but that it could have been. For example, if someone tries to grab a person's purse but fails, that would be considered "none" since the purse was not actually taken. The remaining types are when the item was a counterfeit/forgery, at 1.2%, was burned (such as during an arson) at 0.2%, or when the type of loss is unknown at 0.2% 
 
-```{r propertyTypeLoss, fig.cap = "The type of loss or if the item is recovered, 2022."}
+```{r propertyTypeLoss, fig.cap = "The type of loss or if the item is recovered, 2023."}
 property$type_of_property_loss_temp <- capitalize_words(property$type_of_property_loss)
 property$type_of_property_loss_temp <- gsub(" \\(.*", "", property$type_of_property_loss_temp, ignore.case = TRUE)
 property$type_of_property_loss_temp[property$type_of_property_loss_temp == "Stolen/Etc."] <- "Stolen/Robbed/Etc."
@@ -65,7 +65,7 @@ temp_recovered <- make_frequency_table(property[property$type_of_property_loss %
                                          "# of Property Recovered",
                                          "% of Property Recovered"))
 
-temp <- make_frequency_table(property[property$type_of_property_loss %in% "stolen/etc. (includes bribed, defrauded, embezzled, extorted, ransomed, robbed, etc.)", ],
+temp <- make_frequency_table(property[property$type_of_property_loss %in% "stolen (includes bribed, defrauded, embezzled, extorted, ransomed, robbed, etc.)", ],
                              "property_description",
                              c("Property",
                                "# of Property Stolen",
@@ -106,7 +106,7 @@ kableExtra::kbl(temp,
                 longtable = TRUE,
                 label = "propertyStolenDescription",
                 escape = TRUE,
-                caption = "The number and percent of property stolen (including forcibly taken such as during a robbery) and property seized by police (excludes recovering property that was stolen), and recovered by police, 2022. Each incident can have multiple items stolen.") %>%
+                caption = "The number and percent of property stolen (including forcibly taken such as during a robbery) and property seized by police (excludes recovering property that was stolen), and recovered by police, 2023. Each incident can have multiple items stolen.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 
 ```
@@ -125,7 +125,7 @@ We can use this variable to look at the value of items lost by the victim. Figur
 ```{r propertyValuePropertyLevel, fig.cap = "The distribution of the value of property stolen. Each value is rounded to the nearest 100. The x-axis is set on the log scale as this distribution is hugely skewed. Values over 1,0000,00 are set to 1,000,000."}
 temp <-
   property %>%
-  filter(type_of_property_loss %in% "stolen/etc. (includes bribed, defrauded, embezzled, extorted, ransomed, robbed, etc.)") %>%
+  filter(type_of_property_loss %in% "stolen (includes bribed, defrauded, embezzled, extorted, ransomed, robbed, etc.)") %>%
   mutate(value_of_property = parse_number(value_of_property)) %>%
   filter(!is.na(value_of_property))
 temp$value_of_property[temp$value_of_property > 1000000] <- 1000000
@@ -171,11 +171,11 @@ nibrs_property_summary %>%
     longtable = TRUE,
     escape = TRUE,
     label = "nibrsPropertyStolenValue",
-    caption = "Annual mean, median, and maximum values (in dollars) of property stolen and recovered, 1991-2022.") %>%
+    caption = "Annual mean, median, and maximum values (in dollars) of property stolen and recovered, 1991-2023.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
-```{r nibrsPropertyMaxValuePercent, fig.cap="Annual percent of the value of all property stolen that is made up of the value that is the maximum dollar amount reported in that year, 1991-2022."}
+```{r nibrsPropertyMaxValuePercent, fig.cap="Annual percent of the value of all property stolen that is made up of the value that is the maximum dollar amount reported in that year, 1991-2023."}
 nibrs_property_summary  %>%
   ggplot(aes(x = year, y = percent_stolen_max_value)) +
   geom_line(linewidth = 1.05) + 
@@ -289,7 +289,7 @@ kableExtra::kbl(temp,
 ```
 
 
-```{r nibrsPropertyDrugType, fig.cap="Annual percent of drug seizures by drug type, for the 1st drug reported, 1991-2022."}
+```{r nibrsPropertyDrugType, fig.cap="Annual percent of drug seizures by drug type, for the 1st drug reported, 1991-2023."}
 nibrs_property_summary  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_marijuana_hashish, color = "Marijuana/Hashish"), linewidth = 1.05) +

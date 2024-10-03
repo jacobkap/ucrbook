@@ -18,47 +18,31 @@ We will start by looking at how many agencies report hate crime each year. This 
 
 Figure \@ref(fig:hateAgencies) shows the number of agencies that report at least one hate crime incident in that year. During the first year of data in 1991 there were about 750 agencies reporting and that grew steadily to about 2,000 agencies in year 2000. From there it increased a bit over the next decade before declining to below 1,750 in the early 2010s and rising again to around 3,000 agencies at the end of our data.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{09_hate_crime_files/figure-latex/hateAgencies-1} 
-
-}
-
-\caption{The annual number of police agencies that report at least one hate crime incident in that year.}(\#fig:hateAgencies)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="09_hate_crime_files/figure-html/hateAgencies-1.png" alt="The annual number of police agencies that report at least one hate crime incident in that year." width="100%" height="100%" />
+<p class="caption">(\#fig:hateAgencies)The annual number of police agencies that report at least one hate crime incident in that year.</p>
+</div>
 
 The 3,000 or so agencies that report each year are not the same every year. Figure \@ref(fig:hateCrimesEver) shows the cumulative number of agencies that have reported at least one hate crime between 1991 and 2022. There is a steady growth in the cumulative number of agencies, with about 350 new agencies each year. In each year some new agencies report hate crimes for the first time while some agencies that reported a hate crime in previous years do not report any hate crimes in the current year.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{09_hate_crime_files/figure-latex/hateCrimesEver-1} 
-
-}
-
-\caption{The cumulative number of agencies that have reported one or more hate crimes between 1991 and 2022}(\#fig:hateCrimesEver)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="09_hate_crime_files/figure-html/hateCrimesEver-1.png" alt="The cumulative number of agencies that have reported one or more hate crimes between 1991 and 2022" width="100%" height="100%" />
+<p class="caption">(\#fig:hateCrimesEver)The cumulative number of agencies that have reported one or more hate crimes between 1991 and 2022</p>
+</div>
 
 Figure \@ref(fig:hateCrimesPreviousYear) puts this into hard numbers by showing the percent of agencies who reported a hate crime in a certain year who *also* reported a hate crime in the previous year. For most years between 50% and 60% of agencies which reported a hate crime in the year shown on the x-axis also reported a hate crime in the previous year, indicating somewhat high consistency in which agencies have hate crimes. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{09_hate_crime_files/figure-latex/hateCrimesPreviousYear-1} 
-
-}
-
-\caption{The percent of agencies that report a hate crime in a given year that also reported a hate crime in the previous year, 1992-2022}(\#fig:hateCrimesPreviousYear)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="09_hate_crime_files/figure-html/hateCrimesPreviousYear-1.png" alt="The percent of agencies that report a hate crime in a given year that also reported a hate crime in the previous year, 1992-2023" width="100%" height="100%" />
+<p class="caption">(\#fig:hateCrimesPreviousYear)The percent of agencies that report a hate crime in a given year that also reported a hate crime in the previous year, 1992-2023</p>
+</div>
 
 Another way to understand reporting is to look at the number of reported hate crimes by state and see which states report and which do not. Figure \@ref(fig:hateCrimesMap) does this for 2022 data by showing the number of reported hate crime incidents by state. Unfortunately what we have done here is basically create a population map, though with California as a clear outlier. Counting up and graphing or mapping the number of crimes is a common first response to getting new data but is not actually that helpful. Here we see that the states with the biggest populations - California, New York, Texas,  - have the most hate crimes. To be more useful let us look at state-level reporting after adjusting to the number of agencies in the state and to the civilian population.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{09_hate_crime_files/figure-latex/hateCrimesMap-1} 
-
-}
-
-\caption{Total reported hate crimes by state, 2022}(\#fig:hateCrimesMap)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="09_hate_crime_files/figure-html/hateCrimesMap-1.png" alt="Total reported hate crimes by state, 2023" width="100%" height="100%" />
+<p class="caption">(\#fig:hateCrimesMap)Total reported hate crimes by state, 2023</p>
+</div>
 
 
 We will start with the rate of agencies reporting though this incorrectly assumes that each agency in the state is comparable. For example, say a state has 10 agencies; one that has jurisdiction over 91% of the state's population, and nine that have jurisdiction over 1% of the population each. If the one big agency reports and none of the nine do then we will say that only 10% of agencies report data. But this one covers 91% of the state so this is actually great coverage. Conversely, having that one agency not report means that even with the other nine agencies reporting we actually cover less than one-tenth of the state's population. Still, this is a useful starting point for understanding this data's reporting and usually answering these kinds of questions requires multiple answers that are all wrong in their own way.
@@ -67,14 +51,10 @@ Figure \@ref(fig:statePercentReporting) shows the percent of agencies for each s
 
 In 15 states, fewer than 10% of agencies reported a hate crime, and in one state (Pennsylvania) fewer than 5% of agencies did so. One interesting finding from this map is the more liberal states - New Jersey, Washington, California, Connecticut, etc. - have the highest share of agencies reporting a hate crime, indicating that the culture of the state may influence either the propensity of hate crimes, whether victims report, whether agencies report hate crimes, or simply that more hate crimes happen in these areas.   
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{09_hate_crime_files/figure-latex/statePercentReporting-1} 
-
-}
-
-\caption{The percent of agencies in each state that reported at least one hate crime in 2022, excluding agencies covered by another agency.}(\#fig:statePercentReporting)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="09_hate_crime_files/figure-html/statePercentReporting-1.png" alt="The percent of agencies in each state that reported at least one hate crime in 2022, excluding agencies covered by another agency." width="100%" height="100%" />
+<p class="caption">(\#fig:statePercentReporting)The percent of agencies in each state that reported at least one hate crime in 2022, excluding agencies covered by another agency.</p>
+</div>
 
 To examine how population affects our results, Figure \@ref(fig:statePercentReportingPop) shows the percent of each state's population that is covered by an agency that reported at least one hate crime. Results are similar to Figure \@ref(fig:statePercentReporting) but now show that there is more reporting than it appeared in that figure. That is because while not all agencies report a hate crime, the ones that do report are generally larger (in terms of population) than the ones that do not. And that is to be expected since smaller agencies will have fewer crimes than larger ones meaning that it is less likely that have a hate crime.
 
@@ -84,14 +64,10 @@ Is this good? We do not necessarily want 100% of agencies to report a hate crime
 
 This is also a fairly poor measure of reporting as it just measures agencies reporting at least one hate crime. If an agency had many hate crimes but only reported very few - and here let us think about that as both agencies not knowing a crime was a hate crime and also knowing but not reporting a hate crime - that is also quite bad for our understanding of hate crimes. However, it is far more likely that a hate crime is not reported than a non-hate crime being reported as a hate crime. Since we know the likely direction of any errors we can think about this entire dataset as being the lower-bound of hate crime data.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{09_hate_crime_files/figure-latex/statePercentReportingPop-1} 
-
-}
-
-\caption{The percent of population in each state in agencies that reported at least one hate crime in 2022, excluding agencies that are covered by another agency.}(\#fig:statePercentReportingPop)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="09_hate_crime_files/figure-html/statePercentReportingPop-1.png" alt="The percent of population in each state in agencies that reported at least one hate crime in 2022, excluding agencies that are covered by another agency." width="100%" height="100%" />
+<p class="caption">(\#fig:statePercentReportingPop)The percent of population in each state in agencies that reported at least one hate crime in 2022, excluding agencies that are covered by another agency.</p>
+</div>
 
 ## Tree of Life synagogue shooting {#treeOfLife}
 
@@ -109,25 +85,20 @@ This data has the standard set of variables describing the agency that is report
 
 This data says the exact date that the hate crime occurred on - though not the date it was reported on. Figure \@ref(fig:hateCrimesByDay) shows the percent of hates crimes between 1991 and 2022 that occurred on each day of the week. Interestingly, the most common days for a hate crime to occur is on Friday, which is also when non-hate crimes most frequently occur. This suggests that hate crimes do follow the same trends - at least partially - as other crimes.
 
-\begin{figure}
 
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{09_hate_crime_files/figure-latex/hateCrimesByDay-1} 
 
-}
 
-\caption{The day of the week that hate crimes occurred on, 1991-2022}(\#fig:hateCrimesByDay)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="09_hate_crime_files/figure-html/hateCrimesByDay-1.png" alt="The day of the week that hate crimes occurred on, 1991-2023" width="100%" height="100%" />
+<p class="caption">(\#fig:hateCrimesByDay)The day of the week that hate crimes occurred on, 1991-2023</p>
+</div>
 
 We can also look at which day of the month is most common, as shown in Figure \@ref(fig:hateCrimesByMonthDay). There's no pattern that I can see other than the the 1st of the most has the most hate crimes and the end of the month has the fewest. Not all months have more than 28 days so it makes sense that the 29th, 30th, and 31st are the least common days. Is the 1st of the month really the most dangerous? I think this is likely just a quirk of the data, and is something we also see in NIBRS data. When an agency does not report an actual date they may use the 1st of the month as a placeholder which then looks to us like the 1st is an especially prolific day for hate crimes. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{09_hate_crime_files/figure-latex/hateCrimesByMonthDay-1} 
-
-}
-
-\caption{The day of the month that hate crimes occurred on, 1991-2022}(\#fig:hateCrimesByMonthDay)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="09_hate_crime_files/figure-html/hateCrimesByMonthDay-1.png" alt="The day of the month that hate crimes occurred on, 1991-2023" width="100%" height="100%" />
+<p class="caption">(\#fig:hateCrimesByMonthDay)The day of the month that hate crimes occurred on, 1991-2023</p>
+</div>
 
 ### The bias motivation (who the hate is against)
 
@@ -139,101 +110,241 @@ Consider, for example, a person who is biased against Asian people and decides t
 
 In the FBI data bias motivation is based on the offender's perceptions of the victim so even if they are incorrect in who their victim is, if they intended to target someone for their perceived group membership, that is still a hate crime. For example, if a person assaults a man because they think he is gay, that is a hate crime because the assault was motivated by hate towards gay people. Whether the victim is actually gay or not is not relevant - the offender perceived him to be gay so it is an anti-gay hate crime. To make this even more complicated, the offender must have committed the crime because they are motivated, at least to some degree, by their bias against the victim. Being biased against the victim but targeting them for some other reason means that the crime is not a hate crime. 
 
-The biases that the FBI includes in this data have grown over time, with new bias motivations being added in 1997, 2012, 2013, and 2015. Table \@ref(tab:hateBiasMotivation) shows each bias motivation in this data, the year it was first reported, how many hate crimes there were for this bias motivation from 1991-2022 and what percent of hate crimes that bias motivation makes up. 
+The biases that the FBI includes in this data have grown over time, with new bias motivations being added in 1997, 2012, 2013, and 2015. Table \@ref(tab:hateBiasMotivation) shows each bias motivation in this data, the year it was first reported, how many hate crimes there were for this bias motivation from 1991-2023 and what percent of hate crimes that bias motivation makes up. 
 
-To make the most common bias motivations easier to identify, the table is sorted by the frequency of incidents. The "first year" column reflects the first year that the bias motivation was officially recorded, though some biases may have existed earlier but were not yet captured in the data. The last column in this table shows the percent of hate crime incidents from 1991-2022. 
+To make the most common bias motivations easier to identify, the table is sorted by the frequency of incidents. The "first year" column reflects the first year that the bias motivation was officially recorded, though some biases may have existed earlier but were not yet captured in the data. The last column in this table shows the percent of hate crime incidents from 1991-2023. 
 
 This sorting makes it easy to see the most common bias motivations, but that is not actually that useful to most people since we usually care more about a rate than a count. For example, according to this table there were almost three times as many anti-Black hate crimes than anti-Jewish hate crimes, showing that anti-Black hate crimes are more of a problem in this country. But this is not right. We cannot just count of the number of offenses or we risk accidentally just measuring the population of these groups. Black people, for example, make up about 14% of the United States population while Jewish people make up about 2%.^[For simplicity I am treating these groups as independent though of course some Black people can be Jewish.] If we adjust the numbers to equalize population then we see that there is a much higher anti-Jewish hate crime rate than anti-Black rate. 
 
 And even this is not that useful since you really need a much deeper dive into the data before pulling out these seemingly simple statistics. For example, maybe areas with more Jewish people have better reporting than areas with more Black people. Or that Jewish victims would report to the police at higher rates than Black victims. Maybe these are both true at certain times between 1992 and 2022 but have changed over the years. It is not hard to think of possible explanations for differences between groups so without running down each of these explanations I recommend caution before putting out even something as seemingly simple at the number of crimes by bias group. 
 
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:hateBiasMotivation)The bias motivation for hate crime incidents. In incidents with multiple bias motivation, this shows only the first bias motivation recorded.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Bias Motivation </th>
+   <th style="text-align:left;"> First Year Reported </th>
+   <th style="text-align:right;"> # of Incidents </th>
+   <th style="text-align:right;"> % of Incidents </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:right;"> 252,093 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 84,508 </td>
+   <td style="text-align:right;"> 33.52\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Jewish </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 31,838 </td>
+   <td style="text-align:right;"> 12.63\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 28,192 </td>
+   <td style="text-align:right;"> 11.18\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 24,927 </td>
+   <td style="text-align:right;"> 9.89\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Hispanic Or Latino </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 16,231 </td>
+   <td style="text-align:right;"> 6.44\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Other Race, Ethnicity, Ancestry, Or National Origin </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 11,899 </td>
+   <td style="text-align:right;"> 4.72\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Lesbian, Gay, Bisexual, Or Transgender (Mixed Group) </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 8,684 </td>
+   <td style="text-align:right;"> 3.44\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Asian </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 8,088 </td>
+   <td style="text-align:right;"> 3.21\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Multiple Races, Group </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 5,876 </td>
+   <td style="text-align:right;"> 2.33\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Lesbian (Female) </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 5,041 </td>
+   <td style="text-align:right;"> 2.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Islamic (Muslim) </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 4,468 </td>
+   <td style="text-align:right;"> 1.77\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Other Religion </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 3,741 </td>
+   <td style="text-align:right;"> 1.48\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 2,878 </td>
+   <td style="text-align:right;"> 1.14\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Catholic </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 1,894 </td>
+   <td style="text-align:right;"> 0.75\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Transgender </td>
+   <td style="text-align:left;"> 2013 </td>
+   <td style="text-align:right;"> 1,855 </td>
+   <td style="text-align:right;"> 0.74\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Arab </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 1,633 </td>
+   <td style="text-align:right;"> 0.65\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Mental Disability </td>
+   <td style="text-align:left;"> 1997 </td>
+   <td style="text-align:right;"> 1,439 </td>
+   <td style="text-align:right;"> 0.57\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Protestant </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 1,389 </td>
+   <td style="text-align:right;"> 0.55\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Multiple Religions, Group </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 1,352 </td>
+   <td style="text-align:right;"> 0.54\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Physical Disability </td>
+   <td style="text-align:left;"> 1997 </td>
+   <td style="text-align:right;"> 870 </td>
+   <td style="text-align:right;"> 0.35\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Sikh </td>
+   <td style="text-align:left;"> 2015 </td>
+   <td style="text-align:right;"> 821 </td>
+   <td style="text-align:right;"> 0.33\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Bisexual </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 684 </td>
+   <td style="text-align:right;"> 0.27\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Gender Non-Conforming </td>
+   <td style="text-align:left;"> 2012 </td>
+   <td style="text-align:right;"> 653 </td>
+   <td style="text-align:right;"> 0.26\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Heterosexual </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 627 </td>
+   <td style="text-align:right;"> 0.25\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Female </td>
+   <td style="text-align:left;"> 2012 </td>
+   <td style="text-align:right;"> 539 </td>
+   <td style="text-align:right;"> 0.21\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Other Christian </td>
+   <td style="text-align:left;"> 2015 </td>
+   <td style="text-align:right;"> 472 </td>
+   <td style="text-align:right;"> 0.19\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Eastern Orthodox (Greek, Russian, Other) </td>
+   <td style="text-align:left;"> 2015 </td>
+   <td style="text-align:right;"> 441 </td>
+   <td style="text-align:right;"> 0.17\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Atheism/Agnosticism </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 218 </td>
+   <td style="text-align:right;"> 0.09\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Native Hawaiian Or Other Pacific Islander </td>
+   <td style="text-align:left;"> 2013 </td>
+   <td style="text-align:right;"> 198 </td>
+   <td style="text-align:right;"> 0.08\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Male </td>
+   <td style="text-align:left;"> 2013 </td>
+   <td style="text-align:right;"> 194 </td>
+   <td style="text-align:right;"> 0.08\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Buddhist </td>
+   <td style="text-align:left;"> 2015 </td>
+   <td style="text-align:right;"> 130 </td>
+   <td style="text-align:right;"> 0.05\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Hindu </td>
+   <td style="text-align:left;"> 2015 </td>
+   <td style="text-align:right;"> 128 </td>
+   <td style="text-align:right;"> 0.05\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Church of Jesus Christ (Mormon) </td>
+   <td style="text-align:left;"> 2015 </td>
+   <td style="text-align:right;"> 118 </td>
+   <td style="text-align:right;"> 0.05\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anti-Jehovahs Witness </td>
+   <td style="text-align:left;"> 2015 </td>
+   <td style="text-align:right;"> 67 </td>
+   <td style="text-align:right;"> 0.03\% </td>
+  </tr>
+</tbody>
+</table>
 
-\begin{longtable}[t]{l|l|r|r}
-\caption{(\#tab:hateBiasMotivation)The bias motivation for hate crime incidents. In incidents with multiple bias motivation, this shows only the first bias motivation recorded.}\\
-\hline
-Bias Motivation & First Year Reported & \# of Incidents & \% of Incidents\\
-\hline
-\endfirsthead
-\caption[]{(\#tab:hateBiasMotivation)The bias motivation for hate crime incidents. In incidents with multiple bias motivation, this shows only the first bias motivation recorded. \textit{(continued)}}\\
-\hline
-Bias Motivation & First Year Reported & \# of Incidents & \% of Incidents\\
-\hline
-\endhead
-Total &  & 240,108 & 100\textbackslash{}\%\\
-\hline
-Anti-Black & 1991 & 81,208 & 33.82\textbackslash{}\%\\
-\hline
-Anti-Jewish & 1991 & 29,967 & 12.48\textbackslash{}\%\\
-\hline
-Anti-White & 1991 & 27,360 & 11.39\textbackslash{}\%\\
-\hline
-Anti-Male Homosexual (Gay) & 1991 & 23,862 & 9.94\textbackslash{}\%\\
-\hline
-Anti-Hispanic & 1991 & 15,397 & 6.41\textbackslash{}\%\\
-\hline
-Anti-Ethnicity Other Than Hispanic & 1991 & 11,498 & 4.79\textbackslash{}\%\\
-\hline
-Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (LGBT) & 1991 & 7,815 & 3.25\textbackslash{}\%\\
-\hline
-Anti-Asian & 1991 & 7,671 & 3.19\textbackslash{}\%\\
-\hline
-Anti-Multi-Racial Group & 1991 & 5,652 & 2.35\textbackslash{}\%\\
-\hline
-Anti-Female Homosexual (Lesbian) & 1991 & 4,876 & 2.03\textbackslash{}\%\\
-\hline
-Anti-Muslim & 1991 & 4,206 & 1.75\textbackslash{}\%\\
-\hline
-Anti-Other Religion & 1991 & 3,621 & 1.51\textbackslash{}\%\\
-\hline
-Anti-American Indian Or Native Alaskan & 1991 & 2,781 & 1.16\textbackslash{}\%\\
-\hline
-Anti-Catholic & 1991 & 1,819 & 0.76\textbackslash{}\%\\
-\hline
-Anti-Arab & 1991 & 1,510 & 0.63\textbackslash{}\%\\
-\hline
-Anti-Transgender & 2013 & 1,500 & 0.62\textbackslash{}\%\\
-\hline
-Anti-Protestant & 1991 & 1,361 & 0.57\textbackslash{}\%\\
-\hline
-Anti-Mental Disability & 1997 & 1,333 & 0.56\textbackslash{}\%\\
-\hline
-Anti-Multi-Religious Group & 1991 & 1,314 & 0.55\textbackslash{}\%\\
-\hline
-Anti-Physical Disability & 1997 & 752 & 0.31\textbackslash{}\%\\
-\hline
-Anti-Sikh & 2015 & 673 & 0.28\textbackslash{}\%\\
-\hline
-Anti-Bisexual & 1991 & 652 & 0.27\textbackslash{}\%\\
-\hline
-Anti-Heterosexual & 1991 & 615 & 0.26\textbackslash{}\%\\
-\hline
-Anti-Gender Non-Conforming & 2012 & 514 & 0.21\textbackslash{}\%\\
-\hline
-Anti-Female & 2012 & 443 & 0.18\textbackslash{}\%\\
-\hline
-Anti-Other Christian & 2015 & 403 & 0.17\textbackslash{}\%\\
-\hline
-Anti-Eastern Orthodox (Greek, Russian, Etc.) & 2015 & 388 & 0.16\textbackslash{}\%\\
-\hline
-Anti-Atheism/Agnosticism & 1991 & 201 & 0.08\textbackslash{}\%\\
-\hline
-Anti-Native Hawaiian Or Other Pacific Islander & 2013 & 184 & 0.08\textbackslash{}\%\\
-\hline
-Anti-Male & 2013 & 171 & 0.07\textbackslash{}\%\\
-\hline
-Anti-Mormon & 2015 & 106 & 0.04\textbackslash{}\%\\
-\hline
-Anti-Hindu & 2015 & 103 & 0.04\textbackslash{}\%\\
-\hline
-Anti-Buddhist & 2015 & 101 & 0.04\textbackslash{}\%\\
-\hline
-Anti-Jehovahs Witness & 2015 & 51 & 0.02\textbackslash{}\%\\
-\hline
-\end{longtable}
 
 
-
-2015 is the year with the most bias additions, as of data through 2022. This year added a number of religions such as Anti-Buddhist, Anti-Sikh, and Anti-Jehovah's Witness. In 2013, anti-Transgender was added and this is the most common of the bias motivations added since data began in 1991 with 1500 hate crimes between 2013-2022 - 0.62% of all hate crime incidents from 1991-2022. That year also added anti-male and Anti-Native Hawaiian or Other Pacific Islander, which is the most recent racial group added. In 2012, anti-gender non-conforming and anti-female were included, while in 1997 both anti-mental and anti-physical disability were added. In part due to having fewer years of data available, these newer bias motivations make up a small percent of total hate crimes. 
+2015 is the year with the most bias additions, as of data through 2022. This year added a number of religions such as Anti-Buddhist, Anti-Sikh, and Anti-Jehovah's Witness. In 2013, anti-Transgender was added and this is the most common of the bias motivations added since data began in 1991 with 1500 hate crimes between 2013-2023 - 0.62% of all hate crime incidents from 1991-2023. That year also added anti-male and Anti-Native Hawaiian or Other Pacific Islander, which is the most recent racial group added. In 2012, anti-gender non-conforming and anti-female were included, while in 1997 both anti-mental and anti-physical disability were added. In part due to having fewer years of data available, these newer bias motivations make up a small percent of total hate crimes. 
 
 The original hate crimes - that is, those in the data in 1991 when this dataset was released - are far more common. The most common bias motivation is anti-Black at 34% of hate crimes, anti-Jewish at 12%, anti-White at 11%, anti-male homosexual (gay) at 10%, anti-Hispanic at 6%, and anti-ethnicity other than Hispanic (this group means a crime against an ethnic group that is not Hispanic, though it is occasionally reported as anti-non-Hispanic which is incorrect.) at 5%. All other bias motivations are less than 5% of hate crimes and consist of a variety of ethnic, racial, religious, or sexual orientation. Some hate crimes can potentially fall in multiple categories. For example, there is a bias motivation of "anti-male homosexual (gay)" and of "anti-lesbian, gay, bisexual, or transgender, mixed group (LGBT)" so there is some overlap between them. When an incident involves multiple bias motivations we can track that in the data as police can report up to 10 bias motivations per incident. In practice, however, most incidents involve only a single bias motivation.
 
@@ -245,1296 +356,4425 @@ Each hate crime incident can cover up to 10 different crimes occurring - for exa
 
 Figure \@ref(fig:crimesPerHateCrime) shows the number of crimes per incident for each hate crime reported between 1991 and 2022. In 96.6% of cases, there is only one offense in that incident.^[In 0.0004% of hate crimes there is no recorded offense. This is not shown in the graph.] This drops sharply to 3.2% of incidents having two offenses, 0.21% having three offenses, 0.019% having four offenses, and 0.002% having five offenses. Even though this data does allow up to 10 offenses per hate crime incident, there has never been a recorded case with more than five offenses. Results are nearly identical when examining the number of bias motivations and locations reported in an incident. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{09_hate_crime_files/figure-latex/crimesPerHateCrime-1} 
-
-}
-
-\caption{The number of offenses per hate crime incident.}(\#fig:crimesPerHateCrime)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="09_hate_crime_files/figure-html/crimesPerHateCrime-1.png" alt="The number of offenses per hate crime incident." width="100%" height="100%" />
+<p class="caption">(\#fig:crimesPerHateCrime)The number of offenses per hate crime incident.</p>
+</div>
 
 Nearly all hate crimes are vandalism/destruction of property (30%), intimidation (30%), and simple assault (20%) or aggravated assault (11%) with no remaining crime making up more than 2% of total hate crimes. 
 
-
-\begin{longtable}[t]{l|l|r|r}
-\caption{(\#tab:hateOffense)The offense type for hate crime incidents. In incidents with multiple offense types, this shows only the first offense type recorded.}\\
-\hline
-Offense & First Year Reported & \# of Incidents & \% of Incidents\\
-\hline
-\endfirsthead
-\caption[]{(\#tab:hateOffense)The offense type for hate crime incidents. In incidents with multiple offense types, this shows only the first offense type recorded. \textit{(continued)}}\\
-\hline
-Offense & First Year Reported & \# of Incidents & \% of Incidents\\
-\hline
-\endhead
-Total &  & 240,108 & 100\textbackslash{}\%\\
-\hline
-Destruction of Property/Vandalism & 1991 & 72,489 & 30.19\textbackslash{}\%\\
-\hline
-Intimidation & 1991 & 71,583 & 29.81\textbackslash{}\%\\
-\hline
-Simple Assault & 1991 & 47,917 & 19.96\textbackslash{}\%\\
-\hline
-Aggravated Assault & 1991 & 26,879 & 11.19\textbackslash{}\%\\
-\hline
-Robbery & 1991 & 4,339 & 1.81\textbackslash{}\%\\
-\hline
-Burglary/Breaking And Entering & 1991 & 3,890 & 1.62\textbackslash{}\%\\
-\hline
-All Other Larceny & 1993 & 2,584 & 1.08\textbackslash{}\%\\
-\hline
-Arson & 1991 & 1,456 & 0.61\textbackslash{}\%\\
-\hline
-Drug/Narcotic Violations & 1993 & 1,380 & 0.57\textbackslash{}\%\\
-\hline
-Theft-Other & 1991 & 917 & 0.38\textbackslash{}\%\\
-\hline
-Theft From Motor Vehicle & 1993 & 884 & 0.37\textbackslash{}\%\\
-\hline
-Shoplifting & 1993 & 771 & 0.32\textbackslash{}\%\\
-\hline
-Theft From Building & 1994 & 617 & 0.26\textbackslash{}\%\\
-\hline
-Motor Vehicle Theft & 1992 & 577 & 0.24\textbackslash{}\%\\
-\hline
-Weapon Law Violations & 1993 & 469 & 0.20\textbackslash{}\%\\
-\hline
-Drug Equipment Violations & 1995 & 391 & 0.16\textbackslash{}\%\\
-\hline
-False Pretenses/Swindle/Confidence Game & 1997 & 353 & 0.15\textbackslash{}\%\\
-\hline
-Murder/Non-Negligent Manslaughter & 1991 & 330 & 0.14\textbackslash{}\%\\
-\hline
-Forcible Rape & 1991 & 314 & 0.13\textbackslash{}\%\\
-\hline
-Theft of Motor Vehicle Parts/Accessories & 1993 & 249 & 0.10\textbackslash{}\%\\
-\hline
-Counterfeiting/Forgery & 1993 & 245 & 0.10\textbackslash{}\%\\
-\hline
-Forcible Fondling - Indecent Liberties/Child Molest & 1993 & 225 & 0.09\textbackslash{}\%\\
-\hline
-Credit Card/Atm Fraud & 1995 & 182 & 0.08\textbackslash{}\%\\
-\hline
-Impersonation & 2001 & 152 & 0.06\textbackslash{}\%\\
-\hline
-Kidnapping/Abduction & 1994 & 152 & 0.06\textbackslash{}\%\\
-\hline
-Stolen Property Offenses - Receiving, Selling, Etc. & 1996 & 140 & 0.06\textbackslash{}\%\\
-\hline
-Fraud-Other & 2016 & 103 & 0.04\textbackslash{}\%\\
-\hline
-Forcible Sodomy & 1995 & 82 & 0.03\textbackslash{}\%\\
-\hline
-Pornography/Obscene Material & 1995 & 81 & 0.03\textbackslash{}\%\\
-\hline
-Embezzlement & 1995 & 66 & 0.03\textbackslash{}\%\\
-\hline
-Extortion/Blackmail & 1997 & 62 & 0.03\textbackslash{}\%\\
-\hline
-Sexual Assault With An Object & 1996 & 41 & 0.02\textbackslash{}\%\\
-\hline
-Purse-Snatching & 1995 & 29 & 0.01\textbackslash{}\%\\
-\hline
-Pocket-Picking & 1996 & 28 & 0.01\textbackslash{}\%\\
-\hline
-Wire Fraud & 2006 & 26 & 0.01\textbackslash{}\%\\
-\hline
-Statutory Rape & 1999 & 21 & 0.01\textbackslash{}\%\\
-\hline
-Theft From Coin-Operated Machine Or Device & 1999 & 16 & 0.01\textbackslash{}\%\\
-\hline
-Unknown & 2018 & 15 & 0.01\textbackslash{}\%\\
-\hline
-Prostitution & 2001 & 14 & 0.01\textbackslash{}\%\\
-\hline
-Negligent Manslaughter & 1999 & 8 & 0.00\textbackslash{}\%\\
-\hline
-Welfare Fraud & 1996 & 8 & 0.00\textbackslash{}\%\\
-\hline
-Incest & 1997 & 7 & 0.00\textbackslash{}\%\\
-\hline
-Assisting Or Promoting Prostitution & 2013 & 5 & 0.00\textbackslash{}\%\\
-\hline
-Human Trafficking - Commercial Sex Acts & 2017 & 4 & 0.00\textbackslash{}\%\\
-\hline
-Bribery & 2014 & 4 & 0.00\textbackslash{}\%\\
-\hline
-Purchasing Prostitution & 2013 & 2 & 0.00\textbackslash{}\%\\
-\hline
-Human Trafficking - Involuntary Servitude & 2021 & 1 & 0.00\textbackslash{}\%\\
-\hline
-\end{longtable}
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:hateOffense)The offense type for hate crime incidents. In incidents with multiple offense types, this shows only the first offense type recorded.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Offense </th>
+   <th style="text-align:left;"> First Year Reported </th>
+   <th style="text-align:right;"> # of Incidents </th>
+   <th style="text-align:right;"> % of Incidents </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:right;"> 252,094 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 75,524 </td>
+   <td style="text-align:right;"> 29.96\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 75,381 </td>
+   <td style="text-align:right;"> 29.90\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 50,410 </td>
+   <td style="text-align:right;"> 20.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 28,127 </td>
+   <td style="text-align:right;"> 11.16\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 4,509 </td>
+   <td style="text-align:right;"> 1.79\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 4,023 </td>
+   <td style="text-align:right;"> 1.60\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:left;"> 1993 </td>
+   <td style="text-align:right;"> 3,010 </td>
+   <td style="text-align:right;"> 1.19\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arson </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 1,518 </td>
+   <td style="text-align:right;"> 0.60\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug/Narcotic Violations </td>
+   <td style="text-align:left;"> 1993 </td>
+   <td style="text-align:right;"> 1,462 </td>
+   <td style="text-align:right;"> 0.58\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Motor Vehicle </td>
+   <td style="text-align:left;"> 1993 </td>
+   <td style="text-align:right;"> 942 </td>
+   <td style="text-align:right;"> 0.37\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Other </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 925 </td>
+   <td style="text-align:right;"> 0.37\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Shoplifting </td>
+   <td style="text-align:left;"> 1993 </td>
+   <td style="text-align:right;"> 853 </td>
+   <td style="text-align:right;"> 0.34\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Building </td>
+   <td style="text-align:left;"> 1994 </td>
+   <td style="text-align:right;"> 685 </td>
+   <td style="text-align:right;"> 0.27\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Motor Vehicle Theft </td>
+   <td style="text-align:left;"> 1992 </td>
+   <td style="text-align:right;"> 614 </td>
+   <td style="text-align:right;"> 0.24\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Weapon Law Violations </td>
+   <td style="text-align:left;"> 1993 </td>
+   <td style="text-align:right;"> 501 </td>
+   <td style="text-align:right;"> 0.20\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug Equipment Violations </td>
+   <td style="text-align:left;"> 1995 </td>
+   <td style="text-align:right;"> 403 </td>
+   <td style="text-align:right;"> 0.16\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud Offenses - False Pretenses/Swindle/Confidence Game </td>
+   <td style="text-align:left;"> 1997 </td>
+   <td style="text-align:right;"> 378 </td>
+   <td style="text-align:right;"> 0.15\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Murder/Nonnegligent Manslaughter </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 348 </td>
+   <td style="text-align:right;"> 0.14\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sex Offenses - Rape </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 329 </td>
+   <td style="text-align:right;"> 0.13\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories </td>
+   <td style="text-align:left;"> 1993 </td>
+   <td style="text-align:right;"> 265 </td>
+   <td style="text-align:right;"> 0.11\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sex Offenses - Fondling - Indecent Liberties/Child Molest </td>
+   <td style="text-align:left;"> 1993 </td>
+   <td style="text-align:right;"> 265 </td>
+   <td style="text-align:right;"> 0.11\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Counterfeiting/Forgery </td>
+   <td style="text-align:left;"> 1993 </td>
+   <td style="text-align:right;"> 256 </td>
+   <td style="text-align:right;"> 0.10\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud Offenses - Credit Card/Atm Fraud </td>
+   <td style="text-align:left;"> 1995 </td>
+   <td style="text-align:right;"> 189 </td>
+   <td style="text-align:right;"> 0.07\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Kidnapping/Abduction </td>
+   <td style="text-align:left;"> 1994 </td>
+   <td style="text-align:right;"> 173 </td>
+   <td style="text-align:right;"> 0.07\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud Offenses - Impersonation </td>
+   <td style="text-align:left;"> 2001 </td>
+   <td style="text-align:right;"> 155 </td>
+   <td style="text-align:right;"> 0.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Stolen Property Offenses (Receiving, Selling, Etc.) </td>
+   <td style="text-align:left;"> 1996 </td>
+   <td style="text-align:right;"> 148 </td>
+   <td style="text-align:right;"> 0.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud Offenses - Other </td>
+   <td style="text-align:left;"> 2016 </td>
+   <td style="text-align:right;"> 122 </td>
+   <td style="text-align:right;"> 0.05\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pornography/Obscene Material </td>
+   <td style="text-align:left;"> 1995 </td>
+   <td style="text-align:right;"> 89 </td>
+   <td style="text-align:right;"> 0.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sex Offenses - Sodomy </td>
+   <td style="text-align:left;"> 1995 </td>
+   <td style="text-align:right;"> 86 </td>
+   <td style="text-align:right;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Extortion/Blackmail </td>
+   <td style="text-align:left;"> 1997 </td>
+   <td style="text-align:right;"> 77 </td>
+   <td style="text-align:right;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Embezzlement </td>
+   <td style="text-align:left;"> 1995 </td>
+   <td style="text-align:right;"> 71 </td>
+   <td style="text-align:right;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sex Offenses - Sexual Assault With An Object </td>
+   <td style="text-align:left;"> 1996 </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 0.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Purse-Snatching </td>
+   <td style="text-align:left;"> 1995 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Pocket-Picking </td>
+   <td style="text-align:left;"> 1996 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud Offenses - Wire Fraud </td>
+   <td style="text-align:left;"> 2006 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sex Offenses - Statutory Rape </td>
+   <td style="text-align:left;"> 1999 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Undocumented Code </td>
+   <td style="text-align:left;"> 2018 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft Rom Coin-Operated Machine Or Device </td>
+   <td style="text-align:left;"> 1999 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Prostitution Offenses - Prostitution </td>
+   <td style="text-align:left;"> 2001 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fraud Offenses - Welfare Fraud </td>
+   <td style="text-align:left;"> 1996 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Negligent Manslaughter </td>
+   <td style="text-align:left;"> 1999 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Prostitution Offenses - Assisting Or Promoting Prostitution </td>
+   <td style="text-align:left;"> 2013 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sex Offenses - Incest </td>
+   <td style="text-align:left;"> 1997 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bribery </td>
+   <td style="text-align:left;"> 2014 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Human Trafficking - Commercial Sex Acts </td>
+   <td style="text-align:left;"> 2017 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Prostitution Offenses - Purchasing Prostitution </td>
+   <td style="text-align:left;"> 2013 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Human Trafficking - Involuntary Servitude </td>
+   <td style="text-align:left;"> 2021 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gambling Offenses - Betting/Wagering </td>
+   <td style="text-align:left;"> 2017 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+</tbody>
+</table>
 
 
 
 Agencies that report to the FBI's National Incident-Based Reporting System (NIBRS) can also report bias motivations for their crimes, and these reports are included in this dataset. One tricky thing is that the crimes included are different depending on if the agency reported through NIBRS or to the dataset directly, and are not NIBRS reporting agencies. NIBRS agencies report all of the crimes as the agencies directly submitting SRS data, but have a wider variety of crimes they can report. In practice, however, both NIBRS and SRS reporting agencies can report the most common offenses so there is relatively little difference.
 
 
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:hateBiasOffense)The number and percent of offenses by bias motivation, 2023.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:left;"> Bias Motivation </th>
+   <th style="text-align:left;"> Offense </th>
+   <th style="text-align:right;"> \# of Incidents </th>
+   <th style="text-align:right;"> \% of Incidents </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> ...1 </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 561 </td>
+   <td style="text-align:right;"> 19.49\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...2 </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 432 </td>
+   <td style="text-align:right;"> 15.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...3 </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 415 </td>
+   <td style="text-align:right;"> 14.42\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...4 </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 284 </td>
+   <td style="text-align:right;"> 9.87\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...5 </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 202 </td>
+   <td style="text-align:right;"> 7.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...6 </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 984 </td>
+   <td style="text-align:right;"> 34.16\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...7 </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 2,878 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...8 </td>
+   <td style="text-align:left;"> Anti-Arab </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 634 </td>
+   <td style="text-align:right;"> 38.82\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...9 </td>
+   <td style="text-align:left;"> Anti-Arab </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 385 </td>
+   <td style="text-align:right;"> 23.58\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...10 </td>
+   <td style="text-align:left;"> Anti-Arab </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 308 </td>
+   <td style="text-align:right;"> 18.86\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...11 </td>
+   <td style="text-align:left;"> Anti-Arab </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 182 </td>
+   <td style="text-align:right;"> 11.15\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...12 </td>
+   <td style="text-align:left;"> Anti-Arab </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 1.29\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...13 </td>
+   <td style="text-align:left;"> Anti-Arab </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 103 </td>
+   <td style="text-align:right;"> 6.27\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...14 </td>
+   <td style="text-align:left;"> Anti-Arab </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 1,633 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...15 </td>
+   <td style="text-align:left;"> Anti-Asian </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 2,683 </td>
+   <td style="text-align:right;"> 33.17\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...16 </td>
+   <td style="text-align:left;"> Anti-Asian </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 2,067 </td>
+   <td style="text-align:right;"> 25.56\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...17 </td>
+   <td style="text-align:left;"> Anti-Asian </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 1,920 </td>
+   <td style="text-align:right;"> 23.74\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...18 </td>
+   <td style="text-align:left;"> Anti-Asian </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 803 </td>
+   <td style="text-align:right;"> 9.93\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...19 </td>
+   <td style="text-align:left;"> Anti-Asian </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 157 </td>
+   <td style="text-align:right;"> 1.94\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...20 </td>
+   <td style="text-align:left;"> Anti-Asian </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 458 </td>
+   <td style="text-align:right;"> 5.63\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...21 </td>
+   <td style="text-align:left;"> Anti-Asian </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 8,088 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...22 </td>
+   <td style="text-align:left;"> Anti-Atheism/Agnosticism </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 75 </td>
+   <td style="text-align:right;"> 34.40\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...23 </td>
+   <td style="text-align:left;"> Anti-Atheism/Agnosticism </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 11.47\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...24 </td>
+   <td style="text-align:left;"> Anti-Atheism/Agnosticism </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 11.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...25 </td>
+   <td style="text-align:left;"> Anti-Atheism/Agnosticism </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 9.63\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...26 </td>
+   <td style="text-align:left;"> Anti-Atheism/Agnosticism </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 6.42\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...27 </td>
+   <td style="text-align:left;"> Anti-Atheism/Agnosticism </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 27.09\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...28 </td>
+   <td style="text-align:left;"> Anti-Atheism/Agnosticism </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 218 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...29 </td>
+   <td style="text-align:left;"> Anti-Bisexual </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 196 </td>
+   <td style="text-align:right;"> 28.65\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...30 </td>
+   <td style="text-align:left;"> Anti-Bisexual </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 134 </td>
+   <td style="text-align:right;"> 19.59\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...31 </td>
+   <td style="text-align:left;"> Anti-Bisexual </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 93 </td>
+   <td style="text-align:right;"> 13.60\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...32 </td>
+   <td style="text-align:left;"> Anti-Bisexual </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 67 </td>
+   <td style="text-align:right;"> 9.80\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...33 </td>
+   <td style="text-align:left;"> Anti-Bisexual </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:right;"> 6.87\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...34 </td>
+   <td style="text-align:left;"> Anti-Bisexual </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 147 </td>
+   <td style="text-align:right;"> 21.49\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...35 </td>
+   <td style="text-align:left;"> Anti-Bisexual </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 684 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...36 </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 30,996 </td>
+   <td style="text-align:right;"> 36.68\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...37 </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 24,150 </td>
+   <td style="text-align:right;"> 28.58\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...38 </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 15,481 </td>
+   <td style="text-align:right;"> 18.32\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...39 </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 10,128 </td>
+   <td style="text-align:right;"> 11.98\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...40 </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 1,003 </td>
+   <td style="text-align:right;"> 1.19\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...41 </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 2,750 </td>
+   <td style="text-align:right;"> 3.23\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...42 </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 84,508 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...43 </td>
+   <td style="text-align:left;"> Anti-Buddhist </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 31.54\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...44 </td>
+   <td style="text-align:left;"> Anti-Buddhist </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 13.08\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...45 </td>
+   <td style="text-align:left;"> Anti-Buddhist </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 10.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...46 </td>
+   <td style="text-align:left;"> Anti-Buddhist </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 6.15\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...47 </td>
+   <td style="text-align:left;"> Anti-Buddhist </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 4.62\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...48 </td>
+   <td style="text-align:left;"> Anti-Buddhist </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 34.65\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...49 </td>
+   <td style="text-align:left;"> Anti-Buddhist </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 130 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...50 </td>
+   <td style="text-align:left;"> Anti-Catholic </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 1,115 </td>
+   <td style="text-align:right;"> 58.87\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...51 </td>
+   <td style="text-align:left;"> Anti-Catholic </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 213 </td>
+   <td style="text-align:right;"> 11.25\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...52 </td>
+   <td style="text-align:left;"> Anti-Catholic </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 97 </td>
+   <td style="text-align:right;"> 5.12\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...53 </td>
+   <td style="text-align:left;"> Anti-Catholic </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 86 </td>
+   <td style="text-align:right;"> 4.54\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...54 </td>
+   <td style="text-align:left;"> Anti-Catholic </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:right;"> 3.33\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...55 </td>
+   <td style="text-align:left;"> Anti-Catholic </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 320 </td>
+   <td style="text-align:right;"> 16.89\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...56 </td>
+   <td style="text-align:left;"> Anti-Catholic </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 1,894 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...57 </td>
+   <td style="text-align:left;"> Anti-Church of Jesus Christ (Mormon) </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 51 </td>
+   <td style="text-align:right;"> 43.22\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...58 </td>
+   <td style="text-align:left;"> Anti-Church of Jesus Christ (Mormon) </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 11.86\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...59 </td>
+   <td style="text-align:left;"> Anti-Church of Jesus Christ (Mormon) </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 11.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...60 </td>
+   <td style="text-align:left;"> Anti-Church of Jesus Christ (Mormon) </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 10.17\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...61 </td>
+   <td style="text-align:left;"> Anti-Church of Jesus Christ (Mormon) </td>
+   <td style="text-align:left;"> Arson </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 5.93\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...62 </td>
+   <td style="text-align:left;"> Anti-Church of Jesus Christ (Mormon) </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 17.78\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...63 </td>
+   <td style="text-align:left;"> Anti-Church of Jesus Christ (Mormon) </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 118 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...64 </td>
+   <td style="text-align:left;"> Anti-Eastern Orthodox (Greek, Russian, Other) </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 74 </td>
+   <td style="text-align:right;"> 16.78\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...65 </td>
+   <td style="text-align:left;"> Anti-Eastern Orthodox (Greek, Russian, Other) </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:right;"> 11.11\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...66 </td>
+   <td style="text-align:left;"> Anti-Eastern Orthodox (Greek, Russian, Other) </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:right;"> 11.11\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...67 </td>
+   <td style="text-align:left;"> Anti-Eastern Orthodox (Greek, Russian, Other) </td>
+   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug/Narcotic Violations </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 9.30\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...68 </td>
+   <td style="text-align:left;"> Anti-Eastern Orthodox (Greek, Russian, Other) </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 7.71\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...69 </td>
+   <td style="text-align:left;"> Anti-Eastern Orthodox (Greek, Russian, Other) </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 194 </td>
+   <td style="text-align:right;"> 44.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...70 </td>
+   <td style="text-align:left;"> Anti-Eastern Orthodox (Greek, Russian, Other) </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 441 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...71 </td>
+   <td style="text-align:left;"> Anti-Female </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 149 </td>
+   <td style="text-align:right;"> 27.64\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...72 </td>
+   <td style="text-align:left;"> Anti-Female </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 137 </td>
+   <td style="text-align:right;"> 25.42\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...73 </td>
+   <td style="text-align:left;"> Anti-Female </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 69 </td>
+   <td style="text-align:right;"> 12.80\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...74 </td>
+   <td style="text-align:left;"> Anti-Female </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 67 </td>
+   <td style="text-align:right;"> 12.43\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...75 </td>
+   <td style="text-align:left;"> Anti-Female </td>
+   <td style="text-align:left;"> Sex Offenses - Rape </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 2.97\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...76 </td>
+   <td style="text-align:left;"> Anti-Female </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 101 </td>
+   <td style="text-align:right;"> 18.76\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...77 </td>
+   <td style="text-align:left;"> Anti-Female </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 539 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...78 </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 7,944 </td>
+   <td style="text-align:right;"> 31.87\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...79 </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 6,771 </td>
+   <td style="text-align:right;"> 27.16\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...80 </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 4,271 </td>
+   <td style="text-align:right;"> 17.13\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...81 </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 3,999 </td>
+   <td style="text-align:right;"> 16.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...82 </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:right;"> 1,079 </td>
+   <td style="text-align:right;"> 4.33\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...83 </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 863 </td>
+   <td style="text-align:right;"> 3.48\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...84 </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 24,927 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...85 </td>
+   <td style="text-align:left;"> Anti-Gender Non-Conforming </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:right;"> 22.97\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...86 </td>
+   <td style="text-align:left;"> Anti-Gender Non-Conforming </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 104 </td>
+   <td style="text-align:right;"> 15.93\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...87 </td>
+   <td style="text-align:left;"> Anti-Gender Non-Conforming </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 74 </td>
+   <td style="text-align:right;"> 11.33\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...88 </td>
+   <td style="text-align:left;"> Anti-Gender Non-Conforming </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 58 </td>
+   <td style="text-align:right;"> 8.88\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...89 </td>
+   <td style="text-align:left;"> Anti-Gender Non-Conforming </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 57 </td>
+   <td style="text-align:right;"> 8.73\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...90 </td>
+   <td style="text-align:left;"> Anti-Gender Non-Conforming </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 210 </td>
+   <td style="text-align:right;"> 32.16\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...91 </td>
+   <td style="text-align:left;"> Anti-Gender Non-Conforming </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 653 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...92 </td>
+   <td style="text-align:left;"> Anti-Heterosexual </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 156 </td>
+   <td style="text-align:right;"> 24.88\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...93 </td>
+   <td style="text-align:left;"> Anti-Heterosexual </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 154 </td>
+   <td style="text-align:right;"> 24.56\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...94 </td>
+   <td style="text-align:left;"> Anti-Heterosexual </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 116 </td>
+   <td style="text-align:right;"> 18.50\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...95 </td>
+   <td style="text-align:left;"> Anti-Heterosexual </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 6.86\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...96 </td>
+   <td style="text-align:left;"> Anti-Heterosexual </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 3.83\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...97 </td>
+   <td style="text-align:left;"> Anti-Heterosexual </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 134 </td>
+   <td style="text-align:right;"> 21.41\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...98 </td>
+   <td style="text-align:left;"> Anti-Heterosexual </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 627 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...99 </td>
+   <td style="text-align:left;"> Anti-Hindu </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 30.47\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...100 </td>
+   <td style="text-align:left;"> Anti-Hindu </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 25.78\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...101 </td>
+   <td style="text-align:left;"> Anti-Hindu </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 19.53\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...102 </td>
+   <td style="text-align:left;"> Anti-Hindu </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 6.25\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...103 </td>
+   <td style="text-align:left;"> Anti-Hindu </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3.91\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...104 </td>
+   <td style="text-align:left;"> Anti-Hindu </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 14.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...105 </td>
+   <td style="text-align:left;"> Anti-Hindu </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 128 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...106 </td>
+   <td style="text-align:left;"> Anti-Hispanic Or Latino </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 5,033 </td>
+   <td style="text-align:right;"> 31.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...107 </td>
+   <td style="text-align:left;"> Anti-Hispanic Or Latino </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 4,278 </td>
+   <td style="text-align:right;"> 26.36\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...108 </td>
+   <td style="text-align:left;"> Anti-Hispanic Or Latino </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 2,994 </td>
+   <td style="text-align:right;"> 18.45\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...109 </td>
+   <td style="text-align:left;"> Anti-Hispanic Or Latino </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 2,694 </td>
+   <td style="text-align:right;"> 16.60\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...110 </td>
+   <td style="text-align:left;"> Anti-Hispanic Or Latino </td>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:right;"> 544 </td>
+   <td style="text-align:right;"> 3.35\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...111 </td>
+   <td style="text-align:left;"> Anti-Hispanic Or Latino </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 688 </td>
+   <td style="text-align:right;"> 4.24\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...112 </td>
+   <td style="text-align:left;"> Anti-Hispanic Or Latino </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 16,231 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...113 </td>
+   <td style="text-align:left;"> Anti-Islamic (Muslim) </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 1,808 </td>
+   <td style="text-align:right;"> 40.47\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...114 </td>
+   <td style="text-align:left;"> Anti-Islamic (Muslim) </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 1,174 </td>
+   <td style="text-align:right;"> 26.28\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...115 </td>
+   <td style="text-align:left;"> Anti-Islamic (Muslim) </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 856 </td>
+   <td style="text-align:right;"> 19.16\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...116 </td>
+   <td style="text-align:left;"> Anti-Islamic (Muslim) </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 332 </td>
+   <td style="text-align:right;"> 7.43\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...117 </td>
+   <td style="text-align:left;"> Anti-Islamic (Muslim) </td>
+   <td style="text-align:left;"> Arson </td>
+   <td style="text-align:right;"> 61 </td>
+   <td style="text-align:right;"> 1.37\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...118 </td>
+   <td style="text-align:left;"> Anti-Islamic (Muslim) </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 237 </td>
+   <td style="text-align:right;"> 5.28\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...119 </td>
+   <td style="text-align:left;"> Anti-Islamic (Muslim) </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 4,468 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...120 </td>
+   <td style="text-align:left;"> Anti-Jehovahs Witness </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 32.84\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...121 </td>
+   <td style="text-align:left;"> Anti-Jehovahs Witness </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 14.93\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...122 </td>
+   <td style="text-align:left;"> Anti-Jehovahs Witness </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 13.43\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...123 </td>
+   <td style="text-align:left;"> Anti-Jehovahs Witness </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 8.96\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...124 </td>
+   <td style="text-align:left;"> Anti-Jehovahs Witness </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 5.97\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...125 </td>
+   <td style="text-align:left;"> Anti-Jehovahs Witness </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 23.89\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...126 </td>
+   <td style="text-align:left;"> Anti-Jehovahs Witness </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 67 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...127 </td>
+   <td style="text-align:left;"> Anti-Jewish </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 20,381 </td>
+   <td style="text-align:right;"> 64.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...128 </td>
+   <td style="text-align:left;"> Anti-Jewish </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 8,246 </td>
+   <td style="text-align:right;"> 25.90\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...129 </td>
+   <td style="text-align:left;"> Anti-Jewish </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 1,665 </td>
+   <td style="text-align:right;"> 5.23\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...130 </td>
+   <td style="text-align:left;"> Anti-Jewish </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 471 </td>
+   <td style="text-align:right;"> 1.48\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...131 </td>
+   <td style="text-align:left;"> Anti-Jewish </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 341 </td>
+   <td style="text-align:right;"> 1.07\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...132 </td>
+   <td style="text-align:left;"> Anti-Jewish </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 734 </td>
+   <td style="text-align:right;"> 2.32\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...133 </td>
+   <td style="text-align:left;"> Anti-Jewish </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 31,838 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...134 </td>
+   <td style="text-align:left;"> Anti-Lesbian (Female) </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 1,684 </td>
+   <td style="text-align:right;"> 33.41\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...135 </td>
+   <td style="text-align:left;"> Anti-Lesbian (Female) </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 1,284 </td>
+   <td style="text-align:right;"> 25.47\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...136 </td>
+   <td style="text-align:left;"> Anti-Lesbian (Female) </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 1,100 </td>
+   <td style="text-align:right;"> 21.82\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...137 </td>
+   <td style="text-align:left;"> Anti-Lesbian (Female) </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 620 </td>
+   <td style="text-align:right;"> 12.30\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...138 </td>
+   <td style="text-align:left;"> Anti-Lesbian (Female) </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 64 </td>
+   <td style="text-align:right;"> 1.27\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...139 </td>
+   <td style="text-align:left;"> Anti-Lesbian (Female) </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 289 </td>
+   <td style="text-align:right;"> 5.74\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...140 </td>
+   <td style="text-align:left;"> Anti-Lesbian (Female) </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 5,041 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...141 </td>
+   <td style="text-align:left;"> Anti-Lesbian, Gay, Bisexual, Or Transgender (Mixed Group) </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 2,488 </td>
+   <td style="text-align:right;"> 28.65\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...142 </td>
+   <td style="text-align:left;"> Anti-Lesbian, Gay, Bisexual, Or Transgender (Mixed Group) </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 2,122 </td>
+   <td style="text-align:right;"> 24.44\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...143 </td>
+   <td style="text-align:left;"> Anti-Lesbian, Gay, Bisexual, Or Transgender (Mixed Group) </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 2,104 </td>
+   <td style="text-align:right;"> 24.23\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...144 </td>
+   <td style="text-align:left;"> Anti-Lesbian, Gay, Bisexual, Or Transgender (Mixed Group) </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 1,027 </td>
+   <td style="text-align:right;"> 11.83\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...145 </td>
+   <td style="text-align:left;"> Anti-Lesbian, Gay, Bisexual, Or Transgender (Mixed Group) </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 320 </td>
+   <td style="text-align:right;"> 3.68\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...146 </td>
+   <td style="text-align:left;"> Anti-Lesbian, Gay, Bisexual, Or Transgender (Mixed Group) </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 623 </td>
+   <td style="text-align:right;"> 7.16\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...147 </td>
+   <td style="text-align:left;"> Anti-Lesbian, Gay, Bisexual, Or Transgender (Mixed Group) </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 8,684 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...148 </td>
+   <td style="text-align:left;"> Anti-Male </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 25.77\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...149 </td>
+   <td style="text-align:left;"> Anti-Male </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 21.13\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...150 </td>
+   <td style="text-align:left;"> Anti-Male </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 10.82\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...151 </td>
+   <td style="text-align:left;"> Anti-Male </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 9.79\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...152 </td>
+   <td style="text-align:left;"> Anti-Male </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 5.15\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...153 </td>
+   <td style="text-align:left;"> Anti-Male </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 27.38\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...154 </td>
+   <td style="text-align:left;"> Anti-Male </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 194 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...155 </td>
+   <td style="text-align:left;"> Anti-Mental Disability </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 381 </td>
+   <td style="text-align:right;"> 26.48\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...156 </td>
+   <td style="text-align:left;"> Anti-Mental Disability </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 223 </td>
+   <td style="text-align:right;"> 15.50\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...157 </td>
+   <td style="text-align:left;"> Anti-Mental Disability </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 177 </td>
+   <td style="text-align:right;"> 12.30\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...158 </td>
+   <td style="text-align:left;"> Anti-Mental Disability </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 147 </td>
+   <td style="text-align:right;"> 10.22\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...159 </td>
+   <td style="text-align:left;"> Anti-Mental Disability </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 118 </td>
+   <td style="text-align:right;"> 8.20\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...160 </td>
+   <td style="text-align:left;"> Anti-Mental Disability </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 393 </td>
+   <td style="text-align:right;"> 27.35\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...161 </td>
+   <td style="text-align:left;"> Anti-Mental Disability </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 1,439 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...162 </td>
+   <td style="text-align:left;"> Anti-Multiple Races, Group </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 2,899 </td>
+   <td style="text-align:right;"> 49.34\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...163 </td>
+   <td style="text-align:left;"> Anti-Multiple Races, Group </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 1,570 </td>
+   <td style="text-align:right;"> 26.72\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...164 </td>
+   <td style="text-align:left;"> Anti-Multiple Races, Group </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 657 </td>
+   <td style="text-align:right;"> 11.18\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...165 </td>
+   <td style="text-align:left;"> Anti-Multiple Races, Group </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 415 </td>
+   <td style="text-align:right;"> 7.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...166 </td>
+   <td style="text-align:left;"> Anti-Multiple Races, Group </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 105 </td>
+   <td style="text-align:right;"> 1.79\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...167 </td>
+   <td style="text-align:left;"> Anti-Multiple Races, Group </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 230 </td>
+   <td style="text-align:right;"> 3.93\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...168 </td>
+   <td style="text-align:left;"> Anti-Multiple Races, Group </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 5,876 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...169 </td>
+   <td style="text-align:left;"> Anti-Multiple Religions, Group </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 793 </td>
+   <td style="text-align:right;"> 58.65\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...170 </td>
+   <td style="text-align:left;"> Anti-Multiple Religions, Group </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 204 </td>
+   <td style="text-align:right;"> 15.09\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...171 </td>
+   <td style="text-align:left;"> Anti-Multiple Religions, Group </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 94 </td>
+   <td style="text-align:right;"> 6.95\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...172 </td>
+   <td style="text-align:left;"> Anti-Multiple Religions, Group </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 54 </td>
+   <td style="text-align:right;"> 3.99\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...173 </td>
+   <td style="text-align:left;"> Anti-Multiple Religions, Group </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:right;"> 3.62\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...174 </td>
+   <td style="text-align:left;"> Anti-Multiple Religions, Group </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 158 </td>
+   <td style="text-align:right;"> 11.68\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...175 </td>
+   <td style="text-align:left;"> Anti-Multiple Religions, Group </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 1,352 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...176 </td>
+   <td style="text-align:left;"> Anti-Native Hawaiian Or Other Pacific Islander </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:right;"> 20.20\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...177 </td>
+   <td style="text-align:left;"> Anti-Native Hawaiian Or Other Pacific Islander </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 13.64\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...178 </td>
+   <td style="text-align:left;"> Anti-Native Hawaiian Or Other Pacific Islander </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 10.61\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...179 </td>
+   <td style="text-align:left;"> Anti-Native Hawaiian Or Other Pacific Islander </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 9.60\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...180 </td>
+   <td style="text-align:left;"> Anti-Native Hawaiian Or Other Pacific Islander </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 7.07\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...181 </td>
+   <td style="text-align:left;"> Anti-Native Hawaiian Or Other Pacific Islander </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 77 </td>
+   <td style="text-align:right;"> 38.94\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...182 </td>
+   <td style="text-align:left;"> Anti-Native Hawaiian Or Other Pacific Islander </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 198 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...183 </td>
+   <td style="text-align:left;"> Anti-Other Christian </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 238 </td>
+   <td style="text-align:right;"> 50.42\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...184 </td>
+   <td style="text-align:left;"> Anti-Other Christian </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 80 </td>
+   <td style="text-align:right;"> 16.95\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...185 </td>
+   <td style="text-align:left;"> Anti-Other Christian </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 6.99\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...186 </td>
+   <td style="text-align:left;"> Anti-Other Christian </td>
+   <td style="text-align:left;"> Arson </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 5.93\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...187 </td>
+   <td style="text-align:left;"> Anti-Other Christian </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 5.30\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...188 </td>
+   <td style="text-align:left;"> Anti-Other Christian </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 68 </td>
+   <td style="text-align:right;"> 14.4\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...189 </td>
+   <td style="text-align:left;"> Anti-Other Christian </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 472 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...190 </td>
+   <td style="text-align:left;"> Anti-Other Race, Ethnicity, Ancestry, Or National Origin </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 4,131 </td>
+   <td style="text-align:right;"> 34.72\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...191 </td>
+   <td style="text-align:left;"> Anti-Other Race, Ethnicity, Ancestry, Or National Origin </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 3,378 </td>
+   <td style="text-align:right;"> 28.39\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...192 </td>
+   <td style="text-align:left;"> Anti-Other Race, Ethnicity, Ancestry, Or National Origin </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 2,343 </td>
+   <td style="text-align:right;"> 19.69\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...193 </td>
+   <td style="text-align:left;"> Anti-Other Race, Ethnicity, Ancestry, Or National Origin </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 1,164 </td>
+   <td style="text-align:right;"> 9.78\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...194 </td>
+   <td style="text-align:left;"> Anti-Other Race, Ethnicity, Ancestry, Or National Origin </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 190 </td>
+   <td style="text-align:right;"> 1.60\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...195 </td>
+   <td style="text-align:left;"> Anti-Other Race, Ethnicity, Ancestry, Or National Origin </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 693 </td>
+   <td style="text-align:right;"> 5.84\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...196 </td>
+   <td style="text-align:left;"> Anti-Other Race, Ethnicity, Ancestry, Or National Origin </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 11,899 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...197 </td>
+   <td style="text-align:left;"> Anti-Other Religion </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 2,111 </td>
+   <td style="text-align:right;"> 56.43\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...198 </td>
+   <td style="text-align:left;"> Anti-Other Religion </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 746 </td>
+   <td style="text-align:right;"> 19.94\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...199 </td>
+   <td style="text-align:left;"> Anti-Other Religion </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 238 </td>
+   <td style="text-align:right;"> 6.36\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...200 </td>
+   <td style="text-align:left;"> Anti-Other Religion </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 161 </td>
+   <td style="text-align:right;"> 4.30\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...201 </td>
+   <td style="text-align:left;"> Anti-Other Religion </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 119 </td>
+   <td style="text-align:right;"> 3.18\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...202 </td>
+   <td style="text-align:left;"> Anti-Other Religion </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 366 </td>
+   <td style="text-align:right;"> 9.8\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...203 </td>
+   <td style="text-align:left;"> Anti-Other Religion </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 3,741 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...204 </td>
+   <td style="text-align:left;"> Anti-Physical Disability </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 248 </td>
+   <td style="text-align:right;"> 28.51\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...205 </td>
+   <td style="text-align:left;"> Anti-Physical Disability </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 182 </td>
+   <td style="text-align:right;"> 20.92\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...206 </td>
+   <td style="text-align:left;"> Anti-Physical Disability </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 91 </td>
+   <td style="text-align:right;"> 10.46\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...207 </td>
+   <td style="text-align:left;"> Anti-Physical Disability </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 78 </td>
+   <td style="text-align:right;"> 8.97\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...208 </td>
+   <td style="text-align:left;"> Anti-Physical Disability </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 69 </td>
+   <td style="text-align:right;"> 7.93\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...209 </td>
+   <td style="text-align:left;"> Anti-Physical Disability </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 202 </td>
+   <td style="text-align:right;"> 23.13\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...210 </td>
+   <td style="text-align:left;"> Anti-Physical Disability </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 870 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...211 </td>
+   <td style="text-align:left;"> Anti-Protestant </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 818 </td>
+   <td style="text-align:right;"> 58.89\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...212 </td>
+   <td style="text-align:left;"> Anti-Protestant </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 134 </td>
+   <td style="text-align:right;"> 9.65\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...213 </td>
+   <td style="text-align:left;"> Anti-Protestant </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 93 </td>
+   <td style="text-align:right;"> 6.70\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...214 </td>
+   <td style="text-align:left;"> Anti-Protestant </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 72 </td>
+   <td style="text-align:right;"> 5.18\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...215 </td>
+   <td style="text-align:left;"> Anti-Protestant </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 64 </td>
+   <td style="text-align:right;"> 4.61\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...216 </td>
+   <td style="text-align:left;"> Anti-Protestant </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 208 </td>
+   <td style="text-align:right;"> 14.97\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...217 </td>
+   <td style="text-align:left;"> Anti-Protestant </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 1,389 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...218 </td>
+   <td style="text-align:left;"> Anti-Sikh </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 124 </td>
+   <td style="text-align:right;"> 15.10\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...219 </td>
+   <td style="text-align:left;"> Anti-Sikh </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 116 </td>
+   <td style="text-align:right;"> 14.13\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...220 </td>
+   <td style="text-align:left;"> Anti-Sikh </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 100 </td>
+   <td style="text-align:right;"> 12.18\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...221 </td>
+   <td style="text-align:left;"> Anti-Sikh </td>
+   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug/Narcotic Violations </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 7.55\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...222 </td>
+   <td style="text-align:left;"> Anti-Sikh </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 6.46\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...223 </td>
+   <td style="text-align:left;"> Anti-Sikh </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 366 </td>
+   <td style="text-align:right;"> 44.56\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...224 </td>
+   <td style="text-align:left;"> Anti-Sikh </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 821 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...225 </td>
+   <td style="text-align:left;"> Anti-Transgender </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 610 </td>
+   <td style="text-align:right;"> 32.88\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...226 </td>
+   <td style="text-align:left;"> Anti-Transgender </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 467 </td>
+   <td style="text-align:right;"> 25.18\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...227 </td>
+   <td style="text-align:left;"> Anti-Transgender </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 345 </td>
+   <td style="text-align:right;"> 18.60\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...228 </td>
+   <td style="text-align:left;"> Anti-Transgender </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 164 </td>
+   <td style="text-align:right;"> 8.84\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...229 </td>
+   <td style="text-align:left;"> Anti-Transgender </td>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:right;"> 71 </td>
+   <td style="text-align:right;"> 3.83\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...230 </td>
+   <td style="text-align:left;"> Anti-Transgender </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 198 </td>
+   <td style="text-align:right;"> 10.65\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...231 </td>
+   <td style="text-align:left;"> Anti-Transgender </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 1,855 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...232 </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 8,233 </td>
+   <td style="text-align:right;"> 29.20\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...233 </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 6,280 </td>
+   <td style="text-align:right;"> 22.28\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...234 </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 4,528 </td>
+   <td style="text-align:right;"> 16.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...235 </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 3,811 </td>
+   <td style="text-align:right;"> 13.52\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...236 </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:right;"> 1,153 </td>
+   <td style="text-align:right;"> 4.09\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...237 </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 4,187 </td>
+   <td style="text-align:right;"> 14.83\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...238 </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 28,192 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> Undocumented Code </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 100.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> NA.1 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> NA.2 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> NA.3 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...244 </td>
+   <td style="text-align:left;"> Undocumented Code </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...245 </td>
+   <td style="text-align:left;"> Undocumented Code </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+</tbody>
+</table>
 
-\begin{longtable}[t]{l|l|r|r}
-\caption{(\#tab:hateBiasOffense)The number and percent of offenses by bias motivation, 2022.}\\
-\hline
-Bias Motivation & Offense & \textbackslash{}\# of Incidents & \textbackslash{}\% of Incidents\\
-\hline
-\endfirsthead
-\caption[]{(\#tab:hateBiasOffense)The number and percent of offenses by bias motivation, 2022. \textit{(continued)}}\\
-\hline
-Bias Motivation & Offense & \textbackslash{}\# of Incidents & \textbackslash{}\% of Incidents\\
-\hline
-\endhead
-Anti-American Indian Or Native Alaskan & Simple Assault & 536 & 19.27\textbackslash{}\%\\
-\hline
-Anti-American Indian Or Native Alaskan & Intimidation & 425 & 15.28\textbackslash{}\%\\
-\hline
-Anti-American Indian Or Native Alaskan & Destruction of Property/Vandalism & 409 & 14.71\textbackslash{}\%\\
-\hline
-Anti-American Indian Or Native Alaskan & Aggravated Assault & 270 & 9.71\textbackslash{}\%\\
-\hline
-Anti-American Indian Or Native Alaskan & All Other Larceny & 192 & 6.90\textbackslash{}\%\\
-\hline
-Anti-American Indian Or Native Alaskan & All Other & 949 & 34.15\textbackslash{}\%\\
-\hline
-Anti-American Indian Or Native Alaskan & Total & 2,781 & 100\textbackslash{}\%\\
-\hline
-Anti-Arab & Intimidation & 582 & 38.54\textbackslash{}\%\\
-\hline
-Anti-Arab & Simple Assault & 351 & 23.25\textbackslash{}\%\\
-\hline
-Anti-Arab & Destruction of Property/Vandalism & 291 & 19.27\textbackslash{}\%\\
-\hline
-Anti-Arab & Aggravated Assault & 169 & 11.19\textbackslash{}\%\\
-\hline
-Anti-Arab & Burglary/Breaking And Entering & 21 & 1.39\textbackslash{}\%\\
-\hline
-Anti-Arab & All Other & 96 & 6.38\textbackslash{}\%\\
-\hline
-Anti-Arab & Total & 1,510 & 100\textbackslash{}\%\\
-\hline
-Anti-Asian & Intimidation & 2,544 & 33.16\textbackslash{}\%\\
-\hline
-Anti-Asian & Destruction of Property/Vandalism & 2,002 & 26.10\textbackslash{}\%\\
-\hline
-Anti-Asian & Simple Assault & 1,787 & 23.30\textbackslash{}\%\\
-\hline
-Anti-Asian & Aggravated Assault & 753 & 9.82\textbackslash{}\%\\
-\hline
-Anti-Asian & Burglary/Breaking And Entering & 148 & 1.93\textbackslash{}\%\\
-\hline
-Anti-Asian & All Other & 437 & 5.67\textbackslash{}\%\\
-\hline
-Anti-Asian & Total & 7,671 & 100\textbackslash{}\%\\
-\hline
-Anti-Atheism/Agnosticism & Destruction of Property/Vandalism & 74 & 36.82\textbackslash{}\%\\
-\hline
-Anti-Atheism/Agnosticism & All Other Larceny & 22 & 10.95\textbackslash{}\%\\
-\hline
-Anti-Atheism/Agnosticism & Simple Assault & 21 & 10.45\textbackslash{}\%\\
-\hline
-Anti-Atheism/Agnosticism & Intimidation & 16 & 7.96\textbackslash{}\%\\
-\hline
-Anti-Atheism/Agnosticism & Burglary/Breaking And Entering & 13 & 6.47\textbackslash{}\%\\
-\hline
-Anti-Atheism/Agnosticism & All Other & 55 & 27.39\textbackslash{}\%\\
-\hline
-Anti-Atheism/Agnosticism & Total & 201 & 100\textbackslash{}\%\\
-\hline
-Anti-Bisexual & Simple Assault & 186 & 28.53\textbackslash{}\%\\
-\hline
-Anti-Bisexual & Intimidation & 125 & 19.17\textbackslash{}\%\\
-\hline
-Anti-Bisexual & Destruction of Property/Vandalism & 90 & 13.80\textbackslash{}\%\\
-\hline
-Anti-Bisexual & Aggravated Assault & 64 & 9.82\textbackslash{}\%\\
-\hline
-Anti-Bisexual & All Other Larceny & 47 & 7.21\textbackslash{}\%\\
-\hline
-Anti-Bisexual & All Other & 140 & 21.46\textbackslash{}\%\\
-\hline
-Anti-Bisexual & Total & 652 & 100\textbackslash{}\%\\
-\hline
-Anti-Black & Intimidation & 29,761 & 36.65\textbackslash{}\%\\
-\hline
-Anti-Black & Destruction of Property/Vandalism & 23,283 & 28.67\textbackslash{}\%\\
-\hline
-Anti-Black & Simple Assault & 14,789 & 18.21\textbackslash{}\%\\
-\hline
-Anti-Black & Aggravated Assault & 9,760 & 12.02\textbackslash{}\%\\
-\hline
-Anti-Black & Burglary/Breaking And Entering & 978 & 1.20\textbackslash{}\%\\
-\hline
-Anti-Black & All Other & 2,637 & 3.24\textbackslash{}\%\\
-\hline
-Anti-Black & Total & 81,208 & 100\textbackslash{}\%\\
-\hline
-Anti-Buddhist & Destruction of Property/Vandalism & 38 & 37.62\textbackslash{}\%\\
-\hline
-Anti-Buddhist & Simple Assault & 12 & 11.88\textbackslash{}\%\\
-\hline
-Anti-Buddhist & All Other Larceny & 7 & 6.93\textbackslash{}\%\\
-\hline
-Anti-Buddhist & Aggravated Assault & 7 & 6.93\textbackslash{}\%\\
-\hline
-Anti-Buddhist & Burglary/Breaking And Entering & 5 & 4.95\textbackslash{}\%\\
-\hline
-Anti-Buddhist & All Other & 32 & 31.68\textbackslash{}\%\\
-\hline
-Anti-Buddhist & Total & 101 & 100\textbackslash{}\%\\
-\hline
-Anti-Catholic & Destruction of Property/Vandalism & 1,066 & 58.60\textbackslash{}\%\\
-\hline
-Anti-Catholic & Intimidation & 201 & 11.05\textbackslash{}\%\\
-\hline
-Anti-Catholic & Simple Assault & 96 & 5.28\textbackslash{}\%\\
-\hline
-Anti-Catholic & Burglary/Breaking And Entering & 82 & 4.51\textbackslash{}\%\\
-\hline
-Anti-Catholic & All Other Larceny & 59 & 3.24\textbackslash{}\%\\
-\hline
-Anti-Catholic & All Other & 315 & 17.23\textbackslash{}\%\\
-\hline
-Anti-Catholic & Total & 1,819 & 100\textbackslash{}\%\\
-\hline
-Anti-Eastern Orthodox (Greek, Russian, Etc.) & Destruction of Property/Vandalism & 64 & 16.49\textbackslash{}\%\\
-\hline
-Anti-Eastern Orthodox (Greek, Russian, Etc.) & Simple Assault & 48 & 12.37\textbackslash{}\%\\
-\hline
-Anti-Eastern Orthodox (Greek, Russian, Etc.) & All Other Larceny & 45 & 11.60\textbackslash{}\%\\
-\hline
-Anti-Eastern Orthodox (Greek, Russian, Etc.) & Drug/Narcotic Violations & 34 & 8.76\textbackslash{}\%\\
-\hline
-Anti-Eastern Orthodox (Greek, Russian, Etc.) & Burglary/Breaking And Entering & 31 & 7.99\textbackslash{}\%\\
-\hline
-Anti-Eastern Orthodox (Greek, Russian, Etc.) & All Other & 166 & 42.81\textbackslash{}\%\\
-\hline
-Anti-Eastern Orthodox (Greek, Russian, Etc.) & Total & 388 & 100\textbackslash{}\%\\
-\hline
-Anti-Ethnicity Other Than Hispanic & Intimidation & 4,013 & 34.90\textbackslash{}\%\\
-\hline
-Anti-Ethnicity Other Than Hispanic & Destruction of Property/Vandalism & 3,271 & 28.45\textbackslash{}\%\\
-\hline
-Anti-Ethnicity Other Than Hispanic & Simple Assault & 2,245 & 19.53\textbackslash{}\%\\
-\hline
-Anti-Ethnicity Other Than Hispanic & Aggravated Assault & 1,130 & 9.83\textbackslash{}\%\\
-\hline
-Anti-Ethnicity Other Than Hispanic & Burglary/Breaking And Entering & 182 & 1.58\textbackslash{}\%\\
-\hline
-Anti-Ethnicity Other Than Hispanic & All Other & 657 & 5.71\textbackslash{}\%\\
-\hline
-Anti-Ethnicity Other Than Hispanic & Total & 11,498 & 100\textbackslash{}\%\\
-\hline
-Anti-Female & Intimidation & 132 & 29.80\textbackslash{}\%\\
-\hline
-Anti-Female & Simple Assault & 115 & 25.96\textbackslash{}\%\\
-\hline
-Anti-Female & Aggravated Assault & 58 & 13.09\textbackslash{}\%\\
-\hline
-Anti-Female & Destruction of Property/Vandalism & 57 & 12.87\textbackslash{}\%\\
-\hline
-Anti-Female & Forcible Rape & 12 & 2.71\textbackslash{}\%\\
-\hline
-Anti-Female & All Other & 69 & 15.6\textbackslash{}\%\\
-\hline
-Anti-Female & Total & 443 & 100\textbackslash{}\%\\
-\hline
-Anti-Female Homosexual (Lesbian) & Intimidation & 1,624 & 33.31\textbackslash{}\%\\
-\hline
-Anti-Female Homosexual (Lesbian) & Simple Assault & 1,240 & 25.43\textbackslash{}\%\\
-\hline
-Anti-Female Homosexual (Lesbian) & Destruction of Property/Vandalism & 1,075 & 22.05\textbackslash{}\%\\
-\hline
-Anti-Female Homosexual (Lesbian) & Aggravated Assault & 600 & 12.31\textbackslash{}\%\\
-\hline
-Anti-Female Homosexual (Lesbian) & Burglary/Breaking And Entering & 61 & 1.25\textbackslash{}\%\\
-\hline
-Anti-Female Homosexual (Lesbian) & All Other & 276 & 5.64\textbackslash{}\%\\
-\hline
-Anti-Female Homosexual (Lesbian) & Total & 4,876 & 100\textbackslash{}\%\\
-\hline
-Anti-Gender Non-Conforming & Simple Assault & 123 & 23.93\textbackslash{}\%\\
-\hline
-Anti-Gender Non-Conforming & Destruction of Property/Vandalism & 78 & 15.18\textbackslash{}\%\\
-\hline
-Anti-Gender Non-Conforming & Intimidation & 59 & 11.48\textbackslash{}\%\\
-\hline
-Anti-Gender Non-Conforming & Aggravated Assault & 50 & 9.73\textbackslash{}\%\\
-\hline
-Anti-Gender Non-Conforming & All Other Larceny & 44 & 8.56\textbackslash{}\%\\
-\hline
-Anti-Gender Non-Conforming & All Other & 160 & 31.11\textbackslash{}\%\\
-\hline
-Anti-Gender Non-Conforming & Total & 514 & 100\textbackslash{}\%\\
-\hline
-Anti-Heterosexual & Intimidation & 154 & 25.04\textbackslash{}\%\\
-\hline
-Anti-Heterosexual & Destruction of Property/Vandalism & 151 & 24.55\textbackslash{}\%\\
-\hline
-Anti-Heterosexual & Simple Assault & 114 & 18.54\textbackslash{}\%\\
-\hline
-Anti-Heterosexual & Aggravated Assault & 41 & 6.67\textbackslash{}\%\\
-\hline
-Anti-Heterosexual & Burglary/Breaking And Entering & 22 & 3.58\textbackslash{}\%\\
-\hline
-Anti-Heterosexual & All Other & 133 & 21.65\textbackslash{}\%\\
-\hline
-Anti-Heterosexual & Total & 615 & 100\textbackslash{}\%\\
-\hline
-Anti-Hindu & Intimidation & 31 & 30.10\textbackslash{}\%\\
-\hline
-Anti-Hindu & Destruction of Property/Vandalism & 26 & 25.24\textbackslash{}\%\\
-\hline
-Anti-Hindu & Simple Assault & 19 & 18.45\textbackslash{}\%\\
-\hline
-Anti-Hindu & Aggravated Assault & 7 & 6.80\textbackslash{}\%\\
-\hline
-Anti-Hindu & Burglary/Breaking And Entering & 4 & 3.88\textbackslash{}\%\\
-\hline
-Anti-Hindu & All Other & 16 & 15.52\textbackslash{}\%\\
-\hline
-Anti-Hindu & Total & 103 & 100\textbackslash{}\%\\
-\hline
-Anti-Hispanic & Intimidation & 4,748 & 30.84\textbackslash{}\%\\
-\hline
-Anti-Hispanic & Simple Assault & 4,008 & 26.03\textbackslash{}\%\\
-\hline
-Anti-Hispanic & Aggravated Assault & 2,826 & 18.35\textbackslash{}\%\\
-\hline
-Anti-Hispanic & Destruction of Property/Vandalism & 2,635 & 17.11\textbackslash{}\%\\
-\hline
-Anti-Hispanic & Robbery & 520 & 3.38\textbackslash{}\%\\
-\hline
-Anti-Hispanic & All Other & 660 & 4.3\textbackslash{}\%\\
-\hline
-Anti-Hispanic & Total & 15,397 & 100\textbackslash{}\%\\
-\hline
-Anti-Jehovahs Witness & Destruction of Property/Vandalism & 17 & 33.33\textbackslash{}\%\\
-\hline
-Anti-Jehovahs Witness & Intimidation & 8 & 15.69\textbackslash{}\%\\
-\hline
-Anti-Jehovahs Witness & Simple Assault & 6 & 11.76\textbackslash{}\%\\
-\hline
-Anti-Jehovahs Witness & Aggravated Assault & 6 & 11.76\textbackslash{}\%\\
-\hline
-Anti-Jehovahs Witness & All Other Larceny & 4 & 7.84\textbackslash{}\%\\
-\hline
-Anti-Jehovahs Witness & All Other & 10 & 19.6\textbackslash{}\%\\
-\hline
-Anti-Jehovahs Witness & Total & 51 & 100\textbackslash{}\%\\
-\hline
-Anti-Jewish & Destruction of Property/Vandalism & 19,407 & 64.76\textbackslash{}\%\\
-\hline
-Anti-Jewish & Intimidation & 7,617 & 25.42\textbackslash{}\%\\
-\hline
-Anti-Jewish & Simple Assault & 1,555 & 5.19\textbackslash{}\%\\
-\hline
-Anti-Jewish & Aggravated Assault & 423 & 1.41\textbackslash{}\%\\
-\hline
-Anti-Jewish & Burglary/Breaking And Entering & 331 & 1.10\textbackslash{}\%\\
-\hline
-Anti-Jewish & All Other & 634 & 2.11\textbackslash{}\%\\
-\hline
-Anti-Jewish & Total & 29,967 & 100\textbackslash{}\%\\
-\hline
-Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (Lgbt) & Destruction of Property/Vandalism & 2,242 & 28.69\textbackslash{}\%\\
-\hline
-Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (Lgbt) & Simple Assault & 1,957 & 25.04\textbackslash{}\%\\
-\hline
-Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (Lgbt) & Intimidation & 1,927 & 24.66\textbackslash{}\%\\
-\hline
-Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (Lgbt) & Aggravated Assault & 957 & 12.25\textbackslash{}\%\\
-\hline
-Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (Lgbt) & Robbery & 200 & 2.56\textbackslash{}\%\\
-\hline
-Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (Lgbt) & All Other & 532 & 6.82\textbackslash{}\%\\
-\hline
-Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (Lgbt) & Total & 7,815 & 100\textbackslash{}\%\\
-\hline
-Anti-Male & Simple Assault & 45 & 26.32\textbackslash{}\%\\
-\hline
-Anti-Male & Intimidation & 37 & 21.64\textbackslash{}\%\\
-\hline
-Anti-Male & Aggravated Assault & 20 & 11.70\textbackslash{}\%\\
-\hline
-Anti-Male & Destruction of Property/Vandalism & 17 & 9.94\textbackslash{}\%\\
-\hline
-Anti-Male & All Other Larceny & 8 & 4.68\textbackslash{}\%\\
-\hline
-Anti-Male & All Other & 44 & 25.64\textbackslash{}\%\\
-\hline
-Anti-Male & Total & 171 & 100\textbackslash{}\%\\
-\hline
-Anti-Male Homosexual (Gay) & Simple Assault & 7,612 & 31.90\textbackslash{}\%\\
-\hline
-Anti-Male Homosexual (Gay) & Intimidation & 6,446 & 27.01\textbackslash{}\%\\
-\hline
-Anti-Male Homosexual (Gay) & Destruction of Property/Vandalism & 4,143 & 17.36\textbackslash{}\%\\
-\hline
-Anti-Male Homosexual (Gay) & Aggravated Assault & 3,821 & 16.01\textbackslash{}\%\\
-\hline
-Anti-Male Homosexual (Gay) & Robbery & 1,045 & 4.38\textbackslash{}\%\\
-\hline
-Anti-Male Homosexual (Gay) & All Other & 795 & 3.33\textbackslash{}\%\\
-\hline
-Anti-Male Homosexual (Gay) & Total & 23,862 & 100\textbackslash{}\%\\
-\hline
-Anti-Mental Disability & Simple Assault & 355 & 26.63\textbackslash{}\%\\
-\hline
-Anti-Mental Disability & Intimidation & 199 & 14.93\textbackslash{}\%\\
-\hline
-Anti-Mental Disability & Destruction of Property/Vandalism & 172 & 12.90\textbackslash{}\%\\
-\hline
-Anti-Mental Disability & Aggravated Assault & 124 & 9.30\textbackslash{}\%\\
-\hline
-Anti-Mental Disability & All Other Larceny & 110 & 8.25\textbackslash{}\%\\
-\hline
-Anti-Mental Disability & All Other & 373 & 28.04\textbackslash{}\%\\
-\hline
-Anti-Mental Disability & Total & 1,333 & 100\textbackslash{}\%\\
-\hline
-Anti-Mormon & Destruction of Property/Vandalism & 42 & 39.62\textbackslash{}\%\\
-\hline
-Anti-Mormon & Burglary/Breaking And Entering & 12 & 11.32\textbackslash{}\%\\
-\hline
-Anti-Mormon & Intimidation & 10 & 9.43\textbackslash{}\%\\
-\hline
-Anti-Mormon & Simple Assault & 9 & 8.49\textbackslash{}\%\\
-\hline
-Anti-Mormon & Arson & 6 & 5.66\textbackslash{}\%\\
-\hline
-Anti-Mormon & All Other & 27 & 25.46\textbackslash{}\%\\
-\hline
-Anti-Mormon & Total & 106 & 100\textbackslash{}\%\\
-\hline
-Anti-Multi-Racial Group & Destruction of Property/Vandalism & 2,787 & 49.31\textbackslash{}\%\\
-\hline
-Anti-Multi-Racial Group & Intimidation & 1,505 & 26.63\textbackslash{}\%\\
-\hline
-Anti-Multi-Racial Group & Simple Assault & 631 & 11.16\textbackslash{}\%\\
-\hline
-Anti-Multi-Racial Group & Aggravated Assault & 401 & 7.09\textbackslash{}\%\\
-\hline
-Anti-Multi-Racial Group & Burglary/Breaking And Entering & 106 & 1.88\textbackslash{}\%\\
-\hline
-Anti-Multi-Racial Group & All Other & 222 & 3.95\textbackslash{}\%\\
-\hline
-Anti-Multi-Racial Group & Total & 5,652 & 100\textbackslash{}\%\\
-\hline
-Anti-Multi-Religious Group & Destruction of Property/Vandalism & 781 & 59.44\textbackslash{}\%\\
-\hline
-Anti-Multi-Religious Group & Intimidation & 197 & 14.99\textbackslash{}\%\\
-\hline
-Anti-Multi-Religious Group & Simple Assault & 87 & 6.62\textbackslash{}\%\\
-\hline
-Anti-Multi-Religious Group & All Other Larceny & 51 & 3.88\textbackslash{}\%\\
-\hline
-Anti-Multi-Religious Group & Burglary/Breaking And Entering & 49 & 3.73\textbackslash{}\%\\
-\hline
-Anti-Multi-Religious Group & All Other & 149 & 11.34\textbackslash{}\%\\
-\hline
-Anti-Multi-Religious Group & Total & 1,314 & 100\textbackslash{}\%\\
-\hline
-Anti-Muslim & Intimidation & 1,677 & 39.87\textbackslash{}\%\\
-\hline
-Anti-Muslim & Destruction of Property/Vandalism & 1,135 & 26.99\textbackslash{}\%\\
-\hline
-Anti-Muslim & Simple Assault & 800 & 19.02\textbackslash{}\%\\
-\hline
-Anti-Muslim & Aggravated Assault & 309 & 7.35\textbackslash{}\%\\
-\hline
-Anti-Muslim & Burglary/Breaking And Entering & 59 & 1.40\textbackslash{}\%\\
-\hline
-Anti-Muslim & All Other & 226 & 5.37\textbackslash{}\%\\
-\hline
-Anti-Muslim & Total & 4,206 & 100\textbackslash{}\%\\
-\hline
-Anti-Native Hawaiian Or Other Pacific Islander & Simple Assault & 35 & 19.02\textbackslash{}\%\\
-\hline
-Anti-Native Hawaiian Or Other Pacific Islander & Intimidation & 23 & 12.50\textbackslash{}\%\\
-\hline
-Anti-Native Hawaiian Or Other Pacific Islander & Destruction of Property/Vandalism & 21 & 11.41\textbackslash{}\%\\
-\hline
-Anti-Native Hawaiian Or Other Pacific Islander & Aggravated Assault & 18 & 9.78\textbackslash{}\%\\
-\hline
-Anti-Native Hawaiian Or Other Pacific Islander & Drug/Narcotic Violations & 13 & 7.07\textbackslash{}\%\\
-\hline
-Anti-Native Hawaiian Or Other Pacific Islander & All Other & 74 & 40.19\textbackslash{}\%\\
-\hline
-Anti-Native Hawaiian Or Other Pacific Islander & Total & 184 & 100\textbackslash{}\%\\
-\hline
-Anti-Other Christian & Destruction of Property/Vandalism & 206 & 51.12\textbackslash{}\%\\
-\hline
-Anti-Other Christian & Intimidation & 62 & 15.38\textbackslash{}\%\\
-\hline
-Anti-Other Christian & Simple Assault & 29 & 7.20\textbackslash{}\%\\
-\hline
-Anti-Other Christian & Arson & 25 & 6.20\textbackslash{}\%\\
-\hline
-Anti-Other Christian & Burglary/Breaking And Entering & 21 & 5.21\textbackslash{}\%\\
-\hline
-Anti-Other Christian & All Other & 60 & 14.9\textbackslash{}\%\\
-\hline
-Anti-Other Christian & Total & 403 & 100\textbackslash{}\%\\
-\hline
-Anti-Other Religion & Destruction of Property/Vandalism & 2,057 & 56.81\textbackslash{}\%\\
-\hline
-Anti-Other Religion & Intimidation & 721 & 19.91\textbackslash{}\%\\
-\hline
-Anti-Other Religion & Simple Assault & 227 & 6.27\textbackslash{}\%\\
-\hline
-Anti-Other Religion & Burglary/Breaking And Entering & 156 & 4.31\textbackslash{}\%\\
-\hline
-Anti-Other Religion & Aggravated Assault & 112 & 3.09\textbackslash{}\%\\
-\hline
-Anti-Other Religion & All Other & 348 & 9.63\textbackslash{}\%\\
-\hline
-Anti-Other Religion & Total & 3,621 & 100\textbackslash{}\%\\
-\hline
-Anti-Physical Disability & Simple Assault & 218 & 28.99\textbackslash{}\%\\
-\hline
-Anti-Physical Disability & Intimidation & 152 & 20.21\textbackslash{}\%\\
-\hline
-Anti-Physical Disability & Destruction of Property/Vandalism & 83 & 11.04\textbackslash{}\%\\
-\hline
-Anti-Physical Disability & Aggravated Assault & 68 & 9.04\textbackslash{}\%\\
-\hline
-Anti-Physical Disability & All Other Larceny & 56 & 7.45\textbackslash{}\%\\
-\hline
-Anti-Physical Disability & All Other & 175 & 23.26\textbackslash{}\%\\
-\hline
-Anti-Physical Disability & Total & 752 & 100\textbackslash{}\%\\
-\hline
-Anti-Protestant & Destruction of Property/Vandalism & 811 & 59.59\textbackslash{}\%\\
-\hline
-Anti-Protestant & Intimidation & 131 & 9.63\textbackslash{}\%\\
-\hline
-Anti-Protestant & Burglary/Breaking And Entering & 91 & 6.69\textbackslash{}\%\\
-\hline
-Anti-Protestant & Simple Assault & 69 & 5.07\textbackslash{}\%\\
-\hline
-Anti-Protestant & All Other Larceny & 62 & 4.56\textbackslash{}\%\\
-\hline
-Anti-Protestant & All Other & 197 & 14.47\textbackslash{}\%\\
-\hline
-Anti-Protestant & Total & 1,361 & 100\textbackslash{}\%\\
-\hline
-Anti-Sikh & All Other Larceny & 97 & 14.41\textbackslash{}\%\\
-\hline
-Anti-Sikh & Destruction of Property/Vandalism & 96 & 14.26\textbackslash{}\%\\
-\hline
-Anti-Sikh & Simple Assault & 83 & 12.33\textbackslash{}\%\\
-\hline
-Anti-Sikh & Drug/Narcotic Violations & 48 & 7.13\textbackslash{}\%\\
-\hline
-Anti-Sikh & Burglary/Breaking And Entering & 44 & 6.54\textbackslash{}\%\\
-\hline
-Anti-Sikh & All Other & 305 & 45.33\textbackslash{}\%\\
-\hline
-Anti-Sikh & Total & 673 & 100\textbackslash{}\%\\
-\hline
-Anti-Transgender & Simple Assault & 515 & 34.33\textbackslash{}\%\\
-\hline
-Anti-Transgender & Intimidation & 343 & 22.87\textbackslash{}\%\\
-\hline
-Anti-Transgender & Aggravated Assault & 293 & 19.53\textbackslash{}\%\\
-\hline
-Anti-Transgender & Destruction of Property/Vandalism & 132 & 8.80\textbackslash{}\%\\
-\hline
-Anti-Transgender & Robbery & 60 & 4.00\textbackslash{}\%\\
-\hline
-Anti-Transgender & All Other & 157 & 10.47\textbackslash{}\%\\
-\hline
-Anti-Transgender & Total & 1,500 & 100\textbackslash{}\%\\
-\hline
-Anti-White & Simple Assault & 7,994 & 29.22\textbackslash{}\%\\
-\hline
-Anti-White & Intimidation & 6,051 & 22.12\textbackslash{}\%\\
-\hline
-Anti-White & Aggravated Assault & 4,418 & 16.15\textbackslash{}\%\\
-\hline
-Anti-White & Destruction of Property/Vandalism & 3,729 & 13.63\textbackslash{}\%\\
-\hline
-Anti-White & Robbery & 1,136 & 4.15\textbackslash{}\%\\
-\hline
-Anti-White & All Other & 4,032 & 14.76\textbackslash{}\%\\
-\hline
-Anti-White & Total & 27,360 & 100\textbackslash{}\%\\
-\hline
-\end{longtable}
 
 
 
-
-
-\begin{longtable}[t]{l|l|l|r|r}
-\caption{(\#tab:hateOffenseBias)The number and percent of biases by offense, 2022.}\\
-\hline
-  & Offense & Bias Motivation & \textbackslash{}\# of Incidents & \textbackslash{}\% of Incidents\\
-\hline
-\endfirsthead
-\caption[]{(\#tab:hateOffenseBias)The number and percent of biases by offense, 2022. \textit{(continued)}}\\
-\hline
-  & Offense & Bias Motivation & \textbackslash{}\# of Incidents & \textbackslash{}\% of Incidents\\
-\hline
-\endhead
-...1 & Aggravated Assault & Anti-Black & 9,760 & 36.31\textbackslash{}\%\\
-\hline
-...2 & Aggravated Assault & Anti-White & 4,418 & 16.44\textbackslash{}\%\\
-\hline
-...3 & Aggravated Assault & Anti-Male Homosexual (Gay) & 3,821 & 14.22\textbackslash{}\%\\
-\hline
-...4 & Aggravated Assault & Anti-Hispanic & 2,826 & 10.51\textbackslash{}\%\\
-\hline
-...5 & Aggravated Assault & Anti-Ethnicity Other Than Hispanic & 1,130 & 4.20\textbackslash{}\%\\
-\hline
-...6 & Aggravated Assault & All Other & 4,924 & 18.32\textbackslash{}\%\\
-\hline
-...7 & Aggravated Assault & Total & 26,879 & 100\textbackslash{}\%\\
-\hline
-...8 & All Other Larceny & Anti-White & 787 & 30.46\textbackslash{}\%\\
-\hline
-...9 & All Other Larceny & Anti-Black & 254 & 9.83\textbackslash{}\%\\
-\hline
-...10 & All Other Larceny & Anti-American Indian Or Native Alaskan & 192 & 7.43\textbackslash{}\%\\
-\hline
-...11 & All Other Larceny & Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (Lgbt) & 177 & 6.85\textbackslash{}\%\\
-\hline
-...12 & All Other Larceny & Anti-Mental Disability & 110 & 4.26\textbackslash{}\%\\
-\hline
-...13 & All Other Larceny & All Other & 1,064 & 41.15\textbackslash{}\%\\
-\hline
-...14 & All Other Larceny & Total & 2,584 & 100\textbackslash{}\%\\
-\hline
-...15 & Arson & Anti-Black & 443 & 30.43\textbackslash{}\%\\
-\hline
-...16 & Arson & Anti-Jewish & 172 & 11.81\textbackslash{}\%\\
-\hline
-...17 & Arson & Anti-Other Religion & 107 & 7.35\textbackslash{}\%\\
-\hline
-...18 & Arson & Anti-White & 97 & 6.66\textbackslash{}\%\\
-\hline
-...19 & Arson & Anti-Male Homosexual (Gay) & 92 & 6.32\textbackslash{}\%\\
-\hline
-...20 & Arson & All Other & 545 & 37.46\textbackslash{}\%\\
-\hline
-...21 & Arson & Total & 1,456 & 100\textbackslash{}\%\\
-\hline
-1...22 & Assisting Or Promoting Prostitution & Anti-Mental Disability & 2 & 40.00\textbackslash{}\%\\
-\hline
-2...23 & Assisting Or Promoting Prostitution & Anti-Black & 1 & 20.00\textbackslash{}\%\\
-\hline
-3...24 & Assisting Or Promoting Prostitution & Anti-Male & 1 & 20.00\textbackslash{}\%\\
-\hline
-4...25 & Assisting Or Promoting Prostitution & Anti-Ethnicity Other Than Hispanic & 1 & 20.00\textbackslash{}\%\\
-\hline
-NA...26 & NA & NA & NA & NA\\
-\hline
-...27 & Assisting Or Promoting Prostitution & All Other & NA & NA\textbackslash{}\%\\
-\hline
-...28 & Assisting Or Promoting Prostitution & Total & 5 & 100\textbackslash{}\%\\
-\hline
-1...29 & Bribery & Anti-Black & 2 & 50.00\textbackslash{}\%\\
-\hline
-2...30 & Bribery & Anti-Heterosexual & 1 & 25.00\textbackslash{}\%\\
-\hline
-3...31 & Bribery & Anti-Arab & 1 & 25.00\textbackslash{}\%\\
-\hline
-NA...32 & NA & NA & NA & NA\\
-\hline
-NA.1...33 & NA & NA & NA & NA\\
-\hline
-...34 & Bribery & All Other & NA & NA\textbackslash{}\%\\
-\hline
-...35 & Bribery & Total & 4 & 100\textbackslash{}\%\\
-\hline
-...36 & Burglary/Breaking And Entering & Anti-Black & 978 & 25.14\textbackslash{}\%\\
-\hline
-...37 & Burglary/Breaking And Entering & Anti-White & 629 & 16.17\textbackslash{}\%\\
-\hline
-...38 & Burglary/Breaking And Entering & Anti-Jewish & 331 & 8.51\textbackslash{}\%\\
-\hline
-...39 & Burglary/Breaking And Entering & Anti-Male Homosexual (Gay) & 241 & 6.20\textbackslash{}\%\\
-\hline
-...40 & Burglary/Breaking And Entering & Anti-Hispanic & 209 & 5.37\textbackslash{}\%\\
-\hline
-...41 & Burglary/Breaking And Entering & All Other & 1,502 & 38.62\textbackslash{}\%\\
-\hline
-...42 & Burglary/Breaking And Entering & Total & 3,890 & 100\textbackslash{}\%\\
-\hline
-...43 & Counterfeiting/Forgery & Anti-White & 100 & 40.82\textbackslash{}\%\\
-\hline
-...44 & Counterfeiting/Forgery & Anti-Black & 25 & 10.20\textbackslash{}\%\\
-\hline
-...45 & Counterfeiting/Forgery & Anti-American Indian Or Native Alaskan & 20 & 8.16\textbackslash{}\%\\
-\hline
-...46 & Counterfeiting/Forgery & Anti-Sikh & 11 & 4.49\textbackslash{}\%\\
-\hline
-...47 & Counterfeiting/Forgery & Anti-Catholic & 11 & 4.49\textbackslash{}\%\\
-\hline
-...48 & Counterfeiting/Forgery & All Other & 78 & 31.86\textbackslash{}\%\\
-\hline
-...49 & Counterfeiting/Forgery & Total & 245 & 100\textbackslash{}\%\\
-\hline
-...50 & Credit Card/Atm Fraud & Anti-White & 55 & 30.22\textbackslash{}\%\\
-\hline
-...51 & Credit Card/Atm Fraud & Anti-American Indian Or Native Alaskan & 18 & 9.89\textbackslash{}\%\\
-\hline
-...52 & Credit Card/Atm Fraud & Anti-Mental Disability & 13 & 7.14\textbackslash{}\%\\
-\hline
-...53 & Credit Card/Atm Fraud & Anti-Sikh & 12 & 6.59\textbackslash{}\%\\
-\hline
-...54 & Credit Card/Atm Fraud & Anti-Black & 10 & 5.49\textbackslash{}\%\\
-\hline
-...55 & Credit Card/Atm Fraud & All Other & 74 & 40.7\textbackslash{}\%\\
-\hline
-...56 & Credit Card/Atm Fraud & Total & 182 & 100\textbackslash{}\%\\
-\hline
-...57 & Destruction of Property/Vandalism & Anti-Black & 23,283 & 32.12\textbackslash{}\%\\
-\hline
-...58 & Destruction of Property/Vandalism & Anti-Jewish & 19,407 & 26.77\textbackslash{}\%\\
-\hline
-...59 & Destruction of Property/Vandalism & Anti-Male Homosexual (Gay) & 4,143 & 5.72\textbackslash{}\%\\
-\hline
-...60 & Destruction of Property/Vandalism & Anti-White & 3,729 & 5.14\textbackslash{}\%\\
-\hline
-...61 & Destruction of Property/Vandalism & Anti-Ethnicity Other Than Hispanic & 3,271 & 4.51\textbackslash{}\%\\
-\hline
-...62 & Destruction of Property/Vandalism & All Other & 18,655 & 25.72\textbackslash{}\%\\
-\hline
-...63 & Destruction of Property/Vandalism & Total & 72,488 & 100\textbackslash{}\%\\
-\hline
-...64 & Drug Equipment Violations & Anti-White & 126 & 32.23\textbackslash{}\%\\
-\hline
-...65 & Drug Equipment Violations & Anti-American Indian Or Native Alaskan & 57 & 14.58\textbackslash{}\%\\
-\hline
-...66 & Drug Equipment Violations & Anti-Eastern Orthodox (Greek, Russian, Etc.) & 24 & 6.14\textbackslash{}\%\\
-\hline
-...67 & Drug Equipment Violations & Anti-Sikh & 23 & 5.88\textbackslash{}\%\\
-\hline
-...68 & Drug Equipment Violations & Anti-Black & 20 & 5.12\textbackslash{}\%\\
-\hline
-...69 & Drug Equipment Violations & All Other & 141 & 36.04\textbackslash{}\%\\
-\hline
-...70 & Drug Equipment Violations & Total & 391 & 100\textbackslash{}\%\\
-\hline
-...71 & Drug/Narcotic Violations & Anti-White & 484 & 35.07\textbackslash{}\%\\
-\hline
-...72 & Drug/Narcotic Violations & Anti-Black & 235 & 17.03\textbackslash{}\%\\
-\hline
-...73 & Drug/Narcotic Violations & Anti-American Indian Or Native Alaskan & 156 & 11.30\textbackslash{}\%\\
-\hline
-...74 & Drug/Narcotic Violations & Anti-Sikh & 48 & 3.48\textbackslash{}\%\\
-\hline
-...75 & Drug/Narcotic Violations & Anti-Hispanic & 43 & 3.12\textbackslash{}\%\\
-\hline
-...76 & Drug/Narcotic Violations & All Other & 414 & 29.96\textbackslash{}\%\\
-\hline
-...77 & Drug/Narcotic Violations & Total & 1,380 & 100\textbackslash{}\%\\
-\hline
-...78 & Embezzlement & Anti-White & 23 & 34.85\textbackslash{}\%\\
-\hline
-...79 & Embezzlement & Anti-American Indian Or Native Alaskan & 8 & 12.12\textbackslash{}\%\\
-\hline
-...80 & Embezzlement & Anti-Mental Disability & 6 & 9.09\textbackslash{}\%\\
-\hline
-...81 & Embezzlement & Anti-Black & 5 & 7.58\textbackslash{}\%\\
-\hline
-...82 & Embezzlement & Anti-Physical Disability & 4 & 6.06\textbackslash{}\%\\
-\hline
-...83 & Embezzlement & All Other & 20 & 30.35\textbackslash{}\%\\
-\hline
-...84 & Embezzlement & Total & 66 & 100\textbackslash{}\%\\
-\hline
-...85 & Extortion/Blackmail & Anti-Male Homosexual (Gay) & 15 & 24.19\textbackslash{}\%\\
-\hline
-...86 & Extortion/Blackmail & Anti-White & 7 & 11.29\textbackslash{}\%\\
-\hline
-...87 & Extortion/Blackmail & Anti-Ethnicity Other Than Hispanic & 6 & 9.68\textbackslash{}\%\\
-\hline
-...88 & Extortion/Blackmail & Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (Lgbt) & 6 & 9.68\textbackslash{}\%\\
-\hline
-...89 & Extortion/Blackmail & Anti-Jewish & 6 & 9.68\textbackslash{}\%\\
-\hline
-...90 & Extortion/Blackmail & All Other & 22 & 35.47\textbackslash{}\%\\
-\hline
-...91 & Extortion/Blackmail & Total & 62 & 100\textbackslash{}\%\\
-\hline
-...92 & False Pretenses/Swindle/Confidence Game & Anti-White & 120 & 33.99\textbackslash{}\%\\
-\hline
-...93 & False Pretenses/Swindle/Confidence Game & Anti-Black & 31 & 8.78\textbackslash{}\%\\
-\hline
-...94 & False Pretenses/Swindle/Confidence Game & Anti-Mental Disability & 30 & 8.50\textbackslash{}\%\\
-\hline
-...95 & False Pretenses/Swindle/Confidence Game & Anti-Sikh & 23 & 6.52\textbackslash{}\%\\
-\hline
-...96 & False Pretenses/Swindle/Confidence Game & Anti-American Indian Or Native Alaskan & 17 & 4.82\textbackslash{}\%\\
-\hline
-...97 & False Pretenses/Swindle/Confidence Game & All Other & 132 & 37.39\textbackslash{}\%\\
-\hline
-...98 & False Pretenses/Swindle/Confidence Game & Total & 353 & 100\textbackslash{}\%\\
-\hline
-...99 & Forcible Fondling - Indecent Liberties/Child Molest & Anti-White & 56 & 24.89\textbackslash{}\%\\
-\hline
-...100 & Forcible Fondling - Indecent Liberties/Child Molest & Anti-Black & 27 & 12.00\textbackslash{}\%\\
-\hline
-...101 & Forcible Fondling - Indecent Liberties/Child Molest & Anti-Male Homosexual (Gay) & 25 & 11.11\textbackslash{}\%\\
-\hline
-...102 & Forcible Fondling - Indecent Liberties/Child Molest & Anti-Mental Disability & 17 & 7.56\textbackslash{}\%\\
-\hline
-...103 & Forcible Fondling - Indecent Liberties/Child Molest & Anti-American Indian Or Native Alaskan & 13 & 5.78\textbackslash{}\%\\
-\hline
-...104 & Forcible Fondling - Indecent Liberties/Child Molest & All Other & 87 & 38.61\textbackslash{}\%\\
-\hline
-...105 & Forcible Fondling - Indecent Liberties/Child Molest & Total & 225 & 100\textbackslash{}\%\\
-\hline
-...106 & Forcible Rape & Anti-White & 82 & 26.11\textbackslash{}\%\\
-\hline
-...107 & Forcible Rape & Anti-Female Homosexual (Lesbian) & 51 & 16.24\textbackslash{}\%\\
-\hline
-...108 & Forcible Rape & Anti-Black & 45 & 14.33\textbackslash{}\%\\
-\hline
-...109 & Forcible Rape & Anti-Mental Disability & 18 & 5.73\textbackslash{}\%\\
-\hline
-...110 & Forcible Rape & Anti-Hispanic & 15 & 4.78\textbackslash{}\%\\
-\hline
-...111 & Forcible Rape & All Other & 103 & 32.82\textbackslash{}\%\\
-\hline
-...112 & Forcible Rape & Total & 314 & 100\textbackslash{}\%\\
-\hline
-...113 & Forcible Sodomy & Anti-Male Homosexual (Gay) & 27 & 32.93\textbackslash{}\%\\
-\hline
-...114 & Forcible Sodomy & Anti-White & 11 & 13.41\textbackslash{}\%\\
-\hline
-...115 & Forcible Sodomy & Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (Lgbt) & 9 & 10.98\textbackslash{}\%\\
-\hline
-...116 & Forcible Sodomy & Anti-Heterosexual & 8 & 9.76\textbackslash{}\%\\
-\hline
-...117 & Forcible Sodomy & Anti-Transgender & 6 & 7.32\textbackslash{}\%\\
-\hline
-...118 & Forcible Sodomy & All Other & 21 & 25.62\textbackslash{}\%\\
-\hline
-...119 & Forcible Sodomy & Total & 82 & 100\textbackslash{}\%\\
-\hline
-...120 & Fraud-Other & Anti-White & 29 & 28.16\textbackslash{}\%\\
-\hline
-...121 & Fraud-Other & Anti-American Indian Or Native Alaskan & 11 & 10.68\textbackslash{}\%\\
-\hline
-...122 & Fraud-Other & Anti-Black & 10 & 9.71\textbackslash{}\%\\
-\hline
-...123 & Fraud-Other & Anti-Sikh & 10 & 9.71\textbackslash{}\%\\
-\hline
-...124 & Fraud-Other & Anti-Mental Disability & 5 & 4.85\textbackslash{}\%\\
-\hline
-...125 & Fraud-Other & All Other & 38 & 36.86\textbackslash{}\%\\
-\hline
-...126 & Fraud-Other & Total & 103 & 100\textbackslash{}\%\\
-\hline
-1...127 & Human Trafficking - Commercial Sex Acts & Anti-Transgender & 1 & 25.00\textbackslash{}\%\\
-\hline
-2...128 & Human Trafficking - Commercial Sex Acts & Anti-Asian & 1 & 25.00\textbackslash{}\%\\
-\hline
-3...129 & Human Trafficking - Commercial Sex Acts & Anti-Physical Disability & 1 & 25.00\textbackslash{}\%\\
-\hline
-4...130 & Human Trafficking - Commercial Sex Acts & Anti-Native Hawaiian Or Other Pacific Islander & 1 & 25.00\textbackslash{}\%\\
-\hline
-NA...131 & NA & NA & NA & NA\\
-\hline
-...132 & Human Trafficking - Commercial Sex Acts & All Other & NA & NA\textbackslash{}\%\\
-\hline
-...133 & Human Trafficking - Commercial Sex Acts & Total & 4 & 100\textbackslash{}\%\\
-\hline
-1...134 & Human Trafficking - Involuntary Servitude & Anti-Female & 1 & 100.00\textbackslash{}\%\\
-\hline
-NA...135 & NA & NA & NA & NA\\
-\hline
-NA.1...136 & NA & NA & NA & NA\\
-\hline
-NA.2...137 & NA & NA & NA & NA\\
-\hline
-NA.3 & NA & NA & NA & NA\\
-\hline
-...139 & Human Trafficking - Involuntary Servitude & All Other & NA & NA\textbackslash{}\%\\
-\hline
-...140 & Human Trafficking - Involuntary Servitude & Total & 1 & 100\textbackslash{}\%\\
-\hline
-...141 & Impersonation & Anti-White & 43 & 28.29\textbackslash{}\%\\
-\hline
-...142 & Impersonation & Anti-American Indian Or Native Alaskan & 22 & 14.47\textbackslash{}\%\\
-\hline
-...143 & Impersonation & Anti-Black & 20 & 13.16\textbackslash{}\%\\
-\hline
-...144 & Impersonation & Anti-Hispanic & 11 & 7.24\textbackslash{}\%\\
-\hline
-...145 & Impersonation & Anti-Eastern Orthodox (Greek, Russian, Etc.) & 6 & 3.95\textbackslash{}\%\\
-\hline
-...146 & Impersonation & All Other & 50 & 32.92\textbackslash{}\%\\
-\hline
-...147 & Impersonation & Total & 152 & 100\textbackslash{}\%\\
-\hline
-...148 & Incest & Anti-White & 2 & 28.57\textbackslash{}\%\\
-\hline
-...149 & Incest & Anti-American Indian Or Native Alaskan & 1 & 14.29\textbackslash{}\%\\
-\hline
-...150 & Incest & Anti-Heterosexual & 1 & 14.29\textbackslash{}\%\\
-\hline
-...151 & Incest & Anti-Female Homosexual (Lesbian) & 1 & 14.29\textbackslash{}\%\\
-\hline
-...152 & Incest & Anti-Bisexual & 1 & 14.29\textbackslash{}\%\\
-\hline
-...153 & Incest & All Other & 1 & 14.29\textbackslash{}\%\\
-\hline
-...154 & Incest & Total & 7 & 100\textbackslash{}\%\\
-\hline
-...155 & Intimidation & Anti-Black & 29,761 & 41.58\textbackslash{}\%\\
-\hline
-...156 & Intimidation & Anti-Jewish & 7,617 & 10.64\textbackslash{}\%\\
-\hline
-...157 & Intimidation & Anti-Male Homosexual (Gay) & 6,446 & 9.00\textbackslash{}\%\\
-\hline
-...158 & Intimidation & Anti-White & 6,051 & 8.45\textbackslash{}\%\\
-\hline
-...159 & Intimidation & Anti-Hispanic & 4,748 & 6.63\textbackslash{}\%\\
-\hline
-...160 & Intimidation & All Other & 16,960 & 23.66\textbackslash{}\%\\
-\hline
-...161 & Intimidation & Total & 71,583 & 100\textbackslash{}\%\\
-\hline
-...162 & Kidnapping/Abduction & Anti-White & 29 & 19.08\textbackslash{}\%\\
-\hline
-...163 & Kidnapping/Abduction & Anti-Black & 27 & 17.76\textbackslash{}\%\\
-\hline
-...164 & Kidnapping/Abduction & Anti-Male Homosexual (Gay) & 12 & 7.89\textbackslash{}\%\\
-\hline
-...165 & Kidnapping/Abduction & Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (Lgbt) & 9 & 5.92\textbackslash{}\%\\
-\hline
-...166 & Kidnapping/Abduction & Anti-Hispanic & 9 & 5.92\textbackslash{}\%\\
-\hline
-...167 & Kidnapping/Abduction & All Other & 66 & 43.44\textbackslash{}\%\\
-\hline
-...168 & Kidnapping/Abduction & Total & 152 & 100\textbackslash{}\%\\
-\hline
-...169 & Motor Vehicle Theft & Anti-White & 164 & 28.42\textbackslash{}\%\\
-\hline
-...170 & Motor Vehicle Theft & Anti-Black & 84 & 14.56\textbackslash{}\%\\
-\hline
-...171 & Motor Vehicle Theft & Anti-American Indian Or Native Alaskan & 78 & 13.52\textbackslash{}\%\\
-\hline
-...172 & Motor Vehicle Theft & Anti-Sikh & 25 & 4.33\textbackslash{}\%\\
-\hline
-...173 & Motor Vehicle Theft & Anti-Ethnicity Other Than Hispanic & 24 & 4.16\textbackslash{}\%\\
-\hline
-...174 & Motor Vehicle Theft & All Other & 202 & 35.03\textbackslash{}\%\\
-\hline
-...175 & Motor Vehicle Theft & Total & 577 & 100\textbackslash{}\%\\
-\hline
-...176 & Murder/Non-Negligent Manslaughter & Anti-Black & 80 & 24.24\textbackslash{}\%\\
-\hline
-...177 & Murder/Non-Negligent Manslaughter & Anti-Male Homosexual (Gay) & 61 & 18.48\textbackslash{}\%\\
-\hline
-...178 & Murder/Non-Negligent Manslaughter & Anti-White & 50 & 15.15\textbackslash{}\%\\
-\hline
-...179 & Murder/Non-Negligent Manslaughter & Anti-Hispanic & 40 & 12.12\textbackslash{}\%\\
-\hline
-...180 & Murder/Non-Negligent Manslaughter & Anti-Asian & 14 & 4.24\textbackslash{}\%\\
-\hline
-...181 & Murder/Non-Negligent Manslaughter & All Other & 85 & 25.77\textbackslash{}\%\\
-\hline
-...182 & Murder/Non-Negligent Manslaughter & Total & 330 & 100\textbackslash{}\%\\
-\hline
-...183 & Negligent Manslaughter & Anti-American Indian Or Native Alaskan & 2 & 25.00\textbackslash{}\%\\
-\hline
-...184 & Negligent Manslaughter & Anti-Physical Disability & 2 & 25.00\textbackslash{}\%\\
-\hline
-...185 & Negligent Manslaughter & Anti-Black & 2 & 25.00\textbackslash{}\%\\
-\hline
-...186 & Negligent Manslaughter & Anti-Hispanic & 1 & 12.50\textbackslash{}\%\\
-\hline
-...187 & Negligent Manslaughter & Anti-White & 1 & 12.50\textbackslash{}\%\\
-\hline
-...188 & Negligent Manslaughter & All Other & NA & NA\textbackslash{}\%\\
-\hline
-...189 & Negligent Manslaughter & Total & 8 & 100\textbackslash{}\%\\
-\hline
-...190 & Pocket-Picking & Anti-Black & 7 & 25.00\textbackslash{}\%\\
-\hline
-...191 & Pocket-Picking & Anti-White & 7 & 25.00\textbackslash{}\%\\
-\hline
-...192 & Pocket-Picking & Anti-Hispanic & 4 & 14.29\textbackslash{}\%\\
-\hline
-...193 & Pocket-Picking & Anti-American Indian Or Native Alaskan & 3 & 10.71\textbackslash{}\%\\
-\hline
-...194 & Pocket-Picking & Anti-Physical Disability & 2 & 7.14\textbackslash{}\%\\
-\hline
-...195 & Pocket-Picking & All Other & 5 & 17.85\textbackslash{}\%\\
-\hline
-...196 & Pocket-Picking & Total & 28 & 100\textbackslash{}\%\\
-\hline
-...197 & Pornography/Obscene Material & Anti-Black & 13 & 16.05\textbackslash{}\%\\
-\hline
-...198 & Pornography/Obscene Material & Anti-Female & 7 & 8.64\textbackslash{}\%\\
-\hline
-...199 & Pornography/Obscene Material & Anti-White & 7 & 8.64\textbackslash{}\%\\
-\hline
-...200 & Pornography/Obscene Material & Anti-American Indian Or Native Alaskan & 6 & 7.41\textbackslash{}\%\\
-\hline
-...201 & Pornography/Obscene Material & Anti-Mental Disability & 5 & 6.17\textbackslash{}\%\\
-\hline
-...202 & Pornography/Obscene Material & All Other & 43 & 53.06\textbackslash{}\%\\
-\hline
-...203 & Pornography/Obscene Material & Total & 81 & 100\textbackslash{}\%\\
-\hline
-1...204 & Prostitution & Anti-White & 10 & 71.43\textbackslash{}\%\\
-\hline
-2...205 & Prostitution & Anti-Asian & 3 & 21.43\textbackslash{}\%\\
-\hline
-3...206 & Prostitution & Anti-Other Religion & 1 & 7.14\textbackslash{}\%\\
-\hline
-NA...207 & NA & NA & NA & NA\\
-\hline
-NA.1...208 & NA & NA & NA & NA\\
-\hline
-...209 & Prostitution & All Other & NA & NA\textbackslash{}\%\\
-\hline
-...210 & Prostitution & Total & 14 & 100\textbackslash{}\%\\
-\hline
-1...211 & Purchasing Prostitution & Anti-Asian & 1 & 50.00\textbackslash{}\%\\
-\hline
-2...212 & Purchasing Prostitution & Anti-Heterosexual & 1 & 50.00\textbackslash{}\%\\
-\hline
-NA...213 & NA & NA & NA & NA\\
-\hline
-NA.1...214 & NA & NA & NA & NA\\
-\hline
-NA.2...215 & NA & NA & NA & NA\\
-\hline
-...216 & Purchasing Prostitution & All Other & NA & NA\textbackslash{}\%\\
-\hline
-...217 & Purchasing Prostitution & Total & 2 & 100\textbackslash{}\%\\
-\hline
-...218 & Purse-Snatching & Anti-White & 11 & 37.93\textbackslash{}\%\\
-\hline
-...219 & Purse-Snatching & Anti-American Indian Or Native Alaskan & 3 & 10.34\textbackslash{}\%\\
-\hline
-...220 & Purse-Snatching & Anti-Hispanic & 2 & 6.90\textbackslash{}\%\\
-\hline
-...221 & Purse-Snatching & Anti-Other Religion & 2 & 6.90\textbackslash{}\%\\
-\hline
-...222 & Purse-Snatching & Anti-Black & 2 & 6.90\textbackslash{}\%\\
-\hline
-...223 & Purse-Snatching & All Other & 9 & 31.05\textbackslash{}\%\\
-\hline
-...224 & Purse-Snatching & Total & 29 & 100\textbackslash{}\%\\
-\hline
-...225 & Robbery & Anti-White & 1,136 & 26.18\textbackslash{}\%\\
-\hline
-...226 & Robbery & Anti-Male Homosexual (Gay) & 1,045 & 24.08\textbackslash{}\%\\
-\hline
-...227 & Robbery & Anti-Black & 652 & 15.03\textbackslash{}\%\\
-\hline
-...228 & Robbery & Anti-Hispanic & 520 & 11.98\textbackslash{}\%\\
-\hline
-...229 & Robbery & Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (Lgbt) & 200 & 4.61\textbackslash{}\%\\
-\hline
-...230 & Robbery & All Other & 786 & 18.11\textbackslash{}\%\\
-\hline
-...231 & Robbery & Total & 4,339 & 100\textbackslash{}\%\\
-\hline
-...232 & Sexual Assault With An Object & Anti-Male Homosexual (Gay) & 9 & 21.95\textbackslash{}\%\\
-\hline
-...233 & Sexual Assault With An Object & Anti-Black & 6 & 14.63\textbackslash{}\%\\
-\hline
-...234 & Sexual Assault With An Object & Anti-White & 5 & 12.20\textbackslash{}\%\\
-\hline
-...235 & Sexual Assault With An Object & Anti-Transgender & 4 & 9.76\textbackslash{}\%\\
-\hline
-...236 & Sexual Assault With An Object & Anti-Female Homosexual (Lesbian) & 3 & 7.32\textbackslash{}\%\\
-\hline
-...237 & Sexual Assault With An Object & All Other & 14 & 34.16\textbackslash{}\%\\
-\hline
-...238 & Sexual Assault With An Object & Total & 41 & 100\textbackslash{}\%\\
-\hline
-...239 & Shoplifting & Anti-White & 263 & 34.11\textbackslash{}\%\\
-\hline
-...240 & Shoplifting & Anti-Black & 87 & 11.28\textbackslash{}\%\\
-\hline
-...241 & Shoplifting & Anti-American Indian Or Native Alaskan & 80 & 10.38\textbackslash{}\%\\
-\hline
-...242 & Shoplifting & Anti-Ethnicity Other Than Hispanic & 29 & 3.76\textbackslash{}\%\\
-\hline
-...243 & Shoplifting & Anti-Sikh & 27 & 3.50\textbackslash{}\%\\
-\hline
-...244 & Shoplifting & All Other & 285 & 36.99\textbackslash{}\%\\
-\hline
-...245 & Shoplifting & Total & 771 & 100\textbackslash{}\%\\
-\hline
-...246 & Simple Assault & Anti-Black & 14,789 & 30.86\textbackslash{}\%\\
-\hline
-...247 & Simple Assault & Anti-White & 7,994 & 16.68\textbackslash{}\%\\
-\hline
-...248 & Simple Assault & Anti-Male Homosexual (Gay) & 7,612 & 15.89\textbackslash{}\%\\
-\hline
-...249 & Simple Assault & Anti-Hispanic & 4,008 & 8.36\textbackslash{}\%\\
-\hline
-...250 & Simple Assault & Anti-Ethnicity Other Than Hispanic & 2,245 & 4.69\textbackslash{}\%\\
-\hline
-...251 & Simple Assault & All Other & 11,269 & 23.5\textbackslash{}\%\\
-\hline
-...252 & Simple Assault & Total & 47,917 & 100\textbackslash{}\%\\
-\hline
-...253 & Statutory Rape & Anti-White & 7 & 33.33\textbackslash{}\%\\
-\hline
-...254 & Statutory Rape & Anti-Male Homosexual (Gay) & 2 & 9.52\textbackslash{}\%\\
-\hline
-...255 & Statutory Rape & Anti-Black & 2 & 9.52\textbackslash{}\%\\
-\hline
-...256 & Statutory Rape & Anti-Heterosexual & 2 & 9.52\textbackslash{}\%\\
-\hline
-...257 & Statutory Rape & Anti-American Indian Or Native Alaskan & 2 & 9.52\textbackslash{}\%\\
-\hline
-...258 & Statutory Rape & All Other & 6 & 28.56\textbackslash{}\%\\
-\hline
-...259 & Statutory Rape & Total & 21 & 100\textbackslash{}\%\\
-\hline
-...260 & Stolen Property Offenses - Receiving, Selling, Etc. & Anti-White & 46 & 32.86\textbackslash{}\%\\
-\hline
-...261 & Stolen Property Offenses - Receiving, Selling, Etc. & Anti-American Indian Or Native Alaskan & 18 & 12.86\textbackslash{}\%\\
-\hline
-...262 & Stolen Property Offenses - Receiving, Selling, Etc. & Anti-Black & 17 & 12.14\textbackslash{}\%\\
-\hline
-...263 & Stolen Property Offenses - Receiving, Selling, Etc. & Anti-Sikh & 7 & 5.00\textbackslash{}\%\\
-\hline
-...264 & Stolen Property Offenses - Receiving, Selling, Etc. & Anti-Mental Disability & 6 & 4.29\textbackslash{}\%\\
-\hline
-...265 & Stolen Property Offenses - Receiving, Selling, Etc. & All Other & 46 & 32.84\textbackslash{}\%\\
-\hline
-...266 & Stolen Property Offenses - Receiving, Selling, Etc. & Total & 140 & 100\textbackslash{}\%\\
-\hline
-...267 & Theft-Other & Anti-Black & 176 & 19.19\textbackslash{}\%\\
-\hline
-...268 & Theft-Other & Anti-Jewish & 175 & 19.08\textbackslash{}\%\\
-\hline
-...269 & Theft-Other & Anti-Male Homosexual (Gay) & 85 & 9.27\textbackslash{}\%\\
-\hline
-...270 & Theft-Other & Anti-White & 76 & 8.29\textbackslash{}\%\\
-\hline
-...271 & Theft-Other & Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (Lgbt) & 56 & 6.11\textbackslash{}\%\\
-\hline
-...272 & Theft-Other & All Other & 349 & 38.09\textbackslash{}\%\\
-\hline
-...273 & Theft-Other & Total & 917 & 100\textbackslash{}\%\\
-\hline
-...274 & Theft From Building & Anti-White & 202 & 32.74\textbackslash{}\%\\
-\hline
-...275 & Theft From Building & Anti-Black & 55 & 8.91\textbackslash{}\%\\
-\hline
-...276 & Theft From Building & Anti-American Indian Or Native Alaskan & 52 & 8.43\textbackslash{}\%\\
-\hline
-...277 & Theft From Building & Anti-Ethnicity Other Than Hispanic & 32 & 5.19\textbackslash{}\%\\
-\hline
-...278 & Theft From Building & Anti-Lesbian, Gay, Bisexual, Or Transgender, Mixed Group (Lgbt) & 32 & 5.19\textbackslash{}\%\\
-\hline
-...279 & Theft From Building & All Other & 244 & 39.55\textbackslash{}\%\\
-\hline
-...280 & Theft From Building & Total & 617 & 100\textbackslash{}\%\\
-\hline
-...281 & Theft From Coin-Operated Machine Or Device & Anti-White & 4 & 25.00\textbackslash{}\%\\
-\hline
-...282 & Theft From Coin-Operated Machine Or Device & Anti-American Indian Or Native Alaskan & 3 & 18.75\textbackslash{}\%\\
-\hline
-...283 & Theft From Coin-Operated Machine Or Device & Anti-Physical Disability & 3 & 18.75\textbackslash{}\%\\
-\hline
-...284 & Theft From Coin-Operated Machine Or Device & Anti-Black & 2 & 12.50\textbackslash{}\%\\
-\hline
-...285 & Theft From Coin-Operated Machine Or Device & Anti-Sikh & 1 & 6.25\textbackslash{}\%\\
-\hline
-...286 & Theft From Coin-Operated Machine Or Device & All Other & 3 & 18.75\textbackslash{}\%\\
-\hline
-...287 & Theft From Coin-Operated Machine Or Device & Total & 16 & 100\textbackslash{}\%\\
-\hline
-...288 & Theft From Motor Vehicle & Anti-White & 303 & 34.28\textbackslash{}\%\\
-\hline
-...289 & Theft From Motor Vehicle & Anti-American Indian Or Native Alaskan & 101 & 11.43\textbackslash{}\%\\
-\hline
-...290 & Theft From Motor Vehicle & Anti-Black & 88 & 9.95\textbackslash{}\%\\
-\hline
-...291 & Theft From Motor Vehicle & Anti-Hispanic & 38 & 4.30\textbackslash{}\%\\
-\hline
-...292 & Theft From Motor Vehicle & Anti-Sikh & 30 & 3.39\textbackslash{}\%\\
-\hline
-...293 & Theft From Motor Vehicle & All Other & 324 & 36.63\textbackslash{}\%\\
-\hline
-...294 & Theft From Motor Vehicle & Total & 884 & 100\textbackslash{}\%\\
-\hline
-...295 & Theft of Motor Vehicle Parts/Accessories & Anti-White & 86 & 34.54\textbackslash{}\%\\
-\hline
-...296 & Theft of Motor Vehicle Parts/Accessories & Anti-American Indian Or Native Alaskan & 24 & 9.64\textbackslash{}\%\\
-\hline
-...297 & Theft of Motor Vehicle Parts/Accessories & Anti-Black & 23 & 9.24\textbackslash{}\%\\
-\hline
-...298 & Theft of Motor Vehicle Parts/Accessories & Anti-Sikh & 11 & 4.42\textbackslash{}\%\\
-\hline
-...299 & Theft of Motor Vehicle Parts/Accessories & Anti-Ethnicity Other Than Hispanic & 9 & 3.61\textbackslash{}\%\\
-\hline
-...300 & Theft of Motor Vehicle Parts/Accessories & All Other & 96 & 38.53\textbackslash{}\%\\
-\hline
-...301 & Theft of Motor Vehicle Parts/Accessories & Total & 249 & 100\textbackslash{}\%\\
-\hline
-...302 & Unknown & Anti-Black & 5 & 31.25\textbackslash{}\%\\
-\hline
-...303 & Unknown & Anti-White & 4 & 25.00\textbackslash{}\%\\
-\hline
-...304 & Unknown & Anti-American Indian Or Native Alaskan & 2 & 12.50\textbackslash{}\%\\
-\hline
-...305 & Unknown & Anti-Catholic & 1 & 6.25\textbackslash{}\%\\
-\hline
-...306 & Unknown & Anti-Male & 1 & 6.25\textbackslash{}\%\\
-\hline
-...307 & Unknown & All Other & 3 & 18.75\textbackslash{}\%\\
-\hline
-...308 & Unknown & Total & 16 & 100\textbackslash{}\%\\
-\hline
-...309 & Weapon Law Violations & Anti-Black & 173 & 36.89\textbackslash{}\%\\
-\hline
-...310 & Weapon Law Violations & Anti-White & 95 & 20.26\textbackslash{}\%\\
-\hline
-...311 & Weapon Law Violations & Anti-Hispanic & 23 & 4.90\textbackslash{}\%\\
-\hline
-...312 & Weapon Law Violations & Anti-American Indian Or Native Alaskan & 23 & 4.90\textbackslash{}\%\\
-\hline
-...313 & Weapon Law Violations & Anti-Ethnicity Other Than Hispanic & 19 & 4.05\textbackslash{}\%\\
-\hline
-...314 & Weapon Law Violations & All Other & 136 & 29.02\textbackslash{}\%\\
-\hline
-...315 & Weapon Law Violations & Total & 469 & 100\textbackslash{}\%\\
-\hline
-1...316 & Welfare Fraud & Anti-White & 4 & 50.00\textbackslash{}\%\\
-\hline
-2...317 & Welfare Fraud & Anti-Mental Disability & 2 & 25.00\textbackslash{}\%\\
-\hline
-3...318 & Welfare Fraud & Anti-American Indian Or Native Alaskan & 1 & 12.50\textbackslash{}\%\\
-\hline
-4...319 & Welfare Fraud & Anti-Arab & 1 & 12.50\textbackslash{}\%\\
-\hline
-NA...320 & NA & NA & NA & NA\\
-\hline
-...321 & Welfare Fraud & All Other & NA & NA\textbackslash{}\%\\
-\hline
-...322 & Welfare Fraud & Total & 8 & 100\textbackslash{}\%\\
-\hline
-...323 & Wire Fraud & Anti-White & 7 & 26.92\textbackslash{}\%\\
-\hline
-...324 & Wire Fraud & Anti-Catholic & 2 & 7.69\textbackslash{}\%\\
-\hline
-...325 & Wire Fraud & Anti-Female & 2 & 7.69\textbackslash{}\%\\
-\hline
-...326 & Wire Fraud & Anti-Multi-Racial Group & 2 & 7.69\textbackslash{}\%\\
-\hline
-...327 & Wire Fraud & Anti-Male Homosexual (Gay) & 2 & 7.69\textbackslash{}\%\\
-\hline
-...328 & Wire Fraud & All Other & 11 & 42.35\textbackslash{}\%\\
-\hline
-...329 & Wire Fraud & Total & 26 & 100\textbackslash{}\%\\
-\hline
-\end{longtable}
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:hateOffenseBias)The number and percent of biases by offense, 2023.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:left;"> Offense </th>
+   <th style="text-align:left;"> Bias Motivation </th>
+   <th style="text-align:right;"> \# of Incidents </th>
+   <th style="text-align:right;"> \% of Incidents </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> ...1 </td>
+   <td style="text-align:left;"> Arson </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 449 </td>
+   <td style="text-align:right;"> 29.58\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...2 </td>
+   <td style="text-align:left;"> Arson </td>
+   <td style="text-align:left;"> Anti-Jewish </td>
+   <td style="text-align:right;"> 178 </td>
+   <td style="text-align:right;"> 11.73\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...3 </td>
+   <td style="text-align:left;"> Arson </td>
+   <td style="text-align:left;"> Anti-Other Religion </td>
+   <td style="text-align:right;"> 110 </td>
+   <td style="text-align:right;"> 7.25\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...4 </td>
+   <td style="text-align:left;"> Arson </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:right;"> 97 </td>
+   <td style="text-align:right;"> 6.39\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...5 </td>
+   <td style="text-align:left;"> Arson </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 96 </td>
+   <td style="text-align:right;"> 6.32\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...6 </td>
+   <td style="text-align:left;"> Arson </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 588 </td>
+   <td style="text-align:right;"> 38.75\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...7 </td>
+   <td style="text-align:left;"> Arson </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 1,518 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...8 </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 10,128 </td>
+   <td style="text-align:right;"> 36.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...9 </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 4,528 </td>
+   <td style="text-align:right;"> 16.10\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...10 </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:right;"> 3,999 </td>
+   <td style="text-align:right;"> 14.22\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...11 </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:left;"> Anti-Hispanic Or Latino </td>
+   <td style="text-align:right;"> 2,994 </td>
+   <td style="text-align:right;"> 10.64\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...12 </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:left;"> Anti-Other Race, Ethnicity, Ancestry, Or National Origin </td>
+   <td style="text-align:right;"> 1,164 </td>
+   <td style="text-align:right;"> 4.14\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...13 </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 5,314 </td>
+   <td style="text-align:right;"> 18.89\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...14 </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 28,127 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...15 </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 30,996 </td>
+   <td style="text-align:right;"> 41.12\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...16 </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:left;"> Anti-Jewish </td>
+   <td style="text-align:right;"> 8,246 </td>
+   <td style="text-align:right;"> 10.94\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...17 </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:right;"> 6,771 </td>
+   <td style="text-align:right;"> 8.98\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...18 </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 6,280 </td>
+   <td style="text-align:right;"> 8.33\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...19 </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:left;"> Anti-Hispanic Or Latino </td>
+   <td style="text-align:right;"> 5,033 </td>
+   <td style="text-align:right;"> 6.68\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...20 </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 18,055 </td>
+   <td style="text-align:right;"> 23.96\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...21 </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 75,381 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...22 </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 15,481 </td>
+   <td style="text-align:right;"> 30.71\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...23 </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 8,233 </td>
+   <td style="text-align:right;"> 16.33\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...24 </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:right;"> 7,944 </td>
+   <td style="text-align:right;"> 15.76\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...25 </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:left;"> Anti-Hispanic Or Latino </td>
+   <td style="text-align:right;"> 4,278 </td>
+   <td style="text-align:right;"> 8.49\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...26 </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:left;"> Anti-Other Race, Ethnicity, Ancestry, Or National Origin </td>
+   <td style="text-align:right;"> 2,343 </td>
+   <td style="text-align:right;"> 4.65\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...27 </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 12,131 </td>
+   <td style="text-align:right;"> 24.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...28 </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 50,410 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...29 </td>
+   <td style="text-align:left;"> Bribery </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 33.33\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...30 </td>
+   <td style="text-align:left;"> Bribery </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 16.67\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...31 </td>
+   <td style="text-align:left;"> Bribery </td>
+   <td style="text-align:left;"> Anti-Heterosexual </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 16.67\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...32 </td>
+   <td style="text-align:left;"> Bribery </td>
+   <td style="text-align:left;"> Anti-Arab </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 16.67\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...33 </td>
+   <td style="text-align:left;"> Bribery </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 16.67\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...34 </td>
+   <td style="text-align:left;"> Bribery </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...35 </td>
+   <td style="text-align:left;"> Bribery </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...36 </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 1,003 </td>
+   <td style="text-align:right;"> 24.93\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...37 </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 641 </td>
+   <td style="text-align:right;"> 15.93\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...38 </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:left;"> Anti-Jewish </td>
+   <td style="text-align:right;"> 341 </td>
+   <td style="text-align:right;"> 8.48\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...39 </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:right;"> 241 </td>
+   <td style="text-align:right;"> 5.99\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...40 </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:left;"> Anti-Hispanic Or Latino </td>
+   <td style="text-align:right;"> 212 </td>
+   <td style="text-align:right;"> 5.27\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...41 </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 1,585 </td>
+   <td style="text-align:right;"> 39.4\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...42 </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 4,023 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...43 </td>
+   <td style="text-align:left;"> Counterfeiting/Forgery </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 103 </td>
+   <td style="text-align:right;"> 40.23\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...44 </td>
+   <td style="text-align:left;"> Counterfeiting/Forgery </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 9.77\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...45 </td>
+   <td style="text-align:left;"> Counterfeiting/Forgery </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 8.20\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...46 </td>
+   <td style="text-align:left;"> Counterfeiting/Forgery </td>
+   <td style="text-align:left;"> Anti-Catholic </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 4.30\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...47 </td>
+   <td style="text-align:left;"> Counterfeiting/Forgery </td>
+   <td style="text-align:left;"> Anti-Sikh </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 3.91\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...48 </td>
+   <td style="text-align:left;"> Counterfeiting/Forgery </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 86 </td>
+   <td style="text-align:right;"> 33.54\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...49 </td>
+   <td style="text-align:left;"> Counterfeiting/Forgery </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 256 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...50 </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 24,150 </td>
+   <td style="text-align:right;"> 31.98\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...51 </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:left;"> Anti-Jewish </td>
+   <td style="text-align:right;"> 20,381 </td>
+   <td style="text-align:right;"> 26.99\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...52 </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:right;"> 4,271 </td>
+   <td style="text-align:right;"> 5.66\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...53 </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 3,811 </td>
+   <td style="text-align:right;"> 5.05\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...54 </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:left;"> Anti-Other Race, Ethnicity, Ancestry, Or National Origin </td>
+   <td style="text-align:right;"> 3,378 </td>
+   <td style="text-align:right;"> 4.47\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...55 </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 19,533 </td>
+   <td style="text-align:right;"> 25.87\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...56 </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 75,524 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...57 </td>
+   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug Equipment Violations </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 131 </td>
+   <td style="text-align:right;"> 32.51\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...58 </td>
+   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug Equipment Violations </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 58 </td>
+   <td style="text-align:right;"> 14.39\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...59 </td>
+   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug Equipment Violations </td>
+   <td style="text-align:left;"> Anti-Eastern Orthodox (Greek, Russian, Other) </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 6.45\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...60 </td>
+   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug Equipment Violations </td>
+   <td style="text-align:left;"> Anti-Sikh </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 5.96\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...61 </td>
+   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug Equipment Violations </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 4.71\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...62 </td>
+   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug Equipment Violations </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 145 </td>
+   <td style="text-align:right;"> 35.96\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...63 </td>
+   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug Equipment Violations </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 403 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...64 </td>
+   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug/Narcotic Violations </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 495 </td>
+   <td style="text-align:right;"> 33.86\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...65 </td>
+   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug/Narcotic Violations </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 248 </td>
+   <td style="text-align:right;"> 16.96\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...66 </td>
+   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug/Narcotic Violations </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 156 </td>
+   <td style="text-align:right;"> 10.67\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...67 </td>
+   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug/Narcotic Violations </td>
+   <td style="text-align:left;"> Anti-Sikh </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 4.24\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...68 </td>
+   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug/Narcotic Violations </td>
+   <td style="text-align:left;"> Anti-Hispanic Or Latino </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:right;"> 3.15\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...69 </td>
+   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug/Narcotic Violations </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 455 </td>
+   <td style="text-align:right;"> 31.15\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...70 </td>
+   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug/Narcotic Violations </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 1,462 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...71 </td>
+   <td style="text-align:left;"> Embezzlement </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 33.80\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...72 </td>
+   <td style="text-align:left;"> Embezzlement </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 12.68\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...73 </td>
+   <td style="text-align:left;"> Embezzlement </td>
+   <td style="text-align:left;"> Anti-Mental Disability </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 8.45\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...74 </td>
+   <td style="text-align:left;"> Embezzlement </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 7.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...75 </td>
+   <td style="text-align:left;"> Embezzlement </td>
+   <td style="text-align:left;"> Anti-Physical Disability </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 7.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...76 </td>
+   <td style="text-align:left;"> Embezzlement </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 31.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...77 </td>
+   <td style="text-align:left;"> Embezzlement </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 71 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...78 </td>
+   <td style="text-align:left;"> Extortion/Blackmail </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 22.08\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...79 </td>
+   <td style="text-align:left;"> Extortion/Blackmail </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 11.69\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...80 </td>
+   <td style="text-align:left;"> Extortion/Blackmail </td>
+   <td style="text-align:left;"> Anti-Lesbian, Gay, Bisexual, Or Transgender (Mixed Group) </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 9.09\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...81 </td>
+   <td style="text-align:left;"> Extortion/Blackmail </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 9.09\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...82 </td>
+   <td style="text-align:left;"> Extortion/Blackmail </td>
+   <td style="text-align:left;"> Anti-Other Race, Ethnicity, Ancestry, Or National Origin </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 9.09\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...83 </td>
+   <td style="text-align:left;"> Extortion/Blackmail </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 38.97\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...84 </td>
+   <td style="text-align:left;"> Extortion/Blackmail </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 77 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...85 </td>
+   <td style="text-align:left;"> Fraud Offenses - Credit Card/Atm Fraud </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 57 </td>
+   <td style="text-align:right;"> 30.16\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...86 </td>
+   <td style="text-align:left;"> Fraud Offenses - Credit Card/Atm Fraud </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 9.52\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...87 </td>
+   <td style="text-align:left;"> Fraud Offenses - Credit Card/Atm Fraud </td>
+   <td style="text-align:left;"> Anti-Sikh </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 7.41\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...88 </td>
+   <td style="text-align:left;"> Fraud Offenses - Credit Card/Atm Fraud </td>
+   <td style="text-align:left;"> Anti-Mental Disability </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 7.41\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...89 </td>
+   <td style="text-align:left;"> Fraud Offenses - Credit Card/Atm Fraud </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 5.29\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...90 </td>
+   <td style="text-align:left;"> Fraud Offenses - Credit Card/Atm Fraud </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 76 </td>
+   <td style="text-align:right;"> 40.23\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...91 </td>
+   <td style="text-align:left;"> Fraud Offenses - Credit Card/Atm Fraud </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 189 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...92 </td>
+   <td style="text-align:left;"> Fraud Offenses - False Pretenses/Swindle/Confidence Game </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 123 </td>
+   <td style="text-align:right;"> 32.54\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...93 </td>
+   <td style="text-align:left;"> Fraud Offenses - False Pretenses/Swindle/Confidence Game </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 8.99\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...94 </td>
+   <td style="text-align:left;"> Fraud Offenses - False Pretenses/Swindle/Confidence Game </td>
+   <td style="text-align:left;"> Anti-Mental Disability </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 7.67\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...95 </td>
+   <td style="text-align:left;"> Fraud Offenses - False Pretenses/Swindle/Confidence Game </td>
+   <td style="text-align:left;"> Anti-Sikh </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 7.41\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...96 </td>
+   <td style="text-align:left;"> Fraud Offenses - False Pretenses/Swindle/Confidence Game </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 4.76\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...97 </td>
+   <td style="text-align:left;"> Fraud Offenses - False Pretenses/Swindle/Confidence Game </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 146 </td>
+   <td style="text-align:right;"> 38.62\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...98 </td>
+   <td style="text-align:left;"> Fraud Offenses - False Pretenses/Swindle/Confidence Game </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 378 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...99 </td>
+   <td style="text-align:left;"> Fraud Offenses - Impersonation </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 27.74\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...100 </td>
+   <td style="text-align:left;"> Fraud Offenses - Impersonation </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 14.84\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...101 </td>
+   <td style="text-align:left;"> Fraud Offenses - Impersonation </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 14.84\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...102 </td>
+   <td style="text-align:left;"> Fraud Offenses - Impersonation </td>
+   <td style="text-align:left;"> Anti-Hispanic Or Latino </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 7.10\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...103 </td>
+   <td style="text-align:left;"> Fraud Offenses - Impersonation </td>
+   <td style="text-align:left;"> Anti-Catholic </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3.23\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...104 </td>
+   <td style="text-align:left;"> Fraud Offenses - Impersonation </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 32.32\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...105 </td>
+   <td style="text-align:left;"> Fraud Offenses - Impersonation </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 155 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...106 </td>
+   <td style="text-align:left;"> Fraud Offenses - Other </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 27.87\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...107 </td>
+   <td style="text-align:left;"> Fraud Offenses - Other </td>
+   <td style="text-align:left;"> Anti-Sikh </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 9.84\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...108 </td>
+   <td style="text-align:left;"> Fraud Offenses - Other </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 9.84\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...109 </td>
+   <td style="text-align:left;"> Fraud Offenses - Other </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 9.84\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...110 </td>
+   <td style="text-align:left;"> Fraud Offenses - Other </td>
+   <td style="text-align:left;"> Anti-Mental Disability </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 4.92\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...111 </td>
+   <td style="text-align:left;"> Fraud Offenses - Other </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:right;"> 37.72\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...112 </td>
+   <td style="text-align:left;"> Fraud Offenses - Other </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 122 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1...113 </td>
+   <td style="text-align:left;"> Fraud Offenses - Welfare Fraud </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 60.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2...114 </td>
+   <td style="text-align:left;"> Fraud Offenses - Welfare Fraud </td>
+   <td style="text-align:left;"> Anti-Mental Disability </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 20.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 3...115 </td>
+   <td style="text-align:left;"> Fraud Offenses - Welfare Fraud </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 10.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 4...116 </td>
+   <td style="text-align:left;"> Fraud Offenses - Welfare Fraud </td>
+   <td style="text-align:left;"> Anti-Arab </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 10.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> NA...117 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...118 </td>
+   <td style="text-align:left;"> Fraud Offenses - Welfare Fraud </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...119 </td>
+   <td style="text-align:left;"> Fraud Offenses - Welfare Fraud </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...120 </td>
+   <td style="text-align:left;"> Fraud Offenses - Wire Fraud </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 27.59\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...121 </td>
+   <td style="text-align:left;"> Fraud Offenses - Wire Fraud </td>
+   <td style="text-align:left;"> Anti-Gender Non-Conforming </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 10.34\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...122 </td>
+   <td style="text-align:left;"> Fraud Offenses - Wire Fraud </td>
+   <td style="text-align:left;"> Anti-Catholic </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 6.90\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...123 </td>
+   <td style="text-align:left;"> Fraud Offenses - Wire Fraud </td>
+   <td style="text-align:left;"> Anti-Female </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 6.90\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...124 </td>
+   <td style="text-align:left;"> Fraud Offenses - Wire Fraud </td>
+   <td style="text-align:left;"> Anti-Multiple Races, Group </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 6.90\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...125 </td>
+   <td style="text-align:left;"> Fraud Offenses - Wire Fraud </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 41.4\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...126 </td>
+   <td style="text-align:left;"> Fraud Offenses - Wire Fraud </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1...127 </td>
+   <td style="text-align:left;"> Gambling Offenses - Betting/Wagering </td>
+   <td style="text-align:left;"> Anti-Physical Disability </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 100.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> NA...128 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> NA.1...129 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> NA.2...130 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> NA.3...131 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...132 </td>
+   <td style="text-align:left;"> Gambling Offenses - Betting/Wagering </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...133 </td>
+   <td style="text-align:left;"> Gambling Offenses - Betting/Wagering </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1...134 </td>
+   <td style="text-align:left;"> Human Trafficking - Commercial Sex Acts </td>
+   <td style="text-align:left;"> Anti-Transgender </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 25.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2...135 </td>
+   <td style="text-align:left;"> Human Trafficking - Commercial Sex Acts </td>
+   <td style="text-align:left;"> Anti-Asian </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 25.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 3...136 </td>
+   <td style="text-align:left;"> Human Trafficking - Commercial Sex Acts </td>
+   <td style="text-align:left;"> Anti-Physical Disability </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 25.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 4...137 </td>
+   <td style="text-align:left;"> Human Trafficking - Commercial Sex Acts </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 25.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> NA...138 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...139 </td>
+   <td style="text-align:left;"> Human Trafficking - Commercial Sex Acts </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...140 </td>
+   <td style="text-align:left;"> Human Trafficking - Commercial Sex Acts </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1...141 </td>
+   <td style="text-align:left;"> Human Trafficking - Involuntary Servitude </td>
+   <td style="text-align:left;"> Anti-Female </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 100.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> NA...142 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> NA.1...143 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> NA.2...144 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> NA.3...145 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...146 </td>
+   <td style="text-align:left;"> Human Trafficking - Involuntary Servitude </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...147 </td>
+   <td style="text-align:left;"> Human Trafficking - Involuntary Servitude </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...148 </td>
+   <td style="text-align:left;"> Kidnapping/Abduction </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 17.92\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...149 </td>
+   <td style="text-align:left;"> Kidnapping/Abduction </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 17.92\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...150 </td>
+   <td style="text-align:left;"> Kidnapping/Abduction </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 7.51\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...151 </td>
+   <td style="text-align:left;"> Kidnapping/Abduction </td>
+   <td style="text-align:left;"> Anti-Hispanic Or Latino </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 6.36\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...152 </td>
+   <td style="text-align:left;"> Kidnapping/Abduction </td>
+   <td style="text-align:left;"> Anti-Transgender </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 5.20\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...153 </td>
+   <td style="text-align:left;"> Kidnapping/Abduction </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 78 </td>
+   <td style="text-align:right;"> 45.08\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...154 </td>
+   <td style="text-align:left;"> Kidnapping/Abduction </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 173 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...155 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 824 </td>
+   <td style="text-align:right;"> 27.38\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...156 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:left;"> Anti-Lesbian, Gay, Bisexual, Or Transgender (Mixed Group) </td>
+   <td style="text-align:right;"> 320 </td>
+   <td style="text-align:right;"> 10.63\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...157 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 271 </td>
+   <td style="text-align:right;"> 9.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...158 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 202 </td>
+   <td style="text-align:right;"> 6.71\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...159 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:left;"> Anti-Mental Disability </td>
+   <td style="text-align:right;"> 118 </td>
+   <td style="text-align:right;"> 3.92\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...160 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 1,275 </td>
+   <td style="text-align:right;"> 42.36\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...161 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 3,010 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...162 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Other </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 178 </td>
+   <td style="text-align:right;"> 19.24\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...163 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Other </td>
+   <td style="text-align:left;"> Anti-Jewish </td>
+   <td style="text-align:right;"> 176 </td>
+   <td style="text-align:right;"> 19.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...164 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Other </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:right;"> 84 </td>
+   <td style="text-align:right;"> 9.08\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...165 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Other </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 76 </td>
+   <td style="text-align:right;"> 8.22\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...166 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Other </td>
+   <td style="text-align:left;"> Anti-Lesbian, Gay, Bisexual, Or Transgender (Mixed Group) </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 6.70\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...167 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Other </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 349 </td>
+   <td style="text-align:right;"> 37.73\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...168 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Other </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 925 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...169 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Pocket-Picking </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 26.67\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...170 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Pocket-Picking </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 23.33\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...171 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Pocket-Picking </td>
+   <td style="text-align:left;"> Anti-Hispanic Or Latino </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 13.33\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...172 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Pocket-Picking </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 10.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...173 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Pocket-Picking </td>
+   <td style="text-align:left;"> Anti-Physical Disability </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 6.67\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...174 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Pocket-Picking </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 19.98\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...175 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Pocket-Picking </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...176 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Purse-Snatching </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 32.26\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...177 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Purse-Snatching </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 9.68\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...178 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Purse-Snatching </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 9.68\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...179 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Purse-Snatching </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 6.45\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...180 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Purse-Snatching </td>
+   <td style="text-align:left;"> Anti-Bisexual </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 6.45\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...181 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Purse-Snatching </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 35.51\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...182 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Purse-Snatching </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...183 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Shoplifting </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 285 </td>
+   <td style="text-align:right;"> 33.41\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...184 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Shoplifting </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 92 </td>
+   <td style="text-align:right;"> 10.79\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...185 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Shoplifting </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 88 </td>
+   <td style="text-align:right;"> 10.32\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...186 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Shoplifting </td>
+   <td style="text-align:left;"> Anti-Sikh </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:right;"> 4.10\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...187 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Shoplifting </td>
+   <td style="text-align:left;"> Anti-Other Race, Ethnicity, Ancestry, Or National Origin </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 3.63\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...188 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Shoplifting </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 322 </td>
+   <td style="text-align:right;"> 37.77\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...189 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Shoplifting </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 853 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...190 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Building </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 206 </td>
+   <td style="text-align:right;"> 30.07\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...191 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Building </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 61 </td>
+   <td style="text-align:right;"> 8.91\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...192 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Building </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 54 </td>
+   <td style="text-align:right;"> 7.88\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...193 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Building </td>
+   <td style="text-align:left;"> Anti-Lesbian, Gay, Bisexual, Or Transgender (Mixed Group) </td>
+   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:right;"> 6.86\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...194 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Building </td>
+   <td style="text-align:left;"> Anti-Other Race, Ethnicity, Ancestry, Or National Origin </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 4.82\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...195 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Building </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 284 </td>
+   <td style="text-align:right;"> 41.49\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...196 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Building </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 685 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...197 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Motor Vehicle </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 313 </td>
+   <td style="text-align:right;"> 33.23\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...198 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Motor Vehicle </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 102 </td>
+   <td style="text-align:right;"> 10.83\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...199 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Motor Vehicle </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 91 </td>
+   <td style="text-align:right;"> 9.66\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...200 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Motor Vehicle </td>
+   <td style="text-align:left;"> Anti-Sikh </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 4.56\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...201 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Motor Vehicle </td>
+   <td style="text-align:left;"> Anti-Hispanic Or Latino </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:right;"> 4.25\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...202 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Motor Vehicle </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 353 </td>
+   <td style="text-align:right;"> 37.46\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...203 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft From Motor Vehicle </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 942 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...204 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 91 </td>
+   <td style="text-align:right;"> 34.34\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...205 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 10.19\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...206 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 9.81\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...207 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories </td>
+   <td style="text-align:left;"> Anti-Sikh </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 5.28\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...208 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories </td>
+   <td style="text-align:left;"> Anti-Other Race, Ethnicity, Ancestry, Or National Origin </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 3.77\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...209 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 97 </td>
+   <td style="text-align:right;"> 36.59\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...210 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 265 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...211 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft Rom Coin-Operated Machine Or Device </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 25.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...212 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft Rom Coin-Operated Machine Or Device </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 18.75\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...213 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft Rom Coin-Operated Machine Or Device </td>
+   <td style="text-align:left;"> Anti-Physical Disability </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 18.75\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...214 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft Rom Coin-Operated Machine Or Device </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 12.50\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...215 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft Rom Coin-Operated Machine Or Device </td>
+   <td style="text-align:left;"> Anti-Sikh </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 6.25\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...216 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft Rom Coin-Operated Machine Or Device </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 18.75\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...217 </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft Rom Coin-Operated Machine Or Device </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...218 </td>
+   <td style="text-align:left;"> Motor Vehicle Theft </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 173 </td>
+   <td style="text-align:right;"> 28.18\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...219 </td>
+   <td style="text-align:left;"> Motor Vehicle Theft </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 87 </td>
+   <td style="text-align:right;"> 14.17\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...220 </td>
+   <td style="text-align:left;"> Motor Vehicle Theft </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 81 </td>
+   <td style="text-align:right;"> 13.19\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...221 </td>
+   <td style="text-align:left;"> Motor Vehicle Theft </td>
+   <td style="text-align:left;"> Anti-Sikh </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 5.05\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...222 </td>
+   <td style="text-align:left;"> Motor Vehicle Theft </td>
+   <td style="text-align:left;"> Anti-Other Race, Ethnicity, Ancestry, Or National Origin </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 4.07\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...223 </td>
+   <td style="text-align:left;"> Motor Vehicle Theft </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 217 </td>
+   <td style="text-align:right;"> 35.34\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...224 </td>
+   <td style="text-align:left;"> Motor Vehicle Theft </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 614 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...225 </td>
+   <td style="text-align:left;"> Murder/Nonnegligent Manslaughter </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 82 </td>
+   <td style="text-align:right;"> 23.56\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...226 </td>
+   <td style="text-align:left;"> Murder/Nonnegligent Manslaughter </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:right;"> 18.68\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...227 </td>
+   <td style="text-align:left;"> Murder/Nonnegligent Manslaughter </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 52 </td>
+   <td style="text-align:right;"> 14.94\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...228 </td>
+   <td style="text-align:left;"> Murder/Nonnegligent Manslaughter </td>
+   <td style="text-align:left;"> Anti-Hispanic Or Latino </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 12.07\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...229 </td>
+   <td style="text-align:left;"> Murder/Nonnegligent Manslaughter </td>
+   <td style="text-align:left;"> Anti-Lesbian, Gay, Bisexual, Or Transgender (Mixed Group) </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 4.60\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...230 </td>
+   <td style="text-align:left;"> Murder/Nonnegligent Manslaughter </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 91 </td>
+   <td style="text-align:right;"> 26.14\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...231 </td>
+   <td style="text-align:left;"> Murder/Nonnegligent Manslaughter </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 348 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...232 </td>
+   <td style="text-align:left;"> Negligent Manslaughter </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 25.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...233 </td>
+   <td style="text-align:left;"> Negligent Manslaughter </td>
+   <td style="text-align:left;"> Anti-Physical Disability </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 25.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...234 </td>
+   <td style="text-align:left;"> Negligent Manslaughter </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 25.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...235 </td>
+   <td style="text-align:left;"> Negligent Manslaughter </td>
+   <td style="text-align:left;"> Anti-Hispanic Or Latino </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 12.50\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...236 </td>
+   <td style="text-align:left;"> Negligent Manslaughter </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 12.50\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...237 </td>
+   <td style="text-align:left;"> Negligent Manslaughter </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...238 </td>
+   <td style="text-align:left;"> Negligent Manslaughter </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...239 </td>
+   <td style="text-align:left;"> Pornography/Obscene Material </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 16.85\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...240 </td>
+   <td style="text-align:left;"> Pornography/Obscene Material </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 11.24\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...241 </td>
+   <td style="text-align:left;"> Pornography/Obscene Material </td>
+   <td style="text-align:left;"> Anti-Female </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 7.87\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...242 </td>
+   <td style="text-align:left;"> Pornography/Obscene Material </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 6.74\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...243 </td>
+   <td style="text-align:left;"> Pornography/Obscene Material </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 6.74\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...244 </td>
+   <td style="text-align:left;"> Pornography/Obscene Material </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 50.54\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...245 </td>
+   <td style="text-align:left;"> Pornography/Obscene Material </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 89 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...246 </td>
+   <td style="text-align:left;"> Prostitution Offenses - Assisting Or Promoting Prostitution </td>
+   <td style="text-align:left;"> Anti-Mental Disability </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 28.57\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...247 </td>
+   <td style="text-align:left;"> Prostitution Offenses - Assisting Or Promoting Prostitution </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 14.29\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...248 </td>
+   <td style="text-align:left;"> Prostitution Offenses - Assisting Or Promoting Prostitution </td>
+   <td style="text-align:left;"> Anti-Gender Non-Conforming </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 14.29\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...249 </td>
+   <td style="text-align:left;"> Prostitution Offenses - Assisting Or Promoting Prostitution </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 14.29\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...250 </td>
+   <td style="text-align:left;"> Prostitution Offenses - Assisting Or Promoting Prostitution </td>
+   <td style="text-align:left;"> Anti-Male </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 14.29\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...251 </td>
+   <td style="text-align:left;"> Prostitution Offenses - Assisting Or Promoting Prostitution </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 14.29\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...252 </td>
+   <td style="text-align:left;"> Prostitution Offenses - Assisting Or Promoting Prostitution </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1...253 </td>
+   <td style="text-align:left;"> Prostitution Offenses - Prostitution </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 66.67\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2...254 </td>
+   <td style="text-align:left;"> Prostitution Offenses - Prostitution </td>
+   <td style="text-align:left;"> Anti-Asian </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 20.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 3...255 </td>
+   <td style="text-align:left;"> Prostitution Offenses - Prostitution </td>
+   <td style="text-align:left;"> Anti-Lesbian (Female) </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 6.67\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 4...256 </td>
+   <td style="text-align:left;"> Prostitution Offenses - Prostitution </td>
+   <td style="text-align:left;"> Anti-Other Religion </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 6.67\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> NA...257 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...258 </td>
+   <td style="text-align:left;"> Prostitution Offenses - Prostitution </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...259 </td>
+   <td style="text-align:left;"> Prostitution Offenses - Prostitution </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1...260 </td>
+   <td style="text-align:left;"> Prostitution Offenses - Purchasing Prostitution </td>
+   <td style="text-align:left;"> Anti-Asian </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 50.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2...261 </td>
+   <td style="text-align:left;"> Prostitution Offenses - Purchasing Prostitution </td>
+   <td style="text-align:left;"> Anti-Heterosexual </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 50.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> NA...262 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> NA.1...263 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> NA.2...264 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...265 </td>
+   <td style="text-align:left;"> Prostitution Offenses - Purchasing Prostitution </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...266 </td>
+   <td style="text-align:left;"> Prostitution Offenses - Purchasing Prostitution </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...267 </td>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 1,153 </td>
+   <td style="text-align:right;"> 25.57\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...268 </td>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:right;"> 1,079 </td>
+   <td style="text-align:right;"> 23.93\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...269 </td>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 673 </td>
+   <td style="text-align:right;"> 14.93\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...270 </td>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:left;"> Anti-Hispanic Or Latino </td>
+   <td style="text-align:right;"> 544 </td>
+   <td style="text-align:right;"> 12.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...271 </td>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:left;"> Anti-Lesbian, Gay, Bisexual, Or Transgender (Mixed Group) </td>
+   <td style="text-align:right;"> 215 </td>
+   <td style="text-align:right;"> 4.77\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...272 </td>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 845 </td>
+   <td style="text-align:right;"> 18.71\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...273 </td>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 4,509 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...274 </td>
+   <td style="text-align:left;"> Sex Offenses - Fondling - Indecent Liberties/Child Molest </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 23.40\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...275 </td>
+   <td style="text-align:left;"> Sex Offenses - Fondling - Indecent Liberties/Child Molest </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 12.45\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...276 </td>
+   <td style="text-align:left;"> Sex Offenses - Fondling - Indecent Liberties/Child Molest </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 12.08\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...277 </td>
+   <td style="text-align:left;"> Sex Offenses - Fondling - Indecent Liberties/Child Molest </td>
+   <td style="text-align:left;"> Anti-Mental Disability </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 6.79\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...278 </td>
+   <td style="text-align:left;"> Sex Offenses - Fondling - Indecent Liberties/Child Molest </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 5.28\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...279 </td>
+   <td style="text-align:left;"> Sex Offenses - Fondling - Indecent Liberties/Child Molest </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 106 </td>
+   <td style="text-align:right;"> 39.98\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...280 </td>
+   <td style="text-align:left;"> Sex Offenses - Fondling - Indecent Liberties/Child Molest </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 265 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...281 </td>
+   <td style="text-align:left;"> Sex Offenses - Incest </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 28.57\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...282 </td>
+   <td style="text-align:left;"> Sex Offenses - Incest </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 14.29\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...283 </td>
+   <td style="text-align:left;"> Sex Offenses - Incest </td>
+   <td style="text-align:left;"> Anti-Heterosexual </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 14.29\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...284 </td>
+   <td style="text-align:left;"> Sex Offenses - Incest </td>
+   <td style="text-align:left;"> Anti-Lesbian (Female) </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 14.29\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...285 </td>
+   <td style="text-align:left;"> Sex Offenses - Incest </td>
+   <td style="text-align:left;"> Anti-Bisexual </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 14.29\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...286 </td>
+   <td style="text-align:left;"> Sex Offenses - Incest </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 14.29\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...287 </td>
+   <td style="text-align:left;"> Sex Offenses - Incest </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...288 </td>
+   <td style="text-align:left;"> Sex Offenses - Rape </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 83 </td>
+   <td style="text-align:right;"> 25.23\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...289 </td>
+   <td style="text-align:left;"> Sex Offenses - Rape </td>
+   <td style="text-align:left;"> Anti-Lesbian (Female) </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 15.20\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...290 </td>
+   <td style="text-align:left;"> Sex Offenses - Rape </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:right;"> 13.98\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...291 </td>
+   <td style="text-align:left;"> Sex Offenses - Rape </td>
+   <td style="text-align:left;"> Anti-Mental Disability </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 6.08\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...292 </td>
+   <td style="text-align:left;"> Sex Offenses - Rape </td>
+   <td style="text-align:left;"> Anti-Female </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 4.86\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...293 </td>
+   <td style="text-align:left;"> Sex Offenses - Rape </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 114 </td>
+   <td style="text-align:right;"> 34.63\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...294 </td>
+   <td style="text-align:left;"> Sex Offenses - Rape </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 329 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...295 </td>
+   <td style="text-align:left;"> Sex Offenses - Sexual Assault With An Object </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 24.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...296 </td>
+   <td style="text-align:left;"> Sex Offenses - Sexual Assault With An Object </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 14.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...297 </td>
+   <td style="text-align:left;"> Sex Offenses - Sexual Assault With An Object </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 14.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...298 </td>
+   <td style="text-align:left;"> Sex Offenses - Sexual Assault With An Object </td>
+   <td style="text-align:left;"> Anti-Lesbian (Female) </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 10.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...299 </td>
+   <td style="text-align:left;"> Sex Offenses - Sexual Assault With An Object </td>
+   <td style="text-align:left;"> Anti-Transgender </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 8.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...300 </td>
+   <td style="text-align:left;"> Sex Offenses - Sexual Assault With An Object </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 30\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...301 </td>
+   <td style="text-align:left;"> Sex Offenses - Sexual Assault With An Object </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...302 </td>
+   <td style="text-align:left;"> Sex Offenses - Sodomy </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 31.40\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...303 </td>
+   <td style="text-align:left;"> Sex Offenses - Sodomy </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 12.79\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...304 </td>
+   <td style="text-align:left;"> Sex Offenses - Sodomy </td>
+   <td style="text-align:left;"> Anti-Lesbian, Gay, Bisexual, Or Transgender (Mixed Group) </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 11.63\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...305 </td>
+   <td style="text-align:left;"> Sex Offenses - Sodomy </td>
+   <td style="text-align:left;"> Anti-Heterosexual </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 9.30\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...306 </td>
+   <td style="text-align:left;"> Sex Offenses - Sodomy </td>
+   <td style="text-align:left;"> Anti-Transgender </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 8.14\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...307 </td>
+   <td style="text-align:left;"> Sex Offenses - Sodomy </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 26.75\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...308 </td>
+   <td style="text-align:left;"> Sex Offenses - Sodomy </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 86 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...309 </td>
+   <td style="text-align:left;"> Sex Offenses - Statutory Rape </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 31.82\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...310 </td>
+   <td style="text-align:left;"> Sex Offenses - Statutory Rape </td>
+   <td style="text-align:left;"> Anti-Gay (Male) </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 9.09\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...311 </td>
+   <td style="text-align:left;"> Sex Offenses - Statutory Rape </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 9.09\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...312 </td>
+   <td style="text-align:left;"> Sex Offenses - Statutory Rape </td>
+   <td style="text-align:left;"> Anti-Heterosexual </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 9.09\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...313 </td>
+   <td style="text-align:left;"> Sex Offenses - Statutory Rape </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 9.09\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...314 </td>
+   <td style="text-align:left;"> Sex Offenses - Statutory Rape </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 31.85\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...315 </td>
+   <td style="text-align:left;"> Sex Offenses - Statutory Rape </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...316 </td>
+   <td style="text-align:left;"> Stolen Property Offenses (Receiving, Selling, Etc.) </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:right;"> 31.76\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...317 </td>
+   <td style="text-align:left;"> Stolen Property Offenses (Receiving, Selling, Etc.) </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 13.51\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...318 </td>
+   <td style="text-align:left;"> Stolen Property Offenses (Receiving, Selling, Etc.) </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 11.49\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...319 </td>
+   <td style="text-align:left;"> Stolen Property Offenses (Receiving, Selling, Etc.) </td>
+   <td style="text-align:left;"> Anti-Sikh </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 5.41\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...320 </td>
+   <td style="text-align:left;"> Stolen Property Offenses (Receiving, Selling, Etc.) </td>
+   <td style="text-align:left;"> Anti-Mental Disability </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 4.05\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...321 </td>
+   <td style="text-align:left;"> Stolen Property Offenses (Receiving, Selling, Etc.) </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 33.79\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...322 </td>
+   <td style="text-align:left;"> Stolen Property Offenses (Receiving, Selling, Etc.) </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 148 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...323 </td>
+   <td style="text-align:left;"> Undocumented Code </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 29.41\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...324 </td>
+   <td style="text-align:left;"> Undocumented Code </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 23.53\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...325 </td>
+   <td style="text-align:left;"> Undocumented Code </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 17.65\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...326 </td>
+   <td style="text-align:left;"> Undocumented Code </td>
+   <td style="text-align:left;"> Anti-Catholic </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 5.88\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...327 </td>
+   <td style="text-align:left;"> Undocumented Code </td>
+   <td style="text-align:left;"> Anti-Male </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 5.88\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...328 </td>
+   <td style="text-align:left;"> Undocumented Code </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 17.64\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...329 </td>
+   <td style="text-align:left;"> Undocumented Code </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...330 </td>
+   <td style="text-align:left;"> Weapon Law Violations </td>
+   <td style="text-align:left;"> Anti-Black </td>
+   <td style="text-align:right;"> 179 </td>
+   <td style="text-align:right;"> 35.73\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...331 </td>
+   <td style="text-align:left;"> Weapon Law Violations </td>
+   <td style="text-align:left;"> Anti-White </td>
+   <td style="text-align:right;"> 98 </td>
+   <td style="text-align:right;"> 19.56\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...332 </td>
+   <td style="text-align:left;"> Weapon Law Violations </td>
+   <td style="text-align:left;"> Anti-American Indian Or Native Alaskan </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 5.19\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...333 </td>
+   <td style="text-align:left;"> Weapon Law Violations </td>
+   <td style="text-align:left;"> Anti-Hispanic Or Latino </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 5.19\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...334 </td>
+   <td style="text-align:left;"> Weapon Law Violations </td>
+   <td style="text-align:left;"> Anti-Other Race, Ethnicity, Ancestry, Or National Origin </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 3.99\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...335 </td>
+   <td style="text-align:left;"> Weapon Law Violations </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 152 </td>
+   <td style="text-align:right;"> 30.38\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ...336 </td>
+   <td style="text-align:left;"> Weapon Law Violations </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 501 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+</tbody>
+</table>
 
 
 
@@ -1545,758 +4785,2250 @@ This data is interesting because it includes the location - in categories for ty
 
 As with the crime and the bias motivation, the available locations have increased as time went on, though these newer locations are relatively uncommon. One important change in location is that starting in 2010 the location of "school/college" was split to have one location be for elementary and high schools and another location be for colleges and universities. The majority of hate crimes occur in the victim's home (30%), on a road or alley (19%), in an other or unknown location (13%), and in a parking lot or parking garage (6%). All other locations occur in fewer than 5% of hate crimes. 
 
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:hateLocations)The location of hate crime incidents. In incidents with multiple locations, this shows only the first location recorded.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Location </th>
+   <th style="text-align:left;"> First Year Reported </th>
+   <th style="text-align:right;"> # of Incidents </th>
+   <th style="text-align:right;"> % of Incidents </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:right;"> 252,094 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Residence/Home </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 73,887 </td>
+   <td style="text-align:right;"> 29.31\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Highway/Road/Alley/Street/Sidewalk </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 47,006 </td>
+   <td style="text-align:right;"> 18.65\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Other/Unknown </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 32,073 </td>
+   <td style="text-align:right;"> 12.72\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School/College </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 17,679 </td>
+   <td style="text-align:right;"> 7.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Parking Lot/Drop Lot/Parking Garage </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 14,389 </td>
+   <td style="text-align:right;"> 5.71\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Church/Synagogue/Temple/Mosque </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 9,454 </td>
+   <td style="text-align:right;"> 3.75\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Commercial/Office Building </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 5,673 </td>
+   <td style="text-align:right;"> 2.25\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Restaurant </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 5,419 </td>
+   <td style="text-align:right;"> 2.15\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School - Elementary/Secondary </td>
+   <td style="text-align:left;"> 2010 </td>
+   <td style="text-align:right;"> 4,899 </td>
+   <td style="text-align:right;"> 1.94\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bar/Nightclub </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 4,270 </td>
+   <td style="text-align:right;"> 1.69\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Government/Public Building </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 3,785 </td>
+   <td style="text-align:right;"> 1.50\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Convenience Store </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 3,531 </td>
+   <td style="text-align:right;"> 1.40\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Specialty Store (Tv, Fur, Etc.) </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 2,926 </td>
+   <td style="text-align:right;"> 1.16\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Air/Bus/Train Terminal </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 2,728 </td>
+   <td style="text-align:right;"> 1.08\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Service/Gas Station </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 2,414 </td>
+   <td style="text-align:right;"> 0.96\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Park/Playground </td>
+   <td style="text-align:left;"> 2010 </td>
+   <td style="text-align:right;"> 2,356 </td>
+   <td style="text-align:right;"> 0.93\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School - College/University </td>
+   <td style="text-align:left;"> 2010 </td>
+   <td style="text-align:right;"> 2,351 </td>
+   <td style="text-align:right;"> 0.93\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Grocery/Supermarket </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 2,325 </td>
+   <td style="text-align:right;"> 0.92\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Field/Woods </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 2,241 </td>
+   <td style="text-align:right;"> 0.89\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Department/Discount Store </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 2,159 </td>
+   <td style="text-align:right;"> 0.86\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Drug Store/Doctors Office/Hospital </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 2,121 </td>
+   <td style="text-align:right;"> 0.84\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Jail/Prison/Penitentiary/Corrections Facility </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 1,858 </td>
+   <td style="text-align:right;"> 0.74\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hotel/Motel/Etc. </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 1,738 </td>
+   <td style="text-align:right;"> 0.69\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Construction Site </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 698 </td>
+   <td style="text-align:right;"> 0.28\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bank/Savings And Loan </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 596 </td>
+   <td style="text-align:right;"> 0.24\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Undocumented Code </td>
+   <td style="text-align:left;"> 2016 </td>
+   <td style="text-align:right;"> 590 </td>
+   <td style="text-align:right;"> 0.23\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Liquor Store </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 492 </td>
+   <td style="text-align:right;"> 0.20\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Lake/Waterway/Beach </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 436 </td>
+   <td style="text-align:right;"> 0.17\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Shopping Mall </td>
+   <td style="text-align:left;"> 2010 </td>
+   <td style="text-align:right;"> 325 </td>
+   <td style="text-align:right;"> 0.13\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Rental Storage Facility </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 276 </td>
+   <td style="text-align:right;"> 0.11\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Community Center </td>
+   <td style="text-align:left;"> 2013 </td>
+   <td style="text-align:right;"> 264 </td>
+   <td style="text-align:right;"> 0.10\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Shelter - Mission/Homeless </td>
+   <td style="text-align:left;"> 2011 </td>
+   <td style="text-align:right;"> 202 </td>
+   <td style="text-align:right;"> 0.08\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Industrial Site </td>
+   <td style="text-align:left;"> 2010 </td>
+   <td style="text-align:right;"> 155 </td>
+   <td style="text-align:right;"> 0.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arena/Stadium/Fairgrounds/Coliseum </td>
+   <td style="text-align:left;"> 2011 </td>
+   <td style="text-align:right;"> 106 </td>
+   <td style="text-align:right;"> 0.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Camp/Campground </td>
+   <td style="text-align:left;"> 2010 </td>
+   <td style="text-align:right;"> 94 </td>
+   <td style="text-align:right;"> 0.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Auto Dealership New/Used </td>
+   <td style="text-align:left;"> 2011 </td>
+   <td style="text-align:right;"> 92 </td>
+   <td style="text-align:right;"> 0.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Abandoned/Condemned Structure </td>
+   <td style="text-align:left;"> 2011 </td>
+   <td style="text-align:right;"> 90 </td>
+   <td style="text-align:right;"> 0.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gambling Facility/Casino/Race Track </td>
+   <td style="text-align:left;"> 2010 </td>
+   <td style="text-align:right;"> 79 </td>
+   <td style="text-align:right;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Rest Area </td>
+   <td style="text-align:left;"> 2011 </td>
+   <td style="text-align:right;"> 68 </td>
+   <td style="text-align:right;"> 0.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Dock/Wharf/Freight/Modal Terminal </td>
+   <td style="text-align:left;"> 2012 </td>
+   <td style="text-align:right;"> 55 </td>
+   <td style="text-align:right;"> 0.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Daycare Facility </td>
+   <td style="text-align:left;"> 2011 </td>
+   <td style="text-align:right;"> 52 </td>
+   <td style="text-align:right;"> 0.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amusement Park </td>
+   <td style="text-align:left;"> 2011 </td>
+   <td style="text-align:right;"> 52 </td>
+   <td style="text-align:right;"> 0.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Farm Facility </td>
+   <td style="text-align:left;"> 2011 </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 0.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tribal Lands </td>
+   <td style="text-align:left;"> 2011 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Atm Separate From Bank </td>
+   <td style="text-align:left;"> 2011 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 0.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Military Installation </td>
+   <td style="text-align:left;"> 2015 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0.00\% </td>
+  </tr>
+</tbody>
+</table>
 
-\begin{longtable}[t]{l|l|r|r}
-\caption{(\#tab:hateLocations)The location of hate crime incidents. In incidents with multiple locations, this shows only the first location recorded.}\\
-\hline
-Location & First Year Reported & \# of Incidents & \% of Incidents\\
-\hline
-\endfirsthead
-\caption[]{(\#tab:hateLocations)The location of hate crime incidents. In incidents with multiple locations, this shows only the first location recorded. \textit{(continued)}}\\
-\hline
-Location & First Year Reported & \# of Incidents & \% of Incidents\\
-\hline
-\endhead
-Total &  & 239,665 & 100\textbackslash{}\%\\
-\hline
-Residence/Home & 1991 & 70,736 & 29.51\textbackslash{}\%\\
-\hline
-Highway/Road/Alley & 1991 & 45,004 & 18.78\textbackslash{}\%\\
-\hline
-Other/Unknown & 1991 & 31,218 & 13.03\textbackslash{}\%\\
-\hline
-School/College & 1991 & 17,550 & 7.32\textbackslash{}\%\\
-\hline
-Parking Lot/Garage & 1991 & 13,786 & 5.75\textbackslash{}\%\\
-\hline
-Church/Synagogue/Temple & 1991 & 8,926 & 3.72\textbackslash{}\%\\
-\hline
-Commercial/Office Building & 1991 & 5,403 & 2.25\textbackslash{}\%\\
-\hline
-Restaurant & 1991 & 5,099 & 2.13\textbackslash{}\%\\
-\hline
-Bar/Nightclub & 1991 & 4,088 & 1.71\textbackslash{}\%\\
-\hline
-School - Elementary/Secondary & 2010 & 3,919 & 1.64\textbackslash{}\%\\
-\hline
-Government/Public Building & 1991 & 3,545 & 1.48\textbackslash{}\%\\
-\hline
-Convenience Store & 1991 & 3,357 & 1.40\textbackslash{}\%\\
-\hline
-Specialty Store - Tv, Fur, Etc. & 1991 & 2,795 & 1.17\textbackslash{}\%\\
-\hline
-Air/Bus/Train Terminal & 1991 & 2,531 & 1.06\textbackslash{}\%\\
-\hline
-Service/Gas Station & 1991 & 2,287 & 0.95\textbackslash{}\%\\
-\hline
-Grocery/Supermarket & 1991 & 2,178 & 0.91\textbackslash{}\%\\
-\hline
-Field/Woods & 1991 & 2,169 & 0.91\textbackslash{}\%\\
-\hline
-School - College/University & 2010 & 2,068 & 0.86\textbackslash{}\%\\
-\hline
-Department/Discount Store & 1991 & 2,024 & 0.84\textbackslash{}\%\\
-\hline
-Drug Store/Doctors Office/Hospital & 1991 & 1,967 & 0.82\textbackslash{}\%\\
-\hline
-Park/Playground & 2010 & 1,883 & 0.79\textbackslash{}\%\\
-\hline
-Jail/Prison & 1991 & 1,726 & 0.72\textbackslash{}\%\\
-\hline
-Hotel/Motel & 1991 & 1,618 & 0.68\textbackslash{}\%\\
-\hline
-Construction Site & 1991 & 643 & 0.27\textbackslash{}\%\\
-\hline
-Bank/Savings And Loan & 1991 & 556 & 0.23\textbackslash{}\%\\
-\hline
-Liquor Store & 1991 & 459 & 0.19\textbackslash{}\%\\
-\hline
-Lake/Waterway & 1991 & 416 & 0.17\textbackslash{}\%\\
-\hline
-Shopping Mall & 2010 & 268 & 0.11\textbackslash{}\%\\
-\hline
-Rental Storage Facility & 1991 & 257 & 0.11\textbackslash{}\%\\
-\hline
-Community Center & 2013 & 215 & 0.09\textbackslash{}\%\\
-\hline
-Shelter - Mission/Homeless & 2011 & 169 & 0.07\textbackslash{}\%\\
-\hline
-Industrial Site & 2010 & 135 & 0.06\textbackslash{}\%\\
-\hline
-Arena/Stadium/Fairgrounds/Coliseum & 2011 & 88 & 0.04\textbackslash{}\%\\
-\hline
-Auto Dealership New/Used & 2011 & 82 & 0.03\textbackslash{}\%\\
-\hline
-Camp/Campground & 2010 & 77 & 0.03\textbackslash{}\%\\
-\hline
-Abandoned/Condemned Structure & 2011 & 75 & 0.03\textbackslash{}\%\\
-\hline
-Gambling Facility/Casino/Race Track & 2010 & 69 & 0.03\textbackslash{}\%\\
-\hline
-Rest Area & 2011 & 65 & 0.03\textbackslash{}\%\\
-\hline
-Dock/Wharf/Freight/Modal Terminal & 2012 & 47 & 0.02\textbackslash{}\%\\
-\hline
-Daycare Facility & 2011 & 47 & 0.02\textbackslash{}\%\\
-\hline
-Amusement Park & 2011 & 41 & 0.02\textbackslash{}\%\\
-\hline
-Farm Facility & 2011 & 34 & 0.01\textbackslash{}\%\\
-\hline
-Tribal Lands & 2011 & 23 & 0.01\textbackslash{}\%\\
-\hline
-Atm Separate From Bank & 2011 & 17 & 0.01\textbackslash{}\%\\
-\hline
-Military Installation & 2015 & 5 & 0.00\textbackslash{}\%\\
-\hline
-\end{longtable}
 
 
 
-
-
-\begin{longtable}[t]{l|l|l|r|r}
-\caption{(\#tab:hatelocationOffense)The number and percent of offenses by location, 2022.}\\
-\hline
-  & Location & Offense & \textbackslash{}\# of Incidents & \textbackslash{}\% of Incidents\\
-\hline
-\endfirsthead
-\caption[]{(\#tab:hatelocationOffense)The number and percent of offenses by location, 2022. \textit{(continued)}}\\
-\hline
-  & Location & Offense & \textbackslash{}\# of Incidents & \textbackslash{}\% of Incidents\\
-\hline
-\endhead
-...1 & Abandoned/Condemned Structure & Destruction of Property/Vandalism & 42 & 56.00\textbackslash{}\%\\
-\hline
-...2 & Abandoned/Condemned Structure & Intimidation & 7 & 9.33\textbackslash{}\%\\
-\hline
-...3 & Abandoned/Condemned Structure & Simple Assault & 7 & 9.33\textbackslash{}\%\\
-\hline
-...4 & Abandoned/Condemned Structure & Burglary/Breaking And Entering & 5 & 6.67\textbackslash{}\%\\
-\hline
-...5 & Abandoned/Condemned Structure & Aggravated Assault & 3 & 4.00\textbackslash{}\%\\
-\hline
-...6 & Abandoned/Condemned Structure & All Other & 11 & 14.66\textbackslash{}\%\\
-\hline
-...7 & Abandoned/Condemned Structure & Total & 75 & 100\textbackslash{}\%\\
-\hline
-...8 & Air/Bus/Train Terminal & Simple Assault & 998 & 39.43\textbackslash{}\%\\
-\hline
-...9 & Air/Bus/Train Terminal & Intimidation & 552 & 21.81\textbackslash{}\%\\
-\hline
-...10 & Air/Bus/Train Terminal & Aggravated Assault & 414 & 16.36\textbackslash{}\%\\
-\hline
-...11 & Air/Bus/Train Terminal & Destruction of Property/Vandalism & 390 & 15.41\textbackslash{}\%\\
-\hline
-...12 & Air/Bus/Train Terminal & Robbery & 98 & 3.87\textbackslash{}\%\\
-\hline
-...13 & Air/Bus/Train Terminal & All Other & 79 & 3.15\textbackslash{}\%\\
-\hline
-...14 & Air/Bus/Train Terminal & Total & 2,531 & 100\textbackslash{}\%\\
-\hline
-...15 & Amusement Park & Simple Assault & 14 & 34.15\textbackslash{}\%\\
-\hline
-...16 & Amusement Park & Intimidation & 12 & 29.27\textbackslash{}\%\\
-\hline
-...17 & Amusement Park & Aggravated Assault & 5 & 12.20\textbackslash{}\%\\
-\hline
-...18 & Amusement Park & Destruction of Property/Vandalism & 5 & 12.20\textbackslash{}\%\\
-\hline
-...19 & Amusement Park & All Other Larceny & 2 & 4.88\textbackslash{}\%\\
-\hline
-...20 & Amusement Park & All Other & 3 & 7.32\textbackslash{}\%\\
-\hline
-...21 & Amusement Park & Total & 41 & 100\textbackslash{}\%\\
-\hline
-...22 & Arena/Stadium/Fairgrounds/Coliseum & Simple Assault & 40 & 45.45\textbackslash{}\%\\
-\hline
-...23 & Arena/Stadium/Fairgrounds/Coliseum & Intimidation & 20 & 22.73\textbackslash{}\%\\
-\hline
-...24 & Arena/Stadium/Fairgrounds/Coliseum & Destruction of Property/Vandalism & 15 & 17.05\textbackslash{}\%\\
-\hline
-...25 & Arena/Stadium/Fairgrounds/Coliseum & Aggravated Assault & 8 & 9.09\textbackslash{}\%\\
-\hline
-...26 & Arena/Stadium/Fairgrounds/Coliseum & All Other Larceny & 1 & 1.14\textbackslash{}\%\\
-\hline
-...27 & Arena/Stadium/Fairgrounds/Coliseum & All Other & 4 & 4.56\textbackslash{}\%\\
-\hline
-...28 & Arena/Stadium/Fairgrounds/Coliseum & Total & 88 & 100\textbackslash{}\%\\
-\hline
-...29 & Atm Separate From Bank & Simple Assault & 5 & 29.41\textbackslash{}\%\\
-\hline
-...30 & Atm Separate From Bank & Intimidation & 3 & 17.65\textbackslash{}\%\\
-\hline
-...31 & Atm Separate From Bank & Credit Card/Atm Fraud & 3 & 17.65\textbackslash{}\%\\
-\hline
-...32 & Atm Separate From Bank & False Pretenses/Swindle/Confidence Game & 1 & 5.88\textbackslash{}\%\\
-\hline
-...33 & Atm Separate From Bank & Fraud-Other & 1 & 5.88\textbackslash{}\%\\
-\hline
-...34 & Atm Separate From Bank & All Other & 4 & 23.52\textbackslash{}\%\\
-\hline
-...35 & Atm Separate From Bank & Total & 17 & 100\textbackslash{}\%\\
-\hline
-...36 & Auto Dealership New/Used & Intimidation & 27 & 32.93\textbackslash{}\%\\
-\hline
-...37 & Auto Dealership New/Used & Destruction of Property/Vandalism & 12 & 14.63\textbackslash{}\%\\
-\hline
-...38 & Auto Dealership New/Used & Simple Assault & 11 & 13.41\textbackslash{}\%\\
-\hline
-...39 & Auto Dealership New/Used & Theft of Motor Vehicle Parts/Accessories & 6 & 7.32\textbackslash{}\%\\
-\hline
-...40 & Auto Dealership New/Used & All Other Larceny & 6 & 7.32\textbackslash{}\%\\
-\hline
-...41 & Auto Dealership New/Used & All Other & 20 & 24.4\textbackslash{}\%\\
-\hline
-...42 & Auto Dealership New/Used & Total & 82 & 100\textbackslash{}\%\\
-\hline
-...43 & Bank/Savings And Loan & Intimidation & 181 & 32.55\textbackslash{}\%\\
-\hline
-...44 & Bank/Savings And Loan & Destruction of Property/Vandalism & 96 & 17.27\textbackslash{}\%\\
-\hline
-...45 & Bank/Savings And Loan & Simple Assault & 67 & 12.05\textbackslash{}\%\\
-\hline
-...46 & Bank/Savings And Loan & Counterfeiting/Forgery & 54 & 9.71\textbackslash{}\%\\
-\hline
-...47 & Bank/Savings And Loan & Aggravated Assault & 38 & 6.83\textbackslash{}\%\\
-\hline
-...48 & Bank/Savings And Loan & All Other & 120 & 21.6\textbackslash{}\%\\
-\hline
-...49 & Bank/Savings And Loan & Total & 556 & 100\textbackslash{}\%\\
-\hline
-...50 & Bar/Nightclub & Simple Assault & 1,881 & 46.01\textbackslash{}\%\\
-\hline
-...51 & Bar/Nightclub & Aggravated Assault & 985 & 24.09\textbackslash{}\%\\
-\hline
-...52 & Bar/Nightclub & Intimidation & 757 & 18.52\textbackslash{}\%\\
-\hline
-...53 & Bar/Nightclub & Destruction of Property/Vandalism & 273 & 6.68\textbackslash{}\%\\
-\hline
-...54 & Bar/Nightclub & Robbery & 63 & 1.54\textbackslash{}\%\\
-\hline
-...55 & Bar/Nightclub & All Other & 129 & 3.11\textbackslash{}\%\\
-\hline
-...56 & Bar/Nightclub & Total & 4,088 & 100\textbackslash{}\%\\
-\hline
-...57 & Camp/Campground & Destruction of Property/Vandalism & 24 & 31.17\textbackslash{}\%\\
-\hline
-...58 & Camp/Campground & Simple Assault & 18 & 23.38\textbackslash{}\%\\
-\hline
-...59 & Camp/Campground & Intimidation & 12 & 15.58\textbackslash{}\%\\
-\hline
-...60 & Camp/Campground & Aggravated Assault & 10 & 12.99\textbackslash{}\%\\
-\hline
-...61 & Camp/Campground & All Other Larceny & 4 & 5.19\textbackslash{}\%\\
-\hline
-...62 & Camp/Campground & All Other & 9 & 11.7\textbackslash{}\%\\
-\hline
-...63 & Camp/Campground & Total & 77 & 100\textbackslash{}\%\\
-\hline
-...64 & Church/Synagogue/Temple & Destruction of Property/Vandalism & 6,080 & 68.12\textbackslash{}\%\\
-\hline
-...65 & Church/Synagogue/Temple & Intimidation & 1,636 & 18.33\textbackslash{}\%\\
-\hline
-...66 & Church/Synagogue/Temple & Burglary/Breaking And Entering & 372 & 4.17\textbackslash{}\%\\
-\hline
-...67 & Church/Synagogue/Temple & Arson & 324 & 3.63\textbackslash{}\%\\
-\hline
-...68 & Church/Synagogue/Temple & Simple Assault & 228 & 2.55\textbackslash{}\%\\
-\hline
-...69 & Church/Synagogue/Temple & All Other & 286 & 3.18\textbackslash{}\%\\
-\hline
-...70 & Church/Synagogue/Temple & Total & 8,926 & 100\textbackslash{}\%\\
-\hline
-...71 & Commercial/Office Building & Intimidation & 2,317 & 42.88\textbackslash{}\%\\
-\hline
-...72 & Commercial/Office Building & Destruction of Property/Vandalism & 1,745 & 32.30\textbackslash{}\%\\
-\hline
-...73 & Commercial/Office Building & Simple Assault & 687 & 12.72\textbackslash{}\%\\
-\hline
-...74 & Commercial/Office Building & Aggravated Assault & 240 & 4.44\textbackslash{}\%\\
-\hline
-...75 & Commercial/Office Building & Burglary/Breaking And Entering & 116 & 2.15\textbackslash{}\%\\
-\hline
-...76 & Commercial/Office Building & All Other & 298 & 5.51\textbackslash{}\%\\
-\hline
-...77 & Commercial/Office Building & Total & 5,403 & 100\textbackslash{}\%\\
-\hline
-...78 & Community Center & Intimidation & 89 & 41.40\textbackslash{}\%\\
-\hline
-...79 & Community Center & Destruction of Property/Vandalism & 72 & 33.49\textbackslash{}\%\\
-\hline
-...80 & Community Center & Simple Assault & 30 & 13.95\textbackslash{}\%\\
-\hline
-...81 & Community Center & Aggravated Assault & 12 & 5.58\textbackslash{}\%\\
-\hline
-...82 & Community Center & Burglary/Breaking And Entering & 3 & 1.40\textbackslash{}\%\\
-\hline
-...83 & Community Center & All Other & 9 & 4.21\textbackslash{}\%\\
-\hline
-...84 & Community Center & Total & 215 & 100\textbackslash{}\%\\
-\hline
-...85 & Construction Site & Destruction of Property/Vandalism & 359 & 55.83\textbackslash{}\%\\
-\hline
-...86 & Construction Site & Intimidation & 100 & 15.55\textbackslash{}\%\\
-\hline
-...87 & Construction Site & Simple Assault & 54 & 8.40\textbackslash{}\%\\
-\hline
-...88 & Construction Site & Burglary/Breaking And Entering & 41 & 6.38\textbackslash{}\%\\
-\hline
-...89 & Construction Site & Aggravated Assault & 34 & 5.29\textbackslash{}\%\\
-\hline
-...90 & Construction Site & All Other & 55 & 8.55\textbackslash{}\%\\
-\hline
-...91 & Construction Site & Total & 643 & 100\textbackslash{}\%\\
-\hline
-...92 & Convenience Store & Intimidation & 1,137 & 33.87\textbackslash{}\%\\
-\hline
-...93 & Convenience Store & Simple Assault & 907 & 27.02\textbackslash{}\%\\
-\hline
-...94 & Convenience Store & Aggravated Assault & 469 & 13.97\textbackslash{}\%\\
-\hline
-...95 & Convenience Store & Destruction of Property/Vandalism & 388 & 11.56\textbackslash{}\%\\
-\hline
-...96 & Convenience Store & Shoplifting & 99 & 2.95\textbackslash{}\%\\
-\hline
-...97 & Convenience Store & All Other & 357 & 10.66\textbackslash{}\%\\
-\hline
-...98 & Convenience Store & Total & 3,357 & 100\textbackslash{}\%\\
-\hline
-...99 & Daycare Facility & Destruction of Property/Vandalism & 16 & 34.04\textbackslash{}\%\\
-\hline
-...100 & Daycare Facility & Intimidation & 12 & 25.53\textbackslash{}\%\\
-\hline
-...101 & Daycare Facility & Simple Assault & 9 & 19.15\textbackslash{}\%\\
-\hline
-...102 & Daycare Facility & Burglary/Breaking And Entering & 3 & 6.38\textbackslash{}\%\\
-\hline
-...103 & Daycare Facility & Aggravated Assault & 2 & 4.26\textbackslash{}\%\\
-\hline
-...104 & Daycare Facility & All Other & 5 & 10.65\textbackslash{}\%\\
-\hline
-...105 & Daycare Facility & Total & 47 & 100\textbackslash{}\%\\
-\hline
-...106 & Department/Discount Store & Intimidation & 553 & 27.32\textbackslash{}\%\\
-\hline
-...107 & Department/Discount Store & Simple Assault & 452 & 22.33\textbackslash{}\%\\
-\hline
-...108 & Department/Discount Store & Shoplifting & 298 & 14.72\textbackslash{}\%\\
-\hline
-...109 & Department/Discount Store & Destruction of Property/Vandalism & 270 & 13.34\textbackslash{}\%\\
-\hline
-...110 & Department/Discount Store & Aggravated Assault & 161 & 7.95\textbackslash{}\%\\
-\hline
-...111 & Department/Discount Store & All Other & 290 & 14.37\textbackslash{}\%\\
-\hline
-...112 & Department/Discount Store & Total & 2,024 & 100\textbackslash{}\%\\
-\hline
-...113 & Dock/Wharf/Freight/Modal Terminal & Simple Assault & 17 & 36.17\textbackslash{}\%\\
-\hline
-...114 & Dock/Wharf/Freight/Modal Terminal & Destruction of Property/Vandalism & 8 & 17.02\textbackslash{}\%\\
-\hline
-...115 & Dock/Wharf/Freight/Modal Terminal & Intimidation & 8 & 17.02\textbackslash{}\%\\
-\hline
-...116 & Dock/Wharf/Freight/Modal Terminal & Aggravated Assault & 7 & 14.89\textbackslash{}\%\\
-\hline
-...117 & Dock/Wharf/Freight/Modal Terminal & Robbery & 5 & 10.64\textbackslash{}\%\\
-\hline
-...118 & Dock/Wharf/Freight/Modal Terminal & All Other & 2 & 4.26\textbackslash{}\%\\
-\hline
-...119 & Dock/Wharf/Freight/Modal Terminal & Total & 47 & 100\textbackslash{}\%\\
-\hline
-...120 & Drug Store/Doctors Office/Hospital & Intimidation & 830 & 42.20\textbackslash{}\%\\
-\hline
-...121 & Drug Store/Doctors Office/Hospital & Simple Assault & 492 & 25.01\textbackslash{}\%\\
-\hline
-...122 & Drug Store/Doctors Office/Hospital & Destruction of Property/Vandalism & 388 & 19.73\textbackslash{}\%\\
-\hline
-...123 & Drug Store/Doctors Office/Hospital & Aggravated Assault & 130 & 6.61\textbackslash{}\%\\
-\hline
-...124 & Drug Store/Doctors Office/Hospital & Shoplifting & 19 & 0.97\textbackslash{}\%\\
-\hline
-...125 & Drug Store/Doctors Office/Hospital & All Other & 108 & 5.47\textbackslash{}\%\\
-\hline
-...126 & Drug Store/Doctors Office/Hospital & Total & 1,967 & 100\textbackslash{}\%\\
-\hline
-...127 & Farm Facility & Destruction of Property/Vandalism & 8 & 23.53\textbackslash{}\%\\
-\hline
-...128 & Farm Facility & Burglary/Breaking And Entering & 7 & 20.59\textbackslash{}\%\\
-\hline
-...129 & Farm Facility & Aggravated Assault & 5 & 14.71\textbackslash{}\%\\
-\hline
-...130 & Farm Facility & Simple Assault & 5 & 14.71\textbackslash{}\%\\
-\hline
-...131 & Farm Facility & All Other Larceny & 2 & 5.88\textbackslash{}\%\\
-\hline
-...132 & Farm Facility & All Other & 7 & 20.58\textbackslash{}\%\\
-\hline
-...133 & Farm Facility & Total & 34 & 100\textbackslash{}\%\\
-\hline
-...134 & Field/Woods & Destruction of Property/Vandalism & 638 & 29.41\textbackslash{}\%\\
-\hline
-...135 & Field/Woods & Simple Assault & 519 & 23.93\textbackslash{}\%\\
-\hline
-...136 & Field/Woods & Aggravated Assault & 436 & 20.10\textbackslash{}\%\\
-\hline
-...137 & Field/Woods & Intimidation & 293 & 13.51\textbackslash{}\%\\
-\hline
-...138 & Field/Woods & Robbery & 116 & 5.35\textbackslash{}\%\\
-\hline
-...139 & Field/Woods & All Other & 167 & 7.71\textbackslash{}\%\\
-\hline
-...140 & Field/Woods & Total & 2,169 & 100\textbackslash{}\%\\
-\hline
-...141 & Gambling Facility/Casino/Race Track & Simple Assault & 29 & 42.03\textbackslash{}\%\\
-\hline
-...142 & Gambling Facility/Casino/Race Track & Intimidation & 12 & 17.39\textbackslash{}\%\\
-\hline
-...143 & Gambling Facility/Casino/Race Track & Destruction of Property/Vandalism & 8 & 11.59\textbackslash{}\%\\
-\hline
-...144 & Gambling Facility/Casino/Race Track & All Other Larceny & 6 & 8.70\textbackslash{}\%\\
-\hline
-...145 & Gambling Facility/Casino/Race Track & Counterfeiting/Forgery & 4 & 5.80\textbackslash{}\%\\
-\hline
-...146 & Gambling Facility/Casino/Race Track & All Other & 10 & 14.5\textbackslash{}\%\\
-\hline
-...147 & Gambling Facility/Casino/Race Track & Total & 69 & 100\textbackslash{}\%\\
-\hline
-...148 & Government/Public Building & Destruction of Property/Vandalism & 1,354 & 38.19\textbackslash{}\%\\
-\hline
-...149 & Government/Public Building & Intimidation & 1,279 & 36.08\textbackslash{}\%\\
-\hline
-...150 & Government/Public Building & Simple Assault & 548 & 15.46\textbackslash{}\%\\
-\hline
-...151 & Government/Public Building & Aggravated Assault & 180 & 5.08\textbackslash{}\%\\
-\hline
-...152 & Government/Public Building & Drug/Narcotic Violations & 31 & 0.87\textbackslash{}\%\\
-\hline
-...153 & Government/Public Building & All Other & 153 & 4.32\textbackslash{}\%\\
-\hline
-...154 & Government/Public Building & Total & 3,545 & 100\textbackslash{}\%\\
-\hline
-...155 & Grocery/Supermarket & Intimidation & 657 & 30.17\textbackslash{}\%\\
-\hline
-...156 & Grocery/Supermarket & Simple Assault & 577 & 26.49\textbackslash{}\%\\
-\hline
-...157 & Grocery/Supermarket & Destruction of Property/Vandalism & 320 & 14.69\textbackslash{}\%\\
-\hline
-...158 & Grocery/Supermarket & Aggravated Assault & 232 & 10.65\textbackslash{}\%\\
-\hline
-...159 & Grocery/Supermarket & Shoplifting & 180 & 8.26\textbackslash{}\%\\
-\hline
-...160 & Grocery/Supermarket & All Other & 212 & 9.78\textbackslash{}\%\\
-\hline
-...161 & Grocery/Supermarket & Total & 2,178 & 100\textbackslash{}\%\\
-\hline
-...162 & Highway/Road/Alley & Simple Assault & 13,194 & 29.32\textbackslash{}\%\\
-\hline
-...163 & Highway/Road/Alley & Aggravated Assault & 10,401 & 23.11\textbackslash{}\%\\
-\hline
-...164 & Highway/Road/Alley & Intimidation & 9,803 & 21.78\textbackslash{}\%\\
-\hline
-...165 & Highway/Road/Alley & Destruction of Property/Vandalism & 7,356 & 16.35\textbackslash{}\%\\
-\hline
-...166 & Highway/Road/Alley & Robbery & 2,169 & 4.82\textbackslash{}\%\\
-\hline
-...167 & Highway/Road/Alley & All Other & 2,081 & 4.59\textbackslash{}\%\\
-\hline
-...168 & Highway/Road/Alley & Total & 45,004 & 100\textbackslash{}\%\\
-\hline
-...169 & Hotel/Motel & Intimidation & 491 & 30.35\textbackslash{}\%\\
-\hline
-...170 & Hotel/Motel & Simple Assault & 459 & 28.37\textbackslash{}\%\\
-\hline
-...171 & Hotel/Motel & Destruction of Property/Vandalism & 245 & 15.14\textbackslash{}\%\\
-\hline
-...172 & Hotel/Motel & Aggravated Assault & 226 & 13.97\textbackslash{}\%\\
-\hline
-...173 & Hotel/Motel & Robbery & 31 & 1.92\textbackslash{}\%\\
-\hline
-...174 & Hotel/Motel & All Other & 166 & 10.24\textbackslash{}\%\\
-\hline
-...175 & Hotel/Motel & Total & 1,618 & 100\textbackslash{}\%\\
-\hline
-...176 & Industrial Site & Intimidation & 53 & 39.26\textbackslash{}\%\\
-\hline
-...177 & Industrial Site & Destruction of Property/Vandalism & 32 & 23.70\textbackslash{}\%\\
-\hline
-...178 & Industrial Site & Simple Assault & 16 & 11.85\textbackslash{}\%\\
-\hline
-...179 & Industrial Site & Aggravated Assault & 10 & 7.41\textbackslash{}\%\\
-\hline
-...180 & Industrial Site & All Other Larceny & 9 & 6.67\textbackslash{}\%\\
-\hline
-...181 & Industrial Site & All Other & 15 & 11.11\textbackslash{}\%\\
-\hline
-...182 & Industrial Site & Total & 135 & 100\textbackslash{}\%\\
-\hline
-...183 & Jail/Prison & Simple Assault & 903 & 52.32\textbackslash{}\%\\
-\hline
-...184 & Jail/Prison & Aggravated Assault & 367 & 21.26\textbackslash{}\%\\
-\hline
-...185 & Jail/Prison & Intimidation & 326 & 18.89\textbackslash{}\%\\
-\hline
-...186 & Jail/Prison & Destruction of Property/Vandalism & 47 & 2.72\textbackslash{}\%\\
-\hline
-...187 & Jail/Prison & Drug/Narcotic Violations & 25 & 1.45\textbackslash{}\%\\
-\hline
-...188 & Jail/Prison & All Other & 58 & 3.4\textbackslash{}\%\\
-\hline
-...189 & Jail/Prison & Total & 1,726 & 100\textbackslash{}\%\\
-\hline
-...190 & Lake/Waterway & Simple Assault & 127 & 30.53\textbackslash{}\%\\
-\hline
-...191 & Lake/Waterway & Aggravated Assault & 102 & 24.52\textbackslash{}\%\\
-\hline
-...192 & Lake/Waterway & Destruction of Property/Vandalism & 80 & 19.23\textbackslash{}\%\\
-\hline
-...193 & Lake/Waterway & Intimidation & 64 & 15.38\textbackslash{}\%\\
-\hline
-...194 & Lake/Waterway & Robbery & 17 & 4.09\textbackslash{}\%\\
-\hline
-...195 & Lake/Waterway & All Other & 26 & 6.24\textbackslash{}\%\\
-\hline
-...196 & Lake/Waterway & Total & 416 & 100\textbackslash{}\%\\
-\hline
-...197 & Liquor Store & Intimidation & 170 & 37.04\textbackslash{}\%\\
-\hline
-...198 & Liquor Store & Simple Assault & 101 & 22.00\textbackslash{}\%\\
-\hline
-...199 & Liquor Store & Aggravated Assault & 88 & 19.17\textbackslash{}\%\\
-\hline
-...200 & Liquor Store & Destruction of Property/Vandalism & 50 & 10.89\textbackslash{}\%\\
-\hline
-...201 & Liquor Store & Robbery & 14 & 3.05\textbackslash{}\%\\
-\hline
-...202 & Liquor Store & All Other & 36 & 7.86\textbackslash{}\%\\
-\hline
-...203 & Liquor Store & Total & 459 & 100\textbackslash{}\%\\
-\hline
-1 & Military Installation & Destruction of Property/Vandalism & 2 & 40.00\textbackslash{}\%\\
-\hline
-2 & Military Installation & Human Trafficking - Involuntary Servitude & 1 & 20.00\textbackslash{}\%\\
-\hline
-3 & Military Installation & Simple Assault & 1 & 20.00\textbackslash{}\%\\
-\hline
-4 & Military Installation & Murder/Non-Negligent Manslaughter & 1 & 20.00\textbackslash{}\%\\
-\hline
-NA & NA & NA & NA & NA\\
-\hline
-...209 & Military Installation & All Other & NA & NA\textbackslash{}\%\\
-\hline
-...210 & Military Installation & Total & 5 & 100\textbackslash{}\%\\
-\hline
-...211 & Other/Unknown & Destruction of Property/Vandalism & 11,242 & 36.01\textbackslash{}\%\\
-\hline
-...212 & Other/Unknown & Intimidation & 9,642 & 30.89\textbackslash{}\%\\
-\hline
-...213 & Other/Unknown & Simple Assault & 5,865 & 18.79\textbackslash{}\%\\
-\hline
-...214 & Other/Unknown & Aggravated Assault & 2,577 & 8.25\textbackslash{}\%\\
-\hline
-...215 & Other/Unknown & Robbery & 583 & 1.87\textbackslash{}\%\\
-\hline
-...216 & Other/Unknown & All Other & 1,309 & 4.2\textbackslash{}\%\\
-\hline
-...217 & Other/Unknown & Total & 31,218 & 100\textbackslash{}\%\\
-\hline
-...218 & Park/Playground & Destruction of Property/Vandalism & 909 & 48.27\textbackslash{}\%\\
-\hline
-...219 & Park/Playground & Simple Assault & 338 & 17.95\textbackslash{}\%\\
-\hline
-...220 & Park/Playground & Intimidation & 283 & 15.03\textbackslash{}\%\\
-\hline
-...221 & Park/Playground & Aggravated Assault & 243 & 12.90\textbackslash{}\%\\
-\hline
-...222 & Park/Playground & Robbery & 56 & 2.97\textbackslash{}\%\\
-\hline
-...223 & Park/Playground & All Other & 54 & 2.88\textbackslash{}\%\\
-\hline
-...224 & Park/Playground & Total & 1,883 & 100\textbackslash{}\%\\
-\hline
-...225 & Parking Lot/Garage & Destruction of Property/Vandalism & 4,234 & 30.71\textbackslash{}\%\\
-\hline
-...226 & Parking Lot/Garage & Simple Assault & 3,185 & 23.10\textbackslash{}\%\\
-\hline
-...227 & Parking Lot/Garage & Intimidation & 2,801 & 20.32\textbackslash{}\%\\
-\hline
-...228 & Parking Lot/Garage & Aggravated Assault & 2,293 & 16.63\textbackslash{}\%\\
-\hline
-...229 & Parking Lot/Garage & Robbery & 332 & 2.41\textbackslash{}\%\\
-\hline
-...230 & Parking Lot/Garage & All Other & 941 & 6.82\textbackslash{}\%\\
-\hline
-...231 & Parking Lot/Garage & Total & 13,786 & 100\textbackslash{}\%\\
-\hline
-...232 & Rental Storage Facility & Destruction of Property/Vandalism & 100 & 38.91\textbackslash{}\%\\
-\hline
-...233 & Rental Storage Facility & Intimidation & 43 & 16.73\textbackslash{}\%\\
-\hline
-...234 & Rental Storage Facility & Burglary/Breaking And Entering & 37 & 14.40\textbackslash{}\%\\
-\hline
-...235 & Rental Storage Facility & Simple Assault & 22 & 8.56\textbackslash{}\%\\
-\hline
-...236 & Rental Storage Facility & Aggravated Assault & 19 & 7.39\textbackslash{}\%\\
-\hline
-...237 & Rental Storage Facility & All Other & 36 & 14.02\textbackslash{}\%\\
-\hline
-...238 & Rental Storage Facility & Total & 257 & 100\textbackslash{}\%\\
-\hline
-...239 & Residence/Home & Intimidation & 25,953 & 36.69\textbackslash{}\%\\
-\hline
-...240 & Residence/Home & Destruction of Property/Vandalism & 23,212 & 32.81\textbackslash{}\%\\
-\hline
-...241 & Residence/Home & Simple Assault & 9,231 & 13.05\textbackslash{}\%\\
-\hline
-...242 & Residence/Home & Aggravated Assault & 4,999 & 7.07\textbackslash{}\%\\
-\hline
-...243 & Residence/Home & Burglary/Breaking And Entering & 2,395 & 3.39\textbackslash{}\%\\
-\hline
-...244 & Residence/Home & All Other & 4,946 & 7.02\textbackslash{}\%\\
-\hline
-...245 & Residence/Home & Total & 70,736 & 100\textbackslash{}\%\\
-\hline
-...246 & Rest Area & Destruction of Property/Vandalism & 38 & 58.46\textbackslash{}\%\\
-\hline
-...247 & Rest Area & Simple Assault & 10 & 15.38\textbackslash{}\%\\
-\hline
-...248 & Rest Area & Intimidation & 9 & 13.85\textbackslash{}\%\\
-\hline
-...249 & Rest Area & Aggravated Assault & 7 & 10.77\textbackslash{}\%\\
-\hline
-...250 & Rest Area & All Other Larceny & 1 & 1.54\textbackslash{}\%\\
-\hline
-...251 & Rest Area & All Other & NA & NA\textbackslash{}\%\\
-\hline
-...252 & Rest Area & Total & 65 & 100\textbackslash{}\%\\
-\hline
-...253 & Restaurant & Intimidation & 1,830 & 35.89\textbackslash{}\%\\
-\hline
-...254 & Restaurant & Simple Assault & 1,491 & 29.24\textbackslash{}\%\\
-\hline
-...255 & Restaurant & Destruction of Property/Vandalism & 881 & 17.28\textbackslash{}\%\\
-\hline
-...256 & Restaurant & Aggravated Assault & 606 & 11.88\textbackslash{}\%\\
-\hline
-...257 & Restaurant & Robbery & 55 & 1.08\textbackslash{}\%\\
-\hline
-...258 & Restaurant & All Other & 236 & 4.63\textbackslash{}\%\\
-\hline
-...259 & Restaurant & Total & 5,099 & 100\textbackslash{}\%\\
-\hline
-...260 & School - College/University & Destruction of Property/Vandalism & 1,042 & 50.39\textbackslash{}\%\\
-\hline
-...261 & School - College/University & Intimidation & 643 & 31.09\textbackslash{}\%\\
-\hline
-...262 & School - College/University & Simple Assault & 215 & 10.40\textbackslash{}\%\\
-\hline
-...263 & School - College/University & Aggravated Assault & 58 & 2.80\textbackslash{}\%\\
-\hline
-...264 & School - College/University & Burglary/Breaking And Entering & 27 & 1.31\textbackslash{}\%\\
-\hline
-...265 & School - College/University & All Other & 83 & 4.03\textbackslash{}\%\\
-\hline
-...266 & School - College/University & Total & 2,068 & 100\textbackslash{}\%\\
-\hline
-...267 & School - Elementary/Secondary & Intimidation & 1,386 & 35.37\textbackslash{}\%\\
-\hline
-...268 & School - Elementary/Secondary & Destruction of Property/Vandalism & 1,348 & 34.40\textbackslash{}\%\\
-\hline
-...269 & School - Elementary/Secondary & Simple Assault & 871 & 22.23\textbackslash{}\%\\
-\hline
-...270 & School - Elementary/Secondary & Aggravated Assault & 144 & 3.67\textbackslash{}\%\\
-\hline
-...271 & School - Elementary/Secondary & Burglary/Breaking And Entering & 33 & 0.84\textbackslash{}\%\\
-\hline
-...272 & School - Elementary/Secondary & All Other & 137 & 3.52\textbackslash{}\%\\
-\hline
-...273 & School - Elementary/Secondary & Total & 3,919 & 100\textbackslash{}\%\\
-\hline
-...274 & School/College & Destruction of Property/Vandalism & 7,922 & 45.14\textbackslash{}\%\\
-\hline
-...275 & School/College & Intimidation & 5,234 & 29.82\textbackslash{}\%\\
-\hline
-...276 & School/College & Simple Assault & 3,158 & 17.99\textbackslash{}\%\\
-\hline
-...277 & School/College & Aggravated Assault & 690 & 3.93\textbackslash{}\%\\
-\hline
-...278 & School/College & Burglary/Breaking And Entering & 132 & 0.75\textbackslash{}\%\\
-\hline
-...279 & School/College & All Other & 414 & 2.38\textbackslash{}\%\\
-\hline
-...280 & School/College & Total & 17,550 & 100\textbackslash{}\%\\
-\hline
-...281 & Service/Gas Station & Intimidation & 768 & 33.58\textbackslash{}\%\\
-\hline
-...282 & Service/Gas Station & Simple Assault & 576 & 25.19\textbackslash{}\%\\
-\hline
-...283 & Service/Gas Station & Aggravated Assault & 374 & 16.35\textbackslash{}\%\\
-\hline
-...284 & Service/Gas Station & Destruction of Property/Vandalism & 246 & 10.76\textbackslash{}\%\\
-\hline
-...285 & Service/Gas Station & All Other Larceny & 100 & 4.37\textbackslash{}\%\\
-\hline
-...286 & Service/Gas Station & All Other & 223 & 9.74\textbackslash{}\%\\
-\hline
-...287 & Service/Gas Station & Total & 2,287 & 100\textbackslash{}\%\\
-\hline
-...288 & Shelter - Mission/Homeless & Simple Assault & 85 & 50.30\textbackslash{}\%\\
-\hline
-...289 & Shelter - Mission/Homeless & Intimidation & 43 & 25.44\textbackslash{}\%\\
-\hline
-...290 & Shelter - Mission/Homeless & Aggravated Assault & 25 & 14.79\textbackslash{}\%\\
-\hline
-...291 & Shelter - Mission/Homeless & Destruction of Property/Vandalism & 11 & 6.51\textbackslash{}\%\\
-\hline
-...292 & Shelter - Mission/Homeless & Forcible Sodomy & 1 & 0.59\textbackslash{}\%\\
-\hline
-...293 & Shelter - Mission/Homeless & All Other & 4 & 2.36\textbackslash{}\%\\
-\hline
-...294 & Shelter - Mission/Homeless & Total & 169 & 100\textbackslash{}\%\\
-\hline
-...295 & Shopping Mall & Simple Assault & 77 & 28.73\textbackslash{}\%\\
-\hline
-...296 & Shopping Mall & Intimidation & 71 & 26.49\textbackslash{}\%\\
-\hline
-...297 & Shopping Mall & Destruction of Property/Vandalism & 59 & 22.01\textbackslash{}\%\\
-\hline
-...298 & Shopping Mall & Aggravated Assault & 31 & 11.57\textbackslash{}\%\\
-\hline
-...299 & Shopping Mall & Shoplifting & 13 & 4.85\textbackslash{}\%\\
-\hline
-...300 & Shopping Mall & All Other & 17 & 6.33\textbackslash{}\%\\
-\hline
-...301 & Shopping Mall & Total & 268 & 100\textbackslash{}\%\\
-\hline
-...302 & Specialty Store - Tv, Fur, Etc. & Intimidation & 1,074 & 38.43\textbackslash{}\%\\
-\hline
-...303 & Specialty Store - Tv, Fur, Etc. & Destruction of Property/Vandalism & 917 & 32.81\textbackslash{}\%\\
-\hline
-...304 & Specialty Store - Tv, Fur, Etc. & Simple Assault & 391 & 13.99\textbackslash{}\%\\
-\hline
-...305 & Specialty Store - Tv, Fur, Etc. & Aggravated Assault & 134 & 4.79\textbackslash{}\%\\
-\hline
-...306 & Specialty Store - Tv, Fur, Etc. & Burglary/Breaking And Entering & 53 & 1.90\textbackslash{}\%\\
-\hline
-...307 & Specialty Store - Tv, Fur, Etc. & All Other & 226 & 8.13\textbackslash{}\%\\
-\hline
-...308 & Specialty Store - Tv, Fur, Etc. & Total & 2,795 & 100\textbackslash{}\%\\
-\hline
-...309 & Tribal Lands & Aggravated Assault & 6 & 26.09\textbackslash{}\%\\
-\hline
-...310 & Tribal Lands & Simple Assault & 5 & 21.74\textbackslash{}\%\\
-\hline
-...311 & Tribal Lands & Intimidation & 5 & 21.74\textbackslash{}\%\\
-\hline
-...312 & Tribal Lands & Destruction of Property/Vandalism & 4 & 17.39\textbackslash{}\%\\
-\hline
-...313 & Tribal Lands & All Other Larceny & 1 & 4.35\textbackslash{}\%\\
-\hline
-...314 & Tribal Lands & All Other & 2 & 8.7\textbackslash{}\%\\
-\hline
-...315 & Tribal Lands & Total & 23 & 100\textbackslash{}\%\\
-\hline
-\end{longtable}
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:hatelocationOffense)The number and percent of offenses by location, 2023.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Location </th>
+   <th style="text-align:left;"> Offense </th>
+   <th style="text-align:right;"> \# of Incidents </th>
+   <th style="text-align:right;"> \% of Incidents </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Abandoned/Condemned Structure </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 51 </td>
+   <td style="text-align:right;"> 56.67\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Abandoned/Condemned Structure </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 10.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Abandoned/Condemned Structure </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 8.89\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Abandoned/Condemned Structure </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 6.67\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Abandoned/Condemned Structure </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 4.44\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Abandoned/Condemned Structure </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 13.32\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Abandoned/Condemned Structure </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 90 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Air/Bus/Train Terminal </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 1,088 </td>
+   <td style="text-align:right;"> 39.88\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Air/Bus/Train Terminal </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 588 </td>
+   <td style="text-align:right;"> 21.55\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Air/Bus/Train Terminal </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 458 </td>
+   <td style="text-align:right;"> 16.79\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Air/Bus/Train Terminal </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 415 </td>
+   <td style="text-align:right;"> 15.21\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Air/Bus/Train Terminal </td>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:right;"> 106 </td>
+   <td style="text-align:right;"> 3.89\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Air/Bus/Train Terminal </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 73 </td>
+   <td style="text-align:right;"> 2.7\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Air/Bus/Train Terminal </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 2,728 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amusement Park </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 30.77\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amusement Park </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 28.85\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amusement Park </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 15.38\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amusement Park </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 11.54\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amusement Park </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 5.77\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amusement Park </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 7.68\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amusement Park </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 52 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arena/Stadium/Fairgrounds/Coliseum </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:right;"> 45.28\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arena/Stadium/Fairgrounds/Coliseum </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 22.64\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arena/Stadium/Fairgrounds/Coliseum </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 19.81\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arena/Stadium/Fairgrounds/Coliseum </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 7.55\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arena/Stadium/Fairgrounds/Coliseum </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.94\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arena/Stadium/Fairgrounds/Coliseum </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3.76\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arena/Stadium/Fairgrounds/Coliseum </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 106 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Atm Separate From Bank </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 27.78\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Atm Separate From Bank </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 22.22\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Atm Separate From Bank </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 11.11\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Atm Separate From Bank </td>
+   <td style="text-align:left;"> Fraud Offenses - Credit Card/Atm Fraud </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 11.11\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Atm Separate From Bank </td>
+   <td style="text-align:left;"> Fraud Offenses - False Pretenses/Swindle/Confidence Game </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 5.56\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Atm Separate From Bank </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 22.24\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Atm Separate From Bank </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Auto Dealership New/Used </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 34.78\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Auto Dealership New/Used </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 14.13\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Auto Dealership New/Used </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 13.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Auto Dealership New/Used </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 8.70\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Auto Dealership New/Used </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Theft of Motor Vehicle Parts/Accessories </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 6.52\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Auto Dealership New/Used </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 22.83\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Auto Dealership New/Used </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 92 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bank/Savings And Loan </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 191 </td>
+   <td style="text-align:right;"> 32.05\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bank/Savings And Loan </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 103 </td>
+   <td style="text-align:right;"> 17.28\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bank/Savings And Loan </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 73 </td>
+   <td style="text-align:right;"> 12.25\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bank/Savings And Loan </td>
+   <td style="text-align:left;"> Counterfeiting/Forgery </td>
+   <td style="text-align:right;"> 57 </td>
+   <td style="text-align:right;"> 9.56\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bank/Savings And Loan </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 6.54\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bank/Savings And Loan </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 133 </td>
+   <td style="text-align:right;"> 22.32\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bank/Savings And Loan </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 596 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bar/Nightclub </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 1,968 </td>
+   <td style="text-align:right;"> 46.09\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bar/Nightclub </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 1,021 </td>
+   <td style="text-align:right;"> 23.91\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bar/Nightclub </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 793 </td>
+   <td style="text-align:right;"> 18.57\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bar/Nightclub </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 285 </td>
+   <td style="text-align:right;"> 6.67\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bar/Nightclub </td>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:right;"> 64 </td>
+   <td style="text-align:right;"> 1.50\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bar/Nightclub </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 139 </td>
+   <td style="text-align:right;"> 3.22\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bar/Nightclub </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 4,270 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Camp/Campground </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 29.79\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Camp/Campground </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 21.28\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Camp/Campground </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 19.15\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Camp/Campground </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 12.77\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Camp/Campground </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 6.38\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Camp/Campground </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 10.61\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Camp/Campground </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 94 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Church/Synagogue/Temple/Mosque </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 6,329 </td>
+   <td style="text-align:right;"> 66.95\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Church/Synagogue/Temple/Mosque </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 1,820 </td>
+   <td style="text-align:right;"> 19.25\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Church/Synagogue/Temple/Mosque </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 380 </td>
+   <td style="text-align:right;"> 4.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Church/Synagogue/Temple/Mosque </td>
+   <td style="text-align:left;"> Arson </td>
+   <td style="text-align:right;"> 337 </td>
+   <td style="text-align:right;"> 3.56\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Church/Synagogue/Temple/Mosque </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 251 </td>
+   <td style="text-align:right;"> 2.65\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Church/Synagogue/Temple/Mosque </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 337 </td>
+   <td style="text-align:right;"> 3.57\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Church/Synagogue/Temple/Mosque </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 9,454 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Commercial/Office Building </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 2,416 </td>
+   <td style="text-align:right;"> 42.59\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Commercial/Office Building </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 1,837 </td>
+   <td style="text-align:right;"> 32.38\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Commercial/Office Building </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 722 </td>
+   <td style="text-align:right;"> 12.73\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Commercial/Office Building </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 256 </td>
+   <td style="text-align:right;"> 4.51\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Commercial/Office Building </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 121 </td>
+   <td style="text-align:right;"> 2.13\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Commercial/Office Building </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 321 </td>
+   <td style="text-align:right;"> 5.68\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Commercial/Office Building </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 5,673 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Community Center </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 108 </td>
+   <td style="text-align:right;"> 40.91\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Community Center </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 84 </td>
+   <td style="text-align:right;"> 31.82\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Community Center </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 44 </td>
+   <td style="text-align:right;"> 16.67\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Community Center </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 5.30\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Community Center </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1.52\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Community Center </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 3.8\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Community Center </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 264 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Construction Site </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 390 </td>
+   <td style="text-align:right;"> 55.87\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Construction Site </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 109 </td>
+   <td style="text-align:right;"> 15.62\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Construction Site </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 57 </td>
+   <td style="text-align:right;"> 8.17\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Construction Site </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 44 </td>
+   <td style="text-align:right;"> 6.30\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Construction Site </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 5.59\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Construction Site </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 8.45\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Construction Site </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 698 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Convenience Store </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 1,193 </td>
+   <td style="text-align:right;"> 33.79\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Convenience Store </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 956 </td>
+   <td style="text-align:right;"> 27.07\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Convenience Store </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 501 </td>
+   <td style="text-align:right;"> 14.19\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Convenience Store </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 11.24\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Convenience Store </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Shoplifting </td>
+   <td style="text-align:right;"> 114 </td>
+   <td style="text-align:right;"> 3.23\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Convenience Store </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 370 </td>
+   <td style="text-align:right;"> 10.48\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Convenience Store </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 3,531 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Daycare Facility </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 34.62\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Daycare Facility </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 25.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Daycare Facility </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 19.23\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Daycare Facility </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 5.77\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Daycare Facility </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 5.77\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Daycare Facility </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 9.6\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Daycare Facility </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 52 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Department/Discount Store </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 590 </td>
+   <td style="text-align:right;"> 27.33\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Department/Discount Store </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 487 </td>
+   <td style="text-align:right;"> 22.56\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Department/Discount Store </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Shoplifting </td>
+   <td style="text-align:right;"> 320 </td>
+   <td style="text-align:right;"> 14.82\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Department/Discount Store </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 279 </td>
+   <td style="text-align:right;"> 12.92\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Department/Discount Store </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 167 </td>
+   <td style="text-align:right;"> 7.74\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Department/Discount Store </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 316 </td>
+   <td style="text-align:right;"> 14.63\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Department/Discount Store </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 2,159 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Dock/Wharf/Freight/Modal Terminal </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 36.36\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Dock/Wharf/Freight/Modal Terminal </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 18.18\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Dock/Wharf/Freight/Modal Terminal </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 18.18\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Dock/Wharf/Freight/Modal Terminal </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 12.73\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Dock/Wharf/Freight/Modal Terminal </td>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 9.09\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Dock/Wharf/Freight/Modal Terminal </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 5.45\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Dock/Wharf/Freight/Modal Terminal </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 55 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Drug Store/Doctors Office/Hospital </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 881 </td>
+   <td style="text-align:right;"> 41.54\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Drug Store/Doctors Office/Hospital </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 556 </td>
+   <td style="text-align:right;"> 26.21\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Drug Store/Doctors Office/Hospital </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 399 </td>
+   <td style="text-align:right;"> 18.81\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Drug Store/Doctors Office/Hospital </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 147 </td>
+   <td style="text-align:right;"> 6.93\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Drug Store/Doctors Office/Hospital </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Shoplifting </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 1.04\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Drug Store/Doctors Office/Hospital </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 116 </td>
+   <td style="text-align:right;"> 5.46\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Drug Store/Doctors Office/Hospital </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 2,121 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Farm Facility </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 23.08\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Farm Facility </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 17.95\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Farm Facility </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 15.38\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Farm Facility </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 12.82\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Farm Facility </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 10.26\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Farm Facility </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 20.5\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Farm Facility </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Field/Woods </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 667 </td>
+   <td style="text-align:right;"> 29.76\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Field/Woods </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 530 </td>
+   <td style="text-align:right;"> 23.65\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Field/Woods </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 447 </td>
+   <td style="text-align:right;"> 19.95\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Field/Woods </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 302 </td>
+   <td style="text-align:right;"> 13.48\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Field/Woods </td>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:right;"> 118 </td>
+   <td style="text-align:right;"> 5.27\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Field/Woods </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 177 </td>
+   <td style="text-align:right;"> 7.88\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Field/Woods </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 2,241 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gambling Facility/Casino/Race Track </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 41.77\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gambling Facility/Casino/Race Track </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 15.19\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gambling Facility/Casino/Race Track </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 10.13\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gambling Facility/Casino/Race Track </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 10.13\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gambling Facility/Casino/Race Track </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 5.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gambling Facility/Casino/Race Track </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 17.74\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gambling Facility/Casino/Race Track </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 79 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Government/Public Building </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 1,426 </td>
+   <td style="text-align:right;"> 37.68\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Government/Public Building </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 1,383 </td>
+   <td style="text-align:right;"> 36.54\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Government/Public Building </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 581 </td>
+   <td style="text-align:right;"> 15.35\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Government/Public Building </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 195 </td>
+   <td style="text-align:right;"> 5.15\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Government/Public Building </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 36 </td>
+   <td style="text-align:right;"> 0.95\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Government/Public Building </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 164 </td>
+   <td style="text-align:right;"> 4.34\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Government/Public Building </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 3,785 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Grocery/Supermarket </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 702 </td>
+   <td style="text-align:right;"> 30.19\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Grocery/Supermarket </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 619 </td>
+   <td style="text-align:right;"> 26.62\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Grocery/Supermarket </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 329 </td>
+   <td style="text-align:right;"> 14.15\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Grocery/Supermarket </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 246 </td>
+   <td style="text-align:right;"> 10.58\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Grocery/Supermarket </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Shoplifting </td>
+   <td style="text-align:right;"> 199 </td>
+   <td style="text-align:right;"> 8.56\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Grocery/Supermarket </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 230 </td>
+   <td style="text-align:right;"> 9.87\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Grocery/Supermarket </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 2,325 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Highway/Road/Alley/Street/Sidewalk </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 13,746 </td>
+   <td style="text-align:right;"> 29.24\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Highway/Road/Alley/Street/Sidewalk </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 10,788 </td>
+   <td style="text-align:right;"> 22.95\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Highway/Road/Alley/Street/Sidewalk </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 10,312 </td>
+   <td style="text-align:right;"> 21.94\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Highway/Road/Alley/Street/Sidewalk </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 7,701 </td>
+   <td style="text-align:right;"> 16.38\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Highway/Road/Alley/Street/Sidewalk </td>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:right;"> 2,241 </td>
+   <td style="text-align:right;"> 4.77\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Highway/Road/Alley/Street/Sidewalk </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 2,218 </td>
+   <td style="text-align:right;"> 4.69\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Highway/Road/Alley/Street/Sidewalk </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 47,006 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hotel/Motel/Etc. </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 541 </td>
+   <td style="text-align:right;"> 31.13\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hotel/Motel/Etc. </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 495 </td>
+   <td style="text-align:right;"> 28.48\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hotel/Motel/Etc. </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 256 </td>
+   <td style="text-align:right;"> 14.73\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hotel/Motel/Etc. </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 242 </td>
+   <td style="text-align:right;"> 13.92\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hotel/Motel/Etc. </td>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 1.78\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hotel/Motel/Etc. </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 173 </td>
+   <td style="text-align:right;"> 9.99\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hotel/Motel/Etc. </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 1,738 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Industrial Site </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 58 </td>
+   <td style="text-align:right;"> 37.42\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Industrial Site </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 26.45\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Industrial Site </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 11.61\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Industrial Site </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 8.39\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Industrial Site </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 5.81\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Industrial Site </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 10.35\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Industrial Site </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 155 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Jail/Prison/Penitentiary/Corrections Facility </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 978 </td>
+   <td style="text-align:right;"> 52.64\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Jail/Prison/Penitentiary/Corrections Facility </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 21.31\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Jail/Prison/Penitentiary/Corrections Facility </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 344 </td>
+   <td style="text-align:right;"> 18.51\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Jail/Prison/Penitentiary/Corrections Facility </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 51 </td>
+   <td style="text-align:right;"> 2.74\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Jail/Prison/Penitentiary/Corrections Facility </td>
+   <td style="text-align:left;"> Drug/Narcotic Offenses - Drug/Narcotic Violations </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 1.24\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Jail/Prison/Penitentiary/Corrections Facility </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 66 </td>
+   <td style="text-align:right;"> 3.52\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Jail/Prison/Penitentiary/Corrections Facility </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 1,858 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Lake/Waterway/Beach </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 136 </td>
+   <td style="text-align:right;"> 31.19\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Lake/Waterway/Beach </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 104 </td>
+   <td style="text-align:right;"> 23.85\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Lake/Waterway/Beach </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 87 </td>
+   <td style="text-align:right;"> 19.95\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Lake/Waterway/Beach </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:right;"> 14.91\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Lake/Waterway/Beach </td>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 3.90\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Lake/Waterway/Beach </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 6.21\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Lake/Waterway/Beach </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 436 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Liquor Store </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 174 </td>
+   <td style="text-align:right;"> 35.37\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Liquor Store </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 112 </td>
+   <td style="text-align:right;"> 22.76\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Liquor Store </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 93 </td>
+   <td style="text-align:right;"> 18.90\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Liquor Store </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 55 </td>
+   <td style="text-align:right;"> 11.18\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Liquor Store </td>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 3.46\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Liquor Store </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 8.33\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Liquor Store </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 492 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Military Installation </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 33.33\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Military Installation </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 16.67\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Military Installation </td>
+   <td style="text-align:left;"> Human Trafficking - Involuntary Servitude </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 16.67\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Military Installation </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 16.67\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Military Installation </td>
+   <td style="text-align:left;"> Murder/Nonnegligent Manslaughter </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 16.67\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Military Installation </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Military Installation </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Other/Unknown </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 11,530 </td>
+   <td style="text-align:right;"> 35.95\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Other/Unknown </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 9,923 </td>
+   <td style="text-align:right;"> 30.94\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Other/Unknown </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 6,021 </td>
+   <td style="text-align:right;"> 18.77\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Other/Unknown </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 2,641 </td>
+   <td style="text-align:right;"> 8.23\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Other/Unknown </td>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:right;"> 593 </td>
+   <td style="text-align:right;"> 1.85\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Other/Unknown </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 1,365 </td>
+   <td style="text-align:right;"> 4.27\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Other/Unknown </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 32,073 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Park/Playground </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 1,193 </td>
+   <td style="text-align:right;"> 50.64\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Park/Playground </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 405 </td>
+   <td style="text-align:right;"> 17.19\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Park/Playground </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 342 </td>
+   <td style="text-align:right;"> 14.52\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Park/Playground </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 282 </td>
+   <td style="text-align:right;"> 11.97\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Park/Playground </td>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:right;"> 66 </td>
+   <td style="text-align:right;"> 2.80\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Park/Playground </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 68 </td>
+   <td style="text-align:right;"> 2.86\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Park/Playground </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 2,356 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Parking Lot/Drop Lot/Parking Garage </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 4,392 </td>
+   <td style="text-align:right;"> 30.52\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Parking Lot/Drop Lot/Parking Garage </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 3,318 </td>
+   <td style="text-align:right;"> 23.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Parking Lot/Drop Lot/Parking Garage </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 2,951 </td>
+   <td style="text-align:right;"> 20.51\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Parking Lot/Drop Lot/Parking Garage </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 2,392 </td>
+   <td style="text-align:right;"> 16.62\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Parking Lot/Drop Lot/Parking Garage </td>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:right;"> 345 </td>
+   <td style="text-align:right;"> 2.40\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Parking Lot/Drop Lot/Parking Garage </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 991 </td>
+   <td style="text-align:right;"> 6.88\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Parking Lot/Drop Lot/Parking Garage </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 14,389 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Rental Storage Facility </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 106 </td>
+   <td style="text-align:right;"> 38.41\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Rental Storage Facility </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 16.30\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Rental Storage Facility </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 14.86\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Rental Storage Facility </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 9.06\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Rental Storage Facility </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 6.88\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Rental Storage Facility </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:right;"> 14.47\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Rental Storage Facility </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 276 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Residence/Home </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 27,096 </td>
+   <td style="text-align:right;"> 36.67\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Residence/Home </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 23,877 </td>
+   <td style="text-align:right;"> 32.32\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Residence/Home </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 9,733 </td>
+   <td style="text-align:right;"> 13.17\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Residence/Home </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 5,264 </td>
+   <td style="text-align:right;"> 7.12\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Residence/Home </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 2,470 </td>
+   <td style="text-align:right;"> 3.34\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Residence/Home </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 5,447 </td>
+   <td style="text-align:right;"> 7.36\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Residence/Home </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 73,887 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Rest Area </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:right;"> 58.82\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Rest Area </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 16.18\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Rest Area </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 13.24\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Rest Area </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 10.29\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Rest Area </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1.47\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Rest Area </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Rest Area </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 68 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Restaurant </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 1,944 </td>
+   <td style="text-align:right;"> 35.87\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Restaurant </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 1,591 </td>
+   <td style="text-align:right;"> 29.36\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Restaurant </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 937 </td>
+   <td style="text-align:right;"> 17.29\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Restaurant </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 641 </td>
+   <td style="text-align:right;"> 11.83\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Restaurant </td>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:right;"> 58 </td>
+   <td style="text-align:right;"> 1.07\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Restaurant </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 248 </td>
+   <td style="text-align:right;"> 4.6\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Restaurant </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 5,419 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School - College/University </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 1,238 </td>
+   <td style="text-align:right;"> 52.66\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School - College/University </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 668 </td>
+   <td style="text-align:right;"> 28.41\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School - College/University </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 254 </td>
+   <td style="text-align:right;"> 10.80\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School - College/University </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 64 </td>
+   <td style="text-align:right;"> 2.72\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School - College/University </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 1.23\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School - College/University </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 98 </td>
+   <td style="text-align:right;"> 4.16\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School - College/University </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 2,351 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School - Elementary/Secondary </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 1,814 </td>
+   <td style="text-align:right;"> 37.03\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School - Elementary/Secondary </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 1,655 </td>
+   <td style="text-align:right;"> 33.78\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School - Elementary/Secondary </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 1,043 </td>
+   <td style="text-align:right;"> 21.29\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School - Elementary/Secondary </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 175 </td>
+   <td style="text-align:right;"> 3.57\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School - Elementary/Secondary </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 44 </td>
+   <td style="text-align:right;"> 0.90\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School - Elementary/Secondary </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 168 </td>
+   <td style="text-align:right;"> 3.41\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School - Elementary/Secondary </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 4,899 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School/College </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 7,964 </td>
+   <td style="text-align:right;"> 45.05\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School/College </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 5,287 </td>
+   <td style="text-align:right;"> 29.91\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School/College </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 3,182 </td>
+   <td style="text-align:right;"> 18.00\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School/College </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 694 </td>
+   <td style="text-align:right;"> 3.93\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School/College </td>
+   <td style="text-align:left;"> Burglary/Breaking And Entering </td>
+   <td style="text-align:right;"> 134 </td>
+   <td style="text-align:right;"> 0.76\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School/College </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 418 </td>
+   <td style="text-align:right;"> 2.38\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> School/College </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 17,679 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Service/Gas Station </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 803 </td>
+   <td style="text-align:right;"> 33.26\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Service/Gas Station </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 610 </td>
+   <td style="text-align:right;"> 25.27\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Service/Gas Station </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 400 </td>
+   <td style="text-align:right;"> 16.57\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Service/Gas Station </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 257 </td>
+   <td style="text-align:right;"> 10.65\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Service/Gas Station </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - All Other Larceny </td>
+   <td style="text-align:right;"> 106 </td>
+   <td style="text-align:right;"> 4.39\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Service/Gas Station </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 238 </td>
+   <td style="text-align:right;"> 9.85\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Service/Gas Station </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 2,414 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Shelter - Mission/Homeless </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 105 </td>
+   <td style="text-align:right;"> 51.98\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Shelter - Mission/Homeless </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 24.75\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Shelter - Mission/Homeless </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 15.35\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Shelter - Mission/Homeless </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 5.45\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Shelter - Mission/Homeless </td>
+   <td style="text-align:left;"> Sex Offenses - Sodomy </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.50\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Shelter - Mission/Homeless </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Shelter - Mission/Homeless </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 202 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Shopping Mall </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 92 </td>
+   <td style="text-align:right;"> 28.31\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Shopping Mall </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 88 </td>
+   <td style="text-align:right;"> 27.08\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Shopping Mall </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 73 </td>
+   <td style="text-align:right;"> 22.46\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Shopping Mall </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:right;"> 10.77\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Shopping Mall </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Shoplifting </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 4.92\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Shopping Mall </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 6.49\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Shopping Mall </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 325 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Specialty Store (Tv, Fur, Etc.) </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 1,116 </td>
+   <td style="text-align:right;"> 38.14\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Specialty Store (Tv, Fur, Etc.) </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 945 </td>
+   <td style="text-align:right;"> 32.30\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Specialty Store (Tv, Fur, Etc.) </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 419 </td>
+   <td style="text-align:right;"> 14.32\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Specialty Store (Tv, Fur, Etc.) </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 141 </td>
+   <td style="text-align:right;"> 4.82\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Specialty Store (Tv, Fur, Etc.) </td>
+   <td style="text-align:left;"> Larceny/Theft Offenses - Shoplifting </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 2.02\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Specialty Store (Tv, Fur, Etc.) </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 246 </td>
+   <td style="text-align:right;"> 8.37\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Specialty Store (Tv, Fur, Etc.) </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 2,926 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tribal Lands </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 22.22\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tribal Lands </td>
+   <td style="text-align:left;"> Assault Offenses - Simple Assault </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 22.22\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tribal Lands </td>
+   <td style="text-align:left;"> Assault Offenses - Aggravated Assault </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 22.22\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tribal Lands </td>
+   <td style="text-align:left;"> Destruction/Damage/Vandalism of Property </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 18.52\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tribal Lands </td>
+   <td style="text-align:left;"> Undocumented Code </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3.70\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tribal Lands </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 11.1\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tribal Lands </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Undocumented Code </td>
+   <td style="text-align:left;"> Assault Offenses - Intimidation </td>
+   <td style="text-align:right;"> 529 </td>
+   <td style="text-align:right;"> 89.66\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Undocumented Code </td>
+   <td style="text-align:left;"> Fraud Offenses - Other </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 2.71\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Undocumented Code </td>
+   <td style="text-align:left;"> Pornography/Obscene Material </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 1.36\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Undocumented Code </td>
+   <td style="text-align:left;"> Fraud Offenses - False Pretenses/Swindle/Confidence Game </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 1.36\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Undocumented Code </td>
+   <td style="text-align:left;"> Extortion/Blackmail </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 1.19\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Undocumented Code </td>
+   <td style="text-align:left;"> All Other </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 3.74\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Undocumented Code </td>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> 590 </td>
+   <td style="text-align:right;"> 100\% </td>
+  </tr>
+</tbody>
+</table>
 
 
 
@@ -2307,25 +7039,17 @@ There are two variables that have information about the people who commit the ha
 
 As shown in Figure \@ref(fig:hateCrimeOffenderNumber), the most common racial group is "unknown" since the police do not know the race of the offenders. Next are White offenders at nearly 40% of hate crimes followed by Black offenders at nearly 13% of hate crimes. The remaining racial groups are rare with about 2% of hate crimes being committed by a multi-racial group of offenders and 0.8 % of hate crimes committed by Asian or Pacific Islander offenders and 0.6 % committed by American Indian or Native Alaskan offenders. Only 0.05% of offenders are Native Hawaiian or Other Pacific Islander.
 
-\begin{figure}
+<div class="figure" style="text-align: center">
+<img src="09_hate_crime_files/figure-html/hateCrimeOffenderRace-1.png" alt="The race of offenders, as a group, for hate crime incidents, 1991-2023." width="100%" height="100%" />
+<p class="caption">(\#fig:hateCrimeOffenderRace)The race of offenders, as a group, for hate crime incidents, 1991-2023.</p>
+</div>
 
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{09_hate_crime_files/figure-latex/hateCrimeOffenderRace-1} 
+When the police do not have any information about the number of offenders (which is common in cases of property crimes such as vandalism but rare in violent crimes), this data considers that to have zero offenders. The zero is just a placeholder that means that the police do not know how many offenders there are, not that they think there were actually no offenders. Figure \@ref(fig:hateCrimeOffenderNumber) shows the percent of hate crimes from 1991-2023 that have each number of offenders recorded. In the actual data it says the actual number of offenders, with the largest group in the current data going to 99 offenders - in this graph I group 10 or more offenders together for simplicity. I also relabel zero offenders as "Unknown" offenders since that is more accurate. The most common number of offenders per hate crime is one offender, at about 49% of hate crimes from 1991-2023 having only one offender. This drops sharply to 9% of hate crimes having two offenders and continues to drop as the number of offenders increase. However, about a third (36%) of hate crimes have an unknown number of offenders. 
 
-}
-
-\caption{The race of offenders, as a group, for hate crime incidents, 1991-2022.}(\#fig:hateCrimeOffenderRace)
-\end{figure}
-
-When the police do not have any information about the number of offenders (which is common in cases of property crimes such as vandalism but rare in violent crimes), this data considers that to have zero offenders. The zero is just a placeholder that means that the police do not know how many offenders there are, not that they think there were actually no offenders. Figure \@ref(fig:hateCrimeOffenderNumber) shows the percent of hate crimes from 1991-2022 that have each number of offenders recorded. In the actual data it says the actual number of offenders, with the largest group in the current data going to 99 offenders - in this graph I group 10 or more offenders together for simplicity. I also relabel zero offenders as "Unknown" offenders since that is more accurate. The most common number of offenders per hate crime is one offender, at about 49% of hate crimes from 1991-2022 having only one offender. This drops sharply to 9% of hate crimes having two offenders and continues to drop as the number of offenders increase. However, about a third (36%) of hate crimes have an unknown number of offenders. 
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{09_hate_crime_files/figure-latex/hateCrimeOffenderNumber-1} 
-
-}
-
-\caption{The race of offenders, as a group, for hate crime incidents, 1991-2022.}(\#fig:hateCrimeOffenderNumber)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="09_hate_crime_files/figure-html/hateCrimeOffenderNumber-1.png" alt="The race of offenders, as a group, for hate crime incidents, 1991-2023." width="100%" height="100%" />
+<p class="caption">(\#fig:hateCrimeOffenderNumber)The race of offenders, as a group, for hate crime incidents, 1991-2023.</p>
+</div>
 
 ### Number of victims 
 
@@ -2341,21 +7065,13 @@ Nonetheless, this is a book about the data. So let us look at one final variable
 
 While this variable is available in the data, I actually think it is best not to use it. I think there is always a danger in being overly precise and, therefore, overly confident about what the data shows. When you use the number of incidents you implicitly allow for each incident to affect multiple people^[One of the points of hate crimes is to cause fear in more than just the direct victim of the crime.] and readers understand that. But if you use this variable and say that "this is the number of victims of this crime" you are implicitly closing that door and therefore being too confident about how many victims of a crime there is. This is especially true for readers who are not paying close attention - such as academics reviewing papers or New York Times reporters - since they may think you are measuring the number of victims in a better way than you actually are. 
 
-\begin{figure}
+<div class="figure" style="text-align: center">
+<img src="09_hate_crime_files/figure-html/jewishIncidentVictim-1.png" alt="The annual number of anti-Jewish hate crime incidents and victims in the United States, 1991-2023." width="100%" height="100%" />
+<p class="caption">(\#fig:jewishIncidentVictim)The annual number of anti-Jewish hate crime incidents and victims in the United States, 1991-2023.</p>
+</div>
 
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{09_hate_crime_files/figure-latex/jewishIncidentVictim-1} 
-
-}
-
-\caption{The annual number of anti-Jewish hate crime incidents and victims in the United States, 1991-2022.}(\#fig:jewishIncidentVictim)
-\end{figure}
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{09_hate_crime_files/figure-latex/blackIncidentVictim-1} 
-
-}
-
-\caption{The annual number of anti-Black hate crime incidents and victims in the United States, 1991-2022.}(\#fig:blackIncidentVictim)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="09_hate_crime_files/figure-html/blackIncidentVictim-1.png" alt="The annual number of anti-Black hate crime incidents and victims in the United States, 1991-2023." width="100%" height="100%" />
+<p class="caption">(\#fig:blackIncidentVictim)The annual number of anti-Black hate crime incidents and victims in the United States, 1991-2023.</p>
+</div>
 

@@ -18,9 +18,9 @@ knitr::opts_chunk$set(
 
 ```{r,  results='hide'}
 
-arrestee <- readRDS("data/nibrs_arrestee_segment_2022.rds")
+arrestee <- readRDS("data/nibrs_arrestee_segment_2023.rds")
 window_arrestee <- readRDS("data/nibrs_window_arrestee_segment_2021.rds")
-group_b <- readRDS("data/nibrs_group_b_arrest_report_segment_2022.rds")
+group_b <- readRDS("data/nibrs_group_b_arrest_report_segment_2023.rds")
 nibrs_arrestee_summary <- readRDS("data/nibrs_summary_stats/nibrs_arrestee_summary_stats.rds")
 arrestee_offense_first_year <- readRDS("data/nibrs_summary_stats/arrestee_offense_first_year.rds")
 ```
@@ -151,7 +151,7 @@ Figure \@ref(fig:arresteeWeapon) shows the breakdown in the weapon carried by th
 To see the weapons carried when the arrestee had a weapon, Figure \@ref(fig:arresteeWeaponArmed) shows the breakdown in which weapon they carried. About 43.8% of people arrested who had a weapon were carrying a handgun followed by 30% with some kind of "lethal cutting instrument" like a knife. While rifles, and especially "assault rifles", are what people (and especially politicians and the media) focus on when talking about violent crime, handguns are actually the most common gun to be used in a crime so it makes sense that handguns are the most frequently found weapon. "Firearm (type not stated)"  basically means that the type of firearm used is unknown so can belong in one of the firearm categories and makes up 9% of weapons. Blunt instruments (including bats, clubs, and brass knuckles) follow at 6.9% of weapons. And the remaining weapons included are "other firearm" (so any other than ones specified) at 5.8%, rifle at 2.3%, and shotgun at 2%. 
 
 
-```{r nibrsArresteeMurderWeapon, fig.cap="The share of murder and nonnegligent manslaughter arrestees by weapon carried at arrest, 1991-2022."}
+```{r nibrsArresteeMurderWeapon, fig.cap="The share of murder and nonnegligent manslaughter arrestees by weapon carried at arrest, 1991-2023."}
 nibrs_arrestee_summary  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_murders_gun, color = "Gun"), linewidth = 1.05) +
@@ -216,7 +216,7 @@ kableExtra::kbl(final,
                 longtable = TRUE,
                 escape = TRUE,
                 label = "arresteeoffenseWeapon",
-                caption = "The number and percent of arrestees by offense and weapon, using the first weapon reported, 2022.") %>%
+                caption = "The number and percent of arrestees by offense and weapon, using the first weapon reported, 2023.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 
 ```
@@ -225,7 +225,7 @@ kableExtra::kbl(final,
 
 This variable tells you if the weapon the arrestee was carrying was a gun whether that gun was fully automatic. To be clear, this means that when you pull the trigger once the gun will fire multiple bullets. Semi-automatic firearms are not automatic firearms. The Offense Segment also has a variable indicating if the offender used an automatic weapon but there they did not necessarily recover the gun so it is much less reliable than in this segment where the police have the gun and are able to test it.^[It is not clear whether they actually test it or simply go by the design of the gun, such as if the model allows for fully automatic firing.] The percent of guns that are fully automatic are fairly similar between the weapons seized at arrest, as shown in Figure \@ref(fig:arresteeAutomaticWeapon) and those used in the offense as shown in Figure \@ref(fig:offenseAutomaticWeapon) in Chapter \@ref(offenseSegment). Figure \@ref(fig:arresteeAutomaticWeapon) shows that about 5.6% of rifles seized by police during an arrest were fully automatic. About 4.9% of handguns are automatic while "firearm (type not stated) are automatic in 4.3% of cases. Shotguns and  "other firearm" category are the least likely to be automatic at about 2.5% and 1.1% of weapons, respectively. 
 
-```{r arresteeAutomaticWeapon, fig.cap = "The percent of firearms the arrestee was carrying that were fully automatic, for the first weapon reported, 1991-2022."}
+```{r arresteeAutomaticWeapon, fig.cap = "The percent of firearms the arrestee was carrying that were fully automatic, for the first weapon reported, 1991-2023."}
 nibrs_arrestee_summary  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_rifle_automatic, color = "Rifle"), linewidth = 1.05) +
@@ -297,7 +297,7 @@ kableExtra::kbl(final,
                 longtable = TRUE,
                 escape = TRUE,
                 label = "arresteeoffenseArrestType",
-                caption = "The number and percent of arrestees by offense and type of arrest, 2022.") %>%
+                caption = "The number and percent of arrestees by offense and type of arrest, 2023.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 
 ```
@@ -306,7 +306,7 @@ kableExtra::kbl(final,
 
 For juvenile arrestees - those under age 18 *at the time of the arrest* (and, by definition they would also be under age 18 during the incident) - there is some information about the outcome of the arrest.^[There are a few people older than 18 with this variable but it is so rare that I think that they are just incorrectly inputted ages.] There are two possible outcomes (which NIBRS calls "dispositions"): being referred to other (that is, other than the arresting agency) authorities or handled within the arresting agency. Figure \@ref(fig:arresteeJuvenileDisposition) shows this breakdown and being referred to other authorities is the most common outcome at 72.6% of juvenile arrests. This is a very broad category and the "other authorities" can range from juvenile or adult court (so the police recommend that they be prosecuted) to welfare agencies and being sent to other police agencies (such as if they committed a crime elsewhere and are being extradited). The other category, being handled within the department, means that the police release the juvenile without any formal action taken (but they may give the juvenile a warning). In these cases the juvenile is released to an adult (including but not limited to family members or guardians) and the case is essentially dropped. In about 0.001% of juvenile arrests the disposition is unknown.^[A juvenile can potentially get multiple dispositions, such as if they are initially released but later the police recommend them for prosecution. It is not clear which outcome is recorded in these cases. In UCR data, however, only the initial disposition is recorded so that is likely how it also is in NIBRS.] 
 
-```{r arresteeJuvenileDisposition, fig.cap = "For juvenile arrestees (under age 18), the distribution of case outcomes, 1991-2022."}
+```{r arresteeJuvenileDisposition, fig.cap = "For juvenile arrestees (under age 18), the distribution of case outcomes, 1991-2023."}
 nibrs_arrestee_summary  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_handled_within_department, color = "Handled Within Department"), linewidth = 1.05) +
@@ -337,7 +337,7 @@ Figure \@ref(fig:arresteeResidenceStatus) shows the percent of arrestees in 2022
 
 
 
-```{r nibrsArresteeResidentStatus, fig.cap="Annual resident status (i.e. if they live in the arresting jurisdiction) of arrestees, 1991-2022."}
+```{r nibrsArresteeResidentStatus, fig.cap="Annual resident status (i.e. if they live in the arresting jurisdiction) of arrestees, 1991-2023."}
 nibrs_arrestee_summary  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_resident_status_resident, color = "Resident"), linewidth = 1.05) +
@@ -377,7 +377,7 @@ make_stat_count_plots(arrestee, "age_of_arrestee", count = FALSE, ylab = "% of A
 
 ```
 
-```{r nibrsArresteeAge, fig.cap="The mean and median age of arrestees, 1991-2022."}
+```{r nibrsArresteeAge, fig.cap="The mean and median age of arrestees, 1991-2023."}
 nibrs_arrestee_summary  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = mean_age, color = "Mean Age"), linewidth = 1.05) +
@@ -393,7 +393,7 @@ nibrs_arrestee_summary  %>%
   scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```
 
-```{r nibrsArresteeAgeMissing, fig.cap="The percent of arrestee's age that is unknown, 1991-2022."}
+```{r nibrsArresteeAgeMissing, fig.cap="The percent of arrestee's age that is unknown, 1991-2023."}
 nibrs_arrestee_summary  %>%
   ggplot(aes(x = year, y = percent_unknown_age )) +
   geom_line(linewidth = 1.05) + 
@@ -413,7 +413,7 @@ We also know the sex of the arrestee. The only options for this variable are mal
 
 
 
-```{r nibrsArresteeSex, fig.cap="The share of arrestees by sex, 1991-2022."}
+```{r nibrsArresteeSex, fig.cap="The share of arrestees by sex, 1991-2023."}
 nibrs_arrestee_summary  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_male, color = "Male"), linewidth = 1.05) +
@@ -439,7 +439,7 @@ Figure \@ref(fig:arresteeRace) shows the breakdown for the races of each arreste
 
 
 
-```{r nibrsArresteeRace, fig.cap="The share of arrestees by race, 1991-2022."}
+```{r nibrsArresteeRace, fig.cap="The share of arrestees by race, 1991-2023."}
 nibrs_arrestee_summary  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_asian, color = "Asian"), linewidth = 1.05) +
@@ -473,7 +473,7 @@ Figure \@ref(fig:arresteeEthnicity) shows the breakdown in arrests by arrestee e
 
 
 
-```{r nibrsArresteeEthnicity, fig.cap="The share of arrestees by ethnicity, 1991-2022."}
+```{r nibrsArresteeEthnicity, fig.cap="The share of arrestees by ethnicity, 1991-2023."}
 nibrs_arrestee_summary  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_hispanic, color = "Hispanic"), linewidth = 1.05) +

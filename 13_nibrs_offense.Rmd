@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r,  results='hide'}
-offense <- readRDS("data/nibrs_offense_segment_2022.rds")
+offense <- readRDS("data/nibrs_offense_segment_2023.rds")
 nibrs_offense_summary_stats <- readRDS("data/nibrs_summary_stats/nibrs_offense_summary_stats.rds")
 nibrs_offense_first_year <- readRDS("data/nibrs_summary_stats/nibrs_offense_first_year.rds")
 nibrs_location_first_year <- readRDS("data/nibrs_summary_stats/nibrs_location_first_year.rds")
@@ -105,14 +105,14 @@ offenses_with_subtypes <- c("animal cruelty",
                             "counterfeiting/forgery",
                             "drug/narcotic offenses - drug equipment violations",
                             "drug/narcotic offenses - drug/narcotic violations",
-                            "fugitive offenses - harboring escappee/concealing from arrest",
+                            "fugitive offenses - harboring escapee/concealing from arrest",
                             "gambling offenses - gambling equipment violations",
                             "kidnapping/abduction",
                             "murder/nonnegligent manslaughter",
                             "negligent manslaughter",
                             "pornography/obscene material",
                             "robbery",
-                            "sex offenses - fondling (incident liberties/child molest)",
+                            "sex offenses - fondling (indecent liberties/child molest)",
                             "sex offenses - rape",
                             "sex offenses - sexual assault with an object",
                             "sex offenses - sodomy",
@@ -124,19 +124,24 @@ offenses_with_subtypes <- c("animal cruelty",
 final <- data.frame()
 offense$type_criminal_activity_1[is.na(offense$type_criminal_activity_1)] <- "None"
 for (crime in offenses_with_subtypes) {
-temp <- make_frequency_table(offense %>% filter(ucr_offense_code %in% crime),
-                             "type_criminal_activity_1",
-                             c("Crime Subcategory",
-                               "\\# of Offenses",
-                               "\\% of Offenses")) %>%
-  mutate(Crime = capitalize_words(crime)) %>%
-  select(`Crime`,
-         `Crime Subcategory`,
-         "\\# of Offenses",
-         "\\% of Offenses")
-final <-
-  final %>%
-  bind_rows(temp)
+  temp <-
+    offense %>% filter(ucr_offense_code %in% crime)
+  if (nrow(temp) > 0) {
+    temp <- make_frequency_table(temp,
+                                 "type_criminal_activity_1",
+                                 c("Crime Subcategory",
+                                   "\\# of Offenses",
+                                   "\\% of Offenses")) %>%
+      mutate(Crime = capitalize_words(crime)) %>%
+      select(`Crime`,
+             `Crime Subcategory`,
+             "\\# of Offenses",
+             "\\% of Offenses")
+  
+  final <-
+    final %>%
+    bind_rows(temp)
+}
 }
 
 kableExtra::kbl(final, 
@@ -147,7 +152,7 @@ kableExtra::kbl(final,
                 longtable = TRUE,
                 escape = TRUE,
                 label = "offenseCrimeSubcategories",
-                caption = "The number and percent of crime subtypes by offense, 2022. This breakdown is only available for a subset of offenses. There can be up to three subtypes per offense; in this table we only use the first subtype.") %>%
+                caption = "The number and percent of crime subtypes by offense, 2023. This breakdown is only available for a subset of offenses. There can be up to three subtypes per offense; in this table we only use the first subtype.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
@@ -201,7 +206,7 @@ kableExtra::kbl(final,
 
 In Figure \@ref(fig:nibrsOffenseCompleted) we see the share of all offenses per year that are reported as completed. In every year we have data nearly all offenses were reported as being completed. 
 
-```{r nibrsOffenseCompleted, fig.cap="The annual percent of offenses reported as completed, 1991-2022."}
+```{r nibrsOffenseCompleted, fig.cap="The annual percent of offenses reported as completed, 1991-2023."}
 nibrs_offense_summary_stats  %>%
   ungroup() %>%
   ggplot(aes(x = year, y = percent_offense_completed )) +
@@ -298,7 +303,7 @@ kableExtra::kbl(location_offense,
                 longtable = TRUE,
                 label = "offenseLocation",
                 escape = TRUE,
-                caption = "The most common offenses for each crime location, 2022.") %>%
+                caption = "The most common offenses for each crime location, 2023.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 
 ```
@@ -341,7 +346,7 @@ offenses_with_weapons <-
     "sex offenses - sodomy",
     "murder/nonnegligent manslaughter",
     "kidnapping/abduction",
-    "sex offenses - fondling (incident liberties/child molest)",
+    "sex offenses - fondling (indecent liberties/child molest)",
     "human trafficking - commercial sex acts",
     "negligent manslaughter",
     "extortion/blackmail",
@@ -355,7 +360,10 @@ final <- data.frame()
 offense$type_weapon_force_involved_1[is.na(offense$type_weapon_force_involved_1)] <- "Unknown"
 offense$type_weapon_force_involved_1[offense$type_weapon_force_involved_1 %in% 16:17] <- "Unknown"
 for (crime in offenses_with_weapons) {
-  temp <- make_frequency_table(offense %>% filter(ucr_offense_code %in% crime),
+  temp <-
+    offense %>% filter(ucr_offense_code %in% crime)
+  if (nrow(temp) > 0) {
+  temp <- make_frequency_table(temp,
                                "type_weapon_force_involved_1",
                                c("Weapon",
                                  "\\# of Offenses",
@@ -368,6 +376,7 @@ for (crime in offenses_with_weapons) {
   final <-
     final %>%
     bind_rows(temp)
+  }
 }
 
 kableExtra::kbl(final, 
@@ -378,13 +387,13 @@ kableExtra::kbl(final,
                 longtable = TRUE,
                 label = "offenseWeapon",
                 escape = TRUE,
-                caption = "The weapon used by an offender, by offense, 2022. The use means that it was part of the crime though may not have been physically discharged. For example, pointing a gun at someone even without firing the gun is still using it.") %>%
+                caption = "The weapon used by an offender, by offense, 2023. The use means that it was part of the crime though may not have been physically discharged. For example, pointing a gun at someone even without firing the gun is still using it.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 We can use this dataset to look at, for example, trends in the type of weapon used in murders and nonnegligent manslaughters over time, as seen in Figure \@ref(nibrsMurdersWeapon). We can see that guns are the most common weapon are over 60% of murders in most years. Most of these guns are handguns, with about 35% of all murders using a handgun. Other weapons are far less common making up fewer than 20% of offenses most years. There are different agencies reporting each year so differents in trends may simply be due to different agencies in the data. For your own analysis you will need to be far more careful than the figure shown here.
 
-```{r nibrsMurdersWeapon, fig.cap="The annual percent of murders and nonnegligent homicides, by offender weapon, 1991-2022."}
+```{r nibrsMurdersWeapon, fig.cap="The annual percent of murders and nonnegligent homicides, by offender weapon, 1991-2023."}
 nibrs_offense_summary_stats  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_murders_gun, color = "Gun"), linewidth = 1.05) +
@@ -410,7 +419,7 @@ nibrs_offense_summary_stats  %>%
 
 When the weapon involved was a firearm there is a variable which indicates that the firearm was fully automatic. To be clear, this means that when you pull the trigger once the gun will fire multiple bullets. Semi-automatic firearms are **not** automatic firearms. Of course, saying a gun is fully automatic requires either the policing seizing the gun or the gun being fired (and for witnesses to accurately determine that it is fully automatic). Since many crimes are never solved (and even those that lead to an arrest may not lead to the gun being seized^[Though some guns are seized even without an arrest, such as if the gun is left at the crime scene], this variable is likely imprecise. Still, Figure \@ref(fig:offenseAutomaticWeapon) shows the percent of firearms used in offenses in 2022 that are reported to be fully automatic. Even though there can be up to three weapons used in an offense, this figure only looks at the first weapon. The most common guns to be automatic are rifles and handguns, both with about 5% of all uses being of an automatic weapon. The remaining categories are all under 3% of uses. 
 
-```{r offenseAutomaticWeapon, fig.cap = "The percent of firearms used that were fully automatic, for all offenses, 1991-2022."}
+```{r offenseAutomaticWeapon, fig.cap = "The percent of firearms used that were fully automatic, for all offenses, 1991-2023."}
 nibrs_offense_summary_stats  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_rifle_automatic, color = "Rifle"), linewidth = 1.05) +
@@ -438,7 +447,7 @@ nibrs_offense_summary_stats  %>%
 
 For burglary offenses there are two variables that provide a little more information on the offense. The first variable is the number of "premises" that the burglar entered. This is only available when the location for the offense is either hotel/motel or a rental storage facility. So the "premise" can really be thought of as a room in the building, not that they break into multiple hotels. Figure \@ref(fig:offensePremisesEntered) shows the breakdown in the number of premises entered during a burglary incident. The graph is capped at ten or more for simplicity but in the data itself the number can go higher. The vast majority of hotel/motel and storage facility burglaries only have one room entered, with 87% of these burglaries only being on a single room. This declines enormously to 5% burglarizing two rooms and then more than halves to 2% burglarizing three rooms. This trend continues as the number of rooms increase. 
 
-```{r offensePremisesEntered, fig.cap = "The distribution in the number of premises entered during burglaries, 2022. This information is only available for burglaries in a hotel/motel or rental storage facilities."}
+```{r offensePremisesEntered, fig.cap = "The distribution in the number of premises entered during burglaries, 2023. This information is only available for burglaries in a hotel/motel or rental storage facilities."}
 
 
 offense$number_of_premises_entered[offense$number_of_premises_entered >= 10] <- "10 or more"
@@ -462,7 +471,7 @@ The second variable, and one where there is data from every burglary reported re
 
 Figure \@ref(fig:nibrsBurglaryForce) shows the annual trend in the share of burglaries with or without force. Nearly all burglaries at the start of our data used force and has steadily declined until fewer than 60% of burglaries have force in 2022. However, this data is likely affected by differences in reporting by whether force was used. For example, consider two cases of burglary in which the victim does not notice any property stolen. If you come home and find your front door kicked in you'll almost certainly call the police, regardless of if you find any property taken. But if you come home and the door is just unlocked, and do not notice anything stolen, then you may just chalk it up to forgetting to lock the door and never alert the police. 
 
-```{r nibrsBurglaryForce, fig.cap="The annual percent of burglaries, by whether entry used force, 1991-2022."}
+```{r nibrsBurglaryForce, fig.cap="The annual percent of burglaries, by whether entry used force, 1991-2023."}
 nibrs_offense_summary_stats  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_burglary_force, color = "Force"), linewidth = 1.05) +
@@ -605,12 +614,12 @@ kableExtra::kbl(final,
                 longtable = TRUE,
                 escape = TRUE,
                 label = "offenseBiasOffense",
-                caption = "The number and percent of offenses by bias motivation, 2022. ") %>%
+                caption = "The number and percent of offenses by bias motivation, 2023. ") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 
-```{r nibrsOffenseBias, fig.cap="The annual percent of offenses reported as having a bias motivation (i.e. hate crime), 1993-2022."}
+```{r nibrsOffenseBias, fig.cap="The annual percent of offenses reported as having a bias motivation (i.e. hate crime), 1993-2023."}
 nibrs_offense_summary_stats  %>%
   filter(year > 1992) %>%
   ggplot(aes(x = year, y = percent_with_bias )) +

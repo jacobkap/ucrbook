@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r}
-offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2022.rds") %>%
+offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2023.rds") %>%
   filter(!agency_type %in% c("federal",
                              "special jurisdiction"),
          !state %in% c("american samoa",
@@ -28,7 +28,7 @@ offenses_known_yearly_covered_by <- readRDS("data/offenses_known_yearly_with_cov
                        "puerto rico"),
          !is.na(state))
 
-offenses_known_yearly <- offenses_known_yearly_covered_by
+#offenses_known_yearly <- offenses_known_yearly_covered_by
 
 philly <- read_csv("data/jacobdkaplan.com_offenses_count_Philadelphia Police Department_Pennsylvania.csv")
 danville <- read_csv("data/jacobdkaplan.com_offenses_count_Danville Police Dept_California.csv")
@@ -58,7 +58,7 @@ Even with the well-known flaws of this data, it remains a popular dataset. A sea
 
 Since estimating missing data only matters when the data is missing, let us look at how many agencies report less than a full year of data.
 
-For each of the below graphs and tables we use the Offenses Known and Clearances by Arrest data for 1960-2022 and exclude any agency that are "special jurisdictions". Special jurisdiction agencies are, as it seems, special agencies that tend to have an extremely specific jurisdiction and goals. These include agencies such as port authorities, alcohol beverage control, university police, and airport police. These agencies tend to cover a tiny geographic area and have both very low crime and very low reporting rates.[^ucr_county-7] So to prevent missingness being overcounted due to these weird agencies I am excluding them from the below examples. I am also excluding federal agencies as these operate much the same as special jurisdiction agencies. Since some estimation is based on state-level data and I present maps that exclude territories, I am also going to subset the data to only agencies in a state or in Washington DC. 
+For each of the below graphs and tables we use the Offenses Known and Clearances by Arrest data for 1960-2023 and exclude any agency that are "special jurisdictions". Special jurisdiction agencies are, as it seems, special agencies that tend to have an extremely specific jurisdiction and goals. These include agencies such as port authorities, alcohol beverage control, university police, and airport police. These agencies tend to cover a tiny geographic area and have both very low crime and very low reporting rates.[^ucr_county-7] So to prevent missingness being overcounted due to these weird agencies I am excluding them from the below examples. I am also excluding federal agencies as these operate much the same as special jurisdiction agencies. Since some estimation is based on state-level data and I present maps that exclude territories, I am also going to subset the data to only agencies in a state or in Washington DC. 
 
 [^ucr_county-7]: Even though these are unusual agencies, in real analyses using UCR data at the county-level you would like want to include them. Or justify why you are not including them.
 
@@ -73,7 +73,7 @@ month_to_num <- data.frame(last_month_reported = c(tolower(month.name), "no mont
                            last_month_reported_num = c(1:12, 0))
 
 z <- offenses_known_yearly %>%
-  filter(year %in% 2017) %>%
+  filter(year %in% 2016) %>%
   mutate(number_of_months_reported = 12 - number_of_months_missing) %>%
   left_join(month_to_num)
 
@@ -107,7 +107,7 @@ kableExtra::kbl(months_table,
              longtable = TRUE,
              label = "countyMonthsReportedDefinitions",
              escape = TRUE,
-             caption = "The number of months reported to the 2017 Offenses Known and Clearances by Arrest data using two definitions of months reported. The 'Last Month' definition is the preferred measure of months reported by both the FBI and researchers, though this overcounts months.") %>%
+             caption = "The number of months reported to the 2016 Offenses Known and Clearances by Arrest data using two definitions of months reported. The 'Last Month' definition is the preferred measure of months reported by both the FBI and researchers, though this overcounts months.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header")) #%>%
 #  column_spec(column = 1:ncol(months_table), width = "1in")
 
@@ -149,9 +149,9 @@ offenses_known_yearly %>%
 
 For the remainder of this chapter we will treat the last month reported variable as our measure of how many months an agency reports data. I believe that pre-2018 this is not as good a measure at the number of months missing, but it has the benefit of consistency post-2017. So keep in mind that the true number of agencies reporting fewer than 12 months of data is a bit larger than what it seems when using this measure. 
 
-```{r stateMap2022, fig.cap = "The share of the population in each state covered by an agency reporting 12 months of data based on their last month reported being December, 2022."}
-state_agg_2022 <- offenses_known_yearly %>%
-  filter(year %in% 2022) %>%
+```{r stateMap2022, fig.cap = "The share of the population in each state covered by an agency reporting 12 months of data based on their last month reported being December, 2023."}
+state_agg_2023 <- offenses_known_yearly %>%
+  filter(year %in% 2023) %>%
   distinct(ori,
            .keep_all = TRUE) %>%
   group_by(state,
@@ -160,9 +160,9 @@ state_agg_2022 <- offenses_known_yearly %>%
   pivot_wider(names_from = last_month_full,
               values_from = population) %>%
   rename_all(make_clean_names)
-state_agg_2022$x1[is.na(state_agg_2022$x1)] <- 0
-state_agg_2022$x0[is.na(state_agg_2022$x0)] <- 0
-state_agg_2022 %>%
+state_agg_2023$x1[is.na(state_agg_2023$x1)] <- 0
+state_agg_2023$x0[is.na(state_agg_2023$x0)] <- 0
+state_agg_2023 %>%
   mutate(total = x0 + x1,
          prop_full_reporters = x1 / total * 100) %>%
   ggplot2::ggplot(aes(map_id = state)) + 
@@ -178,11 +178,11 @@ state_agg_2022 %>%
 ```
 
 
-```{r countyMap2022, fig.cap = "The share of the population in each county covered by an agency reporting 12 months of data based on their last month reported being December, 2022."}
+```{r countyMap2022, fig.cap = "The share of the population in each county covered by an agency reporting 12 months of data based on their last month reported being December, 2023."}
 # https://stackoverflow.com/questions/76319472/is-it-possible-to-condense-a-county-level-map-of-the-us-including-alaska-and-ha
 
-county_agg_2022 <- offenses_known_yearly %>%
-  filter(year %in% 2022) %>%
+county_agg_2023 <- offenses_known_yearly %>%
+  filter(year %in% 2023) %>%
   distinct(ori,
            .keep_all = TRUE) %>%
   group_by(fips_state_county_code,
@@ -191,10 +191,10 @@ county_agg_2022 <- offenses_known_yearly %>%
   pivot_wider(names_from = last_month_full,
               values_from = population) %>%
   rename_all(make_clean_names)
-county_agg_2022$x1[is.na(county_agg_2022$x1)] <- 0
-county_agg_2022$x0[is.na(county_agg_2022$x0)] <- 0
-county_agg_2022 <-
-  county_agg_2022 %>%
+county_agg_2023$x1[is.na(county_agg_2023$x1)] <- 0
+county_agg_2023$x0[is.na(county_agg_2023$x0)] <- 0
+county_agg_2023 <-
+  county_agg_2023 %>%
   mutate(total = x0 + x1,
          prop_full_reporters = x1 / total * 100,
          values = prop_full_reporters) %>%
@@ -225,7 +225,7 @@ df %>%
   filter(!STATE_NAME %in% c('Alaska', 'Hawaii')) %>%
   rbind(alaska) %>%
   rbind(hawaii) %>%
-  left_join(county_agg_2022) %>%
+  left_join(county_agg_2023) %>%
   ggplot(aes(fill = values)) + 
   geom_sf() +
   scale_fill_gradient(low = "white",
@@ -526,7 +526,7 @@ offenses_known_yearly$population_group[offenses_known_yearly$population_group %i
                           "city 250,000 thru 499,999")] <- "city 250,000+"
 data <- 
   offenses_known_yearly %>%
-  filter(year %in% 2022,
+  filter(year %in% 2023,
          !population_group %in% c("7b", "possessions"),
          last_month_reported %in% "december")
 final <- get_murder_by_pop_group(data)
@@ -548,7 +548,7 @@ kableExtra::kbl(final,
 ```{r }
 data <- 
   offenses_known_yearly %>%
-  filter(year %in% 2022,
+  filter(year %in% 2023,
          !population_group %in% c("7b", "possessions"),
         !is.na(population_group),
          last_month_reported %in% "december")
@@ -572,7 +572,7 @@ Since the actual imputation process looks only at agencies in the same state, we
 ```{r }
 data <- 
   offenses_known_yearly %>%
-  filter(year %in% 2022,
+  filter(year %in% 2023,
          !population_group %in% c("7b", "possessions"),
         !is.na(population_group),
          state == "texas",
@@ -597,7 +597,7 @@ Now we will look at data from Maine, as shown in Table \@ref(tab:countyPopulatio
 ```{r }
 data <- 
   offenses_known_yearly %>%
-  filter(year %in% 2022,
+  filter(year %in% 2023,
          !population_group %in% c("7b", "possessions"),
          !is.na(population_group),
          state == "maine",

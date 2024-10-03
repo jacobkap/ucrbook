@@ -16,8 +16,8 @@ knitr::opts_chunk$set(
 
 
 ```{r}
-offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2022.rds")
-nibrs_offense <- readRDS("data/nibrs_offense_segment_2022.rds")
+offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2023.rds")
+nibrs_offense <- readRDS("data/nibrs_offense_segment_2023.rds")
 ```
 
 The Offenses Known and Clearances by Arrest dataset - often called Return A, "Offenses Known" or, less commonly, OKCA - is the oldest and most commonly used dataset in the UCR and measures it crimes reported to the police. For this reason it is used as *the* main measure of crime in the United States, and I tend to call it the "crimes dataset." This data answers the most basic questions about crimes: how many occurred? If you see crime data referenced in a news or academic article it is usually this data. This data also includes the number of crimes solved (though with a weaker definition of "solved" than you may think) and the number of crimes in which the agency concluded did not actually occur which they call an "unfounded" crime. This data has the monthly number of crimes - for a select group of crimes types - that occurred in an agency, as well as how many the police investigated and decided did not occur, and the number "cleared" by an arrest. 
@@ -160,7 +160,7 @@ One of the first things that people tend to learn about SRS crime data is that i
 
 The biggest problem with index crimes is that it is simply the sum of 8 (or 7 since arson data usually isn’t included) crimes. Index crimes have a huge range in their seriousness - it includes, for example, both murder and theft - so summing up the crimes gives each crime equal weight. This approach is flawed as 100 murders is more serious than 100 thefts. This is especially a problem as less serious crimes (theft mostly) are far more common than more serious crimes. In 2017, for example, there were 1.25 million violent index crimes in the United States. That same year had 5.5 million thefts. So using index crimes as your measure of crimes fails to account for the seriousness of crimes. Looking at total index crimes is, in effect, mostly just looking at theft. Looking at violent index crimes alone mostly measures aggravated assault. This is especially a problem because it hides trends in violent crimes. As an example, San Francisco, shown in Figure \@ref(fig:sfThefts), has had a huge increase - about 50% - in index crimes in the last several years. When looking closer, that increase is driven almost entirely by the near doubling of theft since 2011. During the same years, index violent crimes have stayed fairly steady. So the city isn’t getting more dangerous - at least not in terms of violent index crimes increasing - but it appears like it is due to just looking at total index crimes.
 
-```{r sfThefts, fig.cap = "Thefts and total index crimes in San Francisco, 2000-2022." }
+```{r sfThefts, fig.cap = "Thefts and total index crimes in San Francisco, 2000-2023." }
 sf <- offenses_known_yearly[offenses_known_yearly$ori %in% "CA03801", ]
 sf$actual_theft_total[sf$number_of_months_missing %in% 12] <- NA
 sf$actual_index_violent[sf$number_of_months_missing %in% 12] <- NA
@@ -185,7 +185,7 @@ sf %>%
 
 Many researchers divide index crimes into violent and nonviolent categories, which helps but even this is not entirely sufficient. Take Chicago as an example. It is a city infamous for its large number of murders. But as a fraction of index crimes, Chicago has a rounding error worth of murders. Their 653 murders in 2017 is only 0.5% of total index crimes. For violent index crimes, murder made up 2.2% of crimes that year. As seen in Figure \@ref(fig:chicagoMurder), in no year where data is available did murders account for more than 3.5% of violent index crimes; and, while murders are increasing as a percent of violent index crimes they still account for no more than 2.5% in most recent years. What this means is that changes in murder are very difficult to detect. If Chicago had no murders this year, but a less serious crime (such as theft) increased slightly, we could not tell from looking at the number of index crimes, even from violent index crimes. As discussed in the below section, using this sample of crimes as the primary measure of crimes - and particularly of violent crimes - is also misleading as it excludes important - and highly common relative to index crimes - offenses, such as simple assault.
 
-```{r chicagoMurder, fig.cap = "Murders in Chicago as a percent of violent index crimes, 1960-2022."}
+```{r chicagoMurder, fig.cap = "Murders in Chicago as a percent of violent index crimes, 1960-2023."}
 chicago <- offenses_known_yearly[offenses_known_yearly$ori %in% "ILCPD00", ]
 chicago$murder_percent_of_index <- chicago$actual_murder / chicago$actual_index_violent
 
@@ -236,7 +236,7 @@ There are actually two lines throughout this entire figure, though they are near
 
 In the data there are 12 columns - one for each month - that says whether the agency reported data in that month. That is what I use in the green line to measure how many months of data that agency reported. I refer to this in the figure and in the data I have released as the "number of months missing." When looking at agencies reporting only a single month the lines are nearly identical, though the last month reported measure is nearly always larger. This changes in 2018 as a result of the data changing, meaning I needed to use different columns to check starting in that year. That means that post-2018 data may not be comparable to 2018 and earlier using this variable.
 
-```{r offensesAgenciesReporting, fig.cap="The annual number of agencies reporting at least one month of data and a full 12 months of data, 1960-2022."}
+```{r offensesAgenciesReporting, fig.cap="The annual number of agencies reporting at least one month of data and a full 12 months of data, 1960-2023."}
 offenses_known_yearly$last_month_any <- 0
 offenses_known_yearly$last_month_any[!offenses_known_yearly$last_month_reported %in% "no months reported"] <- 1
 
@@ -290,7 +290,7 @@ One of the most common questions people have about this data is why there are ne
 
 How this works when the police input the data is that an unfounded crime is reported both as an unfounded crime and as a negative actual crime - the negative is used to zero out the erroneous report of the actual crime. So the report would look like  1 actual theft (the crime being reported), -1 theft (the crime being discovered as not have happened), and 1 unfounded theft. If both incidents occurred in the same month then this would simply be a single unfounded theft occurring, with no actual theft - literally a value of 1 + -1 = 0 thefts. 
 
-Negative values occur when the unfounding happens in a later month than the crime report. In the theft case, let us say the theft occurred in January and the discovery of the wallet happens in August. Assuming no other crimes occurred, January would have 1 theft, and August would have -1 thefts and 1 unfounded theft. There is no way of determining in which month (or even which year) an unfounded crime was initially reported in. When averaging over the long term, there should not be any negative numbers as the actual and unfounded reports will cancel themselves out. However, when looking at monthly crimes - particularly for rare crimes - you will still see negative numbers for this reason. Since crimes can be unfounded for reports in previous years, you can actually see entire year's crime counts be negative, though this is much rarer than monthly values.^[From 1960-2022, there were 39 agency-years with a negative count of murders.] 
+Negative values occur when the unfounding happens in a later month than the crime report. In the theft case, let us say the theft occurred in January and the discovery of the wallet happens in August. Assuming no other crimes occurred, January would have 1 theft, and August would have -1 thefts and 1 unfounded theft. There is no way of determining in which month (or even which year) an unfounded crime was initially reported in. When averaging over the long term, there should not be any negative numbers as the actual and unfounded reports will cancel themselves out. However, when looking at monthly crimes - particularly for rare crimes - you will still see negative numbers for this reason. Since crimes can be unfounded for reports in previous years, you can actually see entire year's crime counts be negative, though this is much rarer than monthly values.^[From 1960-2023, there were 39 agency-years with a negative count of murders.] 
 
 So using the far more common last month reported method will overestimate how many agencies report a full year of data. In practice, though, this affects very little data and what it does affect is only overcounted very slightly. At least when aggregating nationally - which I generally advise against since local crime matters a lot more than national averages. Still, let us look the increase in the total number of crimes reported by 12-month reporting agencies increases from the "number of months missing" measure to the "last month reported" measure, shown in Figure \@ref(fig:murdersBothMeasures). The answer is an extremely small increase, averaging (mean = 0.93%, mean = 1.26%) about a one percent point increase each year. The differences in measuring how many months are reported can matter a great deal at the agency-level, but does very little when aggregating nationally.
 
@@ -336,9 +336,9 @@ This is the number of offenses that *actually* occurred - where *actually* means
 
 Crimes that are reported that the police find did not occur (e.g. report of an arson but turns that the fire began accidentally) are called "unfounded" crimes. So this variable is the one people use to measure *crime*. For example if 10 people are murdered in a city the number of "actual murders" would be 10. A crime is a crime incident, regardless of how many offenders there were. If there are multiple victims in a case, such as a double murder, then it would count as multiple crimes.
 
-Figure \@ref(fig:newarkMurders), for example, shows the number of murders per 100,000 population in Newark, NJ, for 1960-2022. One things stands out. Or does not stand out, in a bad way. Newark Police did not report a full year of data in 2015; they reported only 11 months. It is imperceptible in the figure but if you look at the number of months reported in that year - using either the last month reported or the number of months missing measure - you can see that December is missing. While visualizing the data is often a good way to look for outliers or missingness, it is not enough alone. You need to look at the raw data as well to be safe. 
+Figure \@ref(fig:newarkMurders), for example, shows the number of murders per 100,000 population in Newark, NJ, for 1960-2023. One things stands out. Or does not stand out, in a bad way. Newark Police did not report a full year of data in 2015; they reported only 11 months. It is imperceptible in the figure but if you look at the number of months reported in that year - using either the last month reported or the number of months missing measure - you can see that December is missing. While visualizing the data is often a good way to look for outliers or missingness, it is not enough alone. You need to look at the raw data as well to be safe. 
 
-```{r newarkMurders, fig.cap = "The annual murder rate per 100,000 people in Newark, NJ, 1960-2022."}
+```{r newarkMurders, fig.cap = "The annual murder rate per 100,000 people in Newark, NJ, 1960-2023."}
 offenses_known_yearly %>%
   filter(ori %in% "NJNPD00") %>%
   mutate(murder_rate = actual_murder / population * 100000) %>%
@@ -370,7 +370,7 @@ This means that there are occasionally months - and even years - where there are
 
 This is actually a good check to see when people who use this data do not actually understand how it works. I have seen published academic papers that say that having more clearances than actual crimes is a data error; clearly they declined to read the official manual (or this book) before they, their editor, and their anonymous reviewers published the paper. 
 
-```{r lapdClearance, fig.cap = "The annual number of actual and cleared murders from the Los Angeles Police Department, 1960-2022."}
+```{r lapdClearance, fig.cap = "The annual number of actual and cleared murders from the Los Angeles Police Department, 1960-2023."}
 offenses_known_yearly$actual_murder[offenses_known_yearly$ori %in% "CA01942" &
                                       offenses_known_yearly$number_of_months_missing %in% 12] <- NA
 offenses_known_yearly$tot_clr_murder[offenses_known_yearly$ori %in% "CA01942" &
@@ -405,9 +405,9 @@ For example, I observed during a ride-along a report of a burglary where the hom
 
 Other unfounded crimes would include when someone reports a crime but later says that the report was not true. For example, a person could report a burglary to the police to collect insurance money on the items they claim was stolen. If the police discover this they would unfound the case - and the lying to the police and fraud would not be counted as neither of those are crimes included in this dataset. The way that the police do this in the data is to record an unfounded crime as a negative actual crime. If there are 10 burglaries already reported and then the above example occurred they would take those 10, add 1 for the report, and then subtract one for when they decide the crime is unfounded. This evens out the data to "erase" the initial report. If the unfounding occurs in a different month than the reported crime then this could lead to negative crimes being reported. This is just another quirk of SRS data and is another good check to see if a person using the data actually understands it as I have also seen people say negative crimes is a data error. 
 
-Figure \@ref(fig:frankenmuthRape) provides one example of this by showing the number of burglaries that the Frankenmuth Police, MI, say actually occurred from 1960-2022. In 1977 they reported -1 burglaries, the result of having more cleared than actual burglaries in that year.
+Figure \@ref(fig:frankenmuthRape) provides one example of this by showing the number of burglaries that the Frankenmuth Police, MI, say actually occurred from 1960-2023. In 1977 they reported -1 burglaries, the result of having more cleared than actual burglaries in that year.
 
-```{r frankenmuthRape, fig.cap = "The number of actual burglaries reported by the Frankenmuth Police Department, MI, 1960-2022."}
+```{r frankenmuthRape, fig.cap = "The number of actual burglaries reported by the Frankenmuth Police Department, MI, 1960-2023."}
 offenses_known_yearly %>%
   filter(ori %in% "MI73406") %>%
   ggplot(aes(x = year, y = actual_burg_total)) +
@@ -423,7 +423,7 @@ offenses_known_yearly %>%
 While this is a useful variable, it is not captured in NIBRS data. Instead the number of unfounded crimes is always reported as zero. For example, Figure \@ref(fig:denverUnfounded) shows the annual number of unfounded crimes (of any crime type) in Memphis, TN, and Denver, CO, which are two of the earliest large agencies to adopt NIBRS. Memphis started in reporting to NIBRS in 2000 and Denver did so in 2005. These agencies stopped reporting any unfounded crimes either in that or the following year.^[For Memphis, as agencies can report both SRS and NIBRS, that agency may have reported both in 2000 which is why we still see unfounded data that year.]
 
 
-```{r denverUnfounded, fig.cap = "The annual number of unfounded crimes in Denver, CO, 1983-2022."}
+```{r denverUnfounded, fig.cap = "The annual number of unfounded crimes in Denver, CO, 1983-2023."}
 offenses_known_yearly %>%
   filter(ori %in% "CODPD00",
          year > 1982) %>%
@@ -540,9 +540,9 @@ My takeaway from this is that rape should not be used at all for years after 201
 
 This data contains two different crime subcategories for homicide: "murder and non-negligent manslaughter," and "manslaughter by negligence." The first is our measure of murder, and it includes everything we traditionally think of when it comes to murder - shootings, stabbings, strangulation, basically any intentional killing of another person.^[Attempted murder is usually classified as an aggravated assault.] Suicides, killing a fetus, and accidental killings (e.g. car crashes) are not considered murders.^[Even the intentional killing of a fetus is classified as an aggravated assault against the mother, not a murder of the fetus.] The second, manslaughter by negligence - usually called just "manslaughter" - is when someone kills another person through "gross negligence" but does not kill them intentionally. This can include accidental killings when the death was caused by gross negligence. The FBI provide examples of this as kids playing with guns and shooting each other (and not knowing the gun was loaded) or a hunter accidentally shooting someone while hunting. After the late 1970s this excludes deaths from traffic accidents caused by negligence, such as hit and runs or DUIs. However, prior to this, these deaths were included, which is the cause of the very high number of manslaughters in the 1960s and 1970s.
 
-Figure \@ref(fig:manslaughterVsMurder) shows the annual number of murders, manslaughters, and the sum of the two nationwide from 1960-2022. This just sums up the total reported counts from every agency each year so part of the increase is simply due to more agencies reporting as the year gets closer to the present day - so please pay attention to the diverging paths of each crime, not the trend for the individual crime over time. Murder is always more common than manslaughter, but these values are not that far apart in the early decade of data and manslaughter does not become rare until the end of the 1970s. 
+Figure \@ref(fig:manslaughterVsMurder) shows the annual number of murders, manslaughters, and the sum of the two nationwide from 1960-2023. This just sums up the total reported counts from every agency each year so part of the increase is simply due to more agencies reporting as the year gets closer to the present day - so please pay attention to the diverging paths of each crime, not the trend for the individual crime over time. Murder is always more common than manslaughter, but these values are not that far apart in the early decade of data and manslaughter does not become rare until the end of the 1970s. 
 
-```{r manslaughterVsMurder, fig.cap = "The annual number of murder and non-negligent manslaughter, manslaughter by negligence, and the sum of the two, nationwide from 1960-2022."}
+```{r manslaughterVsMurder, fig.cap = "The annual number of murder and non-negligent manslaughter, manslaughter by negligence, and the sum of the two, nationwide from 1960-2023."}
 offenses_known_yearly %>%
   group_by(year) %>%
   summarize(murder = sum(actual_murder),
@@ -565,7 +565,7 @@ Figure \@ref(fig:manslaughterPercent) shows another way to look at this data: ma
 
 Manslaughter increased to over 1,000 for the first time since 1978 in 2020, increased against to over 1,700 in 2021 and continued at around that number in 2022. This is possibly related to the increase in murders over the last few years of available data. Unfortunately, this dataset does not allow us to do almost anything at figuring out more information than monthly or annual counts. NIBRS, in comparison, allows us to do this kind of deep dive, and for curious readers NIBRS also has manslaughter so you can investigate this question yourself. 
 
-```{r manslaughterPercent, fig.cap = "Reported manslaughter by negligence as a percent of reported murder and non-negligent manslaughter, nationwide 1960-2022."}
+```{r manslaughterPercent, fig.cap = "Reported manslaughter by negligence as a percent of reported murder and non-negligent manslaughter, nationwide 1960-2023."}
 offenses_known_yearly %>%
   group_by(year) %>%
   summarize(murder = sum(actual_murder),

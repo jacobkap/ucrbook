@@ -51,7 +51,7 @@ groundhog.library(packages, "2024-08-27")
 # variable to the value the covering agency has
 
 # 
-# offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2022.rds")
+# offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2023.rds")
 # offenses_known_yearly$covered_by_ori <- toupper(offenses_known_yearly$covered_by_ori)
 # 
 # offenses_known_yearly$ori_year <- paste(offenses_known_yearly$ori,
@@ -396,8 +396,8 @@ knitr::opts_chunk$set(
 
 ```{r}
 nyc <- read_csv("data/New_York_New_York_City_Police_Department.csv")
-offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2022.rds")
-SRS_hate_crimes <- readRDS("data/ucr_hate_crimes_1991_2022.rds")
+offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2023.rds")
+SRS_hate_crimes <- readRDS("data/ucr_hate_crimes_1991_2023.rds")
 ```
 
 # (PART) Welcome {-}
@@ -575,7 +575,7 @@ offenses_known_yearly %>%
 
 This voluntariness extends beyond whether they report or not, but into which variables they report. While in practice most agencies report every crime when they report any, they do have the choice to report only a subset of offenses. This is especially true for subsets of larger categories - such as gun assaults, a subset of aggravated assaults, or marijuana possession arrests which is a subset of drug possession arrests. As an example, Figure \@ref(fig:nycGunAssaults) shows the annual number of aggravated assaults with a gun in New York City. In 2003 the New York Police Department stopped reporting this category of offense, resuming only in 2013. They continued to report the broader aggravated assault category, but not any of the subsections of aggravated assaults which say which weapon was used during the assault.
 
-```{r nycGunAssaults, fig.cap = "Monthly reports of gun assaults in New York City, 1960-2022."}
+```{r nycGunAssaults, fig.cap = "Monthly reports of gun assaults in New York City, 1960-2023."}
 nyc_annual <- offenses_known_yearly[offenses_known_yearly$ori %in% "NY03030",]
 ggplot(nyc_annual, aes(x = year, y = actual_assault_with_a_gun)) +
   geom_line(size = 1.02) +
@@ -589,7 +589,7 @@ Given that agencies can join or drop out of the SRS program at will, and report 
 
 Even when an agency reports SRS data, and even when they report every crime category, they can report fewer than 12 months of data. In some cases they simply report all of their data in December, or report quarterly or semi-annually so some months have zero crimes reported while others count multiple months in that month's data. One example of this is New York City, shown in Figure \@ref(fig:nycMurderMonthly), in the early-2000s to the mid-2010s where they began reporting data quarterly instead of monthly. 
 
-```{r nycMurderMonthly, fig.cap = "Monthly murders in New York City, 1990-2022. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting."}
+```{r nycMurderMonthly, fig.cap = "Monthly murders in New York City, 1990-2023. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting."}
 nyc %>%
 filter(lubridate::year(year) >= 1990) %>%
 ggplot(aes(x = year, y = actual_murder)) +
@@ -601,7 +601,7 @@ theme_crim()
 
 When you sum up each month into an annual count, as shown in Figure \@ref(fig:nycMurderYearly), the problem disappears since the zero months are accounted for in the months that have the quarterly data. If you are using monthly data and only examine the data at the annual level, you will fall into the trap of having incorrect data that is hidden due to the level of aggregation examined. While cases like NYC are obvious when viewed monthly, for people that are including thousands of agencies in their data, it is unfeasible to look at each agency for each crime included. This can introduce errors as the best way to examine the data is manually viewing graphs and the automated method, looking for outliers through some kind of comparison to expected values, can be incorrect.   
 
-```{r nycMurderYearly, fig.cap = "Annual murders in New York City, 1990-2022."}
+```{r nycMurderYearly, fig.cap = "Annual murders in New York City, 1990-2023."}
 nyc_annual %>%
   filter(year >= 1990) %>%
 ggplot(aes(x = year, y = actual_murder)) +
@@ -614,7 +614,7 @@ ggplot(aes(x = year, y = actual_murder)) +
 
 In other cases when agencies report fewer than 12 months of the year, they simply report partial data and as a result undercount crimes. Figure \@ref(fig:miamiDadeMurderAnnual) shows annual murders in Miami-Dade, Florida and has three years of this issue occurring. The first two years with this issue are the two where zero murders are reported - this is because the agency did not report any months of data. The final year is in 2018, the last year of data in this graph, where it looks like murder suddenly dropped significantly. That is just because Miami-Dade only reported through June, so they are missing half of 2018. 
 
-```{r miamiDadeMurderAnnual, fig.cap = "Annual murders in Miami-Dade, Florida, 1960-2022."}
+```{r miamiDadeMurderAnnual, fig.cap = "Annual murders in Miami-Dade, Florida, 1960-2023."}
 offenses_known_yearly %>%
   dplyr::filter(ori %in% "FL01300") %>%
 ggplot(aes(x = year, y = actual_murder)) +
@@ -634,7 +634,7 @@ In some cases it is easy to see when a zero crimes reported is actually the agen
 Differentiating zero crimes and no reports becomes tricky in agencies that tend to report few crimes, which most small towns do. As an example, Figure \@ref(fig:danvilleRape) shows the annual reports of rape in Danville, California, a city of approximately 45,000 people. The city reports on average 2.8 rapes per year and in five years reported zero rapes. In cases like this it is not clear whether we should consider those zero years as true zeros (that no one was raped or reported their rape to the police) or whether the agency simply did not report rape data that year.  
 
 
-```{r danvilleRape, fig.cap = "Annual rapes reported in Danville, CA, 1960-2022."}
+```{r danvilleRape, fig.cap = "Annual rapes reported in Danville, CA, 1960-2023."}
 danville <- offenses_known_yearly[offenses_known_yearly$ori %in% "CA00723",]
 ggplot(danville, aes(x = year, y = actual_rape_total)) +
   geom_line(size = 1.02) +
@@ -683,7 +683,7 @@ groundhog.library(packages, "2024-08-27")
 # variable to the value the covering agency has
 
 # 
-# offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2022.rds")
+# offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2023.rds")
 # offenses_known_yearly$covered_by_ori <- toupper(offenses_known_yearly$covered_by_ori)
 # 
 # offenses_known_yearly$ori_year <- paste(offenses_known_yearly$ori,
@@ -1045,7 +1045,7 @@ groundhog.library(packages, "2024-08-27")
 # variable to the value the covering agency has
 
 # 
-# offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2022.rds")
+# offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2023.rds")
 # offenses_known_yearly$covered_by_ori <- toupper(offenses_known_yearly$covered_by_ori)
 # 
 # offenses_known_yearly$ori_year <- paste(offenses_known_yearly$ori,
@@ -1370,7 +1370,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r}
-offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2022.rds") %>%
+offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2023.rds") %>%
   filter(!agency_type %in% c("federal",
                              "special jurisdiction"),
          !state %in% c("american samoa",
@@ -1418,7 +1418,7 @@ Even with the well-known flaws of this data, it remains a popular dataset. A sea
 
 Since estimating missing data only matters when the data is missing, let us look at how many agencies report less than a full year of data.
 
-For each of the below graphs and tables we use the Offenses Known and Clearances by Arrest data for 1960-2022 and exclude any agency that are "special jurisdictions". Special jurisdiction agencies are, as it seems, special agencies that tend to have an extremely specific jurisdiction and goals. These include agencies such as port authorities, alcohol beverage control, university police, and airport police. These agencies tend to cover a tiny geographic area and have both very low crime and very low reporting rates.[^ucr_county-7] So to prevent missingness being overcounted due to these weird agencies I am excluding them from the below examples. I am also excluding federal agencies as these operate much the same as special jurisdiction agencies. Since some estimation is based on state-level data and I present maps that exclude territories, I am also going to subset the data to only agencies in a state or in Washington DC. 
+For each of the below graphs and tables we use the Offenses Known and Clearances by Arrest data for 1960-2023 and exclude any agency that are "special jurisdictions". Special jurisdiction agencies are, as it seems, special agencies that tend to have an extremely specific jurisdiction and goals. These include agencies such as port authorities, alcohol beverage control, university police, and airport police. These agencies tend to cover a tiny geographic area and have both very low crime and very low reporting rates.[^ucr_county-7] So to prevent missingness being overcounted due to these weird agencies I am excluding them from the below examples. I am also excluding federal agencies as these operate much the same as special jurisdiction agencies. Since some estimation is based on state-level data and I present maps that exclude territories, I am also going to subset the data to only agencies in a state or in Washington DC. 
 
 [^ucr_county-7]: Even though these are unusual agencies, in real analyses using UCR data at the county-level you would like want to include them. Or justify why you are not including them.
 
@@ -1509,9 +1509,9 @@ offenses_known_yearly %>%
 
 For the remainder of this chapter we will treat the last month reported variable as our measure of how many months an agency reports data. I believe that pre-2018 this is not as good a measure at the number of months missing, but it has the benefit of consistency post-2017. So keep in mind that the true number of agencies reporting fewer than 12 months of data is a bit larger than what it seems when using this measure. 
 
-```{r stateMap2022, fig.cap = "The share of the population in each state covered by an agency reporting 12 months of data based on their last month reported being December, 2022."}
-state_agg_2022 <- offenses_known_yearly %>%
-  filter(year %in% 2022) %>%
+```{r stateMap2022, fig.cap = "The share of the population in each state covered by an agency reporting 12 months of data based on their last month reported being December, 2023."}
+state_agg_2023 <- offenses_known_yearly %>%
+  filter(year %in% 2023) %>%
   distinct(ori,
            .keep_all = TRUE) %>%
   group_by(state,
@@ -1520,9 +1520,9 @@ state_agg_2022 <- offenses_known_yearly %>%
   pivot_wider(names_from = last_month_full,
               values_from = population) %>%
   rename_all(make_clean_names)
-state_agg_2022$x1[is.na(state_agg_2022$x1)] <- 0
-state_agg_2022$x0[is.na(state_agg_2022$x0)] <- 0
-state_agg_2022 %>%
+state_agg_2023$x1[is.na(state_agg_2023$x1)] <- 0
+state_agg_2023$x0[is.na(state_agg_2023$x0)] <- 0
+state_agg_2023 %>%
   mutate(total = x0 + x1,
          prop_full_reporters = x1 / total * 100) %>%
   ggplot2::ggplot(aes(map_id = state)) + 
@@ -1538,11 +1538,11 @@ state_agg_2022 %>%
 ```
 
 
-```{r countyMap2022, fig.cap = "The share of the population in each county covered by an agency reporting 12 months of data based on their last month reported being December, 2022."}
+```{r countyMap2022, fig.cap = "The share of the population in each county covered by an agency reporting 12 months of data based on their last month reported being December, 2023."}
 # https://stackoverflow.com/questions/76319472/is-it-possible-to-condense-a-county-level-map-of-the-us-including-alaska-and-ha
 
-county_agg_2022 <- offenses_known_yearly %>%
-  filter(year %in% 2022) %>%
+county_agg_2023 <- offenses_known_yearly %>%
+  filter(year %in% 2023) %>%
   distinct(ori,
            .keep_all = TRUE) %>%
   group_by(fips_state_county_code,
@@ -1551,10 +1551,10 @@ county_agg_2022 <- offenses_known_yearly %>%
   pivot_wider(names_from = last_month_full,
               values_from = population) %>%
   rename_all(make_clean_names)
-county_agg_2022$x1[is.na(county_agg_2022$x1)] <- 0
-county_agg_2022$x0[is.na(county_agg_2022$x0)] <- 0
-county_agg_2022 <-
-  county_agg_2022 %>%
+county_agg_2023$x1[is.na(county_agg_2023$x1)] <- 0
+county_agg_2023$x0[is.na(county_agg_2023$x0)] <- 0
+county_agg_2023 <-
+  county_agg_2023 %>%
   mutate(total = x0 + x1,
          prop_full_reporters = x1 / total * 100,
          values = prop_full_reporters) %>%
@@ -1585,7 +1585,7 @@ df %>%
   filter(!STATE_NAME %in% c('Alaska', 'Hawaii')) %>%
   rbind(alaska) %>%
   rbind(hawaii) %>%
-  left_join(county_agg_2022) %>%
+  left_join(county_agg_2023) %>%
   ggplot(aes(fill = values)) + 
   geom_sf() +
   scale_fill_gradient(low = "white",
@@ -1700,7 +1700,7 @@ If each month had the same number of crimes we would expect each month to accoun
 ```{r }
 
 data <- philly %>%
-  filter(lubridate::year(year) %in% 2022) %>%
+  filter(lubridate::year(year) %in% 2023) %>%
   mutate(month = month(year, label = TRUE, abbr = FALSE)) %>%
   select(month,
          actual_murder) %>%
@@ -1725,7 +1725,7 @@ Part of the reason for the percent difference for murders when replacing a month
 ```{r }
 
 data <- philly %>%
-  filter(lubridate::year(year) %in% 2022) %>%
+  filter(lubridate::year(year) %in% 2023) %>%
   mutate(month = month(year, label = TRUE, abbr = FALSE)) %>%
   select(month,
          actual_theft_total) %>%
@@ -1750,7 +1750,7 @@ Given that the imputation method is largely dependent on consistency across mont
 ```{r }
 
 data <- danville %>%
-  filter(lubridate::year(year) %in% 2022) %>%
+  filter(lubridate::year(year) %in% 2023) %>%
   mutate(month = month(year, label = TRUE, abbr = FALSE)) %>%
   select(month,
          actual_mtr_veh_theft_total) %>%
@@ -1781,7 +1781,7 @@ As might be expected, as the number of months missing increases the quality of t
 
 ```{r }
 philly %>%
-  filter(lubridate::year(year) %in% 2022) %>%
+  filter(lubridate::year(year) %in% 2023) %>%
   mutate(month = month(year, label = TRUE, abbr = FALSE)) %>%
   select(month,
          actual_murder) %>%
@@ -1804,7 +1804,7 @@ This problem is even more pronounced when looking at agencies with fewer crimes 
 ```{r }
 
 danville %>%
-  filter(lubridate::year(year) %in% 2022) %>%
+  filter(lubridate::year(year) %in% 2023) %>%
   mutate(month = month(year, label = TRUE, abbr = FALSE)) %>%
   select(month,
          actual_mtr_veh_theft_total) %>%
@@ -1885,7 +1885,7 @@ offenses_known_yearly$population_group[offenses_known_yearly$population_group %i
                           "city 250,000 thru 499,999")] <- "city 250,000+"
 data <- 
   offenses_known_yearly %>%
-  filter(year %in% 2022,
+  filter(year %in% 2023,
          !population_group %in% c("7b", "possessions"),
          last_month_reported %in% "december")
 final <- get_murder_by_pop_group(data)
@@ -1907,7 +1907,7 @@ kableExtra::kbl(final,
 ```{r }
 data <- 
   offenses_known_yearly %>%
-  filter(year %in% 2022,
+  filter(year %in% 2023,
          !population_group %in% c("7b", "possessions"),
         !is.na(population_group),
          last_month_reported %in% "december")
@@ -1931,7 +1931,7 @@ Since the actual imputation process looks only at agencies in the same state, we
 ```{r }
 data <- 
   offenses_known_yearly %>%
-  filter(year %in% 2022,
+  filter(year %in% 2023,
          !population_group %in% c("7b", "possessions"),
         !is.na(population_group),
          state == "texas",
@@ -1956,7 +1956,7 @@ Now we will look at data from Maine, as shown in Table \@ref(tab:countyPopulatio
 ```{r }
 data <- 
   offenses_known_yearly %>%
-  filter(year %in% 2022,
+  filter(year %in% 2023,
          !population_group %in% c("7b", "possessions"),
          !is.na(population_group),
          state == "maine",

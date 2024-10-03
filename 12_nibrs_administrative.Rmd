@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r,  results='hide'}
-administrative <- readRDS("data/nibrs_administrative_segment_2022.rds")
+administrative <- readRDS("data/nibrs_administrative_segment_2023.rds")
 window_exceptional <- readRDS("data/nibrs_window_exceptional_clearance_segment_2021.rds")
 nibrs_administrative_summary_stats <- readRDS("data/nibrs_summary_stats/nibrs_administrative_summary_stats.rds")
 
@@ -148,7 +148,7 @@ ggplot2::ggplot(administrative, aes(x = hour)) +
 
 To look at these trends over time, Figure \@ref(fig:nibrsAdministrativeHours) shows the percent of incidents each year that are reported at noon, at midnight, and where the hour is unknown. The noon hour has slowly and steadily become more common, moving from about 4% in 1991 to 6% in 2022. The midnight hour has seen more fluctuations, increasing to 9% by 1993 before steadily decreasing until a large and sustained spike to 9% in 2017. The spike was caused by the end of data being reported as having an unknown hour. While the share of incidents with an unknown hour has also fluctuated - from around 2.5% to 5% of incidents depending on the year - that dropped to 0% in 2017, as unknown hours stopped being reported after 2016.
 
-```{r nibrsAdministrativeHours, fig.cap="Annual percent of incidents that occurred at midnight, noon, and at an unknown time, 1991-2022."}
+```{r nibrsAdministrativeHours, fig.cap="Annual percent of incidents that occurred at midnight, noon, and at an unknown time, 1991-2023."}
 nibrs_administrative_summary_stats  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_hour_midnight, color = "Midnight Hour"), linewidth = 1.05) +
@@ -223,7 +223,7 @@ Next we have when the offender is a juvenile and the police chose to avoid arres
 
 The values shown in Figure \@ref(fig:administrativeExceptionalClearances) are for all incidents so can be quite different when examining subsets of the data such as by offender demographics or incident type. Doing this would require merging the Administrative Segment with another segment such as Offense or Victim. 
 
-```{r administrativeExceptionalClearances, fig.cap = "The distribution of exceptional clearances for all exceptional clearances reported to NIBRS, 1991-2022."}
+```{r administrativeExceptionalClearances, fig.cap = "The distribution of exceptional clearances for all exceptional clearances reported to NIBRS, 1991-2023."}
 nibrs_administrative_summary_stats  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_exceptional_offender_death, color = "Offender\n Death"), linewidth = 1.05) +
@@ -248,7 +248,7 @@ nibrs_administrative_summary_stats  %>%
 
 In Figure \@ref(fig:nibrsAdministrativeClearance) we can see trends in the percent of incidents that involve an arrest or an exceptional clearance. Ignoring the spike in the arrest rate in the first few years of data, likely part of growing pains of any new dataset, the share of incidents with an arrest is relatively steady over time, increasing until it peaks at a little under 30% of incidents in the mid-2010s and then declining since then. The share of incidents that are exceptionally cleared likewise are relatively steady but do show a slow decline over time, moving from a bit over 5% at the start of our data to about 3% by the end. These changes may simply be due to different agencies reporting over time but they are steady enough that I think the trend likely accurately reflects arrest and exceptional clearance rates in the US. 
 
-```{r nibrsAdministrativeClearance, fig.cap="Percent of incidents with an arrest or exceptional clearance, 1991-2022."}
+```{r nibrsAdministrativeClearance, fig.cap="Percent of incidents with an arrest or exceptional clearance, 1991-2023."}
 nibrs_administrative_summary_stats  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_with_arrest, color = "Arrest"), linewidth = 1.05) +
@@ -296,7 +296,7 @@ ggplot2::ggplot(administrative, aes(x = total_offense_segments)) +
 
 This trend is consistent over time. As shown in Figure \@ref(fig:nibrsAdministrativeNumberOffense), the median number of offense segments each year is one, while the mean number is slightly over one.
 
-```{r nibrsAdministrativeNumberOffense, fig.cap="Annual mean and median number of Offense Segments, 1991-2022."}
+```{r nibrsAdministrativeNumberOffense, fig.cap="Annual mean and median number of Offense Segments, 1991-2023."}
 nibrs_administrative_summary_stats  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = mean_number_offense_segments, color = "Mean"), linewidth = 1.05) +
@@ -338,7 +338,7 @@ ggplot2::ggplot(administrative, aes(x = total_offender_segments)) +
 
 As seen in Figure \@ref(fig:nibrsAdministrativeNumberOffender), in every year the median number of offenders is one and the mean number is just above one.
 
-```{r nibrsAdministrativeNumberOffender, fig.cap="Annual mean and median number of Offender Segments, 1991-2022."}
+```{r nibrsAdministrativeNumberOffender, fig.cap="Annual mean and median number of Offender Segments, 1991-2023."}
 nibrs_administrative_summary_stats  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = mean_number_offender_segments, color = "Mean"), linewidth = 1.05) +
@@ -380,7 +380,7 @@ ggplot2::ggplot(administrative, aes(x = total_victim_segments)) +
 
 Similar to what we have seen with offenses and offenders, we can see in Figure \@ref(fig:nibrsAdministrativeNumberVictim) that the median number of victims is one and the mean number is just a bit more than one. 
 
-```{r nibrsAdministrativeNumberVictim, fig.cap="Annual mean and median number of Victim Segments, 1991-2022."}
+```{r nibrsAdministrativeNumberVictim, fig.cap="Annual mean and median number of Victim Segments, 1991-2023."}
 nibrs_administrative_summary_stats  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = mean_number_victim_segments, color = "Mean"), linewidth = 1.05) +
@@ -470,7 +470,7 @@ ggplot(percent_arrested, aes(x = total_offender_segments, y = any_arrests, group
 
 The median number of arrestee segments over time, as shown in Figure \@ref(fig:nibrsAdministrativeNumberArrestee) is zero, with the mean number slightly higher at around 0.3.
 
-```{r nibrsAdministrativeNumberArrestee, fig.cap="Annual mean and median number of Arrestee Segments, 1991-2022."}
+```{r nibrsAdministrativeNumberArrestee, fig.cap="Annual mean and median number of Arrestee Segments, 1991-2023."}
 nibrs_administrative_summary_stats  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = mean_number_arrestee_segments, color = "Mean"), linewidth = 1.05) +

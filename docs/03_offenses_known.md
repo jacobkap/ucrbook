@@ -66,43 +66,56 @@ In practice, the Hierarchy Rule has only modest effects on the data, undercounti
 
 The FBI released a report [available here](https://ucr.fbi.gov/nibrs/2014/resource-pages/effects_of_nibrs_on_crime_statistics_final.pdf) in 2015 that directly examined this issue by taking NIBRS data from 2014 and examined how NIBRS data (which does not use the Hierarchy Rule) compares to using the Hierarchy Rule and keeping only the most serious crime. Figure \@ref(fig:fbiHierarchy) is a screenshot from their report showing the percent increases in crimes when including all crimes in an incident relative to following the Hierarchy Rule. They find that 10.6% of incidents have multiple crimes occurring. For violent crime, murder and rape have no change; for the remaining violent crimes - robbery and aggravated assault - crimes increased by 0.6%.^[Murder is not shown in this figure since murder is always reported so cannot change.] Burglary increased by 1% and the largest increases came from theft and motor vehicle theft, increasing by 2.6% and 2.7%, respectively. Curiously, motor vehicle theft increased even though the FBI's documentation for this data says that it is exempt from the Hierarchy Rule and should always be reported. This discrepancy suggests either non-compliance or errors in the FBI's manual.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{images/fbi_hierarchy} 
-
-}
-
-\caption{The FBI's findings of how crime reporting changes when using the Hierarchy Rule using NIBRS 2014 data.}(\#fig:fbiHierarchy)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/fbi_hierarchy.PNG" alt="The FBI's findings of how crime reporting changes when using the Hierarchy Rule using NIBRS 2014 data." width="100%" height="100%" />
+<p class="caption">(\#fig:fbiHierarchy)The FBI's findings of how crime reporting changes when using the Hierarchy Rule using NIBRS 2014 data.</p>
+</div>
 
 In Table \@ref(tab:nibrsHierarchy) I replicate the FBI's table using NIBRS 2022 data. Results are fairly close. Homicide and rape and unchanged; robbery and aggravated assault both increase by <1%; my count for theft and burglary are a bit smaller, and motor vehicle theft is almost triple the FBI's 2014 number. But these numbers are mostly consistent - particularly so for violent crime - and I expect the differences are just that 2014 and 2022 data are different. So using the Hierarchy Rule does undercount crime, but this is a small undercounting and is primarily led by property crime. Violent crime is only slightly undercounted. And compared to the number of crimes not counted because the victim does not reports it to the police, this is a very small share of crimes. 
 
-
-\begin{longtable}[t]{ll}
-\caption{(\#tab:nibrsHierarchy)The percent increase in reported crimes for each index crime if the Hierarchy Rule was not used, NIBRS 2022.}\\
-\toprule
-Crime & \% increase without Hierarchy Rule\\
-\midrule
-\endfirsthead
-\caption[]{(\#tab:nibrsHierarchy)The percent increase in reported crimes for each index crime if the Hierarchy Rule was not used, NIBRS 2022. \textit{(continued)}}\\
-\toprule
-Crime & \% increase without Hierarchy Rule\\
-\midrule
-\endhead
-
-\endfoot
-\bottomrule
-\endlastfoot
-Homicide & 0.00\\
-Rape & 0.03\\
-Robbery & 0.54\\
-Aggravated Assault & 0.82\\
-Burglary & 1.57\\
-\addlinespace
-Theft & 1.47\\
-Motor Vehicle Theft & 7.92\\
-Arson & 7.54\\*
-\end{longtable}
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:nibrsHierarchy)The percent increase in reported crimes for each index crime if the Hierarchy Rule was not used, NIBRS 2022.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Crime </th>
+   <th style="text-align:left;"> % increase without Hierarchy Rule </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Homicide </td>
+   <td style="text-align:left;"> 0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Rape </td>
+   <td style="text-align:left;"> 0.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Robbery </td>
+   <td style="text-align:left;"> 0.48 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Aggravated Assault </td>
+   <td style="text-align:left;"> 0.78 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Burglary </td>
+   <td style="text-align:left;"> 1.69 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Theft </td>
+   <td style="text-align:left;"> 1.40 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Motor Vehicle Theft </td>
+   <td style="text-align:left;"> 7.12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arson </td>
+   <td style="text-align:left;"> 7.33 </td>
+  </tr>
+</tbody>
+</table>
 
 
 
@@ -112,25 +125,17 @@ One of the first things that people tend to learn about SRS crime data is that i
 
 The biggest problem with index crimes is that it is simply the sum of 8 (or 7 since arson data usually isn’t included) crimes. Index crimes have a huge range in their seriousness - it includes, for example, both murder and theft - so summing up the crimes gives each crime equal weight. This approach is flawed as 100 murders is more serious than 100 thefts. This is especially a problem as less serious crimes (theft mostly) are far more common than more serious crimes. In 2017, for example, there were 1.25 million violent index crimes in the United States. That same year had 5.5 million thefts. So using index crimes as your measure of crimes fails to account for the seriousness of crimes. Looking at total index crimes is, in effect, mostly just looking at theft. Looking at violent index crimes alone mostly measures aggravated assault. This is especially a problem because it hides trends in violent crimes. As an example, San Francisco, shown in Figure \@ref(fig:sfThefts), has had a huge increase - about 50% - in index crimes in the last several years. When looking closer, that increase is driven almost entirely by the near doubling of theft since 2011. During the same years, index violent crimes have stayed fairly steady. So the city isn’t getting more dangerous - at least not in terms of violent index crimes increasing - but it appears like it is due to just looking at total index crimes.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{03_offenses_known_files/figure-latex/sfThefts-1} 
-
-}
-
-\caption{Thefts and total index crimes in San Francisco, 2000-2022.}(\#fig:sfThefts)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="03_offenses_known_files/figure-html/sfThefts-1.png" alt="Thefts and total index crimes in San Francisco, 2000-2023." width="100%" height="100%" />
+<p class="caption">(\#fig:sfThefts)Thefts and total index crimes in San Francisco, 2000-2023.</p>
+</div>
 
 Many researchers divide index crimes into violent and nonviolent categories, which helps but even this is not entirely sufficient. Take Chicago as an example. It is a city infamous for its large number of murders. But as a fraction of index crimes, Chicago has a rounding error worth of murders. Their 653 murders in 2017 is only 0.5% of total index crimes. For violent index crimes, murder made up 2.2% of crimes that year. As seen in Figure \@ref(fig:chicagoMurder), in no year where data is available did murders account for more than 3.5% of violent index crimes; and, while murders are increasing as a percent of violent index crimes they still account for no more than 2.5% in most recent years. What this means is that changes in murder are very difficult to detect. If Chicago had no murders this year, but a less serious crime (such as theft) increased slightly, we could not tell from looking at the number of index crimes, even from violent index crimes. As discussed in the below section, using this sample of crimes as the primary measure of crimes - and particularly of violent crimes - is also misleading as it excludes important - and highly common relative to index crimes - offenses, such as simple assault.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{03_offenses_known_files/figure-latex/chicagoMurder-1} 
-
-}
-
-\caption{Murders in Chicago as a percent of violent index crimes, 1960-2022.}(\#fig:chicagoMurder)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="03_offenses_known_files/figure-html/chicagoMurder-1.png" alt="Murders in Chicago as a percent of violent index crimes, 1960-2023." width="100%" height="100%" />
+<p class="caption">(\#fig:chicagoMurder)Murders in Chicago as a percent of violent index crimes, 1960-2023.</p>
+</div>
 
 
 #### What is a violent crime?
@@ -145,14 +150,10 @@ The final reason is that it benefits some people's goals to classify violent cri
 
 As an example of this last point, Figure \@ref(fig:simpleIndex) shows the number of violent index crimes and simple assaults each year from 1960 to 2018 in Houston, Texas (simple assault is not reported in SRS until 1964, which is why 1960-1963 show zero simple assaults). In every year where simple assault is reported, there are more simple assaults than aggravated assaults. Beginning in the late 1980s, there are also more simple assaults than total violent index crimes. Excluding simple assault from being a violent crime greatly underestimates violence in the country. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{03_offenses_known_files/figure-latex/simpleIndex-1} 
-
-}
-
-\caption{Reported crimes in Houston, Texas, from 1960 to 2018. Violent index crimes are aggravated assault, rape, robbery, and murder.}(\#fig:simpleIndex)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="03_offenses_known_files/figure-html/simpleIndex-1.png" alt="Reported crimes in Houston, Texas, from 1960 to 2018. Violent index crimes are aggravated assault, rape, robbery, and murder." width="100%" height="100%" />
+<p class="caption">(\#fig:simpleIndex)Reported crimes in Houston, Texas, from 1960 to 2018. Violent index crimes are aggravated assault, rape, robbery, and murder.</p>
+</div>
 
 
 
@@ -164,14 +165,10 @@ There are actually two lines throughout this entire figure, though they are near
 
 In the data there are 12 columns - one for each month - that says whether the agency reported data in that month. That is what I use in the green line to measure how many months of data that agency reported. I refer to this in the figure and in the data I have released as the "number of months missing." When looking at agencies reporting only a single month the lines are nearly identical, though the last month reported measure is nearly always larger. This changes in 2018 as a result of the data changing, meaning I needed to use different columns to check starting in that year. That means that post-2018 data may not be comparable to 2018 and earlier using this variable.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{03_offenses_known_files/figure-latex/offensesAgenciesReporting-1} 
-
-}
-
-\caption{The annual number of agencies reporting at least one month of data and a full 12 months of data, 1960-2022.}(\#fig:offensesAgenciesReporting)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="03_offenses_known_files/figure-html/offensesAgenciesReporting-1.png" alt="The annual number of agencies reporting at least one month of data and a full 12 months of data, 1960-2023." width="100%" height="100%" />
+<p class="caption">(\#fig:offensesAgenciesReporting)The annual number of agencies reporting at least one month of data and a full 12 months of data, 1960-2023.</p>
+</div>
 
 Usually when you are looking at crime data you want annual data, so having agencies report a full year's of data is more important than them submitting just partial data. This is especially important when comparing an agency over time or two different agencies to each other. Obviously, an agency with 6 month of data will have fewer crimes reported than one with 12 months reported, all else being equal. But this is something easy to overlook as it is an easy assumption that agencies will report a full years-worth of data. Unfortunately, this is always true. Some agencies do not report any data and others report only part of the year - though if an agency reports one month they usually do report all 12. Figure \@ref(fig:offensesAgenciesReportingFull) repeats Figure \@ref(fig:offensesAgenciesReporting) but now showing only agencies reporting 12 months of data, using both of our measures. Since 1960 every year has had fewer agencies reporting full data using the "number of months missing" method than the "last month reported" method. 
 
@@ -181,18 +178,14 @@ One of the most common questions people have about this data is why there are ne
 
 How this works when the police input the data is that an unfounded crime is reported both as an unfounded crime and as a negative actual crime - the negative is used to zero out the erroneous report of the actual crime. So the report would look like  1 actual theft (the crime being reported), -1 theft (the crime being discovered as not have happened), and 1 unfounded theft. If both incidents occurred in the same month then this would simply be a single unfounded theft occurring, with no actual theft - literally a value of 1 + -1 = 0 thefts. 
 
-Negative values occur when the unfounding happens in a later month than the crime report. In the theft case, let us say the theft occurred in January and the discovery of the wallet happens in August. Assuming no other crimes occurred, January would have 1 theft, and August would have -1 thefts and 1 unfounded theft. There is no way of determining in which month (or even which year) an unfounded crime was initially reported in. When averaging over the long term, there should not be any negative numbers as the actual and unfounded reports will cancel themselves out. However, when looking at monthly crimes - particularly for rare crimes - you will still see negative numbers for this reason. Since crimes can be unfounded for reports in previous years, you can actually see entire year's crime counts be negative, though this is much rarer than monthly values.^[From 1960-2022, there were 39 agency-years with a negative count of murders.] 
+Negative values occur when the unfounding happens in a later month than the crime report. In the theft case, let us say the theft occurred in January and the discovery of the wallet happens in August. Assuming no other crimes occurred, January would have 1 theft, and August would have -1 thefts and 1 unfounded theft. There is no way of determining in which month (or even which year) an unfounded crime was initially reported in. When averaging over the long term, there should not be any negative numbers as the actual and unfounded reports will cancel themselves out. However, when looking at monthly crimes - particularly for rare crimes - you will still see negative numbers for this reason. Since crimes can be unfounded for reports in previous years, you can actually see entire year's crime counts be negative, though this is much rarer than monthly values.^[From 1960-2023, there were 39 agency-years with a negative count of murders.] 
 
 So using the far more common last month reported method will overestimate how many agencies report a full year of data. In practice, though, this affects very little data and what it does affect is only overcounted very slightly. At least when aggregating nationally - which I generally advise against since local crime matters a lot more than national averages. Still, let us look the increase in the total number of crimes reported by 12-month reporting agencies increases from the "number of months missing" measure to the "last month reported" measure, shown in Figure \@ref(fig:murdersBothMeasures). The answer is an extremely small increase, averaging (mean = 0.93%, mean = 1.26%) about a one percent point increase each year. The differences in measuring how many months are reported can matter a great deal at the agency-level, but does very little when aggregating nationally.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{03_offenses_known_files/figure-latex/murdersBothMeasures-1} 
-
-}
-
-\caption{The percent change in the number of murders reported in the United States each year when moving from the number of months missing measure to the last month reported measure, 1960-2020.}(\#fig:murdersBothMeasures)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="03_offenses_known_files/figure-html/murdersBothMeasures-1.png" alt="The percent change in the number of murders reported in the United States each year when moving from the number of months missing measure to the last month reported measure, 1960-2020." width="100%" height="100%" />
+<p class="caption">(\#fig:murdersBothMeasures)The percent change in the number of murders reported in the United States each year when moving from the number of months missing measure to the last month reported measure, 1960-2020.</p>
+</div>
 
 ## Important variables
 
@@ -204,16 +197,12 @@ This is the number of offenses that *actually* occurred - where *actually* means
 
 Crimes that are reported that the police find did not occur (e.g. report of an arson but turns that the fire began accidentally) are called "unfounded" crimes. So this variable is the one people use to measure *crime*. For example if 10 people are murdered in a city the number of "actual murders" would be 10. A crime is a crime incident, regardless of how many offenders there were. If there are multiple victims in a case, such as a double murder, then it would count as multiple crimes.
 
-Figure \@ref(fig:newarkMurders), for example, shows the number of murders per 100,000 population in Newark, NJ, for 1960-2022. One things stands out. Or does not stand out, in a bad way. Newark Police did not report a full year of data in 2015; they reported only 11 months. It is imperceptible in the figure but if you look at the number of months reported in that year - using either the last month reported or the number of months missing measure - you can see that December is missing. While visualizing the data is often a good way to look for outliers or missingness, it is not enough alone. You need to look at the raw data as well to be safe. 
+Figure \@ref(fig:newarkMurders), for example, shows the number of murders per 100,000 population in Newark, NJ, for 1960-2023. One things stands out. Or does not stand out, in a bad way. Newark Police did not report a full year of data in 2015; they reported only 11 months. It is imperceptible in the figure but if you look at the number of months reported in that year - using either the last month reported or the number of months missing measure - you can see that December is missing. While visualizing the data is often a good way to look for outliers or missingness, it is not enough alone. You need to look at the raw data as well to be safe. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{03_offenses_known_files/figure-latex/newarkMurders-1} 
-
-}
-
-\caption{The annual murder rate per 100,000 people in Newark, NJ, 1960-2022.}(\#fig:newarkMurders)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="03_offenses_known_files/figure-html/newarkMurders-1.png" alt="The annual murder rate per 100,000 people in Newark, NJ, 1960-2023." width="100%" height="100%" />
+<p class="caption">(\#fig:newarkMurders)The annual murder rate per 100,000 people in Newark, NJ, 1960-2023.</p>
+</div>
 
 
 Since this is the number of crimes reported and found to occurred, it undercounts the total number of reported crimes. To get that number you will need to add actual crimes to unfounded crimes, which we discuss in Section \@ref({unfounded}). However, unfounded crimes are increasingly not being reported as agencies move to NIBRS reporting which does not capture unfounded crimes. 
@@ -232,14 +221,10 @@ This means that there are occasionally months - and even years - where there are
 
 This is actually a good check to see when people who use this data do not actually understand how it works. I have seen published academic papers that say that having more clearances than actual crimes is a data error; clearly they declined to read the official manual (or this book) before they, their editor, and their anonymous reviewers published the paper. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{03_offenses_known_files/figure-latex/lapdClearance-1} 
-
-}
-
-\caption{The annual number of actual and cleared murders from the Los Angeles Police Department, 1960-2022.}(\#fig:lapdClearance)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="03_offenses_known_files/figure-html/lapdClearance-1.png" alt="The annual number of actual and cleared murders from the Los Angeles Police Department, 1960-2023." width="100%" height="100%" />
+<p class="caption">(\#fig:lapdClearance)The annual number of actual and cleared murders from the Los Angeles Police Department, 1960-2023.</p>
+</div>
 
 ### Crimes cleared where all offenders are under 18 years old
 
@@ -253,28 +238,20 @@ For example, I observed during a ride-along a report of a burglary where the hom
 
 Other unfounded crimes would include when someone reports a crime but later says that the report was not true. For example, a person could report a burglary to the police to collect insurance money on the items they claim was stolen. If the police discover this they would unfound the case - and the lying to the police and fraud would not be counted as neither of those are crimes included in this dataset. The way that the police do this in the data is to record an unfounded crime as a negative actual crime. If there are 10 burglaries already reported and then the above example occurred they would take those 10, add 1 for the report, and then subtract one for when they decide the crime is unfounded. This evens out the data to "erase" the initial report. If the unfounding occurs in a different month than the reported crime then this could lead to negative crimes being reported. This is just another quirk of SRS data and is another good check to see if a person using the data actually understands it as I have also seen people say negative crimes is a data error. 
 
-Figure \@ref(fig:frankenmuthRape) provides one example of this by showing the number of burglaries that the Frankenmuth Police, MI, say actually occurred from 1960-2022. In 1977 they reported -1 burglaries, the result of having more cleared than actual burglaries in that year.
+Figure \@ref(fig:frankenmuthRape) provides one example of this by showing the number of burglaries that the Frankenmuth Police, MI, say actually occurred from 1960-2023. In 1977 they reported -1 burglaries, the result of having more cleared than actual burglaries in that year.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{03_offenses_known_files/figure-latex/frankenmuthRape-1} 
-
-}
-
-\caption{The number of actual burglaries reported by the Frankenmuth Police Department, MI, 1960-2022.}(\#fig:frankenmuthRape)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="03_offenses_known_files/figure-html/frankenmuthRape-1.png" alt="The number of actual burglaries reported by the Frankenmuth Police Department, MI, 1960-2023." width="100%" height="100%" />
+<p class="caption">(\#fig:frankenmuthRape)The number of actual burglaries reported by the Frankenmuth Police Department, MI, 1960-2023.</p>
+</div>
 
 While this is a useful variable, it is not captured in NIBRS data. Instead the number of unfounded crimes is always reported as zero. For example, Figure \@ref(fig:denverUnfounded) shows the annual number of unfounded crimes (of any crime type) in Memphis, TN, and Denver, CO, which are two of the earliest large agencies to adopt NIBRS. Memphis started in reporting to NIBRS in 2000 and Denver did so in 2005. These agencies stopped reporting any unfounded crimes either in that or the following year.^[For Memphis, as agencies can report both SRS and NIBRS, that agency may have reported both in 2000 which is why we still see unfounded data that year.]
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{03_offenses_known_files/figure-latex/denverUnfounded-1} 
-
-}
-
-\caption{The annual number of unfounded crimes in Denver, CO, 1983-2022.}(\#fig:denverUnfounded)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="03_offenses_known_files/figure-html/denverUnfounded-1.png" alt="The annual number of unfounded crimes in Denver, CO, 1983-2023." width="100%" height="100%" />
+<p class="caption">(\#fig:denverUnfounded)The annual number of unfounded crimes in Denver, CO, 1983-2023.</p>
+</div>
 
 
 ## Important changes
@@ -293,14 +270,10 @@ As this revised definition is broader than the original one post-2013, rape data
 
 We will start with the Philadelphia Police Department shown in Figure \@ref(fig:rapePhilly). It is declining slowly but steadily over the 2000-2012 time period until spiking sharply in 2013. Since the rape definition change in 2013 is far broader than previous year's definition, this makes sense. A broader definition should lead to a sudden increase in reported rapes if the agency is reporting correctly. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{03_offenses_known_files/figure-latex/rapePhilly-1} 
-
-}
-
-\caption{The annual number of rapes reported in Philadelphia, San Francisco, New York City, and Jackson, MS, 2005-2019.}(\#fig:rapePhilly)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="03_offenses_known_files/figure-html/rapePhilly-1.png" alt="The annual number of rapes reported in Philadelphia, San Francisco, New York City, and Jackson, MS, 2005-2019." width="100%" height="100%" />
+<p class="caption">(\#fig:rapePhilly)The annual number of rapes reported in Philadelphia, San Francisco, New York City, and Jackson, MS, 2005-2019.</p>
+</div>
 
 In comparison, New York City has the sudden spike a year later, which indicates that they did not start using the new definition until 2014. Figure \@ref(fig:rapeNYC) shows that rape is fairly steady, though increasing, in the years leading up to 2013 and has almost no change from 2012 to 2013, but a huge increase in 2014 and then steadily increases from there, spiking again in 2018. This seems like a fairly clear indicator that NYC simply did not follow the new definition until 2014. 
 
@@ -316,27 +289,19 @@ My takeaway from this is that rape should not be used at all for years after 201
 
 This data contains two different crime subcategories for homicide: "murder and non-negligent manslaughter," and "manslaughter by negligence." The first is our measure of murder, and it includes everything we traditionally think of when it comes to murder - shootings, stabbings, strangulation, basically any intentional killing of another person.^[Attempted murder is usually classified as an aggravated assault.] Suicides, killing a fetus, and accidental killings (e.g. car crashes) are not considered murders.^[Even the intentional killing of a fetus is classified as an aggravated assault against the mother, not a murder of the fetus.] The second, manslaughter by negligence - usually called just "manslaughter" - is when someone kills another person through "gross negligence" but does not kill them intentionally. This can include accidental killings when the death was caused by gross negligence. The FBI provide examples of this as kids playing with guns and shooting each other (and not knowing the gun was loaded) or a hunter accidentally shooting someone while hunting. After the late 1970s this excludes deaths from traffic accidents caused by negligence, such as hit and runs or DUIs. However, prior to this, these deaths were included, which is the cause of the very high number of manslaughters in the 1960s and 1970s.
 
-Figure \@ref(fig:manslaughterVsMurder) shows the annual number of murders, manslaughters, and the sum of the two nationwide from 1960-2022. This just sums up the total reported counts from every agency each year so part of the increase is simply due to more agencies reporting as the year gets closer to the present day - so please pay attention to the diverging paths of each crime, not the trend for the individual crime over time. Murder is always more common than manslaughter, but these values are not that far apart in the early decade of data and manslaughter does not become rare until the end of the 1970s. 
+Figure \@ref(fig:manslaughterVsMurder) shows the annual number of murders, manslaughters, and the sum of the two nationwide from 1960-2023. This just sums up the total reported counts from every agency each year so part of the increase is simply due to more agencies reporting as the year gets closer to the present day - so please pay attention to the diverging paths of each crime, not the trend for the individual crime over time. Murder is always more common than manslaughter, but these values are not that far apart in the early decade of data and manslaughter does not become rare until the end of the 1970s. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{03_offenses_known_files/figure-latex/manslaughterVsMurder-1} 
-
-}
-
-\caption{The annual number of murder and non-negligent manslaughter, manslaughter by negligence, and the sum of the two, nationwide from 1960-2022.}(\#fig:manslaughterVsMurder)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="03_offenses_known_files/figure-html/manslaughterVsMurder-1.png" alt="The annual number of murder and non-negligent manslaughter, manslaughter by negligence, and the sum of the two, nationwide from 1960-2023." width="100%" height="100%" />
+<p class="caption">(\#fig:manslaughterVsMurder)The annual number of murder and non-negligent manslaughter, manslaughter by negligence, and the sum of the two, nationwide from 1960-2023.</p>
+</div>
 
 Figure \@ref(fig:manslaughterPercent) shows another way to look at this data: manslaughter as a percent of reported murder. In the early years of our data manslaughter was fairly common, with about 70-80% as many manslaughters reported as murders. This declined sharply in the mid-1960s until there were around 45% as many manslaughters as murders in the mid-1970s. Again, this declined until it was about 4% in 1980, and it has remained around there ever since. As police behavior could reduce traffic fatalities - and arrests for DUIs and traffic tickets are designed to improve public safety - it is unfortunate the we no longer have data on traffic deaths. 
 
 Manslaughter increased to over 1,000 for the first time since 1978 in 2020, increased against to over 1,700 in 2021 and continued at around that number in 2022. This is possibly related to the increase in murders over the last few years of available data. Unfortunately, this dataset does not allow us to do almost anything at figuring out more information than monthly or annual counts. NIBRS, in comparison, allows us to do this kind of deep dive, and for curious readers NIBRS also has manslaughter so you can investigate this question yourself. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{03_offenses_known_files/figure-latex/manslaughterPercent-1} 
-
-}
-
-\caption{Reported manslaughter by negligence as a percent of reported murder and non-negligent manslaughter, nationwide 1960-2022.}(\#fig:manslaughterPercent)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="03_offenses_known_files/figure-html/manslaughterPercent-1.png" alt="Reported manslaughter by negligence as a percent of reported murder and non-negligent manslaughter, nationwide 1960-2023." width="100%" height="100%" />
+<p class="caption">(\#fig:manslaughterPercent)Reported manslaughter by negligence as a percent of reported murder and non-negligent manslaughter, nationwide 1960-2023.</p>
+</div>
 

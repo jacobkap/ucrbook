@@ -12,9 +12,8 @@ knitr::opts_chunk$set(
 ```
 
 ```{r,  results='hide'}
-agencies_reporting <- readRDS("data/agencies_reporting.rds")
-administrative <- readRDS("data/nibrs_administrative_segment_2022.rds")
-ucr <- readRDS("data/offenses_known_yearly_1960_2022.rds")
+administrative <- readRDS("data/nibrs_administrative_segment_2023.rds")
+ucr <- readRDS("data/offenses_known_yearly_1960_2023.rds")
 batch_header <- readRDS("data/nibrs_summary_stats/batch_header_all_years.rds")
 gc()
 batch_header_all_years <- readRDS("E:/Dropbox/ucrbook/data/nibrs_summary_stats/batch_header_all_years.rds")
@@ -37,7 +36,7 @@ NIBRS data provides detailed information on every crime reported to the police, 
 
 However, there is a major limitation to this data: most agencies do not use it. [According to the FBI](https://www.fbi.gov/news/pressrel/press-releases/fbi-releases-2019-nibrs-crime-data) only about 8,500 police agencies, covering about 45% of the US population, reported NIBRS data in 2019 (the latest year currently available). This is fewer than half of the about 18,000 police agencies in the United States. This is an even larger problem than it seems as the agencies that do report - especially in earlier years of the data - are disproportionately small and rural. So we are missing out of data from most major cities. A number of states do not have any agencies reporting, making this data relatively biased at least in terms of geography and city size. **Even so, the FBI has said that they are moving entirely to NIBRS data starting in 2021, and will no longer even collect UCR data.** While NIBRS can be converted to UCR data, meaning we can have consistent statistics over time, for agencies that do not report to NIBRS, we have no information on their crimes. In effect, unless the majority of agencies suddenly switch to NIBRS - which, given that the high level of detail relative to UCR data makes moving to NIBRS a costly and timely switch - we will be flying blind for most crime in the country. 
 
-```{r nibrsSegmentsAgencies, fig.cap="The number of agencies reporting data for each of the NIBRS Segments, 1991-2022."}
+```{r nibrsSegmentsAgencies, fig.cap="The number of agencies reporting data for each of the NIBRS Segments, 1991-2023."}
 nibrs_administrative_summary_stats  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = number_of_agencies, color = "Administrative"), linewidth = 1.05) +
@@ -124,7 +123,8 @@ batch_header_all_years %>%
   labs(color = "") +
   expand_limits(y = 0) +
   scale_color_manual(values = c("12 Months" = "#1b9e77",
-                                "At Least 1 Month" = "#d95f02"))
+                                "At Least 1 Month" = "#d95f02")) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```
 
 
@@ -163,7 +163,8 @@ batch_header_all_years %>%
   labs(color = "") +
   expand_limits(y = 0) +
   scale_color_manual(values = c("12 Months" = "#1b9e77",
-                                "At Least 1 Month" = "#d95f02"))
+                                "At Least 1 Month" = "#d95f02")) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```
 
 
@@ -205,13 +206,13 @@ census_state_final <-
 batch_header_percent_pop <-
   batch_header_all_years %>%
   filter(number_of_months_reported %in% 1:12,
-         year %in% 2022) %>%
+         year %in% 2023) %>%
   mutate(state = gsub("wyoming v2", "wyoming", state)) %>%
   group_by(state) %>%
   summarize(nibrs_population = sum(population)) %>%
   left_join(census_state_final) %>%
   mutate(n = nibrs_population / population * 100) 
-nibrs_state_pop_percent_2022 <-
+nibrs_state_pop_percent_2023 <-
   batch_header_percent_pop %>%
   ggplot2::ggplot(aes(map_id = state)) + 
   ggplot2::geom_map(aes(fill = n), map = fifty_states, color = "black") + 
@@ -349,36 +350,9 @@ nibrs_state_pop_percent_2000
 nibrs_state_pop_percent_2010
 ```
 
-```{r nibrsStateParticipation2022, fig.cap = "The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022"}
-nibrs_state_pop_percent_2022
+```{r nibrsStateParticipation2022, fig.cap = "The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2023 (using 2022 ACS 5-year Census data)"}
+nibrs_state_pop_percent_2023
 ```
-
-```{r nibrsStateParticipation2022Full, fig.cap = "The percent of each state's population that is covered by police agencies reporting 12 months of data to NIBRS, 2022"}
-batch_header_percent_pop <-
-  batch_header_all_years %>%
-  filter(number_of_months_reported %in% 12,
-         year %in% 2022) %>%
-  mutate(state = gsub("wyoming v2", "wyoming", state)) %>%
-  group_by(state) %>%
-  summarize(nibrs_population = sum(population)) %>%
-  left_join(census_state_final) %>%
-  mutate(n = nibrs_population / population * 100) 
-nibrs_state_pop_percent_2022 <-
-  batch_header_percent_pop %>%
-  ggplot2::ggplot(aes(map_id = state)) + 
-  ggplot2::geom_map(aes(fill = n), map = fifty_states, color = "black") + 
-  expand_limits(x = fifty_states$long, y = fifty_states$lat) +
-  coord_map() +
-  scale_x_continuous(breaks = NULL) + 
-  scale_y_continuous(breaks = NULL) +
-  labs(x = "", y = "", fill = "% of Population Covered") +
-  theme(panel.background = element_blank()) +
-  fifty_states_inset_boxes() +
-  scale_fill_gradient(low = "white", high = "red") +
-  ggtitle("NIBRS Participation in 2022")
-nibrs_state_pop_percent_2022
-```
-
 
 ## Crimes included in NIBRS
 

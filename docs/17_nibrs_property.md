@@ -19,14 +19,10 @@ The next most common group, at 13.3%, is when the item was seized by the police.
 
 Next is "none" which only means that no property was stolen or damaged but that it could have been. For example, if someone tries to grab a person's purse but fails, that would be considered "none" since the purse was not actually taken. The remaining types are when the item was a counterfeit/forgery, at 1.2%, was burned (such as during an arson) at 0.2%, or when the type of loss is unknown at 0.2% 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{17_nibrs_property_files/figure-latex/propertyTypeLoss-1} 
-
-}
-
-\caption{The type of loss or if the item is recovered, 2022.}(\#fig:propertyTypeLoss)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="17_nibrs_property_files/figure-html/propertyTypeLoss-1.png" alt="The type of loss or if the item is recovered, 2023." width="100%" height="100%" />
+<p class="caption">(\#fig:propertyTypeLoss)The type of loss or if the item is recovered, 2023.</p>
+</div>
 
 
 ## Description of property
@@ -39,157 +35,503 @@ Table \@ref(tab:propertyStolenDescription) shows each of the 68 different types 
 
 There are about 4.8 million rows in the Property Segment where the item was stolen (the other 3.1 million rows are about property that was seized by police, recovered, damaged, or one of the other types of property loss detailed in Section \@ref(propertyLoss)). As such, even items stolen very rarely can occur thousands or tens of thousands of times. For example, pets were the property stolen about 0.14% of the time and that tiny percent still accounts of 6,821 incidents with a pet stolen. Given the huge number of rows in this data - and as more agencies report to NIBRS this will grow quickly - it can be possible to study specific types of property, such as pets stolen, that would not be possible with a more narrow dataset (both in terms of how specific the items they include are, and the size of the data). 
 
-
-\begin{longtable}[t]{l|l|r|r|r}
-\caption{(\#tab:propertyStolenDescription)The number and percent of property stolen (including forcibly taken such as during a robbery) and property seized by police (excludes recovering property that was stolen), and recovered by police, 2022. Each incident can have multiple items stolen.}\\
-\hline
-Property & First Year & \# (\%) of Property Stolen & \# (\%) of Property Seized & \# (\%) of Property Recovered\\
-\hline
-\endfirsthead
-\caption[]{(\#tab:propertyStolenDescription)The number and percent of property stolen (including forcibly taken such as during a robbery) and property seized by police (excludes recovering property that was stolen), and recovered by police, 2022. Each incident can have multiple items stolen. \textit{(continued)}}\\
-\hline
-Property & First Year & \# (\%) of Property Stolen & \# (\%) of Property Seized & \# (\%) of Property Recovered\\
-\hline
-\endhead
-Other & 1991 & 1,149,292 (15.09\textbackslash{}\%) & 37,857 (2.63\textbackslash{}\%) & 104,470 (9.91\textbackslash{}\%)\\
-\hline
-Money & 1991 & 824,234 (10.82\textbackslash{}\%) & 21,762 (1.51\textbackslash{}\%) & 18,145 (1.72\textbackslash{}\%)\\
-\hline
-Automobiles & 1991 & 570,623 (7.49\textbackslash{}\%) & 4,037 (0.28\textbackslash{}\%) & 332,931 (31.58\textbackslash{}\%)\\
-\hline
-Vehicle Parts/Accessories & 1991 & 535,780 (7.03\textbackslash{}\%) & 1,712 (0.12\textbackslash{}\%) & 36,973 (3.51\textbackslash{}\%)\\
-\hline
-Purses/Handbags/Wallets & 1991 & 377,761 (4.96\textbackslash{}\%) & 2,852 (0.20\textbackslash{}\%) & 24,455 (2.32\textbackslash{}\%)\\
-\hline
-Clothes/Furs & 1991 & 348,984 (4.58\textbackslash{}\%) & 1,350 (0.09\textbackslash{}\%) & 59,114 (5.61\textbackslash{}\%)\\
-\hline
-Credit/Debit Cards & 1991 & 313,888 (4.12\textbackslash{}\%) & 1,981 (0.14\textbackslash{}\%) & 15,842 (1.50\textbackslash{}\%)\\
-\hline
-Tools - Power/Hand & 1991 & 309,668 (4.07\textbackslash{}\%) & 1,131 (0.08\textbackslash{}\%) & 26,890 (2.55\textbackslash{}\%)\\
-\hline
-Merchandise & 1991 & 289,078 (3.79\textbackslash{}\%) & 525 (0.04\textbackslash{}\%) & 89,527 (8.49\textbackslash{}\%)\\
-\hline
-Consumable Goods & 1991 & 253,272 (3.32\textbackslash{}\%) & 1,954 (0.14\textbackslash{}\%) & 53,760 (5.10\textbackslash{}\%)\\
-\hline
-Identity Documents & 2009 & 252,837 (3.32\textbackslash{}\%) & 3,477 (0.24\textbackslash{}\%) & 12,269 (1.16\textbackslash{}\%)\\
-\hline
-Portible Electronic Communications & 2009 & 244,450 (3.21\textbackslash{}\%) & 7,798 (0.54\textbackslash{}\%) & 24,069 (2.28\textbackslash{}\%)\\
-\hline
-Computer Hardware/Software & 1991 & 201,441 (2.64\textbackslash{}\%) & 1,494 (0.10\textbackslash{}\%) & 13,216 (1.25\textbackslash{}\%)\\
-\hline
-Household Goods & 1991 & 200,120 (2.63\textbackslash{}\%) & 1,300 (0.09\textbackslash{}\%) & 25,384 (2.41\textbackslash{}\%)\\
-\hline
-Firearms & 1991 & 170,635 (2.24\textbackslash{}\%) & 17,471 (1.21\textbackslash{}\%) & 24,198 (2.29\textbackslash{}\%)\\
-\hline
-Identity - Intangible & 2009 & 162,824 (2.14\textbackslash{}\%) & 217 (0.02\textbackslash{}\%) & 1,913 (0.18\textbackslash{}\%)\\
-\hline
-Radios/Tvs/Vcrs & 1991 & 144,002 (1.89\textbackslash{}\%) & 467 (0.03\textbackslash{}\%) & 9,912 (0.94\textbackslash{}\%)\\
-\hline
-Jewelry/Precious Metals & 1991 & 141,635 (1.86\textbackslash{}\%) & 358 (0.02\textbackslash{}\%) & 10,599 (1.01\textbackslash{}\%)\\
-\hline
-Bicycles & 1991 & 123,395 (1.62\textbackslash{}\%) & 160 (0.01\textbackslash{}\%) & 12,670 (1.20\textbackslash{}\%)\\
-\hline
-Documents - Personal Or Business & 2009 & 94,572 (1.24\textbackslash{}\%) & 3,580 (0.25\textbackslash{}\%) & 6,037 (0.57\textbackslash{}\%)\\
-\hline
-Trucks & 1991 & 93,364 (1.23\textbackslash{}\%) & 274 (0.02\textbackslash{}\%) & 54,244 (5.14\textbackslash{}\%)\\
-\hline
-Alcohol & 1991 & 75,575 (0.99\textbackslash{}\%) & 1,433 (0.10\textbackslash{}\%) & 10,926 (1.04\textbackslash{}\%)\\
-\hline
-Other Motor Vehicles & 1991 & 59,593 (0.78\textbackslash{}\%) & 363 (0.03\textbackslash{}\%) & 22,389 (2.12\textbackslash{}\%)\\
-\hline
-Negotiable Instruments & 1991 & 54,250 (0.71\textbackslash{}\%) & 1,521 (0.11\textbackslash{}\%) & 2,748 (0.26\textbackslash{}\%)\\
-\hline
-Office-Type Equipment & 1991 & 53,825 (0.71\textbackslash{}\%) & 1,899 (0.13\textbackslash{}\%) & 5,029 (0.48\textbackslash{}\%)\\
-\hline
-Lawn/Yard/Garden Equipment & 2009 & 47,867 (0.63\textbackslash{}\%) & 29 (0.00\textbackslash{}\%) & 4,157 (0.39\textbackslash{}\%)\\
-\hline
-Trailers & 2009 & 45,526 (0.60\textbackslash{}\%) & 45 (0.00\textbackslash{}\%) & 9,630 (0.91\textbackslash{}\%)\\
-\hline
-Building Materials & 2009 & 43,258 (0.57\textbackslash{}\%) & 49 (0.00\textbackslash{}\%) & 3,044 (0.29\textbackslash{}\%)\\
-\hline
-Drugs/Narcotics & 1991 & 42,540 (0.56\textbackslash{}\%) & 916,616 (63.68\textbackslash{}\%) & 1,682 (0.16\textbackslash{}\%)\\
-\hline
-Recreational/Sports Equipment & 2009 & 40,414 (0.53\textbackslash{}\%) & 81 (0.01\textbackslash{}\%) & 4,014 (0.38\textbackslash{}\%)\\
-\hline
-Nonnegotiable Instruments & 1991 & 31,060 (0.41\textbackslash{}\%) & 1,106 (0.08\textbackslash{}\%) & 1,714 (0.16\textbackslash{}\%)\\
-\hline
-Fuel & 2009 & 30,233 (0.40\textbackslash{}\%) & 23 (0.00\textbackslash{}\%) & 1,155 (0.11\textbackslash{}\%)\\
-\hline
-Camping/Hunting/Fishing Equipment/Supplies & 2009 & 28,371 (0.37\textbackslash{}\%) & 96 (0.01\textbackslash{}\%) & 3,322 (0.32\textbackslash{}\%)\\
-\hline
-Photographic/Optical Equipment & 2009 & 27,502 (0.36\textbackslash{}\%) & 231 (0.02\textbackslash{}\%) & 1,684 (0.16\textbackslash{}\%)\\
-\hline
-Heavy Construction/Industrial Equipment & 1991 & 24,878 (0.33\textbackslash{}\%) & 407 (0.03\textbackslash{}\%) & 2,658 (0.25\textbackslash{}\%)\\
-\hline
-Metals, Non-Precious & 2009 & 18,589 (0.24\textbackslash{}\%) & 54 (0.00\textbackslash{}\%) & 1,232 (0.12\textbackslash{}\%)\\
-\hline
-Collections/Collectibles & 2009 & 18,126 (0.24\textbackslash{}\%) & 94 (0.01\textbackslash{}\%) & 1,903 (0.18\textbackslash{}\%)\\
-\hline
-Firearm Accessories & 2009 & 18,115 (0.24\textbackslash{}\%) & 4,740 (0.33\textbackslash{}\%) & 2,071 (0.20\textbackslash{}\%)\\
-\hline
-Weapons - Other & 2009 & 17,843 (0.23\textbackslash{}\%) & 2,699 (0.19\textbackslash{}\%) & 2,042 (0.19\textbackslash{}\%)\\
-\hline
-Pending Inventory (Of Property) & 1991 & 17,818 (0.23\textbackslash{}\%) & 142 (0.01\textbackslash{}\%) & 431 (0.04\textbackslash{}\%)\\
-\hline
-Recordings - Audio/Visual & 1991 & 17,146 (0.23\textbackslash{}\%) & 1,505 (0.10\textbackslash{}\%) & 1,582 (0.15\textbackslash{}\%)\\
-\hline
-Medical/Medical Lab Equipment & 2009 & 13,153 (0.17\textbackslash{}\%) & 329 (0.02\textbackslash{}\%) & 1,092 (0.10\textbackslash{}\%)\\
-\hline
-Musical Instruments & 2009 & 12,275 (0.16\textbackslash{}\%) & 16 (0.00\textbackslash{}\%) & 1,033 (0.10\textbackslash{}\%)\\
-\hline
-Recreational Vehicles & 1991 & 11,395 (0.15\textbackslash{}\%) & 34 (0.00\textbackslash{}\%) & 3,645 (0.35\textbackslash{}\%)\\
-\hline
-Pets & 2009 & 11,368 (0.15\textbackslash{}\%) & 11 (0.00\textbackslash{}\%) & 1,442 (0.14\textbackslash{}\%)\\
-\hline
-Farm Equipment & 1991 & 8,892 (0.12\textbackslash{}\%) & 54 (0.00\textbackslash{}\%) & 1,072 (0.10\textbackslash{}\%)\\
-\hline
-Artistic Supplies/Accessories & 2009 & 6,265 (0.08\textbackslash{}\%) & 53 (0.00\textbackslash{}\%) & 1,248 (0.12\textbackslash{}\%)\\
-\hline
-Chemicals & 2009 & 5,326 (0.07\textbackslash{}\%) & 181 (0.01\textbackslash{}\%) & 840 (0.08\textbackslash{}\%)\\
-\hline
-Explosives & 2010 & 4,542 (0.06\textbackslash{}\%) & 1,267 (0.09\textbackslash{}\%) & 443 (0.04\textbackslash{}\%)\\
-\hline
-Gambling Equipment & 1991 & 4,482 (0.06\textbackslash{}\%) & 503 (0.03\textbackslash{}\%) & 269 (0.03\textbackslash{}\%)\\
-\hline
-Watercraft & 1991 & 4,064 (0.05\textbackslash{}\%) & 3 (0.00\textbackslash{}\%) & 778 (0.07\textbackslash{}\%)\\
-\hline
-Drug/Narcotic Equipment & 1991 & 4,000 (0.05\textbackslash{}\%) & 391,785 (27.22\textbackslash{}\%) & 365 (0.03\textbackslash{}\%)\\
-\hline
-Watercraft Equipment/Parts/Accessories & 2009 & 3,186 (0.04\textbackslash{}\%) & 6 (0.00\textbackslash{}\%) & 250 (0.02\textbackslash{}\%)\\
-\hline
-Law Enforcement Equipment & 2009 & 2,773 (0.04\textbackslash{}\%) & 68 (0.00\textbackslash{}\%) & 339 (0.03\textbackslash{}\%)\\
-\hline
-Livestock & 1991 & 2,242 (0.03\textbackslash{}\%) & 9 (0.00\textbackslash{}\%) & 209 (0.02\textbackslash{}\%)\\
-\hline
-Logging Equipment & 2009 & 1,470 (0.02\textbackslash{}\%) & 4 (0.00\textbackslash{}\%) & 132 (0.01\textbackslash{}\%)\\
-\hline
-Structures - Other & 1991 & 1,311 (0.02\textbackslash{}\%) & 40 (0.00\textbackslash{}\%) & 97 (0.01\textbackslash{}\%)\\
-\hline
-Crops & 2010 & 1,199 (0.02\textbackslash{}\%) & 29 (0.00\textbackslash{}\%) & 135 (0.01\textbackslash{}\%)\\
-\hline
-Buses & 1991 & 1,121 (0.01\textbackslash{}\%) & 6 (0.00\textbackslash{}\%) & 644 (0.06\textbackslash{}\%)\\
-\hline
-Aircraft Parts/Accessories & 2009 & 1,053 (0.01\textbackslash{}\%) & 10 (0.00\textbackslash{}\%) & 90 (0.01\textbackslash{}\%)\\
-\hline
-Structures - Single Occupancy Dwellings & 1991 & 624 (0.01\textbackslash{}\%) & 4 (0.00\textbackslash{}\%) & 41 (0.00\textbackslash{}\%)\\
-\hline
-Structures - Storage & 1991 & 546 (0.01\textbackslash{}\%) & 20 (0.00\textbackslash{}\%) & 42 (0.00\textbackslash{}\%)\\
-\hline
-Aircraft & 1991 & 491 (0.01\textbackslash{}\%) & 17 (0.00\textbackslash{}\%) & 44 (0.00\textbackslash{}\%)\\
-\hline
-Structures - Commercial/Business & 1991 & 438 (0.01\textbackslash{}\%) & 7 (0.00\textbackslash{}\%) & 29 (0.00\textbackslash{}\%)\\
-\hline
-Structures - Other Dwellings & 1991 & 348 (0.00\textbackslash{}\%) & 3 (0.00\textbackslash{}\%) & 23 (0.00\textbackslash{}\%)\\
-\hline
-Special Category & 1991 & 281 (0.00\textbackslash{}\%) & 2 (0.00\textbackslash{}\%) & 13 (0.00\textbackslash{}\%)\\
-\hline
-Structures - Industrial Manufacturing & 1991 & 224 (0.00\textbackslash{}\%) & 4 (0.00\textbackslash{}\%) & 18 (0.00\textbackslash{}\%)\\
-\hline
-Structures - Public/Community & 1991 & 207 (0.00\textbackslash{}\%) & 8 (0.00\textbackslash{}\%) & 20 (0.00\textbackslash{}\%)\\
-\hline
-Total & - & 7,617,660 (100\textbackslash{}\%) & 1,439,363 (100\textbackslash{}\%) & 1,054,384 (100\textbackslash{}\%)\\
-\hline
-\end{longtable}
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:propertyStolenDescription)The number and percent of property stolen (including forcibly taken such as during a robbery) and property seized by police (excludes recovering property that was stolen), and recovered by police, 2023. Each incident can have multiple items stolen.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Property </th>
+   <th style="text-align:left;"> First Year </th>
+   <th style="text-align:right;"> # (%) of Property Stolen </th>
+   <th style="text-align:right;"> # (%) of Property Seized </th>
+   <th style="text-align:right;"> # (%) of Property Recovered </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Other </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 1,282,806 (15.79\%) </td>
+   <td style="text-align:right;"> 38,456 (2.54\%) </td>
+   <td style="text-align:right;"> 128,422 (10.64\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Money </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 897,846 (11.05\%) </td>
+   <td style="text-align:right;"> 21,170 (1.40\%) </td>
+   <td style="text-align:right;"> 20,041 (1.66\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Automobile </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 669,545 (8.24\%) </td>
+   <td style="text-align:right;"> 3,708 (0.24\%) </td>
+   <td style="text-align:right;"> 398,894 (33.06\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Clothes/Furs </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 413,932 (5.10\%) </td>
+   <td style="text-align:right;"> 1,261 (0.08\%) </td>
+   <td style="text-align:right;"> 74,705 (6.19\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Vehicle Parts/Accessories </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 406,893 (5.01\%) </td>
+   <td style="text-align:right;"> 2,023 (0.13\%) </td>
+   <td style="text-align:right;"> 36,507 (3.03\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Purses/Handbags/Wallets </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 394,348 (4.86\%) </td>
+   <td style="text-align:right;"> 2,953 (0.19\%) </td>
+   <td style="text-align:right;"> 26,582 (2.20\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Merchandise </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 348,664 (4.29\%) </td>
+   <td style="text-align:right;"> 444 (0.03\%) </td>
+   <td style="text-align:right;"> 105,031 (8.71\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Credit/Debit Cards </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 334,601 (4.12\%) </td>
+   <td style="text-align:right;"> 1,881 (0.12\%) </td>
+   <td style="text-align:right;"> 17,232 (1.43\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Consumable Goods </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 328,566 (4.05\%) </td>
+   <td style="text-align:right;"> 1,898 (0.13\%) </td>
+   <td style="text-align:right;"> 68,355 (5.67\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tools - Power/Hand </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 303,989 (3.74\%) </td>
+   <td style="text-align:right;"> 1,097 (0.07\%) </td>
+   <td style="text-align:right;"> 25,449 (2.11\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Portible Electronic Communications </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 279,217 (3.44\%) </td>
+   <td style="text-align:right;"> 8,278 (0.55\%) </td>
+   <td style="text-align:right;"> 28,544 (2.37\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Identity Documents </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 271,321 (3.34\%) </td>
+   <td style="text-align:right;"> 4,047 (0.27\%) </td>
+   <td style="text-align:right;"> 13,283 (1.10\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Household Goods </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 227,841 (2.81\%) </td>
+   <td style="text-align:right;"> 1,206 (0.08\%) </td>
+   <td style="text-align:right;"> 30,413 (2.52\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Computer Hardware/Software </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 198,248 (2.44\%) </td>
+   <td style="text-align:right;"> 1,456 (0.10\%) </td>
+   <td style="text-align:right;"> 13,005 (1.08\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Identity - Intangible </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 170,718 (2.10\%) </td>
+   <td style="text-align:right;"> 220 (0.01\%) </td>
+   <td style="text-align:right;"> 2,130 (0.18\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Firearms </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 163,339 (2.01\%) </td>
+   <td style="text-align:right;"> 16,915 (1.12\%) </td>
+   <td style="text-align:right;"> 23,384 (1.94\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Jewelry/Precious Metals/Gems </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 148,039 (1.82\%) </td>
+   <td style="text-align:right;"> 335 (0.02\%) </td>
+   <td style="text-align:right;"> 11,568 (0.96\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bicycles </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 132,699 (1.63\%) </td>
+   <td style="text-align:right;"> 203 (0.01\%) </td>
+   <td style="text-align:right;"> 14,306 (1.19\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Radios/Tv/Vcr/Dvd Players </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 129,190 (1.59\%) </td>
+   <td style="text-align:right;"> 427 (0.03\%) </td>
+   <td style="text-align:right;"> 9,027 (0.75\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Documents - Personal Or Business </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 102,307 (1.26\%) </td>
+   <td style="text-align:right;"> 3,996 (0.26\%) </td>
+   <td style="text-align:right;"> 6,576 (0.55\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Alcohol </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 95,581 (1.18\%) </td>
+   <td style="text-align:right;"> 1,416 (0.09\%) </td>
+   <td style="text-align:right;"> 13,489 (1.12\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Trucks </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 91,891 (1.13\%) </td>
+   <td style="text-align:right;"> 262 (0.02\%) </td>
+   <td style="text-align:right;"> 51,915 (4.30\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Other Motor Vehicles </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 62,001 (0.76\%) </td>
+   <td style="text-align:right;"> 280 (0.02\%) </td>
+   <td style="text-align:right;"> 22,072 (1.83\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Negotiable Instruments </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 52,111 (0.64\%) </td>
+   <td style="text-align:right;"> 1,390 (0.09\%) </td>
+   <td style="text-align:right;"> 2,516 (0.21\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Office-Type Equipment </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 51,959 (0.64\%) </td>
+   <td style="text-align:right;"> 1,944 (0.13\%) </td>
+   <td style="text-align:right;"> 5,129 (0.43\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Lawn/Yard/Garden Equipment </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 47,029 (0.58\%) </td>
+   <td style="text-align:right;"> 17 (0.00\%) </td>
+   <td style="text-align:right;"> 3,978 (0.33\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Trailers </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 42,657 (0.53\%) </td>
+   <td style="text-align:right;"> 44 (0.00\%) </td>
+   <td style="text-align:right;"> 9,277 (0.77\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Drugs/Narcotics </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 42,073 (0.52\%) </td>
+   <td style="text-align:right;"> 973,582 (64.20\%) </td>
+   <td style="text-align:right;"> 1,708 (0.14\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Recreational/Sports Equipment </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 41,355 (0.51\%) </td>
+   <td style="text-align:right;"> 70 (0.00\%) </td>
+   <td style="text-align:right;"> 4,269 (0.35\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Building Materials </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 40,958 (0.50\%) </td>
+   <td style="text-align:right;"> 38 (0.00\%) </td>
+   <td style="text-align:right;"> 2,819 (0.23\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Photographic/Optical Equipment </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 28,705 (0.35\%) </td>
+   <td style="text-align:right;"> 211 (0.01\%) </td>
+   <td style="text-align:right;"> 1,774 (0.15\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Camping/Hunting/Fishing Equipment/Supplies </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 27,738 (0.34\%) </td>
+   <td style="text-align:right;"> 105 (0.01\%) </td>
+   <td style="text-align:right;"> 3,247 (0.27\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Nonnegotiable Instruments </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 26,281 (0.32\%) </td>
+   <td style="text-align:right;"> 1,057 (0.07\%) </td>
+   <td style="text-align:right;"> 1,530 (0.13\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Heavy Construction/Industrial Equipment </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 25,738 (0.32\%) </td>
+   <td style="text-align:right;"> 418 (0.03\%) </td>
+   <td style="text-align:right;"> 2,783 (0.23\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fuel </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 22,461 (0.28\%) </td>
+   <td style="text-align:right;"> 24 (0.00\%) </td>
+   <td style="text-align:right;"> 970 (0.08\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Collections/Collectibles </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 20,624 (0.25\%) </td>
+   <td style="text-align:right;"> 55 (0.00\%) </td>
+   <td style="text-align:right;"> 2,408 (0.20\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pending Inventory (Of Property) </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 19,125 (0.24\%) </td>
+   <td style="text-align:right;"> 132 (0.01\%) </td>
+   <td style="text-align:right;"> 369 (0.03\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Recordings - Audio/Visual </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 18,181 (0.22\%) </td>
+   <td style="text-align:right;"> 1,459 (0.10\%) </td>
+   <td style="text-align:right;"> 1,566 (0.13\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Metals, Non-Precious </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 17,811 (0.22\%) </td>
+   <td style="text-align:right;"> 59 (0.00\%) </td>
+   <td style="text-align:right;"> 1,096 (0.09\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Firearm Accessories </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 17,482 (0.22\%) </td>
+   <td style="text-align:right;"> 4,833 (0.32\%) </td>
+   <td style="text-align:right;"> 2,050 (0.17\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Weapons - Other </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 17,472 (0.22\%) </td>
+   <td style="text-align:right;"> 2,823 (0.19\%) </td>
+   <td style="text-align:right;"> 2,073 (0.17\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Recreational Vehicles </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 14,960 (0.18\%) </td>
+   <td style="text-align:right;"> 41 (0.00\%) </td>
+   <td style="text-align:right;"> 4,963 (0.41\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Medical/Medical Lab Equipment </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 13,977 (0.17\%) </td>
+   <td style="text-align:right;"> 382 (0.03\%) </td>
+   <td style="text-align:right;"> 1,196 (0.10\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Musical Instruments </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 12,467 (0.15\%) </td>
+   <td style="text-align:right;"> 14 (0.00\%) </td>
+   <td style="text-align:right;"> 998 (0.08\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pets </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 11,628 (0.14\%) </td>
+   <td style="text-align:right;"> 13 (0.00\%) </td>
+   <td style="text-align:right;"> 1,490 (0.12\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Farm Equipment </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 8,355 (0.10\%) </td>
+   <td style="text-align:right;"> 78 (0.01\%) </td>
+   <td style="text-align:right;"> 1,096 (0.09\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Artistic Supplies/Accessories </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 6,733 (0.08\%) </td>
+   <td style="text-align:right;"> 46 (0.00\%) </td>
+   <td style="text-align:right;"> 1,286 (0.11\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Chemicals </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 5,881 (0.07\%) </td>
+   <td style="text-align:right;"> 146 (0.01\%) </td>
+   <td style="text-align:right;"> 899 (0.07\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gambling Equipment </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 4,598 (0.06\%) </td>
+   <td style="text-align:right;"> 682 (0.04\%) </td>
+   <td style="text-align:right;"> 351 (0.03\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Explosives </td>
+   <td style="text-align:left;"> 2010 </td>
+   <td style="text-align:right;"> 4,458 (0.05\%) </td>
+   <td style="text-align:right;"> 1,370 (0.09\%) </td>
+   <td style="text-align:right;"> 410 (0.03\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Drug/Narcotic Equipment </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 4,325 (0.05\%) </td>
+   <td style="text-align:right;"> 411,222 (27.12\%) </td>
+   <td style="text-align:right;"> 393 (0.03\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Watercraft </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 3,831 (0.05\%) </td>
+   <td style="text-align:right;"> 7 (0.00\%) </td>
+   <td style="text-align:right;"> 765 (0.06\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Watercraft Equipment/Parts/Accessories </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 2,933 (0.04\%) </td>
+   <td style="text-align:right;"> 3 (0.00\%) </td>
+   <td style="text-align:right;"> 248 (0.02\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Law Enforcement Equipment </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 2,816 (0.03\%) </td>
+   <td style="text-align:right;"> 82 (0.01\%) </td>
+   <td style="text-align:right;"> 361 (0.03\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Livestock </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 2,275 (0.03\%) </td>
+   <td style="text-align:right;"> 10 (0.00\%) </td>
+   <td style="text-align:right;"> 223 (0.02\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Logging Equipment </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 1,504 (0.02\%) </td>
+   <td style="text-align:right;"> 1 (0.00\%) </td>
+   <td style="text-align:right;"> 114 (0.01\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Structures - Other </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 1,351 (0.02\%) </td>
+   <td style="text-align:right;"> 28 (0.00\%) </td>
+   <td style="text-align:right;"> 107 (0.01\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Crops </td>
+   <td style="text-align:left;"> 2010 </td>
+   <td style="text-align:right;"> 1,255 (0.02\%) </td>
+   <td style="text-align:right;"> 15 (0.00\%) </td>
+   <td style="text-align:right;"> 134 (0.01\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Buses </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 1,197 (0.01\%) </td>
+   <td style="text-align:right;"> 4 (0.00\%) </td>
+   <td style="text-align:right;"> 672 (0.06\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Aircraft Parts/Accessories </td>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 943 (0.01\%) </td>
+   <td style="text-align:right;"> 14 (0.00\%) </td>
+   <td style="text-align:right;"> 89 (0.01\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Structures - Single Occupancy Dwellings </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 676 (0.01\%) </td>
+   <td style="text-align:right;"> 10 (0.00\%) </td>
+   <td style="text-align:right;"> 33 (0.00\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Structures - Storage </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 564 (0.01\%) </td>
+   <td style="text-align:right;"> 16 (0.00\%) </td>
+   <td style="text-align:right;"> 54 (0.00\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Aircraft </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 530 (0.01\%) </td>
+   <td style="text-align:right;"> 25 (0.00\%) </td>
+   <td style="text-align:right;"> 59 (0.00\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Structures - Other Commercial/Business </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 442 (0.01\%) </td>
+   <td style="text-align:right;"> 6 (0.00\%) </td>
+   <td style="text-align:right;"> 28 (0.00\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Structures - Other Dwellings </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 406 (0.00\%) </td>
+   <td style="text-align:right;"> 3 (0.00\%) </td>
+   <td style="text-align:right;"> 20 (0.00\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Special Category </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 232 (0.00\%) </td>
+   <td style="text-align:right;"> 3 (0.00\%) </td>
+   <td style="text-align:right;"> 15 (0.00\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Structures - Industrial Manufacturing </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 230 (0.00\%) </td>
+   <td style="text-align:right;"> 1 (0.00\%) </td>
+   <td style="text-align:right;"> 23 (0.00\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Structures - Public/Community </td>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 179 (0.00\%) </td>
+   <td style="text-align:right;"> 3 (0.00\%) </td>
+   <td style="text-align:right;"> 19 (0.00\%) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:left;"> - </td>
+   <td style="text-align:right;"> 8,122,088 (100\%) </td>
+   <td style="text-align:right;"> 1,516,418 (100\%) </td>
+   <td style="text-align:right;"> 1,206,538 (100\%) </td>
+  </tr>
+</tbody>
+</table>
 
 
 
@@ -204,103 +546,331 @@ The police can take the victim's estimation into consideration but are not suppo
 
 We can use this variable to look at the value of items lost by the victim. Figure \@ref(fig:propertyValuePropertyLevel) looks at the value per item stolen in a crime (if incidents have multiple items stolen, this counts them all separately). This includes items lost by theft, robbery, and burglary so is part of the "Stolen/Robbed/Etc." category of types of property loss. It excludes items damaged or destroyed or burned (there is information about the value of property in these incidents but these are not shown in the figure). To make this graph a bit simpler I have rounded all values to the nearest \$100 so items valued at \$0 mean that they are worth between \$1 and \$50. 
 
-\begin{figure}
+<div class="figure" style="text-align: center">
+<img src="17_nibrs_property_files/figure-html/propertyValuePropertyLevel-1.png" alt="The distribution of the value of property stolen. Each value is rounded to the nearest 100. The x-axis is set on the log scale as this distribution is hugely skewed. Values over 1,0000,00 are set to 1,000,000." width="100%" height="100%" />
+<p class="caption">(\#fig:propertyValuePropertyLevel)The distribution of the value of property stolen. Each value is rounded to the nearest 100. The x-axis is set on the log scale as this distribution is hugely skewed. Values over 1,0000,00 are set to 1,000,000.</p>
+</div>
 
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{17_nibrs_property_files/figure-latex/propertyValuePropertyLevel-1} 
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:nibrsPropertyStolenValue)Annual mean, median, and maximum values (in dollars) of property stolen and recovered, 1991-2023.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Year </th>
+   <th style="text-align:right;"> Mean Value Stolen </th>
+   <th style="text-align:right;"> Median Value Stolen </th>
+   <th style="text-align:left;"> Max Value Stolen </th>
+   <th style="text-align:right;"> Mean Value Recovered </th>
+   <th style="text-align:right;"> Median Value Recovered </th>
+   <th style="text-align:left;"> Max Value Recovered </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 1991 </td>
+   <td style="text-align:right;"> 1,051 </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:left;"> 15,016,780 </td>
+   <td style="text-align:right;"> 1,727 </td>
+   <td style="text-align:right;"> 125 </td>
+   <td style="text-align:left;"> 12,000,000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1992 </td>
+   <td style="text-align:right;"> 3,242 </td>
+   <td style="text-align:right;"> 148 </td>
+   <td style="text-align:left;"> 580,000,682 </td>
+   <td style="text-align:right;"> 1,414 </td>
+   <td style="text-align:right;"> 100 </td>
+   <td style="text-align:left;"> 1,790,000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1993 </td>
+   <td style="text-align:right;"> 14,701 </td>
+   <td style="text-align:right;"> 129 </td>
+   <td style="text-align:left;"> 900,000,000 </td>
+   <td style="text-align:right;"> 23,215 </td>
+   <td style="text-align:right;"> 95 </td>
+   <td style="text-align:left;"> 900,000,000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1994 </td>
+   <td style="text-align:right;"> 41,258 </td>
+   <td style="text-align:right;"> 129 </td>
+   <td style="text-align:left;"> 999,999,999 </td>
+   <td style="text-align:right;"> 64,414 </td>
+   <td style="text-align:right;"> 85 </td>
+   <td style="text-align:left;"> 999,999,999 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1995 </td>
+   <td style="text-align:right;"> 2,074 </td>
+   <td style="text-align:right;"> 134 </td>
+   <td style="text-align:left;"> 450,000,000 </td>
+   <td style="text-align:right;"> 6,196 </td>
+   <td style="text-align:right;"> 81 </td>
+   <td style="text-align:left;"> 450,000,000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1996 </td>
+   <td style="text-align:right;"> 2,560 </td>
+   <td style="text-align:right;"> 147 </td>
+   <td style="text-align:left;"> 800,000,085 </td>
+   <td style="text-align:right;"> 1,750 </td>
+   <td style="text-align:right;"> 85 </td>
+   <td style="text-align:left;"> 3,500,000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1997 </td>
+   <td style="text-align:right;"> 1,640 </td>
+   <td style="text-align:right;"> 135 </td>
+   <td style="text-align:left;"> 450,000,000 </td>
+   <td style="text-align:right;"> 1,830 </td>
+   <td style="text-align:right;"> 92 </td>
+   <td style="text-align:left;"> 1,300,000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1998 </td>
+   <td style="text-align:right;"> 1,898 </td>
+   <td style="text-align:right;"> 146 </td>
+   <td style="text-align:left;"> 480,000,000 </td>
+   <td style="text-align:right;"> 1,978 </td>
+   <td style="text-align:right;"> 100 </td>
+   <td style="text-align:left;"> 1,000,000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1999 </td>
+   <td style="text-align:right;"> 1,791 </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:left;"> 245,000,120 </td>
+   <td style="text-align:right;"> 2,621 </td>
+   <td style="text-align:right;"> 100 </td>
+   <td style="text-align:left;"> 100,000,000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2000 </td>
+   <td style="text-align:right;"> 1,252 </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:left;"> 100,001,280 </td>
+   <td style="text-align:right;"> 2,379 </td>
+   <td style="text-align:right;"> 124 </td>
+   <td style="text-align:left;"> 838,466 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2001 </td>
+   <td style="text-align:right;"> 8,128 </td>
+   <td style="text-align:right;"> 143 </td>
+   <td style="text-align:left;"> 890,000,000 </td>
+   <td style="text-align:right;"> 4,397 </td>
+   <td style="text-align:right;"> 125 </td>
+   <td style="text-align:left;"> 500,000,001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2002 </td>
+   <td style="text-align:right;"> 1,742 </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:left;"> 300,000,000 </td>
+   <td style="text-align:right;"> 3,438 </td>
+   <td style="text-align:right;"> 125 </td>
+   <td style="text-align:left;"> 300,000,000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2003 </td>
+   <td style="text-align:right;"> 1,814 </td>
+   <td style="text-align:right;"> 140 </td>
+   <td style="text-align:left;"> 400,000,000 </td>
+   <td style="text-align:right;"> 2,384 </td>
+   <td style="text-align:right;"> 119 </td>
+   <td style="text-align:left;"> 7,501,000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2004 </td>
+   <td style="text-align:right;"> 1,833 </td>
+   <td style="text-align:right;"> 130 </td>
+   <td style="text-align:left;"> 939,000,000 </td>
+   <td style="text-align:right;"> 4,918 </td>
+   <td style="text-align:right;"> 120 </td>
+   <td style="text-align:left;"> 939,000,000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2005 </td>
+   <td style="text-align:right;"> 2,164 </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:left;"> 575,152,425 </td>
+   <td style="text-align:right;"> 3,687 </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:left;"> 298,000,001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2006 </td>
+   <td style="text-align:right;"> 1,315 </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:left;"> 100,003,300 </td>
+   <td style="text-align:right;"> 2,656 </td>
+   <td style="text-align:right;"> 174 </td>
+   <td style="text-align:left;"> 5,726,400 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2007 </td>
+   <td style="text-align:right;"> 1,850 </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:left;"> 950,000,000 </td>
+   <td style="text-align:right;"> 2,650 </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:left;"> 100,000,000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2008 </td>
+   <td style="text-align:right;"> 3,031 </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:left;"> 999,999,999 </td>
+   <td style="text-align:right;"> 4,434 </td>
+   <td style="text-align:right;"> 120 </td>
+   <td style="text-align:left;"> 999,999,999 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2009 </td>
+   <td style="text-align:right;"> 1,179 </td>
+   <td style="text-align:right;"> 155 </td>
+   <td style="text-align:left;"> 100,000,000 </td>
+   <td style="text-align:right;"> 1,719 </td>
+   <td style="text-align:right;"> 100 </td>
+   <td style="text-align:left;"> 5,000,000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2010 </td>
+   <td style="text-align:right;"> 1,150 </td>
+   <td style="text-align:right;"> 170 </td>
+   <td style="text-align:left;"> 10,000,000 </td>
+   <td style="text-align:right;"> 1,606 </td>
+   <td style="text-align:right;"> 100 </td>
+   <td style="text-align:left;"> 2,199,999 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2011 </td>
+   <td style="text-align:right;"> 1,462 </td>
+   <td style="text-align:right;"> 180 </td>
+   <td style="text-align:left;"> 999,999,999 </td>
+   <td style="text-align:right;"> 1,516 </td>
+   <td style="text-align:right;"> 100 </td>
+   <td style="text-align:left;"> 2,001,850 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012 </td>
+   <td style="text-align:right;"> 1,222 </td>
+   <td style="text-align:right;"> 175 </td>
+   <td style="text-align:left;"> 100,000,000 </td>
+   <td style="text-align:right;"> 1,554 </td>
+   <td style="text-align:right;"> 103 </td>
+   <td style="text-align:left;"> 18,805,960 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2013 </td>
+   <td style="text-align:right;"> 1,792 </td>
+   <td style="text-align:right;"> 168 </td>
+   <td style="text-align:left;"> 950,000,000 </td>
+   <td style="text-align:right;"> 1,788 </td>
+   <td style="text-align:right;"> 108 </td>
+   <td style="text-align:left;"> 100,000,020 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2014 </td>
+   <td style="text-align:right;"> 1,271 </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:left;"> 100,000,350 </td>
+   <td style="text-align:right;"> 1,667 </td>
+   <td style="text-align:right;"> 109 </td>
+   <td style="text-align:left;"> 1,800,000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2015 </td>
+   <td style="text-align:right;"> 1,257 </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:left;"> 20,000,000 </td>
+   <td style="text-align:right;"> 1,867 </td>
+   <td style="text-align:right;"> 115 </td>
+   <td style="text-align:left;"> 2,500,000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2016 </td>
+   <td style="text-align:right;"> 2,063 </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:left;"> 999,999,999 </td>
+   <td style="text-align:right;"> 2,199 </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:left;"> 4,000,000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2017 </td>
+   <td style="text-align:right;"> 1,581 </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:left;"> 361,000,000 </td>
+   <td style="text-align:right;"> 2,526 </td>
+   <td style="text-align:right;"> 164 </td>
+   <td style="text-align:left;"> 5,000,000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2018 </td>
+   <td style="text-align:right;"> 2,298 </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:left;"> 999,999,999 </td>
+   <td style="text-align:right;"> 2,936 </td>
+   <td style="text-align:right;"> 178 </td>
+   <td style="text-align:left;"> 24,000,000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2019 </td>
+   <td style="text-align:right;"> 13,226 </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:left;"> 999,999,999 </td>
+   <td style="text-align:right;"> 13,121 </td>
+   <td style="text-align:right;"> 179 </td>
+   <td style="text-align:left;"> 999,999,999 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2020 </td>
+   <td style="text-align:right;"> 243,308 </td>
+   <td style="text-align:right;"> 174 </td>
+   <td style="text-align:left;"> 999,999,999 </td>
+   <td style="text-align:right;"> 149,418 </td>
+   <td style="text-align:right;"> 249 </td>
+   <td style="text-align:left;"> 999,999,999 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2021 </td>
+   <td style="text-align:right;"> 280,898 </td>
+   <td style="text-align:right;"> 205 </td>
+   <td style="text-align:left;"> 999,999,999 </td>
+   <td style="text-align:right;"> 242,885 </td>
+   <td style="text-align:right;"> 400 </td>
+   <td style="text-align:left;"> 999,999,999 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2022 </td>
+   <td style="text-align:right;"> 23,306 </td>
+   <td style="text-align:right;"> 250 </td>
+   <td style="text-align:left;"> 999,999,999 </td>
+   <td style="text-align:right;"> 46,453 </td>
+   <td style="text-align:right;"> 489 </td>
+   <td style="text-align:left;"> 999,999,998 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2023 </td>
+   <td style="text-align:right;"> 42,640 </td>
+   <td style="text-align:right;"> 250 </td>
+   <td style="text-align:left;"> 999,999,999 </td>
+   <td style="text-align:right;"> 52,336 </td>
+   <td style="text-align:right;"> 500 </td>
+   <td style="text-align:left;"> 999,999,999 </td>
+  </tr>
+</tbody>
+</table>
 
-}
-
-\caption{The distribution of the value of property stolen. Each value is rounded to the nearest 100. The x-axis is set on the log scale as this distribution is hugely skewed. Values over 1,0000,00 are set to 1,000,000.}(\#fig:propertyValuePropertyLevel)
-\end{figure}
 
 
-\begin{longtable}[t]{l|r|r|l|r|r|l}
-\caption{(\#tab:nibrsPropertyStolenValue)Annual mean, median, and maximum values (in dollars) of property stolen and recovered, 1991-2022.}\\
-\hline
-Year & Mean Value Stolen & Median Value Stolen & Max Value Stolen & Mean Value Recovered & Median Value Recovered & Max Value Recovered\\
-\hline
-\endfirsthead
-\caption[]{(\#tab:nibrsPropertyStolenValue)Annual mean, median, and maximum values (in dollars) of property stolen and recovered, 1991-2022. \textit{(continued)}}\\
-\hline
-Year & Mean Value Stolen & Median Value Stolen & Max Value Stolen & Mean Value Recovered & Median Value Recovered & Max Value Recovered\\
-\hline
-\endhead
-1991 & 1,051 & 150 & 15,016,780 & 1,727 & 125 & 12,000,000\\
-\hline
-1992 & 3,242 & 148 & 580,000,682 & 1,414 & 100 & 1,790,000\\
-\hline
-1993 & 14,701 & 129 & 900,000,000 & 23,215 & 95 & 900,000,000\\
-\hline
-1994 & 41,258 & 129 & 999,999,999 & 64,414 & 85 & 999,999,999\\
-\hline
-1995 & 2,074 & 134 & 450,000,000 & 6,196 & 81 & 450,000,000\\
-\hline
-1996 & 2,560 & 147 & 800,000,085 & 1,750 & 85 & 3,500,000\\
-\hline
-1997 & 1,640 & 135 & 450,000,000 & 1,830 & 92 & 1,300,000\\
-\hline
-1998 & 1,898 & 146 & 480,000,000 & 1,978 & 100 & 1,000,000\\
-\hline
-1999 & 1,791 & 150 & 245,000,120 & 2,621 & 100 & 100,000,000\\
-\hline
-2000 & 1,252 & 150 & 100,001,280 & 2,379 & 124 & 838,466\\
-\hline
-2001 & 8,128 & 143 & 890,000,000 & 4,397 & 125 & 500,000,001\\
-\hline
-2002 & 1,742 & 150 & 300,000,000 & 3,438 & 125 & 300,000,000\\
-\hline
-2003 & 1,814 & 140 & 400,000,000 & 2,384 & 119 & 7,501,000\\
-\hline
-2004 & 1,833 & 130 & 939,000,000 & 4,918 & 120 & 939,000,000\\
-\hline
-2005 & 2,164 & 150 & 575,152,425 & 3,687 & 150 & 298,000,001\\
-\hline
-2006 & 1,315 & 150 & 100,003,300 & 2,656 & 174 & 5,726,400\\
-\hline
-2007 & 1,850 & 150 & 950,000,000 & 2,650 & 150 & 100,000,000\\
-\hline
-2008 & 3,031 & 150 & 999,999,999 & 4,434 & 120 & 999,999,999\\
-\hline
-2009 & 1,179 & 155 & 100,000,000 & 1,719 & 100 & 5,000,000\\
-\hline
-2010 & 1,150 & 170 & 10,000,000 & 1,606 & 100 & 2,199,999\\
-\hline
-2011 & 1,462 & 180 & 999,999,999 & 1,516 & 100 & 2,001,850\\
-\hline
-2012 & 1,222 & 175 & 100,000,000 & 1,554 & 103 & 18,805,960\\
-\hline
-2013 & 1,792 & 168 & 950,000,000 & 1,788 & 108 & 100,000,020\\
-\hline
-2014 & 1,271 & 150 & 100,000,350 & 1,667 & 109 & 1,800,000\\
-\hline
-2015 & 1,257 & 150 & 20,000,000 & 1,867 & 115 & 2,500,000\\
-\hline
-2016 & 2,063 & 150 & 999,999,999 & 2,199 & 150 & 4,000,000\\
-\hline
-2017 & 1,561 & 150 & 361,000,000 & 2,520 & 160 & 5,000,000\\
-\hline
-2018 & 2,009 & 150 & 313,600,000 & 2,911 & 172 & 24,000,000\\
-\hline
-2019 & 3,217 & 150 & 999,999,999 & 5,543 & 168 & 999,999,999\\
-\hline
-2020 & 229,834 & 170 & 999,999,999 & 129,068 & 223 & 999,999,999\\
-\hline
-2021 & 284,937 & 207 & 999,999,999 & 250,610 & 400 & 999,999,999\\
-\hline
-2022 & 72,129 & 250 & 999,999,999 & 81,535 & 462 & 999,999,999\\
-\hline
-\end{longtable}
-
-
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{17_nibrs_property_files/figure-latex/nibrsPropertyMaxValuePercent-1} 
-
-}
-
-\caption{Annual percent of the value of all property stolen that is made up of the value that is the maximum dollar amount reported in that year, 1991-2022.}(\#fig:nibrsPropertyMaxValuePercent)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="17_nibrs_property_files/figure-html/nibrsPropertyMaxValuePercent-1.png" alt="Annual percent of the value of all property stolen that is made up of the value that is the maximum dollar amount reported in that year, 1991-2023." width="100%" height="100%" />
+<p class="caption">(\#fig:nibrsPropertyMaxValuePercent)Annual percent of the value of all property stolen that is made up of the value that is the maximum dollar amount reported in that year, 1991-2023.</p>
+</div>
 
 ## Date property was recovered
 
@@ -308,14 +878,10 @@ This segment tells us both when the incident happened and, for stolen property, 
 
 The majority - 60.8% - of property lost is recovered on the same day, which is shown as zero days. We saw in Figure \@ref(fig:arrestsDaysUntilArrest) that the vast majority of arrests happen on the same day as the incident so it makes sense the most property would too.^[I would expect most property to be recovered on the arrestee's body.] A smaller and smaller share of property is recovered as the number of days from the incident increase, a trend also found in the time to arrest graph. The lesson here seems to be that if you are a victim of a crime and had something taken, unless it is recovered very quickly it is unlikely to be recovered at all. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{17_nibrs_property_files/figure-latex/propertyDaysUntilRecovered-1} 
-
-}
-
-\caption{The distribution of the number of days from the incident to the property recovered date. Zero days means that the arrest occurred on the same day as the incident.}(\#fig:propertyDaysUntilRecovered)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="17_nibrs_property_files/figure-html/propertyDaysUntilRecovered-1.png" alt="The distribution of the number of days from the incident to the property recovered date. Zero days means that the arrest occurred on the same day as the incident." width="100%" height="100%" />
+<p class="caption">(\#fig:propertyDaysUntilRecovered)The distribution of the number of days from the incident to the property recovered date. Zero days means that the arrest occurred on the same day as the incident.</p>
+</div>
 
 ## Drugs
 
@@ -347,67 +913,135 @@ The drugs in NIBRS are the "suspected drug types" which means that they are what
 
 Not too surprising, marijuana is the most common drug seized at 47% - or 455k incidents with it seized - of the data. This is followed by amphetamines/methamphetamines (including what we'd normally just call meth) at 20.7% and then heroin at 8.5%. Interestingly, cocaine and crack cocaine (which are always separate categories) both occur in 5.09% of drugs seized. Given the large disparity in sentences for these types of drugs, and that "crack wars" were a major purported cause of violent crime in the 1980s and 1990s, I expected crack cocaine to be much more common than normal cocaine. The remaining drug types are all less than 5% of drugs seized each and has some groupings of drug types (e.g. stimulants) rather than specific drug types (though some of these categories, such as LSD, are specific drugs). 
 
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:propertyDrugs)The number and percent of drugs seized by police by type of drug, for all drugs seized in 2022.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Drug Type </th>
+   <th style="text-align:right;"> First Year </th>
+   <th style="text-align:right;"> \# of Drugs </th>
+   <th style="text-align:left;"> \% of Drugs </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Marijuana </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 525,007 </td>
+   <td style="text-align:left;"> 39.59\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amphetamines/Methamphetamines </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 328,267 </td>
+   <td style="text-align:left;"> 24.76\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Other Narcotics </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 106,271 </td>
+   <td style="text-align:left;"> 8.01\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Cocaine (All Forms Except Crack) </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 87,404 </td>
+   <td style="text-align:left;"> 6.59\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Crack Cocaine </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 76,357 </td>
+   <td style="text-align:left;"> 5.76\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Other Drugs </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 60,096 </td>
+   <td style="text-align:left;"> 4.53\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Heroin </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 52,198 </td>
+   <td style="text-align:left;"> 3.94\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Unknown Type Drug </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 37,221 </td>
+   <td style="text-align:left;"> 2.81\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Opium </td>
+   <td style="text-align:right;"> 1992 </td>
+   <td style="text-align:right;"> 15,450 </td>
+   <td style="text-align:left;"> 1.17\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Other Hallucinogens </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 11,965 </td>
+   <td style="text-align:left;"> 0.90\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Other Depressants </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 7,889 </td>
+   <td style="text-align:left;"> 0.59\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashish </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 7,112 </td>
+   <td style="text-align:left;"> 0.54\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Other Stimulants </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 4,923 </td>
+   <td style="text-align:left;"> 0.37\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> PCP </td>
+   <td style="text-align:right;"> 1993 </td>
+   <td style="text-align:right;"> 1,671 </td>
+   <td style="text-align:left;"> 0.13\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Barbiturates </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 1,507 </td>
+   <td style="text-align:left;"> 0.11\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> LSD </td>
+   <td style="text-align:right;"> 1991 </td>
+   <td style="text-align:right;"> 1,349 </td>
+   <td style="text-align:left;"> 0.10\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Morphine </td>
+   <td style="text-align:right;"> 1992 </td>
+   <td style="text-align:right;"> 1,278 </td>
+   <td style="text-align:left;"> 0.10\% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:right;"> - </td>
+   <td style="text-align:right;"> 1,325,965 </td>
+   <td style="text-align:left;"> 100\% </td>
+  </tr>
+</tbody>
+</table>
 
-\begin{longtable}[t]{l|r|r|l}
-\caption{(\#tab:propertyDrugs)The number and percent of drugs seized by police by type of drug, for all drugs seized in 2022.}\\
-\hline
-Drug Type & First Year & \textbackslash{}\# of Drugs & \textbackslash{}\% of Drugs\\
-\hline
-\endfirsthead
-\caption[]{(\#tab:propertyDrugs)The number and percent of drugs seized by police by type of drug, for all drugs seized in 2022. \textit{(continued)}}\\
-\hline
-Drug Type & First Year & \textbackslash{}\# of Drugs & \textbackslash{}\% of Drugs\\
-\hline
-\endhead
-Marijuana & 1991 & 557,044 & 44.09\textbackslash{}\%\\
-\hline
-Amphetamines/Methamphetamines & 1991 & 301,759 & 23.88\textbackslash{}\%\\
-\hline
-Other Narcotics & 1991 & 78,941 & 6.25\textbackslash{}\%\\
-\hline
-Cocaine (All Forms Except Crack) & 1991 & 73,157 & 5.79\textbackslash{}\%\\
-\hline
-Heroin & 1991 & 68,859 & 5.45\textbackslash{}\%\\
-\hline
-Crack Cocaine & 1991 & 64,853 & 5.13\textbackslash{}\%\\
-\hline
-Other Drugs & 1991 & 47,748 & 3.78\textbackslash{}\%\\
-\hline
-Unknown Type Drug & 1991 & 26,787 & 2.12\textbackslash{}\%\\
-\hline
-Opium & 1992 & 11,881 & 0.94\textbackslash{}\%\\
-\hline
-Other Hallucinogrens & 1991 & 8,799 & 0.70\textbackslash{}\%\\
-\hline
-Hashish & 1991 & 6,963 & 0.55\textbackslash{}\%\\
-\hline
-Other Depressants & 1991 & 6,825 & 0.54\textbackslash{}\%\\
-\hline
-Other Stimulants & 1991 & 3,996 & 0.32\textbackslash{}\%\\
-\hline
-Barbiturates & 1991 & 1,582 & 0.13\textbackslash{}\%\\
-\hline
-PCP & 1993 & 1,510 & 0.12\textbackslash{}\%\\
-\hline
-LSD & 1991 & 1,461 & 0.12\textbackslash{}\%\\
-\hline
-Morphine & 1992 & 1,271 & 0.10\textbackslash{}\%\\
-\hline
-Total & - & 1,263,436 & 100\textbackslash{}\%\\
-\hline
-\end{longtable}
 
 
 
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{17_nibrs_property_files/figure-latex/nibrsPropertyDrugType-1} 
-
-}
-
-\caption{Annual percent of drug seizures by drug type, for the 1st drug reported, 1991-2022.}(\#fig:nibrsPropertyDrugType)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="17_nibrs_property_files/figure-html/nibrsPropertyDrugType-1.png" alt="Annual percent of drug seizures by drug type, for the 1st drug reported, 1991-2023." width="100%" height="100%" />
+<p class="caption">(\#fig:nibrsPropertyDrugType)Annual percent of drug seizures by drug type, for the 1st drug reported, 1991-2023.</p>
+</div>
 
 ### Amount of drugs
 
@@ -428,12 +1062,8 @@ Once you know the units you can look at the amount of drugs seized. The amount i
 
 So with those caveats, we can see what amounts of marijuana, measured in grams, are most frequently seized. Generally, the amount of marijuana seized is in small amounts with 22.5% being 1-2 grams (since we do not include the parts of a gram we can only say that it is 1 to 1.999 grams) and 18.6% being less than one gram. As the amount of drugs increase, the percent of seizures that involve this number of drugs decreases. It's a bit curious that they include grams for values over 28 since 28.3495 grams is one ounce so it would make sense to just start reporting in units of ounces instead of just increasingly large number of grams.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{17_nibrs_property_files/figure-latex/propertyMarijuanaGramMeasures-1} 
-
-}
-
-\caption{For drugs seized that are measured in grams, this figure shows the distribution in the number of grams seized. Values over 10 grams are grouped together for easier interpretation of lower values of drugs seized.}(\#fig:propertyMarijuanaGramMeasures)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="17_nibrs_property_files/figure-html/propertyMarijuanaGramMeasures-1.png" alt="For drugs seized that are measured in grams, this figure shows the distribution in the number of grams seized. Values over 10 grams are grouped together for easier interpretation of lower values of drugs seized." width="100%" height="100%" />
+<p class="caption">(\#fig:propertyMarijuanaGramMeasures)For drugs seized that are measured in grams, this figure shows the distribution in the number of grams seized. Values over 10 grams are grouped together for easier interpretation of lower values of drugs seized.</p>
+</div>
 

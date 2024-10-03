@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r}
-arson <- readRDS("data/ucr_arson_yearly_1979_2022.rds")
+arson <- readRDS("data/ucr_arson_yearly_1979_2023.rds")
 ```
 
 The arson dataset provides monthly counts of reported arson incidents, with detailed breakdowns by type (e.g., arson of residential properties, vehicles, or public buildings) and the estimated value of property damage. The data spans from 1979 to the present and includes additional information on arrests, clearances, and unfounded cases.
@@ -27,7 +27,7 @@ This dataset measures how many months that an agency reports data over a year in
 
 In Figure \@ref(fig:arsonAgencies) we can see the annual number of agencies that reported at least one month of data using both measures. These measures are nearly identical every year with the last month reported having slightly more agencies reported, but they are effectively the same. This changes in 2018 as my measure declines considerably and then skyrockets to nearly 25,000 agencies in 2021 and 2022. The last month reported variable declines considerably in 2021, consistent with the FBI ending SRS collection, and then rebounds in 2022 when the FBI reopens SRS collection. How can there be more than 18k agencies reporting? The 18k number is the estimated number of agencies that are active: agencies that can respond to crimes and do investigations. Remember that SRS data goes back decades - the Offenses Known data is available since 1930. So agencies can come and go, with agencies shutting down or joining with other agencies. Over time this adds up to thousands of agencies other than the 18k we normal think about. 
 
-```{r arsonAgencies, fig.cap = "The annual number of police agencies that report at least month of data and all 12 months of data, using both measures of how many months are reported, 1979-2022."}
+```{r arsonAgencies, fig.cap = "The annual number of police agencies that report at least month of data and all 12 months of data, using both measures of how many months are reported, 1979-2023."}
 arson$last_month_any <- 0
 arson$last_month_any[!arson$last_month_reported %in% "no months reported"] <- 1
 
@@ -128,7 +128,7 @@ Please note that this data is at the incident-level which means that having mult
 
 Clearances are reported in the month they occur, which may be different than the month when the arson happened. This can create the illusion that more crimes are solved than were reported in certain time periods. Figure \@ref(fig:arsonClearance), for example, shows the number of actual arsons (reports that are founded) and clearances for single-family home arsons in League City, Texas, a city of about 100,000 outside of Houston. In most years there were fewer clearances than arsons, but in four years (1982, 1981, 1992, and 2007) there were more clearances than arsons. 
 
-```{r arsonClearance, fig.cap = "The annual number of single-family home arsons and clearances in League City, Texas, 1979-2022."}
+```{r arsonClearance, fig.cap = "The annual number of single-family home arsons and clearances in League City, Texas, 1979-2023."}
 arson %>%
   filter(ori %in% "TX08408") %>%
   ggplot(aes(x = year)) +
@@ -157,7 +157,7 @@ The final variable is the estimated cost of the arson. This is how much the poli
 
 As with other SRS datasets, the arson data sometimes includes clear data entry errors, such as reporting implausibly high numbers of arsons for small jurisdictions or recording unrealistic damage estimates. For example, Figure \@ref(fig:residenceArson) shows the annual number of single-family home arsons in Byron City, Illinois, which has a population of slightly over 3,600 people. In every year there are zero arsons reported until 2003 when 469 arsons are reported. Since it is exceedingly unlikely that suddenly an eighth of the city each suffered different arson attacks, and that the city never again had a residence arson, this is almost certainly a data entry error. As arsons are relatively rare, having errors - and especially ones like this - can drastically change the results of your analysis so it is important to check your data carefully for more errors. 
 
-```{r residenceArson, fig.cap = "Annual single-family home arsons in Byron  City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this dataset, 1979-2022. "}
+```{r residenceArson, fig.cap = "Annual single-family home arsons in Byron  City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this dataset, 1979-2023. "}
 arson %>%
   filter(ori %in% "IL07106") %>%
   ggplot(aes(x = year, y = actual_single_occupancy)) +
@@ -169,7 +169,7 @@ arson %>%
 
 There are also cases where it is less clear when a value is a data error or is simply due to an outlier - but real - value. For example, Figure \@ref(fig:arsonCost) shows the annual average cost of a single-family home fire in Los Angeles, California. In most years the value is low. Since an arson can cause little or no damage, these low values likely mean that on average only part of the house was damaged, rather than the entire house burning down. In 2009, however, the average damage is about $540,000 per arson. Is this a data entry error that simply inputs a damage value that is too high? It certainly appears to be a data error since it is a sudden huge jump in damage value. However, it could also be that some extraordinarily expensive homes were destroyed that year. In 2009, Los Angeles reported only 63 single-family home arsons so having one, or a few, super mansions - which LA has plenty of - destroyed could mean that this huge value is real. 
 
-```{r arsonCost, fig.cap = "The annual cost per arson for single family homes in Los Angeles, California, 1979-2022."}
+```{r arsonCost, fig.cap = "The annual cost per arson for single family homes in Los Angeles, California, 1979-2023."}
 arson %>%
   filter(ori %in% "CA01942") %>%
   mutate(residence_cost_per_arson = est_damage_single_occupancy / actual_single_occupancy) %>%

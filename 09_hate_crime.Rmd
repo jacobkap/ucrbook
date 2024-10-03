@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r}
-hate_crimes <- readRDS("data/ucr_hate_crimes_1991_2022.rds")
+hate_crimes <- readRDS("data/ucr_hate_crimes_1991_2023.rds")
 ```
 
 This dataset covers crimes that are reported to the police and judged by the police to be motivated by hate. More specifically, they are crimes which were motivated - at least in part - by bias towards a certain person or group of people because of characteristics about them such as race, sexual orientation, or religion. The first part is key: incidents must first be crimes—specifically, the types of crimes the FBI includes in this dataset. Actions motivated by bias that do not meet the legal standard of a crime, or fall outside the specific crime categories covered by this data, are not recorded as hate crimes.
@@ -87,7 +87,7 @@ ggplot(final, aes(x = year, y = total_agencies)) +
 
 Figure \@ref(fig:hateCrimesPreviousYear) puts this into hard numbers by showing the percent of agencies who reported a hate crime in a certain year who *also* reported a hate crime in the previous year. For most years between 50% and 60% of agencies which reported a hate crime in the year shown on the x-axis also reported a hate crime in the previous year, indicating somewhat high consistency in which agencies have hate crimes. 
 
-```{r hateCrimesPreviousYear, fig.cap = "The percent of agencies that report a hate crime in a given year that also reported a hate crime in the previous year, 1992-2022"}
+```{r hateCrimesPreviousYear, fig.cap = "The percent of agencies that report a hate crime in a given year that also reported a hate crime in the previous year, 1992-2023"}
 final %>%
   filter(year > 1991) %>%
 ggplot(aes(x = year, y = percent_in_previous_year)) +
@@ -102,9 +102,9 @@ ggplot(aes(x = year, y = percent_in_previous_year)) +
 
 Another way to understand reporting is to look at the number of reported hate crimes by state and see which states report and which do not. Figure \@ref(fig:hateCrimesMap) does this for 2022 data by showing the number of reported hate crime incidents by state. Unfortunately what we have done here is basically create a population map, though with California as a clear outlier. Counting up and graphing or mapping the number of crimes is a common first response to getting new data but is not actually that helpful. Here we see that the states with the biggest populations - California, New York, Texas,  - have the most hate crimes. To be more useful let us look at state-level reporting after adjusting to the number of agencies in the state and to the civilian population.
 
-```{r, hateCrimesMap, fig.cap="Total reported hate crimes by state, 2022"}
+```{r, hateCrimesMap, fig.cap="Total reported hate crimes by state, 2023"}
 hate_crimes %>%
-  dplyr::filter(year %in% 2022,
+  dplyr::filter(year %in% 2023,
                 !is.na(incident_number),
                 !is.na(state)) %>%
   dplyr::count(state) %>%
@@ -134,7 +134,7 @@ hate_crimes$hate_crime_binary[hate_crimes$hate_crime_incident_present %in% "one 
 hate_crimes$ori9 <- gsub("NB", "NE", hate_crimes$ori9)
 hate_crimes$state_abb_ori <- substr(hate_crimes$ori9, 1, 2)
 temp <- hate_crimes %>%
-  dplyr::filter(year %in% 2022,
+  dplyr::filter(year %in% 2023,
                 !is.na(state_abb_ori),
                 is.na(covered_by_ori)) %>%
   dplyr::distinct(ori9, .keep_all = TRUE) %>%
@@ -169,7 +169,7 @@ This is also a fairly poor measure of reporting as it just measures agencies rep
 
 ```{r statePercentReportingPop, fig.cap = "The percent of population in each state in agencies that reported at least one hate crime in 2022, excluding agencies that are covered by another agency."}
 temp <- hate_crimes %>%
-  dplyr::filter(year %in% 2022,
+  dplyr::filter(year %in% 2023,
                 !is.na(state_abb_ori),
                 is.na(covered_by_ori)) %>%
   dplyr::distinct(ori9, .keep_all = TRUE) %>%
@@ -220,7 +220,14 @@ This data has the standard set of variables describing the agency that is report
 
 This data says the exact date that the hate crime occurred on - though not the date it was reported on. Figure \@ref(fig:hateCrimesByDay) shows the percent of hates crimes between 1991 and 2022 that occurred on each day of the week. Interestingly, the most common days for a hate crime to occur is on Friday, which is also when non-hate crimes most frequently occur. This suggests that hate crimes do follow the same trends - at least partially - as other crimes.
 
-```{r hateCrimesByDay, fig.cap = "The day of the week that hate crimes occurred on, 1991-2022", fig.height=16.5}
+```{r}
+hate_crimes <- hate_crimes %>%
+  filter(hate_crime_incident_present %in% "one or more hate crime incidents present")
+```
+
+
+```{r hateCrimesByDay, fig.cap = "The day of the week that hate crimes occurred on, 1991-2023", fig.height=15}
+hate_crimes$day_of_week <- wday(hate_crimes$incident_date, label = TRUE, abbr = FALSE)
 hate_crimes$day_of_week <- factor(hate_crimes$day_of_week,
                                                 levels = rev(c("Monday",
                                                                "Tuesday",
@@ -244,7 +251,7 @@ hate_crimes %>%
 
 We can also look at which day of the month is most common, as shown in Figure \@ref(fig:hateCrimesByMonthDay). There's no pattern that I can see other than the the 1st of the most has the most hate crimes and the end of the month has the fewest. Not all months have more than 28 days so it makes sense that the 29th, 30th, and 31st are the least common days. Is the 1st of the month really the most dangerous? I think this is likely just a quirk of the data, and is something we also see in NIBRS data. When an agency does not report an actual date they may use the 1st of the month as a placeholder which then looks to us like the 1st is an especially prolific day for hate crimes. 
 
-```{r hateCrimesByMonthDay, fig.cap = "The day of the month that hate crimes occurred on, 1991-2022", fig.height=15}
+```{r hateCrimesByMonthDay, fig.cap = "The day of the month that hate crimes occurred on, 1991-2023", fig.height=14.5}
 hate_crimes$mday <- mday(hate_crimes$incident_date)
 hate_crimes$mday <- factor(hate_crimes$mday, levels = 31:1)
 hate_crimes %>%
@@ -269,9 +276,9 @@ Consider, for example, a person who is biased against Asian people and decides t
 
 In the FBI data bias motivation is based on the offender's perceptions of the victim so even if they are incorrect in who their victim is, if they intended to target someone for their perceived group membership, that is still a hate crime. For example, if a person assaults a man because they think he is gay, that is a hate crime because the assault was motivated by hate towards gay people. Whether the victim is actually gay or not is not relevant - the offender perceived him to be gay so it is an anti-gay hate crime. To make this even more complicated, the offender must have committed the crime because they are motivated, at least to some degree, by their bias against the victim. Being biased against the victim but targeting them for some other reason means that the crime is not a hate crime. 
 
-The biases that the FBI includes in this data have grown over time, with new bias motivations being added in 1997, 2012, 2013, and 2015. Table \@ref(tab:hateBiasMotivation) shows each bias motivation in this data, the year it was first reported, how many hate crimes there were for this bias motivation from 1991-2022 and what percent of hate crimes that bias motivation makes up. 
+The biases that the FBI includes in this data have grown over time, with new bias motivations being added in 1997, 2012, 2013, and 2015. Table \@ref(tab:hateBiasMotivation) shows each bias motivation in this data, the year it was first reported, how many hate crimes there were for this bias motivation from 1991-2023 and what percent of hate crimes that bias motivation makes up. 
 
-To make the most common bias motivations easier to identify, the table is sorted by the frequency of incidents. The "first year" column reflects the first year that the bias motivation was officially recorded, though some biases may have existed earlier but were not yet captured in the data. The last column in this table shows the percent of hate crime incidents from 1991-2022. 
+To make the most common bias motivations easier to identify, the table is sorted by the frequency of incidents. The "first year" column reflects the first year that the bias motivation was officially recorded, though some biases may have existed earlier but were not yet captured in the data. The last column in this table shows the percent of hate crime incidents from 1991-2023. 
 
 This sorting makes it easy to see the most common bias motivations, but that is not actually that useful to most people since we usually care more about a rate than a count. For example, according to this table there were almost three times as many anti-Black hate crimes than anti-Jewish hate crimes, showing that anti-Black hate crimes are more of a problem in this country. But this is not right. We cannot just count of the number of offenses or we risk accidentally just measuring the population of these groups. Black people, for example, make up about 14% of the United States population while Jewish people make up about 2%.^[For simplicity I am treating these groups as independent though of course some Black people can be Jewish.] If we adjust the numbers to equalize population then we see that there is a much higher anti-Jewish hate crime rate than anti-Black rate. 
 
@@ -279,7 +286,7 @@ And even this is not that useful since you really need a much deeper dive into t
 
 ```{r }
 hate_crimes$bias_motivation_offense_1[hate_crimes$bias_motivation_offense_1 %in% "99"] <- NA
-temp <- make_frequency_table_year(hate_crimes,
+temp <- make_frequency_table_year(hate_crimes %>% filter(!bias_motivation_offense_1 %in% "undocumented code"),
                                   "bias_motivation_offense_1",
                              c("Bias Motivation",
                                "First Year Reported",
@@ -302,7 +309,7 @@ kableExtra::kbl(temp,
                  latex_options = c("hold_position", "repeat_header"))
 ```
 
-2015 is the year with the most bias additions, as of data through 2022. This year added a number of religions such as Anti-Buddhist, Anti-Sikh, and Anti-Jehovah's Witness. In 2013, anti-Transgender was added and this is the most common of the bias motivations added since data began in 1991 with 1500 hate crimes between 2013-2022 - 0.62% of all hate crime incidents from 1991-2022. That year also added anti-male and Anti-Native Hawaiian or Other Pacific Islander, which is the most recent racial group added. In 2012, anti-gender non-conforming and anti-female were included, while in 1997 both anti-mental and anti-physical disability were added. In part due to having fewer years of data available, these newer bias motivations make up a small percent of total hate crimes. 
+2015 is the year with the most bias additions, as of data through 2022. This year added a number of religions such as Anti-Buddhist, Anti-Sikh, and Anti-Jehovah's Witness. In 2013, anti-Transgender was added and this is the most common of the bias motivations added since data began in 1991 with 1500 hate crimes between 2013-2023 - 0.62% of all hate crime incidents from 1991-2023. That year also added anti-male and Anti-Native Hawaiian or Other Pacific Islander, which is the most recent racial group added. In 2012, anti-gender non-conforming and anti-female were included, while in 1997 both anti-mental and anti-physical disability were added. In part due to having fewer years of data available, these newer bias motivations make up a small percent of total hate crimes. 
 
 The original hate crimes - that is, those in the data in 1991 when this dataset was released - are far more common. The most common bias motivation is anti-Black at 34% of hate crimes, anti-Jewish at 12%, anti-White at 11%, anti-male homosexual (gay) at 10%, anti-Hispanic at 6%, and anti-ethnicity other than Hispanic (this group means a crime against an ethnic group that is not Hispanic, though it is occasionally reported as anti-non-Hispanic which is incorrect.) at 5%. All other bias motivations are less than 5% of hate crimes and consist of a variety of ethnic, racial, religious, or sexual orientation. Some hate crimes can potentially fall in multiple categories. For example, there is a bias motivation of "anti-male homosexual (gay)" and of "anti-lesbian, gay, bisexual, or transgender, mixed group (LGBT)" so there is some overlap between them. When an incident involves multiple bias motivations we can track that in the data as police can report up to 10 bias motivations per incident. In practice, however, most incidents involve only a single bias motivation.
 
@@ -332,7 +339,7 @@ Nearly all hate crimes are vandalism/destruction of property (30%), intimidation
 
 ```{r }
 hate_crimes$ucr_offense_code_1[hate_crimes$ucr_offense_code_1 %in% "720"] <- NA
-temp <- make_frequency_table_year(hate_crimes, "ucr_offense_code_1",
+temp <- make_frequency_table_year(hate_crimes %>% filter(hate_crime_incident_present %in% "one or more hate crime incidents present"), "ucr_offense_code_1",
                              c("Offense",
                                "First Year Reported", 
                                "# of Incidents", 
@@ -411,7 +418,7 @@ kableExtra::kbl(final,
                 longtable = TRUE,
                 escape = TRUE,
                 label = "hateBiasOffense",
-                caption = "The number and percent of offenses by bias motivation, 2022.") %>%
+                caption = "The number and percent of offenses by bias motivation, 2023.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
@@ -422,11 +429,12 @@ biases <- biases[!is.na(biases)]
 biases <- biases[!biases %in% 99]
 biases <- sort(biases)
 
-hate_crimes$ucr_offense_code_1[is.na(hate_crimes$ucr_offense_code_1)] <- "unknown"
-
+hate_crimes2 <- hate_crimes %>%
+  filter(hate_crime_incident_present %in% "one or more hate crime incidents present")
+hate_crimes2$ucr_offense_code_1[is.na(hate_crimes2$ucr_offense_code_1)] <- "unknown"
 final <- data.frame()
-for (offense in sort(unique(hate_crimes$ucr_offense_code_1))) {
-  temp <- make_frequency_table(hate_crimes %>% filter(ucr_offense_code_1 %in% offense),
+for (offense in sort(unique(hate_crimes2$ucr_offense_code_1))) {
+  temp <- make_frequency_table(hate_crimes2 %>% filter(ucr_offense_code_1 %in% offense),
                                "bias_motivation_offense_1",
                                c("bias",
                                  "\\# of Incidents",
@@ -444,7 +452,7 @@ for (offense in sort(unique(hate_crimes$ucr_offense_code_1))) {
   temp_other_count <- sum(parse_number(temp_other$count[6:nrow(temp_other)]))
   temp_other_percent <- sum(parse_number(temp_other$percent[6:nrow(temp_other)]))
   temp_other <- data.frame(offense = capitalize_words(offense),
-                            bias = "All Other",
+                           bias = "All Other",
                            count = temp_other_count,
                            percent = temp_other_percent) %>%
     mutate(count = prettyNum(count, big.mark = ","),
@@ -473,8 +481,9 @@ kableExtra::kbl(final,
                 longtable = TRUE,
                 escape = TRUE,
                 label = "hateOffenseBias",
-                caption = "The number and percent of biases by offense, 2022.") %>%
+                caption = "The number and percent of biases by offense, 2023.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
+
 ```
 
 
@@ -563,7 +572,7 @@ kableExtra::kbl(final,
                 longtable = TRUE,
                 escape = TRUE,
                 label = "hatelocationOffense",
-                caption = "The number and percent of offenses by location, 2022.") %>%
+                caption = "The number and percent of offenses by location, 2023.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
@@ -574,10 +583,10 @@ There are two variables that have information about the people who commit the ha
 
 As shown in Figure \@ref(fig:hateCrimeOffenderNumber), the most common racial group is "unknown" since the police do not know the race of the offenders. Next are White offenders at nearly 40% of hate crimes followed by Black offenders at nearly 13% of hate crimes. The remaining racial groups are rare with about 2% of hate crimes being committed by a multi-racial group of offenders and 0.8 % of hate crimes committed by Asian or Pacific Islander offenders and 0.6 % committed by American Indian or Native Alaskan offenders. Only 0.05% of offenders are Native Hawaiian or Other Pacific Islander.
 
-```{r hateCrimeOffenderRace, fig.cap = "The race of offenders, as a group, for hate crime incidents, 1991-2022."}
+```{r hateCrimeOffenderRace, fig.cap = "The race of offenders, as a group, for hate crime incidents, 1991-2023."}
 hate_crimes$offenders_race_as_a_group[hate_crimes$offenders_race_as_a_group %in% "asian or pacific islander"] <- "asian"
-hate_crimes$offenders_race_as_a_group[hate_crimes$offenders_race_as_a_group %in% "american indian or native alaskan"] <- "american indian"
-hate_crimes$offenders_race_as_a_group[hate_crimes$offenders_race_as_a_group %in% "native hawaiian/other pacific islander"] <- "native hawaiian"
+hate_crimes$offenders_race_as_a_group[hate_crimes$offenders_race_as_a_group %in% "american indian or native alaskan"] <- "american\nindian"
+hate_crimes$offenders_race_as_a_group[hate_crimes$offenders_race_as_a_group %in% "native hawaiian/other pacific islander"] <- "native\nhawaiian"
 
 hate_crimes %>%
   filter(hate_crime_incident_present %in% "one or more hate crime incidents present") %>%
@@ -595,9 +604,9 @@ hate_crimes %>%
   expand_limits(y = 0)
 ```
 
-When the police do not have any information about the number of offenders (which is common in cases of property crimes such as vandalism but rare in violent crimes), this data considers that to have zero offenders. The zero is just a placeholder that means that the police do not know how many offenders there are, not that they think there were actually no offenders. Figure \@ref(fig:hateCrimeOffenderNumber) shows the percent of hate crimes from 1991-2022 that have each number of offenders recorded. In the actual data it says the actual number of offenders, with the largest group in the current data going to 99 offenders - in this graph I group 10 or more offenders together for simplicity. I also relabel zero offenders as "Unknown" offenders since that is more accurate. The most common number of offenders per hate crime is one offender, at about 49% of hate crimes from 1991-2022 having only one offender. This drops sharply to 9% of hate crimes having two offenders and continues to drop as the number of offenders increase. However, about a third (36%) of hate crimes have an unknown number of offenders. 
+When the police do not have any information about the number of offenders (which is common in cases of property crimes such as vandalism but rare in violent crimes), this data considers that to have zero offenders. The zero is just a placeholder that means that the police do not know how many offenders there are, not that they think there were actually no offenders. Figure \@ref(fig:hateCrimeOffenderNumber) shows the percent of hate crimes from 1991-2023 that have each number of offenders recorded. In the actual data it says the actual number of offenders, with the largest group in the current data going to 99 offenders - in this graph I group 10 or more offenders together for simplicity. I also relabel zero offenders as "Unknown" offenders since that is more accurate. The most common number of offenders per hate crime is one offender, at about 49% of hate crimes from 1991-2023 having only one offender. This drops sharply to 9% of hate crimes having two offenders and continues to drop as the number of offenders increase. However, about a third (36%) of hate crimes have an unknown number of offenders. 
 
-```{r hateCrimeOffenderNumber, fig.cap = "The race of offenders, as a group, for hate crime incidents, 1991-2022."}
+```{r hateCrimeOffenderNumber, fig.cap = "The race of offenders, as a group, for hate crime incidents, 1991-2023."}
 temp <- hate_crimes %>%
   filter(hate_crime_incident_present %in% "one or more hate crime incidents present") 
 temp$total_offenders[temp$total_offenders >= 10] <- "10 or more"
@@ -628,7 +637,7 @@ Nonetheless, this is a book about the data. So let us look at one final variable
 
 While this variable is available in the data, I actually think it is best not to use it. I think there is always a danger in being overly precise and, therefore, overly confident about what the data shows. When you use the number of incidents you implicitly allow for each incident to affect multiple people^[One of the points of hate crimes is to cause fear in more than just the direct victim of the crime.] and readers understand that. But if you use this variable and say that "this is the number of victims of this crime" you are implicitly closing that door and therefore being too confident about how many victims of a crime there is. This is especially true for readers who are not paying close attention - such as academics reviewing papers or New York Times reporters - since they may think you are measuring the number of victims in a better way than you actually are. 
 
-```{r jewishIncidentVictim, fig.cap = "The annual number of anti-Jewish hate crime incidents and victims in the United States, 1991-2022."}
+```{r jewishIncidentVictim, fig.cap = "The annual number of anti-Jewish hate crime incidents and victims in the United States, 1991-2023."}
 
 jewish_incidents <-
   hate_crimes %>%
@@ -675,7 +684,7 @@ hate_crimes %>%
 
 ```
 
-```{r blackIncidentVictim, fig.cap = "The annual number of anti-Black hate crime incidents and victims in the United States, 1991-2022."}
+```{r blackIncidentVictim, fig.cap = "The annual number of anti-Black hate crime incidents and victims in the United States, 1991-2023."}
 
 black_incidents <-
   hate_crimes %>%

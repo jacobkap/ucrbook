@@ -36,7 +36,7 @@ groundhog.library(packages, "2024-08-27")
 # variable to the value the covering agency has
 
 # 
-# offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2022.rds")
+# offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2023.rds")
 # offenses_known_yearly$covered_by_ori <- toupper(offenses_known_yearly$covered_by_ori)
 # 
 # offenses_known_yearly$ori_year <- paste(offenses_known_yearly$ori,
@@ -86,8 +86,8 @@ options(tidygeocoder.verbose =  FALSE)
 options(readr.show_col_types = FALSE) 
 
 
-time_series_x_axis_year_breaks <- c(1991, 1995, 2000, 2005, 2010, 2015, 2020, 2022)
-time_series_x_axis_year_breaks_arson <- c(1979, 1990, 2000, 2010, 2020, 2022)
+time_series_x_axis_year_breaks <- c(1991, 1995, 2000, 2005, 2010, 2015, 2020, 2023)
+time_series_x_axis_year_breaks_arson <- c(1979, 1990, 2000, 2010, 2020, 2023)
 
 # 
 knitr::opts_chunk$set(

@@ -1,19 +1,53 @@
-nibrs_arrestee_summary  %>%
-  ggplot(aes(x = year)) +
-  geom_line(aes(y = percent_rifle_automatic, color = "Rifle"), linewidth = 1.05) +
-  geom_line(aes(y = percent_shotgun_automatic , color = "Shotgun"), linewidth = 1.05) +
-  geom_line(aes(y = percent_handgun_automatic , color = "Handgun"), linewidth = 1.05) +
-  geom_line(aes(y = percent_firearm_type_not_stated_automatic , color = "Firearm (type not stated)"), linewidth = 1.05) +
-  geom_line(aes(y = percent_other_firearm_automatic , color = "Other Firearm"), linewidth = 1.05) +
-  xlab("Year") +
-  ylab("% Automatic Weapon") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
-  labs(color = "") +
-  expand_limits(y = 0) +
-  scale_color_manual(values = c("Rifle" = "#1b9e77",
-                                "Shotgun" = "#d95f02",
-                                "Handgun" = "#7570b3",
-                                "Firearm (type not stated)" = "#1f78b4",
-                                "Other Firearm" = "black")) +
-  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
+offenses_with_weapons <-
+  c("assault offenses - simple assault",
+    "assault offenses - aggravated assault",
+    "weapon law violations - weapon law violations",
+    "sex offenses - sexual assault with an object",
+    "sex offenses - rape",
+    "robbery",
+    "sex offenses - sodomy",
+    "murder/nonnegligent manslaughter",
+    "kidnapping/abduction",
+    "sex offenses - fondling (indecent liberties/child molest)",
+    "human trafficking - commercial sex acts",
+    "negligent manslaughter",
+    "extortion/blackmail",
+    "justifiable homicide - not a crime",
+    "human trafficking - involuntary servitude",
+    "weapon law violations - explosives",
+    "weapon law violations - violation of national firearm act of 1934")
+
+
+final <- data.frame()
+offense$type_weapon_force_involved_1[is.na(offense$type_weapon_force_involved_1)] <- "Unknown"
+offense$type_weapon_force_involved_1[offense$type_weapon_force_involved_1 %in% 16:17] <- "Unknown"
+for (crime in offenses_with_weapons) {
+  temp <-
+    offense %>% filter(ucr_offense_code %in% crime)
+  if (nrow(temp) > 0) {
+  temp <- make_frequency_table(temp,
+                               "type_weapon_force_involved_1",
+                               c("Weapon",
+                                 "\\# of Offenses",
+                                 "\\% of Offenses")) %>%
+    mutate(Crime = capitalize_words(crime)) %>%
+    select(`Crime`,
+           `Weapon`,
+           "\\# of Offenses",
+           "\\% of Offenses")
+  final <-
+    final %>%
+    bind_rows(temp)
+  }
+}
+
+kableExtra::kbl(final, 
+                # format = "html",
+                digits = 2, 
+                align = c("l", "l", "r", "r"),
+                #booktabs = TRUE, 
+                longtable = TRUE,
+                label = "offenseWeapon",
+                escape = TRUE,
+                caption = "The weapon used by an offender, by offense, 2023. The use means that it was part of the crime though may not have been physically discharged. For example, pointing a gun at someone even without firing the gun is still using it.") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))

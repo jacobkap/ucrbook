@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r,  results='hide'}
-victim <- readRDS("data/nibrs_victim_segment_2022.rds")
+victim <- readRDS("data/nibrs_victim_segment_2023.rds")
 nibrs_victim_summary <- readRDS("data/nibrs_summary_stats/nibrs_victim_summary_stats.rds")
 officer_victim_offense_first_year <- readRDS("data/nibrs_summary_stats/officer_victim_offense_first_year.rds")
 victim_type_first_year <- readRDS("data/nibrs_summary_stats/victim_type_first_year.rds")
@@ -49,7 +49,7 @@ temp <- make_frequency_table(victim,
          everything())
 temp$`First Year`[is.na(temp$`First Year`)] <- "-"
 
-officer_crime_2022 <- 
+officer_crime_2023 <- 
   victim %>%
   filter(type_of_victim %in% "law enforcement officer") %>%
   count(ucr_offense_code_1) %>%
@@ -59,7 +59,7 @@ officer_victim_offense_first_year <-
   officer_victim_offense_first_year %>%
   select(-number_of_victims) %>%
   rename(`Crime Category` = ucr_offense_code_1) %>%
-  left_join(officer_crime_2022) %>%
+  left_join(officer_crime_2023) %>%
   select(`Crime Category`,
          everything()) %>%
   mutate(`Crime Category` = capitalize_words(`Crime Category`)) %>%
@@ -88,11 +88,11 @@ kableExtra::kbl(temp,
                 label = "victimCrimeCategory",
                 longtable = TRUE,
                 escape = TRUE,
-                caption = "The number and percent of crimes committed against each victim, counting all victims and then separately law enforcement officer victims, 2022. For victims with multiple crimes committed against them, this shows the first crime reported.") %>%
+                caption = "The number and percent of crimes committed against each victim, counting all victims and then separately law enforcement officer victims, 2023. For victims with multiple crimes committed against them, this shows the first crime reported.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
-```{r nibrsFirstVsAllOffensesMurders, fig.cap="The share of victims when considering only the 1st offense reported compared to using all offenses, for murder and nonnegligent manslaughter, sex offenses, motor vehicle theft, and destruction of property/vandalism, 1991-2022."}
+```{r nibrsFirstVsAllOffensesMurders, fig.cap="The share of victims when considering only the 1st offense reported compared to using all offenses, for murder and nonnegligent manslaughter, sex offenses, motor vehicle theft, and destruction of property/vandalism, 1991-2023."}
 nibrs_victim_summary$murder_percent <-
   nibrs_victim_summary$number_murders_first_offense / nibrs_victim_summary$number_murders_all_offenses
 nibrs_victim_summary$sex_offenses_percent <-
@@ -159,11 +159,11 @@ kableExtra::kbl(temp,
                 longtable = TRUE,
                 escape = TRUE,
                 label = "victimType",
-                caption = "The distribution of the type of victim, 2022. Victim types are mutually exclusive.") %>%
+                caption = "The distribution of the type of victim, 2023. Victim types are mutually exclusive.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
-```{r nibrsVictimPercentIndividualOfficer, fig.cap="Percent of victimizations whose victim type of 'law enforcement officer,' 'business,' or 'invidual,' 1991-2022."}
+```{r nibrsVictimPercentIndividualOfficer, fig.cap="Percent of victimizations whose victim type of 'law enforcement officer,' 'business,' or 'invidual,' 1991-2023."}
 nibrs_victim_summary  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_victim_officer, color = "Law\n Enforcement\n Officer"), linewidth = 1.05) +
@@ -205,7 +205,7 @@ Even though there are up to five victim injuries recorded, for the below graphs 
 
 Figure \@ref(fig:victimInjury) shows the eight injury categories and how common they are for all victims with this information reported. The most common type is "none" at 52.6% of injuries which means the victim did not suffer any injuries at all. This is followed by 42.0% of victims suffering "apparent minor injuries." The six serious injuries are far lesson common and given that nearly a third of victims suffer none or minor injuries are hard to see on the graph. To make it easier to see, Figure \@ref(fig:victimInjuryExcludeNone) shows the breakdown in victim injury excluding those who did not suffer an injury or those who suffered a minor injury. 
 
-```{r victimInjury, fig.cap = "The distribution of the injury sustained by the victim, 2022. Only individual and law enforcement officer victims have this variable available."}
+```{r victimInjury, fig.cap = "The distribution of the injury sustained by the victim, 2023. Only individual and law enforcement officer victims have this variable available."}
 victim %>%
   filter(!is.na(type_of_injury_1)) %>%
   mutate(type_of_injury_1 = capitalize_words(type_of_injury_1)) %>%
@@ -226,7 +226,7 @@ offenses_with_injury <- sort(c("assault offenses - aggravated assault",
                                "human trafficking - involuntary servitude",
                                "kidnapping/abduction",
                                "robbery",
-                               "sex offenses - fondling (incident liberties/child molest)",
+                               "sex offenses - fondling (indecent liberties/child molest)",
                                "sex offenses - rape",
                                "sex offenses - sexual assault with an object",
                                "sex offenses - sodomy",
@@ -262,13 +262,13 @@ kableExtra::kbl(final,
                 longtable = TRUE,
                 escape = TRUE,
                 label = "offenseCrimeInjury",
-                caption = "The number and percent of victim injury by offense, 2022. This breakdown is only available for a subset of offenses. There can be up to five injuries per victim; in this table we only use the first injury reported. There can be up to 10 offenses per victim; in this table we only use the first offense reported.") %>%
+                caption = "The number and percent of victim injury by offense, 2023. This breakdown is only available for a subset of offenses. There can be up to five injuries per victim; in this table we only use the first injury reported. There can be up to 10 offenses per victim; in this table we only use the first offense reported.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
 
 
-```{r nibrsVictimAssaultInjury, fig.cap="Victim injury for assault offenses, by injury severity, 1991-2022. Major injury is all injury types other than 'none' and 'apparent minor injuries' which are 'other major injury,' 'severe laceration,' possible internal injury,' apparent broken bones,' 'unconsciousness,' and 'loss of teeth.'"}
+```{r nibrsVictimAssaultInjury, fig.cap="Victim injury for assault offenses, by injury severity, 1991-2023. Major injury is all injury types other than 'none' and 'apparent minor injuries' which are 'other major injury,' 'severe laceration,' possible internal injury,' apparent broken bones,' 'unconsciousness,' and 'loss of teeth.'"}
 nibrs_victim_summary  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_assault_no_injury, color = "No Injury"), linewidth = 1.05) +
@@ -332,7 +332,7 @@ kableExtra::kbl(temp,
                 longtable = TRUE,
                 label = "victimRelationship",
                 escape = TRUE,
-                caption = "The distribution of the relationship between the victim and the offender. Only individual and law enforcement officer victims have this variable available, 2022.") %>%
+                caption = "The distribution of the relationship between the victim and the offender. Only individual and law enforcement officer victims have this variable available, 2023.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
@@ -394,7 +394,7 @@ kableExtra::kbl(final,
                 longtable = TRUE,
                 escape = TRUE,
                 label = "offenseVictimRelationship",
-                caption = "The number and percent of victim relationships to offender by offense, 2022. This breakdown is only available for a subset of offenses. There can be up to 10 victim-offender relationships per victim; in this table we only use the first relationship reported. The top five most common relationships are shown, all other relationships are combined into an 'All Other' category. ") %>%
+                caption = "The number and percent of victim relationships to offender by offense, 2023. This breakdown is only available for a subset of offenses. There can be up to 10 victim-offender relationships per victim; in this table we only use the first relationship reported. The top five most common relationships are shown, all other relationships are combined into an 'All Other' category. ") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 ```
 
@@ -448,7 +448,7 @@ kableExtra::kbl(temp,
                 longtable = TRUE,
                 escape = TRUE,
                 label = "victimAggAssault",
-                caption = "The distribution of circumstances for aggravated assault and homicides, 2022.") %>%
+                caption = "The distribution of circumstances for aggravated assault and homicides, 2023.") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, latex_options = c("hold_position", "repeat_header"))
 
 
@@ -488,7 +488,7 @@ Table \@ref(fig:victimResidenceStatus) shows the residence status for all indivi
 One proposed measure to improve policing is to require police officers (or at least newly hired officers) live in the city where they work. The idea here is that people will do a better job if it affects the place they consider home.^[Since crime is generally concentrated in a small number of impoverished parts of town, and police likely would not live in these parts, this probably would not be very effective.] Luckily for us, NIBRS includes law enforcement officers in their measure of whether the victim lives in the jurisdiction where they were victimized. Since law enforcement officers are only recorded to be victims when on the job, this is one measure of where officers live.
 
 
-```{r nibrsVictimResidentStatus, fig.cap="The share of victims by resident status in the reporting agency's jurisdiction, 1991-2022."}
+```{r nibrsVictimResidentStatus, fig.cap="The share of victims by resident status in the reporting agency's jurisdiction, 1991-2023."}
 nibrs_victim_summary  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_resident_status_resident, color = "Resident"), linewidth = 1.05) +
@@ -506,7 +506,7 @@ nibrs_victim_summary  %>%
   scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```
 
-```{r nibrsVictimResidentStatusOfficer, fig.cap="The share of victims by resident status in the reporting agency's jurisdiction for law enforcement officer victims, 1991-2022."}
+```{r nibrsVictimResidentStatusOfficer, fig.cap="The share of victims by resident status in the reporting agency's jurisdiction for law enforcement officer victims, 1991-2023."}
 nibrs_victim_summary  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_resident_status_resident_officer, color = "Resident"), linewidth = 1.05) +
@@ -526,15 +526,15 @@ nibrs_victim_summary  %>%
 
 ### Age
 
-This variable is the age of the victim when the crime occurred, regardless of when they reported the crime. Age is given as how many years old the victim is, with a few exceptions. Victims older than 98 are grouped together as "over 98 years old" while victims younger than 1 years old are broken down into "under 24 hours (neonate)", "1-6 days old", and "7-364 days old". About 1.4% of victim ages are unknown. 
+This variable is the age of the victim when the crime occurred, regardless of when they reported the crime. Age is given as how many years old the victim is, with a few exceptions. Victims older than 98 are grouped together as "over 98 years old" while victims younger than 1 years old are broken down into "under 24 hours (neonate)", "1 to 6 days old (newborn)", and "between 6 days and 1 year old (baby)". About 1.4% of victim ages are unknown. 
 
 Figure \@ref(fig:victimAge) shows the percent of victims at each age available. This is pretty similar to the age of offenders shown in Figure \@ref(fig:offenderAge) with a peak in the mid to late 20s with a long decline after. The most common victim age is 27 followed by 28, 29, and 30. Relative to offender ages, there are far more young victims. About 2.8% of victims, or 145k victims, in 2019 were aged 14 or younger. However, remember that this is for all victims of any crime so age trends may differ by which crime you are looking at.
 
-```{r victimAge, fig.cap = "The age of all victims, 2022."}
+```{r victimAge, fig.cap = "The age of all victims, 2023."}
 victim$age_of_victim[victim$age_of_victim %in% "over 98 years old"] <- 99
 victim$age_of_victim[victim$age_of_victim %in% c("under 24 hours (neonate)",
-                                                 "7-364 days old",
-                                                 "1-6 days old")] <- 0
+                                                 "between 6 days and 1 year old (baby)",
+                                                 "1 to 6 days old (newborn)")] <- 0
 victim$age_of_victim[victim$age_of_victim %in% "unknown"] <- NA
 victim$age_of_victim <- as.numeric(victim$age_of_victim)
 victim %>%
@@ -549,7 +549,7 @@ victim %>%
 
 ```
 
-```{r nibrsVictimAge, fig.cap="The mean and median age of victims, 1991-2022."}
+```{r nibrsVictimAge, fig.cap="The mean and median age of victims, 1991-2023."}
 nibrs_victim_summary  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = mean_age, color = "Mean Age"), linewidth = 1.05) +
@@ -565,7 +565,7 @@ nibrs_victim_summary  %>%
   scale_x_continuous(breaks = time_series_x_axis_year_breaks)
 ```
 
-```{r nibrsVictimAgeMissing, fig.cap="The percent of victim's age that is unknown, 1991-2022."}
+```{r nibrsVictimAgeMissing, fig.cap="The percent of victim's age that is unknown, 1991-2023."}
 nibrs_victim_summary  %>%
   ggplot(aes(x = year, y = percent_unknown_age)) +
   geom_line(linewidth = 1.05) + 
@@ -583,7 +583,7 @@ nibrs_victim_summary  %>%
 As with the Offender and the Arrestee Segments, we know the sex of the victim. The only choices are female, male, and unknown sex. There is no option for transgender or any other identify. Since the victim can tell the police their sex, and the police can see them clearly in most cases (though this may not be true if the victim reports a crime over the phone by calling 911 but then does not stay to be interviewed) so is more reliable than in the Offender Segment which may include guesses about the offender. The most common victim sex is female at 50.8% of victims, followed closely by male at 48.4%. Only about 0.8% of victims have an unknown sex. It is interesting that female victims are so common since most criminology research finds that male victims are so common. I think this is likely due to criminologists primarily focusing on murder and index violent crimes as their measure of crime, which ignores many other crimes.^[Murder and other violent crimes are mainly men hurting/killing other men, except in domestic violence which is primarily men hurting/killing women.]  
 
 
-```{r nibrsVictimSex, fig.cap="The share of victims by sex, 1991-2022."}
+```{r nibrsVictimSex, fig.cap="The share of victims by sex, 1991-2023."}
 nibrs_victim_summary  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_male, color = "Male"), linewidth = 1.05) +
@@ -611,7 +611,7 @@ Figure \@ref(fig:victimRace) shows the breakdown in victims by race. Most victim
 
 
 
-```{r nibrsVictimRace, fig.cap="The share of victims by race, 1991-2022."}
+```{r nibrsVictimRace, fig.cap="The share of victims by race, 1991-2023."}
 nibrs_victim_summary  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_asian, color = "Asian"), linewidth = 1.05) +
@@ -644,7 +644,7 @@ There’s also the question of reliability of the ethnicity data. Someone being 
 Figure \@ref(fig:victimEthnicity) shows the breakdown in arrests by victim ethnicity for all victims in 2019. Most arrestees - 62.2% - are not Hispanic. Only 10.5% are reported to be Hispanic but a much higher percent of arrestees - 27.2% - have an unknown ethnicity. Given that over a quarter of victims do not have ethnicity data, if you would like to use this variable I recommend that you carefully examine the data to ensure that the agencies you are looking at (if you do not use all agencies in the data) have a much higher reporting rate. 
 
 
-```{r nibrsVictimEthnicity, fig.cap="The share of victims by ethnicity, 1991-2022."}
+```{r nibrsVictimEthnicity, fig.cap="The share of victims by ethnicity, 1991-2023."}
 nibrs_victim_summary  %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = percent_hispanic, color = "Hispanic"), linewidth = 1.05) +

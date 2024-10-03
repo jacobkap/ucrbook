@@ -47,8 +47,8 @@ knitr::opts_chunk$set(
 
 ```{r}
 nyc <- read_csv("data/New_York_New_York_City_Police_Department.csv")
-offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2022.rds")
-SRS_hate_crimes <- readRDS("data/ucr_hate_crimes_1991_2022.rds")
+offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2023.rds")
+SRS_hate_crimes <- readRDS("data/ucr_hate_crimes_1991_2023.rds")
 batch_header_all_years <- readRDS("data/nibrs_summary_stats/batch_header_all_years.rds")
 ```
 \pagenumbering{roman}
@@ -79,6 +79,12 @@ us_population <- us_population[-1, ]
 rownames(us_population) <- 1:nrow(us_population)
 us_population$year <- as.numeric(us_population$year)
 us_population$us_population <- as.numeric(us_population$us_population)
+# https://www.census.gov/newsroom/press-releases/2023/population-trends-return-to-pre-pandemic-norms.html
+pop_2023 <- data.frame(year = 2023,
+                       us_population = 334914895)
+us_population <-
+  us_population %>%
+  bind_rows(pop_2023)
 
 batch_header_all_years$number_of_months_reported <- 
   as.numeric(batch_header_all_years$number_of_months_reported)
@@ -111,11 +117,13 @@ batch_header_all_years %>%
   labs(color = "") +
   expand_limits(y = 0) +
   scale_color_manual(values = c("12 Months" = "#1b9e77",
-                                "At Least 1 Month" = "#d95f02"))
+                                "At Least 1 Month" = "#d95f02")) +
+  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
+
 ```
 
 
-```{r nibrsStateParticipation2020Index, fig.cap = "The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2022."}
+```{r nibrsStateParticipation2020Index, fig.cap = "The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2023 (using 2022 ACS 5-year Census data)."}
 fips_state_codes <- c(
   "01", "02", "04", "05", "06", "08", "09", "10", "11", "12",
   "13", "15", "16", "17", "18", "19", "20", "21", "22", "23",
@@ -152,7 +160,7 @@ census_state_final <-
 batch_header_percent_pop <-
   batch_header_all_years %>%
   filter(number_of_months_reported %in% 1:12,
-         year %in% 2022) %>%
+         year %in% 2023) %>%
   mutate(state = gsub("wyoming v2", "wyoming", state)) %>%
   group_by(state) %>%
   summarize(nibrs_population = sum(population)) %>%
@@ -322,7 +330,7 @@ There are approximately 18,000 police agencies in the United States so recent da
 
 This voluntariness extends beyond whether they report or not, but into which variables they report. While in practice most agencies report every crime when they report any, they do have the choice to report only a subset of offenses. This is especially true for subsets of larger categories - such as gun assaults, a subset of aggravated assaults, or marijuana possession arrests which is a subset of drug possession arrests. As an example, Figure \@ref(fig:nycGunAssaults) shows the annual number of aggravated assaults with a gun in New York City. In 2003 the New York Police Department stopped reporting this category of offense, resuming only in 2013. They continued to report the broader aggravated assault category, but not any of the subsections of aggravated assaults which say which weapon was used during the assault.
 
-```{r nycGunAssaults, fig.cap = "Monthly reports of gun assaults in New York City, 1960-2022."}
+```{r nycGunAssaults, fig.cap = "Monthly reports of gun assaults in New York City, 1960-2023."}
 nyc_annual <- offenses_known_yearly[offenses_known_yearly$ori %in% "NY03030",]
 ggplot(nyc_annual, aes(x = year, y = actual_assault_with_a_gun)) +
   geom_line(size = 1.02) +
@@ -336,7 +344,7 @@ Given that agencies can join or drop out of the SRS program at will, and report 
 
 Even when an agency reports SRS data, and even when they report every crime category, they can report fewer than 12 months of data. In some cases they simply report all of their data in December, or report quarterly or semi-annually so some months have zero crimes reported while others count multiple months in that month's data. One example of this is New York City, shown in Figure \@ref(fig:nycMurderMonthly), in the early-2000s to the mid-2010s where they began reporting data quarterly instead of monthly. 
 
-```{r nycMurderMonthly, fig.cap = "Monthly murders in New York City, 1990-2022. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting."}
+```{r nycMurderMonthly, fig.cap = "Monthly murders in New York City, 1990-2023. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting."}
 nyc %>%
 filter(lubridate::year(year) >= 1990) %>%
 ggplot(aes(x = year, y = actual_murder)) +
@@ -348,7 +356,7 @@ theme_crim()
 
 When you sum up each month into an annual count, as shown in Figure \@ref(fig:nycMurderYearly), the problem disappears since the zero months are accounted for in the months that have the quarterly data. If you are using monthly data and only examine the data at the annual level, you will fall into the trap of having incorrect data that is hidden due to the level of aggregation examined. While cases like NYC are obvious when viewed monthly, for people that are including thousands of agencies in their data, it is unfeasible to look at each agency for each crime included. This can introduce errors as the best way to examine the data is manually viewing graphs and the automated method, looking for outliers through some kind of comparison to expected values, can be incorrect.   
 
-```{r nycMurderYearly, fig.cap = "Annual murders in New York City, 1990-2022."}
+```{r nycMurderYearly, fig.cap = "Annual murders in New York City, 1990-2023."}
 nyc_annual %>%
   filter(year >= 1990) %>%
 ggplot(aes(x = year, y = actual_murder)) +
@@ -361,7 +369,7 @@ ggplot(aes(x = year, y = actual_murder)) +
 
 In other cases when agencies report fewer than 12 months of the year, they simply report partial data and as a result undercount crimes. Figure \@ref(fig:miamiDadeMurderAnnual) shows annual murders in Miami-Dade, Florida and has three years of this issue occurring. The first two years with this issue are the two where zero murders are reported - this is because the agency did not report any months of data. The final year is in 2018, the last year of data in this graph, where it looks like murder suddenly dropped significantly. That is just because Miami-Dade only reported through June, so they are missing half of 2018. 
 
-```{r miamiDadeMurderAnnual, fig.cap = "Annual murders in Miami-Dade, Florida, 1960-2022."}
+```{r miamiDadeMurderAnnual, fig.cap = "Annual murders in Miami-Dade, Florida, 1960-2023."}
 offenses_known_yearly %>%
   dplyr::filter(ori %in% "FL01300") %>%
 ggplot(aes(x = year, y = actual_murder)) +
@@ -381,7 +389,7 @@ In some cases it is easy to see when a zero crimes reported is actually the agen
 Differentiating zero crimes and no reports becomes tricky in agencies that tend to report few crimes, which most small towns do. As an example, Figure \@ref(fig:danvilleRape) shows the annual reports of rape in Danville, California, a city of approximately 45,000 people. The city reports on average 2.8 rapes per year and in five years reported zero rapes. In cases like this it is not clear whether we should consider those zero years as true zeros (that no one was raped or reported their rape to the police) or whether the agency simply did not report rape data that year.  
 
 
-```{r danvilleRape, fig.cap = "Annual rapes reported in Danville, CA, 1960-2022."}
+```{r danvilleRape, fig.cap = "Annual rapes reported in Danville, CA, 1960-2023."}
 danville <- offenses_known_yearly[offenses_known_yearly$ori %in% "CA00723",]
 ggplot(danville, aes(x = year, y = actual_rape_total)) +
   geom_line(size = 1.02) +
