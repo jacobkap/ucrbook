@@ -21,10 +21,14 @@ The age variable is the suspected age of the offender. This is presented to us a
 This data supports the widely observed age-crime curve, which shows that criminal activity tends to peak in the late teenage years and gradually declines as individuals age. Interestingly, in the NIBRS data, the most common offender age is 25, indicating a slightly later peak. This shift could reflect changes in the types of offenses reported or evolving offender patterns over time. The age distribution can differ depending on what offenses the offender's committed. To examine that you will need to merge this segment with the Offense Segment and then subset the offender data by the offense you are interested in.
 
 
-<div class="figure" style="text-align: center">
-<img src="14_nibrs_offender_files/figure-html/offenderAge-1.png" alt="The age of all offenders reported in the 2022 NIBRS data. Approximately 44 percent of offenders have an unknown age are not shown in the figure." width="100%" height="100%" />
-<p class="caption">(\#fig:offenderAge)The age of all offenders reported in the 2022 NIBRS data. Approximately 44 percent of offenders have an unknown age are not shown in the figure.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{14_nibrs_offender_files/figure-latex/offenderAge-1} 
+
+}
+
+\caption{The age of all offenders reported in the 2022 NIBRS data. Approximately 44 percent of offenders have an unknown age are not shown in the figure.}(\#fig:offenderAge)
+\end{figure}
 
 The spike you see at the very end of the data is due to the data maxing out possible individual ages at 98, so anyone older is grouped together. Surely very young children aren’t committing crimes, so is this a data error? Mostly yes. These entries likely reflect either data entry mistakes or situations where officers mistakenly input the offender’s age as "1" rather than selecting "unknown." However, in rare cases, this could also include tragic incidents, such as accidental harm caused by a child handling a firearm, which are still recorded as criminal incidents despite no intent. However, the bulk of this, especially for age one, is likely just a data error or the police entering age as one instead of saying that the age is unknown (which they have the option of doing) or simply entering the data incorrectly by mistake.
 
@@ -34,15 +38,23 @@ Since we have data since 1991 we can look at how age changed over time. In Figur
 
 So what do we make of these trends? The first thing to keep in mind is that we are doing something fairly dumb. Each year of data we have different agencies reporting meaning that differences over time may simply be due to different agencies providing data. Still, if we had to interpret it I would say that the values in 1991 and 1992 are due to data issues likely caused by growing pains from agencies just starting out using NIBRS. Luckily, since NIBRS data has information on every single offender - rather than being already aggregated like in SRS data - we can check this. Indeed, this appears to simply be a data issue where many agencies put the age of offenders as "over 98 years old" rather than identifying them as unknown. In 1991, for example, 36% of offenders who had a known age were reported to be older than 98 years. When we look at the average age in 1991 when excluding people 99+ years old we get 28 years old, perfectly within expectation when looking at averages after 1992. 
 
-<div class="figure" style="text-align: center">
-<img src="14_nibrs_offender_files/figure-html/nibrsOffenderAge-1.png" alt="The mean and median age of offenders, 1991-2023." width="100%" height="100%" />
-<p class="caption">(\#fig:nibrsOffenderAge)The mean and median age of offenders, 1991-2023.</p>
-</div>
+\begin{figure}
 
-<div class="figure" style="text-align: center">
-<img src="14_nibrs_offender_files/figure-html/nibrsOffenderAgeMissing-1.png" alt="The percent of offender's age that is unknown, 1991-2023." width="100%" height="100%" />
-<p class="caption">(\#fig:nibrsOffenderAgeMissing)The percent of offender's age that is unknown, 1991-2023.</p>
-</div>
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{14_nibrs_offender_files/figure-latex/nibrsOffenderAge-1} 
+
+}
+
+\caption{The mean and median age of offenders, 1991-2023.}(\#fig:nibrsOffenderAge)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{14_nibrs_offender_files/figure-latex/nibrsOffenderAgeMissing-1} 
+
+}
+
+\caption{The percent of offender's age that is unknown, 1991-2023.}(\#fig:nibrsOffenderAgeMissing)
+\end{figure}
 
 
 ### Sex
@@ -50,10 +62,14 @@ So what do we make of these trends? The first thing to keep in mind is that we a
 The second offender demographic variable available is the offender's sex with male and female being the only available sexes. There is no option for transgender or anything else. Other than arrestees, where police could (though we do not know if they do) use their identification (e.g. driver's license) to determine their sex, this is likely the perceived sex of the offender based on what evidence the officer can collect (e.g. witness statement, video recordings, driver's licenses of the offender if they are caught, etc.). Figure \@ref(fig:nibrsOffenderSex) shows the distribution of offenders by sex for each year of data. The most common sex is male, which is consistent with the literature on who commits crime. About 45% of all offenders were male. Female offenders make up fewer than 20% of offenders though the general trend is that the share of offenders is increasing. Over a third of offenders have an unknown sex with the share being unknown decreasing over time until increasing again in the last several years. Considering that when nothing is known about offenders (including even how many offenders there are) this data includes a single row with "unknown" for all demographic variables, this is actually an undercount of offenders who have unknown sex. Again we see odd results in 1991 and 1992, likely an issue with data entry at the birth of NIBRS.
 
 
-<div class="figure" style="text-align: center">
-<img src="14_nibrs_offender_files/figure-html/nibrsOffenderSex-1.png" alt="The share of offenders by sex, 1991-2023." width="100%" height="100%" />
-<p class="caption">(\#fig:nibrsOffenderSex)The share of offenders by sex, 1991-2023.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{14_nibrs_offender_files/figure-latex/nibrsOffenderSex-1} 
+
+}
+
+\caption{The share of offenders by sex, 1991-2023.}(\#fig:nibrsOffenderSex)
+\end{figure}
 
 ### Race
 
@@ -64,18 +80,26 @@ Figure \@ref(fig:offenderRace) shows the breakdown in offender races for every o
 The next most common offender race is White at a bit under 40% in most years, followed by Black at around 20%. The remaining races make up very few offender and are hard to see on the figure. We still see the weird values in 1991 and 1992, this time showing a massive spike in the number of Asian offenders which disappear to less than 1% in 1993. This corresponds to spike in White offenders in 1993, suggesting that some White offenders in 1991-1992 were incorrectly identified as Asian. 
 
 
-<div class="figure" style="text-align: center">
-<img src="14_nibrs_offender_files/figure-html/nibrsOffenderRace-1.png" alt="The share of offenders by race, 1991-2023." width="100%" height="100%" />
-<p class="caption">(\#fig:nibrsOffenderRace)The share of offenders by race, 1991-2023.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{14_nibrs_offender_files/figure-latex/nibrsOffenderRace-1} 
+
+}
+
+\caption{The share of offenders by race, 1991-2023.}(\#fig:nibrsOffenderRace)
+\end{figure}
 
 ### Ethnicity
 
 Ethnicity data, collected sporadically starting in 2013, is rarely recorded, with the most common entry being "unknown." As we can see in Figure \@ref(fig:nibrsOffenderEthnicity) this variable is very rarely used and for most of the life of NIBRS it was not collected. Even when it was collected - which started in 2013, ended after 2016, and then returned in 2021 - the most common value is that the offender's ethnicity was unknown. 
 
-<div class="figure" style="text-align: center">
-<img src="14_nibrs_offender_files/figure-html/nibrsOffenderEthnicity-1.png" alt="The share of offenders by ethnicity, 1991-2023." width="100%" height="100%" />
-<p class="caption">(\#fig:nibrsOffenderEthnicity)The share of offenders by ethnicity, 1991-2023.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{14_nibrs_offender_files/figure-latex/nibrsOffenderEthnicity-1} 
+
+}
+
+\caption{The share of offenders by ethnicity, 1991-2023.}(\#fig:nibrsOffenderEthnicity)
+\end{figure}
 
 While the Offender Segment is limited to basic demographics, it remains a valuable resource for identifying broad patterns in offender behavior. By tracking trends over time, researchers can examine shifts in age, sex, and race among offenders, which may inform policy decisions on crime prevention and law enforcement strategies. However, gaps in the data - such as unknown offender details, new agencies reporting data each year, and the absence of critical variables like criminal history - highlight the need for cautious interpretation and cross-referencing with other data sources.

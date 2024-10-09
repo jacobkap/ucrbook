@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r}
-arson <- readRDS("data/ucr_arson_yearly_1979_2023.rds")
+arson <- readRDS("data/arson_yearly_1979_2023.rds")
 ```
 
 The arson dataset provides monthly counts of reported arson incidents, with detailed breakdowns by type (e.g., arson of residential properties, vehicles, or public buildings) and the estimated value of property damage. The data spans from 1979 to the present and includes additional information on arrests, clearances, and unfounded cases.

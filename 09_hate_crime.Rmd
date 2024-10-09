@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r}
-hate_crimes <- readRDS("data/ucr_hate_crimes_1991_2023.rds")
+hate_crimes <- readRDS("data/hate_crimes_1991_2023.rds")
 ```
 
 This dataset covers crimes that are reported to the police and judged by the police to be motivated by hate. More specifically, they are crimes which were motivated - at least in part - by bias towards a certain person or group of people because of characteristics about them such as race, sexual orientation, or religion. The first part is key: incidents must first be crimes—specifically, the types of crimes the FBI includes in this dataset. Actions motivated by bias that do not meet the legal standard of a crime, or fall outside the specific crime categories covered by this data, are not recorded as hate crimes.

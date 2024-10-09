@@ -15,7 +15,7 @@ One important point of clarification: this is not the number of murders, though 
 
 
 ```{r}
-shr <- readRDS("data/shr_1976_2023.rds")
+shr <- readRDS("data/supplementary_homicide_reports_shr_1976_2023.rds")
 offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2023.rds")
 ```
 

@@ -397,7 +397,7 @@ knitr::opts_chunk$set(
 ```{r}
 nyc <- read_csv("data/New_York_New_York_City_Police_Department.csv")
 offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2023.rds")
-SRS_hate_crimes <- readRDS("data/ucr_hate_crimes_1991_2023.rds")
+SRS_hate_crimes <- readRDS("data/hate_crimes_1991_2023.rds")
 ```
 
 # (PART) Welcome {-}

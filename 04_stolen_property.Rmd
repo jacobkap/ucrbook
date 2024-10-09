@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
 ``` 
 
 ```{r}
-ucr_property_stolen_recovered_yearly <- readRDS("data/supplement_to_return_a_yearly_1960_2023.rds")
+ucr_property_stolen_recovered_yearly <- readRDS("data/property_stolen_and_recovered_yearly_1960_2023.rds")
 offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2023.rds")
 
 value_columns <- grep("value|offenses", names(ucr_property_stolen_recovered_yearly), value = TRUE)
