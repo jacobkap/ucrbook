@@ -7,10 +7,6 @@ bookdown::gitbook:
       collapse: section
       before: |
         <li><a href="./">Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</a></li>
-    edit:
-      link: https://github.com/jacobkap/ucrbook/edit/main/%s
-      text: "Edit"
-    sharing: yes
 bookdown::pdf_book:
  pandoc_args: [--top-level-division=chapter, --wrap=auto, --columns=60]
  extra_dependencies: ["float", "booktabs"]
