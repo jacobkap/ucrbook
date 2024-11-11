@@ -3,6 +3,7 @@ bookdown::gitbook:
   includes:
     in_header: [ga_script.html]
   config:
+    download: no
     toc:
       collapse: section
       before: |
