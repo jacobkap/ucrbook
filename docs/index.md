@@ -1,7 +1,7 @@
 ---
 title: "Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data"
 author: "Jacob Kaplan, Ph.D."
-date: "2024-11-10"
+date: "2024-11-11"
 bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
@@ -14,6 +14,7 @@ documentclass: krantz
 monofont: "Source Code Pro"
 monofontoptions: "Scale=0.7"
 graphics: yes
+fontsize: 12pt
 ---
 
 
