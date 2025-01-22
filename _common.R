@@ -28,7 +28,7 @@ packages <- c(
   "patchwork"
 )
 
-groundhog.library(packages, "2024-08-27")
+groundhog.library(packages, "2025-01-01")
 #library(priceR)
 #library(quantmod)
 

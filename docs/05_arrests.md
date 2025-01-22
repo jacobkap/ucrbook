@@ -94,7 +94,7 @@ For each crime this data provides the number of arrests in that month (or year f
 
 ### Age
 
-The dataset provides the number of arrests for each age group and gender. Specific ages are reported for younger individuals (e.g., 15-24), while older individuals are grouped into broader age ranges (e.g., 25-29, 30-34). Male and female arrestees are reported separately, and the dataset does not include any category for non-binary or transgender individuals. To get a total arrests for that crime for that age, just add the female and male variables together. Below are the ages or age categories included in the data, and these are the same for female and male arrestees.
+The dataset provides the number of arrests for each age group and sex Specific ages are reported for younger individuals (e.g., 15-24), while older individuals are grouped into broader age ranges (e.g., 25-29, 30-34). Male and female arrestees are reported separately, and the dataset does not include any category for non-binary or transgender individuals. To get a total arrests for that crime for that age, just add the female and male variables together. Below are the ages or age categories included in the data, and these are the same for female and male arrestees.
 
 * Under 10
 * 10-12

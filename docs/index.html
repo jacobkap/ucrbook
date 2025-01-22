@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
-  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2024-11-11" />
+<meta name="date" content="2025-01-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -453,7 +453,7 @@ div.csl-indent {
 <div id="header">
 <h1 class="title">Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</h1>
 <p class="author"><em>Jacob Kaplan, Ph.D.</em></p>
-<p class="date"><em>2024-11-11</em></p>
+<p class="date"><em>2025-01-22</em></p>
 </div>
 <div id="preface" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Preface<a href="index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -500,7 +500,7 @@ Figure 1.2: The percent of each state’s population that is covered by police a
 <span id="cb1-5"><a href="index.html#cb1-5" tabindex="-1"></a>  <span class="dt">url</span> = {https://ucrbook.com/},</span>
 <span id="cb1-6"><a href="index.html#cb1-6" tabindex="-1"></a>}</span></code></pre></div>
 <p>There are a few different sources of UCR data available today. First, and probably most commonly used, is the data put together by the <a href="https://www.icpsr.umich.edu/web/pages/NACJD/index.html">National Archive of Criminal Justice Data (NACJD)</a>). This a team out of the University of Michigan who manages a huge number of criminal justice datasets and makes them available to the public. If you have any questions about crime data - UCR or other crime data - I highly recommend you reach out to them for answers. They have a collection of data and excellent documentation available for UCR data available on their site <a href="https://www.icpsr.umich.edu/web/NACJD/series/57">here</a>. One limitation to their data, however, is that each year of data is available as an individual file meaning that you will need to concatenate each year together into a single file. Some years also have different column names (generally minor changes like spelling robbery “rob” one year and “robb” the next) which requires more work to standardize before you could concatenate. They also only have data through 2016 which means that the most recent years (UCR data is available through 2019) of data are (as of this writing) unavailable.</p>
-<p>Next, and most usable for the general public - but limited for researchers - is the FBI’s official website <a href="https://crime-data-explorer.fr.cloud.gov/">Crime Data Explorer</a>. On this site you can chose an agency and see annual crime data (remember, UCR data is monthly so this is not as detailed as it can be) for certain crimes (and not even all the crimes actually available in the data). This is okay for the general public but only provides a fraction of the data available in the actual data so is really not good for researchers.</p>
+<p>Next, and most usable for the general public - but limited for researchers - is the FBI’s official website <a href="https://cde.ucr.cjis.gov/">Crime Data Explorer</a>. On this site you can chose an agency and see annual crime data (remember, UCR data is monthly so this is not as detailed as it can be) for certain crimes (and not even all the crimes actually available in the data). This is okay for the general public but only provides a fraction of the data available in the actual data so is really not good for researchers.</p>
 <p>It is worth mentioning a final source of UCR information. This is the annual Crimes in the United States report released by the FBI each year around the start of October. As an example, here is the <a href="https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019">website for the 2019 report</a>. In this report is summarized data which in most cases estimates missing data and provides information about national and subnational (though rarely city-level) crime data. As with the FBI’s site, it is only a fraction of the true data available so is not a very useful source of crime data for quality research. Still, this is a very common source of information used by researchers.</p>
 </div>
 <div id="recommended-reading" class="section level2 hasAnchor" number="1.4">

@@ -162,9 +162,9 @@ The biggest problem with index crimes is that it is simply the sum of 8 (or 7 si
 
 ```{r sfThefts, fig.cap = "Thefts and total index crimes in San Francisco, 2000-2023." }
 sf <- offenses_known_yearly[offenses_known_yearly$ori %in% "CA03801", ]
-sf$actual_theft_total[sf$number_of_months_missing %in% 12] <- NA
-sf$actual_index_violent[sf$number_of_months_missing %in% 12] <- NA
-sf$actual_index_total[sf$number_of_months_missing %in% 12] <- NA
+sf$actual_theft_total[sf$number_of_months_reported %in% 0] <- NA
+sf$actual_index_violent[sf$number_of_months_reported %in% 0] <- NA
+sf$actual_index_total[sf$number_of_months_reported %in% 0] <- NA
 sf %>%
   filter(year >= 2000) %>%
   ggplot(aes(x = year, y = actual_index_total, color = "Total Index")) +
@@ -265,16 +265,16 @@ offenses_known_yearly %>%
             months_missing_any = sum(months_missing_any)) %>%
   ungroup() %>%
   ggplot(aes(x = year, y = last_month_any)) +
-  geom_line(aes(color = "Last Month\n Reported;\n >= 1 month"), linewidth = 1.05) +
+  geom_line(aes(color = "Last\n Month\n Reported;\n >= 1 month"), linewidth = 1.05) +
   geom_line(aes(y = months_missing_any, color = "Months\n Missing;\n >=1 month"), linewidth = 1.05) +
-  geom_line(data = offense_12_months, aes(y = last_month_full, color = "Last Month\n Reported;\n 12 months"), linewidth = 1.05) +
+  geom_line(data = offense_12_months, aes(y = last_month_full, color = "Last\n Month\n Reported;\n 12 months"), linewidth = 1.05) +
   geom_line(data = offense_12_months, aes(y = months_missing_full, color = "Months\n Missing;\n 12 months"), linewidth = 1.05) +
   xlab("Year") +
   ylab("# of Agencies") +
   theme_crim() +
-  scale_color_manual(values = c("Last Month\n Reported;\n >= 1 month" = "#1b9e77",
+  scale_color_manual(values = c("Last\n Month\n Reported;\n >= 1 month" = "#1b9e77",
                                 "Months\n Missing;\n >=1 month" = "#d95f02",
-                                "Last Month\n Reported;\n 12 months" = "#7570b3",
+                                "Last\n Month\n Reported;\n 12 months" = "#7570b3",
                                 "Months\n Missing;\n 12 months" = "black")) +
   scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
   labs(color = "") +
@@ -284,15 +284,7 @@ offenses_known_yearly %>%
 
 Usually when you are looking at crime data you want annual data, so having agencies report a full year's of data is more important than them submitting just partial data. This is especially important when comparing an agency over time or two different agencies to each other. Obviously, an agency with 6 month of data will have fewer crimes reported than one with 12 months reported, all else being equal. But this is something easy to overlook as it is an easy assumption that agencies will report a full years-worth of data. Unfortunately, this is always true. Some agencies do not report any data and others report only part of the year - though if an agency reports one month they usually do report all 12. Figure \@ref(fig:offensesAgenciesReportingFull) repeats Figure \@ref(fig:offensesAgenciesReporting) but now showing only agencies reporting 12 months of data, using both of our measures. Since 1960 every year has had fewer agencies reporting full data using the "number of months missing" method than the "last month reported" method. 
 
-## Negative numbers
-
-One of the most common questions people have about this data is why there are negative numbers, and if they are a mistake. Negative numbers are not a mistake. The SRS data is monthly so police agencies report the number of monthly crimes that are known to them - either reported to them or discovered by the police. In some cases the police will determine that a crime reported to them did not actually occur - which they called an "unfounded crime." An example that the FBI gives for this is a person reports their wallet stolen (a theft) and then later finds it, so a crime was initially reported but no crime actually occurred. 
-
-How this works when the police input the data is that an unfounded crime is reported both as an unfounded crime and as a negative actual crime - the negative is used to zero out the erroneous report of the actual crime. So the report would look like  1 actual theft (the crime being reported), -1 theft (the crime being discovered as not have happened), and 1 unfounded theft. If both incidents occurred in the same month then this would simply be a single unfounded theft occurring, with no actual theft - literally a value of 1 + -1 = 0 thefts. 
-
-Negative values occur when the unfounding happens in a later month than the crime report. In the theft case, let us say the theft occurred in January and the discovery of the wallet happens in August. Assuming no other crimes occurred, January would have 1 theft, and August would have -1 thefts and 1 unfounded theft. There is no way of determining in which month (or even which year) an unfounded crime was initially reported in. When averaging over the long term, there should not be any negative numbers as the actual and unfounded reports will cancel themselves out. However, when looking at monthly crimes - particularly for rare crimes - you will still see negative numbers for this reason. Since crimes can be unfounded for reports in previous years, you can actually see entire year's crime counts be negative, though this is much rarer than monthly values.^[From 1960-2023, there were 39 agency-years with a negative count of murders.] 
-
-So using the far more common last month reported method will overestimate how many agencies report a full year of data. In practice, though, this affects very little data and what it does affect is only overcounted very slightly. At least when aggregating nationally - which I generally advise against since local crime matters a lot more than national averages. Still, let us look the increase in the total number of crimes reported by 12-month reporting agencies increases from the "number of months missing" measure to the "last month reported" measure, shown in Figure \@ref(fig:murdersBothMeasures). The answer is an extremely small increase, averaging (mean = 0.93%, mean = 1.26%) about a one percent point increase each year. The differences in measuring how many months are reported can matter a great deal at the agency-level, but does very little when aggregating nationally.
+So using the far more commonly-used last month reported method will overestimate how many agencies report a full year of data. In practice, though, this affects very little data and what it does affect is only overcounted very slightly. At least when aggregating nationally - which I generally advise against since local crime matters a lot more than national averages. Still, let us look the increase in the total number of crimes reported by 12-month reporting agencies increases from the "number of months missing" measure to the "last month reported" measure, shown in Figure \@ref(fig:murdersBothMeasures). The answer is an extremely small increase, averaging (mean = 0.93%, mean = 1.26%) about a one percent point increase each year. The differences in measuring how many months are reported can matter a great deal at the agency-level, but does very little when aggregating nationally.
 
 ```{r murdersBothMeasures, fig.cap = "The percent change in the number of murders reported in the United States each year when moving from the number of months missing measure to the last month reported measure, 1960-2020."}
 last_month_murder <- 
@@ -325,6 +317,16 @@ last_month_murder %>%
   expand_limits(y = 0)
 
 ```
+
+## Negative numbers
+
+One of the most common questions people have about this data is why there are negative numbers, and if they are a mistake. Negative numbers are not a mistake. The SRS data is monthly so police agencies report the number of monthly crimes that are known to them - either reported to them or discovered by the police. In some cases the police will determine that a crime reported to them did not actually occur - which they called an "unfounded crime." An example that the FBI gives for this is a person reports their wallet stolen (a theft) and then later finds it, so a crime was initially reported but no crime actually occurred. 
+
+How this works when the police input the data is that an unfounded crime is reported both as an unfounded crime and as a negative actual crime - the negative is used to zero out the erroneous report of the actual crime. So the report would look like  1 actual theft (the crime being reported), -1 theft (the crime being discovered as not have happened), and 1 unfounded theft. If both incidents occurred in the same month then this would simply be a single unfounded theft occurring, with no actual theft - literally a value of 1 + -1 = 0 thefts. 
+
+Negative values occur when the unfounding happens in a later month than the crime report. In the theft case, let us say the theft occurred in January and the discovery of the wallet happens in August. Assuming no other crimes occurred, January would have 1 theft, and August would have -1 thefts and 1 unfounded theft. There is no way of determining in which month (or even which year) an unfounded crime was initially reported in. When averaging over the long term, there should not be any negative numbers as the actual and unfounded reports will cancel themselves out. However, when looking at monthly crimes - particularly for rare crimes - you will still see negative numbers for this reason. Since crimes can be unfounded for reports in previous years, you can actually see entire year's crime counts be negative, though this is much rarer than monthly values.^[From 1960-2023, there were 39 agency-years with a negative count of murders.] 
+
+
 
 ## Important variables
 
@@ -448,7 +450,7 @@ There are two major changes in recording practices over the life of this dataset
 
 The FBI changed the definition of rape for UCR data starting in 2013 to a broader definition than the older definition, which is commonly called the "legacy definition" or "legacy" or "historical" rape. The legacy definition is "the carnal knowledge of a female **forcibly** and against her will" (emphasis added). This means that only rape is only included in UCR data when it is a female (of any age, there is no differentiation for child victims) forcibly vaginally penetrated by a penis. This is a narrow definition and excludes a number of sexual acts that people may consider rape such as forced oral or anal sex, and cases with a male victim. 
 
-Starting in 2013, rape has a new, broader definition in the UCR to include oral and anal penetration (by a body part or object) and to allow men to be victims. The new definition is: "Penetration, no matter how slight, of the vagina or anus with any body part or object, or oral penetration by a sex organ of another person, without the consent of the victim." The previous definition included only forcible intercourse against a woman. This definition is far broader and is effectively any non-consensual sexual act. It also includes male victims though the data does not differentiate between male or female (or any other gender) victims. 
+Starting in 2013, rape has a new, broader definition in the UCR to include oral and anal penetration (by a body part or object) and to allow men to be victims. The new definition is: "Penetration, no matter how slight, of the vagina or anus with any body part or object, or oral penetration by a sex organ of another person, without the consent of the victim." The previous definition included only forcible intercourse against a woman. This definition is far broader and is effectively any non-consensual sexual act. It also includes male victims though the data does not differentiate between male or female victims. 
 
 Both the current and legacy definitions exclude statutory rape and incest other than forcible incest.^[Both of these are recorded in NIBRS.] They both also include lack of consent as cases where the victim cannot give consent, such as if they are too young or are mentally or physically incapacitated - the FBI specifically give the example of being temporarily incapacitated through drugs or alcohol.
 
@@ -460,7 +462,7 @@ We will start with the Philadelphia Police Department shown in Figure \@ref(fig:
 philly_rape <-
   offenses_known_yearly %>%
   dplyr::filter(ori %in% "PAPEP00",
-                year %in% 2005:2019) %>%
+                year %in% 2000:2019) %>%
   mutate(rape_rate = actual_rape_total / population * 100000) %>%
   select(year,
          number_of_months_missing,
@@ -470,7 +472,7 @@ philly_rape <-
 nyc_rape <-
   offenses_known_yearly %>%
   dplyr::filter(ori %in% "NY03030",
-                year %in% 2005:2019) %>%
+                year %in% 2000:2019) %>%
   mutate(rape_rate = actual_rape_total / population * 100000) %>%
   select(year,
          number_of_months_missing,
@@ -480,7 +482,7 @@ nyc_rape <-
 sf_rape <-
   offenses_known_yearly %>%
   dplyr::filter(ori %in% "CA03801",
-                year %in% 2005:2019) %>%
+                year %in% 2000:2019) %>%
   mutate(rape_rate = actual_rape_total / population * 100000) %>%
   select(year,
          number_of_months_missing,
@@ -490,7 +492,7 @@ sf_rape <-
 jackson_rape <-
   offenses_known_yearly %>%
   dplyr::filter(ori %in% "MS02501",
-                year %in% 2005:2019) %>%
+                year %in% 2000:2019) %>%
   mutate(rape_rate = actual_rape_total / population * 100000) %>%
   select(year,
          number_of_months_missing,
@@ -522,7 +524,8 @@ philly_rape %>%
                                 "New York City" = "#d95f02",
                                 "San Francisco" = "#7570b3",
                                 "Jackson, MS" = "black")) +
-  scale_x_continuous(breaks = c(2005:2019))
+  scale_x_continuous(breaks = c(2000, 2003, 2006, 2009, 2012, 2013, 2014, 2016, 2019))
+
 
 ```
 
