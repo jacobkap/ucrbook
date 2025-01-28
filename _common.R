@@ -1,3 +1,98 @@
+library(groundhog) 
+
+# devtools::install_github("wmurphyrd/fiftystater")
+library(fiftystater)
+
+
+packages <- c(
+  "crimeutils",
+  "dplyr",
+  "readr",
+  "kableExtra",
+  "knitr",
+  "scales",
+  "tidyr",
+  "ggplot2",
+  "mapproj",
+  "lubridate",
+  "gridExtra",
+  "priceR",
+  "blscrapeR",
+  "janitor",
+  # "quantmod",
+  "ggh4x",
+  "sf",
+  "tigris",
+  "stringr",
+  "tidycensus",
+  "patchwork",
+  "fastDummies"
+)
+
+groundhog.library(packages, "2025-01-15")
+#library(priceR)
+#library(quantmod)
+
+# For agencies with a covered by ORI value, assign the last month reported 
+# variable to the value the covering agency has
+
+# 
+# offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2022.rds")
+# offenses_known_yearly$covered_by_ori <- toupper(offenses_known_yearly$covered_by_ori)
+# 
+# offenses_known_yearly$ori_year <- paste(offenses_known_yearly$ori,
+#                                         offenses_known_yearly$year)
+# offenses_known_yearly_covered_by <-
+#   offenses_known_yearly %>%
+#   filter(!is.na(covered_by_ori))
+# 
+# offenses_known_yearly_covering <-
+#   offenses_known_yearly %>%
+#   filter(paste(ori, year) %in% paste(offenses_known_yearly_covered_by$covered_by_ori,
+#                                      offenses_known_yearly_covered_by$year))
+# 
+# offenses_known_yearly_covered_by$last_month_reported_old <-
+#   offenses_known_yearly_covered_by$last_month_reported
+# offenses_known_yearly_covered_by$number_of_months_missing_old <-
+#   offenses_known_yearly_covered_by$number_of_months_missing
+# pb <- progress_bar$new(
+#   format = " [:bar] :current/:total :percent eta: :eta",
+#   total = nrow(offenses_known_yearly_covered_by), clear = FALSE, width= 60)
+# table(offenses_known_yearly_covered_by$last_month_reported)
+# table(offenses_known_yearly_covered_by$number_of_months_missing)
+# for (i in 1:nrow(offenses_known_yearly_covered_by)) {
+#   temp <-
+#     offenses_known_yearly_covering %>%
+#     filter(ori %in% offenses_known_yearly_covered_by$covered_by_ori[i],
+#            year %in% offenses_known_yearly_covered_by$year[i])
+#   if (nrow(temp) > 0) {
+#     offenses_known_yearly_covered_by$last_month_reported[i] <- temp$last_month_reported
+#     offenses_known_yearly_covered_by$number_of_months_missing[i] <- temp$number_of_months_missing
+#   }
+#   pb$tick()
+#   
+# }
+# table(offenses_known_yearly_covered_by$last_month_reported)
+# table(offenses_known_yearly_covered_by$number_of_months_missing)
+# 
+# offenses_known_yearly <-
+#   offenses_known_yearly %>%
+#   filter(!ori_year %in% offenses_known_yearly_covered_by$ori_year) %>%
+#   bind_rows(offenses_known_yearly_covered_by)
+# 
+# saveRDS(offenses_known_yearly, "data/offenses_known_yearly_with_covered_by_last_month_reported.rds")
+
+options(tidygeocoder.quiet = TRUE)
+options(tidygeocoder.verbose =  FALSE)
+options(readr.show_col_types = FALSE) 
+
+
+
+time_series_x_axis_year_breaks <- c(1991, 1995, 2000, 2005, 2010, 2015, 2020, 2023)
+time_series_x_axis_year_breaks_arson <- c(1979, 1990, 2000, 2010, 2020, 2023)
+
+
+
 knitr::opts_chunk$set(
   comment = "#>",
   collapse = TRUE,
