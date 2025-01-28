@@ -2,32 +2,9 @@
 
 # NIBRS Overview
 
-```{r, echo=FALSE}
-knitr::opts_chunk$set(
-  echo    = FALSE,
-  warning = FALSE,
-  error   = FALSE,
-  message = FALSE
-)
-```
-
-```{r,  results='hide'}
-administrative <- readRDS("data/nibrs_administrative_segment_2023.rds")
-ucr <- readRDS("data/offenses_known_yearly_1960_2023.rds")
-batch_header <- readRDS("data/nibrs_summary_stats/batch_header_all_years.rds")
-gc()
-batch_header_all_years <- readRDS("data/nibrs_summary_stats/batch_header_all_years.rds")
 
 
-nibrs_administrative_summary_stats <- readRDS("data/nibrs_summary_stats/nibrs_administrative_summary_stats.rds")
-nibrs_arrestee_summary_stats <- readRDS("data/nibrs_summary_stats/nibrs_arrestee_summary_stats.rds")
-nibrs_offender_summary_stats <- readRDS("data/nibrs_summary_stats/nibrs_offender_summary_stats.rds")
-nibrs_offense_summary_stats <- readRDS("data/nibrs_summary_stats/nibrs_offense_summary_stats.rds")
-nibrs_property_summary_stats <- readRDS("data/nibrs_summary_stats/nibrs_property_summary_stats.rds")
-nibrs_victim_summary_stats <- readRDS("data/nibrs_summary_stats/nibrs_victim_summary_stats.rds")
-property_first_year <- readRDS("data/nibrs_summary_stats/property_first_year.rds")
 
-```
 
 
 Nearly a century ago the FBI started collecting data on crime that occurred in the United States as a way to better understand and respond to crime. This data, the [Uniform Crime Reporting (UCR) Program Data](https://ucrbook.com/), is a monthly count of the number of crime incidents (in cases where more than one crime happens per incident, only the most serious crime is included) in each police agency that reports data.^[This data has been expanded since it began in 1929 to include information on arrests, hate crimes, and stolen property.] Other than for homicides (which provides information about each victim and offender), only the number of crimes that occurred is included. So we know, for example, the number of robberies in a city but nothing about who the victims or offenders were, when in that month (day or time of day) the robberies occurred, or the type of location where they happened. To address these limitations the FBI started a new data set in 1991, the National Incident-Based Reporting System data - which is known by its abbreviation NIBRS - and is the topic of this book. Relative to the FBI's UCR data there are far fewer "weird things" in NIBRS data. Still, we will cover instances of the "weirdness" in the data, such as the why crime always goes up on the 1st of the month, or why there are more crimes at noon than at nearly all other hours of the day. We will also be discussing how much of the detailed information that should be available in the data is missing, and when that affects which questions we can answer.
@@ -36,33 +13,10 @@ NIBRS data provides detailed information on every crime reported to the police, 
 
 However, there is a major limitation to this data: most agencies do not use it. [According to the FBI](https://www.fbi.gov/news/pressrel/press-releases/fbi-releases-2019-nibrs-crime-data) only about 8,500 police agencies, covering about 45% of the US population, reported NIBRS data in 2019 (the latest year currently available). This is fewer than half of the about 18,000 police agencies in the United States. This is an even larger problem than it seems as the agencies that do report - especially in earlier years of the data - are disproportionately small and rural. So we are missing out of data from most major cities. A number of states do not have any agencies reporting, making this data relatively biased at least in terms of geography and city size. **Even so, the FBI has said that they are moving entirely to NIBRS data starting in 2021, and will no longer even collect UCR data.** While NIBRS can be converted to UCR data, meaning we can have consistent statistics over time, for agencies that do not report to NIBRS, we have no information on their crimes. In effect, unless the majority of agencies suddenly switch to NIBRS - which, given that the high level of detail relative to UCR data makes moving to NIBRS a costly and timely switch - we will be flying blind for most crime in the country. 
 
-```{r nibrsSegmentsAgencies, fig.cap="The number of agencies reporting data for each of the NIBRS Segments, 1991-2023."}
-nibrs_administrative_summary_stats  %>%
-  ggplot(aes(x = year)) +
-  geom_line(aes(y = number_of_agencies, color = "Administrative"), linewidth = 1.05) +
-  geom_line(data = nibrs_arrestee_summary_stats, aes(x = year,
-                y = number_of_agencies , color = "Arrestee"), linewidth = 1.05) +
-  geom_line(data = nibrs_offender_summary_stats, aes(x = year,
-                y = number_of_agencies, color = "Offender"), linewidth = 1.05) +
-  geom_line(data = nibrs_offense_summary_stats, aes(x = year,
-                y = number_of_agencies , color = "Offense"), linewidth = 1.05) +
-  geom_line(data = nibrs_property_summary_stats, aes(x = year,
-                y = number_of_agencies, color = "Property"), linewidth = 1.05) +
-  geom_line(data = nibrs_victim_summary_stats, aes(x = year,
-                y = number_of_agencies, color = "Victim"), linewidth = 1.05) +
-  xlab("Year") +
-  ylab("# of Agencies") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
-  labs(color = "") +
-  expand_limits(y = 0) +
-  scale_color_manual(values = c("Administrative" = "#d7191c",
-                                "Arrestee" = "#fdae61",
-                                "Offender" = "#7b3294",
-                                "Offense" = "#2c7bb6",
-                                "Property" = "#2c7bb6",
-                                "Victim" = "black"))
-```
+<div class="figure" style="text-align: center">
+<img src="11_nibrs_general_files/figure-html/nibrsSegmentsAgencies-1.png" alt="The number of agencies reporting data for each of the NIBRS Segments, 1991-2023." width="100%" height="100%" />
+<p class="caption">(\#fig:nibrsSegmentsAgencies)The number of agencies reporting data for each of the NIBRS Segments, 1991-2023.</p>
+</div>
 
 ## Problems with NIBRS
 
@@ -90,269 +44,35 @@ Another way to look at reporting is comparing it to reporting to UCR. Figure \@r
 
 Since the number of agencies in a state is partially just a factor of population, Figure \@ref(fig:agenciesReportingMapPercent) shows each state as a percent of agencies in that state that report to NIBRS that also reported to the UCR Offenses Known and Clearances by Arrest (the "crime" data set) in 2019.^[This is the UCR data set which has the highest reporting rate.] Not all agencies in the US reported to UCR in 2019 -  and a small number reported to NIBRS but not UCR in 2019 - but this is a fairly good measure of reporting rates. Here the story looks a bit different than in the previous figure. Now we can tell that among north-western states and states along the Appalachian Mountains, nearly all agencies report. In total, 18 states have 90% or more of agencies that reported to UCR in 2019 also reporting to NIBRS. Thirteen agencies have fewer than 10% of agencies reporting to NIBRS that also reported to UCR, with 5 of these having 0% of agencies reporting. The remaining states average about 56% of agencies reporting. So when using NIBRS data, keep in mind that you have very good coverage of certain states, and very poor coverage of other states. And the low - or zero - reporting states are systematically high population states.    
 
-```{r nibrsAnnualNumberAgencies, fig.cap = "The annual number of police agencies that report data to NIBRS."}
-batch_header_all_years$number_of_months_reported <-
-  as.numeric(batch_header_all_years$number_of_months_reported)
-
-
-batch_header_all_years$number_of_months_reported <- 
-  as.numeric(batch_header_all_years$number_of_months_reported)
-batch_header_any_months <-
-  batch_header_all_years %>%
-  filter(number_of_months_reported > 0) %>%
-  group_by(year) %>%
-  summarize(any_months_number_agencies = length(unique(ori)),
-         any_months_population = sum(population))
-
-
-batch_header_all_years %>%
-  filter(number_of_months_reported %in% 12) %>%
-  group_by(year) %>%
-  summarize(agencies = length(unique(ori))) %>%
-  ungroup() %>%
-  left_join(batch_header_any_months) %>%
-  ggplot(aes(x = year,
-             y = agencies,
-             color = "12 Months")) +
-  geom_line(linewidth = 1.05) +
-  geom_line(linewidth = 1.05, aes(y = any_months_number_agencies, color = "At Least 1 Month")) +
-  xlab("Year") +
-  ylab("# of Agencies") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::comma, expand = c(0, 0), limits = c(0, NA)) +
-  labs(color = "") +
-  expand_limits(y = 0) +
-  scale_color_manual(values = c("12 Months" = "#1b9e77",
-                                "At Least 1 Month" = "#d95f02")) +
-  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
-```
+<div class="figure" style="text-align: center">
+<img src="11_nibrs_general_files/figure-html/nibrsAnnualNumberAgencies-1.png" alt="The annual number of police agencies that report data to NIBRS." width="100%" height="100%" />
+<p class="caption">(\#fig:nibrsAnnualNumberAgencies)The annual number of police agencies that report data to NIBRS.</p>
+</div>
 
 
 
 
-```{r nibrsAnnualPercentPopulation, fig.cap = "The annual percent of the United States population that is covered by an agency reporting data to NIBRS."}
-us_population <- read_csv("data/resident_population_usafacts.csv")
-us_population <- us_population[1,]
-us_population <- data.frame(t(us_population))
-us_population$year <- rownames(us_population)
-names(us_population)[1] <- "us_population"
-us_population <- us_population[-1, ]
-rownames(us_population) <- 1:nrow(us_population)
-us_population$year <- as.numeric(us_population$year)
-us_population$us_population <- as.numeric(us_population$us_population)
-
-batch_header_all_years %>%
-  filter(number_of_months_reported %in% 12) %>%
-  group_by(year) %>%
-  summarize(population = sum(population)) %>%
-  ungroup() %>%
-  left_join(us_population) %>%
-  left_join(batch_header_any_months) %>%
-  mutate(population_prop = population / us_population,
-         any_months_population_prop = any_months_population / us_population,
-  ) %>%
-  ggplot(aes(x = year,
-             y = population_prop,
-             color = "12 Months")) +
-  geom_line(linewidth = 1.05) +
-  geom_line(linewidth = 1.05, aes(y = any_months_population_prop, color = "At Least 1 Month")) +
-  xlab("Year") +
-  ylab("Percent of US Population") +
-  theme_crim() +
-  scale_y_continuous(labels = scales::percent, expand = c(0, 0), limits = c(0, NA)) +
-  labs(color = "") +
-  expand_limits(y = 0) +
-  scale_color_manual(values = c("12 Months" = "#1b9e77",
-                                "At Least 1 Month" = "#d95f02")) +
-  scale_x_continuous(breaks = time_series_x_axis_year_breaks)
-```
+<div class="figure" style="text-align: center">
+<img src="11_nibrs_general_files/figure-html/nibrsAnnualPercentPopulation-1.png" alt="The annual percent of the United States population that is covered by an agency reporting data to NIBRS." width="100%" height="100%" />
+<p class="caption">(\#fig:nibrsAnnualPercentPopulation)The annual percent of the United States population that is covered by an agency reporting data to NIBRS.</p>
+</div>
 
 
-```{r nibrsStateParticipation2000, fig.cap = "The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2000"}
-fips_state_codes <- c(
-  "01", "02", "04", "05", "06", "08", "09", "10", "11", "12",
-  "13", "15", "16", "17", "18", "19", "20", "21", "22", "23",
-  "24", "25", "26", "27", "28", "29", "30", "31", "32", "33",
-  "34", "35", "36", "37", "38", "39", "40", "41", "42", "44",
-  "45", "46", "47", "48", "49", "50", "51", "53", "54", "55",
-  "56", "72"
-)
-
-# census_state_final <- data.frame()
-# for (state_code in fips_state_codes) {
-# 
-#   temp <- get_acs(geography = "block group",
-#                   variables = "B01003_001",
-#                   year = 2022,
-#                   geometry = FALSE,
-#                   state = state_code)
-#   census_state_final <-
-#     census_state_final %>%
-#     bind_rows(temp)
-#   message(state_code)
-# }
-# saveRDS(census_state_final, "data/census_state_final.rds")
-census_state_final <- readRDS("data/census_state_final.rds")
-
-census_state_final$state <- gsub(".*, |.*; ", "", census_state_final$NAME)
-
-census_state_final <-
-  census_state_final %>%
-  group_by(state) %>%
-  summarize(population = sum(estimate)) %>%
-  ungroup() %>%
-  mutate(state = tolower(state))
-
-batch_header_percent_pop <-
-  batch_header_all_years %>%
-  filter(number_of_months_reported %in% 1:12,
-         year %in% 2023) %>%
-  mutate(state = gsub("wyoming v2", "wyoming", state)) %>%
-  group_by(state) %>%
-  summarize(nibrs_population = sum(population)) %>%
-  left_join(census_state_final) %>%
-  mutate(n = nibrs_population / population * 100) 
-nibrs_state_pop_percent_2023 <-
-  batch_header_percent_pop %>%
-  ggplot2::ggplot(aes(map_id = state)) + 
-  ggplot2::geom_map(aes(fill = n), map = fifty_states, color = "black") + 
-  expand_limits(x = fifty_states$long, y = fifty_states$lat) +
-  coord_map() +
-  scale_x_continuous(breaks = NULL) + 
-  scale_y_continuous(breaks = NULL) +
-  labs(x = "", y = "", fill = "% of Population Covered") +
-  theme(panel.background = element_blank()) +
-  fifty_states_inset_boxes() +
-  scale_fill_gradient(low = "white", high = "red") +
-  ggtitle("NIBRS Participation in 2022")
+<div class="figure" style="text-align: center">
+<img src="11_nibrs_general_files/figure-html/nibrsStateParticipation2000-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2000" width="100%" height="100%" />
+<p class="caption">(\#fig:nibrsStateParticipation2000)The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2000</p>
+</div>
 
 
+<div class="figure" style="text-align: center">
+<img src="11_nibrs_general_files/figure-html/nibrsStateParticipation2010-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2010" width="100%" height="100%" />
+<p class="caption">(\#fig:nibrsStateParticipation2010)The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2010</p>
+</div>
 
-
-
-# census_state_final_2000 <- data.frame()
-# for (state_code in fips_state_codes) {
-# 
-#   temp <- get_decennial(geography = "block group",
-#                   variables = "P001001",
-#                   year = 2000,
-#                   geometry = FALSE,
-#                   state = state_code)
-#   census_state_final_2000 <-
-#     census_state_final_2000 %>%
-#     bind_rows(temp)
-#   message(state_code)
-# }
-# saveRDS(census_state_final_2000, "data/census_state_final_2000.rds")
-census_state_final_2000 <- readRDS("data/census_state_final_2000.rds")
-
-census_state_final_2000$state <- gsub(".*, |.*; ", "", census_state_final_2000$NAME)
-
-census_state_final_2000 <-
-  census_state_final_2000 %>%
-  group_by(state) %>%
-  summarize(population = sum(value)) %>%
-  ungroup() %>%
-  mutate(state = tolower(state))
-
-batch_header_percent_pop <-
-  batch_header_all_years %>%
-  filter(number_of_months_reported %in% 1:12,
-         year %in% 2000) %>%
-  group_by(state) %>%
-  summarize(nibrs_population = sum(population)) %>%
-  left_join(census_state_final_2000) %>%
-  mutate(n = nibrs_population / population * 100) 
-batch_header_percent_pop_missing <-
-  data.frame(state = 
-               unique(batch_header_all_years$state[!batch_header_all_years$state %in% 
-                                                     batch_header_percent_pop$state]),
-             n = 0)
-nibrs_state_pop_percent_2000 <- batch_header_percent_pop %>%
-  bind_rows(batch_header_percent_pop_missing) %>%
-  ggplot2::ggplot(aes(map_id = state)) + 
-  ggplot2::geom_map(aes(fill = n), map = fifty_states, color = "black") + 
-  expand_limits(x = fifty_states$long, y = fifty_states$lat) +
-  coord_map() +
-  scale_x_continuous(breaks = NULL) + 
-  scale_y_continuous(breaks = NULL) +
-  labs(x = "", y = "", fill = "% of Population Covered") +
-  theme(panel.background = element_blank()) +
-  fifty_states_inset_boxes() +
-  scale_fill_gradient(low = "white", high = "red")  +
-  ggtitle("NIBRS Participation in 2000")
-
-
-# census_state_final_2010 <- data.frame()
-# for (state_code in fips_state_codes) {
-# 
-#   temp <- get_decennial(geography = "block group",
-#                   variables = "P001001",
-#                   year = 2010,
-#                   geometry = FALSE,
-#                   state = state_code)
-#   census_state_final_2010 <-
-#     census_state_final_2010 %>%
-#     bind_rows(temp)
-#   message(state_code)
-# }
-# saveRDS(census_state_final_2010, "data/census_state_final_2010.rds")
-
-
-census_state_final_2010 <- readRDS("data/census_state_final_2010.rds")
-
-census_state_final_2010$state <- gsub(".*, |.*; ", "", census_state_final_2010$NAME)
-
-census_state_final_2010 <-
-  census_state_final_2010 %>%
-  group_by(state) %>%
-  summarize(population = sum(value)) %>%
-  ungroup() %>%
-  mutate(state = tolower(state))
-
-batch_header_percent_pop <-
-  batch_header_all_years %>%
-  filter(number_of_months_reported %in% 1:12,
-         year %in% 2010) %>%
-  group_by(state) %>%
-  summarize(nibrs_population = sum(population)) %>%
-  left_join(census_state_final_2010) %>%
-  mutate(n = nibrs_population / population * 100) 
-batch_header_percent_pop_missing <-
-  data.frame(state = 
-               unique(batch_header_all_years$state[!batch_header_all_years$state %in% 
-                                                     batch_header_percent_pop$state]),
-             n = 0)
-nibrs_state_pop_percent_2010 <-
-  batch_header_percent_pop %>%
-  bind_rows(batch_header_percent_pop_missing) %>%
-  ggplot2::ggplot(aes(map_id = state)) + 
-  ggplot2::geom_map(aes(fill = n), map = fifty_states, color = "black") + 
-  expand_limits(x = fifty_states$long, y = fifty_states$lat) +
-  coord_map() +
-  scale_x_continuous(breaks = NULL) + 
-  scale_y_continuous(breaks = NULL) +
-  labs(x = "", y = "", fill = "% of Population Covered") +
-  theme(panel.background = element_blank()) +
-  fifty_states_inset_boxes() +
-  scale_fill_gradient(low = "white", high = "red") +
-  ggtitle("NIBRS Participation in 2010")
-
-
-
-nibrs_state_pop_percent_2000
-
-
-```
-
-
-```{r nibrsStateParticipation2010, fig.cap = "The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2010"}
-nibrs_state_pop_percent_2010
-```
-
-```{r nibrsStateParticipation2022, fig.cap = "The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2023 (using 2022 ACS 5-year Census data)"}
-nibrs_state_pop_percent_2023
-```
+<div class="figure" style="text-align: center">
+<img src="11_nibrs_general_files/figure-html/nibrsStateParticipation2022-1.png" alt="The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2023 (using 2022 ACS 5-year Census data)" width="100%" height="100%" />
+<p class="caption">(\#fig:nibrsStateParticipation2022)The percent of each state's population that is covered by police agencies reporting at least one month of data to NIBRS, 2023 (using 2022 ACS 5-year Census data)</p>
+</div>
 
 ## Crimes included in NIBRS
 
@@ -484,9 +204,10 @@ Negative numbers in SRS data are because when a crime is reported and then later
 
 NIBRS data is often discussed - and is used - as if it were a single file with all of this information available. But it actually comes as multiple different files that each provide different information about a crime incident, including at different levels of analysis so users must clean each segment before merging them together. In this section we will discuss each of the segments and how they are related to each other. First, keep in mind that NIBRS is at its core an incident-level data set (hence the "Incident-Based" part of its name). Everything that we have stems from the incident, even though we can get more detailed and look at, for example, individual victims in an incident or even offenses within an incident. Figure \@ref(fig:segmentFlowchart) shows the seven main segments and how they relate to each other. There are also three segments called "window segments" - there is one for arrestees, one of exceptional clearances (i.e. police could have made an arrest but did not for some reason but still consider the case closed), and one for property - that do not have an associated segment with them, they only have the information available in the given "window" segment. We will talk about window segments more in Section \@ref(window) below.
 
-```{r segmentFlowchart, fig.cap="The association of each segment file in the NIBRS data set."}
-knitr::include_graphics('images/nibrsSegments.png')
-```
+<div class="figure" style="text-align: center">
+<img src="images/nibrsSegments.png" alt="The association of each segment file in the NIBRS data set." width="100%" height="100%" />
+<p class="caption">(\#fig:segmentFlowchart)The association of each segment file in the NIBRS data set.</p>
+</div>
 
 The first two boxes in Figure \@ref(fig:segmentFlowchart), colored in orange, are not part of NIBRS but are part of the data generating process. First, obviously, a crime has to occur. The police then have to learn about the crime. This can happen in two ways. First, they can discover it themselves while on patrol. This is common in crimes such as drug possession or sale as well as any crime that occurs outdoors, which is largely where police are able to observe behavior. The second way is that the victim or witness to a crime reports it. So if they call the police to report a crime, the police learn about it from that call. We do not actually know from the data how the police learned of a crime but it is important to think about this data generating process when using the data. 
 Alongside the crime being reported (or discovered) to the police, agencies must then report the crime to NIBRS. All crimes that occur in that agency's jurisdiction *should* be reported, but that is not always the case. Since reporting is voluntary (at least nationally, though some states do require agencies to report data), agencies are free to report as many or as few crimes as they wish. This often occurs when agencies report only parts of the year, excluding certain months, so you should ensure that the agency reported data for each month you are interested in.

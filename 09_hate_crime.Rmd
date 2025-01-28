@@ -141,7 +141,7 @@ temp <- hate_crimes %>%
   dplyr::group_by(state_abb_ori) %>%
   dplyr::summarize(prop_reporting = mean(hate_crime_binary)) %>%
   dplyr::mutate(percent_reporting = prop_reporting * 100)
-state <- data sets::state.name[match(tolower(temp$state_abb_ori), tolower(data sets::state.abb))]
+state <- datasets::state.name[match(tolower(temp$state_abb_ori), tolower(datasets::state.abb))]
 temp$state <- state
 temp <- temp[!is.na(temp$state), ]
 temp$state <- tolower(temp$state)
@@ -185,7 +185,7 @@ temp$x0[is.na(temp$x1)] <- 0
 temp$total_population <- temp$x0 + temp$x1
 temp$population_share_reported <- temp$x1 / temp$total_population * 100
 
-state <- data sets::state.name[match(tolower(temp$state_abb_ori), tolower(data sets::state.abb))]
+state <- datasets::state.name[match(tolower(temp$state_abb_ori), tolower(datasets::state.abb))]
 temp$state <- state
 temp <- temp[!is.na(temp$state), ]
 temp$state <- tolower(temp$state)

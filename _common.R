@@ -1,92 +1,3 @@
-library(groundhog) 
-
-  # devtools::install_github("wmurphyrd/fiftystater")
-library(fiftystater)
-
-
-packages <- c(
-  "crimeutils",
-  "dplyr",
-  "readr",
-  "kableExtra",
-  "knitr",
-  "scales",
-  "tidyr",
-  "ggplot2",
-  "mapproj",
-  "lubridate",
-  "gridExtra",
-  "priceR",
-  "blscrapeR",
-  "janitor",
-  # "quantmod",
-  "ggh4x",
-  "sf",
-  "tigris",
-  "stringr",
-  "tidycensus",
-  "patchwork"
-)
-
-groundhog.library(packages, "2024-08-27")
-#library(priceR)
-#library(quantmod)
-
-# For agencies with a covered by ORI value, assign the last month reported 
-# variable to the value the covering agency has
-
-# 
-# offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2022.rds")
-# offenses_known_yearly$covered_by_ori <- toupper(offenses_known_yearly$covered_by_ori)
-# 
-# offenses_known_yearly$ori_year <- paste(offenses_known_yearly$ori,
-#                                         offenses_known_yearly$year)
-# offenses_known_yearly_covered_by <-
-#   offenses_known_yearly %>%
-#   filter(!is.na(covered_by_ori))
-# 
-# offenses_known_yearly_covering <-
-#   offenses_known_yearly %>%
-#   filter(paste(ori, year) %in% paste(offenses_known_yearly_covered_by$covered_by_ori,
-#                                      offenses_known_yearly_covered_by$year))
-# 
-# offenses_known_yearly_covered_by$last_month_reported_old <-
-#   offenses_known_yearly_covered_by$last_month_reported
-# offenses_known_yearly_covered_by$number_of_months_missing_old <-
-#   offenses_known_yearly_covered_by$number_of_months_missing
-# pb <- progress_bar$new(
-#   format = " [:bar] :current/:total :percent eta: :eta",
-#   total = nrow(offenses_known_yearly_covered_by), clear = FALSE, width= 60)
-# table(offenses_known_yearly_covered_by$last_month_reported)
-# table(offenses_known_yearly_covered_by$number_of_months_missing)
-# for (i in 1:nrow(offenses_known_yearly_covered_by)) {
-#   temp <-
-#     offenses_known_yearly_covering %>%
-#     filter(ori %in% offenses_known_yearly_covered_by$covered_by_ori[i],
-#            year %in% offenses_known_yearly_covered_by$year[i])
-#   if (nrow(temp) > 0) {
-#     offenses_known_yearly_covered_by$last_month_reported[i] <- temp$last_month_reported
-#     offenses_known_yearly_covered_by$number_of_months_missing[i] <- temp$number_of_months_missing
-#   }
-#   pb$tick()
-#   
-# }
-# table(offenses_known_yearly_covered_by$last_month_reported)
-# table(offenses_known_yearly_covered_by$number_of_months_missing)
-# 
-# offenses_known_yearly <-
-#   offenses_known_yearly %>%
-#   filter(!ori_year %in% offenses_known_yearly_covered_by$ori_year) %>%
-#   bind_rows(offenses_known_yearly_covered_by)
-# 
-# saveRDS(offenses_known_yearly, "data/offenses_known_yearly_with_covered_by_last_month_reported.rds")
-
-options(tidygeocoder.quiet = TRUE)
-options(tidygeocoder.verbose =  FALSE)
-options(readr.show_col_types = FALSE) 
-
-
-# 
 knitr::opts_chunk$set(
   comment = "#>",
   collapse = TRUE,
@@ -100,6 +11,8 @@ knitr::opts_chunk$set(
   out.width = "100%",
   out.height= "100%"
 )
+
+
 
 
 library(formatR)
@@ -117,6 +30,7 @@ library(formatR)
 #   out.width = "100%",
 #   out.height= "100%"
 # )
+
 
 get_replace_single_month <- function(data, crime_col, crime) {
   data <- data[match(data$month, month.name), ]
@@ -159,6 +73,7 @@ get_replace_single_month <- function(data, crime_col, crime) {
   
   return(data)
 }
+
 
 get_average_months_missing_simulation <- function(data, variable) {
   results_of_months_missing <- data.frame(months_missing = 1:9,
@@ -206,6 +121,8 @@ get_average_months_missing_simulation <- function(data, variable) {
 }
 
 
+
+
 get_percent_change <- function(number1,
                                number2) {
   final <- number2 - number1
@@ -216,6 +133,7 @@ get_percent_change <- function(number1,
   
   return(final)
 }
+
 
 get_murder_by_pop_group <- function(data) {
   data$population_group[data$population_group %in% c("city 1,000,000+",
@@ -285,6 +203,8 @@ get_murder_by_pop_group <- function(data) {
 }
 
 
+
+
 make_frequency_table_year <- function(data, column, col_names) {
   temp <- unique(data[, column])
   temp <- temp[!is.na(temp)]
@@ -320,6 +240,7 @@ make_frequency_table_year <- function(data, column, col_names) {
   return(temp_df)
 }
 
+
 make_frequency_table <- function(data, column, col_names) {
   temp <- unique(data[, column])
   temp <- temp[!is.na(temp)]
@@ -350,4 +271,97 @@ make_frequency_table <- function(data, column, col_names) {
   
   names(temp_df) <- col_names
   return(temp_df)
+}
+
+
+make_top_5_table <- function(data,
+                             filter_variable,
+                             filter_values,
+                             other_variable,
+                             filter_variable_name,
+                             other_variable_name,
+                             unit) {
+  data$filter_variable <- data[, filter_variable]
+  data$other_variable <- data[, other_variable]
+  
+  final <- data.frame()
+  for (filter_value in filter_values) {
+    temp <- make_frequency_table(data %>% filter(filter_variable %in% filter_value) %>%
+                                   distinct(unique_incident_id,
+                                            filter_variable,
+                                            other_variable),
+                                 "other_variable",
+                                 c("other_variable",
+                                   "\\# of X",
+                                   "\\% of X")) %>%
+      mutate(filter_variable = capitalize_words(filter_value)) %>%
+      select(`filter_variable`,
+             `other_variable`,
+             "\\# of X",
+             "\\% of X")
+    
+    
+    
+    temp_final <- temp[nrow(temp), ]
+    temp <- temp[-nrow(temp), ]
+    temp_other <- temp
+    names(temp_other)[3:4] <- c("count", "percent")
+    temp_other_count <- sum(parse_number(temp_other$count[6:nrow(temp_other)]))
+    temp_other_percent <- sum(parse_number(temp_other$percent[6:nrow(temp_other)]))
+    temp_other <- data.frame(filter_variable = filter_value,
+                             other_variable = "All Other",
+                             count = temp_other_count,
+                             percent = temp_other_percent) %>%
+      mutate(count = prettyNum(count, big.mark = ","),
+             percent = paste0(percent, "\\%")) %>%
+      rename(other_variable = other_variable,
+             `\\# of X` = count,
+             `\\% of X` = percent)
+    temp_other$filter_variable <- capitalize_words(temp_other$filter_variable)
+    temp <- temp[1:5, ]
+    temp <- temp %>%
+      bind_rows(temp_other,
+                temp_final)
+    final <-
+      final %>%
+      bind_rows(temp)
+  }
+  names(final) <- c(filter_variable_name, other_variable_name,
+                    paste0("\\# of ", unit),
+                    paste0("\\# of ", unit)
+  )
+  return(final)
+}
+
+
+
+
+fix_dummy_ordering <- function(data, column, subcategory_column, number_column) {
+  data$temp <- data[, column]
+  data$subcategory <- data[, subcategory_column]
+  data$number <- data[, number_column]
+  values <- unique(data$temp)
+  
+  final_data <- data.frame()
+  for (value in values) {
+    data_temp <- data %>%
+      filter(temp %in% value)
+    
+    total_row <- data_temp %>% filter(subcategory %in% "Total")
+    data_temp <- data_temp %>% filter(!subcategory %in% "Total")
+    data_temp <-
+      data_temp %>%
+      arrange(desc(number),
+              subcategory) %>%
+      bind_rows(total_row)
+    
+    final_data <-
+      final_data %>%
+      bind_rows(data_temp)
+  }
+  
+  final_data$temp <- NULL
+  final_data$number <- NULL
+  final_data$subcategory <- NULL
+  return(final_data)
 }
