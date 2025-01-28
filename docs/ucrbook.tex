@@ -264,7 +264,7 @@ of the more detailed data that only covers murders, a
 \emph{monthly number of crimes or arrests reported to a
 single police agency} which is then gathered by the FBI into
 one file that includes all reporting agencies. It is
-actually a collection of different datasets, all of which
+actually a collection of different data sets, all of which
 have information about crimes and arrests that occur in a
 particular jurisdiction. Think of your home town. This data
 will tell you how many crimes were reported for a small
@@ -296,7 +296,7 @@ UCR data is important for three reasons:
     data.}
 \item
   The data is available since 1960 (for most of the
-  datasets) so there is a long period of available
+  data sets) so there is a long period of available
   data.\footnote{While the original UCR data first reported
     in 1929, there is only machine-readable data since 1960.}
 \item
@@ -305,7 +305,7 @@ UCR data is important for three reasons:
   agencies.
 \end{enumerate}
 
-More than many other datasets, there will be times when
+More than many other data sets, there will be times when
 using UCR data that you will think ``that is weird''. This
 book will cover this weirdness and when we think the
 weirdness is just an odd - but acceptable - quirk of the
@@ -337,7 +337,7 @@ data is so influential.
 \section{Goal of the book}\label{goal-of-the-book}
 
 By the end of each chapter you should have a firm grasp on
-the dataset that is covered and how to use it properly.
+the data set that is covered and how to use it properly.
 However, this book cannot possibly cover every potential use
 case for the data so make sure to carefully examine the data
 yourself for your own particular use.
@@ -345,7 +345,7 @@ yourself for your own particular use.
 I get a lot of emails from people asking questions about
 this data so my own goal is to create a single place that
 answers as many questions as I can about the data. Again,
-this is among the most commonly used crime datasets and
+this is among the most commonly used crime data sets and
 there are still many current papers published with incorrect
 information about the data (including such simple aspects
 like what geographic unit data is in and what time unit it
@@ -356,15 +356,15 @@ quality.
 \section{Structure of the book}\label{structure-of-the-book}
 
 This book will be divided into ten chapters: this chapter,
-an intro chapter briefly summarizing each dataset and going
+an intro chapter briefly summarizing each data set and going
 over overall issues with UCR data, and seven chapters each
-covering one of the seven UCR datasets. The final chapter
+covering one of the seven UCR data sets. The final chapter
 will cover county-level UCR data, a commonly used but highly
 flawed aggregation of UCR data that I recommend against
 using. Each chapter will follow the same format: we will
 start with a brief summary of the data such as when it first
 because available and how it can be used. Next we will look
-at how many agencies report their data to this dataset,
+at how many agencies report their data to this data set,
 often looking at how to measure this reporting rate a couple
 of different ways. Finally, we will cover the important
 variables included in the data and how to use them properly
@@ -399,7 +399,7 @@ put together by the
 \href{https://www.icpsr.umich.edu/web/pages/NACJD/index.html}{National
 Archive of Criminal Justice Data (NACJD)}). This a team out
 of the University of Michigan who manages a huge number of
-criminal justice datasets and makes them available to the
+criminal justice data sets and makes them available to the
 public. If you have any questions about crime data - UCR or
 other crime data - I highly recommend you reach out to them
 for answers. They have a collection of data and excellent
@@ -549,7 +549,7 @@ as fixed-width ASCII files which are basically just an Excel
 file but with all of the columns squished together. As an
 example, Figure \ref{fig:SRSascii} shows what the data looks
 like as you receive it from the FBI for the Offenses Known
-and Clearances by Arrest dataset for 1960, the first year
+and Clearances by Arrest data set for 1960, the first year
 with data available. In the figure, it seems like there are
 multiple rows but that is just because the software that I
 opened the file in is not wide enough - in reality what is
@@ -570,7 +570,7 @@ out which parts of the data belong in which column.
 
 }
 
-\caption{Fixed-width ASCII file for the 1991 National Incident-Based Reporting System (NIBRS) dataset.}\label{fig:ascii}
+\caption{Fixed-width ASCII file for the 1991 National Incident-Based Reporting System (NIBRS) data set.}\label{fig:ascii}
 \end{figure}
 
 The ``fixed-width'' part of the file type is how this works
@@ -648,7 +648,7 @@ hundreds of different value labels.\footnote{With the
   exception of the arrest data and some value label changes
   in hate crimes and homicide data, the setup files remain
   consistent so a single file will work for all years for a
-  given dataset. You do not need to make a setup file for
+  given data set. You do not need to make a setup file for
   each year.} A typo anywhere could have potentially
 far-reaching consequences, so this is a crucial weak point
 in the data cleaning process - and one in which I have not
@@ -669,13 +669,13 @@ you can answer them.
 \section{Common issues}\label{common-issues}
 
 In this section we will discuss issues common to most or all
-of the SRS datasets. For some of these, we will come back to
-the issues in more detail in the chapter for the datasets
+of the SRS data sets. For some of these, we will come back to
+the issues in more detail in the chapter for the data sets
 most affected by the problem.
 
 \subsection{Population}\label{population}
 
-Each of the SRS datasets include a population variable that
+Each of the SRS data sets include a population variable that
 has the estimated population under the jurisdiction of that
 agency.\footnote{Jurisdiction here refers to the boundaries
   of the local government, not any legal authority for where
@@ -755,11 +755,11 @@ include in their data submissions.
 
 In general, more agencies report their data every year and
 once an agency begins reporting data they tend to keep
-reporting. The SRS datasets are a collection of separate,
-though related, datasets and an agency can report to as many
-of these datasets as they want - an agency that reports to
-one dataset does not mean that they report to other
-datasets. Figure \ref{fig:SRSagenciesReporting} shows the
+reporting. The SRS data sets are a collection of separate,
+though related, data sets and an agency can report to as many
+of these data sets as they want - an agency that reports to
+one data set does not mean that they report to other
+data sets. Figure \ref{fig:SRSagenciesReporting} shows the
 number of agencies that submitted at least one month of data
 to the Offenses Known and Clearances by Arrest data in the
 given year. For the first decade of available data under
@@ -777,7 +777,7 @@ increasing but slower than before.
 
 }
 
-\caption{The annual number of agencies reporting to the Offenses Known and Clearances by Arrest dataset. Reporting is based on the agency reporting at least one month of data in that year.}\label{fig:SRSagenciesReporting}
+\caption{The annual number of agencies reporting to the Offenses Known and Clearances by Arrest data set. Reporting is based on the agency reporting at least one month of data in that year.}\label{fig:SRSagenciesReporting}
 \end{figure}
 
 There are approximately 18,000 police agencies in the United
@@ -1064,7 +1064,7 @@ crime in many criminology papers, even when the researchers
 have access to data that covers a broader selection of
 crimes than these.\footnote{Arson is also an index crime but
   was added after these initial seven were chosen and is not
-  included in the crimes dataset (though is available
+  included in the crimes data set (though is available
   separately) so is generally not included in studies that
   use index crimes.} These are also the crimes that the news
 uses each year to report on how crime in the United States
@@ -1080,10 +1080,10 @@ an undercount of violence in this country by approximately
 50\%.
 
 In this chapter we will provide a brief overview of the
-datasets that make up the FBI's Summary Reporting System
+data sets that make up the FBI's Summary Reporting System
 (SRS) which you can think of as the ``aggregate'' data
 collection that is part of their Uniform Crime Reporting
-(UCR) Program Data. These datasets are primarily focused on
+(UCR) Program Data. These data sets are primarily focused on
 aggregate data, mostly having monthly counts of crimes
 without many details about any particular crime. In
 comparison, the other half of the UCR collection, the
@@ -1095,14 +1095,14 @@ report only NIBRS data - but there is no way to go from SRS
 to NIBRS.
 
 \section{Crimes included in the SRS
-datasets}\label{crimes-included-in-the-srs-datasets}
+data sets}\label{crimes-included-in-the-srs-data sets}
 
 SRS data covers only a subset - and for the crime data, a
 very small subset - of all crimes that can occur. It also
 only includes crimes reported to the police. So there are
 two levels of abstraction from a crime occurring to it being
 included in the data: a crime must occur that is one of the
-crimes included in one of the SRS datasets (we detail all of
+crimes included in one of the SRS data sets (we detail all of
 these crimes below) \emph{and} the victim must report the
 incident to the police. While the crimes included are only a
 small selection of crimes - which were originally chosen
@@ -1112,30 +1112,30 @@ important first step to understanding the data.
 
 SRS data should be understood as a loose collection of data
 that seeks to understand crimes and arrests in the United
-States. There are seven datasets in the SRS collection that
+States. There are seven data sets in the SRS collection that
 each cover a different topic or a subset of a previously
 covered topic: crimes, arrests, property crimes
 specifically, homicides specifically, police officers killed
 or assaulted, arson specifically, and hate
-crimes.\footnote{There is also a human trafficking dataset
-  though this is a newer dataset and rarely used so I will
+crimes.\footnote{There is also a human trafficking data set
+  though this is a newer data set and rarely used so I will
   not cover it in this book.} In this section we will go
-over the crimes included in the two main SRS datasets:
+over the crimes included in the two main SRS data sets:
 Offenses Known and Clearances by Arrest and (which I like to
-call the ``crime'' dataset) and the Arrests by Age, Sex, and
-Race (the ``arrests'' dataset). These are the most commonly
-used SRS datasets and the stolen property and homicide
-datasets are simply more detailed subsets of these datasets.
-The hate crime dataset can cover a broader selection of
+call the ``crime'' data set) and the Arrests by Age, Sex, and
+Race (the ``arrests'' data set). These are the most commonly
+used SRS data sets and the stolen property and homicide
+data sets are simply more detailed subsets of these data sets.
+The hate crime data set can cover a broader selection of
 offenses than in the crimes or arrests data, so we will
 discuss those in Chapter @ref(hate\_crimes).
 
 \section{A summary of each SRS
-dataset}\label{a-summary-of-each-srs-dataset}
+data set}\label{a-summary-of-each-srs-data set}
 
 The SRS collection of data can be roughly summarized into
 two groups: crime data and arrest data. While there are
-several datasets included in the SRS data collection, they
+several data sets included in the SRS data collection, they
 are all extensions of one of the above groups. For arrest
 data, you have information about who (by race and by
 age-gender, but not by race-gender or race-age other than
@@ -1147,9 +1147,9 @@ specialized data on a subset of these crimes - information
 on homicides, hate crimes, assaults or killings of police
 officers, and stolen property.
 
-Each of these datasets will have its own chapter in this
+Each of these data sets will have its own chapter in this
 book where we discuss the data thoroughly. Here is a very
-brief summary of each dataset which will help you know which
+brief summary of each data set which will help you know which
 one to use for your research. I still recommend reading that
 data's chapter since it covers important caveats and uses
 (or misuses) of the data that would not be covered below.
@@ -1157,12 +1157,12 @@ data's chapter since it covers important caveats and uses
 \subsection{Offenses Known and Clearances by Arrest (1960 -
 present)}\label{offenses-known-and-clearances-by-arrest-1960---present}
 
-The Offenses Known and Clearances by Arrest dataset - often
+The Offenses Known and Clearances by Arrest data set - often
 called Return A, ``Offenses Known'' or, less commonly, OKCA
-- is the oldest and most commonly used dataset and measures
+- is the oldest and most commonly used data set and measures
 crimes reported to the police. For this reason it is used as
 \emph{the} main measure of crime in the United States, and I
-tend to call it the ``crimes dataset.'' This data answers
+tend to call it the ``crimes data set.'' This data answers
 the most basic questions about crimes: how many occurred? If
 you see crime data referenced in a news or academic article
 it is usually this data. This data also includes the number
@@ -1182,14 +1182,14 @@ primarily affects property crimes.
 \subsection{Arrests by Age, Sex, and Race (1974 -
 present)}\label{arrests-by-age-sex-and-race-1974---present}
 
-The Arrests by Age, Sex, and Race dataset - often called
+The Arrests by Age, Sex, and Race data set - often called
 ASR, or the ``arrests data'', or sometimes the ``Arrests by
 Age, Sex, Race, and Ethnicity though this is really
 misleading since most years do not even report ethnicity
 data - includes the monthly number of arrests for a variety
 of crimes and, unlike the crime data, breaks down this data
 by age and gender. This data includes a broader number of
-crime categories than the crime dataset (the Offenses Known
+crime categories than the crime data set (the Offenses Known
 and Clearances by Arrest data) though is less detailed on
 violent crimes since it does not breakdown aggravated
 assault or robberies by weapon type as the Offenses Known
@@ -1219,7 +1219,7 @@ present)}\label{law-enforcement-officers-killed-and-assaulted-leoka-1960---prese
 The Law Enforcement Officers Killed and Assaulted data,
 often called just by its acronym LEOKA (``LEE-OH-KUH''), has
 two main purposes.\footnote{This data is also sometimes
-  called the ``Police Employees'' dataset.} First, it
+  called the ``Police Employees'' data set.} First, it
 provides counts of employees employed by each agency -
 broken down by if they are civilian employees or sworn
 officers, and also broken down by sex (male and female are
@@ -1236,7 +1236,7 @@ given month. The employee information is at the year-level
 so you know, for example, how many male police officers were
 employed in a given year at an agency, but do not know any
 more than that such as if the number employed changed over
-the year. This dataset is commonly used as a measure of
+the year. This data set is commonly used as a measure of
 police employees and is a generally reliable measure of how
 many police are employed by a police agency. The second part
 of this data, measuring assaults and deaths, is more flawed
@@ -1246,9 +1246,9 @@ officers killed than employed in an agency).
 \subsection{Supplementary Homicide Reports
 (SHR)}\label{supplementary-homicide-reports-shr}
 
-The Supplementary Homicide Reports dataset - often
+The Supplementary Homicide Reports data set - often
 abbreviated to SHR - is the most detailed of the SRS
-datasets and provides information about the circumstances
+data sets and provides information about the circumstances
 and participants (victim and offender demographics and
 relationship status) for homicides. For each homicide
 incident it tells you the age, gender, race, and ethnicity
@@ -1272,14 +1272,14 @@ but not only murders so you want to speak precisely.
 \subsection{Hate Crime Data (1991 -
 present)}\label{hate-crime-data-1991---present}
 
-This dataset covers crimes that are reported to the police
+This data set covers crimes that are reported to the police
 and judged by the police to be motivated by hate. More
 specifically, they are (1) crimes which were (2) motivated -
 at least in part - by bias towards a certain person or group
 of people because of characteristics about them such as
 race, sexual orientation, or religion. The first part is
 key, they must be crimes - and really must be the selection
-of crimes that the FBI collects for this dataset. Biased
+of crimes that the FBI collects for this data set. Biased
 actions that do not meet the standard of a crime, or are of
 a crime category not included in this data, are not
 considered hate crimes. For example, if someone yells at a
@@ -1304,8 +1304,8 @@ present)}\label{property-stolen-and-recovered-supplement-to-return-a-1960---pres
 
 The Property Stolen and Recovered data - sometimes called
 the Supplement to Return A (Return A being another name for
-the Offenses Known and Clearances by Arrest dataset, the
-``crime'' dataset) - provides monthly information about
+the Offenses Known and Clearances by Arrest data set, the
+``crime'' data set) - provides monthly information about
 property-related offenses (theft, motor vehicle theft,
 robbery, and burglary), including the location of the
 offense (in broad categories like ``gas station'' or
@@ -1314,13 +1314,13 @@ firearms), and how much the stolen items were
 worth.\footnote{It also includes the value of items stolen
   during rapes and murders, if anything was stolen.} It also
 includes robberies so is really the ``stuff taken during a
-crime'' dataset than the dataset about property crimes. The
-``recovered'' part of this dataset covers the type and value
+crime'' data set than the data set about property crimes. The
+``recovered'' part of this data set covers the type and value
 of property recovered so you can use this, along with the
 type and value of property stolen, to determine what percent
 and type of items the police managed to recover.
 
-Like most other SRS datasets this is at the agency-month
+Like most other SRS data sets this is at the agency-month
 level so you can, for example, learn how often burglaries
 occur at the victim's home during the day, and if that rate
 changes over the year or differs across agencies. The data,
@@ -1339,7 +1339,7 @@ very rough estimate of value.
 \subsection{Arson (1979 -
 present)}\label{arson-1979---present}
 
-The arson dataset provides monthly counts at the police
+The arson data set provides monthly counts at the police
 agency-level for arsons that occur, and includes a breakdown
 of arsons by the type of arson (e.g.~arson of a person's
 home, arson of a vehicle, arson of a community/public
@@ -1359,12 +1359,12 @@ is the estimated damage in dollars caused by the arson.
 \chapter{Offenses Known and Clearances by
 Arrest}\label{offensesKnown}
 
-The Offenses Known and Clearances by Arrest dataset - often
+The Offenses Known and Clearances by Arrest data set - often
 called Return A, ``Offenses Known'' or, less commonly, OKCA
-- is the oldest and most commonly used dataset in the UCR
+- is the oldest and most commonly used data set in the UCR
 and measures it crimes reported to the police. For this
 reason it is used as \emph{the} main measure of crime in the
-United States, and I tend to call it the ``crimes dataset.''
+United States, and I tend to call it the ``crimes data set.''
 This data answers the most basic questions about crimes: how
 many occurred? If you see crime data referenced in a news or
 academic article it is usually this data. This data also
@@ -1385,14 +1385,14 @@ into) just the monthly number of crimes reported or
 otherwise known (e.g.~discovered while on patrol) to a
 police agency for a small number of crimes. If you want to
 know, for example, how many murders or burglaries happened
-in your city last year, this is the dataset to turn to. This
+in your city last year, this is the data set to turn to. This
 simplicity allows a much wider group of people to use the
 data; since it is monthly counts of crimes (with no
 breakdown by location, race, age, injury, etc.) you do not
 need much programming or analytic skills to use it.
 
 I argued earlier in this book that NIBRS is a far superior
-dataset than anything in SRS, and I stand by that. NIBRS is
+data set than anything in SRS, and I stand by that. NIBRS is
 superior in nearly every way. But for most people - the
 general public, reporters, many academics, etc. - what is
 important is ease of use and very basic descriptive
@@ -1410,7 +1410,7 @@ city'' is really the first and most important question about
 crime that people have.
 
 Part of the superiority of NIBRS is that while it can answer
-much more complex questions than SRS datasets, it can also
+much more complex questions than SRS data sets, it can also
 answer the same questions that the SRS can. That is because,
 by design, NIBRS collects the same information as SRS and
 can be converted to SRS data. Many agencies that submit
@@ -1436,7 +1436,7 @@ when it does it is primarily undercounting property crime.
 \section{Which crimes are
 included?}\label{indexCrimesOffensesKnown}
 
-This dataset contains information on the number of ``Index
+This data set contains information on the number of ``Index
 Crimes'' (sometimes called Part I crimes) reported to each
 agency.\footnote{While some people capitalize ``Index
   Crime,'' I prefer the term in lowercase which is how I
@@ -1572,7 +1572,7 @@ will discuss next):
 \end{enumerate}
 
 Arson is considered an index crime but is not reported in
-this data - you need to use the separate Arson dataset of
+this data - you need to use the separate Arson data set of
 the UCR to get access to arson counts. See Chapter
 \ref{arsonChapter} for an overview of the Arson data. The
 ninth crime on that list, simple assault, is not considered
@@ -1594,7 +1594,7 @@ crimes, and the drawbacks of using them, please see Section
 
 \subsection{Hierarchy Rule}\label{hierarchy}
 
-This dataset uses what is called the Hierarchy Rule where
+This data set uses what is called the Hierarchy Rule where
 only the most serious crime in an incident is reported
 (except for motor vehicle theft and arson, which are always
 included).\footnote{FBI documentation actually differs on
@@ -1865,10 +1865,10 @@ can lead to more serious harm than aggravated assault. An
 assault becomes aggravated if using a weapon or there is the
 \emph{potential} for serious harm, even if no harm actually
 occurs.\footnote{SRS data provides no information about the
-  harm caused to victims. The new FBI dataset NIBRS actually
+  harm caused to victims. The new FBI data set NIBRS actually
   does have a variable that includes harm to the victim so
   if you are interested in measuring harm (an understudied
-  topic in criminology), that is the dataset to use.}
+  topic in criminology), that is the data set to use.}
 
 As an example of this last point, Figure
 \ref{fig:simpleIndex} shows the number of violent index
@@ -2118,7 +2118,7 @@ year with clearance data is in 1963, though that is
 extremely rare; the vast majority of agencies started
 reporting this data in 1964.
 
-Even though this dataset is formally named ``Offenses Known
+Even though this data set is formally named ``Offenses Known
 and Clearances by Arrest'' it does include clearances where
 no one is arrested, which are called ``exceptional
 clearances'' or ``clearances by exceptional means.'' For
@@ -2235,7 +2235,7 @@ example, a person could report a burglary to the police to
 collect insurance money on the items they claim was stolen.
 If the police discover this they would unfound the case -
 and the lying to the police and fraud would not be counted
-as neither of those are crimes included in this dataset. The
+as neither of those are crimes included in this data set. The
 way that the police do this in the data is to record an
 unfounded crime as a negative actual crime. If there are 10
 burglaries already reported and then the above example
@@ -2289,7 +2289,7 @@ year.\footnote{For Memphis, as agencies can report both SRS
 \section{Important changes}\label{important-changes}
 
 There are two major changes in recording practices over the
-life of this dataset: an expansion of what counts as rape,
+life of this data set: an expansion of what counts as rape,
 and a reduction in what counts as manslaughter.
 
 \subsection{Rape definition
@@ -2461,7 +2461,7 @@ Manslaughter increased to over 1,000 for the first time
 since 1978 in 2020, increased against to over 1,700 in 2021
 and continued at around that number in 2022. This is
 possibly related to the increase in murders over the last
-few years of available data. Unfortunately, this dataset
+few years of available data. Unfortunately, this data set
 does not allow us to do almost anything at figuring out more
 information than monthly or annual counts. NIBRS, in
 comparison, allows us to do this kind of deep dive, and for
@@ -2480,15 +2480,15 @@ investigate this question yourself.
 \chapter{Property Stolen and Recovered (Supplement to Return
 A)}\label{stolen_property}
 
-The Property Stolen and Recovered dataset, also known as the
+The Property Stolen and Recovered data set, also known as the
 Supplement to Return A\footnote{Return A being another name
-  for the Offenses Known and Clearances by Arrest dataset.},
+  for the Offenses Known and Clearances by Arrest data set.},
 tracks monthly data on property crimes (theft, burglary,
 robbery, and motor vehicle theft), with information on where
 the crime occurred, what was stolen, and the estimated value
 of the stolen property. The ``recovered'' part of this
-dataset covers the type and value of property recovered.
-Like most other SRS datasets this is at the agency-month
+data set covers the type and value of property recovered.
+Like most other SRS data sets this is at the agency-month
 level so you can, for example, learn how often burglaries
 occur at the victim's home during the day, and if that rate
 changes over the year or differs across agencies. The data,
@@ -2508,7 +2508,7 @@ stolen but they only realized that nine items were taken.
 They would report these nine items to the police but the
 tenth item would be left out of our data.
 
-This dataset provides a rough estimate of the cost of crime,
+This data set provides a rough estimate of the cost of crime,
 limited to the value of stolen property. It excludes other
 important costs such as physical injuries, emotional harm,
 or preventative expenses (e.g., home security systems). For
@@ -2563,7 +2563,7 @@ actually monetary cost of that incident. Figure
 showing the annual value of the property stolen for daytime
 home burglaries in Philadelphia. The years without 12 months
 of data are excluded from the figure. Like many variables in
-this dataset, there is no reported crime value until 1964,
+this data set, there is no reported crime value until 1964,
 so the data shows a value of 0 from 1960-1963.
 
 The trend here is different than the previous graph which
@@ -2609,7 +2609,7 @@ year has, for example, a home burglary where \$10 million
 worth of jewelry is stolen then that year's total value of
 property stolen would be much higher just due to a single
 burglary. There is, unfortunately, no way to handle this in
-this dataset, though NIBRS has similar data which does allow
+this data set, though NIBRS has similar data which does allow
 you to check for outliers.\footnote{Having an outlier, as
   long as it is not just a data entry error, should not
   necessarily mean you remove it. If we removed rare events
@@ -2673,15 +2673,15 @@ reporting NIBRS data which the FBI converted to this format.
 Since this data is called the ``Supplement to Return A'' we
 would expect that the agencies that report here are the same
 as the ones that report to the Offenses Known and Clearances
-by Arrest data, which is also called the Return A dataset.
+by Arrest data, which is also called the Return A data set.
 Figure \ref{fig:agenciesInBoth} shows the percent of
-agencies in this dataset that are report at least one month
+agencies in this data set that are report at least one month
 of Return A data. Except for the first several years of data
 in the 1960s, we can see that most years have nearly all
 agencies reporting to both, though this has declined
 slightly in recent years. Since the late 1970s, over 90\% of
 agencies that report to the Offenses Known data also report
-to this dataset.
+to this data set.
 
 \begin{figure}
 
@@ -2699,7 +2699,7 @@ quite similar to Figure \ref{fig:agenciesInBoth} though now
 the average percent is around 75\% rather than 90\%. This
 translates to around 11k agencies though it drops starting
 in 2018 until fewer than 8,500 agencies report full data to
-both datasets in 2022.
+both data sets in 2022.
 
 \section{Important variables}\label{important-variables-1}
 
@@ -3170,7 +3170,7 @@ And here are the items stolen:
     (including the fancy motion pictures) is included. This
     includes TVs, cameras, projectors, radios, MP3 players
     (but not phones that can play music) and (since again,
-    this is a very old dataset) VHS cassettes.
+    this is a very old data set) VHS cassettes.
   \end{itemize}
 \item
   Guns
@@ -3233,7 +3233,7 @@ such as robbery or burglary. So we can know the value of
 guns recovered, but not if those guns were taken from a
 burglary, a robbery, a theft, etc.
 
-While this dataset began in 1960, the recovered property
+While this data set began in 1960, the recovered property
 variables begin later, and in different years. For clothing
 and fur, currency, jewels and precious metals, motor
 vehicles, miscellaneous/other, and the variable that sums up
@@ -3297,7 +3297,7 @@ The full list of items recovered are below:
 
 \section{Data errors}\label{data-errors}
 
-This dataset comes with a considerable number of data errors
+This data set comes with a considerable number of data errors
 - basically enormous valuations for stolen
 property.\footnote{Since the minimum value is 0 there is
   less chance of data errors underestimating the value of an
@@ -3428,7 +3428,7 @@ goods such as food and toiletries were stolen to the tune of
 \$84,278 worth of goods stolen in 2021. To put this into
 perspective - not that it is needed - the total amount of
 property stolen by theft the United States during 2019,
-according to this dataset, was \$8 billion. Rome, NY,
+according to this data set, was \$8 billion. Rome, NY,
 superseded that by far just through two groups of property
 stolen in 2020.
 
@@ -3454,7 +3454,7 @@ and especially for this data.
 \caption{The annual value of stolen consumable goods, bicycles, livestock, and thefts from pickpocketing, in Rome, New York, 1960-2023.}\label{fig:romeConsumable}
 \end{figure}
 
-The Property Stolen and Recovered dataset offers a useful,
+The Property Stolen and Recovered data set offers a useful,
 though imperfect, view of property crimes and their
 financial impact. While limitations such as reporting gaps
 and data inconsistencies exist, careful analysis can still
@@ -3466,11 +3466,11 @@ outliers.
 
 \chapter{Arrests by Age, Sex, and Race}\label{arrests}
 
-The Arrests by Age, Sex, and Race dataset (ASR)\footnote{Sometimes
+The Arrests by Age, Sex, and Race data set (ASR)\footnote{Sometimes
   called Arrests by Age, Sex, Race, and Ethnicity.} provides
 monthly counts of arrests broken down by age, sex, and race
 for a variety of crimes. This data includes a broader number
-of crime categories than the crime dataset (the Offenses
+of crime categories than the crime data set (the Offenses
 Known and Clearances by Arrest data) though is less detailed
 on violent crimes since it does not breakdown aggravated
 assault or robberies by weapon type as the Offenses Known
@@ -3531,7 +3531,7 @@ which tends to only report a single month if at all.
 \section{What is an arrest? (what unit is this data
 in?)}\label{what-is-an-arrest-what-unit-is-this-data-in}
 
-This dataset counts each arrest separately, meaning that
+This data set counts each arrest separately, meaning that
 individuals who are arrested multiple times will be counted
 multiple times. It reports the most serious crime for each
 arrest incident, so if someone commits multiple crimes
@@ -3544,7 +3544,7 @@ next day for shoplifting. And let us further assume that
 both arrests were in the same month in the same agency. How
 many arrests are here? They committed multiple crimes in the
 first incident (murder, robbery, aggravated assault) but in
-this dataset they would only be classified as an arrest for
+this data set they would only be classified as an arrest for
 the most serious crime, murder. And then separately they
 would also be an arrested for shoplifting. So assuming that
 no other arrests occurred in that police agency that month,
@@ -3644,7 +3644,7 @@ recorded.\footnote{Partly based on the quality of the data
 arrested for multiple crimes and an Index Crime is one of
 those crimes, then the Index Crime at the top of the
 Hierarchy is the one recorded in this data. Below I have
-listed all crimes included in this dataset and the crimes
+listed all crimes included in this data set and the crimes
 1-7 as well as 9 (arson) are the Index Crimes. The top of
 the Hierarchy is the crime with the lowest number. So murder
 is always reported in incidents where there is a murder;
@@ -3818,12 +3818,12 @@ We will get into each of these variables below.
 
 \subsection{Age}\label{age}
 
-The dataset provides the number of arrests for each age
+The data set provides the number of arrests for each age
 group and gender. Specific ages are reported for younger
 individuals (e.g., 15-24), while older individuals are
 grouped into broader age ranges (e.g., 25-29, 30-34). Male
 and female arrestees are reported separately, and the
-dataset does not include any category for non-binary or
+data set does not include any category for non-binary or
 transgender individuals. To get a total arrests for that
 crime for that age, just add the female and male variables
 together. Below are the ages or age categories included in
@@ -3918,7 +3918,7 @@ be wrong, though hopefully not \emph{too} wrong.
 
 \subsection{Race}\label{race}
 
-The dataset categorizes arrests by race: American Indian,
+The data set categorizes arrests by race: American Indian,
 Asian, Black, and White. It does not account for mixed-race
 individuals or provide details on how race was determined
 (e.g., officer perception or arrestee self-reporting). This
@@ -3934,8 +3934,8 @@ way to determine how many White-Hispanic or
 White-Non-Hispanic arrestees. Just total White arrestees and
 total Hispanic arrestees.
 
-As with race variables in other UCR datasets - and, really,
-any dataset - you should be cautious about using this
+As with race variables in other UCR data sets - and, really,
+any data set - you should be cautious about using this
 variables since it is the officer's perception of the
 arrestee's race - though of course some arrests do have
 other data about the arrestee's race such as what they tell
@@ -4125,7 +4125,7 @@ crime that if they were adults would have been counted as a
 formal arrest. This variable is not available for data after
 2020.
 
-Unlike the rest of this dataset where juvenile is defined as
+Unlike the rest of this data set where juvenile is defined as
 being under the age of 18, these variables allow states to
 use their own definition of juvenile. So potentially the
 limit for who is a juvenile could be below the age of 18,
@@ -4247,9 +4247,9 @@ cause of these spikes to the reader.
 
 \chapter{Supplementary Homicide Reports (SHR)}\label{shr}
 
-The Supplementary Homicide Reports dataset - often
+The Supplementary Homicide Reports data set - often
 abbreviated to SHR - is the most detailed of the SRS
-datasets and provides information about the circumstances
+data sets and provides information about the circumstances
 and participants (victim and offender demographics and
 relationship status) for homicides. For each homicide
 incident it tells you the age, gender, race, and ethnicity
@@ -4276,19 +4276,19 @@ This data only has a report when the agency has a homicide
 that year and since homicides are relatively rare it is
 difficult to measure underreporting. One way we can look at
 reporting is to compare homicide in the SHR data with that
-of other datasets. We will look at two of them: the Offenses
+of other data sets. We will look at two of them: the Offenses
 Known and Clearances by Arrest which is covered in detail in
 Chapter \ref{offensesKnown}, and the Center for Disease
 Control and Prevention (CDC) data on national deaths from
 homicide.\footnote{CDC WONDER data is available here:
-  \url{https://wonder.cdc.gov/}} Both this dataset and the
+  \url{https://wonder.cdc.gov/}} Both this data set and the
 Offenses Known and Clearances by Arrest data are SHR
-datasets so you may think that the numbers of homicides from
-each dataset should be the same. That is a perfectly
+data sets so you may think that the numbers of homicides from
+each data set should be the same. That is a perfectly
 reasonable assumption, but since this is SHR data we are
 talking about, you would be wrong. Police agencies are free
-to report to either, both, or neither dataset so while the
-number of homicides are close for each dataset, they are
+to report to either, both, or neither data set so while the
+number of homicides are close for each data set, they are
 never equal. CDC WONDER data aggregates mortality data
 (among other data) from state death certificates which
 reduces the issue of voluntary reporting that we have in SHR
@@ -4296,10 +4296,10 @@ data.
 
 Figure \ref{fig:shrVsOffenses} shows the annual number of
 homicide victims (including murders and manslaughters) from
-each of these datasets starting in 1976 for the SHR data and
+each of these data sets starting in 1976 for the SHR data and
 in 1999 for the CDC data.\footnote{1975 is actually the
   first year that the Supplementary Homicide Reports data is
-  available but that dataset only has info for a single
+  available but that data set only has info for a single
   victim and offender - all later years has info for up to
   11 victims and offenders - so 1976 is often used as the
   first year of data}
@@ -4308,10 +4308,10 @@ For the SHR data, in every year the numbers are fairly
 similar and the trends are the same over time, but the
 number of homicides is never equal. The numbers have
 actually gotten worse over time with the difference between
-the datasets increasing and the Offenses Known data having
+the data sets increasing and the Offenses Known data having
 consistently more murders reported than the SHR data since
 the late 1990s. Compared to the CDC data, however, both SHR
-datasets - and in particular the SHR data - undercount the
+data sets - and in particular the SHR data - undercount the
 number of homicides. While trends are the same, SHR data
 reports thousands fewer murders per year than the CDC data,
 indicating how much of an issue underreporting is in this
@@ -4323,13 +4323,13 @@ data.
 
 }
 
-\caption{The annual number of murders and nonngeligent manslaughters from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest dataset, and homicides from the Center for Disease Control (CDC). Numbers differ because agencies voluntarily report and may not report to both datasets.}\label{fig:shrVsOffenses}
+\caption{The annual number of murders and nonngeligent manslaughters from the Supplementary Homicide Report and the Offenses Known and Clearances by Arrest data set, and homicides from the Center for Disease Control (CDC). Numbers differ because agencies voluntarily report and may not report to both data sets.}\label{fig:shrVsOffenses}
 \end{figure}
 
 Let us look at Chicago for another example of the
 differences in reporting from the SHR and the Offenses Known
 data. Figure \ref{fig:chicagoSHRvsOffensesKnown} shows the
-annual number of homicide victims from both datasets. In
+annual number of homicide victims from both data sets. In
 most years they are pretty similar, excluding a few really
 odd years in the 1980s and in 1990. But what is also strange
 is that most years have more SHR victims than Offenses Known
@@ -4659,7 +4659,7 @@ up 0.02\% of victims.
 The final demographic variable is ethnicity which is whether
 the victim or offender is Hispanic or not Hispanic. The SHR
 data has a weird relationship with this variable (which is
-also in the Arrests by Age, Sex, and Race dataset, discussed
+also in the Arrests by Age, Sex, and Race data set, discussed
 in Chapter \ref{arrests}) where ethnicity is technically a
 variable in the data but very rarely collected. As such,
 this is an unreliable variable that if you really want to
@@ -5092,7 +5092,7 @@ committed a felony - was killed. It includes if this person
 attacked an officer (the one who killed them), a different
 officer, a civilian, or was committing or fleeing a crime.
 
-This dataset is one source of information on how many people
+This data set is one source of information on how many people
 police kill each year. But it is a large undercount compared
 to other sources such as the Washington Post collection, so
 is not a very useful source of information on this topic.
@@ -5130,7 +5130,7 @@ Total & 32,666 & 100\textbackslash{}\%\\
 (LEOKA)}\label{leoka}
 
 The Law Enforcement Officers Killed and Assaulted data
-(sometimes referred to as the ``Police Employees'' dataset),
+(sometimes referred to as the ``Police Employees'' data set),
 often called just by its acronym LEOKA (``LEE-OH-KUH''), has
 two main purposes. First, it provides counts of employees
 employed by each agency - broken down by if they are
@@ -5148,7 +5148,7 @@ killed feloniously (i.e.~murdered) or died accidentally
 is at the year-level so you know, for example, how many male
 police officers were employed in a given year at an agency,
 but do not know any more than that such as if the number
-employed changed over the year. This dataset is commonly
+employed changed over the year. This data set is commonly
 used as a measure of police employees and is a generally
 reliable measure of how many police are employed by a police
 agency. The second part of this data, measuring assaults and
@@ -5205,7 +5205,7 @@ the 200s, and an earlier but less steep drop in reporting.
 
 I mentioned that LEOKA has two purposes: employee
 information and assaults on officers information. You should
-really think about this data as two separate datasets as
+really think about this data as two separate data sets as
 agencies can report one, both, or neither part. In practice,
 more agencies report data on the number of employees they
 have than they do for assaults on officers. In Figure
@@ -5804,7 +5804,7 @@ making arrests.\footnote{In the chapters on NIBRS I will
 
 \chapter{Arson}\label{arsonChapter}
 
-The arson dataset provides monthly counts of reported arson
+The arson data set provides monthly counts of reported arson
 incidents, with detailed breakdowns by type (e.g., arson of
 residential properties, vehicles, or public buildings) and
 the estimated value of property damage. The data spans from
@@ -5827,7 +5827,7 @@ much of this information is the same as detailed in Chapter
 \ref{offensesKnown}, this chapter will be brief. If you have
 a question about definitions, please refer to that chapter.
 
-The dataset includes a variable indicating whether the arson
+The data set includes a variable indicating whether the arson
 occurred in an uninhabited structure, which refers to
 buildings that are vacant, abandoned, or not in regular use.
 This allows for estimates of how many building arsons had
@@ -5837,7 +5837,7 @@ harmed.
 
 In cases where the arson led to a death, that death would be
 recorded as a murder on the Offenses Known and Clearances by
-Arrest dataset - but not indicated anywhere on this dataset.
+Arrest data set - but not indicated anywhere on this data set.
 If an individual who responds to the arson dies because of
 it, such as a police officer or a firefighter, this is not
 considered a homicide (though the officer death is still
@@ -5847,7 +5847,7 @@ deaths.
 
 \section{Agencies reporting}\label{agencies-reporting-4}
 
-This dataset measures how many months that an agency reports
+This data set measures how many months that an agency reports
 data over a year in the same way as the Offenses Known data
 does: the standard FBI definition using the last month
 reported, and my own measure counting how many months
@@ -5901,7 +5901,7 @@ of arsons in structures that were uninhabited, and the
 estimated cost of the damage caused by the arsons. For each
 variable, the arsons are also broken into several categories
 of arsons, which we will talk about in Section
-\ref{arsonType}. As with other SRS datasets, there are also
+\ref{arsonType}. As with other SRS data sets, there are also
 variables that provide information about the agency - ORI
 codes, population under jurisdiction - the month and year
 that the data covers, and how many months reported data.
@@ -5912,7 +5912,7 @@ variable.
 \subsection{Types of arsons}\label{arsonType}
 
 For each of the outcome categories detailed below, this
-dataset has information for ten different \emph{types} of
+data set has information for ten different \emph{types} of
 arson. Arsons are categorized into three main groups:
 building arsons, vehicle arsons, and other arsons (e.g.,
 fires in outdoor areas like parks or forests). Building
@@ -6100,7 +6100,7 @@ yourself.
 
 \section{Data errors}\label{data-errors-1}
 
-As with other SRS datasets, the arson data sometimes
+As with other SRS data sets, the arson data sometimes
 includes clear data entry errors, such as reporting
 implausibly high numbers of arsons for small jurisdictions
 or recording unrealistic damage estimates. For example,
@@ -6123,7 +6123,7 @@ errors.
 
 }
 
-\caption{Annual single-family home arsons in Byron  City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this dataset, 1979-2023. }\label{fig:residenceArson}
+\caption{Annual single-family home arsons in Byron  City, Illinois. The sudden spike to over 400 arsons in a single year is an example of data errors in this data set, 1979-2023. }\label{fig:residenceArson}
 \end{figure}
 
 There are also cases where it is less clear when a value is
@@ -6155,14 +6155,14 @@ that this huge value is real.
 
 \chapter{Hate Crime Data}\label{hate_crimes}
 
-This dataset covers crimes that are reported to the police
+This data set covers crimes that are reported to the police
 and judged by the police to be motivated by hate. More
 specifically, they are crimes which were motivated - at
 least in part - by bias towards a certain person or group of
 people because of characteristics about them such as race,
 sexual orientation, or religion. The first part is key:
 incidents must first be crimes---specifically, the types of
-crimes the FBI includes in this dataset. Actions motivated
+crimes the FBI includes in this data set. Actions motivated
 by bias that do not meet the legal standard of a crime, or
 fall outside the specific crime categories covered by this
 data, are not recorded as hate crimes.
@@ -6173,7 +6173,7 @@ wouldn't be included in this data unless it involved a
 specific crime like intimidation. Racial slurs alone,
 without additional criminal behavior, are generally not
 illegal and thus wouldn't be reported as a hate crime in
-this dataset. For the second part, the bias motivation, it
+this data set. For the second part, the bias motivation, it
 must be against a group that the FBI includes in this data.
 For example, when this data collection began in 1991, there
 was no way to collect information about hate crimes against
@@ -6206,7 +6206,7 @@ This data is a more limited measure of hate crimes than it
 may initially appear. It represents only (some) crimes,
 motivated by (some) types of hate, that are both reported to
 the police and where the police have gathered sufficient
-evidence to determine bias. It is also the dataset with the
+evidence to determine bias. It is also the data set with the
 fewest agencies reporting, with most agencies not reporting
 any hate crimes to the FBI in a given year. This may be true
 for most agencies as hate crimes are rare and many agencies
@@ -6217,7 +6217,7 @@ the data with some states having few agencies that report
 hate crimes, agencies reporting some bias motivations but
 not others, and agencies reporting some years but not
 others. While these problems exist for all of the SRS
-datasets, it is more severe in this data. This problem is
+data sets, it is more severe in this data. This problem is
 further complicated by hate crimes being rare even in
 agencies that report them. With such rare events, even minor
 changes in which agencies report or whether victims report
@@ -6387,7 +6387,7 @@ with the highest share is Hawaii at 86\%.
 Is this good? We do not necessarily want 100\% of agencies
 to report a hate crime since not all agencies will
 experience a hate crime in their jurisdiction. The ideal
-dataset would have all hate crimes reported but without
+data set would have all hate crimes reported but without
 knowing how many hates crimes there actually are we cannot
 tell how well this data captures hate crimes.
 
@@ -6400,7 +6400,7 @@ hate crime - that is also quite bad for our understanding of
 hate crimes. However, it is far more likely that a hate
 crime is not reported than a non-hate crime being reported
 as a hate crime. Since we know the likely direction of any
-errors we can think about this entire dataset as being the
+errors we can think about this entire data set as being the
 lower-bound of hate crime data.
 
 \begin{figure}
@@ -6447,7 +6447,7 @@ officers were injured. That should mean that the crime is
 reported by Pittsburgh Police, not by the FBI. Pittsburgh
 does report these murders in their Offenses Known data,
 making it even more odd that they are Pittsburgh crimes in
-one dataset and not another.\footnote{The murders of nine
+one data set and not another.\footnote{The murders of nine
   Black parishioners in the Emanuel African Methodist
   Episcopal Church in Charleston, South Carolina, in 2015
   was reported by the Charleston Police Department, making
@@ -6713,7 +6713,7 @@ data available, these newer bias motivations make up a small
 percent of total hate crimes.
 
 The original hate crimes - that is, those in the data in
-1991 when this dataset was released - are far more common.
+1991 when this data set was released - are far more common.
 The most common bias motivation is anti-Black at 34\% of
 hate crimes, anti-Jewish at 12\%, anti-White at 11\%,
 anti-male homosexual (gay) at 10\%, anti-Hispanic at 6\%,
@@ -6908,9 +6908,9 @@ Gambling Offenses - Betting/Wagering & 2017 & 1 & 0.00\textbackslash{}\%\\
 Agencies that report to the FBI's National Incident-Based
 Reporting System (NIBRS) can also report bias motivations
 for their crimes, and these reports are included in this
-dataset. One tricky thing is that the crimes included are
+data set. One tricky thing is that the crimes included are
 different depending on if the agency reported through NIBRS
-or to the dataset directly, and are not NIBRS reporting
+or to the data set directly, and are not NIBRS reporting
 agencies. NIBRS agencies report all of the crimes as the
 agencies directly submitting SRS data, but have a wider
 variety of crimes they can report. In practice, however,
@@ -8909,7 +8909,7 @@ there are offenders of different races. Unfortunately,
 important information like the age of the offenders, their
 criminal history, their relationship to the victim, their
 gender, or whether they are arrested are completely
-unavailable in this dataset. These variables, however, are
+unavailable in this data set. These variables, however, are
 available in NIBRS data.
 
 As shown in Figure \ref{fig:hateCrimeOffenderNumber}, the
@@ -8965,7 +8965,7 @@ of hate crimes have an unknown number of offenders.
 \subsection{Number of victims}\label{number-of-victims}
 
 When considering the data itself, hate crime data is very
-similar to most other datasets. It is just the number of
+similar to most other data sets. It is just the number of
 crimes that were reported to the police, though with the
 additional step of having evidence of bias. But the
 difference in use is that while in other crimes the victim
@@ -9072,18 +9072,18 @@ SRS data is only available at the agency-level.\footnote{Even
   but not crimes within the county that other agencies, such
   as a city police force, responded to.} This has caused a
 lot of problems for researchers because many variables from
-other datasets (e.g.~CDC data, economic data) is primarily
+other data sets (e.g.~CDC data, economic data) is primarily
 available at the county-level. Their solution to this
 problem is to aggregate the data to the county-level by
 summing all the agencies in a particular county.\footnote{Because
-  the county-level data imputes missing months, this dataset
+  the county-level data imputes missing months, this data set
   is only available at the annual-level, not at the monthly
   level.}
 
 More specifically, nearly all researchers who use this
 county-level data use the National Archive for Criminal
 Justice Data (NACJD)'s
-\href{https://www.icpsr.umich.edu/web/NACJD/series/57}{datasets}
+\href{https://www.icpsr.umich.edu/web/NACJD/series/57}{data sets}
 which have done the aggregation themselves\footnote{Full
   disclosure, I used to have my own version of this data
   available on openICPSR and followed NACJD's method. My
@@ -9092,10 +9092,10 @@ which have done the aggregation themselves\footnote{Full
   data, so I included the issues with this data in the
   documentation when downloading it. However, I decided that
   the data was more flawed than I originally thought so I
-  took down the data.}. These are not official FBI datasets
+  took down the data.}. These are not official FBI data sets
 but ``UCR staff were consulted in developing the new
 adjustment procedures''.\footnote{This chapter is not a
-  critique of NACJD, merely of a single dataset collection
+  critique of NACJD, merely of a single data set collection
   that they released using imputation methods from decades
   ago.} The ``new'' procedures is because NACJD changed
 their missing data imputation procedure starting with 1994
@@ -9161,8 +9161,8 @@ be used, especially in policy studies'' which is a
 conclusion I also hold.
 
 County-level data aggregates both crimes from the Offenses
-Known and Clearances by Arrests dataset and arrests from the
-Arrests by Age, Sex, and Race dataset, which has lower
+Known and Clearances by Arrests data set and arrests from the
+Arrests by Age, Sex, and Race data set, which has lower
 reporting (and thus more missingness) than the crime data.
 For simplicity, in this chapter we will use the crime data
 as an example. We will do so in a number of different ways
@@ -9181,7 +9181,7 @@ data and how that changed over time.
 \section{Current usage}\label{current-usage}
 
 Even with the well-known flaws of this data, it remains a
-popular dataset. A search on Google Scholar for
+popular data set. A search on Google Scholar for
 \href{https://scholar.google.com/scholar?q=county-level+ucr&hl=en&as_sdt=0,20}{``county-level
 UCR''} returns 5,580 results as of this writing in summer
 2024. About half of these results are from 2015 or later. In
@@ -10011,7 +10011,7 @@ included. So we know, for example, the number of robberies
 in a city but nothing about who the victims or offenders
 were, when in that month (day or time of day) the robberies
 occurred, or the type of location where they happened. To
-address these limitations the FBI started a new dataset in
+address these limitations the FBI started a new data set in
 1991, the National Incident-Based Reporting System data -
 which is known by its abbreviation NIBRS - and is the topic
 of this book. Relative to the FBI's UCR data there are far
@@ -10120,7 +10120,7 @@ For the agencies where 2020 is the first year, we will
 likely to have to wait a few years to even figure out what
 ``normal'' crime is supposed to look like. This means that
 for the next several years at least we will be mostly using
-NIBRS data as UCR-like datasets, aggregated to the month- or
+NIBRS data as UCR-like data sets, aggregated to the month- or
 year-level so we can compare it with UCR data from the past.
 Luckily, this problem will be alleviated the longer we wait
 as more years of data will become available.
@@ -10130,17 +10130,17 @@ of 2019 data - with \textless50\% of agencies reporting, and
 few large agencies reporting - has about 6.5 million crime
 incidents recorded. Since each crime incident can have
 multiple victims, offenders, and crimes, there are more rows
-for these datasets.\footnote{While people generally refer to
+for these data sets.\footnote{While people generally refer to
   NIBRS just as ``NIBRS data'' it is actually a collection
-  multiple different datasets all - with a few exceptions -
+  multiple different data sets all - with a few exceptions -
   corresponding to a single crime incident. For example, if
   you care about victim information you will look in the
   victim file called the ``Victim Segment'' (each of the
-  datasets are called ``Segments'' since they are part of
+  data sets are called ``Segments'' since they are part of
   the whole picture of the crime incident) and likely will
   merge it with other data, such as when are where the crime
   occurred which is in the ``Offense Segment''. In most
-  cases you will merge together multiple datasets from the
+  cases you will merge together multiple data sets from the
   NIBRS collection to be able to answer the question that
   you have.} Once all agencies report - though it is
 doubtful that'll ever occur, though we may come close - we
@@ -10234,7 +10234,7 @@ more detailed, why do people ever use UCR data? Besides
 NIBRS being more complicated to use, far fewer agencies
 report NIBRS data than do UCR data. Nearly all agencies
 report crime data for UCR, though fewer do so for some of
-the UCR datasets such as arrests or arsons - for more,
+the UCR data sets such as arrests or arsons - for more,
 please see my \href{https://ucrbook.com/}{UCR book}. In
 comparison, fewer than half of agencies report to NIBRS, and
 these agencies are disproportionately smaller and more
@@ -10284,8 +10284,8 @@ factor of population, Figure
 \ref{fig:agenciesReportingMapPercent} shows each state as a
 percent of agencies in that state that report to NIBRS that
 also reported to the UCR Offenses Known and Clearances by
-Arrest (the ``crime'' dataset) in 2019.\footnote{This is the
-  UCR dataset which has the highest reporting rate.} Not all
+Arrest (the ``crime'' data set) in 2019.\footnote{This is the
+  UCR data set which has the highest reporting rate.} Not all
 agencies in the US reported to UCR in 2019 - and a small
 number reported to NIBRS but not UCR in 2019 - but this is a
 fairly good measure of reporting rates. Here the story looks
@@ -10352,13 +10352,13 @@ NIBRS}\label{crimes-included-in-nibrs}
 
 NIBRS data contains far more crime categories than in the
 UCR data, particularly far more than
-\href{https://ucrbook.com/ucrGeneral.html\#crimes-in-the-offenses-known-and-clearances-by-arrest-dataset}{UCR
+\href{https://ucrbook.com/ucrGeneral.html\#crimes-in-the-offenses-known-and-clearances-by-arrest-data set}{UCR
 crime data} which contained only eight crimes (and their
 subcategories of crimes). It also includes several more
 crime categories than in the
-\href{https://ucrbook.com/ucrGeneral.html\#crimes-in-the-arrests-by-age-sex-and-race-dataset}{UCR
+\href{https://ucrbook.com/ucrGeneral.html\#crimes-in-the-arrests-by-age-sex-and-race-data set}{UCR
 arrest data} which is far more expansive than the UCR crime
-dataset. Compared to UCR data, however, there are
+data set. Compared to UCR data, however, there are
 occasionally more steps you must take to get the same crime
 category. For example, UCR crime data has the number of gun
 assaults each month. NIBRS data has the number of aggravated
@@ -10409,7 +10409,7 @@ considered rape using the FBI new definition that began in
 ``Violent Index Crimes''), burglary, motor vehicle theft,
 and theft (these are the ``Property Index Crimes''. Theft
 here is broken down into several types of theft like
-purse-snatching and shoplifting. In the UCR crime dataset it
+purse-snatching and shoplifting. In the UCR crime data set it
 is only ``theft''.). Arson is also technically an Index
 Crime (arson is considered a property crime) but is
 generally excluded.
@@ -10644,7 +10644,7 @@ this is a helpful way of thinking about Group B crimes.
 data}\label{differences-from-srs-data}
 
 While NIBRS data is a far more expansive and detailed
-dataset than the SRS data, in most cases you can convert
+data set than the SRS data, in most cases you can convert
 NIBRS to SRS which allows for continuation of data over
 time. So the switch from SRS to NIBRS adds a lot of
 information but loses relatively little. That relatively
@@ -10706,7 +10706,7 @@ different levels of analysis so users must clean each
 segment before merging them together. In this section we
 will discuss each of the segments and how they are related
 to each other. First, keep in mind that NIBRS is at its core
-an incident-level dataset (hence the ``Incident-Based'' part
+an incident-level data set (hence the ``Incident-Based'' part
 of its name). Everything that we have stems from the
 incident, even though we can get more detailed and look at,
 for example, individual victims in an incident or even
@@ -10727,7 +10727,7 @@ about window segments more in Section \ref{window} below.
 
 }
 
-\caption{The association of each segment file in the NIBRS dataset.}\label{fig:segmentFlowchart}
+\caption{The association of each segment file in the NIBRS data set.}\label{fig:segmentFlowchart}
 \end{figure}
 
 The first two boxes in Figure \ref{fig:segmentFlowchart},
@@ -11380,7 +11380,7 @@ In Figure \ref{fig:nibrsAdministrativeClearance} we can see
 trends in the percent of incidents that involve an arrest or
 an exceptional clearance. Ignoring the spike in the arrest
 rate in the first few years of data, likely part of growing
-pains of any new dataset, the share of incidents with an
+pains of any new data set, the share of incidents with an
 arrest is relatively steady over time, increasing until it
 peaks at a little under 30\% of incidents in the mid-2010s
 and then declining since then. The share of incidents that
@@ -11648,7 +11648,7 @@ patterns of criminal activity and law enforcement responses.
 
 \chapter{Offense Segment}\label{offenseSegment}
 
-This dataset provides information about the offense that
+This data set provides information about the offense that
 occurred, with each incident potentially having multiple
 offenses. Each row is an incident-offense so incidents with
 multiple offenses would have multiple rows. For a subset of
@@ -12511,7 +12511,7 @@ computer equipment is only 6\%.
 
 \section{Crime location}\label{crime-location}
 
-This dataset tells us where each crime happened, giving more
+This data set tells us where each crime happened, giving more
 of a type of location rather than the precise location
 (e.g.~coordinates) where it happened. Table
 \ref{tab:offenseLocation} shows the different location types
@@ -13872,7 +13872,7 @@ Weapon Law Violations - Explosives & Total & 1 & 100\textbackslash{}\%\\
 \hline
 \end{longtable}
 
-We can use this dataset to look at, for example, trends in
+We can use this data set to look at, for example, trends in
 the type of weapon used in murders and nonnegligent
 manslaughters over time, as seen in Figure
 \ref{nibrsMurdersWeapon}. We can see that guns are the most
@@ -14009,7 +14009,7 @@ crimes have evidence of bias (e.g.~a person targeted due to
 bias but without the offender providing evidence that it is
 a hate crime) many hate crimes will likely not be reported
 as such. The process for what the FBI classifies as a hate
-crime is the same in NIBRS as in the Hate Crime dataset
+crime is the same in NIBRS as in the Hate Crime data set
 discussed in detail in Chapter @ref(hate\_crimes). For more
 information on how hate crimes are defined and important
 caveats with these data, please read that chapter.
@@ -19245,7 +19245,7 @@ times. For example, pets were the property stolen about
 rows in this data - and as more agencies report to NIBRS
 this will grow quickly - it can be possible to study
 specific types of property, such as pets stolen, that would
-not be possible with a more narrow dataset (both in terms of
+not be possible with a more narrow data set (both in terms of
 how specific the items they include are, and the size of the
 data).
 

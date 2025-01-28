@@ -28,7 +28,7 @@ packages <- c(
   "patchwork"
 )
 
-groundhog.library(packages, "2025-01-01")
+groundhog.library(packages, "2024-08-27")
 #library(priceR)
 #library(quantmod)
 
@@ -36,7 +36,7 @@ groundhog.library(packages, "2025-01-01")
 # variable to the value the covering agency has
 
 # 
-# offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2023.rds")
+# offenses_known_yearly <- readRDS("data/offenses_known_yearly_1960_2022.rds")
 # offenses_known_yearly$covered_by_ori <- toupper(offenses_known_yearly$covered_by_ori)
 # 
 # offenses_known_yearly$ori_year <- paste(offenses_known_yearly$ori,
@@ -85,9 +85,6 @@ options(tidygeocoder.quiet = TRUE)
 options(tidygeocoder.verbose =  FALSE)
 options(readr.show_col_types = FALSE) 
 
-
-time_series_x_axis_year_breaks <- c(1991, 1995, 2000, 2005, 2010, 2015, 2020, 2023)
-time_series_x_axis_year_breaks_arson <- c(1979, 1990, 2000, 2010, 2020, 2023)
 
 # 
 knitr::opts_chunk$set(
@@ -353,94 +350,4 @@ make_frequency_table <- function(data, column, col_names) {
   
   names(temp_df) <- col_names
   return(temp_df)
-}
-
-make_top_5_table <- function(data,
-                             filter_variable,
-                             filter_values,
-                             other_variable,
-                             filter_variable_name,
-                             other_variable_name,
-                             unit) {
-  data$filter_variable <- data[, filter_variable]
-  data$other_variable <- data[, other_variable]
-  
-  final <- data.frame()
-  for (filter_value in filter_values) {
-    temp <- make_frequency_table(data %>% filter(filter_variable %in% filter_value) %>%
-                                   distinct(unique_incident_id,
-                                            filter_variable,
-                                            other_variable),
-                                 "other_variable",
-                                 c("other_variable",
-                                   "\\# of X",
-                                   "\\% of X")) %>%
-      mutate(filter_variable = capitalize_words(filter_value)) %>%
-      select(`filter_variable`,
-             `other_variable`,
-             "\\# of X",
-             "\\% of X")
-    
-    
-    
-    temp_final <- temp[nrow(temp), ]
-    temp <- temp[-nrow(temp), ]
-    temp_other <- temp
-    names(temp_other)[3:4] <- c("count", "percent")
-    temp_other_count <- sum(parse_number(temp_other$count[6:nrow(temp_other)]))
-    temp_other_percent <- sum(parse_number(temp_other$percent[6:nrow(temp_other)]))
-    temp_other <- data.frame(filter_variable = filter_value,
-                             other_variable = "All Other",
-                             count = temp_other_count,
-                             percent = temp_other_percent) %>%
-      mutate(count = prettyNum(count, big.mark = ","),
-             percent = paste0(percent, "\\%")) %>%
-      rename(other_variable = other_variable,
-             `\\# of X` = count,
-             `\\% of X` = percent)
-    temp_other$filter_variable <- capitalize_words(temp_other$filter_variable)
-    temp <- temp[1:5, ]
-    temp <- temp %>%
-      bind_rows(temp_other,
-                temp_final)
-    final <-
-      final %>%
-      bind_rows(temp)
-  }
-  names(final) <- c(filter_variable_name, other_variable_name,
-                    paste0("\\# of ", unit),
-                    paste0("\\# of ", unit)
-  )
-  return(final)
-}
-
-
-fix_dummy_ordering <- function(data, column, subcategory_column, number_column) {
-  data$temp <- data[, column]
-  data$subcategory <- data[, subcategory_column]
-  data$number <- data[, number_column]
-  values <- unique(data$temp)
-  
-  final_data <- data.frame()
-  for (value in values) {
-    data_temp <- data %>%
-      filter(temp %in% value)
-    
-    total_row <- data_temp %>% filter(subcategory %in% "Total")
-    data_temp <- data_temp %>% filter(!subcategory %in% "Total")
-    data_temp <-
-      data_temp %>%
-      arrange(desc(number),
-              subcategory) %>%
-      bind_rows(total_row)
-    
-    final_data <-
-      final_data %>%
-      bind_rows(data_temp)
-  }
-  
-  final_data$temp <- NULL
-  final_data$number <- NULL
-  final_data$subcategory <- NULL
-  return(final_data)
 }
