@@ -8,7 +8,6 @@ The Property Segment provides a bit more information than would be expected from
 
 For drug offenses it includes the drugs seized by police. For these offenses, the data tells us the type of drug, with 16 different drug categories ranging from specific ones like marijuana or heroin to broader categories such as "other narcotics". There can be up to three different drugs included in this data - if the person has more than three types of drugs seized then the third drug category will simply indicate that there are more than three drugs, so we learn what the first two drugs are but not the third or greater drugs are in these cases. For each drug we also know exactly how much was seized with one variable saying the amount the police found and another saying the units we should we reading that amount as (e.g. pills, grams, plants). 
 
-
 The Window Property Segment has the same variables as the normal Property Segment but also has 10 variables on each of the offenses committed (up to 10 offenses) during the incident. This is really to try to provide a bit of information that you’d otherwise get from the other segments but don’t since this is a window segment. For the rest of this chapter I’ll be using examples from the Property Segment and not the Window Property.
 
 ## Type of property loss {#propertyLoss}
@@ -23,7 +22,6 @@ Next is "none" which only means that no property was stolen or damaged but that 
 <img src="17_nibrs_property_files/figure-html/propertyTypeLoss-1.png" alt="The type of loss or if the item is recovered, 2023." width="100%" height="100%" />
 <p class="caption">(\#fig:propertyTypeLoss)The type of loss or if the item is recovered, 2023.</p>
 </div>
-
 
 ## Description of property
 

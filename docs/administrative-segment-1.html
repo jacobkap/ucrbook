@@ -4,26 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 12 Administrative Segment | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</title>
-  <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
+  <title>Chapter 12 Administrative Segment | Decoding FBI Crime Data: A Practical Guide to UCR Program Data</title>
+  <meta name="description" content="This is a practical guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 12 Administrative Segment | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta property="og:title" content="Chapter 12 Administrative Segment | Decoding FBI Crime Data: A Practical Guide to UCR Program Data" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
+  <meta property="og:description" content="This is a practical guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="github-repo" content="jacobkap/ucrbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 12 Administrative Segment | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta name="twitter:title" content="Chapter 12 Administrative Segment | Decoding FBI Crime Data: A Practical Guide to UCR Program Data" />
   
-  <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
+  <meta name="twitter:description" content="This is a practical guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   
 
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2025-01-22" />
+<meta name="date" content="2025-01-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -65,70 +65,6 @@
 </script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -179,25 +115,20 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#goal-of-the-book"><i class="fa fa-check"></i><b>1.1</b> Goal of the book</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#structure-of-the-book"><i class="fa fa-check"></i><b>1.2</b> Structure of the book</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#citing-this-book"><i class="fa fa-check"></i><b>1.3</b> Citing this book</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#recommended-reading"><i class="fa fa-check"></i><b>1.4</b> Recommended reading</a></li>
-<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#how-to-contribute-to-this-book"><i class="fa fa-check"></i><b>1.5</b> How to contribute to this book</a></li>
-<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#ori"><i class="fa fa-check"></i><b>1.6</b> How to identify a particular agency (ORI codes)</a></li>
-<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#the-data-as-you-get-it-from-the-fbi"><i class="fa fa-check"></i><b>1.7</b> The data as you get it from the FBI</a></li>
-<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#common-issues"><i class="fa fa-check"></i><b>1.8</b> Common issues</a>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#ori"><i class="fa fa-check"></i><b>1.3</b> How to identify a particular agency (ORI codes)</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#common-issues"><i class="fa fa-check"></i><b>1.4</b> Common issues</a>
 <ul>
-<li class="chapter" data-level="1.8.1" data-path="index.html"><a href="index.html#population"><i class="fa fa-check"></i><b>1.8.1</b> Population</a></li>
-<li class="chapter" data-level="1.8.2" data-path="index.html"><a href="index.html#voluntary"><i class="fa fa-check"></i><b>1.8.2</b> Voluntary reporting</a></li>
-<li class="chapter" data-level="1.8.3" data-path="index.html"><a href="index.html#zero-crimes-vs-no-reports"><i class="fa fa-check"></i><b>1.8.3</b> Zero crimes vs no reports</a></li>
-<li class="chapter" data-level="1.8.4" data-path="index.html"><a href="index.html#agency-data-covered-by-another-agency"><i class="fa fa-check"></i><b>1.8.4</b> Agency data covered by another agency</a></li>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#population"><i class="fa fa-check"></i><b>1.4.1</b> Population</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#voluntary"><i class="fa fa-check"></i><b>1.4.2</b> Voluntary reporting</a></li>
+<li class="chapter" data-level="1.4.3" data-path="index.html"><a href="index.html#zero-crimes-vs-no-reports"><i class="fa fa-check"></i><b>1.4.3</b> Zero crimes vs no reports</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
 <li class="part"><span><b>II Summary Reporting System (SRS)</b></span></li>
 <li class="chapter" data-level="2" data-path="SRSGeneral.html"><a href="SRSGeneral.html"><i class="fa fa-check"></i><b>2</b> SRS Overview</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#crimes-included-in-the-srs-data sets"><i class="fa fa-check"></i><b>2.1</b> Crimes included in the SRS data sets</a></li>
-<li class="chapter" data-level="2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#a-summary-of-each-srs-data set"><i class="fa fa-check"></i><b>2.2</b> A summary of each SRS data set</a>
+<li class="chapter" data-level="2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#crimes-included-in-the-srs-data-sets"><i class="fa fa-check"></i><b>2.1</b> Crimes included in the SRS data sets</a></li>
+<li class="chapter" data-level="2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#a-summary-of-each-srs-data-set"><i class="fa fa-check"></i><b>2.2</b> A summary of each SRS data set</a>
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#offenses-known-and-clearances-by-arrest-1960---present"><i class="fa fa-check"></i><b>2.2.1</b> Offenses Known and Clearances by Arrest (1960 - present)</a></li>
 <li class="chapter" data-level="2.2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#arrests-by-age-sex-and-race-1974---present"><i class="fa fa-check"></i><b>2.2.2</b> Arrests by Age, Sex, and Race (1974 - present)</a></li>
@@ -442,7 +373,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Decoding FBI Crime Data: A Practical Guide to UCR Program Data</a>
           </h1>
         </div>
 
@@ -456,7 +387,7 @@ div.csl-indent {
 <div id="the-incident-and-report-date" class="section level2 hasAnchor" number="12.1">
 <h2><span class="header-section-number">12.1</span> The incident and report date<a href="administrative-segment-1.html#the-incident-and-report-date" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>An important variable, especially for policy analyses, is when the crime happened. NIBRS tells you both the date and the hour of the day for when the crime occurred. We will start with the date. We can convert the date a few different ways, such as daily, weekly, monthly, quarterly. We could use this precise date to do regression discontinuity studies where we look at days just before and just after some policy change or natural experiment. In this chapter we will look simply at the percent of crimes each month and each day of the month (overall, not within each month). And we will look at all incidents; if you want to see the distribution for certain offenses or victim/offender groups you will need to merge this segment with one of the other segments.</p>
-<p>Figure <a href="administrative-segment-1.html#fig:administrativeIncidentMonth">12.1</a> shows the percent of incidents in the 2022 for each month. Past research has found that crimes are lowest when it is cold and highest when it is hot<a href="#fn87" class="footnote-ref" id="fnref87"><sup>87</sup></a>. Consistent with previous research, we find that crime rates are lowest in February, steadily increasing through the warmer months before peaking in July and August, then decreasing as temperatures cool. These seasonal patterns are important in understanding how environmental factors, such as weather, influence criminal activity, and they can help law enforcement agencies plan how many officers they want on patrol since they can determine which times of the year have the highest expected crime.</p>
+<p>Figure <a href="administrative-segment-1.html#fig:administrativeIncidentMonth">12.1</a> shows the percent of incidents in the 2022 for each month. Past research has found that crimes are lowest when it is cold and highest when it is hot<a href="#fn83" class="footnote-ref" id="fnref83"><sup>83</sup></a>. Consistent with previous research, we find that crime rates are lowest in February, steadily increasing through the warmer months before peaking in July and August, then decreasing as temperatures cool. These seasonal patterns are important in understanding how environmental factors, such as weather, influence criminal activity, and they can help law enforcement agencies plan how many officers they want on patrol since they can determine which times of the year have the highest expected crime.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:administrativeIncidentMonth"></span>
 <img src="12_nibrs_administrative_files/figure-html/administrativeIncidentMonth-1.png" alt="The percent of crime incidents in 2022 NIBRS by the month of incident." width="100%" height="100%" />
 <p class="caption">
@@ -482,7 +413,7 @@ Figure 12.3: The percent of incidents that are reported (the day of the report, 
 <div id="hour-of-incident" class="section level2 hasAnchor" number="12.2">
 <h2><span class="header-section-number">12.2</span> Hour of incident<a href="administrative-segment-1.html#hour-of-incident" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Understanding the exact time of day when crimes occur is crucial for developing effective anti-crime strategies. For example, if crime spikes consistently at the end of the local high school day, this may indicate that students are involved in these incidents, either as victims or offenders. Law enforcement agencies can use this information to adjust patrol schedules and allocate resources more effectively to areas and times with higher crime rates. Luckily, NIBRS data does have the time of each incident, though it is only at the hour level.</p>
-<p>Figure <a href="administrative-segment-1.html#fig:administrativeHours">12.4</a> shows the distribution of incidents that occurred in the 2022 for each hour of the day. There are two key trends in this figure. First, past research has found that crime tends to increase during the night (this is especially true during weekends), drop to a daily low in the couple of hours before sunrise, and then slowly increase as the day progresses.<a href="#fn88" class="footnote-ref" id="fnref88"><sup>88</sup></a> What we find here is a little different. Crime peaks at night at 5-5:59pm which is far earlier than other estimates. Since this is all crimes it could be biased by large increases of certain crimes at this time, such as people coming home from work and finding their house burgled. As crimes differ in their timing (e.g. burglary happens often during the day, fights are more common at night), you will need to merge this segment with the Offense Segment to be able to look at certain types of crimes alone.</p>
+<p>Figure <a href="administrative-segment-1.html#fig:administrativeHours">12.4</a> shows the distribution of incidents that occurred in the 2022 for each hour of the day. There are two key trends in this figure. First, past research has found that crime tends to increase during the night (this is especially true during weekends), drop to a daily low in the couple of hours before sunrise, and then slowly increase as the day progresses.<a href="#fn84" class="footnote-ref" id="fnref84"><sup>84</sup></a> What we find here is a little different. Crime peaks at night at 5-5:59pm which is far earlier than other estimates. Since this is all crimes it could be biased by large increases of certain crimes at this time, such as people coming home from work and finding their house burgled. As crimes differ in their timing (e.g. burglary happens often during the day, fights are more common at night), you will need to merge this segment with the Offense Segment to be able to look at certain types of crimes alone.</p>
 <p>The substantial spike at midnight is unlikely to reflect actual crime patterns, as the number of incidents during this hour is more than triple that of neighboring hours. The noon hour is about 50% larger than in the neighboring hours, so is a sizable increase though continues the trend of increasing crime during the day and is a far smaller increase than at midnight. This suggests that, similar to the “1st of the month” issue, officers may be using midnight and (less so) noon as a placeholder when the exact time of the crime is unknown. Researchers should exclude the midnight and noon hours from time-sensitive analyses to avoid skewed results.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:administrativeHours"></span>
 <img src="12_nibrs_administrative_files/figure-html/administrativeHours-1.png" alt="The percent of crimes that are reported each hour for all agencies reporting to NIBRS in 2022." width="100%" height="100%" />
@@ -1089,7 +1020,7 @@ Noon
 </div>
 <div id="exceptional-clearance" class="section level2 hasAnchor" number="12.3">
 <h2><span class="header-section-number">12.3</span> Exceptional clearance<a href="administrative-segment-1.html#exceptional-clearance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>When we speak of clearances we generally mean that a person was arrested for the crime.<a href="#fn89" class="footnote-ref" id="fnref89"><sup>89</sup></a> Cases may also be cleared “through exceptional means” which is also called an “exceptional clearance.” Exceptional clearances, which occur in about 3% of cases, are important because they indicate that the police have identified the offender and have enough evidence to arrest them, but are unable to do so for specific reasons. Unlike standard clearances, which involve arrests, exceptional clearances may result from factors such as the offender’s death, the victim’s refusal to cooperate, or the prosecution’s decision not to pursue the case. Basically, if they could arrest them they would but for some reason they cannot. NIBRS data tells us if the case is exceptionally cleared as well as the reason for the exceptional clearance.</p>
+<p>When we speak of clearances we generally mean that a person was arrested for the crime.<a href="#fn85" class="footnote-ref" id="fnref85"><sup>85</sup></a> Cases may also be cleared “through exceptional means” which is also called an “exceptional clearance.” Exceptional clearances, which occur in about 3% of cases, are important because they indicate that the police have identified the offender and have enough evidence to arrest them, but are unable to do so for specific reasons. Unlike standard clearances, which involve arrests, exceptional clearances may result from factors such as the offender’s death, the victim’s refusal to cooperate, or the prosecution’s decision not to pursue the case. Basically, if they could arrest them they would but for some reason they cannot. NIBRS data tells us if the case is exceptionally cleared as well as the reason for the exceptional clearance.</p>
 <p>Figure <a href="administrative-segment-1.html#fig:administrativeExceptionalClearances">12.6</a> shows the breakdown of reasons why the case was cleared for these ~3 of cases that are exceptionally cleared. The most common reason, at 45% of exceptional clearances, is that the victim refused to cooperate with the police or prosecution. This can include cases where the victim reported their crime to the police and then later decide to stop assisting. The next most common reason, also at at 45% of exceptionally cleared cases, is that the prosecution decides to not prosecute the case. This excludes cases where the prosecution believes that there is not probable cause to make the arrest. Therefore it largely includes cases that the prosecution either does not believe they could win or where the agency has a policy of non-prosecution - this is likely increasingly common in jurisdiction which has “progressive prosecutors” who de facto legalize certain crimes.</p>
 <p>Next we have when the offender is a juvenile and the police chose to avoid arresting them due to their age, which makes up about 7% of these incidents. This generally occurs in minor offenses such as property crimes and the police do give notice to the juvenile offender’s parents or guardians about the situation. If the offender is in another agency’s jurisdiction (including out of the country) and the agency reporting data is unable to make an arrest, including when the agency who has the offender in their jurisdiction refuses to extradite the offender, the case can be exceptionally cleared. This occurs in 2% of exceptional clearances. In these cases we do not know any information about which jurisdiction the offender is in at the time of the exceptional clearance. Finally, if the offender dies (by any means) before the arrest they cannot be arrested so the case is exceptionally cleared. This makes up about 1% of exceptional clearances.</p>
 <p>The values shown in Figure <a href="administrative-segment-1.html#fig:administrativeExceptionalClearances">12.6</a> are for all incidents so can be quite different when examining subsets of the data such as by offender demographics or incident type. Doing this would require merging the Administrative Segment with another segment such as Offense or Victim.</p>
@@ -1113,7 +1044,7 @@ Figure 12.7: Percent of incidents with an arrest or exceptional clearance, 1991-
 <div id="offense-segments" class="section level3 hasAnchor" number="12.4.1">
 <h3><span class="header-section-number">12.4.1</span> Offense Segments<a href="administrative-segment-1.html#offense-segments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This variable indicates how many offense segments there are associated with this incident. Each incident can have multiple offenses, so this just says how many of these crimes there were. For example, if a person is raped and robbed then there would be two offense segments related to that incident.</p>
-<p>Figure <a href="administrative-segment-1.html#fig:administrativeOffenseSegments">12.8</a> shows the number of offense segments - and thus the number of crimes - associated with each incident. The vast majority of incidents only have one offense reported, making up 88% of incidents.<a href="#fn90" class="footnote-ref" id="fnref90"><sup>90</sup></a> This drops considerably to 10% of incidents having two offenses, 1% having three, and then under 0.15% of incidents having four through nine offenses.</p>
+<p>Figure <a href="administrative-segment-1.html#fig:administrativeOffenseSegments">12.8</a> shows the number of offense segments - and thus the number of crimes - associated with each incident. The vast majority of incidents only have one offense reported, making up 88% of incidents.<a href="#fn86" class="footnote-ref" id="fnref86"><sup>86</sup></a> This drops considerably to 10% of incidents having two offenses, 1% having three, and then under 0.15% of incidents having four through nine offenses.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:administrativeOffenseSegments"></span>
 <img src="12_nibrs_administrative_files/figure-html/administrativeOffenseSegments-1.png" alt="The distribution for the number of Offender Segments per incident, for all incidents in NIBRS 2022." width="100%" height="100%" />
 <p class="caption">
@@ -1196,11 +1127,11 @@ Figure 12.16: Annual mean and median number of Arrestee Segments, 1991-2023.
 </div>
 <div class="footnotes">
 <hr />
-<ol start="87">
-<li id="fn87"><p>Summer also comes with many teens and young adults out of school so have more free time to offend or be victimized, so the weather is only part of the cause.<a href="administrative-segment-1.html#fnref87" class="footnote-back">↩︎</a></p></li>
-<li id="fn88"><p>In all of the nighttime police ride-alongs I have been on the police tend to stop patrolling in early morning (e.g. 3-4am) and go back to the station to do paperwork. I think this likely partially explains the findings that crime is lowest around 4-5am.<a href="administrative-segment-1.html#fnref88" class="footnote-back">↩︎</a></p></li>
-<li id="fn89"><p>While a more expansive definition may include a conviction in a court for that crime (including pleading guilty), NIBRS data only extends to the arrest stage so we never know the judicial outcome of the case.<a href="administrative-segment-1.html#fnref89" class="footnote-back">↩︎</a></p></li>
-<li id="fn90"><p>In reality a person who commits a crime may be arrested or charged with many (often highly related) offenses related to a single criminal incident. So this data does report fewer incidents than you would likely find in other data sources, such as if you request data from a local police agency or district attorney’s office.<a href="administrative-segment-1.html#fnref90" class="footnote-back">↩︎</a></p></li>
+<ol start="83">
+<li id="fn83"><p>Summer also comes with many teens and young adults out of school so have more free time to offend or be victimized, so the weather is only part of the cause.<a href="administrative-segment-1.html#fnref83" class="footnote-back">↩︎</a></p></li>
+<li id="fn84"><p>In all of the nighttime police ride-alongs I have been on the police tend to stop patrolling in early morning (e.g. 3-4am) and go back to the station to do paperwork. I think this likely partially explains the findings that crime is lowest around 4-5am.<a href="administrative-segment-1.html#fnref84" class="footnote-back">↩︎</a></p></li>
+<li id="fn85"><p>While a more expansive definition may include a conviction in a court for that crime (including pleading guilty), NIBRS data only extends to the arrest stage so we never know the judicial outcome of the case.<a href="administrative-segment-1.html#fnref85" class="footnote-back">↩︎</a></p></li>
+<li id="fn86"><p>In reality a person who commits a crime may be arrested or charged with many (often highly related) offenses related to a single criminal incident. So this data does report fewer incidents than you would likely find in other data sources, such as if you request data from a local police agency or district attorney’s office.<a href="administrative-segment-1.html#fnref86" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

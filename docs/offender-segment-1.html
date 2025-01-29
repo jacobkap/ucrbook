@@ -4,26 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 14 Offender Segment | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</title>
-  <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
+  <title>Chapter 14 Offender Segment | Decoding FBI Crime Data: A Practical Guide to UCR Program Data</title>
+  <meta name="description" content="This is a practical guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 14 Offender Segment | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta property="og:title" content="Chapter 14 Offender Segment | Decoding FBI Crime Data: A Practical Guide to UCR Program Data" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
+  <meta property="og:description" content="This is a practical guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="github-repo" content="jacobkap/ucrbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 14 Offender Segment | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta name="twitter:title" content="Chapter 14 Offender Segment | Decoding FBI Crime Data: A Practical Guide to UCR Program Data" />
   
-  <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
+  <meta name="twitter:description" content="This is a practical guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   
 
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2025-01-22" />
+<meta name="date" content="2025-01-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -65,70 +65,6 @@
 </script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -179,25 +115,20 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#goal-of-the-book"><i class="fa fa-check"></i><b>1.1</b> Goal of the book</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#structure-of-the-book"><i class="fa fa-check"></i><b>1.2</b> Structure of the book</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#citing-this-book"><i class="fa fa-check"></i><b>1.3</b> Citing this book</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#recommended-reading"><i class="fa fa-check"></i><b>1.4</b> Recommended reading</a></li>
-<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#how-to-contribute-to-this-book"><i class="fa fa-check"></i><b>1.5</b> How to contribute to this book</a></li>
-<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#ori"><i class="fa fa-check"></i><b>1.6</b> How to identify a particular agency (ORI codes)</a></li>
-<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#the-data-as-you-get-it-from-the-fbi"><i class="fa fa-check"></i><b>1.7</b> The data as you get it from the FBI</a></li>
-<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#common-issues"><i class="fa fa-check"></i><b>1.8</b> Common issues</a>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#ori"><i class="fa fa-check"></i><b>1.3</b> How to identify a particular agency (ORI codes)</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#common-issues"><i class="fa fa-check"></i><b>1.4</b> Common issues</a>
 <ul>
-<li class="chapter" data-level="1.8.1" data-path="index.html"><a href="index.html#population"><i class="fa fa-check"></i><b>1.8.1</b> Population</a></li>
-<li class="chapter" data-level="1.8.2" data-path="index.html"><a href="index.html#voluntary"><i class="fa fa-check"></i><b>1.8.2</b> Voluntary reporting</a></li>
-<li class="chapter" data-level="1.8.3" data-path="index.html"><a href="index.html#zero-crimes-vs-no-reports"><i class="fa fa-check"></i><b>1.8.3</b> Zero crimes vs no reports</a></li>
-<li class="chapter" data-level="1.8.4" data-path="index.html"><a href="index.html#agency-data-covered-by-another-agency"><i class="fa fa-check"></i><b>1.8.4</b> Agency data covered by another agency</a></li>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#population"><i class="fa fa-check"></i><b>1.4.1</b> Population</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#voluntary"><i class="fa fa-check"></i><b>1.4.2</b> Voluntary reporting</a></li>
+<li class="chapter" data-level="1.4.3" data-path="index.html"><a href="index.html#zero-crimes-vs-no-reports"><i class="fa fa-check"></i><b>1.4.3</b> Zero crimes vs no reports</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
 <li class="part"><span><b>II Summary Reporting System (SRS)</b></span></li>
 <li class="chapter" data-level="2" data-path="SRSGeneral.html"><a href="SRSGeneral.html"><i class="fa fa-check"></i><b>2</b> SRS Overview</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#crimes-included-in-the-srs-data sets"><i class="fa fa-check"></i><b>2.1</b> Crimes included in the SRS data sets</a></li>
-<li class="chapter" data-level="2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#a-summary-of-each-srs-data set"><i class="fa fa-check"></i><b>2.2</b> A summary of each SRS data set</a>
+<li class="chapter" data-level="2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#crimes-included-in-the-srs-data-sets"><i class="fa fa-check"></i><b>2.1</b> Crimes included in the SRS data sets</a></li>
+<li class="chapter" data-level="2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#a-summary-of-each-srs-data-set"><i class="fa fa-check"></i><b>2.2</b> A summary of each SRS data set</a>
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#offenses-known-and-clearances-by-arrest-1960---present"><i class="fa fa-check"></i><b>2.2.1</b> Offenses Known and Clearances by Arrest (1960 - present)</a></li>
 <li class="chapter" data-level="2.2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#arrests-by-age-sex-and-race-1974---present"><i class="fa fa-check"></i><b>2.2.2</b> Arrests by Age, Sex, and Race (1974 - present)</a></li>
@@ -442,7 +373,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Decoding FBI Crime Data: A Practical Guide to UCR Program Data</a>
           </h1>
         </div>
 
@@ -470,7 +401,7 @@ Figure 14.1: The age of all offenders reported in the 2022 NIBRS data. Approxima
 </div>
 <p>The spike you see at the very end of the data is due to the data maxing out possible individual ages at 98, so anyone older is grouped together. Surely very young children aren’t committing crimes, so is this a data error? Mostly yes. These entries likely reflect either data entry mistakes or situations where officers mistakenly input the offender’s age as “1” rather than selecting “unknown.” However, in rare cases, this could also include tragic incidents, such as accidental harm caused by a child handling a firearm, which are still recorded as criminal incidents despite no intent. However, the bulk of this, especially for age one, is likely just a data error or the police entering age as one instead of saying that the age is unknown (which they have the option of doing) or simply entering the data incorrectly by mistake.</p>
 <p>Another indicator of guesses about age is that three of the five most common ages are 25, 30, and 20 years old. People tend to like multiples of five when making estimates, so these indicate that someone (the victim or the officer) probably did not know the exact age and so guessed the age or used an age range rather than the exact age.</p>
-<p>Since we have data since 1991 we can look at how age changed over time. In Figure <a href="offender-segment-1.html#fig:nibrsOffenderAge">14.2</a> shows the annual mean and median age of offenders from 1991-2023. The first two years of data we see very old offenders<a href="#fn95" class="footnote-ref" id="fnref95"><sup>95</sup></a> with mean age over 50 and median age over 34 each year. That then drops considerably in 1993 to about age 25 and then starts a very slow and consistent increase over time until the average offender is in the early thirties by the latest years of data. Figure <a href="offender-segment-1.html#fig:nibrsOffenderAgeMissing">14.3</a> shows the percent of offenders that have an unknown age which also has some odd and large movements in 1991-1992 then settles to a steady and slow declining trend in 1993 before reversing itself and increasing in the late 2010s.</p>
+<p>Since we have data since 1991 we can look at how age changed over time. In Figure <a href="offender-segment-1.html#fig:nibrsOffenderAge">14.2</a> shows the annual mean and median age of offenders from 1991-2023. The first two years of data we see very old offenders<a href="#fn91" class="footnote-ref" id="fnref91"><sup>91</sup></a> with mean age over 50 and median age over 34 each year. That then drops considerably in 1993 to about age 25 and then starts a very slow and consistent increase over time until the average offender is in the early thirties by the latest years of data. Figure <a href="offender-segment-1.html#fig:nibrsOffenderAgeMissing">14.3</a> shows the percent of offenders that have an unknown age which also has some odd and large movements in 1991-1992 then settles to a steady and slow declining trend in 1993 before reversing itself and increasing in the late 2010s.</p>
 <p>So what do we make of these trends? The first thing to keep in mind is that we are doing something fairly dumb. Each year of data we have different agencies reporting meaning that differences over time may simply be due to different agencies providing data. Still, if we had to interpret it I would say that the values in 1991 and 1992 are due to data issues likely caused by growing pains from agencies just starting out using NIBRS. Luckily, since NIBRS data has information on every single offender - rather than being already aggregated like in SRS data - we can check this. Indeed, this appears to simply be a data issue where many agencies put the age of offenders as “over 98 years old” rather than identifying them as unknown. In 1991, for example, 36% of offenders who had a known age were reported to be older than 98 years. When we look at the average age in 1991 when excluding people 99+ years old we get 28 years old, perfectly within expectation when looking at averages after 1992.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsOffenderAge"></span>
 <img src="14_nibrs_offender_files/figure-html/nibrsOffenderAge-1.png" alt="The mean and median age of offenders, 1991-2023." width="100%" height="100%" />
@@ -523,8 +454,8 @@ Figure 14.6: The share of offenders by ethnicity, 1991-2023.
 </div>
 <div class="footnotes">
 <hr />
-<ol start="95">
-<li id="fn95"><p>At least in terms of expected age of offenders.<a href="offender-segment-1.html#fnref95" class="footnote-back">↩︎</a></p></li>
+<ol start="91">
+<li id="fn91"><p>At least in terms of expected age of offenders.<a href="offender-segment-1.html#fnref91" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

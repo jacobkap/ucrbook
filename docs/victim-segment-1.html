@@ -4,26 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 15 Victim Segment | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</title>
-  <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
+  <title>Chapter 15 Victim Segment | Decoding FBI Crime Data: A Practical Guide to UCR Program Data</title>
+  <meta name="description" content="This is a practical guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 15 Victim Segment | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta property="og:title" content="Chapter 15 Victim Segment | Decoding FBI Crime Data: A Practical Guide to UCR Program Data" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
+  <meta property="og:description" content="This is a practical guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="github-repo" content="jacobkap/ucrbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 15 Victim Segment | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta name="twitter:title" content="Chapter 15 Victim Segment | Decoding FBI Crime Data: A Practical Guide to UCR Program Data" />
   
-  <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
+  <meta name="twitter:description" content="This is a practical guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   
 
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2025-01-22" />
+<meta name="date" content="2025-01-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -65,70 +65,6 @@
 </script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -179,25 +115,20 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#goal-of-the-book"><i class="fa fa-check"></i><b>1.1</b> Goal of the book</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#structure-of-the-book"><i class="fa fa-check"></i><b>1.2</b> Structure of the book</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#citing-this-book"><i class="fa fa-check"></i><b>1.3</b> Citing this book</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#recommended-reading"><i class="fa fa-check"></i><b>1.4</b> Recommended reading</a></li>
-<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#how-to-contribute-to-this-book"><i class="fa fa-check"></i><b>1.5</b> How to contribute to this book</a></li>
-<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#ori"><i class="fa fa-check"></i><b>1.6</b> How to identify a particular agency (ORI codes)</a></li>
-<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#the-data-as-you-get-it-from-the-fbi"><i class="fa fa-check"></i><b>1.7</b> The data as you get it from the FBI</a></li>
-<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#common-issues"><i class="fa fa-check"></i><b>1.8</b> Common issues</a>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#ori"><i class="fa fa-check"></i><b>1.3</b> How to identify a particular agency (ORI codes)</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#common-issues"><i class="fa fa-check"></i><b>1.4</b> Common issues</a>
 <ul>
-<li class="chapter" data-level="1.8.1" data-path="index.html"><a href="index.html#population"><i class="fa fa-check"></i><b>1.8.1</b> Population</a></li>
-<li class="chapter" data-level="1.8.2" data-path="index.html"><a href="index.html#voluntary"><i class="fa fa-check"></i><b>1.8.2</b> Voluntary reporting</a></li>
-<li class="chapter" data-level="1.8.3" data-path="index.html"><a href="index.html#zero-crimes-vs-no-reports"><i class="fa fa-check"></i><b>1.8.3</b> Zero crimes vs no reports</a></li>
-<li class="chapter" data-level="1.8.4" data-path="index.html"><a href="index.html#agency-data-covered-by-another-agency"><i class="fa fa-check"></i><b>1.8.4</b> Agency data covered by another agency</a></li>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#population"><i class="fa fa-check"></i><b>1.4.1</b> Population</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#voluntary"><i class="fa fa-check"></i><b>1.4.2</b> Voluntary reporting</a></li>
+<li class="chapter" data-level="1.4.3" data-path="index.html"><a href="index.html#zero-crimes-vs-no-reports"><i class="fa fa-check"></i><b>1.4.3</b> Zero crimes vs no reports</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
 <li class="part"><span><b>II Summary Reporting System (SRS)</b></span></li>
 <li class="chapter" data-level="2" data-path="SRSGeneral.html"><a href="SRSGeneral.html"><i class="fa fa-check"></i><b>2</b> SRS Overview</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#crimes-included-in-the-srs-data sets"><i class="fa fa-check"></i><b>2.1</b> Crimes included in the SRS data sets</a></li>
-<li class="chapter" data-level="2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#a-summary-of-each-srs-data set"><i class="fa fa-check"></i><b>2.2</b> A summary of each SRS data set</a>
+<li class="chapter" data-level="2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#crimes-included-in-the-srs-data-sets"><i class="fa fa-check"></i><b>2.1</b> Crimes included in the SRS data sets</a></li>
+<li class="chapter" data-level="2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#a-summary-of-each-srs-data-set"><i class="fa fa-check"></i><b>2.2</b> A summary of each SRS data set</a>
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#offenses-known-and-clearances-by-arrest-1960---present"><i class="fa fa-check"></i><b>2.2.1</b> Offenses Known and Clearances by Arrest (1960 - present)</a></li>
 <li class="chapter" data-level="2.2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#arrests-by-age-sex-and-race-1974---present"><i class="fa fa-check"></i><b>2.2.2</b> Arrests by Age, Sex, and Race (1974 - present)</a></li>
@@ -442,7 +373,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Decoding FBI Crime Data: A Practical Guide to UCR Program Data</a>
           </h1>
         </div>
 
@@ -1803,7 +1734,7 @@ Figure 15.1: The share of victims when considering only the 1st offense reported
 <div id="victim-type" class="section level2 hasAnchor" number="15.2">
 <h2><span class="header-section-number">15.2</span> Victim type<a href="victim-segment-1.html#victim-type" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>I spoke above as if all victims are people who are victimized. This is not entirely true. Some victims may be organizations, businesses, or other inanimate objects. NIBRS has nine different types of victims (including “unknown” type and “other” type) in the data and it tells us which type each victim is.</p>
-<p>Table <a href="victim-segment-1.html#tab:victimType">15.2</a> shows each of the victim types and how commonly they appear in the data. Two key ones are “individual” at 69.4% of victims and law enforcement officer at 0.5% of victims. Law enforcement officers who are victimized are only classified as law enforcement officers when they are the victims of murder, aggravated or simple assault, or intimidation. Otherwise they are labeled as “individual” victims. So an individual is a person who is either not a law enforcement officer or who is an officer but is not victimized by one of the approved crimes. These two are special types of victims as all other variables in this segment apply only to them. This is because non-humans cannot have demographic information, injuries (injury to property would be detailed in the Property Segment in Chapter <a href="property.html#property">17</a>), or relationships.<a href="#fn96" class="footnote-ref" id="fnref96"><sup>96</sup></a></p>
+<p>Table <a href="victim-segment-1.html#tab:victimType">15.2</a> shows each of the victim types and how commonly they appear in the data. Two key ones are “individual” at 69.4% of victims and law enforcement officer at 0.5% of victims. Law enforcement officers who are victimized are only classified as law enforcement officers when they are the victims of murder, aggravated or simple assault, or intimidation. Otherwise they are labeled as “individual” victims. So an individual is a person who is either not a law enforcement officer or who is an officer but is not victimized by one of the approved crimes. These two are special types of victims as all other variables in this segment apply only to them. This is because non-humans cannot have demographic information, injuries (injury to property would be detailed in the Property Segment in Chapter <a href="property.html#property">17</a>), or relationships.<a href="#fn92" class="footnote-ref" id="fnref92"><sup>92</sup></a></p>
 <p>The next most common type is business at 15.6% of victims, “society/public” at 12.9% of victims, and the government in 1% of victims. When the victim is society/public that means that the offense is a “victimless crime” or one where there is no specific victim. This includes drug offenses, animal cruelty (animals cannon be victims in this data), prostitution-related offenses (purchasing, promoting, and being a prostitute), pornography/obscene materials, and weapon offenses. The remaining categories - financial institution, other victim type, unknown victim type, and religion organization - are each under 0.25% of victims.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
@@ -8436,7 +8367,7 @@ Figure 15.5: The distribution of circumstances for justifiable homicides (N = 30
 <h3><span class="header-section-number">15.7.1</span> Residence status<a href="victim-segment-1.html#residence-status" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This segment tells us if the victim is a resident of the jurisdiction they were victimized in. This basically means whether or not they live in the city where the crime happened. It has nothing to do with residence status or citizenship status in the United States. The FBI defines residence as their legal permanent address though it is unclear how that is handled for people without this information (though this is far less likely to be a problem here than for arrestees which also report this variable) and when people live permanently in a different spot than their legal address. This variable is useful when trying to figure out if victims are those who live in the area or live outside of it, such as tourists or workers who live nearby. Since crime rates are usually crimes per residents in the jurisdiction, this can be used to determine how reliable that denominator is. If many victims are residents then it makes much more sense than if few are.</p>
 <p>Table <a href="#fig:victimResidenceStatus"><strong>??</strong></a> shows the residence status for all individual or law enforcement officer victims. The vast majority, 67%, of victims are residents of the jurisdiction where they were victimized while 12.5% were not residents. 20.4% of victims have an unknown resident status.</p>
-<p>One proposed measure to improve policing is to require police officers (or at least newly hired officers) live in the city where they work. The idea here is that people will do a better job if it affects the place they consider home.<a href="#fn97" class="footnote-ref" id="fnref97"><sup>97</sup></a> Luckily for us, NIBRS includes law enforcement officers in their measure of whether the victim lives in the jurisdiction where they were victimized. Since law enforcement officers are only recorded to be victims when on the job, this is one measure of where officers live.</p>
+<p>One proposed measure to improve policing is to require police officers (or at least newly hired officers) live in the city where they work. The idea here is that people will do a better job if it affects the place they consider home.<a href="#fn93" class="footnote-ref" id="fnref93"><sup>93</sup></a> Luckily for us, NIBRS includes law enforcement officers in their measure of whether the victim lives in the jurisdiction where they were victimized. Since law enforcement officers are only recorded to be victims when on the job, this is one measure of where officers live.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsVictimResidentStatus"></span>
 <img src="15_nibrs_victim_files/figure-html/nibrsVictimResidentStatus-1.png" alt="The share of victims by resident status in the reporting agency's jurisdiction, 1991-2023." width="100%" height="100%" />
 <p class="caption">
@@ -8475,7 +8406,7 @@ Figure 15.10: The percent of victim’s age that is unknown, 1991-2023.
 </div>
 <div id="sex-2" class="section level3 hasAnchor" number="15.7.3">
 <h3><span class="header-section-number">15.7.3</span> Sex<a href="victim-segment-1.html#sex-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>As with the Offender and the Arrestee Segments, we know the sex of the victim. The only choices are female, male, and unknown sex. There is no option for transgender or any other identify. Since the victim can tell the police their sex, and the police can see them clearly in most cases (though this may not be true if the victim reports a crime over the phone by calling 911 but then does not stay to be interviewed) so is more reliable than in the Offender Segment which may include guesses about the offender. The most common victim sex is female at 50.8% of victims, followed closely by male at 48.4%. Only about 0.8% of victims have an unknown sex. It is interesting that female victims are so common since most criminology research finds that male victims are so common. I think this is likely due to criminologists primarily focusing on murder and index violent crimes as their measure of crime, which ignores many other crimes.<a href="#fn98" class="footnote-ref" id="fnref98"><sup>98</sup></a></p>
+<p>As with the Offender and the Arrestee Segments, we know the sex of the victim. The only choices are female, male, and unknown sex. There is no option for transgender or any other identify. Since the victim can tell the police their sex, and the police can see them clearly in most cases (though this may not be true if the victim reports a crime over the phone by calling 911 but then does not stay to be interviewed) so is more reliable than in the Offender Segment which may include guesses about the offender. The most common victim sex is female at 50.8% of victims, followed closely by male at 48.4%. Only about 0.8% of victims have an unknown sex. It is interesting that female victims are so common since most criminology research finds that male victims are so common. I think this is likely due to criminologists primarily focusing on murder and index violent crimes as their measure of crime, which ignores many other crimes.<a href="#fn94" class="footnote-ref" id="fnref94"><sup>94</sup></a></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsVictimSex"></span>
 <img src="15_nibrs_victim_files/figure-html/nibrsVictimSex-1.png" alt="The share of victims by sex, 1991-2023." width="100%" height="100%" />
 <p class="caption">
@@ -8511,10 +8442,10 @@ Figure 15.13: The share of victims by ethnicity, 1991-2023.
 </div>
 <div class="footnotes">
 <hr />
-<ol start="96">
-<li id="fn96"><p>Businesses may have some form of demographic information if you think about demographics of the owners or managers. However, that information is not available. If the business was targeted due to the owner’s demographics then that may be considered a hate crime and be reported in the Offense Segment.<a href="victim-segment-1.html#fnref96" class="footnote-back">↩︎</a></p></li>
-<li id="fn97"><p>Since crime is generally concentrated in a small number of impoverished parts of town, and police likely would not live in these parts, this probably would not be very effective.<a href="victim-segment-1.html#fnref97" class="footnote-back">↩︎</a></p></li>
-<li id="fn98"><p>Murder and other violent crimes are mainly men hurting/killing other men, except in domestic violence which is primarily men hurting/killing women.<a href="victim-segment-1.html#fnref98" class="footnote-back">↩︎</a></p></li>
+<ol start="92">
+<li id="fn92"><p>Businesses may have some form of demographic information if you think about demographics of the owners or managers. However, that information is not available. If the business was targeted due to the owner’s demographics then that may be considered a hate crime and be reported in the Offense Segment.<a href="victim-segment-1.html#fnref92" class="footnote-back">↩︎</a></p></li>
+<li id="fn93"><p>Since crime is generally concentrated in a small number of impoverished parts of town, and police likely would not live in these parts, this probably would not be very effective.<a href="victim-segment-1.html#fnref93" class="footnote-back">↩︎</a></p></li>
+<li id="fn94"><p>Murder and other violent crimes are mainly men hurting/killing other men, except in domestic violence which is primarily men hurting/killing women.<a href="victim-segment-1.html#fnref94" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

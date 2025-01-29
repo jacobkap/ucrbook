@@ -4,26 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Arrests by Age, Sex, and Race | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</title>
-  <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
+  <title>Chapter 5 Arrests by Age, Sex, and Race | Decoding FBI Crime Data: A Practical Guide to UCR Program Data</title>
+  <meta name="description" content="This is a practical guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Arrests by Age, Sex, and Race | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta property="og:title" content="Chapter 5 Arrests by Age, Sex, and Race | Decoding FBI Crime Data: A Practical Guide to UCR Program Data" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
+  <meta property="og:description" content="This is a practical guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="github-repo" content="jacobkap/ucrbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Arrests by Age, Sex, and Race | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta name="twitter:title" content="Chapter 5 Arrests by Age, Sex, and Race | Decoding FBI Crime Data: A Practical Guide to UCR Program Data" />
   
-  <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
+  <meta name="twitter:description" content="This is a practical guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   
 
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2025-01-22" />
+<meta name="date" content="2025-01-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -65,70 +65,6 @@
 </script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -179,25 +115,20 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#goal-of-the-book"><i class="fa fa-check"></i><b>1.1</b> Goal of the book</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#structure-of-the-book"><i class="fa fa-check"></i><b>1.2</b> Structure of the book</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#citing-this-book"><i class="fa fa-check"></i><b>1.3</b> Citing this book</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#recommended-reading"><i class="fa fa-check"></i><b>1.4</b> Recommended reading</a></li>
-<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#how-to-contribute-to-this-book"><i class="fa fa-check"></i><b>1.5</b> How to contribute to this book</a></li>
-<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#ori"><i class="fa fa-check"></i><b>1.6</b> How to identify a particular agency (ORI codes)</a></li>
-<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#the-data-as-you-get-it-from-the-fbi"><i class="fa fa-check"></i><b>1.7</b> The data as you get it from the FBI</a></li>
-<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#common-issues"><i class="fa fa-check"></i><b>1.8</b> Common issues</a>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#ori"><i class="fa fa-check"></i><b>1.3</b> How to identify a particular agency (ORI codes)</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#common-issues"><i class="fa fa-check"></i><b>1.4</b> Common issues</a>
 <ul>
-<li class="chapter" data-level="1.8.1" data-path="index.html"><a href="index.html#population"><i class="fa fa-check"></i><b>1.8.1</b> Population</a></li>
-<li class="chapter" data-level="1.8.2" data-path="index.html"><a href="index.html#voluntary"><i class="fa fa-check"></i><b>1.8.2</b> Voluntary reporting</a></li>
-<li class="chapter" data-level="1.8.3" data-path="index.html"><a href="index.html#zero-crimes-vs-no-reports"><i class="fa fa-check"></i><b>1.8.3</b> Zero crimes vs no reports</a></li>
-<li class="chapter" data-level="1.8.4" data-path="index.html"><a href="index.html#agency-data-covered-by-another-agency"><i class="fa fa-check"></i><b>1.8.4</b> Agency data covered by another agency</a></li>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#population"><i class="fa fa-check"></i><b>1.4.1</b> Population</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#voluntary"><i class="fa fa-check"></i><b>1.4.2</b> Voluntary reporting</a></li>
+<li class="chapter" data-level="1.4.3" data-path="index.html"><a href="index.html#zero-crimes-vs-no-reports"><i class="fa fa-check"></i><b>1.4.3</b> Zero crimes vs no reports</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
 <li class="part"><span><b>II Summary Reporting System (SRS)</b></span></li>
 <li class="chapter" data-level="2" data-path="SRSGeneral.html"><a href="SRSGeneral.html"><i class="fa fa-check"></i><b>2</b> SRS Overview</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#crimes-included-in-the-srs-data sets"><i class="fa fa-check"></i><b>2.1</b> Crimes included in the SRS data sets</a></li>
-<li class="chapter" data-level="2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#a-summary-of-each-srs-data set"><i class="fa fa-check"></i><b>2.2</b> A summary of each SRS data set</a>
+<li class="chapter" data-level="2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#crimes-included-in-the-srs-data-sets"><i class="fa fa-check"></i><b>2.1</b> Crimes included in the SRS data sets</a></li>
+<li class="chapter" data-level="2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#a-summary-of-each-srs-data-set"><i class="fa fa-check"></i><b>2.2</b> A summary of each SRS data set</a>
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#offenses-known-and-clearances-by-arrest-1960---present"><i class="fa fa-check"></i><b>2.2.1</b> Offenses Known and Clearances by Arrest (1960 - present)</a></li>
 <li class="chapter" data-level="2.2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#arrests-by-age-sex-and-race-1974---present"><i class="fa fa-check"></i><b>2.2.2</b> Arrests by Age, Sex, and Race (1974 - present)</a></li>
@@ -442,7 +373,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Decoding FBI Crime Data: A Practical Guide to UCR Program Data</a>
           </h1>
         </div>
 
@@ -452,11 +383,11 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="arrests" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">Chapter 5</span> Arrests by Age, Sex, and Race<a href="arrests.html#arrests" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The Arrests by Age, Sex, and Race data set (ASR)<a href="#fn44" class="footnote-ref" id="fnref44"><sup>44</sup></a> provides monthly counts of arrests broken down by age, sex, and race for a variety of crimes. This data includes a broader number of crime categories than the crime data set (the Offenses Known and Clearances by Arrest data) though is less detailed on violent crimes since it does not breakdown aggravated assault or robberies by weapon type as the Offenses Known data does.</p>
+<p>The Arrests by Age, Sex, and Race data set (ASR)<a href="#fn40" class="footnote-ref" id="fnref40"><sup>40</sup></a> provides monthly counts of arrests broken down by age, sex, and race for a variety of crimes. This data includes a broader number of crime categories than the crime data set (the Offenses Known and Clearances by Arrest data) though is less detailed on violent crimes since it does not breakdown aggravated assault or robberies by weapon type as the Offenses Known data does.</p>
 <p>For each crime it says the number of arrests for each sex-age group with younger ages (15-24) showing the arrestee’s age to the year (e.g. age 16, age 17) and other ages grouping years together (e.g. age 25-29, 30-34, “under 10”). It also breaks down arrests by race-age by including the number of arrestees of each race (American Indian, Asian, Black, and White are the only included races) and if the arrestee is a juvenile (&lt;18 years old) or an adult. The data does technically include a breakdown by ethnicity-age (e.g. juvenile-Hispanic, juvenile-non-Hispanic) but almost no agencies report this data and most do not report ethnicity at all. So in practice the data does not include ethnicity. As the data includes counts of arrestees, people who are arrested multiple times are included in the data multiple times; it is not a measure of unique arrestees.</p>
 <div id="agencies-reporting-1" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Agencies reporting<a href="arrests.html#agencies-reporting-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This data is available from 1974 through 2022 though after 2020 the measure for how many months of data an agency reported changed so post-2020 data is difficult to compare to 2020 and earlier.<a href="#fn45" class="footnote-ref" id="fnref45"><sup>45</sup></a> Figure <a href="arrests.html#fig:arrestsAgenciesReporting">5.1</a> shows how many agencies reported at least one month of the year and every month of the year for 1974-2020.</p>
+<p>This data is available from 1974 through 2022 though after 2020 the measure for how many months of data an agency reported changed so post-2020 data is difficult to compare to 2020 and earlier.<a href="#fn41" class="footnote-ref" id="fnref41"><sup>41</sup></a> Figure <a href="arrests.html#fig:arrestsAgenciesReporting">5.1</a> shows how many agencies reported at least one month of the year and every month of the year for 1974-2020.</p>
 <p>The first year of data has about 9,000 agencies reporting at least one month and that increases strongly to a little over 13,000 in the late 1970s, staying fairly steady until decreasing in the late 1980s then increasing in the 2000s until approximately 15,000 agencies report. The number of agencies reporting 12 months of data follows a similar trend, but at a lower level with about 4,000 fewer agencies each year. This 15,000, however, still remains under the estimated 18,000 police agencies in the United States and below the reporting rates of UCR data such as the Offenses Known and Clearances by Arrest data. This data is also missing some important cities such as New York City which has not reported even a single month since 2002 and Chicago which tends to only report a single month if at all.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arrestsAgenciesReporting"></span>
 <img src="05_arrests_files/figure-html/arrestsAgenciesReporting-1.png" alt="The annual number of agencies reporting at least one month of data and 12 months of data in that year." width="100%" height="100%" />
@@ -469,14 +400,14 @@ Figure 5.1: The annual number of agencies reporting at least one month of data a
 <h2><span class="header-section-number">5.2</span> What is an arrest? (what unit is this data in?)<a href="arrests.html#what-is-an-arrest-what-unit-is-this-data-in" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This data set counts each arrest separately, meaning that individuals who are arrested multiple times will be counted multiple times. It reports the most serious crime for each arrest incident, so if someone commits multiple crimes during an incident, only the most serious one is recorded. Consider for example, a person who robs a bank, shooting and killing a guard and pointing their gun at other people in the bank. They are arrested and then released from jail (just imagine that this is true) and are then arrested the next day for shoplifting. And let us further assume that both arrests were in the same month in the same agency. How many arrests are here? They committed multiple crimes in the first incident (murder, robbery, aggravated assault) but in this data set they would only be classified as an arrest for the most serious crime, murder. And then separately they would also be an arrested for shoplifting. So assuming that no other arrests occurred in that police agency that month, there would be two arrests reported: one for murder and one for shoplifting.</p>
 <p>There’s no way to tell how many unique people were arrested, or of those arrested multiple times which crimes they were arrested for. So if you have 100 arrests there may be 1 person arrested 100 times or 100 people arrested once - though, of course, the true number is likely somewhere in between. This means that studies that try to use this data as a measure of unique people or even the percent of arrestees by group (age, sex, or race) relative to some base rate of the population such as the number of people living in that city are going to be wrong - though how wrong is unclear.</p>
-<p>Common uses of this data - more common in more news articles or advocacy group reports than in peer-reviewed research articles - compare the percent of arrestees of a certain group to the percent of a city’s population of that group. Any differences between the arrestee percent and the resident percent is, according to these reports, evidence of a disparity. This is most common for looking at differences by race.<a href="#fn46" class="footnote-ref" id="fnref46"><sup>46</sup></a> For example, say a city is equally split between Black and White residents (and no other races are present, for the simplicity of this example). If &gt;50% of arrestees for a particular crime are Black, that is often cited as evidence of anti-Black discrimination.</p>
+<p>Common uses of this data - more common in more news articles or advocacy group reports than in peer-reviewed research articles - compare the percent of arrestees of a certain group to the percent of a city’s population of that group. Any differences between the arrestee percent and the resident percent is, according to these reports, evidence of a disparity. This is most common for looking at differences by race.<a href="#fn42" class="footnote-ref" id="fnref42"><sup>42</sup></a> For example, say a city is equally split between Black and White residents (and no other races are present, for the simplicity of this example). If &gt;50% of arrestees for a particular crime are Black, that is often cited as evidence of anti-Black discrimination.</p>
 <p>There are two assumptions built into this. First, that offending rates are identical between Black and White residents; second, that reoffending rates are identical. If, for example, Black people in this example commit that crime at higher rates than White people then all else being equal you would expect this group to have a higher share of arrests than their share of the resident population. Second, it assumes that people of each race are rearrested at similar rates. Put another way, it assumes that if 100 Black people are arrested and 100 White people are arrested, there are an equal number of unique people in each group. If these assumptions are violated - and they certainly are violated to some degree in every use of the data - the conclusions will be wrong. Whether this distinction between arrests and unique people arrested affects your interpretation of the data depends on the study you are doing, but it is important to consider in your research. One way to address this is to use other data on the rate of rearrest by group, though you would have to be very careful to not extrapolate the results of the other study too far beyond what they could tell you about the specific time and place they studied.</p>
-<p>Another solution would be to try to bound results, such as calculating how extreme your assumptions (e.g. assuming how different the true offense rates between races are) can be for your conclusions to still hold. Going back to the example of a city with 50% White and 50% Black people, say that there are 10 arrests with a split of 1 White and 9 Black arrestees. If offense rates are identical you would expect 5 White and 5 Black people arrested, not a disparity of 9 to 1. So you could say that this disparity is reasonable if the Black people commit this offense at a rate of nine times as often than White people.<a href="#fn47" class="footnote-ref" id="fnref47"><sup>47</sup></a></p>
+<p>Another solution would be to try to bound results, such as calculating how extreme your assumptions (e.g. assuming how different the true offense rates between races are) can be for your conclusions to still hold. Going back to the example of a city with 50% White and 50% Black people, say that there are 10 arrests with a split of 1 White and 9 Black arrestees. If offense rates are identical you would expect 5 White and 5 Black people arrested, not a disparity of 9 to 1. So you could say that this disparity is reasonable if the Black people commit this offense at a rate of nine times as often than White people.<a href="#fn43" class="footnote-ref" id="fnref43"><sup>43</sup></a></p>
 <p>Is this bounding assumption reasonable? In this context-less example, I have no idea. There certainly may be cases where it is reasonable but that is context dependent. And you need to understand the context of what you are studying. Numbers are not enough. If based on your understanding of the context of what you are studying you believe that it is unreasonable that Black people commit that offense at a rate nine times that of White people, then you may conclude that the disparity is not explained by differences in offending rates. Your next step is to identify another explanation and try to rule that out too.</p>
 <div id="the-hierarchy-rule" class="section level3 hasAnchor" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> The Hierarchy Rule<a href="arrests.html#the-hierarchy-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The Hierarchy Rule is used in this data which means that when someone is arrested for multiple crimes, only the most serious crime is recorded. For example, if a person commits murder, robbery, and theft, only the murder is reported. Essentially, the FBI chose seven crimes in 1929 that they call Index Crimes - or sometimes called Part I crimes - and these were considered the most important crimes to be recorded.<a href="#fn48" class="footnote-ref" id="fnref48"><sup>48</sup></a> If a person is arrested for multiple crimes and an Index Crime is one of those crimes, then the Index Crime at the top of the Hierarchy is the one recorded in this data. Below I have listed all crimes included in this data set and the crimes 1-7 as well as 9 (arson) are the Index Crimes. The top of the Hierarchy is the crime with the lowest number. So murder is always reported in incidents where there is a murder; rape is always reported when there is an incident with rape but no murder; etc.</p>
-<p>The remaining crimes - the ones that are not Index crimes - are called Part II crimes and are not arranged in any particular way. So a lower value numbered crime is not higher on the Hierarchy than a higher value number - Part II crimes do not follow the Hierarchy. If all of the crimes in an incident are Part II crimes then the agency must decide for themselves which crime is the most serious. This can lead to agencies deciding their own hierarchy differently than others which makes this data much less comparable across agencies than if there was a standard rule.<a href="#fn49" class="footnote-ref" id="fnref49"><sup>49</sup></a></p>
+<p>The Hierarchy Rule is used in this data which means that when someone is arrested for multiple crimes, only the most serious crime is recorded. For example, if a person commits murder, robbery, and theft, only the murder is reported. Essentially, the FBI chose seven crimes in 1929 that they call Index Crimes - or sometimes called Part I crimes - and these were considered the most important crimes to be recorded.<a href="#fn44" class="footnote-ref" id="fnref44"><sup>44</sup></a> If a person is arrested for multiple crimes and an Index Crime is one of those crimes, then the Index Crime at the top of the Hierarchy is the one recorded in this data. Below I have listed all crimes included in this data set and the crimes 1-7 as well as 9 (arson) are the Index Crimes. The top of the Hierarchy is the crime with the lowest number. So murder is always reported in incidents where there is a murder; rape is always reported when there is an incident with rape but no murder; etc.</p>
+<p>The remaining crimes - the ones that are not Index crimes - are called Part II crimes and are not arranged in any particular way. So a lower value numbered crime is not higher on the Hierarchy than a higher value number - Part II crimes do not follow the Hierarchy. If all of the crimes in an incident are Part II crimes then the agency must decide for themselves which crime is the most serious. This can lead to agencies deciding their own hierarchy differently than others which makes this data much less comparable across agencies than if there was a standard rule.<a href="#fn45" class="footnote-ref" id="fnref45"><sup>45</sup></a></p>
 <ol style="list-style-type: decimal">
 <li>Homicide</li>
 </ol>
@@ -582,7 +513,7 @@ Figure 5.2: The total number of rapes by male arrestees reported by arrestee age
 <h3><span class="header-section-number">5.3.2</span> Race<a href="arrests.html#race" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The data set categorizes arrests by race: American Indian, Asian, Black, and White. It does not account for mixed-race individuals or provide details on how race was determined (e.g., officer perception or arrestee self-reporting). This is further broken down into if the arrestee was an adult (18 years or older) or a juvenile (under 18).</p>
 <p>Whether the arrestee is Hispanic is in a separate (and nearly universally non-reported variable). Since the ethnicity variable is separate, and since the data is not at the arrestee-level unit, there is no way to interact the race and ethnicity variables. So, for example, there is no way to determine how many White-Hispanic or White-Non-Hispanic arrestees. Just total White arrestees and total Hispanic arrestees.</p>
-<p>As with race variables in other UCR data sets - and, really, any data set - you should be cautious about using this variables since it is the officer’s perception of the arrestee’s race - though of course some arrests do have other data about the arrestee’s race such as what they tell the officer. In cases where the arrestee is carrying identification such as a driver’s license this variable is likely to be extremely well reported. However, we cannot tell from this data whether the race is based on something like a license or is merely the officer’s perception.<a href="#fn50" class="footnote-ref" id="fnref50"><sup>50</sup></a></p>
+<p>As with race variables in other UCR data sets - and, really, any data set - you should be cautious about using this variables since it is the officer’s perception of the arrestee’s race - though of course some arrests do have other data about the arrestee’s race such as what they tell the officer. In cases where the arrestee is carrying identification such as a driver’s license this variable is likely to be extremely well reported. However, we cannot tell from this data whether the race is based on something like a license or is merely the officer’s perception.<a href="#fn46" class="footnote-ref" id="fnref46"><sup>46</sup></a></p>
 <p>Even though there is information about the specific age of arrestee (or the age range, depending on the arrestee’s age) and their sex, there is no sex information combined with race and no age beyond the adult/juvenile binary. If you add up all arrests that are broken down by sex-age and compare it to the sum of all of the arrests broken down by adult/juvenile-race here, in some cases these numbers do not add up. That is because while most agencies do report the age variables, not all agencies report the race variables. So summing up the race variables will actually undercount the total number of arrests.</p>
 <ul>
 <li>American Indian</li>
@@ -621,7 +552,7 @@ Figure 5.4: The annual number of adult marijuana possession arrests in Philadelp
 <li>Non-Hispanic</li>
 </ul></li>
 </ul>
-<p>Figure <a href="arrests.html#fig:theftHispanic">5.5</a> shows the annual number of Hispanic arrestees for theft for all agencies that reported any data that year.<a href="#fn51" class="footnote-ref" id="fnref51"><sup>51</sup></a> For several years no agencies reported until the number of Hispanic arrestees start climbing in 1980 and peaks in 1986 at about 136,000 arrestees. Then there are zero Hispanic arrestees for a few years, four Hispanic arrestees in 1990 and two non-Hispanic arrests in 1991, and then again zero Hispanic arrestees, this time for decades. Only in 2017 do the number of Hispanic theft arrestees begin to creep up. From 2017 to 2022 (the last year available at the time of this writing) there are Hispanic arrestees reported every year, though now only about 60,000 per year.</p>
+<p>Figure <a href="arrests.html#fig:theftHispanic">5.5</a> shows the annual number of Hispanic arrestees for theft for all agencies that reported any data that year.<a href="#fn47" class="footnote-ref" id="fnref47"><sup>47</sup></a> For several years no agencies reported until the number of Hispanic arrestees start climbing in 1980 and peaks in 1986 at about 136,000 arrestees. Then there are zero Hispanic arrestees for a few years, four Hispanic arrestees in 1990 and two non-Hispanic arrests in 1991, and then again zero Hispanic arrestees, this time for decades. Only in 2017 do the number of Hispanic theft arrestees begin to creep up. From 2017 to 2022 (the last year available at the time of this writing) there are Hispanic arrestees reported every year, though now only about 60,000 per year.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:theftHispanic"></span>
 <img src="05_arrests_files/figure-html/theftHispanic-1.png" alt="The national annual number of Hispanic arrestees for theft. This includes all agencies that year that reporting any number of months. Hispanic arrestees include both juvenile and adult arrestees" width="100%" height="100%" />
 <p class="caption">
@@ -677,15 +608,15 @@ Figure 5.8: The annual number of juvenile referrals in the United States excludi
 </div>
 <div class="footnotes">
 <hr />
-<ol start="44">
-<li id="fn44"><p>Sometimes called Arrests by Age, Sex, Race, and Ethnicity.<a href="arrests.html#fnref44" class="footnote-back">↩︎</a></p></li>
-<li id="fn45"><p>Post-2020 years do have considerably fewer agencies reporting than in previous years.<a href="arrests.html#fnref45" class="footnote-back">↩︎</a></p></li>
-<li id="fn46"><p>Disparity, of course, does not even mean discrimination.<a href="arrests.html#fnref46" class="footnote-back">↩︎</a></p></li>
-<li id="fn47"><p>This is a simplification as there are other things that affect arrests such as witness cooperation, details of the offense like time of day and location, and (especially in the case of rare events like only 10 arrests) random chance.<a href="arrests.html#fnref47" class="footnote-back">↩︎</a></p></li>
-<li id="fn48"><p>Partly based on the quality of the data available as they considered these crimes to be a good combination of well-reported and serious.<a href="arrests.html#fnref48" class="footnote-back">↩︎</a></p></li>
-<li id="fn49"><p>This here is another example of where the “Uniform” part of Uniform Crime Reporting is more of a suggestion than a rule.<a href="arrests.html#fnref49" class="footnote-back">↩︎</a></p></li>
-<li id="fn50"><p>In my experience working directly with police data where I can identify a person arrested multiple times in about 5-10% of cases they have at least one arrest where their reported race is different than other arrests. Such as a person arrested five times and being reported as White four times and Black once. This is probably a mix of officers perceiving people differently (e.g. mixed race people) and having different officers report different race for the same person, and human error when entering data. But all of it suggests that there is at least some uncertainty in this variable.<a href="arrests.html#fnref50" class="footnote-back">↩︎</a></p></li>
-<li id="fn51"><p>Theft is used as it is one of the most common crimes.<a href="arrests.html#fnref51" class="footnote-back">↩︎</a></p></li>
+<ol start="40">
+<li id="fn40"><p>Sometimes called Arrests by Age, Sex, Race, and Ethnicity.<a href="arrests.html#fnref40" class="footnote-back">↩︎</a></p></li>
+<li id="fn41"><p>Post-2020 years do have considerably fewer agencies reporting than in previous years.<a href="arrests.html#fnref41" class="footnote-back">↩︎</a></p></li>
+<li id="fn42"><p>Disparity, of course, does not even mean discrimination.<a href="arrests.html#fnref42" class="footnote-back">↩︎</a></p></li>
+<li id="fn43"><p>This is a simplification as there are other things that affect arrests such as witness cooperation, details of the offense like time of day and location, and (especially in the case of rare events like only 10 arrests) random chance.<a href="arrests.html#fnref43" class="footnote-back">↩︎</a></p></li>
+<li id="fn44"><p>Partly based on the quality of the data available as they considered these crimes to be a good combination of well-reported and serious.<a href="arrests.html#fnref44" class="footnote-back">↩︎</a></p></li>
+<li id="fn45"><p>This here is another example of where the “Uniform” part of Uniform Crime Reporting is more of a suggestion than a rule.<a href="arrests.html#fnref45" class="footnote-back">↩︎</a></p></li>
+<li id="fn46"><p>In my experience working directly with police data where I can identify a person arrested multiple times in about 5-10% of cases they have at least one arrest where their reported race is different than other arrests. Such as a person arrested five times and being reported as White four times and Black once. This is probably a mix of officers perceiving people differently (e.g. mixed race people) and having different officers report different race for the same person, and human error when entering data. But all of it suggests that there is at least some uncertainty in this variable.<a href="arrests.html#fnref46" class="footnote-back">↩︎</a></p></li>
+<li id="fn47"><p>Theft is used as it is one of the most common crimes.<a href="arrests.html#fnref47" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

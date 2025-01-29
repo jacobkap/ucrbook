@@ -4,26 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</title>
-  <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
+  <title>Decoding FBI Crime Data: A Practical Guide to UCR Program Data</title>
+  <meta name="description" content="This is a practical guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta property="og:title" content="Decoding FBI Crime Data: A Practical Guide to UCR Program Data" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
+  <meta property="og:description" content="This is a practical guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="github-repo" content="jacobkap/ucrbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta name="twitter:title" content="Decoding FBI Crime Data: A Practical Guide to UCR Program Data" />
   
-  <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
+  <meta name="twitter:description" content="This is a practical guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   
 
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2025-01-22" />
+<meta name="date" content="2025-01-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -65,70 +65,6 @@
 </script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -179,25 +115,20 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#goal-of-the-book"><i class="fa fa-check"></i><b>1.1</b> Goal of the book</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#structure-of-the-book"><i class="fa fa-check"></i><b>1.2</b> Structure of the book</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#citing-this-book"><i class="fa fa-check"></i><b>1.3</b> Citing this book</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#recommended-reading"><i class="fa fa-check"></i><b>1.4</b> Recommended reading</a></li>
-<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#how-to-contribute-to-this-book"><i class="fa fa-check"></i><b>1.5</b> How to contribute to this book</a></li>
-<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#ori"><i class="fa fa-check"></i><b>1.6</b> How to identify a particular agency (ORI codes)</a></li>
-<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#the-data-as-you-get-it-from-the-fbi"><i class="fa fa-check"></i><b>1.7</b> The data as you get it from the FBI</a></li>
-<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#common-issues"><i class="fa fa-check"></i><b>1.8</b> Common issues</a>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#ori"><i class="fa fa-check"></i><b>1.3</b> How to identify a particular agency (ORI codes)</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#common-issues"><i class="fa fa-check"></i><b>1.4</b> Common issues</a>
 <ul>
-<li class="chapter" data-level="1.8.1" data-path="index.html"><a href="index.html#population"><i class="fa fa-check"></i><b>1.8.1</b> Population</a></li>
-<li class="chapter" data-level="1.8.2" data-path="index.html"><a href="index.html#voluntary"><i class="fa fa-check"></i><b>1.8.2</b> Voluntary reporting</a></li>
-<li class="chapter" data-level="1.8.3" data-path="index.html"><a href="index.html#zero-crimes-vs-no-reports"><i class="fa fa-check"></i><b>1.8.3</b> Zero crimes vs no reports</a></li>
-<li class="chapter" data-level="1.8.4" data-path="index.html"><a href="index.html#agency-data-covered-by-another-agency"><i class="fa fa-check"></i><b>1.8.4</b> Agency data covered by another agency</a></li>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#population"><i class="fa fa-check"></i><b>1.4.1</b> Population</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#voluntary"><i class="fa fa-check"></i><b>1.4.2</b> Voluntary reporting</a></li>
+<li class="chapter" data-level="1.4.3" data-path="index.html"><a href="index.html#zero-crimes-vs-no-reports"><i class="fa fa-check"></i><b>1.4.3</b> Zero crimes vs no reports</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
 <li class="part"><span><b>II Summary Reporting System (SRS)</b></span></li>
 <li class="chapter" data-level="2" data-path="SRSGeneral.html"><a href="SRSGeneral.html"><i class="fa fa-check"></i><b>2</b> SRS Overview</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#crimes-included-in-the-srs-data sets"><i class="fa fa-check"></i><b>2.1</b> Crimes included in the SRS data sets</a></li>
-<li class="chapter" data-level="2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#a-summary-of-each-srs-data set"><i class="fa fa-check"></i><b>2.2</b> A summary of each SRS data set</a>
+<li class="chapter" data-level="2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#crimes-included-in-the-srs-data-sets"><i class="fa fa-check"></i><b>2.1</b> Crimes included in the SRS data sets</a></li>
+<li class="chapter" data-level="2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#a-summary-of-each-srs-data-set"><i class="fa fa-check"></i><b>2.2</b> A summary of each SRS data set</a>
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#offenses-known-and-clearances-by-arrest-1960---present"><i class="fa fa-check"></i><b>2.2.1</b> Offenses Known and Clearances by Arrest (1960 - present)</a></li>
 <li class="chapter" data-level="2.2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#arrests-by-age-sex-and-race-1974---present"><i class="fa fa-check"></i><b>2.2.2</b> Arrests by Age, Sex, and Race (1974 - present)</a></li>
@@ -442,7 +373,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Decoding FBI Crime Data: A Practical Guide to UCR Program Data</a>
           </h1>
         </div>
 
@@ -451,13 +382,12 @@ div.csl-indent {
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</h1>
+<h1 class="title">Decoding FBI Crime Data: A Practical Guide to UCR Program Data</h1>
 <p class="author"><em>Jacob Kaplan, Ph.D.</em></p>
-<p class="date"><em>2025-01-22</em></p>
+<p class="date"><em>2025-01-28</em></p>
 </div>
 <div id="preface" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Preface<a href="index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><strong>This book is undergoing a major update. Please be patient until it is done as some figures/tables may break and some information may be outdated.</strong></p>
 <p>If you have read an article about crime or arrests in the United States in the last half century, in most cases it was referring to the FBI’s Uniform Crime Reporting Program Data, otherwise known as UCR data. UCR data is, with the exception of the more detailed data that only covers murders, a <em>monthly number of crimes or arrests reported to a single police agency</em> which is then gathered by the FBI into one file that includes all reporting agencies. It is actually a collection of different data sets, all of which have information about crimes and arrests that occur in a particular jurisdiction. Think of your home town. This data will tell you how many crimes were reported for a small number of crime categories or how many people (broken down by age, sex, and race) were arrested for a (larger) set of crime categories in that city (if the city has multiple police agencies then each agency will report crimes/arrests under their jurisdiction though the largest agency - usually the local police department - will cover the vast majority of crimes/arrests in that city) in a given month.</p>
 <p>This is a very broad measure of crime, and its uses in research - or uses for understanding crime at all - is fairly limited. Yet is has become over much of the last century - and will likely remain among researchers for at least the next decade - the most important crime data in the United States.</p>
 <p>UCR data is important for three reasons:</p>
@@ -486,129 +416,85 @@ Figure 1.2: The percent of each state’s population that is covered by police a
 </div>
 <div id="structure-of-the-book" class="section level2 hasAnchor" number="1.2">
 <h2><span class="header-section-number">1.2</span> Structure of the book<a href="index.html#structure-of-the-book" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This book will be divided into ten chapters: this chapter, an intro chapter briefly summarizing each data set and going over overall issues with UCR data, and seven chapters each covering one of the seven UCR data sets. The final chapter will cover county-level UCR data, a commonly used but highly flawed aggregation of UCR data that I recommend against using. Each chapter will follow the same format: we will start with a brief summary of the data such as when it first because available and how it can be used. Next we will look at how many agencies report their data to this data set, often looking at how to measure this reporting rate a couple of different ways. Finally, we will cover the important variables included in the data and how to use them properly (including not using them at all) - this will be the bulk of each chapter.</p>
+<p>This book will be divided into two sections: Summary Reporting System (SRS) and National Incident-Based Reporting System (NIBRS). These are the two main branches, so to speak, of FBI crime data. The SRS data is, with some exceptions, aggregate data with information about crimes and arrests at the monthly level for each police agency that reports data. This is the older branch and was the original data collected nearly a century ago when the UCR Program started in 1929. This is the much more prominent branch and most research and news reports rely on data from here. It is also a dying branch. It is being replaced by the NIBRS branch which contains far more detailed information about every crime, victim, and offender. It allows us to answer many more questions than “how many murders happened in Philadelphia in July of 2021” which are the main types of questions answered by SRS. Police agencies have increasingly reported NIBRS rather than SRS data, particularly since 2015 when the FBI stated an ending date to their SRS collection. The FBI formally killed the SRS branch in 2020 when they stopped collecting data from this branch and only allowed submissions from NIBRS.</p>
+<p>But this is quite a misnomer. First, while the FBI did indeed stop collecting SRS data - or at least some of the data sets from SRS - starting January 1, 2021, they quickly backtracked and began accepting all SRS data again starting in 2022. Second, NIBRS data can be converted to SRS data through some basic data cleaning and aggregation so collecting NIBRS effectively means also collecting SRS data. And when agencies report only NIBRS the FBI converts and releases that data as its SRS version. So SRS data will never die, even if the FBI again decides to stop collecting it.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<p>In fact I’d argue that the SRS branch will always be the most important branch</p>
+<p>But this is a bit of a misnomer.</p>
+<p>ten chapters: this chapter, an intro chapter briefly summarizing each data set and going over overall issues with UCR data, and seven chapters each covering one of the seven UCR data sets. The final chapter will cover county-level UCR data, a commonly used but highly flawed aggregation of UCR data that I recommend against using. Each chapter will follow the same format: we will start with a brief summary of the data such as when it first because available and how it can be used. Next we will look at how many agencies report their data to this data set, often looking at how to measure this reporting rate a couple of different ways. Finally, we will cover the important variables included in the data and how to use them properly (including not using them at all) - this will be the bulk of each chapter.</p>
 </div>
-<div id="citing-this-book" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Citing this book<a href="index.html#citing-this-book" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>If this data was useful in your research, please cite it. To cite this book, please use the below citation:</p>
-<p>Kaplan J (2024). <em>Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</em>. <a href="https://ucrbook.com/" class="uri">https://ucrbook.com/</a>.</p>
-<p>BibTeX format:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb1-1"><a href="index.html#cb1-1" tabindex="-1"></a><span class="va">@Manual</span>{<span class="ot">ucrbook</span>,</span>
-<span id="cb1-2"><a href="index.html#cb1-2" tabindex="-1"></a>  <span class="dt">title</span> = {Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data},</span>
-<span id="cb1-3"><a href="index.html#cb1-3" tabindex="-1"></a>  <span class="dt">author</span> = {{Jacob Kaplan}},</span>
-<span id="cb1-4"><a href="index.html#cb1-4" tabindex="-1"></a>  <span class="dt">year</span> = {2024},</span>
-<span id="cb1-5"><a href="index.html#cb1-5" tabindex="-1"></a>  <span class="dt">url</span> = {https://ucrbook.com/},</span>
-<span id="cb1-6"><a href="index.html#cb1-6" tabindex="-1"></a>}</span></code></pre></div>
-<p>There are a few different sources of UCR data available today. First, and probably most commonly used, is the data put together by the <a href="https://www.icpsr.umich.edu/web/pages/NACJD/index.html">National Archive of Criminal Justice Data (NACJD)</a>). This a team out of the University of Michigan who manages a huge number of criminal justice data sets and makes them available to the public. If you have any questions about crime data - UCR or other crime data - I highly recommend you reach out to them for answers. They have a collection of data and excellent documentation available for UCR data available on their site <a href="https://www.icpsr.umich.edu/web/NACJD/series/57">here</a>. One limitation to their data, however, is that each year of data is available as an individual file meaning that you will need to concatenate each year together into a single file. Some years also have different column names (generally minor changes like spelling robbery “rob” one year and “robb” the next) which requires more work to standardize before you could concatenate. They also only have data through 2016 which means that the most recent years (UCR data is available through 2019) of data are (as of this writing) unavailable.</p>
-<p>Next, and most usable for the general public - but limited for researchers - is the FBI’s official website <a href="https://cde.ucr.cjis.gov/">Crime Data Explorer</a>. On this site you can chose an agency and see annual crime data (remember, UCR data is monthly so this is not as detailed as it can be) for certain crimes (and not even all the crimes actually available in the data). This is okay for the general public but only provides a fraction of the data available in the actual data so is really not good for researchers.</p>
-<p>It is worth mentioning a final source of UCR information. This is the annual Crimes in the United States report released by the FBI each year around the start of October. As an example, here is the <a href="https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019">website for the 2019 report</a>. In this report is summarized data which in most cases estimates missing data and provides information about national and subnational (though rarely city-level) crime data. As with the FBI’s site, it is only a fraction of the true data available so is not a very useful source of crime data for quality research. Still, this is a very common source of information used by researchers.</p>
-</div>
-<div id="recommended-reading" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> Recommended reading<a href="index.html#recommended-reading" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>While this book is designed to help researchers use this data, the FBI has an excellent manual on this data designed to help police agencies submit their data. That manual, called the “Summary Reporting System (SRS) User Manual” provides excellent definitions and examples of many variables included in the data. In this book when I quote the FBI, such as defining a crime, I quote from this manual. The manual is available to download as a PDF on the FBI’s site and I have also posted it on my GitHub page <a href="https://github.com/jacobkap/ucrbook/blob/main/FBI%20Uniform%20Crime%20Reporting%20(UCR)%20Program%20User%20Manual.pdf">here</a> for convenience. I highly recommend that you read this manual before using the data. That manual, alongside this book which tries to explain when and how the agencies do not follow the manual, will provide a solid foundation for your understanding of UCR data.</p>
-</div>
-<div id="how-to-contribute-to-this-book" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> How to contribute to this book<a href="index.html#how-to-contribute-to-this-book" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>If you have any questions, suggestions (such as a topic to cover), or find any issues, please make a post on the <a href="https://github.com/jacobkap/ucrbook/issues">Issues page</a> for this book on GitHub. On this page you can create a new issue (which is basically just a post on this forum) with a title and a longer description of your issue. You will need a GitHub account to make a post. Posting here lets me track issues and respond to your message or alert you when the issue is closed (i.e. I have finished or denied the request). Issues are also public so you can see if someone has already posted something similar.</p>
-<p>For more minor issues like typos or grammar mistakes, you can edit the book directly through its GitHub page. That will make an update for me to accept, which will change the book to include your edit. To do that, click the edit button at the top of the site - the button is highlighted in the below figure. You will need to make a GitHub account to make edits. When you click on that button you will be taken to a page that looks like a Word Doc where you can make edits. Make any edits you want and then scroll to the bottom of the page. There you can write a short (please, no more than a sentence or two) description of what you have done and then submit the changes for me to review.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
-<img src="images/edit_button.PNG" alt="The edit button for how to make edits of this book." width="100%" height="100%" />
-<p class="caption">
-Figure 1.3: The edit button for how to make edits of this book.
-</p>
-</div>
-<p>Please only use the above two methods to contribute or make suggestions about the book. While it is a bit more work for you to do it this way, since you will need to make a GitHub account if you do not already have one, it helps me organize all the questions in one place and update the book if I decide to add answers to certain questions.</p>
-</div>
-<div id="ori" class="section level2 hasAnchor" number="1.6">
-<h2><span class="header-section-number">1.6</span> How to identify a particular agency (ORI codes)<a href="index.html#ori" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In NIBRS and other FBI data sets, agencies are identified using <strong>OR</strong>iginating Agency <strong>I</strong>dentifiers or an ORI. An ORI is a unique ID code used to identify an agency.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> If we used the agency’s name we would end up with some duplicates since there can be multiple agencies in the country (and in a state, those this is very rare) with the same name. For example, if you looked for the Philadelphia Police Department using the agency name, you would find both the “Philadelphia Police Department” in Pennsylvania and the one in Mississippi. Each ORI is a 9-digit value starting with the state abbreviation<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> followed by 7 numbers. In the UCR data (another FBI data set) the ORI uses only a 7-digit code - with only the 5 numbers following the state abbreviation instead of 7. So the NIBRS ORI codes are sometimes called ORI9. For nearly all agencies, the only difference between the UCR ORI and the NIBRS ORI is that the NIBRS ORI has “00” at the end so it is technically 9 characters long but is not any more specific than the 7-character UCR ORI code.</p>
+<div id="ori" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> How to identify a particular agency (ORI codes)<a href="index.html#ori" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In NIBRS and other FBI data sets, agencies are identified using <strong>OR</strong>iginating Agency <strong>I</strong>dentifiers or an ORI. An ORI is a unique ID code used to identify an agency.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> If we used the agency’s name we would end up with some duplicates since there can be multiple agencies in the country (and in a state, those this is very rare) with the same name. For example, if you looked for the Philadelphia Police Department using the agency name, you would find both the “Philadelphia Police Department” in Pennsylvania and the one in Mississippi. Each ORI is a 9-digit value starting with the state abbreviation<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> followed by 7 numbers. In the UCR data (another FBI data set) the ORI uses only a 7-digit code - with only the 5 numbers following the state abbreviation instead of 7. So the NIBRS ORI codes are sometimes called ORI9. For nearly all agencies, the only difference between the UCR ORI and the NIBRS ORI is that the NIBRS ORI has “00” at the end so it is technically 9 characters long but is not any more specific than the 7-character UCR ORI code.</p>
 <p>When dealing with specific agencies, make sure to use the ORI rather than the agency name to avoid any mistakes. For an easy way to find the ORI number of an agency, use <a href="https://crimedatatool.com/crosswalk.html">this page</a> on my site. Type an agency name or an ORI code into the search section and it will return everything that is a match.</p>
 </div>
-<div id="the-data-as-you-get-it-from-the-fbi" class="section level2 hasAnchor" number="1.7">
-<h2><span class="header-section-number">1.7</span> The data as you get it from the FBI<a href="index.html#the-data-as-you-get-it-from-the-fbi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We will finish this overview of the SRS data by briefly talking about format of the data that is released by the FBI, before the processing done by myself or <a href="https://www.icpsr.umich.edu/web/pages/NACJD/index.html">NACJD</a> that converts the data to a type that software like R or Stata or Excel can understand. The FBI releases their data as fixed-width ASCII files which are basically just an Excel file but with all of the columns squished together. As an example, Figure <a href="#fig:SRSascii"><strong>??</strong></a> shows what the data looks like as you receive it from the FBI for the Offenses Known and Clearances by Arrest data set for 1960, the first year with data available. In the figure, it seems like there are multiple rows but that is just because the software that I opened the file in is not wide enough - in reality what is shown is a single row that is extremely wide because there are over 1,500 columns in this data. If you scroll down enough you will see the next row, but that is not shown in the current image. What is shown is a single row with a ton of columns all pushed up next to each other. Since all of the columns are squished together (the gaps are just blank spaces because the value there is a space, but that does not mean there is a in the data. Spaces are possible values in the data and are meaningful), you need some way to figure out which parts of the data belong in which column.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ascii"></span>
-<img src="images/nibrs_ascii.PNG" alt="Fixed-width ASCII file for the 1991 National Incident-Based Reporting System (NIBRS) data set." width="100%" height="100%" />
-<p class="caption">
-Figure 1.4: Fixed-width ASCII file for the 1991 National Incident-Based Reporting System (NIBRS) data set.
-</p>
-</div>
-<p>The “fixed-width” part of the file type is how this works (the ASCII part basically means it is a text file). Each row is the same width - literally the same number of characters, including blank spaces. So you must tell the software you are using to process this file - by literally writing code in something called a “setup file” but is basically just instructions for whatever software you use (R, SPSS, Stata, SAS can all do this) - which characters are certain columns. For example, in this data the first character says which type of SRS data it is (1 means the Offenses Known and Clearances by Arrest data) and the next two characters (in the setup file written as 2-3 since it is characters 2 through 3 [inclusive]) are the state number (01 is the state code for Alabama). So we can read this row as the first column indicating it is an Offenses Known data, the second column indicating that it is for the state of Alabama, and so on for each of the remaining columns. To read in this data you will need a setup file that covers every column in the data (some software, like R, can handle just reading in the specific columns you want and do not need to include every column in the setup file).</p>
-<p>The second important thing to know about reading in a fixed-width ASCII file is something called a “value label.”<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> For example, in the above image we saw the characters 2-3 is the state and in the row we have the value “01” which means that the state is “Alabama.” Since this type of data is trying to be as small as efficient as possible, it often replaces longer values with shorter one and provides a translation for the software to use to convert it to the proper value when reading it. “Alabama” is more characters than “01” so it saves space to say “01” and just replace that with “Alabama” later on. So “01” would be the “value” and “Alabama” would be the “label” that it changes to once read.</p>
-<p>Fixed-width ASCII files may seem awful to you reading it today, and it is awful to use. But it appears to be an efficient way to store data back many decades ago when data releases began but now is extremely inefficient - in terms of speed, file size, ease of use - compared to modern software so I am not sure why they <em>still</em> release data in this format. But they do, and even the more <em>modern</em> NIBRS data comes in this format. For you, however, the important part to understand is not how exactly to read this type of data, but to understand that people who made this data publicly available (such as myself and the team at NACJD) must make this conversion process.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> <strong>This conversion process, from fixed-width ASCII to a useful format is the most dangerous step taken in using this data - and one that is nearly entirely unseen by researchers.</strong></p>
-<p>Every line of code you write (or, for SPSS users, click you make) invites the possibility of making a mistake.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> The FBI does not provide a setup file with the fixed-width ASCII data so to read in this data you need to make it yourself. Since some SRS data are massive, this involves assigning the column width for thousands of columns and the value labels for hundreds of different value labels.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> A typo anywhere could have potentially far-reaching consequences, so this is a crucial weak point in the data cleaning process - and one in which I have not seen anything written about before. While I have been diligent in checking the setup files and my code to seek out any issues - and I know that NACJD has a robust checking process for their own work - that does not mean our work is perfect.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> Even with perfection in processing the raw data to useful files, decisions we make (e.g. what level to aggregate to, what is an outlier) can affect both what type of questions you can ask when using this data, and how well you can answer them.</p>
-</div>
-<div id="common-issues" class="section level2 hasAnchor" number="1.8">
-<h2><span class="header-section-number">1.8</span> Common issues<a href="index.html#common-issues" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="common-issues" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Common issues<a href="index.html#common-issues" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In this section we will discuss issues common to most or all of the SRS data sets. For some of these, we will come back to the issues in more detail in the chapter for the data sets most affected by the problem.</p>
-<div id="population" class="section level3 hasAnchor" number="1.8.1">
-<h3><span class="header-section-number">1.8.1</span> Population<a href="index.html#population" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Each of the SRS data sets include a population variable that has the estimated population under the jurisdiction of that agency.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> This variable is often used to create crime rates that control for population. In cases where jurisdiction overlaps, such as when a city has university police agencies or county sheriffs in counties where the cities in that county have their own police, SRS data assigns the population covered to the most local agency and zero population to the overlapping agency. So an agency’s population is the number of people in that jurisdiction that is not already covered by a different agency.</p>
+<div id="population" class="section level3 hasAnchor" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> Population<a href="index.html#population" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Each of the SRS data sets include a population variable that has the estimated population under the jurisdiction of that agency.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> This variable is often used to create crime rates that control for population. In cases where jurisdiction overlaps, such as when a city has university police agencies or county sheriffs in counties where the cities in that county have their own police, SRS data assigns the population covered to the most local agency and zero population to the overlapping agency. So an agency’s population is the number of people in that jurisdiction that is not already covered by a different agency.</p>
 <p>For example, the city of Los Angeles in California has nearly four million residents according to the US Census. There are multiple police agencies in the city, including the Los Angeles Police Department, the Los Angeles County Sheriff’s Office, the California Highway Patrol that operates in the area, airport and port police, and university police departments. If each agency reported the number of people in their jurisdiction - which all overlap with each other - we would end up with a population far higher than LA’s four million people. To prevent double-counting population when agency’s jurisdictions overlap, the non-primary agency will report a population of 0, even though they still report crime data like normal. As an example, in 2018 the police department for California State University - Los Angeles reported 92 thefts and a population of 0. Those 92 thefts are not counted in the Los Angeles Police Department data, even though the department counts the population. To get complete crime counts in Los Angeles, you would need to add up all police agencies within in the city; since the population value is 0 for non-LAPD agencies, both the population and the crime sum will be correct.</p>
 <p>The SRS uses this method even when only parts of a jurisdiction overlaps. Los Angeles County Sheriff has a population of about one million people, far less than the actual county population (the number of residents, according to the Census) of about 10 million people. This is because the other nine million people are accounted for by other agencies, mainly the local police agencies in the cities that make up Los Angeles County.</p>
 <p>The population value is the population who reside in that jurisdiction and does not count people who are in the area but do not live there, such as tourists or people who commute there for work. This means that using the population value to determine a rate can be misleading as some places have much higher numbers of non-residents in the area (e.g. Las Vegas, Washington D.C.) than others.</p>
 </div>
-<div id="voluntary" class="section level3 hasAnchor" number="1.8.2">
-<h3><span class="header-section-number">1.8.2</span> Voluntary reporting<a href="index.html#voluntary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>When an agency reports their data to the FBI, they do so voluntarily - there is no national requirement to report.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> This means that there is inconsistency in which agencies report, how many months of the year they report for, and which variables they include in their data submissions.</p>
+<div id="voluntary" class="section level3 hasAnchor" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> Voluntary reporting<a href="index.html#voluntary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When an agency reports their data to the FBI, they do so voluntarily - there is no national requirement to report.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> This means that there is inconsistency in which agencies report, how many months of the year they report for, and which variables they include in their data submissions.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nibrsAnnualNumberAgenciesIndex"></span>
 <img src="index_files/figure-html/nibrsAnnualNumberAgenciesIndex-1.png" alt="The annual number of police agencies that report data to NIBRS." width="100%" height="100%" />
 <p class="caption">
-Figure 1.5: The annual number of police agencies that report data to NIBRS.
+Figure 1.3: The annual number of police agencies that report data to NIBRS.
 </p>
 </div>
-<p>In general, more agencies report their data every year and once an agency begins reporting data they tend to keep reporting. The SRS data sets are a collection of separate, though related, data sets and an agency can report to as many of these data sets as they want - an agency that reports to one data set does not mean that they report to other data sets. Figure <a href="index.html#fig:SRSagenciesReporting">1.6</a> shows the number of agencies that submitted at least one month of data to the Offenses Known and Clearances by Arrest data in the given year. For the first decade of available data under 8,000 agencies reported data and this grew to over 13,500 by the late 1970s before plateauing for about a decade. The number of agencies that reported their data actually declined in the 1990s, driven primarily by many Florida agencies temporarily dropping out, before growing steadily to nearly 17,000 agencies in 2010; from here it kept increasing but slower than before.</p>
+<p>In general, more agencies report their data every year and once an agency begins reporting data they tend to keep reporting. The SRS data sets are a collection of separate, though related, data sets and an agency can report to as many of these data sets as they want - an agency that reports to one data set does not mean that they report to other data sets. Figure <a href="index.html#fig:SRSagenciesReporting">1.4</a> shows the number of agencies that submitted at least one month of data to the Offenses Known and Clearances by Arrest data in the given year. For the first decade of available data under 8,000 agencies reported data and this grew to over 13,500 by the late 1970s before plateauing for about a decade. The number of agencies that reported their data actually declined in the 1990s, driven primarily by many Florida agencies temporarily dropping out, before growing steadily to nearly 17,000 agencies in 2010; from here it kept increasing but slower than before.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:SRSagenciesReporting"></span>
 <img src="index_files/figure-html/SRSagenciesReporting-1.png" alt="The annual number of agencies reporting to the Offenses Known and Clearances by Arrest data set. Reporting is based on the agency reporting at least one month of data in that year." width="100%" height="100%" />
 <p class="caption">
-Figure 1.6: The annual number of agencies reporting to the Offenses Known and Clearances by Arrest data set. Reporting is based on the agency reporting at least one month of data in that year.
+Figure 1.4: The annual number of agencies reporting to the Offenses Known and Clearances by Arrest data set. Reporting is based on the agency reporting at least one month of data in that year.
 </p>
 </div>
 <p>There are approximately 18,000 police agencies in the United States so recent data has reports from nearly all agencies, while older data has far fewer agencies reporting. When trying to estimate to larger geographies, such as state or national-level, later years will be more accurate as you are missing less data. For earlier data, however, you are dealing with a smaller share of agencies meaning that you have a large amount of missing data and a less representative sample.</p>
-<p>This voluntariness extends beyond whether they report or not, but into which variables they report. While in practice most agencies report every crime when they report any, they do have the choice to report only a subset of offenses. This is especially true for subsets of larger categories - such as gun assaults, a subset of aggravated assaults, or marijuana possession arrests which is a subset of drug possession arrests. As an example, Figure <a href="index.html#fig:nycGunAssaults">1.7</a> shows the annual number of aggravated assaults with a gun in New York City. In 2003 the New York Police Department stopped reporting this category of offense, resuming only in 2013. They continued to report the broader aggravated assault category, but not any of the subsections of aggravated assaults which say which weapon was used during the assault.</p>
+<p>This voluntariness extends beyond whether they report or not, but into which variables they report. While in practice most agencies report every crime when they report any, they do have the choice to report only a subset of offenses. This is especially true for subsets of larger categories - such as gun assaults, a subset of aggravated assaults, or marijuana possession arrests which is a subset of drug possession arrests. As an example, Figure <a href="index.html#fig:nycGunAssaults">1.5</a> shows the annual number of aggravated assaults with a gun in New York City. In 2003 the New York Police Department stopped reporting this category of offense, resuming only in 2013. They continued to report the broader aggravated assault category, but not any of the subsections of aggravated assaults which say which weapon was used during the assault.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nycGunAssaults"></span>
 <img src="index_files/figure-html/nycGunAssaults-1.png" alt="Monthly reports of gun assaults in New York City, 1960-2023." width="100%" height="100%" />
 <p class="caption">
-Figure 1.7: Monthly reports of gun assaults in New York City, 1960-2023.
+Figure 1.5: Monthly reports of gun assaults in New York City, 1960-2023.
 </p>
 </div>
 <p>Given that agencies can join or drop out of the SRS program at will, and report only partial data, it is highly important to carefully examine your data to make sure that there are no issues caused by this.</p>
-<p>Even when an agency reports SRS data, and even when they report every crime category, they can report fewer than 12 months of data. In some cases they simply report all of their data in December, or report quarterly or semi-annually so some months have zero crimes reported while others count multiple months in that month’s data. One example of this is New York City, shown in Figure <a href="index.html#fig:nycMurderMonthly">1.8</a>, in the early-2000s to the mid-2010s where they began reporting data quarterly instead of monthly.</p>
+<p>Even when an agency reports SRS data, and even when they report every crime category, they can report fewer than 12 months of data. In some cases they simply report all of their data in December, or report quarterly or semi-annually so some months have zero crimes reported while others count multiple months in that month’s data. One example of this is New York City, shown in Figure <a href="index.html#fig:nycMurderMonthly">1.6</a>, in the early-2000s to the mid-2010s where they began reporting data quarterly instead of monthly.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nycMurderMonthly"></span>
 <img src="index_files/figure-html/nycMurderMonthly-1.png" alt="Monthly murders in New York City, 1990-2023. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting." width="100%" height="100%" />
 <p class="caption">
-Figure 1.8: Monthly murders in New York City, 1990-2023. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting.
+Figure 1.6: Monthly murders in New York City, 1990-2023. During the 2000s, the police department began reporting quarterly instead of monthly and then resumed monthly reporting.
 </p>
 </div>
-<p>When you sum up each month into an annual count, as shown in Figure <a href="index.html#fig:nycMurderYearly">1.9</a>, the problem disappears since the zero months are accounted for in the months that have the quarterly data. If you are using monthly data and only examine the data at the annual level, you will fall into the trap of having incorrect data that is hidden due to the level of aggregation examined. While cases like NYC are obvious when viewed monthly, for people that are including thousands of agencies in their data, it is unfeasible to look at each agency for each crime included. This can introduce errors as the best way to examine the data is manually viewing graphs and the automated method, looking for outliers through some kind of comparison to expected values, can be incorrect.</p>
+<p>When you sum up each month into an annual count, as shown in Figure <a href="index.html#fig:nycMurderYearly">1.7</a>, the problem disappears since the zero months are accounted for in the months that have the quarterly data. If you are using monthly data and only examine the data at the annual level, you will fall into the trap of having incorrect data that is hidden due to the level of aggregation examined. While cases like NYC are obvious when viewed monthly, for people that are including thousands of agencies in their data, it is unfeasible to look at each agency for each crime included. This can introduce errors as the best way to examine the data is manually viewing graphs and the automated method, looking for outliers through some kind of comparison to expected values, can be incorrect.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nycMurderYearly"></span>
 <img src="index_files/figure-html/nycMurderYearly-1.png" alt="Annual murders in New York City, 1990-2023." width="100%" height="100%" />
 <p class="caption">
-Figure 1.9: Annual murders in New York City, 1990-2023.
+Figure 1.7: Annual murders in New York City, 1990-2023.
 </p>
 </div>
-<p>In other cases when agencies report fewer than 12 months of the year, they simply report partial data and as a result undercount crimes. Figure <a href="index.html#fig:miamiDadeMurderAnnual">1.10</a> shows annual murders in Miami-Dade, Florida and has three years of this issue occurring. The first two years with this issue are the two where zero murders are reported - this is because the agency did not report any months of data. The final year is in 2018, the last year of data in this graph, where it looks like murder suddenly dropped significantly. That is just because Miami-Dade only reported through June, so they are missing half of 2018.</p>
+<p>In other cases when agencies report fewer than 12 months of the year, they simply report partial data and as a result undercount crimes. Figure <a href="index.html#fig:miamiDadeMurderAnnual">1.8</a> shows annual murders in Miami-Dade, Florida and has three years of this issue occurring. The first two years with this issue are the two where zero murders are reported - this is because the agency did not report any months of data. The final year is in 2018, the last year of data in this graph, where it looks like murder suddenly dropped significantly. That is just because Miami-Dade only reported through June, so they are missing half of 2018.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:miamiDadeMurderAnnual"></span>
 <img src="index_files/figure-html/miamiDadeMurderAnnual-1.png" alt="Annual murders in Miami-Dade, Florida, 1960-2023." width="100%" height="100%" />
 <p class="caption">
-Figure 1.10: Annual murders in Miami-Dade, Florida, 1960-2023.
+Figure 1.8: Annual murders in Miami-Dade, Florida, 1960-2023.
 </p>
 </div>
 </div>
-<div id="zero-crimes-vs-no-reports" class="section level3 hasAnchor" number="1.8.3">
-<h3><span class="header-section-number">1.8.3</span> Zero crimes vs no reports<a href="index.html#zero-crimes-vs-no-reports" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="zero-crimes-vs-no-reports" class="section level3 hasAnchor" number="1.4.3">
+<h3><span class="header-section-number">1.4.3</span> Zero crimes vs no reports<a href="index.html#zero-crimes-vs-no-reports" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When an agency does not report, we see it in the data as reporting zero crimes, not reporting NA or any indicator that they did not report. In cases where the agency says they did not report that month we can be fairly sure (not entirely since that variable is not always accurate) that the zero crimes reported are simply that the agency did not report. In cases where the agency says they report that month but report zero crimes, we cannot be sure if that is a true no crimes reported to the agency or the agency not reporting to the SRS. As agencies can report some crimes but not others in a given month and still be considered reporting that month, just saying they reported does not mean that the zero is a true zero.</p>
-<p>In some cases it is easy to see when a zero crimes reported is actually the agency not reporting. As Figure <a href="index.html#fig:nycGunAssaults">1.7</a> shows with New York City gun assaults, there is a massive and sustained drop-off to zero crimes and then a sudden return years later. Obviously, going from hundreds of crimes to zero crimes is not a matter of crimes not occurring anymore, it is a matter of the agency not reporting - and New York City did report other crimes these years so in the data it says that they reported every month. So in agencies which tend to report many crimes - and many here can be a few as 10 a year since going from 10 to 0 is a big drop - a sudden report of zero crimes is probably just non-reporting.</p>
-<p>Differentiating zero crimes and no reports becomes tricky in agencies that tend to report few crimes, which most small towns do. As an example, Figure <a href="index.html#fig:danvilleRape">1.11</a> shows the annual reports of rape in Danville, California, a city of approximately 45,000 people. The city reports on average 2.8 rapes per year and in five years reported zero rapes. In cases like this it is not clear whether we should consider those zero years as true zeros (that no one was raped or reported their rape to the police) or whether the agency simply did not report rape data that year.</p>
+<p>In some cases it is easy to see when a zero crimes reported is actually the agency not reporting. As Figure <a href="index.html#fig:nycGunAssaults">1.5</a> shows with New York City gun assaults, there is a massive and sustained drop-off to zero crimes and then a sudden return years later. Obviously, going from hundreds of crimes to zero crimes is not a matter of crimes not occurring anymore, it is a matter of the agency not reporting - and New York City did report other crimes these years so in the data it says that they reported every month. So in agencies which tend to report many crimes - and many here can be a few as 10 a year since going from 10 to 0 is a big drop - a sudden report of zero crimes is probably just non-reporting.</p>
+<p>Differentiating zero crimes and no reports becomes tricky in agencies that tend to report few crimes, which most small towns do. As an example, Figure <a href="index.html#fig:danvilleRape">1.9</a> shows the annual reports of rape in Danville, California, a city of approximately 45,000 people. The city reports on average 2.8 rapes per year and in five years reported zero rapes. In cases like this it is not clear whether we should consider those zero years as true zeros (that no one was raped or reported their rape to the police) or whether the agency simply did not report rape data that year.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:danvilleRape"></span>
 <img src="index_files/figure-html/danvilleRape-1.png" alt="Annual rapes reported in Danville, CA, 1960-2023." width="100%" height="100%" />
 <p class="caption">
-Figure 1.11: Annual rapes reported in Danville, CA, 1960-2023.
+Figure 1.9: Annual rapes reported in Danville, CA, 1960-2023.
 </p>
 </div>
-</div>
-<div id="agency-data-covered-by-another-agency" class="section level3 hasAnchor" number="1.8.4">
-<h3><span class="header-section-number">1.8.4</span> Agency data covered by another agency<a href="index.html#agency-data-covered-by-another-agency" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 
 </div>
 </div>
@@ -618,15 +504,11 @@ Figure 1.11: Annual rapes reported in Danville, CA, 1960-2023.
 <ol start="1">
 <li id="fn1"><p>We will see many examples of when agencies do not follow the definitions, which really limits this data.<a href="index.html#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>While the original UCR data first reported in 1929, there is only machine-readable data since 1960.<a href="index.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>This is referred to as an “ORI”, “ORI code”, and “ORI number”, all of which mean the same thing.<a href="index.html#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>The abbreviation for Nebraska is “NB” rather than the more commonly used “NE.”<a href="index.html#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p>For most fixed-width ASCII files there are also missing values where it will have placeholder value such as -8 and the setup file will instruct the software to convert that to NA. SRS data, however, does not have this and does not indicate when values are missing in this manner.<a href="index.html#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p>For those interested in reading in this type of data, please see my R package asciiSetupReader.<a href="index.html#fnref6" class="footnote-back">↩︎</a></p></li>
-<li id="fn7"><p>Even highly experienced programmers who are doing something like can make mistakes. For example, if you type out “2+2” 100 times - something extremely simple that anyone can do - how often will you mistype a character and get a wrong result? I would guess that at least once you would make a mistake.<a href="index.html#fnref7" class="footnote-back">↩︎</a></p></li>
-<li id="fn8"><p>With the exception of the arrest data and some value label changes in hate crimes and homicide data, the setup files remain consistent so a single file will work for all years for a given data set. You do not need to make a setup file for each year.<a href="index.html#fnref8" class="footnote-back">↩︎</a></p></li>
-<li id="fn9"><p>For evidence of this, please see any of the openICPSR pages for my detail as they detail changes I have made in the data such as decisions on what level to aggregate to and mistakes that I made and later found and fixed.<a href="index.html#fnref9" class="footnote-back">↩︎</a></p></li>
-<li id="fn10"><p>Jurisdiction here refers to the boundaries of the local government, not any legal authority for where the officer can make arrests. For example, the Los Angeles Police Department’s jurisdiction in this case refers to crimes that happen inside the city or are otherwise investigated by the LAPD - and are not primarily investigated by another agency.<a href="index.html#fnref10" class="footnote-back">↩︎</a></p></li>
-<li id="fn11"><p>Some states do mandate that their agencies report, but this is not always followed.<a href="index.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Which I suspect they will eventually as NIBRS reporting rates increase above 90%. Though at this point <a href="index.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>This is referred to as an “ORI”, “ORI code”, and “ORI number”, all of which mean the same thing.<a href="index.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>The abbreviation for Nebraska is “NB” rather than the more commonly used “NE.”<a href="index.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>Jurisdiction here refers to the boundaries of the local government, not any legal authority for where the officer can make arrests. For example, the Los Angeles Police Department’s jurisdiction in this case refers to crimes that happen inside the city or are otherwise investigated by the LAPD - and are not primarily investigated by another agency.<a href="index.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>Some states do mandate that their agencies report, but this is not always followed.<a href="index.html#fnref7" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

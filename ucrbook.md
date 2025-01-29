@@ -1,12 +1,12 @@
 ---
-title: "Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data"
+title: "Decoding FBI Crime Data: A Practical Guide to UCR Program Data"
 author: "Jacob Kaplan, Ph.D."
-date: "2025-01-22"
+date: "2025-01-28"
 bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
 colorlinks: yes
-description: "This is a comprehensive guide to using the FBI's Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files."
+description: "This is a practical guide to using the FBI's Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files."
 url: "https://ucrbook.com"
 github-repo: "jacobkap/ucrbook"
 site: bookdown::bookdown_site
@@ -30,7 +30,6 @@ fontsize: 12pt
 
 # Preface
 
-**This book is undergoing a major update. Please be patient until it is done as some figures/tables may break and some information may be outdated.**
 
 If you have read an article about crime or arrests in the United States in the last half century, in most cases it was referring to the FBI's Uniform Crime Reporting Program Data, otherwise known as UCR data. UCR data is, with the exception of the more detailed data that only covers murders, a *monthly number of crimes or arrests reported to a single police agency* which is then gathered by the FBI into one file that includes all reporting agencies. It is actually a collection of different data sets, all of which have information about crimes and arrests that occur in a particular jurisdiction. Think of your home town. This data will tell you how many crimes were reported for a small number of crime categories or how many people (broken down by age, sex, and race) were arrested for a (larger) set of crime categories in that city (if the city has multiple police agencies then each agency will report crimes/arrests under their jurisdiction though the largest agency - usually the local police department - will cover the vast majority of crimes/arrests in that city) in a given month.
 
@@ -66,47 +65,19 @@ I get a lot of emails from people asking questions about this data so my own goa
 
 ## Structure of the book
 
-This book will be divided into ten chapters: this chapter, an intro chapter briefly summarizing each data set and going over overall issues with UCR data, and seven chapters each covering one of the seven UCR data sets. The final chapter will cover county-level UCR data, a commonly used but highly flawed aggregation of UCR data that I recommend against using. Each chapter will follow the same format: we will start with a brief summary of the data such as when it first because available and how it can be used. Next we will look at how many agencies report their data to this data set, often looking at how to measure this reporting rate a couple of different ways. Finally, we will cover the important variables included in the data and how to use them properly (including not using them at all) - this will be the bulk of each chapter.
+This book will be divided into two sections: Summary Reporting System (SRS) and National Incident-Based Reporting System (NIBRS). These are the two main branches, so to speak, of FBI crime data. The SRS data is, with some exceptions, aggregate data with information about crimes and arrests at the monthly level for each police agency that reports data. This is the older branch and was the original data collected nearly a century ago when the UCR Program started in 1929. This is the much more prominent branch and most research and news reports rely on data from here. It is also a dying branch. It is being replaced by the NIBRS branch which contains far more detailed information about every crime, victim, and offender. It allows us to answer many more questions than "how many murders happened in Philadelphia in July of 2021" which are the main types of questions answered by SRS. Police agencies have increasingly reported NIBRS rather than SRS data, particularly since 2015 when the FBI stated an ending date to their SRS collection. The FBI formally killed the SRS branch in 2020 when they stopped collecting data from this branch and only allowed submissions from NIBRS. 
 
-## Citing this book
+But this is quite a misnomer. First, while the FBI did indeed stop collecting SRS data - or at least some of the data sets from SRS - starting January 1, 2021, they quickly backtracked and began accepting all SRS data again starting in 2022. Second, NIBRS data can be converted to SRS data through some basic data cleaning and aggregation so collecting NIBRS effectively means also collecting SRS data. And when agencies report only NIBRS the FBI converts and releases that data as its SRS version. So SRS data will never die, even if the FBI again decides to stop collecting it.^[Which I suspect they will eventually as NIBRS reporting rates increase above 90%. Though at this point ]
 
-If this data was useful in your research, please cite it. To cite this book, please use the below citation:
+In fact I'd argue that the SRS branch will always be the most important branch
 
-Kaplan J (2024). *Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data*. <https://ucrbook.com/>.
 
-BibTeX format:
 
-``` bibtex
-@Manual{ucrbook,
-  title = {Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data},
-  author = {{Jacob Kaplan}},
-  year = {2024},
-  url = {https://ucrbook.com/},
-}
-```
+But this is a bit of a misnomer. 
 
-There are a few different sources of UCR data available today. First, and probably most commonly used, is the data put together by the [National Archive of Criminal Justice Data (NACJD)](https://www.icpsr.umich.edu/web/pages/NACJD/index.html)). This a team out of the University of Michigan who manages a huge number of criminal justice data sets and makes them available to the public. If you have any questions about crime data - UCR or other crime data - I highly recommend you reach out to them for answers. They have a collection of data and excellent documentation available for UCR data available on their site [here](https://www.icpsr.umich.edu/web/NACJD/series/57). One limitation to their data, however, is that each year of data is available as an individual file meaning that you will need to concatenate each year together into a single file. Some years also have different column names (generally minor changes like spelling robbery "rob" one year and "robb" the next) which requires more work to standardize before you could concatenate. They also only have data through 2016 which means that the most recent years (UCR data is available through 2019) of data are (as of this writing) unavailable.
 
-Next, and most usable for the general public - but limited for researchers - is the FBI's official website [Crime Data Explorer](https://cde.ucr.cjis.gov/). On this site you can chose an agency and see annual crime data (remember, UCR data is monthly so this is not as detailed as it can be) for certain crimes (and not even all the crimes actually available in the data). This is okay for the general public but only provides a fraction of the data available in the actual data so is really not good for researchers.
 
-It is worth mentioning a final source of UCR information. This is the annual Crimes in the United States report released by the FBI each year around the start of October. As an example, here is the [website for the 2019 report](https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019). In this report is summarized data which in most cases estimates missing data and provides information about national and subnational (though rarely city-level) crime data. As with the FBI's site, it is only a fraction of the true data available so is not a very useful source of crime data for quality research. Still, this is a very common source of information used by researchers.
-
-## Recommended reading
-
-While this book is designed to help researchers use this data, the FBI has an excellent manual on this data designed to help police agencies submit their data. That manual, called the "Summary Reporting System (SRS) User Manual" provides excellent definitions and examples of many variables included in the data. In this book when I quote the FBI, such as defining a crime, I quote from this manual. The manual is available to download as a PDF on the FBI's site and I have also posted it on my GitHub page [here](https://github.com/jacobkap/ucrbook/blob/main/FBI%20Uniform%20Crime%20Reporting%20(UCR)%20Program%20User%20Manual.pdf) for convenience. I highly recommend that you read this manual before using the data. That manual, alongside this book which tries to explain when and how the agencies do not follow the manual, will provide a solid foundation for your understanding of UCR data.
-
-## How to contribute to this book
-
-If you have any questions, suggestions (such as a topic to cover), or find any issues, please make a post on the [Issues page](https://github.com/jacobkap/ucrbook/issues) for this book on GitHub. On this page you can create a new issue (which is basically just a post on this forum) with a title and a longer description of your issue. You will need a GitHub account to make a post. Posting here lets me track issues and respond to your message or alert you when the issue is closed (i.e. I have finished or denied the request). Issues are also public so you can see if someone has already posted something similar.
-
-For more minor issues like typos or grammar mistakes, you can edit the book directly through its GitHub page. That will make an update for me to accept, which will change the book to include your edit. To do that, click the edit button at the top of the site - the button is highlighted in the below figure. You will need to make a GitHub account to make edits. When you click on that button you will be taken to a page that looks like a Word Doc where you can make edits. Make any edits you want and then scroll to the bottom of the page. There you can write a short (please, no more than a sentence or two) description of what you have done and then submit the changes for me to review.
-
-<div class="figure" style="text-align: center">
-<img src="images/edit_button.PNG" alt="The edit button for how to make edits of this book." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-3)The edit button for how to make edits of this book.</p>
-</div>
-
-Please only use the above two methods to contribute or make suggestions about the book. While it is a bit more work for you to do it this way, since you will need to make a GitHub account if you do not already have one, it helps me organize all the questions in one place and update the book if I decide to add answers to certain questions.
+ten chapters: this chapter, an intro chapter briefly summarizing each data set and going over overall issues with UCR data, and seven chapters each covering one of the seven UCR data sets. The final chapter will cover county-level UCR data, a commonly used but highly flawed aggregation of UCR data that I recommend against using. Each chapter will follow the same format: we will start with a brief summary of the data such as when it first because available and how it can be used. Next we will look at how many agencies report their data to this data set, often looking at how to measure this reporting rate a couple of different ways. Finally, we will cover the important variables included in the data and how to use them properly (including not using them at all) - this will be the bulk of each chapter.
 
 ## How to identify a particular agency (ORI codes) {#ori}
 
@@ -117,33 +88,6 @@ In NIBRS and other FBI data sets, agencies are identified using **OR**iginating 
 [^index-4]: The abbreviation for Nebraska is "NB" rather than the more commonly used "NE."
 
 When dealing with specific agencies, make sure to use the ORI rather than the agency name to avoid any mistakes. For an easy way to find the ORI number of an agency, use [this page](https://crimedatatool.com/crosswalk.html) on my site. Type an agency name or an ORI code into the search section and it will return everything that is a match.
-
-## The data as you get it from the FBI
-
-We will finish this overview of the SRS data by briefly talking about format of the data that is released by the FBI, before the processing done by myself or [NACJD](https://www.icpsr.umich.edu/web/pages/NACJD/index.html) that converts the data to a type that software like R or Stata or Excel can understand. The FBI releases their data as fixed-width ASCII files which are basically just an Excel file but with all of the columns squished together. As an example, Figure \@ref(fig:SRSascii) shows what the data looks like as you receive it from the FBI for the Offenses Known and Clearances by Arrest data set for 1960, the first year with data available. In the figure, it seems like there are multiple rows but that is just because the software that I opened the file in is not wide enough - in reality what is shown is a single row that is extremely wide because there are over 1,500 columns in this data. If you scroll down enough you will see the next row, but that is not shown in the current image. What is shown is a single row with a ton of columns all pushed up next to each other. Since all of the columns are squished together (the gaps are just blank spaces because the value there is a space, but that does not mean there is a in the data. Spaces are possible values in the data and are meaningful), you need some way to figure out which parts of the data belong in which column.
-
-<div class="figure" style="text-align: center">
-<img src="images/nibrs_ascii.PNG" alt="Fixed-width ASCII file for the 1991 National Incident-Based Reporting System (NIBRS) data set." width="100%" height="100%" />
-<p class="caption">(\#fig:ascii)Fixed-width ASCII file for the 1991 National Incident-Based Reporting System (NIBRS) data set.</p>
-</div>
-
-The "fixed-width" part of the file type is how this works (the ASCII part basically means it is a text file). Each row is the same width - literally the same number of characters, including blank spaces. So you must tell the software you are using to process this file - by literally writing code in something called a "setup file" but is basically just instructions for whatever software you use (R, SPSS, Stata, SAS can all do this) - which characters are certain columns. For example, in this data the first character says which type of SRS data it is (1 means the Offenses Known and Clearances by Arrest data) and the next two characters (in the setup file written as 2-3 since it is characters 2 through 3 [inclusive]) are the state number (01 is the state code for Alabama). So we can read this row as the first column indicating it is an Offenses Known data, the second column indicating that it is for the state of Alabama, and so on for each of the remaining columns. To read in this data you will need a setup file that covers every column in the data (some software, like R, can handle just reading in the specific columns you want and do not need to include every column in the setup file).
-
-The second important thing to know about reading in a fixed-width ASCII file is something called a "value label."[^index-5] For example, in the above image we saw the characters 2-3 is the state and in the row we have the value "01" which means that the state is "Alabama." Since this type of data is trying to be as small as efficient as possible, it often replaces longer values with shorter one and provides a translation for the software to use to convert it to the proper value when reading it. "Alabama" is more characters than "01" so it saves space to say "01" and just replace that with "Alabama" later on. So "01" would be the "value" and "Alabama" would be the "label" that it changes to once read.
-
-[^index-5]: For most fixed-width ASCII files there are also missing values where it will have placeholder value such as -8 and the setup file will instruct the software to convert that to NA. SRS data, however, does not have this and does not indicate when values are missing in this manner.
-
-Fixed-width ASCII files may seem awful to you reading it today, and it is awful to use. But it appears to be an efficient way to store data back many decades ago when data releases began but now is extremely inefficient - in terms of speed, file size, ease of use - compared to modern software so I am not sure why they *still* release data in this format. But they do, and even the more *modern* NIBRS data comes in this format. For you, however, the important part to understand is not how exactly to read this type of data, but to understand that people who made this data publicly available (such as myself and the team at NACJD) must make this conversion process.[^index-6] **This conversion process, from fixed-width ASCII to a useful format is the most dangerous step taken in using this data - and one that is nearly entirely unseen by researchers.**
-
-[^index-6]: For those interested in reading in this type of data, please see my R package asciiSetupReader.
-
-Every line of code you write (or, for SPSS users, click you make) invites the possibility of making a mistake.[^index-7] The FBI does not provide a setup file with the fixed-width ASCII data so to read in this data you need to make it yourself. Since some SRS data are massive, this involves assigning the column width for thousands of columns and the value labels for hundreds of different value labels.[^index-8] A typo anywhere could have potentially far-reaching consequences, so this is a crucial weak point in the data cleaning process - and one in which I have not seen anything written about before. While I have been diligent in checking the setup files and my code to seek out any issues - and I know that NACJD has a robust checking process for their own work - that does not mean our work is perfect.[^index-9] Even with perfection in processing the raw data to useful files, decisions we make (e.g. what level to aggregate to, what is an outlier) can affect both what type of questions you can ask when using this data, and how well you can answer them.
-
-[^index-7]: Even highly experienced programmers who are doing something like can make mistakes. For example, if you type out "2+2" 100 times - something extremely simple that anyone can do - how often will you mistype a character and get a wrong result? I would guess that at least once you would make a mistake.
-
-[^index-8]: With the exception of the arrest data and some value label changes in hate crimes and homicide data, the setup files remain consistent so a single file will work for all years for a given data set. You do not need to make a setup file for each year.
-
-[^index-9]: For evidence of this, please see any of the openICPSR pages for my detail as they detail changes I have made in the data such as decisions on what level to aggregate to and mistakes that I made and later found and fixed.
 
 ## Common issues
 
@@ -224,8 +168,6 @@ Differentiating zero crimes and no reports becomes tricky in agencies that tend 
 <p class="caption">(\#fig:danvilleRape)Annual rapes reported in Danville, CA, 1960-2023.</p>
 </div>
 
-### Agency data covered by another agency
-
 <!--chapter:end:index.Rmd-->
 
 # About the Author {-}
@@ -236,7 +178,7 @@ I am a Professional Specialist at the School of Public and International Affairs
 
 I am the author of *[A Criminologist's Guide to R: Crime by the Numbers (Chapman & Hall/CRC The R Series, 2023)](https://www.routledge.com/A-Criminologists-Guide-to-R-Crime-by-the-Numbers/Kaplan/p/book/9781032244075)*, an introductory textbook on the R programming language tailored for crime research, with a special focus on data cleaning and analysis. In addition, I have developed several R packages, including [fastDummies](https://jacobkap.github.io/fastDummies/), [asciiSetupReader](https://jacobkap.github.io/asciiSetupReader/), and [predictrace](https://jacobkap.github.io/predictrace/), to streamline the data analysis process for researchers. My website, [Crime Data Tool](https://crimedatatool.com/), offers users an interactive platform to explore crime data from thousands of agencies across hundreds of variables (e.g., arrests, offenses, demographics)—no data or programming skills required.
 
-My research has been published in leading academic journals, such as the *Journal of Quantitative Criminology*, *Journal of Research in Crime and Delinquency*, *Journal of Interpersonal Violence*, and *American Political Science Review*. I hold a B.S. in Criminal Justice from California State University, Sacramento, and a M.S. and Ph.D. in Criminology from the University of Pennsylvania. I previously served on the FBI’s Criminal Justice Information Services (CJIS) Advisory Policy Board (APB) Uniform Crime Reporting (UCR) Subcommittee.
+My research has been published in leading academic journals, such as the *Journal of Quantitative Criminology*, *Journal of Research in Crime and Delinquency*, *Journal of Interpersonal Violence*, and *American Journal of Political Science*. I hold a B.S. in Criminal Justice from California State University, Sacramento, and a M.S. and Ph.D. in Criminology from the University of Pennsylvania. I previously served on the FBI’s Criminal Justice Information Services (CJIS) Advisory Policy Board (APB) Uniform Crime Reporting (UCR) Subcommittee.
 
 <!--chapter:end:01_author.Rmd-->
 
@@ -27758,7 +27700,6 @@ The Property Segment provides a bit more information than would be expected from
 
 For drug offenses it includes the drugs seized by police. For these offenses, the data tells us the type of drug, with 16 different drug categories ranging from specific ones like marijuana or heroin to broader categories such as "other narcotics". There can be up to three different drugs included in this data - if the person has more than three types of drugs seized then the third drug category will simply indicate that there are more than three drugs, so we learn what the first two drugs are but not the third or greater drugs are in these cases. For each drug we also know exactly how much was seized with one variable saying the amount the police found and another saying the units we should we reading that amount as (e.g. pills, grams, plants). 
 
-
 The Window Property Segment has the same variables as the normal Property Segment but also has 10 variables on each of the offenses committed (up to 10 offenses) during the incident. This is really to try to provide a bit of information that you’d otherwise get from the other segments but don’t since this is a window segment. For the rest of this chapter I’ll be using examples from the Property Segment and not the Window Property.
 
 ## Type of property loss {#propertyLoss}
@@ -27773,7 +27714,6 @@ Next is "none" which only means that no property was stolen or damaged but that 
 <img src="17_nibrs_property_files/figure-html/propertyTypeLoss-1.png" alt="The type of loss or if the item is recovered, 2023." width="100%" height="100%" />
 <p class="caption">(\#fig:propertyTypeLoss)The type of loss or if the item is recovered, 2023.</p>
 </div>
-
 
 ## Description of property
 

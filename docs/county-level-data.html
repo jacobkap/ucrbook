@@ -4,26 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 10 County-Level Data | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</title>
-  <meta name="description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
+  <title>Chapter 10 County-Level Data | Decoding FBI Crime Data: A Practical Guide to UCR Program Data</title>
+  <meta name="description" content="This is a practical guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 10 County-Level Data | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta property="og:title" content="Chapter 10 County-Level Data | Decoding FBI Crime Data: A Practical Guide to UCR Program Data" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
+  <meta property="og:description" content="This is a practical guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   <meta name="github-repo" content="jacobkap/ucrbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 10 County-Level Data | Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data" />
+  <meta name="twitter:title" content="Chapter 10 County-Level Data | Decoding FBI Crime Data: A Practical Guide to UCR Program Data" />
   
-  <meta name="twitter:description" content="This is a comprehensive guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
+  <meta name="twitter:description" content="This is a practical guide to using the FBI’s Uniform Crime Reporting Program Data, including the Summary Reporting System (SRS) files and the National Incident-Based Reporting System (NIBRS) files." />
   
 
 <meta name="author" content="Jacob Kaplan, Ph.D." />
 
 
-<meta name="date" content="2025-01-22" />
+<meta name="date" content="2025-01-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -65,70 +65,6 @@
 </script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -179,25 +115,20 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#goal-of-the-book"><i class="fa fa-check"></i><b>1.1</b> Goal of the book</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#structure-of-the-book"><i class="fa fa-check"></i><b>1.2</b> Structure of the book</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#citing-this-book"><i class="fa fa-check"></i><b>1.3</b> Citing this book</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#recommended-reading"><i class="fa fa-check"></i><b>1.4</b> Recommended reading</a></li>
-<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#how-to-contribute-to-this-book"><i class="fa fa-check"></i><b>1.5</b> How to contribute to this book</a></li>
-<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#ori"><i class="fa fa-check"></i><b>1.6</b> How to identify a particular agency (ORI codes)</a></li>
-<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#the-data-as-you-get-it-from-the-fbi"><i class="fa fa-check"></i><b>1.7</b> The data as you get it from the FBI</a></li>
-<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#common-issues"><i class="fa fa-check"></i><b>1.8</b> Common issues</a>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#ori"><i class="fa fa-check"></i><b>1.3</b> How to identify a particular agency (ORI codes)</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#common-issues"><i class="fa fa-check"></i><b>1.4</b> Common issues</a>
 <ul>
-<li class="chapter" data-level="1.8.1" data-path="index.html"><a href="index.html#population"><i class="fa fa-check"></i><b>1.8.1</b> Population</a></li>
-<li class="chapter" data-level="1.8.2" data-path="index.html"><a href="index.html#voluntary"><i class="fa fa-check"></i><b>1.8.2</b> Voluntary reporting</a></li>
-<li class="chapter" data-level="1.8.3" data-path="index.html"><a href="index.html#zero-crimes-vs-no-reports"><i class="fa fa-check"></i><b>1.8.3</b> Zero crimes vs no reports</a></li>
-<li class="chapter" data-level="1.8.4" data-path="index.html"><a href="index.html#agency-data-covered-by-another-agency"><i class="fa fa-check"></i><b>1.8.4</b> Agency data covered by another agency</a></li>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#population"><i class="fa fa-check"></i><b>1.4.1</b> Population</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#voluntary"><i class="fa fa-check"></i><b>1.4.2</b> Voluntary reporting</a></li>
+<li class="chapter" data-level="1.4.3" data-path="index.html"><a href="index.html#zero-crimes-vs-no-reports"><i class="fa fa-check"></i><b>1.4.3</b> Zero crimes vs no reports</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
 <li class="part"><span><b>II Summary Reporting System (SRS)</b></span></li>
 <li class="chapter" data-level="2" data-path="SRSGeneral.html"><a href="SRSGeneral.html"><i class="fa fa-check"></i><b>2</b> SRS Overview</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#crimes-included-in-the-srs-data sets"><i class="fa fa-check"></i><b>2.1</b> Crimes included in the SRS data sets</a></li>
-<li class="chapter" data-level="2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#a-summary-of-each-srs-data set"><i class="fa fa-check"></i><b>2.2</b> A summary of each SRS data set</a>
+<li class="chapter" data-level="2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#crimes-included-in-the-srs-data-sets"><i class="fa fa-check"></i><b>2.1</b> Crimes included in the SRS data sets</a></li>
+<li class="chapter" data-level="2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#a-summary-of-each-srs-data-set"><i class="fa fa-check"></i><b>2.2</b> A summary of each SRS data set</a>
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="SRSGeneral.html"><a href="SRSGeneral.html#offenses-known-and-clearances-by-arrest-1960---present"><i class="fa fa-check"></i><b>2.2.1</b> Offenses Known and Clearances by Arrest (1960 - present)</a></li>
 <li class="chapter" data-level="2.2.2" data-path="SRSGeneral.html"><a href="SRSGeneral.html#arrests-by-age-sex-and-race-1974---present"><i class="fa fa-check"></i><b>2.2.2</b> Arrests by Age, Sex, and Race (1974 - present)</a></li>
@@ -442,7 +373,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Uniform Crime Reporting (UCR) Program Data: An Opinionated Guide to FBI Data</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Decoding FBI Crime Data: A Practical Guide to UCR Program Data</a>
           </h1>
         </div>
 
@@ -452,11 +383,11 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="county-level-data" class="section level1 hasAnchor" number="10">
 <h1><span class="header-section-number">Chapter 10</span> County-Level Data<a href="county-level-data.html#county-level-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>SRS data is only available at the agency-level.<a href="#fn70" class="footnote-ref" id="fnref70"><sup>70</sup></a> This has caused a lot of problems for researchers because many variables from other data sets (e.g. CDC data, economic data) is primarily available at the county-level. Their solution to this problem is to aggregate the data to the county-level by summing all the agencies in a particular county.<a href="#fn71" class="footnote-ref" id="fnref71"><sup>71</sup></a></p>
-<p>More specifically, nearly all researchers who use this county-level data use the National Archive for Criminal Justice Data (NACJD)’s <a href="https://www.icpsr.umich.edu/web/NACJD/series/57">data sets</a> which have done the aggregation themselves<a href="#fn72" class="footnote-ref" id="fnref72"><sup>72</sup></a>. These are not official FBI data sets but “UCR staff were consulted in developing the new adjustment procedures”.<a href="#fn73" class="footnote-ref" id="fnref73"><sup>73</sup></a> The “new” procedures is because NACJD changed their missing data imputation procedure starting with 1994 SRS data, and for this chapter I will only focus on this “new” procedure.</p>
-<p>It makes sense to aggregate SRS data to the county-level. That level is often times more useful to analyze than the agency-level. But there are two problems with county-level SRS data: 1) agencies in multiple counties, 2) and agencies with missing data.<a href="#fn74" class="footnote-ref" id="fnref74"><sup>74</sup></a></p>
+<p>SRS data is only available at the agency-level.<a href="#fn66" class="footnote-ref" id="fnref66"><sup>66</sup></a> This has caused a lot of problems for researchers because many variables from other data sets (e.g. CDC data, economic data) is primarily available at the county-level. Their solution to this problem is to aggregate the data to the county-level by summing all the agencies in a particular county.<a href="#fn67" class="footnote-ref" id="fnref67"><sup>67</sup></a></p>
+<p>More specifically, nearly all researchers who use this county-level data use the National Archive for Criminal Justice Data (NACJD)’s <a href="https://www.icpsr.umich.edu/web/NACJD/series/57">data sets</a> which have done the aggregation themselves<a href="#fn68" class="footnote-ref" id="fnref68"><sup>68</sup></a>. These are not official FBI data sets but “UCR staff were consulted in developing the new adjustment procedures”.<a href="#fn69" class="footnote-ref" id="fnref69"><sup>69</sup></a> The “new” procedures is because NACJD changed their missing data imputation procedure starting with 1994 SRS data, and for this chapter I will only focus on this “new” procedure.</p>
+<p>It makes sense to aggregate SRS data to the county-level. That level is often times more useful to analyze than the agency-level. But there are two problems with county-level SRS data: 1) agencies in multiple counties, 2) and agencies with missing data.<a href="#fn70" class="footnote-ref" id="fnref70"><sup>70</sup></a></p>
 <p>The first issue is in distributing crimes across counties when an agency is in multiple counties. If, for example, New York City had 100 murders in a given year, how do you create county-level data from this? SRS data only tells you how many crimes happened in a particular agency, not where in the jurisdiction it happened. So we have no idea how many of these 100 murders happened in Kings County, how many happened in Bronx County, and so on.</p>
-<p>SRS data does, however, tell you how many counties the agency is in and the population of each. They only do this for up to three counties so in cases like New York City you do not actually have every county the agency is part of.<a href="#fn75" class="footnote-ref" id="fnref75"><sup>75</sup></a> NACJD’s method is to distribute crimes <em>according to the population of the agency in each county</em>. In the New York City example, Kings County is home to about 31% of the people in NYC while Bronx County is home to about 17%. So Kings County would get 31 murders while Bronx County gets 17 murders. The problem with this is the crime is not evenly distributed by population. Indeed, crime is generally extremely concentrated in a small number of areas in a city. Even if 100% of the murders in NYC actually happened in Bronx County, only 17% would get assigned there. So for agencies in multiple counties could have their crimes distributed among their different counties incorrectly. This is not that big of a deal, however, as most agencies are only in a single county. It is likely incorrect given how crime is concentrated, but affects relatively little in our data so is not worth much worry.</p>
+<p>SRS data does, however, tell you how many counties the agency is in and the population of each. They only do this for up to three counties so in cases like New York City you do not actually have every county the agency is part of.<a href="#fn71" class="footnote-ref" id="fnref71"><sup>71</sup></a> NACJD’s method is to distribute crimes <em>according to the population of the agency in each county</em>. In the New York City example, Kings County is home to about 31% of the people in NYC while Bronx County is home to about 17%. So Kings County would get 31 murders while Bronx County gets 17 murders. The problem with this is the crime is not evenly distributed by population. Indeed, crime is generally extremely concentrated in a small number of areas in a city. Even if 100% of the murders in NYC actually happened in Bronx County, only 17% would get assigned there. So for agencies in multiple counties could have their crimes distributed among their different counties incorrectly. This is not that big of a deal, however, as most agencies are only in a single county. It is likely incorrect given how crime is concentrated, but affects relatively little in our data so is not worth much worry.</p>
 <p>The second problem is the one we need to be concerned about. This issue is that not all agencies report data, and even those that do may report only partially (e.g. report fewer than 12 months of the year). So by necessity the missing data has to be filled in somehow. All methods of estimating missing data are wrong, some are useful. How useful are the methods used for SRS data? I will argue that they are not useful enough to be used in most crime research. This is by no means the first argument against using that data. Most famously is <a href="https://link.springer.com/article/10.1023/A:1016060020848">Maltz and Targonski’s (2002)</a> paper in the Journal of Quantitative Criminology about the issues with this data. They concluded that “Until improved methods of imputing county-level crime data are developed, tested, and implemented, they should not be used, especially in policy studies” which is a conclusion I also hold.</p>
 <p>County-level data aggregates both crimes from the Offenses Known and Clearances by Arrests data set and arrests from the Arrests by Age, Sex, and Race data set, which has lower reporting (and thus more missingness) than the crime data. For simplicity, in this chapter we will use the crime data as an example. We will do so in a number of different ways to try to really understand how much data is missing and how it changed over time. Estimation is largely the same for arrests and county-level arrests is far less commonly used</p>
 <p>Since these methods are for dealing with missing data, if there is no missing data then it does not matter how good or bad the estimation process is. Counties where all agencies report full data are perfectly fine to use without concerning yourself with anything from this chapter. In this chapter we will also look at where counties have missing data and how that changed over time.</p>
@@ -467,9 +398,9 @@ div.csl-indent {
 <div id="how-much-data-is-missing" class="section level2 hasAnchor" number="10.2">
 <h2><span class="header-section-number">10.2</span> How much data is missing<a href="county-level-data.html#how-much-data-is-missing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Since estimating missing data only matters when the data is missing, let us look at how many agencies report less than a full year of data.</p>
-<p>For each of the below graphs and tables we use the Offenses Known and Clearances by Arrest data for 1960-2023 and exclude any agency that are “special jurisdictions”. Special jurisdiction agencies are, as it seems, special agencies that tend to have an extremely specific jurisdiction and goals. These include agencies such as port authorities, alcohol beverage control, university police, and airport police. These agencies tend to cover a tiny geographic area and have both very low crime and very low reporting rates.<a href="#fn76" class="footnote-ref" id="fnref76"><sup>76</sup></a> So to prevent missingness being overcounted due to these weird agencies I am excluding them from the below examples. I am also excluding federal agencies as these operate much the same as special jurisdiction agencies. Since some estimation is based on state-level data and I present maps that exclude territories, I am also going to subset the data to only agencies in a state or in Washington DC.</p>
+<p>For each of the below graphs and tables we use the Offenses Known and Clearances by Arrest data for 1960-2023 and exclude any agency that are “special jurisdictions”. Special jurisdiction agencies are, as it seems, special agencies that tend to have an extremely specific jurisdiction and goals. These include agencies such as port authorities, alcohol beverage control, university police, and airport police. These agencies tend to cover a tiny geographic area and have both very low crime and very low reporting rates.<a href="#fn72" class="footnote-ref" id="fnref72"><sup>72</sup></a> So to prevent missingness being overcounted due to these weird agencies I am excluding them from the below examples. I am also excluding federal agencies as these operate much the same as special jurisdiction agencies. Since some estimation is based on state-level data and I present maps that exclude territories, I am also going to subset the data to only agencies in a state or in Washington DC.</p>
 <p>We will first look at how many months are reported in the 2017. Table <a href="county-level-data.html#tab:countyMonthsReportedDefinitions">10.1</a> shows the number of months reported using two ways to measure how many months an agency has reported data, the “last month reported” and the “number of months missing” measure that we considered in Section <a href="offensesKnown.html#offensesKnownReporting">3.2</a>. The data changed how some of the variables were used starting in 2018, making post-2017 data unreliable for the “number of months missing variable.</p>
-<p>The table shows what percent of agencies that reported data had data for each possible number of months: 0 through 12 months. Column 2 shows the percent for the “last month reported” method while column 3 shows the percent for my “number of months missing” method. And the final column shows the percent change<a href="#fn77" class="footnote-ref" id="fnref77"><sup>77</sup></a> from moving from the 1st to 2nd measure.</p>
+<p>The table shows what percent of agencies that reported data had data for each possible number of months: 0 through 12 months. Column 2 shows the percent for the “last month reported” method while column 3 shows the percent for my “number of months missing” method. And the final column shows the percent change<a href="#fn73" class="footnote-ref" id="fnref73"><sup>73</sup></a> from moving from the 1st to 2nd measure.</p>
 <p>Ultimately the measures are quite similar though systematically overcount reporting using the 1st method. Both show that about 27% of agencies reported zero months. The 1st method has about 69% of agencies reporting 12 months while the 2nd method has 66%, a difference of about 5% which is potentially a sizable difference depending on exactly which agencies are missing. The remaining nearly 4% of agencies all have far more people in the 2nd method than in the first, which is because in the 1st method those agencies are recorded as having 12 months since they reported in December but not actually all 12 months of the year. There are huge percent increases in moving from the 1st to 2nd method for 1-11 months reported though this is due to having very few agencies report this many months. Most months have only about 50 agencies in the 1st method and about 70 in the 2nd, so the actual difference is not that large.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
@@ -1419,7 +1350,7 @@ December
 </tr>
 </tbody>
 </table>
-<p>In the above three tables we looked at what happens if a single month is missing. Below we will look at the results of simulating when between 1 and 9 months are missing for an agency. Table <a href="county-level-data.html#tab:countyPhillyMurderMonthsMissing">10.5</a> looks at murder in Philadelphia again but now randomizes removing between 1 and 9 months of the year and interpolating the annual murder count using the current method. For each number of months removed I run 10,000 simulations.<a href="#fn78" class="footnote-ref" id="fnref78"><sup>78</sup></a> Given that I am literally randomly choosing which months to say are missing, I am assuming that missing data is missing completely at random. This is a very bold assumption and one that is the best-case scenario since it means that missing data is not related to crimes, police funding/staffing, or anything else relevant. So you should read the below tables as the most optimistic (and thus likely wrong) outcomes.</p>
+<p>In the above three tables we looked at what happens if a single month is missing. Below we will look at the results of simulating when between 1 and 9 months are missing for an agency. Table <a href="county-level-data.html#tab:countyPhillyMurderMonthsMissing">10.5</a> looks at murder in Philadelphia again but now randomizes removing between 1 and 9 months of the year and interpolating the annual murder count using the current method. For each number of months removed I run 10,000 simulations.<a href="#fn74" class="footnote-ref" id="fnref74"><sup>74</sup></a> Given that I am literally randomly choosing which months to say are missing, I am assuming that missing data is missing completely at random. This is a very bold assumption and one that is the best-case scenario since it means that missing data is not related to crimes, police funding/staffing, or anything else relevant. So you should read the below tables as the most optimistic (and thus likely wrong) outcomes.</p>
 <p>For each number of months reported the table shows the actual annual murder (which never changes) and the imputed mean, median, modal, minimum, and maximum annual murder count. As a function of the randomization, the imputed mean is always nearly identical to the real value. The most important columns, I believe, are the minimum and maximum imputed value since these show the worst-case scenario - that is, what happens when the month(s) least like the average month is replaced. Since as researchers we should try to minimize the harm caused from our work if it is wrong, I think it is safest to assume that if data is missing it is missing in the worst possible way. While this is a conservative approach, doing so otherwise leads to the greatest risk of using incorrect data, and incorrect results - and criminology is a field important enough to necessitate this caution.</p>
 <p>As might be expected, as the number of months missing increases the quality of the imputation decreases. The minimum is further and further below the actual value while the maximum is further and further above the actual value.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -2019,8 +1950,8 @@ No Missing Data
 <p>There are two major problems here. First, similarly sized agencies are based on the population group which is quite literally just a category indicating how big the agency is when grouped into rather arbitrary categories. These categories can range quite far - with agencies having millions more people than other agencies in the same category in some cases - so in most cases “similarly sized” agencies are not that similarly sized. The second issue is simply the assumption that population is all that important to crime rates. Population is certainly important to crime counts; New York City is going to have many more crimes than small towns purely due to its huge population, even though NYC has a low crime rate. But there is still huge variation in crimes among cities of the same or similar size as crime tends to concentrate in certain areas. So replacing an agency’s annual crime counts with that or other agencies (even the average of other agencies) will give you a very wrong count.</p>
 <p>For this method of replacing missing data to be accurate agencies in the same population group in each state would need to have very similar crime counts. Otherwise it is assuming that missing agencies are just average (literally) in terms of crime. This again assumes that missing data is missing at random, which is unlikely to be true.</p>
 <p>In each of the below examples we use data from 2022 Offenses Known and Clearances by Arrest and use only agencies whose final month reported was December. This makes it the actual agencies in each population group that would replace agencies that are missing 10 or more months of data in 2022. As agencies can - and do - report different numbers of months each year, these numbers would be a little different if using any year other than 2022.</p>
-<p>For each population group we will look at the mean, median, and maximum number of murders plus aggravated assaults with a gun.<a href="#fn79" class="footnote-ref" id="fnref79"><sup>79</sup></a> This is essentially a measure of the most serious violent crimes as the difference between gun assaults and murders is, to some degree, a matter of luck (e.g. where the person is shot can make the difference between an assault and a murder).<a href="#fn80" class="footnote-ref" id="fnref80"><sup>80</sup></a> This is actually not available in NACJD’s county-level UCR data as they do not separate gun assaults from other aggravated assaults, though that data is available in the agency-level UCR data. If we see a wide range in the number of murders+gun-assaults in the below table, that’ll indicate that this method of imputing missing data is highly flawed.</p>
-<p>Table <a href="county-level-data.html#tab:countyPopulationGroupStatsNational">10.8</a> shows these values for all agencies in the United States who reported 12 months of data (based on the “December last month reported” definition) in 2022. The actual imputation process only looks at agencies in the same state, but this is still information at seeing broad trends - and we will look at two specific states below. Column 1 shows each of the population groups in the data while the remaining columns show the mean, median, minimum, and maximum number of murders+gun-assaults in 2022, respectively.<a href="#fn81" class="footnote-ref" id="fnref81"><sup>81</sup></a> For each population group there is a large range of values, as seen from the minimum and maximum values. There are also large differences in the mean and median values for larger (25,000+ population) agencies, particularly when compared to the top and bottom of the range of values. Using this imputation method will, in most cases (but soon we will see an instance where there is an exception) provide substantially different values than the real (but unknown) values.</p>
+<p>For each population group we will look at the mean, median, and maximum number of murders plus aggravated assaults with a gun.<a href="#fn75" class="footnote-ref" id="fnref75"><sup>75</sup></a> This is essentially a measure of the most serious violent crimes as the difference between gun assaults and murders is, to some degree, a matter of luck (e.g. where the person is shot can make the difference between an assault and a murder).<a href="#fn76" class="footnote-ref" id="fnref76"><sup>76</sup></a> This is actually not available in NACJD’s county-level UCR data as they do not separate gun assaults from other aggravated assaults, though that data is available in the agency-level UCR data. If we see a wide range in the number of murders+gun-assaults in the below table, that’ll indicate that this method of imputing missing data is highly flawed.</p>
+<p>Table <a href="county-level-data.html#tab:countyPopulationGroupStatsNational">10.8</a> shows these values for all agencies in the United States who reported 12 months of data (based on the “December last month reported” definition) in 2022. The actual imputation process only looks at agencies in the same state, but this is still information at seeing broad trends - and we will look at two specific states below. Column 1 shows each of the population groups in the data while the remaining columns show the mean, median, minimum, and maximum number of murders+gun-assaults in 2022, respectively.<a href="#fn77" class="footnote-ref" id="fnref77"><sup>77</sup></a> For each population group there is a large range of values, as seen from the minimum and maximum values. There are also large differences in the mean and median values for larger (25,000+ population) agencies, particularly when compared to the top and bottom of the range of values. Using this imputation method will, in most cases (but soon we will see an instance where there is an exception) provide substantially different values than the real (but unknown) values.</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:countyPopulationGroupStatsNational">Table 10.8: </span>The mean, median, minimum, and maximum agency-level murder count nationwide for all population groups in the 2022 Offenses Known and Clearances by Arrests data, based on agencies reporting their last month of data was in December.
@@ -2878,19 +2809,19 @@ Non-MSA Counties and Non-MSA State Police
 
 <div class="footnotes">
 <hr />
-<ol start="70">
-<li id="fn70"><p>Even for county-level agencies such as Sheriff’s Offices, the data is only for crimes in that agency’s jurisdiction. So the county sheriff reports crimes that they responded to but not crimes within the county that other agencies, such as a city police force, responded to.<a href="county-level-data.html#fnref70" class="footnote-back">↩︎</a></p></li>
-<li id="fn71"><p>Because the county-level data imputes missing months, this data set is only available at the annual-level, not at the monthly level.<a href="county-level-data.html#fnref71" class="footnote-back">↩︎</a></p></li>
-<li id="fn72"><p>Full disclosure, I used to have my own version of this data available on openICPSR and followed NACJD’s method. My reasoning was that people were using it anyways and I wanted to make sure that they knew the problem of the data, so I included the issues with this data in the documentation when downloading it. However, I decided that the data was more flawed than I originally thought so I took down the data.<a href="county-level-data.html#fnref72" class="footnote-back">↩︎</a></p></li>
-<li id="fn73"><p>This chapter is not a critique of NACJD, merely of a single data set collection that they released using imputation methods from decades ago.<a href="county-level-data.html#fnref73" class="footnote-back">↩︎</a></p></li>
-<li id="fn74"><p>These problems are in addition to all the other quirks and issues with SRS data that have been discussed throughout this book.<a href="county-level-data.html#fnref74" class="footnote-back">↩︎</a></p></li>
-<li id="fn75"><p>For New York City specifically NACJD does distribute to all five counties, and does so by county population.<a href="county-level-data.html#fnref75" class="footnote-back">↩︎</a></p></li>
-<li id="fn76"><p>Even though these are unusual agencies, in real analyses using UCR data at the county-level you would like want to include them. Or justify why you are not including them.<a href="county-level-data.html#fnref76" class="footnote-back">↩︎</a></p></li>
-<li id="fn77"><p>Not the percentage point difference.<a href="county-level-data.html#fnref77" class="footnote-back">↩︎</a></p></li>
-<li id="fn78"><p>This is actually more than I need to run to get the same results..<a href="county-level-data.html#fnref78" class="footnote-back">↩︎</a></p></li>
-<li id="fn79"><p>Aggravated assaults with a gun include but are not limited to shootings. The gun does not need to be fired to be considered an aggregated assault.<a href="county-level-data.html#fnref79" class="footnote-back">↩︎</a></p></li>
-<li id="fn80"><p>Attempted murders are considered aggravated assaults in the UCR.<a href="county-level-data.html#fnref80" class="footnote-back">↩︎</a></p></li>
-<li id="fn81"><p>The agency-level UCR data actually has more population groups than this list, but NACJD has grouped some together. Given that some states may have few (or no) agencies in a population group, combining more groups together does alleviate the problem of having no comparison cities but at the tradeoff of making the comparison less similar to the given agency.<a href="county-level-data.html#fnref81" class="footnote-back">↩︎</a></p></li>
+<ol start="66">
+<li id="fn66"><p>Even for county-level agencies such as Sheriff’s Offices, the data is only for crimes in that agency’s jurisdiction. So the county sheriff reports crimes that they responded to but not crimes within the county that other agencies, such as a city police force, responded to.<a href="county-level-data.html#fnref66" class="footnote-back">↩︎</a></p></li>
+<li id="fn67"><p>Because the county-level data imputes missing months, this data set is only available at the annual-level, not at the monthly level.<a href="county-level-data.html#fnref67" class="footnote-back">↩︎</a></p></li>
+<li id="fn68"><p>Full disclosure, I used to have my own version of this data available on openICPSR and followed NACJD’s method. My reasoning was that people were using it anyways and I wanted to make sure that they knew the problem of the data, so I included the issues with this data in the documentation when downloading it. However, I decided that the data was more flawed than I originally thought so I took down the data.<a href="county-level-data.html#fnref68" class="footnote-back">↩︎</a></p></li>
+<li id="fn69"><p>This chapter is not a critique of NACJD, merely of a single data set collection that they released using imputation methods from decades ago.<a href="county-level-data.html#fnref69" class="footnote-back">↩︎</a></p></li>
+<li id="fn70"><p>These problems are in addition to all the other quirks and issues with SRS data that have been discussed throughout this book.<a href="county-level-data.html#fnref70" class="footnote-back">↩︎</a></p></li>
+<li id="fn71"><p>For New York City specifically NACJD does distribute to all five counties, and does so by county population.<a href="county-level-data.html#fnref71" class="footnote-back">↩︎</a></p></li>
+<li id="fn72"><p>Even though these are unusual agencies, in real analyses using UCR data at the county-level you would like want to include them. Or justify why you are not including them.<a href="county-level-data.html#fnref72" class="footnote-back">↩︎</a></p></li>
+<li id="fn73"><p>Not the percentage point difference.<a href="county-level-data.html#fnref73" class="footnote-back">↩︎</a></p></li>
+<li id="fn74"><p>This is actually more than I need to run to get the same results..<a href="county-level-data.html#fnref74" class="footnote-back">↩︎</a></p></li>
+<li id="fn75"><p>Aggravated assaults with a gun include but are not limited to shootings. The gun does not need to be fired to be considered an aggregated assault.<a href="county-level-data.html#fnref75" class="footnote-back">↩︎</a></p></li>
+<li id="fn76"><p>Attempted murders are considered aggravated assaults in the UCR.<a href="county-level-data.html#fnref76" class="footnote-back">↩︎</a></p></li>
+<li id="fn77"><p>The agency-level UCR data actually has more population groups than this list, but NACJD has grouped some together. Given that some states may have few (or no) agencies in a population group, combining more groups together does alleviate the problem of having no comparison cities but at the tradeoff of making the comparison less similar to the given agency.<a href="county-level-data.html#fnref77" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
