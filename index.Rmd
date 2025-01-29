@@ -1,5 +1,5 @@
 ---
-title: "Decoding FBI Crime Data: A Practical Guide to UCR Program Data"
+title: "Decoding FBI Crime Data"
 author: "Jacob Kaplan, Ph.D."
 date: "`r Sys.Date()`"
 bibliography: [book.bib]
@@ -57,6 +57,8 @@ batch_header_all_years <- readRDS("data/nibrs_summary_stats/batch_header_all_yea
 # (PART) Welcome {.unnumbered}
 
 # Preface
+
+**This book is undergoing major revisions so some information may be outdated and certain tables/figures may not work. Use at your own risk.**
 
 
 If you have read an article about crime or arrests in the United States in the last half century, in most cases it was referring to the FBI's Uniform Crime Reporting Program Data, otherwise known as UCR data. UCR data is, with the exception of the more detailed data that only covers murders, a *monthly number of crimes or arrests reported to a single police agency* which is then gathered by the FBI into one file that includes all reporting agencies. It is actually a collection of different data sets, all of which have information about crimes and arrests that occur in a particular jurisdiction. Think of your home town. This data will tell you how many crimes were reported for a small number of crime categories or how many people (broken down by age, sex, and race) were arrested for a (larger) set of crime categories in that city (if the city has multiple police agencies then each agency will report crimes/arrests under their jurisdiction though the largest agency - usually the local police department - will cover the vast majority of crimes/arrests in that city) in a given month.
